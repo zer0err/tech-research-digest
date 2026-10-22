@@ -16,7 +16,7 @@ from .site import publish_post
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--topic", required=True, choices=["ai_papers", "ai_agents", "audio", "edge_ai"])
+    parser.add_argument("--topic", required=True)
     parser.add_argument("--config", default="config/sources.yml")
     parser.add_argument("--state", default="state/seen.json")
     parser.add_argument("--dry-run", action="store_true")
@@ -34,7 +34,7 @@ def main() -> int:
     if args.dry_run:
         print(json.dumps(dump_items(selected), ensure_ascii=False, indent=2))
         return 0
-    report = groq_analyse(config["title"], selected)
+    report = groq_analyse(config["title"], config["analysis_focus"], selected)
     header = f"{config['title']}｜{now.astimezone(ZoneInfo('Asia/Shanghai')).strftime('%Y-%m-%d')}｜{len(selected)} 项\n\n"
     public_url = publish_post(args.topic, config["title"], now, report, selected)
     Path("reports").mkdir(exist_ok=True)

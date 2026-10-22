@@ -1,15 +1,18 @@
-# GitHub Actions + Groq + Telegram 自动化技术研究
+# VORASIO AI × 智能硬件研究
 
-完全运行在 GitHub 托管 runner 上；Vultr Debian 12（452 MB）不安装 runner、不运行采集或论文分析，仅可继续承担 VPN、监控与轻量转发。系统采集原始摘要，在日期窗口和跨天去重后，让 Groq 输出带来源编号的中文深度分析，发布为 GitHub Pages 静态博客文章；Telegram 仅发送文章标题和链接。
+基于 GitHub Actions、Groq 和 Telegram 的自动化研究系统。系统采集公开技术资料，经过日期过滤与全局去重后生成带来源编号的中文研究简报，发布到 GitHub Pages；Telegram 仅发送文章标题和网页链接。
 
 ## 运行时间（北京时间）
 
 | 任务 | 频率 | 工作流 |
 |---|---:|---|
-| AI 最新论文 | 每天 10:00 | `ai-papers.yml` |
-| AI Agent 技术 | 每天 11:00 | `ai-agents.yml` |
-| 音频技术研究 | 每周五 14:00 | `audio.yml` |
-| 端侧 AI 与嵌入式 | 每周一 14:00 | `edge-ai.yml` |
+| AI 模型、训练与基础研究 | 每天 10:00 | `model-research.yml` |
+| 高效 AI、模型压缩与端侧适配 | 周一、周四 14:00 | `efficient-ai.yml` |
+| 推理引擎、编译器与嵌入式系统 | 周二 14:00 | `inference-systems.yml` |
+| AI 芯片、计算架构与硬件平台 | 周三 14:00 | `ai-hardware.yml` |
+| 多模态感知、音视频与人机交互 | 周五 14:00 | `multimodal.yml` |
+| Agent、机器人与具身智能 | 周二、周六 16:00 | `embodied.yml` |
+| 智能硬件产品化、可靠性与安全 | 周日 14:00 | `product-safety.yml` |
 
 工作流使用 GitHub 官方支持的 `timezone: Asia/Shanghai`，无需手算 UTC，也不受夏令时影响。定时执行是“尽力而为”，平台繁忙时可能延迟；因此不要把它用于硬实时告警。
 
@@ -21,10 +24,14 @@
 │   ├── dependabot.yml
 │   └── workflows/
 │       ├── _research.yml        # 共用执行器
-│       ├── ai-papers.yml        # 四个独立定时入口
-│       ├── ai-agents.yml
-│       ├── audio.yml
-│       └── edge-ai.yml
+│       ├── model-research.yml   # 七个独立定时入口
+│       ├── efficient-ai.yml
+│       ├── inference-systems.yml
+│       ├── ai-hardware.yml
+│       ├── multimodal.yml
+│       ├── embodied.yml
+│       ├── product-safety.yml
+│       └── run-all.yml          # 仅手动触发的一次性顺序全量运行
 ├── config/sources.yml           # 主题、时间窗、关键词与来源
 ├── docs/                        # GitHub Pages 首页、文章与样式
 ├── research_bot/
@@ -39,16 +46,12 @@
 
 ## 来源与筛选
 
-当前来源均为 arXiv 官方 Atom API，配置见 `config/sources.yml`：
+当前来源均为 arXiv 官方 Atom API，按模型、高效化、推理系统、芯片、感知、具身智能和产品可靠性分别检索；
+各栏目配置独立的关键词、回看窗口、条目上限和分析重点，详见 `config/sources.yml`。
 
-- AI：`cs.AI / cs.LG / cs.CL / cs.CV`，回看 36 小时。
-- Agent：AI agent、agentic、multi-agent、tool use，回看 36 小时并二次关键词过滤。
-- 音频：`cs.SD / eess.AS`，周报回看 192 小时（8 天，覆盖时区和延迟边界）。
-- 端侧：edge AI、TinyML、on-device、microcontroller、embedded AI，回看 192 小时。
+采集只接受带有效发布日期、处于窗口内且不超过未来 2 小时的条目。先用 feed ID/GUID/规范化 URL 生成稳定 SHA-256 ID，再执行全局跨栏目去重和栏目历史去重。标题相同但论文 ID 不同会保留；同一论文更新版本仍视为同一项（arXiv Atom ID 稳定）。
 
-采集只接受带有效发布日期、处于窗口内且不超过未来 2 小时的条目。先用 feed ID/GUID/规范化 URL 生成稳定 SHA-256 ID，再按主题检查 `state/seen.json`。标题相同但论文 ID 不同会保留；同一论文更新版本仍视为同一项（arXiv Atom ID 稳定）。
-
-只有 Groq 分析、博客文件生成且 Telegram 链接发送成功后，才写入状态。四个入口共享 `research-state-writer` 并发组，避免同时修改状态和首页；状态最多保留每个主题最近 2000 个 ID。报告 artifact 保留 14 天，只用于审计，不承担去重，因为 artifact/cache 都有保留期、不可原地更新，不能作为可靠数据库。
+只有 Groq 分析、博客文件生成且 Telegram 链接发送成功后，才写入状态。七个定时入口共享并发组，避免同时修改状态和首页；状态最多保留每个主题最近 2000 个 ID及最近 10000 个全局 ID。报告 artifact 保留 14 天，只用于审计，不承担去重。
 
 > 状态通过机器人提交回默认分支。若默认分支受保护，请为 GitHub Actions 允许写入，或调整规则允许机器人提交 `state/seen.json`。否则消息可能已发出但状态未持久化，下次会重复推送。
 
@@ -103,7 +106,7 @@ ruff check .
 不使用 secrets 的真实采集预览：
 
 ```bash
-python -m research_bot.main --topic ai_papers --dry-run
+python -m research_bot.main --topic model_research --dry-run
 ```
 
 完整本地投递前，在当前 shell 临时设置三个环境变量，再去掉 `--dry-run`。不要把变量值复制到 issue、截图或 Actions 日志。

@@ -7,6 +7,7 @@ import re
 from datetime import datetime
 from pathlib import Path
 from typing import TYPE_CHECKING
+from zoneinfo import ZoneInfo
 
 from markdown_it import MarkdownIt
 
@@ -18,10 +19,14 @@ POSTS_DIR = SITE_DIR / "posts"
 INDEX_DATA = SITE_DIR / "posts.json"
 
 TOPICS = {
-    "ai_papers": ("AI 最新论文", "每日 10:00"),
-    "ai_agents": ("AI Agent 技术", "每日 11:00"),
-    "audio": ("音频技术研究", "每周五 14:00"),
-    "edge_ai": ("端侧 AI 与嵌入式", "每周一 14:00"),
+    "model_research": ("AI 模型、训练与基础研究", "每日 10:00"),
+    "efficient_ai": ("高效 AI、模型压缩与端侧适配", "周一、周四 14:00"),
+    "inference_systems": ("推理引擎、编译器与嵌入式系统", "周二 14:00"),
+    "ai_hardware": ("AI 芯片、计算架构与硬件平台", "周三 14:00"),
+    "multimodal": ("多模态感知、音视频与人机交互", "周五 14:00"),
+    "embodied": ("Agent、机器人与具身智能", "周二、周六 16:00"),
+    "product_safety": ("智能硬件产品化、可靠性与安全", "周日 14:00"),
+    "ai_papers": ("AI 最新论文（历史）", "已归档"),
 }
 
 
@@ -46,13 +51,14 @@ def shell(title: str, description: str, body: str, relative_root: str = "") -> s
 
 
 def publish_post(topic: str, title: str, now: datetime, report: str, items: list[Item]) -> str:
+    now = now.astimezone(ZoneInfo("Asia/Shanghai"))
     POSTS_DIR.mkdir(parents=True, exist_ok=True)
     (SITE_DIR / "assets").mkdir(parents=True, exist_ok=True)
     slug = f"{now:%Y%m%d}-{topic}.html"
     url = f"{base_url()}/posts/{slug}"
     md = MarkdownIt("commonmark", {"html": False}).enable("table")
     title_match = re.match(r"^\s*\*\*(.+?)\*\*\s*(?:\n+|$)", report)
-    display_title = title_match.group(1).strip() if title_match else f"{title}深度简报（{now:%Y-%m-%d}）"
+    display_title = title_match.group(1).strip() if title_match else f"{title}简报（{now:%Y-%m-%d}）"
     report_body = report[title_match.end() :].lstrip() if title_match else report
     topic_name = TOPICS.get(topic, (title, "定期更新"))[0]
     article = (
@@ -96,11 +102,12 @@ def render_index(entries: list[dict[str, object]]) -> None:
     topics = "".join(
         f'<article><p>{html.escape(schedule)}</p><h3>{html.escape(name)}</h3><span>持续追踪、筛选与深度分析</span></article>'
         for name, schedule in TOPICS.values()
+        if schedule != "已归档"
     )
     body = (
         '<section class="hero"><div><p class="eyebrow">VORASIO · RESEARCH DIGEST</p>'
-        '<h1>从最新研究中，<br>提炼真正重要的进展。</h1></div>'
-        '<p class="hero-intro">聚焦 AI、Agent、音频与端侧智能。以原始资料为依据，提供有来源、可核查的中文深度简报。</p></section>'
+        '<h1>追踪 AI 模型，<br>直到智能硬件落地。</h1></div>'
+        '<p class="hero-intro">覆盖模型训练、高效化、推理系统、芯片、感知交互、具身智能与产品可靠性的完整技术链。</p></section>'
         f'<section id="topics" class="topic-section"><div class="section-heading"><p>研究版图</p>'
         f'<h2>四个持续更新的技术方向</h2></div><div class="topic-grid">{topics}</div></section>'
         '<section id="latest" class="latest-section"><div class="section-heading"><p>最新发布</p>'

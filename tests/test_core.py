@@ -17,6 +17,14 @@ def test_state_deduplicates_and_is_bounded():
     now = datetime.now(UTC)
     update_state(state, "ai_papers", [sample("a")], now)
     assert unseen([sample("a"), sample("b")], state, "ai_papers") == [sample("b")]
+    assert "a" in state["all_ids"]
+
+
+def test_state_deduplicates_across_topics():
+    state = {"version": 1, "topics": {}}
+    now = datetime.now(UTC)
+    update_state(state, "model_research", [sample("shared")], now)
+    assert unseen([sample("shared")], state, "efficient_ai") == []
 
 
 def test_split_message_preserves_text_and_limits_chunks():

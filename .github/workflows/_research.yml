@@ -20,6 +20,10 @@ permissions:
   id-token: write
   actions: read
 
+concurrency:
+  group: research-state-writer-v3
+  cancel-in-progress: false
+
 jobs:
   research:
     runs-on: ubuntu-latest

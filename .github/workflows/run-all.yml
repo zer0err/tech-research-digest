@@ -1,0 +1,39 @@
+name: Run all research tracks once
+on:
+  workflow_dispatch:
+permissions: {contents: write, pages: write, id-token: write, actions: read}
+jobs:
+  efficient:
+    uses: ./.github/workflows/_research.yml
+    with: {topic: efficient_ai}
+    secrets: inherit
+  systems:
+    needs: efficient
+    uses: ./.github/workflows/_research.yml
+    with: {topic: inference_systems}
+    secrets: inherit
+  hardware:
+    needs: systems
+    uses: ./.github/workflows/_research.yml
+    with: {topic: ai_hardware}
+    secrets: inherit
+  embodied:
+    needs: hardware
+    uses: ./.github/workflows/_research.yml
+    with: {topic: embodied}
+    secrets: inherit
+  multimodal:
+    needs: embodied
+    uses: ./.github/workflows/_research.yml
+    with: {topic: multimodal}
+    secrets: inherit
+  product:
+    needs: multimodal
+    uses: ./.github/workflows/_research.yml
+    with: {topic: product_safety}
+    secrets: inherit
+  model:
+    needs: product
+    uses: ./.github/workflows/_research.yml
+    with: {topic: model_research}
+    secrets: inherit

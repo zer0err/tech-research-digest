@@ -1,0 +1,12 @@
+name: Embodied intelligence Tuesday Saturday 16:00 CST
+on:
+  schedule:
+    - cron: "0 16 * * 2,6"
+      timezone: "Asia/Shanghai"
+  workflow_dispatch:
+permissions: {contents: write, pages: write, id-token: write, actions: read}
+jobs:
+  run:
+    uses: ./.github/workflows/_research.yml
+    with: {topic: embodied}
+    secrets: inherit
