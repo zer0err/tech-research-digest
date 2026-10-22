@@ -1,0 +1,21 @@
+name: Edge AI Monday 09:00 CST
+on:
+  schedule:
+    - cron: "0 9 * * 1"
+      timezone: "Asia/Shanghai"
+  workflow_dispatch:
+concurrency:
+  group: research-state-writer
+  cancel-in-progress: false
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+  actions: read
+jobs:
+  run:
+    uses: ./.github/workflows/_research.yml
+    with:
+      topic: edge_ai
+    secrets: inherit
+

@@ -1,0 +1,32 @@
+topics:
+  ai_papers:
+    title: "AI 最新论文"
+    lookback_hours: 36
+    max_items: 6
+    sources:
+      - name: arXiv AI
+        url: "https://export.arxiv.org/api/query?search_query=cat:cs.AI+OR+cat:cs.LG+OR+cat:cs.CL+OR+cat:cs.CV&sortBy=submittedDate&sortOrder=descending&max_results=40"
+  ai_agents:
+    title: "AI Agent 技术"
+    lookback_hours: 36
+    max_items: 6
+    keywords: [agent, agentic, multi-agent, tool use, tool-use, planning, reasoning, memory]
+    sources:
+      - name: arXiv Agent
+        url: "https://export.arxiv.org/api/query?search_query=all:%22AI%20agent%22+OR+all:agentic+OR+all:%22multi-agent%22+OR+all:%22tool%20use%22&sortBy=submittedDate&sortOrder=descending&max_results=50"
+  audio:
+    title: "音频技术研究"
+    lookback_hours: 192
+    max_items: 8
+    sources:
+      - name: arXiv Audio
+        url: "https://export.arxiv.org/api/query?search_query=cat:cs.SD+OR+cat:eess.AS&sortBy=submittedDate&sortOrder=descending&max_results=60"
+  edge_ai:
+    title: "端侧 AI 与嵌入式"
+    lookback_hours: 192
+    max_items: 8
+    keywords: [edge, embedded, tinyml, microcontroller, on-device, mobile, efficient inference, quantization]
+    sources:
+      - name: arXiv Edge AI
+        url: "https://export.arxiv.org/api/query?search_query=all:%22edge%20AI%22+OR+all:TinyML+OR+all:%22on-device%22+OR+all:microcontroller+OR+all:%22embedded%20AI%22&sortBy=submittedDate&sortOrder=descending&max_results=60"
+

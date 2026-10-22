@@ -1,0 +1,21 @@
+name: AI agents 09:15 CST
+on:
+  schedule:
+    - cron: "15 9 * * *"
+      timezone: "Asia/Shanghai"
+  workflow_dispatch:
+concurrency:
+  group: research-state-writer
+  cancel-in-progress: false
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+  actions: read
+jobs:
+  run:
+    uses: ./.github/workflows/_research.yml
+    with:
+      topic: ai_agents
+    secrets: inherit
+

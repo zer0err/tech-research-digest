@@ -1,0 +1,11 @@
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.venv/
+work/
+outputs/
+firebase-debug.log
+reports/*.md
+!reports/.gitkeep
+
+
