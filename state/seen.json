@@ -67,9 +67,30 @@
         "7afc649023de48f96e654f6a"
       ],
       "updated_at": "2026-10-22T23:05:18.564186+00:00"
+    },
+    "embodied": {
+      "ids": [
+        "9de6535df60f531d60691dc8",
+        "558e3b1bef6b6d23d5aef9aa",
+        "5869463a2d3db10f7be6cd0c",
+        "3b25a9be3cdc19ea9e5f8ed4",
+        "6ee3913e6ed3664e635759e1",
+        "cf2272f49f6763e1a21c57ae",
+        "b0be0fcde59142a6ed6783c4",
+        "6d8bd8f6cfe0e36b865ee148"
+      ],
+      "updated_at": "2026-10-22T23:06:10.138195+00:00"
     }
   },
   "all_ids": [
+    "9de6535df60f531d60691dc8",
+    "558e3b1bef6b6d23d5aef9aa",
+    "5869463a2d3db10f7be6cd0c",
+    "3b25a9be3cdc19ea9e5f8ed4",
+    "6ee3913e6ed3664e635759e1",
+    "cf2272f49f6763e1a21c57ae",
+    "b0be0fcde59142a6ed6783c4",
+    "6d8bd8f6cfe0e36b865ee148",
     "bbf3eb82c7b3a2a0ddf84b86",
     "b45f29a2c99e4c32ba2bc397",
     "f6755a75bfa1862e4a801aca",
