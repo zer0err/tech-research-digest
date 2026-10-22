@@ -6,10 +6,10 @@
 
 | 任务 | 频率 | 工作流 |
 |---|---:|---|
-| AI 最新论文 | 每天 09:00 | `ai-papers.yml` |
-| AI Agent 技术 | 每天 09:15 | `ai-agents.yml` |
-| 音频技术研究 | 每周五 09:00 | `audio.yml` |
-| 端侧 AI 与嵌入式 | 每周一 09:00 | `edge-ai.yml` |
+| AI 最新论文 | 每天 10:00 | `ai-papers.yml` |
+| AI Agent 技术 | 每天 11:00 | `ai-agents.yml` |
+| 音频技术研究 | 每周五 14:00 | `audio.yml` |
+| 端侧 AI 与嵌入式 | 每周一 14:00 | `edge-ai.yml` |
 
 工作流使用 GitHub 官方支持的 `timezone: Asia/Shanghai`，无需手算 UTC，也不受夏令时影响。定时执行是“尽力而为”，平台繁忙时可能延迟；因此不要把它用于硬实时告警。
 

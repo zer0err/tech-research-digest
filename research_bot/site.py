@@ -18,10 +18,10 @@ POSTS_DIR = SITE_DIR / "posts"
 INDEX_DATA = SITE_DIR / "posts.json"
 
 TOPICS = {
-    "ai_papers": ("AI 最新论文", "每日 09:00"),
-    "ai_agents": ("AI Agent 技术", "每日 09:15"),
-    "audio": ("音频技术研究", "每周五 09:00"),
-    "edge_ai": ("端侧 AI 与嵌入式", "每周一 09:00"),
+    "ai_papers": ("AI 最新论文", "每日 10:00"),
+    "ai_agents": ("AI Agent 技术", "每日 11:00"),
+    "audio": ("音频技术研究", "每周五 14:00"),
+    "edge_ai": ("端侧 AI 与嵌入式", "每周一 14:00"),
 }
 
 

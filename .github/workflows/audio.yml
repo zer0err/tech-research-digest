@@ -1,7 +1,7 @@
-name: Audio research Friday 09:00 CST
+name: Audio research Friday 14:00 CST
 on:
   schedule:
-    - cron: "0 9 * * 5"
+    - cron: "0 14 * * 5"
       timezone: "Asia/Shanghai"
   workflow_dispatch:
 concurrency:

@@ -1,7 +1,7 @@
-name: AI agents 09:15 CST
+name: AI agents 11:00 CST
 on:
   schedule:
-    - cron: "15 9 * * *"
+    - cron: "0 11 * * *"
       timezone: "Asia/Shanghai"
   workflow_dispatch:
 concurrency:
