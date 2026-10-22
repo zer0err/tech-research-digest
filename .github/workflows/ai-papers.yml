@@ -5,7 +5,7 @@ on:
       timezone: "Asia/Shanghai"
   workflow_dispatch:
 concurrency:
-  group: research-state-writer
+  group: research-state-writer-v2
   cancel-in-progress: false
 permissions:
   contents: write
