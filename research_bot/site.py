@@ -3,6 +3,7 @@ from __future__ import annotations
 import html
 import json
 import os
+import re
 from datetime import datetime
 from pathlib import Path
 from typing import TYPE_CHECKING
@@ -41,14 +42,26 @@ def publish_post(topic: str, title: str, now: datetime, report: str, items: list
     slug = f"{now:%Y%m%d}-{topic}.html"
     url = f"{base_url()}/posts/{slug}"
     md = MarkdownIt("commonmark", {"html": False}).enable("table")
+    title_match = re.match(r"^\s*\*\*(.+?)\*\*\s*(?:\n+|$)", report)
+    display_title = title_match.group(1).strip() if title_match else f"{title}深度简报（{now:%Y-%m-%d}）"
+    report_body = report[title_match.end() :].lstrip() if title_match else report
     article = (
         f'<article><p class="eyebrow">{html.escape(now.strftime("%Y-%m-%d %H:%M UTC"))} · {len(items)} 项</p>'
-        f"<h1>{html.escape(title)}</h1>{md.render(report)}</article>"
+        f"<h1>{html.escape(display_title)}</h1>{md.render(report_body)}</article>"
     )
-    (POSTS_DIR / slug).write_text(shell(title, f"{title}：{len(items)} 项最新研究", article, "../"))
+    (POSTS_DIR / slug).write_text(shell(display_title, f"{display_title}：{len(items)} 项最新研究", article, "../"))
     entries = json.loads(INDEX_DATA.read_text()) if INDEX_DATA.exists() else []
     entries = [entry for entry in entries if entry.get("url") != f"posts/{slug}"]
-    entries.insert(0, {"title": title, "date": now.isoformat(), "count": len(items), "url": f"posts/{slug}", "topic": topic})
+    entries.insert(
+        0,
+        {
+            "title": display_title,
+            "date": now.isoformat(),
+            "count": len(items),
+            "url": f"posts/{slug}",
+            "topic": topic,
+        },
+    )
     INDEX_DATA.write_text(json.dumps(entries[:365], ensure_ascii=False, indent=2) + "\n")
     render_index(entries[:365])
     return url

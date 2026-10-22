@@ -50,3 +50,13 @@ def test_publish_post_renders_markdown_tables(tmp_path, monkeypatch):
     page = next((tmp_path / "docs" / "posts").glob("*.html")).read_text()
     assert "<table>" in page
     assert "<th>趋势</th>" in page
+
+
+def test_publish_post_promotes_leading_bold_title(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setenv("PUBLIC_BASE_URL", "https://example.com/research")
+    report = "**AI 最新论文深度简报（2026‑10‑21）**\n\n## 趋势\n正文"
+    publish_post("ai_papers", "AI 最新论文", datetime.now(UTC), report, [sample("a")])
+    page = next((tmp_path / "docs" / "posts").glob("*.html")).read_text()
+    assert "<h1>AI 最新论文深度简报（2026‑10‑21）</h1>" in page
+    assert "<p><strong>AI 最新论文深度简报" not in page
