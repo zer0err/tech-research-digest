@@ -186,7 +186,8 @@ def send_telegram(text: str) -> None:
                 if response.status_code == 200 and data.get("ok"):
                     break
                 if response.status_code != 429 and response.status_code < 500:
-                    raise RuntimeError(f"Telegram rejected request: HTTP {response.status_code}")
+                    description = str(data.get("description", "request rejected"))[:300]
+                    raise RuntimeError(f"Telegram rejected request: HTTP {response.status_code}: {description}")
                 wait = float(data.get("parameters", {}).get("retry_after", min(30, 2**attempt))) + random.random()
                 time.sleep(wait)
             else:
