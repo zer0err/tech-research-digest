@@ -27,6 +27,7 @@ TOPICS = {
     "embodied": ("Agent、机器人与具身智能", "周二、周六 16:00"),
     "product_safety": ("智能硬件产品化、可靠性与安全", "周日 14:00"),
     "ai_papers": ("AI 最新论文（历史）", "已归档"),
+    "audio": ("音频技术研究（历史）", "已归档"),
 }
 
 
@@ -109,7 +110,7 @@ def render_index(entries: list[dict[str, object]]) -> None:
         '<h1>追踪 AI 模型，<br>直到智能硬件落地。</h1></div>'
         '<p class="hero-intro">覆盖模型训练、高效化、推理系统、芯片、感知交互、具身智能与产品可靠性的完整技术链。</p></section>'
         f'<section id="topics" class="topic-section"><div class="section-heading"><p>研究版图</p>'
-        f'<h2>四个持续更新的技术方向</h2></div><div class="topic-grid">{topics}</div></section>'
+        f'<h2>七条持续更新的研究主线</h2></div><div class="topic-grid">{topics}</div></section>'
         '<section id="latest" class="latest-section"><div class="section-heading"><p>最新发布</p>'
         '<h2>研究简报</h2></div><div class="post-grid">'
         + "".join(cards)
