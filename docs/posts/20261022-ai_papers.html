@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 最新论文</title><meta name="description" content="AI 最新论文：6 项最新研究">
+<link rel="stylesheet" href="../assets/style.css"></head>
+<body><header><a href="../index.html">自动化技术研究</a></header><main><article><p class="eyebrow">2026-10-22 14:56 UTC · 6 项</p><h1>AI 最新论文</h1><p><strong>AI 最新论文深度简报（2026‑10‑21）</strong></p>
+<hr />
+<h2>1. 3‑6 条趋势判断</h2>
+<p>| 趋势 | 说明 |
+|------|------|
+| <strong>自监督 RL 以零数据提升长上下文推理</strong> | LongZero 展示了在没有外部数据的情况下，通过模型自生成任务实现长上下文推理的可行性。 |
+| <strong>可调压缩与自适应表示在世界模型中的重要性</strong> | CADRE 通过多种时空压缩方案，证明压缩策略对模拟延迟与质量的影响是可调且显著的。 |
+| <strong>逐项自适应计算在序列模型中的价值</strong> | LoopRec 通过对每个交互项动态分配计算深度，显著提升推荐质量并节省计算资源。 |
+| <strong>程序化 3D 语义推理的崛起</strong> | VoxProg 通过 voxel‑program 方式，将语言模型的程序生成能力直接映射到 3D 空间，突破传统基于几何或关键点的方法。 |
+| <strong>无监督物理校准提升世界模型泛化</strong> | PhysiCalWorld 通过在测试场景中提取物理描述符，实现对实例特定动力学的即时校准，无需显式物理标签。 |
+| <strong>理论算法推动复杂游戏与优化的可解性</strong> | 通过对 ℓ∞ 收缩的准多项式算法，证明了简单随机博弈可在准多项式时间内求解，开启了新的理论工具箱。 |</p>
+<hr />
+<h2>2. 逐篇覆盖</h2>
+<h3>[1] LongZero: Enhancing Long‑Context Reasoning in LLMs from Zero Data</h3>
+<p>| 维度 | 内容 |
+|------|------|
+| <strong>核心创新</strong> | 通过“零数据”RL（RL from zero data）实现长上下文推理，模型自行生成问题、答案与证据，再将证据扩展为多文档长上下文。 |
+| <strong>方法/数据</strong> | ① 先让 LLM 生成结构化的 Q&amp;A 与支持证据；② 将证据展开为长多文档上下文；③ 结合多跳推理与多轮检索任务；④ 用 GRPO 训练。无外部数据。 |
+| <strong>性能证据</strong> | 在两种 LLM 上对五个长上下文推理基准进行评估，优于使用外部语料合成数据的 RL。 |
+| <strong>局限与可信度</strong> | 摘要未提供实验细节（如模型规模、训练时长）或外部验证；可信度基于内部基准。 |
+| <strong>行动建议</strong> | ① 在内部 LLM 微调流程中加入 LongZero 作为 RL 训练阶段；② 评估 GRPO 对不同任务的适用性；③ 对比传统外部数据 RL 的成本与收益。 |</p>
+<h3>[2] Rethinking Video Autoencoders for Interactive World Models</h3>
+<p>| 维度 | 内容 |
+|------|------|
+| <strong>核心创新</strong> | CADRE：一族可调时空压缩的因果扩散表示 autoencoder，压缩方式与世界模型的需求相匹配。 |
+| <strong>方法/数据</strong> | 通过在冻结特征上加小瓶颈，使用自蒸馏扩散解码器；在操纵与导航两大领域、各两环境中训练同一世界模型。 |
+| <strong>性能证据</strong> | CADRE 在多种压缩设置下形成“延迟‑质量”前沿，尤其在移动摄像机场景中表现突出。 |
+| <strong>局限与可信度</strong> | 摘要未说明具体延迟数值或对比基准；可信度来源于公开代码与演示。 |
+| <strong>行动建议</strong> | ① 在模拟器中实验 CADRE 的不同压缩配置；② 根据摄像机运动情况动态切换时空压缩；③ 评估对训练速度与预测精度的综合影响。 |</p>
+<h3>[3] Think Harder Where It Matters: Item‑Level Adaptive Recursion for Sequential Recommendation</h3>
+<p>| 维度 | 内容 |
+|------|------|
+| <strong>核心创新</strong> | LoopRec：对每个交互项使用可共享权重块与轻量门控，按需递归深度，避免统一深度浪费。 |
+| <strong>方法/数据</strong> | 单一共享块 + 二元退出门；在四种主干架构的公开基准上进行实验。 |
+| <strong>性能证据</strong> | 与固定深度对应模型相比，LoopRec 在所有基准上持续取得更高推荐质量。 |
+| <strong>局限与可信度</strong> | 摘要未给出具体指标或对比模型；可信度基于公开代码与实验。 |
+| <strong>行动建议</strong> | ① 将 LoopRec 集成到现有推荐流水线；② 监测每个项目的退出深度分布；③ 评估计算成本与精度提升的平衡。 |</p>
+<h3>[4] VoxProg: 3D Spatial Reasoning through Voxel Programming</h3>
+<p>| 维度 | 内容 |
+|------|------|
+| <strong>核心创新</strong> | 通过 voxel‑program 让语言模型直接在局部 voxel 视图上生成可执行程序，实现 3D 对象放置与姿态推断。 |
+| <strong>方法/数据</strong> | ① 生成“证据程序”定位任务相关区域；② 生成“姿态程序”测量几何得到 SE(3) 目标；③ 通过执行反馈迭代修正。 |
+| <strong>性能证据</strong> | 在 71 任务 VoxProg‑Bench 以及外部基准上，VoxProg 超越关系、关键点与网格基线。 |
+| <strong>局限与可信度</strong> | 摘要未说明具体误差或对比基准细节；可信度来源于公开 benchmark。 |
+| <strong>行动建议</strong> | ① 在机器人抓取或装配任务中尝试 VoxProg；② 结合现有 3D 感知管线，评估程序生成的可解释性；③ 探索多任务学习与迁移。 |</p>
+<h3>[5] PhysiCalWorld: In‑Context Physics Calibration for World Models</h3>
+<p>| 维度 | 内容 |
+|------|------|
+| <strong>核心创新</strong> | 通过在测试场景中收集探索交互片段，编码为物理描述符 token，实时校准世界模型的实例特定动力学。 |
+| <strong>方法/数据</strong> | ① 采集探索交互片段；② 编码为紧凑物理描述符；③ 在推理阶段使用该 token；④ 端到端训练仅用潜在预测损失。 |
+| <strong>性能证据</strong> | 在四个涵盖多样物理变化的环境中，显著提升滚动预测精度与视觉规划成功率。 |
+| <strong>局限与可信度</strong> | 摘要未给出具体数值或对比模型；可信度基于实验结果。 |
+| <strong>行动建议</strong> | ① 在新环境中快速提取描述符 token；② 评估对规划与控制的影响；③ 结合现有物理引擎做对比实验。 |</p>
+<h3>[6] A Quasipolynomial Algorithm for ℓ∞ Contractions</h3>
+<p>| 维度 | 内容 |
+|------|------|
+| <strong>核心创新</strong> | 提供一种时间为 $\log(1/\varepsilon)^{O(\log^2 d)}$ 的算法，用于求解任意 $d$‑维非扩张的 $\varepsilon$‑近似固定点。 |
+| <strong>方法/数据</strong> | 采用提升论证（boosting）几何收缩搜索区域；推导出对简单随机博弈的准多项式求解。 |
+| <strong>性能证据</strong> | 理论证明；未给出实验数据。 |
+| <strong>局限与可信度</strong> | 仅为理论结果，缺乏实验验证；可信度取决于数学证明。 |
+| <strong>行动建议</strong> | ① 在需要求解随机博弈或相关优化问题时考虑该算法；② 评估其在高维场景下的实际运行时间；③ 与现有多项式/准多项式算法做对比。 |</p>
+<hr />
+<h2>3. 本周可执行建议</h2>
+<p>| 任务 | 具体行动 | 预期收益 |
+|------|----------|----------|
+| <strong>长上下文推理</strong> | 在内部 LLM 微调实验中加入 LongZero 的 GRPO 训练流程，使用现有的长文本数据集进行对比。 | 提升模型在长文档推理任务上的准确率，验证零数据 RL 的可行性。 |
+| <strong>世界模型压缩</strong> | 在现有仿真环境中替换为 CADRE 的不同压缩配置，记录延迟与预测误差。 | 优化仿真速度，降低 GPU 负载，同时保持或提升预测质量。 |
+| <strong>推荐系统优化</strong> | 在生产推荐流水线中部署 LoopRec，开启逐项深度门控；监测计算量与 CTR 的变化。 | 降低推理成本，提升用户点击率。 |
+| <strong>3D 任务</strong> | 在机器人抓取实验室中引入 VoxProg，使用 71 任务基准进行验证。 | 提升 3D 放置精度，增强程序可解释性。 |
+| <strong>物理校准</strong> | 在新实验室环境中采集 5 秒探索交互片段，生成描述符 token 并在世界模型中使用。 | 快速适配新物理属性，减少漂移。 |
+| <strong>理论算法探索</strong> | 在实验室随机博弈模拟中实现该准多项式算法，记录收敛时间与误差。 | 为未来博弈规划提供新的算法选项。 |</p>
+<hr />
+<h2>4. 参考文献列表</h2>
+<p>| 编号 | 标题 | URL |
+|------|------|-----|
+| [1] | LongZero: Enhancing Long‑Context Reasoning in LLMs from Zero Data | https://arxiv.org/abs/2610.30132v1 |
+| [2] | Rethinking Video Autoencoders for Interactive World Models | https://arxiv.org/abs/2610.30129v1 |
+| [3] | Think Harder Where It Matters: Item‑Level Adaptive Recursion for Sequential Recommendation | https://arxiv.org/abs/2610.30128v1 |
+| [4] | VoxProg: 3D Spatial Reasoning through Voxel Programming | https://arxiv.org/abs/2610.30127v1 |
+| [5] | PhysiCalWorld: In‑Context Physics Calibration for World Models | https://arxiv.org/abs/2610.30125v1 |
+| [6] | A Quasipolynomial Algorithm for ℓ∞ Contractions | https://arxiv.org/abs/2610.30122v1 |</p>
+<hr />
+</article></main>
+<footer>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</footer></body></html>
