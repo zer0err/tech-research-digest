@@ -1,2 +1,16 @@
-{"version":1,"topics":{}}
-
+{
+  "version": 1,
+  "topics": {
+    "ai_papers": {
+      "ids": [
+        "2a444f977a48d7ec1e9820b4",
+        "65d11ae7e39f68581ab2bac8",
+        "55d5923c687340b53bff0e94",
+        "abbb8393a455e0faab9e99c2",
+        "9dfe0a49320125ea779f5c17",
+        "3a516a55a30d5e060eb5870f"
+      ],
+      "updated_at": "2026-10-22T15:14:04.501592+00:00"
+    }
+  }
+}
