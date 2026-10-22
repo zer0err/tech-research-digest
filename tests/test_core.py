@@ -40,3 +40,13 @@ def test_publish_post_escapes_raw_html(tmp_path, monkeypatch):
     assert url.startswith("https://example.com/research/posts/")
     assert "<script>" not in page
     assert "&lt;script&gt;" in page
+
+
+def test_publish_post_renders_markdown_tables(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setenv("PUBLIC_BASE_URL", "https://example.com/research")
+    report = "| # | 趋势 |\n|---|---|\n| 1 | 自监督学习 |"
+    publish_post("ai_papers", "AI 最新论文", datetime.now(UTC), report, [sample("a")])
+    page = next((tmp_path / "docs" / "posts").glob("*.html")).read_text()
+    assert "<table>" in page
+    assert "<th>趋势</th>" in page

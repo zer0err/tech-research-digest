@@ -40,7 +40,7 @@ def publish_post(topic: str, title: str, now: datetime, report: str, items: list
     (SITE_DIR / "assets").mkdir(parents=True, exist_ok=True)
     slug = f"{now:%Y%m%d}-{topic}.html"
     url = f"{base_url()}/posts/{slug}"
-    md = MarkdownIt("commonmark", {"html": False})
+    md = MarkdownIt("commonmark", {"html": False}).enable("table")
     article = (
         f'<article><p class="eyebrow">{html.escape(now.strftime("%Y-%m-%d %H:%M UTC"))} · {len(items)} 项</p>'
         f"<h1>{html.escape(title)}</h1>{md.render(report)}</article>"
