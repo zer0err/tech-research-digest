@@ -5,147 +5,60 @@
 <body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
 <nav><a href="../index.html#latest">最新研究</a><a href="../index.html#topics">研究栏目</a></nav></header>
 <main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">高效 AI、模型压缩与端侧适配</p><dl><dt>发布日期</dt><dd>2026-10-23</dd><dt>研究条目</dt><dd>7 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · 高效 AI、模型压缩与端侧适配</p><h1>高效 AI、模型压缩与端侧适配简报（2026-10-23）</h1><div class="article-body"><h2>本期结论</h2>
-<ol>
-<li><strong>多阶段蒸馏与联合压缩已成为跨领域的主流做法</strong>：GoiBERT、SP‑HLM 与 ClunoGS 均采用两阶段或联合蒸馏/稀疏化策略，表明在 NLP、机器人控制与 3D 表示中，模块化压缩管线正逐渐成为标准做法【3】【4】【5】。</li>
-<li><strong>量化技术在不同任务中展现出广泛适用性</strong>：GhostFaceMPC 的 MPC‑友好量化与 ClunoGS 的语义感知量化均实现了模型压缩与功能保持，显示量化已从传统视觉模型扩展到隐私保护与 3D 语义场景【5】【7】。</li>
-<li><strong>值得关注的信号</strong>：DiffVortex 通过量子张量网络实现 6.7 × 10⁷ 粒子单卡模拟，提示张量网络压缩在大规模流体仿真中的潜力【6】。</li>
-</ol>
+<ul>
+<li><strong>蒸馏与轻量化</strong>：APED‑CXR [3] 与 CORD [1] 均表明，蒸馏技术可在保持或提升性能的同时显著降低模型参数量（APED‑CXR 11.1 M 参数）。</li>
+<li><strong>压缩技术提升效率</strong>：SAKURA [4] 与 GR‑GIC [5] 均通过压缩模型状态（KV 缓存或量化潜在向量）实现显著的延迟与存储节省（SAKURA 延迟降低 1.82×/3.27×，缓存压缩 3.06×；GR‑GIC 编码/解码时间 4.60/5.98 ms）。</li>
+<li><strong>专家剪枝的潜力</strong>：SPARE [6] 在 50 % 专家剪枝下提升准确率，提示路由熵驱动的稀疏分配可在高剪枝率下保持性能，但缺乏资源消耗数据，仍为<strong>值得关注的信号</strong>。</li>
+<li><strong>量化与公平性</strong>：Qwen3、Gemma‑3、SmolLM2 的量化实验 [7] 显示，压缩模型时偏见与回避的关系复杂，需同时评估两者，亦为<strong>值得关注的信号</strong>。</li>
+</ul>
 <h2>逐项分析</h2>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>核心贡献</th>
-<th>方法与数据</th>
-<th>性能证据</th>
-<th>局限与证据等级</th>
-<th>工程意义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>统一视觉状态编码器 ALPS，兼具预测、指令与像素重建</td>
-<td>预训练 ViT‑B/16（语言、重建、空间对应目标），随后跨视图自蒸馏</td>
-<td>低聚合 LIBERO 状态探针误差；冻结 ALPS 令牌在 LIBERO 上平均策略成功率 85.5%；在 PushT、Wall、Granular 上与领先编码器相当或更优【1】</td>
-<td><strong>B</strong>（方法、数据、定量结果）</td>
-<td>为世界模型提供单一视觉基础，支持多任务推理与可视化</td>
-</tr>
-<tr>
-<td>2</td>
-<td>ASTEROID：基于学生‑教师的异步蒸馏实现测试时探索</td>
-<td>学生收集部分可观测下的 on‑policy 上下文，专家给出基于该上下文的动作标签</td>
-<td>约 2 倍更高回报；相较 RL 基线交互次数减少 100 倍；在 11 个环境中优于前沿探索模型；真实机器人上 +40% 成功率【2】</td>
-<td><strong>B</strong></td>
-<td>通过蒸馏显著降低训练成本，适用于需要快速部署的决策系统</td>
-</tr>
-<tr>
-<td>3</td>
-<td>GoiBERT：两阶段知识蒸馏生成 26M/49M 参数越南语编码器</td>
-<td>第一阶段同分词器越南语编码器提供通用表示；第二阶段更大教师通过软标签提供任务级指导</td>
-<td>GoiBERT‑large 在 8 个基准上平均得分最高；参数数为最强压缩基线的一半，吞吐量翻倍；GoiBERT‑base 维持 99% 基线性能，尺寸为四分之一【3】</td>
-<td><strong>B</strong></td>
-<td>通过蒸馏实现高效越南语 NLP，显著提升推理吞吐</td>
-</tr>
-<tr>
-<td>4</td>
-<td>SP‑HLM：稀疏姿态驱动的全身控制框架</td>
-<td>SP‑VLA 预测稀疏姿态与指尖关节；SP‑MGM 通过两阶段蒸馏重建全身运动；SP‑GMT 结合显式稀疏目标与隐式运动先验</td>
-<td>在仿真与真实人形机器人上报告“改进的运动跟踪、全身协调与搬运成功率”【4】</td>
-<td><strong>C</strong>（缺乏定量指标）</td>
-<td>提供潜在的高层任务与低层控制接口，但需进一步量化</td>
-</tr>
-<tr>
-<td>5</td>
-<td>ClunoGS：语义感知的 3D 高斯稀疏化与向量量化</td>
-<td>统一目标同时考虑渲染质量、语义准确度与压缩率；采用稀疏化与量化交替优化【5】</td>
-<td>在 LERF 与 ScanNet‑10 上，联合稀疏化与量化显著降低语义表示退化；消融实验表明联合策略优于独立方法【5】</td>
-<td><strong>C</strong>（缺乏具体数值）</td>
-<td>通过语义驱动的压缩提升 3D 场景的可视化与定位性能</td>
-</tr>
-<tr>
-<td>6</td>
-<td>DiffVortex：量子张量网络加速不可压缩流体求解</td>
-<td>压缩 Biot–Savart 核，使用 Lagrangian 旋涡粒子；PyTorch 实现可处理 6.7 × 10⁷ 粒子单卡【6】</td>
-<td>与参考解法对比验证准确性；在 GPU 上实现可微分、可扩展的流体仿真【6】</td>
-<td><strong>B</strong></td>
-<td>为大规模流体仿真提供低内存、可微分的解决方案</td>
-</tr>
-<tr>
-<td>7</td>
-<td>GhostFaceMPC：多方安全计算下的隐私面部识别</td>
-<td>对 GhostFaceNet 进行 MPC‑友好量化与电路优化；实现端到端安全特征提取与匹配【7】</td>
-<td>首个完整的 MPC 面部识别系统；代码公开【7】</td>
-<td><strong>C</strong>（缺乏性能指标）</td>
-<td>为面部识别提供隐私保护框架，适用于需要安全数据处理的场景</td>
-</tr>
-</tbody>
-</table>
-<h2>工程行动建议</h2>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>验证实验</th>
-<th>落地评估</th>
-<th>后续跟踪指标</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>在目标设备（CPU/GPU/Edge）上测量 ALPS 的内存占用、前向推理延迟与功耗；对比 V‑JEPA 2‑L</td>
-<td>评估在实际世界模型任务中的吞吐与能耗</td>
-<td>参数量、内存占用、延迟、功耗、吞吐</td>
-</tr>
-<tr>
-<td>2</td>
-<td>在同一硬件上对 ASTEROID 与传统 RL 进行交互次数与回报对比；在真实机器人上测量功耗与延迟</td>
-<td>评估在资源受限环境下的部署可行性</td>
-<td>交互次数、回报、延迟、功耗</td>
-</tr>
-<tr>
-<td>3</td>
-<td>在移动端或嵌入式 GPU 上部署 GoiBERT‑base/large，记录推理时间、内存与能耗；对比原始越南语模型</td>
-<td>验证压缩后模型在低功耗设备上的可用性</td>
-<td>参数量、吞吐、延迟、功耗</td>
-</tr>
-<tr>
-<td>4</td>
-<td>在仿真与真实机器人上量化 SP‑HLM 的运动跟踪误差、成功率与实时性；记录内存与功耗</td>
-<td>确认系统在实时控制中的稳定性</td>
-<td>跟踪误差、成功率、延迟、功耗</td>
-</tr>
-<tr>
-<td>5</td>
-<td>在 LERF/ScanNet‑10 上测量 ClunoGS 的渲染质量、语义准确度、内存占用；与单独稀疏化/量化方案对比</td>
-<td>评估联合压缩对语义任务的影响</td>
-<td>渲染 PSNR、语义 IoU、内存占用</td>
-</tr>
-<tr>
-<td>6</td>
-<td>在 GPU 上跑 DiffVortex，记录 6.7 × 10⁷ 粒子时的显存占用、CPU/GPU 利用率与能耗；与传统 FMM 对比</td>
-<td>验证张量网络在大规模流体仿真中的可扩展性</td>
-<td>显存占用、CPU/GPU 利用率、功耗</td>
-</tr>
-<tr>
-<td>7</td>
-<td>在多方安全计算平台上部署 GhostFaceMPC，测量特征提取与匹配的延迟、带宽与功耗；与非安全版本对比</td>
-<td>确认 MPC 方案在实际部署中的性能</td>
-<td>延迟、带宽、功耗、准确率</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><strong>注意</strong>：若缺乏摘要中提供的定量数据，建议先进行基准实验以获取缺失指标，再做进一步评估。</p>
-</blockquote>
-<h2>参考资料</h2>
-<p>[1] ALPS: Visual State Encoders for World Models – https://arxiv.org/abs/2610.30120v1<br />
-[2] Asymmetric On-Policy Distillation Learns In-Context Exploration – https://arxiv.org/abs/2610.30105v1<br />
-[3] GoiBERT: Compact Vietnamese Language Models via Two-Stage Knowledge Distillation – https://arxiv.org/abs/2610.30067v1<br />
-[4] SP-HLM: Sparse-Pose-Driven Motion Generation and Whole-Body Control for Humanoid Loco-Manipulation – https://arxiv.org/abs/2610.30044v1<br />
-[5] ClunoGS: Compact Language 3D Gaussian Splatting via Unified Optimization – https://arxiv.org/abs/2610.30013v1<br />
-[6] DiffVortex: A quantum-inspired fast solver for incompressible flows – https://arxiv.org/abs/2610.30012v1<br />
-[7] GhostFaceMPC: Privacy-Preserving Face Recognition with Multi-Party Computation – https://arxiv.org/abs/2610.29987v1</p>
+<h3>[1] CORD: Conflict-Aware Optimization for Joint RL and Distillation in Agents</h3>
+<ul>
+<li><strong>核心贡献</strong>：提出冲突感知优化框架 CORD，解决 RL 与自蒸馏梯度冲突。</li>
+<li><strong>方法与数据</strong>：在三种联合训练方案中使用 CORD，采用梯度投影与最近点闭式更新。</li>
+<li><strong>性能证据</strong>：ALFWorld 成功率提升 1.5–15.9 %；WebShop SDAR 从 60.7 % 提升至 64.6 %。</li>
+<li><strong>局限与证据等级</strong>：缺乏对梯度冲突机制的定量分析；证据等级 <strong>A</strong>。</li>
+<li><strong>工程意义</strong>：可直接集成到现有 RL+蒸馏训练流程，提升训练稳定性与最终性能。</li>
+</ul>
+<h3>[2] Compression Formula for Nonattacking Fillings of Non-symmetric Macdonald Polynomials</h3>
+<ul>
+<li><strong>核心贡献</strong>：提出非对称 Macdonald 多项式的压缩非攻击填充模型。</li>
+<li><strong>方法与数据</strong>：构造多行队列模型，证明对大类弱组合成立。</li>
+<li><strong>性能证据</strong>：无实验数据。</li>
+<li><strong>局限与证据等级</strong>：缺乏实验验证；证据等级 <strong>C</strong>。</li>
+<li><strong>工程意义</strong>：理论性研究，对 AI 模型压缩无直接工程价值。</li>
+</ul>
+<h3>[3] APED-CXR: Adaptive Privileged Evidence Distillation for Chest X‑Ray Grounding with Image‑Only Inference</h3>
+<ul>
+<li><strong>核心贡献</strong>：通过报告信息蒸馏实现仅图像推理的胸片定位模型。</li>
+<li><strong>方法与数据</strong>：冻结多模态教师，学生 11.1 M 参数，使用报告支持分数作为训练目标。</li>
+<li><strong>性能证据</strong>：PadChest‑GR 上 box‑level F1 从 0.302 提升至 0.338；NIH ChestX‑ray14 上 box recall 从 0.423 提升至 0.447；诊断 AUC 保持不变。</li>
+<li><strong>局限与证据等级</strong>：缺乏推理延迟、功耗等指标；证据等级 <strong>A</strong>。</li>
+<li><strong>工程意义</strong>：适用于移动端胸片诊断，显著降低模型体积并保持定位性能。</li>
+</ul>
+<h3>[4] SAKURA: Serving Attention Key‑Value State Under Rate Adaptation for Private Image Editing on Phones</h3>
+<ul>
+<li><strong>核心贡献</strong>：云端‑边缘架构下的 KV 状态压缩与自适应缓存选择。</li>
+<li><strong>方法与数据</strong>：基于 token‑importance 的压缩，动态选择缓存表示，流水线运行。</li>
+<li><strong>性能证据</strong>：在 Snapdragon 8 Elite Gen 5 上，SAKURA 对比 CacheGen（DiT）和纯设备生成，延迟分别降低 1.82× 与 3.27×；缓存存储比未压缩缓存低 3.06×。</li>
+<li><strong>局限与证据等级</strong>：未给出功耗、吞吐等指标；证据等级 <strong>A</strong>。</li>
+<li><strong>工程意义</strong>：实现手机端隐私友好图像编辑，显著降低网络带宽与存储需求。</li>
+</ul>
+<h3>[5] Efficient Generative Image Compression with Quantized Latents Refinement</h3>
+<ul>
+<li><strong>核心贡献</strong>：提出 Guided Refinement 与 reorganized P‑RVQ 的 GIC 方法。</li>
+<li><strong>方法与数据</strong>：在 Kodak 数据集上评估，使用 NVIDIA A100 与 Jetson Orin NX。</li>
+<li><strong>性能证据</strong>：BD‑rate 在 LPIPS、DISTS、PSNR、FID 上分别节省 23.19%、37.71%、22.30%、22.14%；编码/解码时间 4.60/5.98 ms；在 Jetson Orin NX 上延迟与轻量 GIC 相当。</li>
+<li><strong>局限与证据等级</strong>：未给出功耗、内存占用；证据等级 <strong>A</strong>。</li>
+<li><strong>工程意义</strong>：在低比特率下兼顾感知质量与推理速度，适合边缘压缩应用。</li>
+</ul>
+<h3>[6] SPARE: Sparsity Allocation via Routing Entropy for Efficient MoEs</h3>
+<ul>
+<li><strong>核心贡献</strong>：基于路由熵的训练无关稀疏分配方法。</li>
+<li><strong>方法与数据</strong>：对 Mixtral、Qwen3、DeepSeek 进行实验，采用 50 % 专家剪枝。</li>
+<li><strong>性能证据</strong>：Qwen3‑30B‑A3B 八任务平均从 57.2 % 提升至 63.8 %；DeepSeek‑R1 在数学、代码、科学平均从 80.1 % 提升至 82.8 %。</li>
+<li><strong>局限与证据等级</strong>：缺乏对内存、延迟等资源指标的评估；证据等级 <strong>A</strong>。</li>
+<li></li>
+</ul>
 </div></article></div></main><footer><strong>VORASIO 研究简报</strong>
 <span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>
