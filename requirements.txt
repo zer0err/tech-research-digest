@@ -2,5 +2,5 @@ feedparser==6.0.12
 httpx==0.28.1
 PyYAML==6.0.2
 python-dateutil==2.9.0.post0
-markdown-it-py==4.0.0
+markdown-it-py==4.2.0
 
