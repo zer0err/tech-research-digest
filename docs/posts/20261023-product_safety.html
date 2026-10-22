@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>智能硬件产品化、可靠性与安全简报（2026-10-23）</title><meta name="description" content="智能硬件产品化、可靠性与安全简报（2026-10-23）：7 项最新研究">
+<link rel="stylesheet" href="../assets/style.css"></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav><a href="../index.html#latest">最新研究</a><a href="../index.html#topics">研究栏目</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">智能硬件产品化、可靠性与安全</p><dl><dt>发布日期</dt><dd>2026-10-23</dd><dt>研究条目</dt><dd>7 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · 智能硬件产品化、可靠性与安全</p><h1>智能硬件产品化、可靠性与安全简报（2026-10-23）</h1><div class="article-body"><h2>本期结论</h2>
+<ol>
+<li><strong>物理变量驱动与注意力机制的深度学习模型在工业设备故障诊断中显著提升鲁棒性</strong>。PhyNet 与 RNDR‑TFCA 在多组真实与公开数据集上均取得最高指标，表明将物理约束与局部响应交叉注意力相结合能有效区分模糊状态。</li>
+<li><strong>后量子密码学（PQC）ML‑KEM 与 ML‑DSA 在受限 IoT 设备上能与传统椭圆曲线密码学相媲美</strong>，能耗与速度均在可接受范围内；SLH‑DSA 在 32‑bit 设备上能耗高达 243 % 以上，说明其在资源受限场景下不具备可行性。</li>
+<li><strong>差分隐私与分布式鲁棒的联邦学习框架在工业故障数据上可实现更高的准确率与更强的隐私保证</strong>，实验表明在强隐私噪声下仍优于传统 DP‑FL 方法。</li>
+<li><strong>量子张量网络递归量子神经网络（QTN‑RQNN）在部分数据集上提升了 F1 与 ROC‑AUC 并降低了两量子门数，但其性能高度依赖数据集与电路深度</strong>，提示需进一步研究其通用性。</li>
+</ol>
+<h2>逐项分析</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>核心贡献</th>
+<th>方法与数据</th>
+<th>性能证据</th>
+<th>局限与证据等级</th>
+<th>工程意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>通过物理变量信息化的深度学习框架 PhyNet 提升工业流体输送系统的故障诊断鲁棒性</td>
+<td>物理变量为全局约束，响应信号为局部证据；跨注意力机制；四个基准（3 个真实空化数据集 + 1 公共两相流数据集）</td>
+<td>在所有评估指标上均为最佳，类级分析显示对模糊状态的判别提升</td>
+<td>仅基于摘要，缺乏具体数值与对比基线细节 → <strong>A</strong></td>
+<td>可直接迁移至工业嵌入式平台，需验证推理延迟与功耗</td>
+</tr>
+<tr>
+<td>2</td>
+<td>对三种 NIST 标准化 PQC 算法在受限与通用硬件上的能耗与速度进行基准</td>
+<td>32‑bit Raspberry Pi 1/Zero、64‑bit Pi 4 与笔记本；使用 FNIRSI FNB58 USB 电量计与 OpenSSL 3.5</td>
+<td>ML‑KEM/ML‑DSA 能耗与速度与 ECC 相当；SLH‑DSA 在 32‑bit 设备上能耗高 243 %</td>
+<td>仅报告能耗与速度比例，未给出绝对数值；未讨论安全性细节 → <strong>A</strong></td>
+<td>适用于 IoT 设备的 PQC 迁移规划，可进一步测量延迟与热影响</td>
+</tr>
+<tr>
+<td>3</td>
+<td>通过 RNDR‑TFCA 关注跨任务信息交换的多任务故障诊断</td>
+<td>旋转轴承系统四种故障（内环、外环、失配、失衡）；残差网络 + 时频通道注意力</td>
+<td>宏 F1 = 0.898，优于单任务、共享干线与跨谈基线；参数 713 K，MMAC = 170.42</td>
+<td>未给出对比基线数值与实验重复性 → <strong>A</strong></td>
+<td>适合嵌入式多任务监测，可评估功耗与实时性</td>
+</tr>
+<tr>
+<td>4</td>
+<td>对 Lyapunov 指数在电力系统中的应用进行综述</td>
+<td>165 篇文献回顾，涵盖稳定性、混沌、预测与保护</td>
+<td>无实验数据，仅综述 → <strong>C</strong></td>
+<td>仅为理论与方法梳理，对工程落地影响有限</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Agentic4PDM：LLM 代理与主机控制的无训练诊断框架</td>
+<td>LLM 代理、主机控制器、CCGA；实验在轴承与电机诊断挑战集与客户工业测试集上</td>
+<td>在诊断与代理基线上宏 F1 提升（未给出具体数值）</td>
+<td>仅提供定性提升，缺少量化对比与硬件实现细节 → <strong>B</strong></td>
+<td>适合需要快速无训练诊断的场景，需验证在嵌入式设备上的推理成本</td>
+</tr>
+<tr>
+<td>6</td>
+<td>QTN‑RQNN：量子张量网络递归量子神经网络</td>
+<td>四个异构故障诊断数据集（SPID、CWRUBD、EFDD、SFDD）；与 QNN、QTN‑QNN、RQNN 对比</td>
+<td>SPID 上 F1 从 0.3077 提升至 0.4516，ROC‑AUC 从 0.4485 提升至 0.6970；两量子门数从 32 降至 24 → <strong>A</strong></td>
+<td>仅在部分数据集表现提升，未讨论硬件实现与噪声容忍度 → <strong>A</strong></td>
+<td>适合未来 NISQ 设备的故障诊断实验，需评估门级资源与噪声影响</td>
+</tr>
+<tr>
+<td>7</td>
+<td>差分隐私与分布式鲁棒的联邦多分类框架</td>
+<td>ADMM‑基于 Wasserstein 分布鲁棒目标；Gaussian 噪声注入；在工业模拟与 UCI 数据集上实验</td>
+<td>在多种设置下优于 DP‑FL 与 SGD 基线，尤其在强隐私噪声下</td>
+<td>未给出具体隐私预算与准确率数值 → <strong>A</strong></td>
+<td>可用于跨站点协同诊断，需验证通信开销与隐私预算</td>
+</tr>
+</tbody>
+</table>
+<h2>工程行动建议</h2>
+<table>
+<thead>
+<tr>
+<th>关注领域</th>
+<th>验证实验</th>
+<th>落地评估</th>
+<th>后续跟踪指标</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>设备功耗与热管理</strong></td>
+<td>在目标嵌入式平台上测量 PhyNet 与 RNDR‑TFCA 的推理功耗与温升；对 PQC 算法在 32‑bit 设备上的能耗进行细粒度测量</td>
+<td>评估推理延迟、功耗与热设计是否满足产品规格</td>
+<td>平均功耗、峰值温度、热阻</td>
+</tr>
+<tr>
+<td><strong>隐私</strong></td>
+<td>对 Agentic4PDM 与联邦 DP‑FL 在本地数据集上进行隐私预算与准确率的交叉验证</td>
+<td>评估隐私保护对模型性能与通信成本的影响</td>
+<td>ε‑δ 预算、模型准确率、通信量</td>
+</tr>
+<tr>
+<td><strong>安全</strong></td>
+<td>对 PQC 算法在受限硬件上进行完整性与抗侧信道攻击测试</td>
+<td>验证算法在真实攻击场景下的安全性</td>
+<td>侧信道泄露率、攻击成功率</td>
+</tr>
+<tr>
+<td><strong>鲁棒性</strong></td>
+<td>在 PhyNet 与 RNDR‑TFCA 上引入噪声、缺失与操作条件变化，评估鲁棒性</td>
+<td>监测模型在极端条件下的误报率与漏报率</td>
+<td>F1、AUC、误报率</td>
+</tr>
+<tr>
+<td><strong>OTA</strong></td>
+<td>无直接证据；建议在后续工作中评估模型更新的安全性与可靠性</td>
+<td>评估 OTA 过程中的版本一致性与安全验证</td>
+<td>OTA 成功率、回滚时间</td>
+</tr>
+<tr>
+<td><strong>监控</strong></td>
+<td>对 RNDR‑TFCA 与 PhyNet 的实时监控指标（如推理时间、资源占用）进行持续监测</td>
+<td>评估监控系统对异常的检测及时性</td>
+<td>监控延迟、误报率</td>
+</tr>
+<tr>
+<td><strong>故障诊断</strong></td>
+<td>在真实工业现场部署 PhyNet、RNDR‑TFCA 与 Agentic4PDM，收集诊断准确率与响应时间</td>
+<td>对比不同模型在同一设备上的诊断效果</td>
+<td>诊断准确率、平均响应时间</td>
+</tr>
+<tr>
+<td><strong>量产测试与合规</strong></td>
+<td>对 PQC 与量子模型的硬件实现进行功耗、EMI 与安全合规测试</td>
+<td>确认产品符合相关标准（如 IEC、ISO）</td>
+<td>合规报告、测试通过率</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>说明</strong>：若缺乏实验或定量结果，建议先进行原型验证实验，再决定是否投入量产。</p>
+</blockquote>
+<h2>参考资料</h2>
+<p>[1] Physical-Variable-Informed Deep Learning for Robust Diagnosis in Industrial Fluid Transport Systems – https://arxiv.org/abs/2610.27891v1<br />
+[2] Energy Consumption of Post-Quantum Cryptography on Constrained and General-Purpose Architectures – https://arxiv.org/abs/2610.27111v1<br />
+[3] Motor compound fault diagnosis using an attention-based cross-talk architecture – https://arxiv.org/abs/2610.25893v1<br />
+[4] Lyapunov Exponents in Power Systems: A Survey of Theory and Applications in Stability, Control, Forecasting, and Protection – https://arxiv.org/abs/2610.23809v1<br />
+[5] Agentic4PDM: Host-Governed Evidence Admissibility for Industrial Fault Diagnosis – https://arxiv.org/abs/2610.17786v1<br />
+[6] QTN-RQNN: Quantum Tensor Network-Based Recurrent Quantum Neural Network – https://arxiv.org/abs/2610.13694v1<br />
+[7] Private and Distributionally Robust Federated Multiclass Classification – https://arxiv.org/abs/2610.13631v1</p>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>
