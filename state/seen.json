@@ -105,9 +105,26 @@
         "378df47c23744cd64ce34774"
       ],
       "updated_at": "2026-10-22T23:07:51.038232+00:00"
+    },
+    "model_research": {
+      "ids": [
+        "b9ad88b76e225ff9a37a24f5",
+        "9fd97eabe884fec8f05bcb12",
+        "dc279467e67af14f50176404",
+        "ca54039be19e2cb23bc2a069",
+        "a7937b44d5cccc751c885af6",
+        "19a95e04299c555b1637a44f"
+      ],
+      "updated_at": "2026-10-22T23:08:42.584275+00:00"
     }
   },
   "all_ids": [
+    "b9ad88b76e225ff9a37a24f5",
+    "9fd97eabe884fec8f05bcb12",
+    "dc279467e67af14f50176404",
+    "ca54039be19e2cb23bc2a069",
+    "a7937b44d5cccc751c885af6",
+    "19a95e04299c555b1637a44f",
     "befffc3f395c0d714e1a5b87",
     "40d6d5f1480665dc509f029a",
     "484d23a6490ae80739319446",
