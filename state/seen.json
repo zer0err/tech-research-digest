@@ -55,9 +55,28 @@
         "420d185ba00b6f0f720850fb"
       ],
       "updated_at": "2026-10-22T23:04:31.838900+00:00"
+    },
+    "ai_hardware": {
+      "ids": [
+        "bbf3eb82c7b3a2a0ddf84b86",
+        "b45f29a2c99e4c32ba2bc397",
+        "f6755a75bfa1862e4a801aca",
+        "9014bf7fe711ab92cb0936ad",
+        "b8cbf33e30918bd7eea24906",
+        "57d01c7cdaadbc12c09e0c84",
+        "7afc649023de48f96e654f6a"
+      ],
+      "updated_at": "2026-10-22T23:05:18.564186+00:00"
     }
   },
   "all_ids": [
+    "bbf3eb82c7b3a2a0ddf84b86",
+    "b45f29a2c99e4c32ba2bc397",
+    "f6755a75bfa1862e4a801aca",
+    "9014bf7fe711ab92cb0936ad",
+    "b8cbf33e30918bd7eea24906",
+    "57d01c7cdaadbc12c09e0c84",
+    "7afc649023de48f96e654f6a",
     "c59027feefc78780fe91ebbb",
     "cd23fc771f7eecc12d424e73",
     "064f13e6044bf34bab8362e2",
