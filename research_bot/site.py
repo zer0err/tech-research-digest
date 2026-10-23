@@ -77,6 +77,10 @@ def shell(title: str, description: str, body: str, relative_root: str = "") -> s
 <span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>"""
 
 
+def linkify_bare_urls(markdown: str) -> str:
+    return re.sub(r"(?<!\()(?P<url>https?://[^\s<>)，。；,;]+)", r"<\g<url>>", markdown)
+
+
 def publish_post(topic: str, title: str, now: datetime, report: str, items: list[Item]) -> str:
     now = now.astimezone(ZoneInfo("Asia/Shanghai"))
     POSTS_DIR.mkdir(parents=True, exist_ok=True)
@@ -89,6 +93,7 @@ def publish_post(topic: str, title: str, now: datetime, report: str, items: list
         title if f"{now:%Y-%m-%d}" in title else f"{title}（{now:%Y-%m-%d}）"
     )
     report_body = report[title_match.end() :].lstrip() if title_match else report
+    report_body = linkify_bare_urls(report_body)
     topic_name = TOPICS.get(topic, (title, "定期更新"))[0]
     article = (
         '<div class="article-layout"><aside class="article-meta">'

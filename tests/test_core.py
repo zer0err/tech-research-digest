@@ -2,7 +2,7 @@ from datetime import UTC, datetime
 
 from research_bot.core import Item, canonical_url, contains_term, fallback_report, report_is_complete, split_message, unseen, update_state
 from research_bot.editorial import resolve_slot
-from research_bot.site import base_url, publish_post
+from research_bot.site import base_url, linkify_bare_urls, publish_post
 
 
 def sample(uid: str) -> Item:
@@ -69,6 +69,13 @@ def test_publish_post_promotes_leading_bold_title(tmp_path, monkeypatch):
     page = next((tmp_path / "docs" / "posts").glob("*.html")).read_text()
     assert "<h1>AI 最新论文深度简报（2026‑10‑21）</h1>" in page
     assert "<p><strong>AI 最新论文深度简报" not in page
+
+
+def test_bare_urls_are_clickable_without_breaking_markdown_links():
+    text = "来源：https://example.com/a\n[已有链接](https://example.com/b)"
+    converted = linkify_bare_urls(text)
+    assert "<https://example.com/a>" in converted
+    assert "[已有链接](https://example.com/b)" in converted
 
 
 def test_report_completeness_requires_all_sections_and_citations():
