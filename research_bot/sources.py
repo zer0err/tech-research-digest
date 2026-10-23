@@ -171,6 +171,7 @@ def fetch_entries(source: dict[str, Any], client: httpx.Client, now: datetime, c
             {"id": str(record["id"]), "title": f"{repository}: {record.get('name') or record.get('tag_name', '')}",
              "link": record["html_url"], "published": record.get("published_at"), "summary": record.get("body", "")}
             for record in records if not record.get("draft") and not record.get("prerelease")
+            and re.fullmatch(r"v?\d+\.\d+(?:\.\d+)?", record.get("tag_name", ""))
         ]
     parsed = feedparser.parse(get(client, url).content)
     if parsed.bozo and not parsed.entries:

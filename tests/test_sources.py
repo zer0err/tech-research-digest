@@ -54,7 +54,8 @@ def test_github_skips_drafts_and_prereleases(monkeypatch):
     monkeypatch.setenv("GH_SOURCE_TOKEN", "test-token")
     def handler(request):
         assert request.headers["Authorization"] == "Bearer test-token"
-        return httpx.Response(200, json=[{"id": 1, "html_url": "https://github.com/a/b/releases/tag/v1", "body": "Changes"},
+        return httpx.Response(200, json=[{"id": 1, "tag_name": "v1.0.0", "html_url": "https://github.com/a/b/releases/tag/v1",
+                                          "body": "Changes"},
                                          {"id": 2, "draft": True}, {"id": 3, "prerelease": True}])
     with httpx.Client(transport=httpx.MockTransport(handler)) as client:
         records = fetch_entries({"type": "github", "url": "https://api.github.com/repos/a/b/releases"},

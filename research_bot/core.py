@@ -13,7 +13,7 @@ from dataclasses import asdict, dataclass
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from typing import Any
-from urllib.parse import urlsplit, urlunsplit
+from urllib.parse import unquote, urlsplit, urlunsplit
 
 import httpx
 from dateutil import parser as dateparser
@@ -101,6 +101,10 @@ def collect(topic: dict[str, Any], now: datetime) -> list[Item]:
                 continue
             successful_sources += 1
             for entry in entries:
+                if "github.com/" in source["url"] and "/releases.atom" in source["url"]:
+                    tag = unquote(entry.get("link", "").split("/releases/tag/")[-1])
+                    if not re.fullmatch(r"v?\d+\.\d+(?:\.\d+)?", tag):
+                        continue
                 published = parse_time(entry)
                 if not published or published < cutoff or published > now + timedelta(hours=2):
                     continue
@@ -219,10 +223,19 @@ def report_is_complete(report: str, items: list[Item], content_type: str) -> boo
     first_section = report.split(headings[1], 1)[0]
     claims = re.findall(r"^(?:[-*]|\d+\.)\s+(.+)$", first_section, flags=re.M)
     cited_claims = all(re.search(r"\[\d+\]", claim) for claim in claims)
+    # A model must not turn a short release note into invented installation instructions.
+    source_text = re.sub(r"\s+", " ", " ".join(item.summary for item in items))
+    code_blocks = re.findall(r"```[^\n]*\n(.*?)```", report, flags=re.S)
+    commands = re.findall(r"`((?:pip|python|git|npm|docker|ollama|uv)\s+[^`]+)`", report)
+    grounded_code = all(
+        re.sub(r"\s+", " ", line).strip() in source_text
+        for block in [*code_blocks, *commands] for line in block.splitlines() if line.strip()
+    )
     return (
         all(heading in report for heading in headings)
         and all(f"[{index}]" in report for index in range(1, len(items) + 1))
         and cited_claims
+        and grounded_code
     )
 
 
