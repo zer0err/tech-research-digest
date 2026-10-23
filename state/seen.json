@@ -149,12 +149,15 @@
     },
     "dev_practice": {
       "ids": [
+        "13710c68aa41a2658d4ede2d",
+        "250cbb818fd0d4e8986b9afb",
+        "100a07702742886da97e755d",
         "f7c874fb0dfb38db69a5d83a",
         "c592cd3980d14f5cf675a5c2",
         "0d66a3d73223c86cac1d8a2d",
         "cd4ac2e345b5d6813642e921"
       ],
-      "updated_at": "2026-10-23T05:02:59.193039+00:00"
+      "updated_at": "2026-10-23T10:02:45.713519+00:00"
     },
     "ecosystem": {
       "ids": [
@@ -169,6 +172,9 @@
     }
   },
   "all_ids": [
+    "13710c68aa41a2658d4ede2d",
+    "250cbb818fd0d4e8986b9afb",
+    "100a07702742886da97e755d",
     "5102c2d6cf207a6223c53b75",
     "990a113a4bbd0f9b5e472e24",
     "ef82eace1d2cdfb672ccadb3",
@@ -249,9 +255,17 @@
     "f1d85ffac16bb26af9193e11"
   ],
   "all_urls": [
+    "https://github.com/pytorch/pytorch/releases/tag/viable%2Fstrict%2F1792747910",
+    "https://github.com/pytorch/pytorch/releases/tag/viable%2Fstrict%2F1792744610",
+    "https://github.com/pytorch/pytorch/releases/tag/viable%2Fstrict%2F1792733309",
     "https://arxiv.org/abs/2610.31668v1",
     "https://arxiv.org/abs/2610.31659v1",
     "https://arxiv.org/abs/2610.31651v1",
     "https://arxiv.org/abs/2610.31649v1"
+  ],
+  "all_titles": [
+    "50726890996812a367e93b6d",
+    "a1b6872f9626d4b99aa88e0c",
+    "1877bda2ddf17612fc247610"
   ]
 }
