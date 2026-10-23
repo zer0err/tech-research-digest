@@ -10,6 +10,7 @@ from zoneinfo import ZoneInfo
 from markdown_it import MarkdownIt
 
 from .charter import charter_text
+from .magazine import excerpt, opening, selections
 
 SLOTS = [
     ("morning_radar", "09:07", "晨间雷达与免费资源", "快讯"),
@@ -28,7 +29,8 @@ SLOTS = [
 def render_timeline(entries: list[dict[str, object]]) -> None:
     from .site import base_url, shell
 
-    today = datetime.now(ZoneInfo("Asia/Shanghai")).date().isoformat()
+    now = datetime.now(ZoneInfo("Asia/Shanghai"))
+    today = now.date().isoformat()
     days = sorted({today, *(str(e["date"])[:10] for e in entries)}, reverse=True)
     sections = []
     for day in days:
@@ -38,7 +40,7 @@ def render_timeline(entries: list[dict[str, object]]) -> None:
             entry = next((e for e in day_entries if e["topic"] == key), None)
             status = str(entry.get("status", "published")) if entry else "pending"
             title = html.escape(str(entry["title"])) if entry else label
-            summary = html.escape(str(entry.get("summary", "查看完整简报及原始来源。"))) if entry else "按计划更新，实际发布可能延迟。"
+            summary = html.escape(excerpt(entry)) if entry else "按计划更新，实际发布可能延迟。"
             badge = {
                 "published": "已发布", "empty": "暂无新内容", "fallback": "来源摘要",
                 "pending": "等待更新", "source_error": "来源访问异常",
@@ -53,16 +55,16 @@ def render_timeline(entries: list[dict[str, object]]) -> None:
         completed = sum(e.get("topic") in {s[0] for s in SLOTS} for e in day_entries)
         sections.append(
             f'<section class="day-section" data-date="{day}" {"" if day == today else "hidden"}>'
-            f'<div class="day-heading"><h2>{day}</h2><span>已更新 {completed} / 10 个时段 · 北京时间</span></div>'
+            f'<div class="day-heading"><h2>{day}</h2><span>已处理 {completed} / 10 个时段 · 北京时间</span></div>'
             f'<div class="progress-track"><span style="width:{min(completed, 10) * 10}%"></span></div>'
             f'<ol class="timeline">{"".join(rows)}</ol></section>'
         )
     options = "".join(f'<option value="{day}">{day}{" · 今天" if day == today else ""}</option>' for day in days)
+    lead = '<div id="briefing">' + "".join(
+        selections(entries, day).replace(' hidden>', '>') if day == today else selections(entries, day) for day in days
+    ) + '</div>'
     body = (
-        '<section class="editorial-hero"><p class="eyebrow">AI 技术情报与智能硬件研究</p>'
-        '<h1>以求证理解智能，<br>以实践创造价值。</h1>'
-        '<p class="slogan-en" lang="en">Understand AI through evidence.<br>Create value through practice.</p>'
-        '<div class="hero-note"><span class="live-dot"></span>每周七天 · 每日十个编辑时段 · 有据可查</div></section>'
+        opening(entries, now, {slot[0] for slot in SLOTS}) + lead +
         '<section id="latest"><div class="timeline-toolbar"><div><p class="eyebrow">每日出版</p><h2>今日技术时间线</h2></div>'
         f'<label>浏览日期 <select id="date-picker">{options}</select></label></div>'
         '<label class="timeline-search">搜索当前日期 <input id="timeline-search" type="search" placeholder="标题或摘要关键词"></label>'
@@ -76,11 +78,13 @@ def render_timeline(entries: list[dict[str, object]]) -> None:
         + '</section><section id="topics" class="principle-strip"><p class="eyebrow">我们的约定</p>'
         '<h2>求真 · 独立 · 实用 · 克制 · 尊重 · 可纠正</h2>'
         '<p>从模型研究到产品落地，让技术信息成为可以回查、能够行动的知识。</p>'
-        '<a href="about.html">阅读使命与编辑章程 ↗</a> · <a href="feed.xml">订阅 RSS ↗</a></section>'
+        '<div class="principle-links"><a href="about.html">阅读使命与编辑章程 ↗</a>'
+        '<a href="feed.xml">订阅 RSS ↗</a></div></section>'
         '<script src="assets/timeline.js" defer></script>'
     )
     Path("docs").mkdir(exist_ok=True)
-    Path("docs/index.html").write_text(shell("VORASIO · AI 技术时间线", "每日 AI 研究、开发实践与智能硬件技术时间线", body))
+    page = shell("VORASIO · AI 技术时间线", "每日 AI 研究、开发实践与智能硬件技术时间线", body, page_class="magazine")
+    Path("docs/index.html").write_text(page)
     md = MarkdownIt("commonmark", {"html": False}).enable("table")
     about = '<article class="about-page article-body">' + md.render(charter_text()) + '</article>'
     Path("docs/about.html").write_text(shell("VORASIO · 使命与编辑章程", "品牌使命与自动编辑原则", about))

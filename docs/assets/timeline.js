@@ -5,6 +5,9 @@
   let category = '全部';
   const search = document.querySelector('#timeline-search');
   function update() {
+    document.querySelectorAll('.magazine-lead').forEach(section => {
+      section.hidden = section.dataset.date !== picker.value;
+    });
     document.querySelectorAll('.day-section').forEach(section => {
       section.hidden = section.dataset.date !== picker.value;
       section.querySelectorAll('.timeline-row').forEach(row => {
@@ -30,4 +33,32 @@
     picker.closest('.timeline-toolbar').after(message);
   }
   update();
+  const menu = document.querySelector('.menu-toggle');
+  const navigation = document.querySelector('#main-nav');
+  if (menu && navigation) {
+    const close = () => {menu.setAttribute('aria-expanded', 'false'); navigation.classList.remove('menu-open');};
+    menu.addEventListener('click', () => {
+      const open = menu.getAttribute('aria-expanded') !== 'true';
+      menu.setAttribute('aria-expanded', String(open));
+      navigation.classList.toggle('menu-open', open);
+    });
+    navigation.addEventListener('click', event => {if (event.target.closest('a')) close();});
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && menu.getAttribute('aria-expanded') === 'true') {close(); menu.focus();}
+    });
+  }
+  const progress = document.querySelector('.reading-progress');
+  if (progress) {
+    let scheduled = false;
+    const paint = () => {
+      const total = document.documentElement.scrollHeight - innerHeight;
+      progress.style.width = (total > 0 ? Math.min(100, Math.max(0, scrollY / total * 100)) : 0) + '%';
+      scheduled = false;
+    };
+    addEventListener('scroll', () => {
+      if (!scheduled) {scheduled = true; requestAnimationFrame(paint);}
+    }, {passive: true});
+    addEventListener('resize', paint);
+    paint();
+  }
 })();
