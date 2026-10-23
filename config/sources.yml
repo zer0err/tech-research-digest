@@ -82,6 +82,7 @@ topics:
     lookback_hours: 72
     max_items: 6
     keywords: [model, pretrain, post-train, reasoning, alignment, reinforcement learning, multimodal, transformer, language model]
+    required_any: [language model, transformer, pretrain, pre-training, post-training, reinforcement learning, foundation model]
     exclude_any: [quantization, pruning, model compression, tinyml, on-device, ai accelerator, npu, fpga, asic, robot, embodied, vision-language-action]
     sources:
       - name: arXiv Model Research

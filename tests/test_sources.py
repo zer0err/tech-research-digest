@@ -92,3 +92,18 @@ def test_source_tokens_not_sent_to_other_hosts(monkeypatch):
         for kind in ("openalex", "github"):
             with pytest.raises(ValueError):
                 fetch_entries({"type": kind, "url": "https://example.com/"}, client, datetime.now(UTC), datetime.now(UTC))
+
+
+def test_metadata_search_drops_non_ai_model_results(monkeypatch):
+    import research_bot.core as core
+    monkeypatch.setattr(core, "fetch_entries", lambda *args: [
+        {"id": "clinical", "title": "Clinical prediction model", "published": "2026-10-23",
+         "summary": "A health belief model and clinical survival model.", "link": "https://example.com/clinical"},
+        {"id": "llm", "title": "Training language models", "published": "2026-10-23",
+         "summary": "A transformer neural network training method.", "link": "https://example.com/llm"},
+    ])
+    records = core.collect({"lookback_hours": 72, "keywords": ["model", "transformer"],
+                            "sources": [{"name": "Crossref", "type": "crossref", "url": "https://api.crossref.org/works"}]},
+                           datetime(2026, 10, 23, 12, tzinfo=UTC))
+    assert len(records) == 1
+    assert records[0].title == "Training language models"
