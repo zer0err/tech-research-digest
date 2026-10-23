@@ -1,5 +1,14 @@
 [
   {
+    "title": "AI 开源项目与工具更新（2026-10-23）",
+    "date": "2026-10-23T18:04:48.980336+08:00",
+    "count": 2,
+    "url": "posts/20261023-open_source.html",
+    "topic": "open_source",
+    "status": "published",
+    "summary": "本期要点 1. Ollama v0.40.9 新增 Apple Silicon 下的 Phonon 语音合成功能，并支持 /v1/audio/speech 接口播放文本或对话回复的实时音频流。1 2. Ollama v0.40.9 推出 d3 决策模型库，覆盖 2B‑27B 规模，可对文本、结构化状态或图像进行分类、二"
+  },
+  {
     "title": "AI 开发实践与部署（2026-10-23）",
     "date": "2026-10-23T18:02:45.713519+08:00",
     "count": 3,
