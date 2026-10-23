@@ -7,22 +7,65 @@
         "fe0903755f1ec81fb4fd8f3d"
       ],
       "updated_at": "2026-10-23T10:04:48.980336+00:00"
+    },
+    "multimodal": {
+      "ids": [
+        "808780f3283440c8b29d022b",
+        "361f7c9a0f57a189ca4c36ad"
+      ],
+      "updated_at": "2026-10-23T10:16:43.499651+00:00"
     }
   },
   "all_ids": [
+    "808780f3283440c8b29d022b",
+    "361f7c9a0f57a189ca4c36ad",
     "da838ef163b59d2f4118281e",
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://doi.org/10.21203/rs.3.rs-11467404/v1",
+    "https://doi.org/10.3389/fcimb.2026.1927286",
     "https://github.com/ollama/ollama/releases/tag/v0.40.9",
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "06a06c0637e50865ece52a75",
+    "d491811736c7d6c2f28b8e03",
     "3b92746be1a306be7a2ec2fd",
     "fee017380f175c54fecd84c3"
   ],
   "migration": {
     "date": "2026-10-23",
     "reason": "Removed legacy test history; retained only two items in the visible formal open-source article."
+  },
+  "publications": {
+    "https://vorasio.com/posts/20261023-paper_brief.html": {
+      "topic": "multimodal",
+      "created_at": "2026-10-23T10:16:43.499651+00:00",
+      "items": [
+        {
+          "uid": "808780f3283440c8b29d022b",
+          "title": "PIX2DB: Reconstructing Executable Relational Databases from Document Images with a 2B Vision-Language Model",
+          "url": "https://doi.org/10.21203/rs.3.rs-11467404/v1",
+          "published": "2026-10-23T00:00:00+00:00",
+          "summary": "Abstract Tables trapped in screenshots, scans, receipts and charts are usually extracted as markup that keeps the layout but not the relational meaning: merged cells stay merged, an invoice header and its line items stay unrelated, and “$1,250.00” stays a string. We study image-to-database reconstruction: given one image, produce a SQLite dump whose schema, column types, keys and rows load and can be queried as they are. Training data with exact gold databases is obtained in two ways: by rendering samples of the Spider databases at six layout levels, and by converting PubTabNet, FinTabNet and CORD annotations under the same normalization rules. A 2B model (Qwen3-VL-2B with LoRA) trained on 36,589 pairs and followed by a deterministic verify-and-repair layer reaches 0.86 table exact match and 0.99 foreign-key recall on rendered tables from unseen databases, against 0.75/0.75 for the 8B model of the same family prompted for SQL and 0.47/0.00 for an 8B HTML-to-SQLite pipeline. On held-out real images it obtains cell F1 0.81 (PubTabNet) and 0.96 (FinTabNet) and recall 0.93 on CORD receipt photos. On TabRecSet, a source not used in training, it is the best system that writes a database directly (0.52) but trails the 8B HTML pipeline (0.58), mostly in reading text from photographs. A variant trained on synthetic data alone matches the synthetic score and fails on real images, which l",
+          "source": "Crossref Multimodal",
+          "kind": "research",
+          "doi": "10.21203/rs.3.rs-11467404/v1",
+          "date_precision": "day"
+        },
+        {
+          "uid": "361f7c9a0f57a189ca4c36ad",
+          "title": "Differential diagnosis of pulmonary Talaromyces marneffei infection and pulmonary tuberculosis in HIV/AIDS patients using a CT-based multimodal 2.5D deep learning approach",
+          "url": "https://doi.org/10.3389/fcimb.2026.1927286",
+          "published": "2026-10-23T00:00:00+00:00",
+          "summary": "Background To investigate the diagnostic value of a computed tomography (CT)-based multimodal 2.5-dimensional (2.5D) deep learning model for differentiating Talaromyces marneffei (TSM) from pulmonary tuberculosis (PTB) in patients with human immunodeficiency virus infection/acquired immunodeficiency syndrome (HIV/AIDS). Methods A total of 380 HIV/AIDS patients with pulmonary infections who were admitted to the Fourth People’s Hospital of Nanning from January 2018 to August 2025 were retrospectively enrolled, including 203 patients with PTB, 177 with TSM. The cohort was randomly divided into a training set and a test set at a ratio of 7:3. A clinical model, a radiomics model, and a 2.5D deep learning model were constructed separately. Results In the clinical feature model, Random Forest achieved the optimal performance, with a test set AUC of 0.856. In the radiomics model, XGBoost attained the highest AUC of 0.866. In the 2.5D deep learning model, ResNet18 performed best at the slice level with an AUC of 0.865, and the patient-level support vector machine (SVM) model based on MIL achieved an AUC of 0.885. The multimodal combined model integrating clinical, radiomics, and deep learning features achieved the highest AUC of 0.931 and a specificity of 0.981. It significantly outperformed the clinical model (P = 0.020) and the radiomics model (P = 0.008), but the improvement over DL2",
+          "source": "Crossref Multimodal",
+          "kind": "research",
+          "doi": "10.3389/fcimb.2026.1927286",
+          "date_precision": "day"
+        }
+      ]
+    }
   }
 }
