@@ -2,62 +2,24 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Prompt、上下文工程与评测（2026-10-23）</title><meta name="description" content="Prompt、上下文工程与评测（2026-10-23）：1 项最新研究">
 <link rel="stylesheet" href="../assets/style.css">
-<link rel="stylesheet" href="../assets/editorial.css"></head>
+<link rel="stylesheet" href="../assets/editorial.css">
+<script src="../assets/article.js" defer></script></head>
 <body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
 <nav><a href="../index.html#latest">时间线</a><a href="../about.html">关于与章程</a></nav></header>
-<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">Prompt、上下文工程与评测</p><dl><dt>发布日期</dt><dd>2026-10-23</dd><dt>研究条目</dt><dd>1 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · Prompt、上下文工程与评测</p><h1>Prompt、上下文工程与评测（2026-10-23）</h1><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期要点</h2>
-<ul>
-<li><strong>模型配置刷新</strong>：更新了 Perplexity 模型配置文件，保证使用最新的模型信息。</li>
-<li><strong>依赖升级</strong>：将 <code>certifi</code>、<code>urllib3</code>、<code>anyio</code> 等关键依赖升级至更高版本。</li>
-<li><strong>Agent API 搜索结果保持</strong>：修复了 Agent API 在搜索时结果被覆盖的问题。</li>
-<li><strong>缓存与流式输出改进</strong>：将 Responses API 的缓存 token 映射到 <code>input_token_details</code>，并在 <code>_astream</code> 中仅一次性发出 <code>search_context_size</code>。</li>
-</ul>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">Prompt、上下文工程与评测</p><dl><dt>发布日期</dt><dd>2026-10-23</dd><dt>研究条目</dt><dd>1 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · Prompt、上下文工程与评测</p><h1>Prompt、上下文工程与评测（2026-10-23）</h1><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><blockquote>
+<p>编辑修订：本次试跑稿件未逐条标注摘要结论来源，现替换为来源原文摘要，暂缓自动分析。</p>
+</blockquote>
+<h2>本期要点</h2>
+<p>模型输出未通过完整性检查，本期降级为可核验的来源摘要。</p>
 <h2>逐项速览</h2>
-<table>
-<thead>
-<tr>
-<th>变更</th>
-<th>证据</th>
-<th>局限</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>模型配置刷新</strong></td>
-<td>变更日志中列出 <code>chore(model-profiles): refresh model profile data</code> [1]</td>
-<td>未提供更新后配置对性能的影响数据</td>
-</tr>
-<tr>
-<td><strong>依赖升级</strong></td>
-<td><code>bump certifi</code>, <code>bump urllib3</code>, <code>bump anyio</code> 记录在日志中 [1]</td>
-<td>仅说明版本号，未给出兼容性测试结果</td>
-</tr>
-<tr>
-<td><strong>Agent API 搜索结果保持</strong></td>
-<td><code>fix(perplexity): preserve Agent API search results</code> [1]</td>
-<td>未展示修复前后搜索结果差异的实证</td>
-</tr>
-<tr>
-<td><strong>缓存与流式输出改进</strong></td>
-<td><code>fix(perplexity): map Responses API cache tokens into input_token_details</code> 与 <code>emit search_context_size once per stream in _astream</code> [1]</td>
-<td>缓存映射与流式输出的性能提升未被量化</td>
-</tr>
-<tr>
-<td><strong>文档更新</strong></td>
-<td><code>docs(perplexity): update ChatPerplexity docstring examples for Agent API</code> [1]</td>
-<td>文档示例更新未伴随使用案例验证</td>
-</tr>
-</tbody>
-</table>
+<ul>
+<li><strong>[1] langchain-perplexity==1.4.2</strong>：Changes since langchain-perplexity==1.4.1 release(perplexity): 1.4.2 ( #41392 ) chore(model-profiles): refresh model profile data ( #41354 ) chore(deps): bump certifi from 2025.8.3 to 2026.10.19 in /libs/partners/perplexity ( #41377 ) fix(perplexity): preserve Agent API search results ( #41349 ) fix: fix dependencies in some partner packages ( #41266 ) chore(deps): bump urllib3 from 2.7.0 to 2.8.0 in /libs/partners/perplexity ( #40947 ) chore(deps): bump anyio from 4.11.0 to 4.14.2 in /libs/partners/perplexity ( #40633 ) fix(perplexity): map Responses API cache tokens into input_token_details ( #39923 ) fix(perplexity): emit search_context_size once per stream in _astream ( #39924 ) docs(perplexity): update ChatPerplexity docstring examples for Agent API ( #39831 )</li>
+</ul>
 <h2>值得采取的行动</h2>
-<ol>
-<li><strong>升级到 1.4.2</strong>：在项目中将 <code>langchain-perplexity</code> 升级至 1.4.2，并同步更新 <code>certifi</code>、<code>urllib3</code>、<code>anyio</code> 等依赖。</li>
-<li><strong>验证 Agent API 搜索</strong>：使用现有 Agent API 测试搜索功能，确认搜索结果不再被覆盖。</li>
-<li><strong>检查缓存映射</strong>：在使用 Responses API 时，确认 <code>input_token_details</code> 中的缓存 token 与实际输入 token 对齐。</li>
-<li><strong>监测流式输出</strong>：在 <code>_astream</code> 流式调用中观察 <code>search_context_size</code> 的发出频率，确保仅一次发出。</li>
-<li><strong>参考文档示例</strong>：根据更新后的 docstring 示例，重构或验证自己的 Agent 调用代码。</li>
-</ol>
+<p>本期自动分析未通过完整性检查，请直接核对下方原始资料后再采取行动。</p>
 <h2>参考资料</h2>
-<p>[1] langchain-perplexity==1.4.2 release notes – <a href="https://github.com/langchain-ai/langchain/releases/tag/langchain-perplexity%3D%3D1.4.2">https://github.com/langchain-ai/langchain/releases/tag/langchain-perplexity%3D%3D1.4.2</a></p>
+<ul>
+<li>[1] <a href="https://github.com/langchain-ai/langchain/releases/tag/langchain-perplexity%3D%3D1.4.2">langchain-perplexity==1.4.2</a></li>
+</ul>
 </div></article></div></main><footer><strong>VORASIO 研究简报</strong>
 <span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>

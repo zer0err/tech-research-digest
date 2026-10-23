@@ -23,8 +23,8 @@
     "count": 0,
     "url": "posts/20261023-applied_ai.html",
     "topic": "applied_ai",
-    "status": "empty",
-    "summary": "本时段状态 本时段未发现符合日期、相关性与去重条件的新资料。"
+    "status": "source_error",
+    "summary": "来源访问异常 本次采集遇到 arXiv 超时或限流，来源暂时不可用，尚无法判断是否有新资料。后续按计划重试。"
   },
   {
     "title": "AI 开发实践与部署（2026-10-23）",
@@ -32,8 +32,8 @@
     "count": 4,
     "url": "posts/20261023-dev_practice.html",
     "topic": "dev_practice",
-    "status": "published",
-    "summary": "本期主题 本期简报聚焦于两大热门框架的最新结构与功能改进： - PyTorch AOTI Runtime：将 ModelPool 迁移至独立头文件，提升模块化与单元测试可行性。 - FastAPI：从 0.160.0 开始引入参数模型 extra 配置一致性、可组合表单模型联合以及可空表单联合的 OpenAPI 修复。"
+    "status": "fallback",
+    "summary": "> 编辑修订：本次试跑稿件未逐条标注摘要结论来源，现替换为来源原文摘要，暂缓自动分析。 本期主题 模型输出未通过完整性检查，本期降级为可核验的来源摘要。 实践步骤 - 1 viable/strict/1792731319: AOTIrefactor Move the model pool into its own he"
   },
   {
     "title": "多模态感知、音视频与人机交互（2026-10-23）",
@@ -41,8 +41,8 @@
     "count": 0,
     "url": "posts/20261023-core_research.html",
     "topic": "core_research",
-    "status": "empty",
-    "summary": "本时段状态 本时段未发现符合日期、相关性与去重条件的新资料。"
+    "status": "source_error",
+    "summary": "来源访问异常 本次采集遇到 arXiv 超时或限流，来源暂时不可用，尚无法判断是否有新资料。后续按计划重试。"
   },
   {
     "title": "Prompt、上下文工程与评测（2026-10-23）",
@@ -50,8 +50,8 @@
     "count": 1,
     "url": "posts/20261023-prompt_engineering.html",
     "topic": "prompt_engineering",
-    "status": "published",
-    "summary": "本期要点 - 模型配置刷新：更新了 Perplexity 模型配置文件，保证使用最新的模型信息。 - 依赖升级：将 certifi、urllib3、anyio 等关键依赖升级至更高版本。 - Agent API 搜索结果保持：修复了 Agent API 在搜索时结果被覆盖的问题。 - 缓存与流式输出改进：将 Respo"
+    "status": "fallback",
+    "summary": "> 编辑修订：本次试跑稿件未逐条标注摘要结论来源，现替换为来源原文摘要，暂缓自动分析。 本期要点 模型输出未通过完整性检查，本期降级为可核验的来源摘要。 逐项速览 - 1 langchain-perplexity==1.4.2：Changes since langchain-perplexity==1.4.1 rele"
   },
   {
     "title": "AI 论文午间速览（2026-10-23）",
@@ -59,8 +59,8 @@
     "count": 0,
     "url": "posts/20261023-paper_brief.html",
     "topic": "paper_brief",
-    "status": "empty",
-    "summary": "本时段状态 本时段未发现符合日期、相关性与去重条件的新资料。"
+    "status": "source_error",
+    "summary": "来源访问异常 本次采集遇到 arXiv 超时或限流，来源暂时不可用，尚无法判断是否有新资料。后续按计划重试。"
   },
   {
     "title": "AI 开源项目与工具更新（2026-10-23）",
@@ -68,8 +68,8 @@
     "count": 5,
     "url": "posts/20261023-open_source.html",
     "topic": "open_source",
-    "status": "published",
-    "summary": "本期要点 - v0.40.9 引入 Phonon 语音合成（Apple Silicon）与 d3 决策模型，并在 Linux/Windows 上正式支持 Flint。 - v0.40.9 对流式 OpenAI/Anthropic 请求错误处理、上下文长度传递以及 Web‑search 思考设置做了关键修复。 - v0."
+    "status": "fallback",
+    "summary": "> 编辑修订：本次试跑稿件未逐条标注摘要结论来源，现替换为来源原文摘要，暂缓自动分析。 本期要点 模型输出未通过完整性检查，本期降级为可核验的来源摘要。 逐项速览 - 1 v0.40.9：Speech Ollama can now generate speech with Phonon on Apple Silicon"
   },
   {
     "title": "AI 模型、训练与基础研究（2026-10-23）",
@@ -77,8 +77,8 @@
     "count": 0,
     "url": "posts/20261023-model_research.html",
     "topic": "model_research",
-    "status": "empty",
-    "summary": "本时段状态 本时段未发现符合日期、相关性与去重条件的新资料。"
+    "status": "source_error",
+    "summary": "来源访问异常 本次采集遇到 arXiv 超时或限流，来源暂时不可用，尚无法判断是否有新资料。后续按计划重试。"
   },
   {
     "title": "AI 晨间雷达与免费资源（2026-10-23）",
