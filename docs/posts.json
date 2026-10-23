@@ -1,5 +1,14 @@
 [
   {
+    "title": "多模态感知、音视频与人机交互（2026-10-23）",
+    "date": "2026-10-23T19:28:05.062027+08:00",
+    "count": 3,
+    "url": "posts/20261023-core_research.html",
+    "topic": "core_research",
+    "status": "published",
+    "summary": "本期结论 1. 通过为生成式代理提供物理可行性验证工具，BrickWright 能将物理有效率从 9%–69% 提升至 100%1，表明单模态（文本/图像）与物理约束的融合能显著提升多模态生成质量。 2. Gate3DGen 的选择性预处理在合成基准上将 TRELLIS.2 网格距离降低 61.5%2，说明在单模态 3"
+  },
+  {
     "title": "VORASIO AI 日报（2026-10-23）",
     "date": "2026-10-23T18:22:37.650655+08:00",
     "count": 5,
@@ -16,15 +25,6 @@
     "topic": "ecosystem",
     "status": "published",
     "summary": "本期要点 - GitHub Bug Bounty 团队在 2026 年 10 月 22 日发布的博客聚焦 @r31n，展示其研究方法、偏好漏洞类型以及对新手黑客的建议，强调漏洞赏金能提升安全技能 1。 - 2026 年 10 月 19 日，GitHub 官方博客介绍了如何将 GitHub Copilot 应用程序会话迁"
-  },
-  {
-    "title": "多模态感知、音视频与人机交互（2026-10-23）",
-    "date": "2026-10-23T18:20:42.210685+08:00",
-    "count": 3,
-    "url": "posts/20261023-core_research.html",
-    "topic": "core_research",
-    "status": "published",
-    "summary": "本期结论 1. 视觉与音频的多模态融合正从“clip‑level 识别”向“persistent state”与“causal validity”转变，体现了对持续状态建模与交互评估的需求。该趋势得到2与1的共同支持，后者强调视频世界模型的“reading、writing、sharing、interacting”四大操"
   },
   {
     "title": "AI 晨间雷达与免费资源（2026-10-23）",
