@@ -1,5 +1,14 @@
 [
   {
+    "title": "AI 开发实践与部署（2026-10-23）",
+    "date": "2026-10-23T13:02:59.193039+08:00",
+    "count": 4,
+    "url": "posts/20261023-dev_practice.html",
+    "topic": "dev_practice",
+    "status": "published",
+    "summary": "本期主题 本期简报聚焦于两大热门框架的最新结构与功能改进： - PyTorch AOTI Runtime：将 ModelPool 迁移至独立头文件，提升模块化与单元测试可行性。 - FastAPI：从 0.160.0 开始引入参数模型 extra 配置一致性、可组合表单模型联合以及可空表单联合的 OpenAPI 修复。"
+  },
+  {
     "title": "多模态感知、音视频与人机交互（2026-10-23）",
     "date": "2026-10-23T13:01:41.406108+08:00",
     "count": 0,

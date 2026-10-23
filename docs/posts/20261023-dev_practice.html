@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 开发实践与部署（2026-10-23）</title><meta name="description" content="AI 开发实践与部署（2026-10-23）：4 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css"></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav><a href="../index.html#latest">时间线</a><a href="../about.html">关于与章程</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">AI 开发实践与部署</p><dl><dt>发布日期</dt><dd>2026-10-23</dd><dt>研究条目</dt><dd>4 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · AI 开发实践与部署</p><h1>AI 开发实践与部署（2026-10-23）</h1><p class="disclosure">实践参考，未经运行验证。</p><div class="article-body"><h2>本期主题</h2>
+<p>本期简报聚焦于两大热门框架的最新结构与功能改进：</p>
+<ul>
+<li><strong>PyTorch AOTI Runtime</strong>：将 <code>ModelPool</code> 迁移至独立头文件，提升模块化与单元测试可行性。</li>
+<li><strong>FastAPI</strong>：从 0.160.0 开始引入参数模型 <code>extra</code> 配置一致性、可组合表单模型联合以及可空表单联合的 OpenAPI 修复。</li>
+</ul>
+<h2>实践步骤</h2>
+<h3>1. PyTorch AOTI Runtime</h3>
+<ol>
+<li><strong>更新头文件引用</strong>
+<ul>
+<li>将原先 <code>model_container.h</code> 中对 <code>ModelPool</code> 的引用改为 <code>aoti_runtime/model_pool.h</code>。</li>
+<li>确保编译器能够找到 <code>aoti_runtime/</code> 目录。</li>
+</ul>
+</li>
+<li><strong>单元测试</strong>
+<ul>
+<li>参考 PR 201508 的单元测试实现，使用假模型验证 <code>ModelPool</code> 的行为。</li>
+<li>由于 <code>ModelPool</code> 现在与 <code>model_container.h</code> 分离，测试文件可单独编译。</li>
+</ul>
+</li>
+</ol>
+<h3>2. FastAPI</h3>
+<ol>
+<li><strong>升级至 0.160.0 及以上</strong>
+<ul>
+<li>通过 <code>pip install fastapi&gt;=0.160.0</code> 或更新 <code>pyproject.toml</code>。</li>
+</ul>
+</li>
+<li><strong>参数模型 <code>extra</code> 行为</strong>
+<ul>
+<li>在定义查询、头部、Cookie 或表单参数模型时，确认 <code>extra</code> 设置（<code>forbid</code>、<code>allow</code>、<code>ignore</code>）会影响同一位置的所有字段。</li>
+</ul>
+</li>
+<li><strong>表单模型联合</strong>
+<ul>
+<li>0.161.0 版本新增对表单模型联合的支持。</li>
+<li>0.161.1 版本修复了单独可空表单联合的 OpenAPI 架构。</li>
+<li>在需要多种表单输入时，可使用 <code>Union</code> 或 <code>Optional</code> 组合，但需遵循官方文档说明。</li>
+</ul>
+</li>
+</ol>
+<h2>验证清单</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>验证方式</th>
+<th>预期结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PyTorch 头文件路径</td>
+<td>编译项目，检查是否能找到 <code>aoti_runtime/model_pool.h</code></td>
+<td>编译通过，无路径错误</td>
+</tr>
+<tr>
+<td>PyTorch 单元测试</td>
+<td>运行 <code>ModelPool</code> 的单元测试</td>
+<td>所有测试通过，输出符合预期</td>
+</tr>
+<tr>
+<td>FastAPI 版本</td>
+<td><code>fastapi.__version__</code></td>
+<td>版本号 ≥ 0.160.0</td>
+</tr>
+<tr>
+<td>参数模型 <code>extra</code></td>
+<td>发送包含额外字段的请求</td>
+<td>根据 <code>extra</code> 设置，字段被拒绝、保留或忽略</td>
+</tr>
+<tr>
+<td>表单联合</td>
+<td>发送多种表单组合请求</td>
+<td>API 正确解析并返回预期结果</td>
+</tr>
+<tr>
+<td>OpenAPI 兼容性</td>
+<td>访问 <code>/openapi.json</code></td>
+<td>JSON 结构符合 0.161.1 的修复规范</td>
+</tr>
+</tbody>
+</table>
+<h2>限制与风险</h2>
+<ul>
+<li><strong>PyTorch</strong>：摘要未说明此改动适用于哪些 PyTorch 主线版本；若使用旧版本，可能不兼容。</li>
+<li><strong>FastAPI</strong>：表单联合与可空联合的具体实现细节未在摘要中给出，使用时需参考官方文档或源码。</li>
+<li><strong>兼容性</strong>：若项目中同时使用旧版 <code>model_container.h</code> 或 FastAPI &lt;0.160.0，升级后可能导致编译或运行错误。</li>
+<li><strong>测试覆盖</strong>：单元测试仅覆盖 <code>ModelPool</code> 的基本功能，复杂场景需自行扩展。</li>
+</ul>
+<h2>参考资料</h2>
+<p>[1] PyTorch Releases – “Move ModelPool into its own header” – <a href="https://github.com/pytorch/pytorch/releases/tag/viable%2Fstrict%2F1792731319">https://github.com/pytorch/pytorch/releases/tag/viable%2Fstrict%2F1792731319</a><br />
+[2] FastAPI Releases – 0.161.1 – <a href="https://github.com/fastapi/fastapi/releases/tag/0.161.1">https://github.com/fastapi/fastapi/releases/tag/0.161.1</a><br />
+[3] FastAPI Releases – 0.161.0 – <a href="https://github.com/fastapi/fastapi/releases/tag/0.161.0">https://github.com/fastapi/fastapi/releases/tag/0.161.0</a><br />
+[4] FastAPI Releases – 0.160.0 – <a href="https://github.com/fastapi/fastapi/releases/tag/0.160.0">https://github.com/fastapi/fastapi/releases/tag/0.160.0</a></p>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>
