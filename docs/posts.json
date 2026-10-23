@@ -1,5 +1,14 @@
 [
   {
+    "title": "多模态感知、音视频与人机交互（2026-10-23）",
+    "date": "2026-10-23T18:20:42.210685+08:00",
+    "count": 3,
+    "url": "posts/20261023-core_research.html",
+    "topic": "core_research",
+    "status": "published",
+    "summary": "本期结论 1. 视觉与音频的多模态融合正从“clip‑level 识别”向“persistent state”与“causal validity”转变，体现了对持续状态建模与交互评估的需求。该趋势得到2与1的共同支持，后者强调视频世界模型的“reading、writing、sharing、interacting”四大操"
+  },
+  {
     "title": "AI 晨间雷达与免费资源（2026-10-23）",
     "date": "2026-10-23T18:18:49.470663+08:00",
     "count": 3,
