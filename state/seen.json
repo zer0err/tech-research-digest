@@ -10,13 +10,16 @@
     },
     "multimodal": {
       "ids": [
+        "ef82eace1d2cdfb672ccadb3",
+        "b2c29d1b6f67c9d00b7c2f08",
+        "8e0a598854f23abf7a04e99a",
         "f16051340e5c7aa961867bb5",
         "5102c2d6cf207a6223c53b75",
         "990a113a4bbd0f9b5e472e24",
         "808780f3283440c8b29d022b",
         "361f7c9a0f57a189ca4c36ad"
       ],
-      "updated_at": "2026-10-23T10:20:42.210685+00:00"
+      "updated_at": "2026-10-23T11:28:05.062027+00:00"
     },
     "morning_radar": {
       "ids": [
@@ -39,6 +42,9 @@
     }
   },
   "all_ids": [
+    "ef82eace1d2cdfb672ccadb3",
+    "b2c29d1b6f67c9d00b7c2f08",
+    "8e0a598854f23abf7a04e99a",
     "522904cf90083f63c232bca4",
     "ca07548f6acfab72b6a7c670",
     "f16051340e5c7aa961867bb5",
@@ -53,6 +59,9 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://arxiv.org/abs/2610.31651v1",
+    "https://arxiv.org/abs/2610.31649v1",
+    "https://arxiv.org/abs/2610.31645v1",
     "https://github.blog/security/how-bug-bounty-sharpens-one-researchers-security-skills",
     "https://github.blog/ai-and-ml/github-copilot/how-to-continue-a-github-copilot-app-session-in-vs-code",
     "https://doi.org/10.1002/tesq.70244",
@@ -67,6 +76,9 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "4e10c7f84230634e49f557ef",
+    "a815e4aff49b38f9ed5d24e6",
+    "65b312dde808e7d10d4bdf51",
     "4a745e9e25e6631ea4edf3cc",
     "3f6dd967a18092eadb1b2942",
     "b4832beccd2ee87010268ce3",
@@ -154,36 +166,36 @@
     },
     "https://vorasio.com/posts/20261023-core_research.html": {
       "topic": "multimodal",
-      "created_at": "2026-10-23T10:20:42.210685+00:00",
+      "created_at": "2026-10-23T11:28:05.062027+00:00",
       "items": [
         {
-          "uid": "f16051340e5c7aa961867bb5",
-          "title": "Generative AI in Second Language Video Composing: Investigating Students' Critical Digital Literacies and Multimodal Redesign",
-          "url": "https://doi.org/10.1002/tesq.70244",
-          "published": "2026-10-23T00:00:00+00:00",
-          "summary": "Abstract Generative artificial intelligence (GenAI) in digital multimodal composing (DMC) presents both opportunities and challenges for second language (L2) research and pedagogy. While GenAI tools provide linguistic and multimodal support, they also raise concerns about biased information, culturally generic outputs, and technological overreliance. This qualitative study investigates L2 students' enactment of critical digital literacies (CDL) during GenAI‐assisted video composing. Drawing on CDL as a theoretical orientation and the analytical heuristic of critical awareness, critical identities, critical relationships, and critical actions, the study examines how students negotiated and revised AI‐generated video representations. Using multimodal critical discourse analysis of screen recordings, final video artifacts, focus group interviews, and reflective essays from 20 L2 students, the findings reveal four interrelated forms of CDL enactment. Students demonstrated critical awareness of GenAI's culturally limited outputs, authored critical identities through multimodal redesign, negotiated critical relationships with peers and GenAI, and engaged in localized critical action against cultural erasure. However, students' varied responses also highlight the uneven opportunities for CDL enactment across student groups. These findings offer theoretical and pedagogical implications",
-          "source": "Crossref Multimodal",
-          "kind": "research",
-          "doi": "10.1002/tesq.70244",
-          "date_precision": "day"
-        },
-        {
-          "uid": "5102c2d6cf207a6223c53b75",
-          "title": "Reading, Writing, Sharing, and Interacting with the World through Video",
-          "url": "https://arxiv.org/abs/2610.31668v1",
-          "published": "2026-10-22T17:59:50+00:00",
-          "summary": "Video foundation models have advanced rapidly in understanding and generating visual sequences, while video world models seek to capture the underlying dynamics of the world they depict. Despite their different objectives, both concern the relationship between video observations and an evolving world. This survey adopts world modeling as a unifying lens for examining these developments. Viewing an observed video as a partial, lossy, and temporally ordered projection of a latent temporal world, we organize the literature around four complementary operations: reading infers world properties from observed video; writing synthesizes video from specified or learned world conditions; sharing integrates understanding and generation through common modeling mechanisms; and interacting predicts and updates world states under actions and evolving observations. This perspective distinguishes temporal coherence in observed or generated sequences from consistency in the underlying world state. Across tasks, representations, models, datasets, and benchmarks, we trace a shift in emphasis from clip-level recognition and perceptual fidelity toward persistent state, controllable evolution, physical and causal validity, and evaluation grounded in interaction and downstream decisions, and we distill the open challenges that follow.",
+          "uid": "ef82eace1d2cdfb672ccadb3",
+          "title": "BrickWright: Agentic Creation of Physically Feasible Brick Builds",
+          "url": "https://arxiv.org/abs/2610.31651v1",
+          "published": "2026-10-22T17:57:20+00:00",
+          "summary": "Frontier coding agents are becoming increasingly adept at 3D modeling. Yet, they still face challenges when building objects meant to be assembled in the physical world, often creating invalid assemblies with floating, colliding, or disconnected parts. We argue that providing agents with tools for assembling builds and verifying their physical feasibility is sufficient for them to produce physically valid assemblies that still adhere to input prompts. Focusing on the domain of LEGO brick builds, we present BrickWright, a framework for generating physically feasible brick builds from text or image prompts using pre-trained agents, where a build is physically feasible if it uses only real parts, has no colliding or floating parts, and forms a connected structure if possible. BrickWright guides agents to create builds by writing code with BrickLayer, a Python toolkit with two main components: an ergonomic brick assembly API that halves inference cost compared to working in raw LDraw, and a validator that provides feedback on physical feasibility. Whereas baseline agents achieve physical validity rates ranging from only 9% (GPT-6 Luna) to 69% (GPT-6 Astra), BrickWright-guided agents achieve 100% validity on a sample of 512 prompts, while improving prompt adherence for lightweight agents and maintaining it for stronger agents. Additionally, they outperform specialized models on the ",
           "source": "arXiv Perception",
           "kind": "research",
           "doi": "",
           "date_precision": "day"
         },
         {
-          "uid": "990a113a4bbd0f9b5e472e24",
-          "title": "SpectralCanary: Embarrassingly Simple Low-Frequency Traces for T2I Dataset-Use Auditing",
-          "url": "https://arxiv.org/abs/2610.31659v1",
-          "published": "2026-10-22T17:59:03+00:00",
-          "summary": "Auditing whether a text-to-image (T2I) model was fine-tuned on a particular image collection is difficult: a model can absorb collection-level visual characteristics without reproducing training images. Proactive dataset-use auditing plants a shared signal in a dataset before release, then later checks whether that signal appears in a suspect model's generated outputs. Existing approaches often trade off verifiability, fidelity, robustness, and deployability. We introduce $\\textbf{SpectralCanary}$, which uses a smooth low-pass mask to blend a fixed canary image into every collection image while leaving captions unchanged and requiring neither auxiliary generation nor per-image optimization. A lightweight verifier detects the transferred signal in suspect-model outputs. Across eight tests on the Pokemon dataset and three realistic data transformations, spanning two architectures families, SpectralCanary achieves the highest average per-generation TPR@$1\\%$ FPR ($91.1\\%$) and fixed threshold model-level accuracy using 30 generations ($94.8\\%$) among the evaluated methods. Across five datasets spanning artistic, medical, satellite, and fashion domains with SD3.5, SpectralCanary averages $92.4\\%$ per-generation TPR@$1\\%$ FPR while preserving the released images (SSIM $0.989$, LPIPS $0.022$) with a near-zero mean change FID (mean $Δ$FID $0.05$) across datasets. Matched-energy ablati",
+          "uid": "b2c29d1b6f67c9d00b7c2f08",
+          "title": "Gate3DGen: A Pre-processing Model that Selectively Purifies Real-World Images for 3D Generation",
+          "url": "https://arxiv.org/abs/2610.31649v1",
+          "published": "2026-10-22T17:57:02+00:00",
+          "summary": "Single-image 3D generation has achieved high fidelity on curated benchmarks, yet degrades sharply on real-world images with uneven illumination, blur, and occlusions. Purifying such inputs requires deciding when to intervene and preserving the visual cues needed for 3D generation, while leaving clean inputs unchanged. We introduce Gate3DGen, a selective pre-processing model that gates image inputs to existing 3D generators without retraining them. A degradation-aware router bypasses inputs classified as clean and extracts features to guide purification of the remaining inputs. Conditioned on these features, a 3D-oriented one-step purifier purifies degraded inputs with spatial losses that encourage preservation of object identity, contours, and textural cues. To provide paired supervision, we construct a synthetic data engine that renders clean views of 3D assets and synthesises composite degradations. On the synthetic benchmark, the purifier improves image fidelity and downstream 3D geometry in only 2.3s on average, reducing TRELLIS.2 mesh distance by 61.5% relative to degraded inputs. VLM evaluation and human preferences on real photographs further support identity preservation and degradation correction. More demos and code are available at https://supra-3d.github.io/gate3dgen.",
+          "source": "arXiv Perception",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        },
+        {
+          "uid": "8e0a598854f23abf7a04e99a",
+          "title": "OmniRay: Camera-Agnostic Monocular 3D Reconstruction with Composite Ray Fields",
+          "url": "https://arxiv.org/abs/2610.31645v1",
+          "published": "2026-10-22T17:55:30+00:00",
+          "summary": "Monocular models recover 3D geometry from a single image in one pass, but most assume a pinhole camera and produce distorted geometry on the wide-angle imagery produced by fisheye and panoramic lenses. Camera-aware models remove this assumption by predicting a per-pixel ray field. However, they represent different camera geometries using a single fixed basis to capture both the overall camera projection and its finer variations. We argue that camera geometry can be viewed as having a hierarchy of complexity for representing rays. We present OmniRay, a feed-forward model whose Ray Module is composed of three components: a monotone radial base that captures radially symmetric structure, a spherical-harmonic residual for smooth deviations from it, and a free-form residual for remaining local variation. These components are composed as successive rotations on the sphere, allowing the representation to accommodate diverse camera geometries. Given a single image, OmniRay predicts a ray direction and an up-to-scale radial distance for every pixel, from which a 3D point cloud is recovered without needing camera information at inference time. Extensive experiments across different camera configurations demonstrate that OmniRay establishes a new state-of-the-art in camera-agnostic monocular 3D reconstruction.",
           "source": "arXiv Perception",
           "kind": "research",
           "doi": "",
