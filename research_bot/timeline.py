@@ -39,7 +39,10 @@ def render_timeline(entries: list[dict[str, object]]) -> None:
             status = str(entry.get("status", "published")) if entry else "pending"
             title = html.escape(str(entry["title"])) if entry else label
             summary = html.escape(str(entry.get("summary", "查看完整简报及原始来源。"))) if entry else "按计划更新，实际发布可能延迟。"
-            badge = {"published": "已发布", "empty": "暂无新内容", "fallback": "来源摘要", "pending": "等待更新"}[status]
+            badge = {
+                "published": "已发布", "empty": "暂无新内容", "fallback": "来源摘要",
+                "pending": "等待更新", "source_error": "来源访问异常",
+            }[status]
             link = f'<a class="read-link" href="{html.escape(str(entry["url"]), quote=True)}">阅读全文 <span>↗</span></a>' if entry else ""
             rows.append(
                 f'<li class="timeline-row {status}" data-category="{category}" data-time="{time}">'

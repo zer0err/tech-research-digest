@@ -97,6 +97,8 @@ def publish_post(topic: str, title: str, now: datetime, report: str, items: list
     report_body = linkify_bare_urls(report_body)
     topic_name = TOPICS.get(topic, (title, "定期更新"))[0]
     status = "empty" if not items else ("fallback" if "降级为" in report else "published")
+    if "## 来源访问异常" in report:
+        status = "source_error"
     summary = re.sub(r"\s+", " ", re.sub(r"[#*\[\]`]+", "", report)).strip()[:160]
     disclosure = "实践参考，未经运行验证。" if topic == "dev_practice" else "依据公开来源自动整理，请核对证据边界。"
     article = (

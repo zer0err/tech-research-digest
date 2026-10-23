@@ -24,6 +24,10 @@ LOG = logging.getLogger(__name__)
 USER_AGENT = "tech-research-digest/1.0 (+GitHub Actions; contact repository owner)"
 
 
+class SourceUnavailable(RuntimeError):
+    """No configured source could be checked successfully."""
+
+
 @dataclass(frozen=True)
 class Item:
     uid: str
@@ -132,8 +136,16 @@ def collect(topic: dict[str, Any], now: datetime) -> list[Item]:
                     source.get("kind", "research"),
                 )
     if topic["sources"] and not successful_sources:
-        raise RuntimeError("All configured sources failed; cannot claim there are no new items")
-    return sorted(found.values(), key=lambda x: x.published, reverse=True)
+        raise SourceUnavailable("All configured sources failed; cannot claim there are no new items")
+    ordered = sorted(found.values(), key=lambda x: x.published, reverse=True)
+    per_source = int(topic.get("max_per_source", len(ordered) or 1))
+    counts: dict[str, int] = {}
+    diversified = []
+    for item in ordered:
+        counts[item.source] = counts.get(item.source, 0) + 1
+        if counts[item.source] <= per_source:
+            diversified.append(item)
+    return diversified
 
 
 def load_state(path: Path) -> dict[str, Any]:

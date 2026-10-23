@@ -157,6 +157,8 @@ def test_charter_and_timeline_publish_states(tmp_path, monkeypatch):
     assert "暂无新内容" in index
     assert "Understand AI through evidence." in index
     assert (tmp_path / "docs/about.html").exists()
+    publish_post("model_research", "模型研究", datetime.now(UTC), "## 来源访问异常\n来源暂时不可用", [])
+    assert "来源访问异常" in (tmp_path / "docs/index.html").read_text()
 
 
 def test_url_dedup_survives_changed_feed_id():

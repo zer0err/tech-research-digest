@@ -32,6 +32,7 @@ topics:
     notify: false
     lookback_hours: 120
     max_items: 5
+    max_per_source: 1
     sources:
       - {name: Ollama Releases, url: "https://github.com/ollama/ollama/releases.atom"}
       - {name: Transformers Releases, url: "https://github.com/huggingface/transformers/releases.atom"}
