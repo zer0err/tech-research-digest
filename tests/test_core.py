@@ -115,6 +115,23 @@ def test_source_specific_filters_reject_unrelated_free_result(monkeypatch):
     assert core.collect(topic, datetime(2026, 10, 23, 1, tzinfo=UTC)) == []
 
 
+def test_topic_can_require_nonempty_source_summary(monkeypatch):
+    import research_bot.core as core
+
+    feed = b"""<rss><channel><item><title>AI release</title><link>https://example.com/release</link>
+    <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate><description></description></item></channel></rss>"""
+
+    class Response:
+        content = feed
+
+        def raise_for_status(self):
+            return None
+
+    monkeypatch.setattr(core.httpx.Client, "get", lambda *args, **kwargs: Response())
+    topic = {"lookback_hours": 48, "require_summary": True, "sources": [{"name": "official", "url": "https://example.com/rss"}]}
+    assert core.collect(topic, datetime(2026, 10, 23, 1, tzinfo=UTC)) == []
+
+
 def test_short_filter_terms_use_word_boundaries():
     assert contains_term("a free ai api", "ai")
     assert not contains_term("documentation is available", "ai")

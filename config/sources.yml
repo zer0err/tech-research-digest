@@ -4,6 +4,7 @@ topics:
     analysis_focus: "筛选最近的重要 AI 动态，并单独检查免费 VPS 与免费 AI 服务线索。免费必须说明是永久免费层、限时试用、赠送额度还是尚待核验；不得把营销标题当成已确认事实。"
     content_type: radar
     notify: true
+    require_summary: true
     lookback_hours: 96
     max_items: 6
     sources:
@@ -66,6 +67,7 @@ topics:
     analysis_focus: "追踪机构、实验室、开发者生态和正式发布；只总结公开资料中的可核验事实，不推断个人动机、立场或未公开关系。"
     content_type: brief
     notify: false
+    require_summary: true
     lookback_hours: 120
     max_items: 5
     keywords: [ai, artificial intelligence, model, agent, machine learning, research, developer]

@@ -96,6 +96,8 @@ def collect(topic: dict[str, Any], now: datetime) -> list[Item]:
                     continue
                 title = clean_text(entry.get("title", ""), 500)
                 summary = clean_text(entry.get("summary", entry.get("description", "")))
+                if topic.get("require_summary") and not summary:
+                    continue
                 haystack = f"{title} {summary}".lower()
                 excluded_prefixes = [prefix.lower() for prefix in source.get("exclude_title_prefixes", [])]
                 if excluded_prefixes and any(title.lower().startswith(prefix) for prefix in excluded_prefixes):
