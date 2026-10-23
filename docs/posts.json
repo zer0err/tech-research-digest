@@ -1,5 +1,14 @@
 [
   {
+    "title": "AI 开源项目与工具更新（2026-10-23）",
+    "date": "2026-10-23T12:58:59.841009+08:00",
+    "count": 5,
+    "url": "posts/20261023-open_source.html",
+    "topic": "open_source",
+    "status": "published",
+    "summary": "本期要点 - v0.40.9 引入 Phonon 语音合成（Apple Silicon）与 d3 决策模型，并在 Linux/Windows 上正式支持 Flint。 - v0.40.9 对流式 OpenAI/Anthropic 请求错误处理、上下文长度传递以及 Web‑search 思考设置做了关键修复。 - v0."
+  },
+  {
     "title": "AI 模型、训练与基础研究（2026-10-23）",
     "date": "2026-10-23T12:56:59.940193+08:00",
     "count": 0,

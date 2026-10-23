@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 开源项目与工具更新（2026-10-23）</title><meta name="description" content="AI 开源项目与工具更新（2026-10-23）：5 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css"></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav><a href="../index.html#latest">时间线</a><a href="../about.html">关于与章程</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">AI 开源项目与工具更新</p><dl><dt>发布日期</dt><dd>2026-10-23</dd><dt>研究条目</dt><dd>5 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · AI 开源项目与工具更新</p><h1>AI 开源项目与工具更新（2026-10-23）</h1><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期要点</h2>
+<ul>
+<li><strong>v0.40.9</strong> 引入 Phonon 语音合成（Apple Silicon）与 d3 决策模型，并在 Linux/Windows 上正式支持 Flint。</li>
+<li><strong>v0.40.9</strong> 对流式 OpenAI/Anthropic 请求错误处理、上下文长度传递以及 Web‑search 思考设置做了关键修复。</li>
+<li><strong>v0.40.8</strong> 发布 Recursive Flint：40 B 参数混合专家模型，支持 262 K‑token 上下文窗口，已在 Terminal‑Bench 2.1 与 SWE‑bench Verified 上分别达 54.9 % 与 74.2 % 的分数。</li>
+<li>预发布版本（rc3/rc2/rc1）已完成 Phonon checkpoint 迁移、Flint 思考逻辑修复与 llama.cpp 更新，但仍为 prerelease，非正式发布。</li>
+</ul>
+<h2>逐项速览</h2>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>关键变化</th>
+<th>证据</th>
+<th>限制/注意</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>v0.40.9</strong></td>
+<td>Phonon 语音合成在 Apple Silicon 上可用；<code>ollama run phonon</code> 直接播放文本；支持 <code>/v1/audio/speech</code> 端点</td>
+<td>[1]</td>
+<td>仅在 Apple Silicon 上验证；需自行配置音频输出</td>
+</tr>
+<tr>
+<td></td>
+<td>d3 决策模型（2B‑27B）可对文本/结构/图像进行分类、二元判断或概率评分</td>
+<td>[1]</td>
+<td>具体模型性能未公开；需自行评估</td>
+</tr>
+<tr>
+<td></td>
+<td>Flint 在 Linux/Windows 上正式发布</td>
+<td>[1]</td>
+<td>仅 MacOS 版已支持 GPU，Linux/Windows 版 GPU 支持待后续更新</td>
+</tr>
+<tr>
+<td></td>
+<td>流式 OpenAI/Anthropic 请求错误现在会报告失败，而非静默截断</td>
+<td>[1]</td>
+<td>需检查日志以捕获错误信息</td>
+</tr>
+<tr>
+<td></td>
+<td><code>ollama launch</code> 传递云模型上下文长度与能力给编码工具</td>
+<td>[1]</td>
+<td>需确认工具配置与模型匹配</td>
+</tr>
+<tr>
+<td></td>
+<td>Anthropic‑compatible web search 采用模型支持的思考设置</td>
+<td>[1]</td>
+<td>可能导致某些请求失败，需监控</td>
+</tr>
+<tr>
+<td><strong>v0.40.8</strong></td>
+<td>发布 Recursive Flint：40 B 参数混合专家模型，约 2.5 B 参数活跃</td>
+<td>[5]</td>
+<td>仅 MacOS GPU 支持，Linux/Windows GPU 待后续</td>
+</tr>
+<tr>
+<td></td>
+<td>支持 262 K‑token 上下文窗口</td>
+<td>[5]</td>
+<td>需确保工具与模型兼容</td>
+</tr>
+<tr>
+<td></td>
+<td>Terminal‑Bench 2.1 54.9 % 与 SWE‑bench Verified 74.2 %</td>
+<td>[5]</td>
+<td>仅在官方评测中公布，实际表现需自行复测</td>
+</tr>
+<tr>
+<td><strong>rc3/rc2/rc1</strong></td>
+<td>预发布版本完成 Phonon checkpoint 迁移、Flint 思考逻辑修复、llama.cpp 更新</td>
+<td>[2][3][4]</td>
+<td>仍为 prerelease，未正式发布，建议仅在测试环境使用</td>
+</tr>
+</tbody>
+</table>
+<h2>值得采取的行动</h2>
+<ol>
+<li><strong>验证 Phonon 语音合成</strong>：在 Apple Silicon 机器上执行 <code>ollama run phonon &quot;Hello from Ollama.&quot;</code> 并通过 <code>/v1/audio/speech</code> 端点进行集成测试。</li>
+<li><strong>评估 d3 决策模型</strong>：在本地或云环境中对业务场景（如客服票据分类）进行基准测试，记录准确率与推理时延。</li>
+<li><strong>迁移 Flint 至 Linux/Windows</strong>：在目标操作系统上安装 v0.40.9，确认 Flint 能正常启动并执行代码分析任务。</li>
+<li><strong>监控流式请求错误</strong>：在生产环境中开启日志捕获，验证 OpenAI/Anthropic 流式请求失败是否被正确报告。</li>
+<li><strong>尝试 Recursive Flint</strong>：在包含多文件代码库的项目中使用 <code>ollama run flint</code>，观察 262 K‑token 上下文窗口对调试与功能实现的影响。</li>
+<li><strong>关注后续 GPU 支持</strong>：跟踪 v0.40.9 及 v0.40.8 之后的发布说明，及时获取 Linux/Windows GPU 支持信息。</li>
+</ol>
+<h2>参考资料</h2>
+<ol>
+<li>Ollama Releases – v0.40.9 – &lt;<a href="https://github.com/ollama/ollama/releases/tag/v0.40.9">https://github.com/ollama/ollama/releases/tag/v0.40.9</a>&gt;</li>
+<li>Ollama Releases – v0.40.9-rc3 – &lt;<a href="https://github.com/ollama/ollama/releases/tag/v0.40.9-rc3">https://github.com/ollama/ollama/releases/tag/v0.40.9-rc3</a>&gt;</li>
+<li>Ollama Releases – v0.40.9-rc2 – &lt;<a href="https://github.com/ollama/ollama/releases/tag/v0.40.9-rc2">https://github.com/ollama/ollama/releases/tag/v0.40.9-rc2</a>&gt;</li>
+<li>Ollama Releases – v0.40.9-rc1 – &lt;<a href="https://github.com/ollama/ollama/releases/tag/v0.40.9-rc1">https://github.com/ollama/ollama/releases/tag/v0.40.9-rc1</a>&gt;</li>
+<li>Ollama Releases – v0.40.8 – &lt;<a href="https://github.com/ollama/ollama/releases/tag/v0.40.8">https://github.com/ollama/ollama/releases/tag/v0.40.8</a>&gt;</li>
+</ol>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>
