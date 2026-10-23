@@ -25,9 +25,18 @@
         "767a7f383549ba646ff22647"
       ],
       "updated_at": "2026-10-23T10:18:49.470663+00:00"
+    },
+    "ecosystem": {
+      "ids": [
+        "522904cf90083f63c232bca4",
+        "ca07548f6acfab72b6a7c670"
+      ],
+      "updated_at": "2026-10-23T10:22:06.605937+00:00"
     }
   },
   "all_ids": [
+    "522904cf90083f63c232bca4",
+    "ca07548f6acfab72b6a7c670",
     "f16051340e5c7aa961867bb5",
     "5102c2d6cf207a6223c53b75",
     "990a113a4bbd0f9b5e472e24",
@@ -40,6 +49,8 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://github.blog/security/how-bug-bounty-sharpens-one-researchers-security-skills",
+    "https://github.blog/ai-and-ml/github-copilot/how-to-continue-a-github-copilot-app-session-in-vs-code",
     "https://doi.org/10.1002/tesq.70244",
     "https://arxiv.org/abs/2610.31668v1",
     "https://arxiv.org/abs/2610.31659v1",
@@ -52,6 +63,8 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "4a745e9e25e6631ea4edf3cc",
+    "3f6dd967a18092eadb1b2942",
     "b4832beccd2ee87010268ce3",
     "bf25816a039e95a1765a5cd8",
     "aa2f9f921d31d0cb564fcc22",
@@ -168,6 +181,34 @@
           "published": "2026-10-22T17:59:03+00:00",
           "summary": "Auditing whether a text-to-image (T2I) model was fine-tuned on a particular image collection is difficult: a model can absorb collection-level visual characteristics without reproducing training images. Proactive dataset-use auditing plants a shared signal in a dataset before release, then later checks whether that signal appears in a suspect model's generated outputs. Existing approaches often trade off verifiability, fidelity, robustness, and deployability. We introduce $\\textbf{SpectralCanary}$, which uses a smooth low-pass mask to blend a fixed canary image into every collection image while leaving captions unchanged and requiring neither auxiliary generation nor per-image optimization. A lightweight verifier detects the transferred signal in suspect-model outputs. Across eight tests on the Pokemon dataset and three realistic data transformations, spanning two architectures families, SpectralCanary achieves the highest average per-generation TPR@$1\\%$ FPR ($91.1\\%$) and fixed threshold model-level accuracy using 30 generations ($94.8\\%$) among the evaluated methods. Across five datasets spanning artistic, medical, satellite, and fashion domains with SD3.5, SpectralCanary averages $92.4\\%$ per-generation TPR@$1\\%$ FPR while preserving the released images (SSIM $0.989$, LPIPS $0.022$) with a near-zero mean change FID (mean $Δ$FID $0.05$) across datasets. Matched-energy ablati",
           "source": "arXiv Perception",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        }
+      ]
+    },
+    "https://vorasio.com/posts/20261023-ecosystem.html": {
+      "topic": "ecosystem",
+      "created_at": "2026-10-23T10:22:06.605937+00:00",
+      "items": [
+        {
+          "uid": "522904cf90083f63c232bca4",
+          "title": "How bug bounty sharpens one researcher’s security skills",
+          "url": "https://github.blog/security/how-bug-bounty-sharpens-one-researchers-security-skills",
+          "published": "2026-10-22T17:21:30+00:00",
+          "summary": "As Cybersecurity Awareness Month continues, the GitHub Bug Bounty team spotlights @r31n, diving into their research approach, favorite bug classes, and advice for aspiring hackers. The post How bug bounty sharpens one researcher’s security skills appeared first on The GitHub Blog .",
+          "source": "GitHub 官方博客",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        },
+        {
+          "uid": "ca07548f6acfab72b6a7c670",
+          "title": "How to continue a GitHub Copilot app session in VS Code",
+          "url": "https://github.blog/ai-and-ml/github-copilot/how-to-continue-a-github-copilot-app-session-in-vs-code",
+          "published": "2026-10-19T18:47:22+00:00",
+          "summary": "Learn how to move an agent session from the GitHub Copilot app into VS Code without losing the conversation, code changes, or working context. The post How to continue a GitHub Copilot app session in VS Code appeared first on The GitHub Blog .",
+          "source": "GitHub 官方博客",
           "kind": "research",
           "doi": "",
           "date_precision": "day"
