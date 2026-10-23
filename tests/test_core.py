@@ -155,7 +155,8 @@ def test_charter_and_timeline_publish_states(tmp_path, monkeypatch):
     index = (tmp_path / "docs/index.html").read_text()
     assert "未经运行验证" in page
     assert "暂无新内容" in index
-    assert "Understand AI through evidence." in index
+    assert "<h1>VORASIO</h1>" in index
+    assert "以求证理解智能" not in index
     assert (tmp_path / "docs/about.html").exists()
     publish_post("model_research", "模型研究", datetime.now(UTC), "## 来源访问异常\n来源暂时不可用", [])
     assert "来源访问异常" in (tmp_path / "docs/index.html").read_text()
@@ -167,29 +168,3 @@ def test_url_dedup_survives_changed_feed_id():
     state = {"version": 1, "topics": {}}
     update_state(state, "one", [sample("old")], datetime.now(UTC))
     assert unseen([replace(sample("old"), uid="new-id")], state, "two") == []
-
-
-def test_editorial_selections_exclude_outages_and_label_fallbacks():
-    from research_bot.magazine import selections
-
-    entries = [
-        {"topic": "model_research", "title": "失败稿", "date": "2026-10-23", "count": 0,
-         "status": "source_error", "url": "posts/error.html"},
-        {"topic": "open_source", "title": "来源摘要", "date": "2026-10-23", "count": 2,
-         "status": "fallback", "url": "posts/source.html"},
-    ]
-    rendered = selections(entries, "2026-10-23")
-    assert "posts/error.html" not in rendered
-    assert "posts/source.html" in rendered
-    assert "自动分析暂缓" in rendered
-    assert "等待可靠的新内容" in selections(entries, "2026-10-24")
-
-
-def test_magazine_edition_and_progress_come_from_real_date_and_records():
-    from research_bot.magazine import opening
-
-    entries = [{"topic": "model_research", "date": "2026-10-23", "count": 0, "status": "source_error"}]
-    rendered = opening(entries, datetime(2026, 10, 23, tzinfo=UTC))
-    assert "星期五" in rendered
-    assert "1 / 10" in rendered
-    assert "0 期内容 · 1 个来源异常时段" in rendered

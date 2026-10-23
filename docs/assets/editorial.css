@@ -1,4 +1,5 @@
 :root{--paper:#f6f4ee;--surface:#fffefa;--ink:#192522;--green:#176453;--gold:#ad8545;--muted:#68756e;--line:#dddfd6}
+.editorial-hero{padding:34px 0 26px!important}.editorial-hero h1{font:600 clamp(2rem,4vw,3rem)/1.2 var(--sans)!important;letter-spacing:.04em!important;margin:0 0 12px!important}.archive-links{padding:30px 0;color:var(--muted);font-size:.85rem}
 .filters button{white-space:nowrap;flex-shrink:0}
 .source_error .node{background:var(--gold);border-color:var(--gold)}.source_error .status{color:var(--gold)}
 .timeline-search{display:block;font-size:.8rem;color:var(--muted);margin-bottom:18px}.timeline-search input{display:block;width:min(100%,420px);min-height:44px;padding:10px 14px;margin-top:6px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink);font:inherit}
