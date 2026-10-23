@@ -80,7 +80,7 @@ def render_timeline(entries: list[dict[str, object]]) -> None:
         '<p>从模型研究到产品落地，让技术信息成为可以回查、能够行动的知识。</p>'
         '<div class="principle-links"><a href="about.html">阅读使命与编辑章程 ↗</a>'
         '<a href="feed.xml">订阅 RSS ↗</a></div></section>'
-        '<script src="assets/timeline.js" defer></script>'
+        '<script src="assets/timeline.js?v=magazine-1" defer></script>'
     )
     Path("docs").mkdir(exist_ok=True)
     page = shell("VORASIO · AI 技术时间线", "每日 AI 研究、开发实践与智能硬件技术时间线", body, page_class="magazine")
