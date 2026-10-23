@@ -1,0 +1,54 @@
+name: Preview complete editorial day
+on:
+  workflow_dispatch:
+permissions: {contents: write, pages: write, id-token: write, actions: read}
+jobs:
+  morning_radar:
+    uses: ./.github/workflows/_editorial.yml
+    with: {slot: morning_radar}
+    secrets: inherit
+  model_research:
+    needs: morning_radar
+    uses: ./.github/workflows/_editorial.yml
+    with: {slot: model_research}
+    secrets: inherit
+  open_source:
+    needs: model_research
+    uses: ./.github/workflows/_editorial.yml
+    with: {slot: open_source}
+    secrets: inherit
+  paper_brief:
+    needs: open_source
+    uses: ./.github/workflows/_editorial.yml
+    with: {slot: paper_brief}
+    secrets: inherit
+  prompt_engineering:
+    needs: paper_brief
+    uses: ./.github/workflows/_editorial.yml
+    with: {slot: prompt_engineering}
+    secrets: inherit
+  core_research:
+    needs: prompt_engineering
+    uses: ./.github/workflows/_editorial.yml
+    with: {slot: core_research}
+    secrets: inherit
+  dev_practice:
+    needs: core_research
+    uses: ./.github/workflows/_editorial.yml
+    with: {slot: dev_practice}
+    secrets: inherit
+  applied_ai:
+    needs: dev_practice
+    uses: ./.github/workflows/_editorial.yml
+    with: {slot: applied_ai}
+    secrets: inherit
+  ecosystem:
+    needs: applied_ai
+    uses: ./.github/workflows/_editorial.yml
+    with: {slot: ecosystem}
+    secrets: inherit
+  daily_digest:
+    needs: ecosystem
+    uses: ./.github/workflows/_editorial.yml
+    with: {slot: daily_digest}
+    secrets: inherit

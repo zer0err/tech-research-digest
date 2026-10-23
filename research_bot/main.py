@@ -26,6 +26,7 @@ def prepare_topic(
 ) -> bool:
     state = load_state(state_path)
     candidates = collect(config, now)
+    candidates = [item for item in candidates if item.summary.strip() and item.url.startswith("https://")]
     fresh = unseen(candidates, state, topic)
     limit = int(config["max_items"])
     if config.get("content_type") == "radar":

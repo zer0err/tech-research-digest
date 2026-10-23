@@ -142,3 +142,17 @@ def test_topic_can_require_nonempty_source_summary(monkeypatch):
 def test_short_filter_terms_use_word_boundaries():
     assert contains_term("a free ai api", "ai")
     assert not contains_term("documentation is available", "ai")
+
+
+def test_charter_and_timeline_publish_states(tmp_path, monkeypatch):
+    from research_bot.charter import charter_text
+
+    assert "求真" in charter_text()
+    monkeypatch.chdir(tmp_path)
+    publish_post("dev_practice", "开发实践", datetime.now(UTC), "## 本时段状态\n暂无资料", [])
+    page = next((tmp_path / "docs/posts").glob("*.html")).read_text()
+    index = (tmp_path / "docs/index.html").read_text()
+    assert "未经运行验证" in page
+    assert "暂无新内容" in index
+    assert "Understand AI through evidence." in index
+    assert (tmp_path / "docs/about.html").exists()

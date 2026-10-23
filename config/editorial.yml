@@ -39,6 +39,7 @@ slots:
     hour: 14
     publish_key: core_research
     notify: false
+    max_items: 4
     allow_empty: true
     topic_by_weekday:
       "1": efficient_ai
@@ -57,6 +58,7 @@ slots:
     hour: 16
     publish_key: applied_ai
     notify: false
+    max_items: 4
     allow_empty: true
     topic_by_weekday:
       "1": ai_hardware

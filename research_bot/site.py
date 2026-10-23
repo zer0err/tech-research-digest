@@ -72,7 +72,7 @@ def shell(title: str, description: str, body: str, relative_root: str = "") -> s
 <link rel="stylesheet" href="{relative_root}assets/style.css">
 <link rel="stylesheet" href="{relative_root}assets/editorial.css"></head>
 <body><header class="site-header"><a class="brand" href="{relative_root}index.html"><span>VORASIO</span> 研究简报</a>
-<nav><a href="{relative_root}index.html#latest">最新研究</a><a href="{relative_root}index.html#topics">研究栏目</a></nav></header>
+<nav><a href="{relative_root}index.html#latest">时间线</a><a href="{relative_root}about.html">关于与章程</a></nav></header>
 <main>{body}</main><footer><strong>VORASIO 研究简报</strong>
 <span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>"""
 
@@ -95,13 +95,17 @@ def publish_post(topic: str, title: str, now: datetime, report: str, items: list
     report_body = report[title_match.end() :].lstrip() if title_match else report
     report_body = linkify_bare_urls(report_body)
     topic_name = TOPICS.get(topic, (title, "定期更新"))[0]
+    status = "empty" if not items else ("fallback" if "降级为" in report else "published")
+    summary = re.sub(r"\s+", " ", re.sub(r"[#*\[\]`]+", "", report)).strip()[:160]
+    disclosure = "实践参考，未经运行验证。" if topic == "dev_practice" else "依据公开来源自动整理，请核对证据边界。"
     article = (
         '<div class="article-layout"><aside class="article-meta">'
         f'<p class="eyebrow">{html.escape(topic_name)}</p><dl><dt>发布日期</dt><dd>{now:%Y-%m-%d}</dd>'
         f'<dt>研究条目</dt><dd>{len(items)} 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl>'
         '<a class="back-link" href="../index.html">← 返回全部简报</a></aside>'
         f'<article><p class="kicker">RESEARCH BRIEF · {html.escape(topic_name)}</p>'
-        f"<h1>{html.escape(display_title)}</h1><div class=\"article-body\">{md.render(report_body)}</div></article></div>"
+        f'<h1>{html.escape(display_title)}</h1><p class="disclosure">{disclosure}</p>'
+        f'<div class="article-body">{md.render(report_body)}</div></article></div>'
     )
     (POSTS_DIR / slug).write_text(shell(display_title, f"{display_title}：{len(items)} 项最新研究", article, "../"))
     entries = json.loads(INDEX_DATA.read_text()) if INDEX_DATA.exists() else []
@@ -114,6 +118,8 @@ def publish_post(topic: str, title: str, now: datetime, report: str, items: list
             "count": len(items),
             "url": f"posts/{slug}",
             "topic": topic,
+            "status": status,
+            "summary": summary,
         },
     )
     INDEX_DATA.write_text(json.dumps(entries[:365], ensure_ascii=False, indent=2) + "\n")
@@ -122,39 +128,6 @@ def publish_post(topic: str, title: str, now: datetime, report: str, items: list
 
 
 def render_index(entries: list[dict[str, object]]) -> None:
-    cards = []
-    descriptions = {
-        "morning_radar": "最新 AI 动态，以及当天新发现的免费 VPS 与免费 AI 服务线索。",
-        "open_source": "开源项目正式版本、兼容性与迁移风险速览。",
-        "prompt_engineering": "提示词、上下文工程、RAG 与评测方法更新。",
-        "dev_practice": "依据官方资料整理的开发与部署实践。",
-        "ecosystem": "人物、机构、实验室与开发者生态的可核验动态。",
-        "daily_digest": "汇总今天已经发布的全部站内内容。",
-    }
-    for index, entry in enumerate(entries):
-        date = str(entry["date"])[:10]
-        topic_name = TOPICS.get(str(entry["topic"]), (str(entry["topic"]), ""))[0]
-        card_class = "post-card featured" if index == 0 else "post-card"
-        summary = descriptions.get(str(entry["topic"]), f"基于 {int(entry['count'])} 项最新资料整理的中文技术简报。")
-        cards.append(
-            f'<article class="{card_class}"><a href="{html.escape(str(entry["url"]), quote=True)}">'
-            f'<p class="card-topic">{html.escape(topic_name)}</p><h2>{html.escape(str(entry["title"]))}</h2>'
-            f'<p class="card-summary">{html.escape(summary)}</p>'
-            f'<p class="card-meta"><time>{html.escape(date)}</time><span>阅读全文 →</span></p></a></article>'
-        )
-    topics = "".join(
-        f'<article><p>{html.escape(schedule)}</p><h3>{html.escape(name)}</h3><span>持续追踪、筛选与深度分析</span></article>'
-        for name, schedule in EDITORIAL_SLOTS
-    )
-    body = (
-        '<section class="hero"><div><p class="eyebrow">VORASIO · RESEARCH DIGEST</p>'
-        '<h1>追踪 AI 模型，<br>直到智能硬件落地。</h1></div>'
-        '<p class="hero-intro">覆盖模型训练、高效化、推理系统、芯片、感知交互、具身智能与产品可靠性的完整技术链。</p></section>'
-        f'<section id="topics" class="topic-section"><div class="section-heading"><p>研究版图</p>'
-        f'<h2>每天十个自动编辑时段</h2></div><div class="topic-grid">{topics}</div></section>'
-        '<section id="latest" class="latest-section"><div class="section-heading"><p>最新发布</p>'
-        '<h2>研究简报</h2></div><div class="post-grid">'
-        + "".join(cards)
-        + "</div></section>"
-    )
-    (SITE_DIR / "index.html").write_text(shell("VORASIO 研究简报", "AI、Agent、音频与端侧智能的中文深度研究简报", body))
+    from .timeline import render_timeline
+
+    render_timeline(entries)

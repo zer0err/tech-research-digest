@@ -18,6 +18,8 @@ import feedparser
 import httpx
 from dateutil import parser as dateparser
 
+from .charter import charter_text
+
 LOG = logging.getLogger(__name__)
 USER_AGENT = "tech-research-digest/1.0 (+GitHub Actions; contact repository owner)"
 
@@ -111,11 +113,11 @@ def collect(topic: dict[str, Any], now: datetime) -> list[Item]:
                     continue
                 if source_exclude_any and any(contains_term(haystack, word) for word in source_exclude_any):
                     continue
-                if keywords and not any(word in haystack for word in keywords):
+                if keywords and not any(contains_term(haystack, word) for word in keywords):
                     continue
-                if required_any and not any(word in haystack for word in required_any):
+                if required_any and not any(contains_term(haystack, word) for word in required_any):
                     continue
-                if exclude_any and any(word in haystack for word in exclude_any):
+                if exclude_any and any(contains_term(haystack, word) for word in exclude_any):
                     continue
                 uid = item_id(entry)
                 found[uid] = Item(
@@ -208,6 +210,7 @@ def groq_analyse(title: str, focus: str, items: list[Item], content_type: str = 
         "信息缺失时明确写‘摘要未提供/无法从摘要确认’，每项事实用对应的 [n] 标注。"
         "区分摘要明确事实、作者主张和你的推断；不要把单篇论文概括成行业共识。"
     )
+    system += "\n以下编辑章程具有最高编辑优先级：\n" + charter_text()
     format_instructions = {
         "radar": (
             "## 本时段要点\n给出3-5条最值得关注的信息。\n"
