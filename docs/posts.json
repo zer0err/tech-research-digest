@@ -1,5 +1,14 @@
 [
   {
+    "title": "VORASIO AI 日报（2026-10-23）",
+    "date": "2026-10-23T23:29:51.628120+08:00",
+    "count": 5,
+    "url": "posts/20261023-daily_digest.html",
+    "topic": "daily_digest",
+    "status": "published",
+    "summary": "今日概览 今天共发布 5 个内容更新。以下列表仅汇总站内已经通过发布流程的内容，不额外生成未经来源支持的结论。 今日内容 - AI 开源项目与工具更新（2026-10-23）(https://vorasio.com/posts/20261023-open_source.html) - AI 论文午间速览（2026-10"
+  },
+  {
     "title": "多模态感知、音视频与人机交互（2026-10-23）",
     "date": "2026-10-23T19:28:05.062027+08:00",
     "count": 3,
@@ -7,15 +16,6 @@
     "topic": "core_research",
     "status": "published",
     "summary": "本期结论 1. 通过为生成式代理提供物理可行性验证工具，BrickWright 能将物理有效率从 9%–69% 提升至 100%1，表明单模态（文本/图像）与物理约束的融合能显著提升多模态生成质量。 2. Gate3DGen 的选择性预处理在合成基准上将 TRELLIS.2 网格距离降低 61.5%2，说明在单模态 3"
-  },
-  {
-    "title": "VORASIO AI 日报（2026-10-23）",
-    "date": "2026-10-23T18:22:37.650655+08:00",
-    "count": 5,
-    "url": "posts/20261023-daily_digest.html",
-    "topic": "daily_digest",
-    "status": "published",
-    "summary": "今日概览 今天共发布 5 个内容更新。以下列表仅汇总站内已经通过发布流程的内容，不额外生成未经来源支持的结论。 今日内容 - AI 开源项目与工具更新（2026-10-23）(https://vorasio.com/posts/20261023-open_source.html) - AI 论文午间速览（2026-10"
   },
   {
     "title": "AI 人物、机构与产业生态（2026-10-23）",
