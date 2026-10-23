@@ -3,15 +3,18 @@
   if (!picker) return;
   const buttons = [...document.querySelectorAll('[data-filter]')];
   let category = '全部';
+  const search = document.querySelector('#timeline-search');
   function update() {
     document.querySelectorAll('.day-section').forEach(section => {
       section.hidden = section.dataset.date !== picker.value;
       section.querySelectorAll('.timeline-row').forEach(row => {
-        row.hidden = category !== '全部' && row.dataset.category !== category;
+        row.hidden = (category !== '全部' && row.dataset.category !== category)
+          || !row.textContent.toLowerCase().includes(search.value.trim().toLowerCase());
       });
     });
   }
   picker.addEventListener('change', update);
+  search.addEventListener('input', update);
   buttons.forEach(button => button.addEventListener('click', () => {
     category = button.dataset.filter;
     buttons.forEach(b => b.setAttribute('aria-pressed', String(b === button)));

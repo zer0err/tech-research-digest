@@ -6,7 +6,7 @@ from research_bot.site import base_url, linkify_bare_urls, publish_post
 
 
 def sample(uid: str) -> Item:
-    return Item(uid, "title", "https://example.com/x", "2026-01-01T00:00:00+00:00", "abstract", "test")
+    return Item(uid, "title", f"https://example.com/{uid}", "2026-01-01T00:00:00+00:00", "abstract", "test")
 
 
 def test_canonical_url_removes_tracking_query_and_fragment():
@@ -156,3 +156,11 @@ def test_charter_and_timeline_publish_states(tmp_path, monkeypatch):
     assert "暂无新内容" in index
     assert "Understand AI through evidence." in index
     assert (tmp_path / "docs/about.html").exists()
+
+
+def test_url_dedup_survives_changed_feed_id():
+    from dataclasses import replace
+
+    state = {"version": 1, "topics": {}}
+    update_state(state, "one", [sample("old")], datetime.now(UTC))
+    assert unseen([replace(sample("old"), uid="new-id")], state, "two") == []

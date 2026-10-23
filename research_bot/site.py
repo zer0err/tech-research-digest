@@ -70,7 +70,8 @@ def shell(title: str, description: str, body: str, relative_root: str = "") -> s
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{html.escape(title)}</title><meta name="description" content="{html.escape(description, quote=True)}">
 <link rel="stylesheet" href="{relative_root}assets/style.css">
-<link rel="stylesheet" href="{relative_root}assets/editorial.css"></head>
+<link rel="stylesheet" href="{relative_root}assets/editorial.css">
+<script src="{relative_root}assets/article.js" defer></script></head>
 <body><header class="site-header"><a class="brand" href="{relative_root}index.html"><span>VORASIO</span> 研究简报</a>
 <nav><a href="{relative_root}index.html#latest">时间线</a><a href="{relative_root}about.html">关于与章程</a></nav></header>
 <main>{body}</main><footer><strong>VORASIO 研究简报</strong>

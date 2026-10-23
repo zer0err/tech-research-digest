@@ -74,6 +74,7 @@ def collect(topic: dict[str, Any], now: datetime) -> list[Item]:
     required_any = [k.lower() for k in topic.get("required_any", [])]
     exclude_any = [k.lower() for k in topic.get("exclude_any", [])]
     found: dict[str, Item] = {}
+    successful_sources = 0
     with httpx.Client(timeout=25, follow_redirects=True, headers={"User-Agent": USER_AGENT}) as client:
         for source in topic["sources"]:
             for attempt in range(3):
@@ -92,6 +93,7 @@ def collect(topic: dict[str, Any], now: datetime) -> list[Item]:
                         time.sleep(2**attempt + random.random())
             if not parsed:
                 continue
+            successful_sources += 1
             for entry in parsed.entries:
                 published = parse_time(entry)
                 if not published or published < cutoff or published > now + timedelta(hours=2):
@@ -129,6 +131,8 @@ def collect(topic: dict[str, Any], now: datetime) -> list[Item]:
                     source["name"],
                     source.get("kind", "research"),
                 )
+    if topic["sources"] and not successful_sources:
+        raise RuntimeError("All configured sources failed; cannot claim there are no new items")
     return sorted(found.values(), key=lambda x: x.published, reverse=True)
 
 
@@ -146,7 +150,8 @@ def unseen(items: list[Item], state: dict[str, Any], topic: str) -> list[Item]:
     seen = set(state.get("all_ids", []))
     for topic_state in state["topics"].values():
         seen.update(topic_state.get("ids", []))
-    return [item for item in items if item.uid not in seen]
+    seen_urls = set(state.get("all_urls", []))
+    return [item for item in items if item.uid not in seen and canonical_url(item.url) not in seen_urls]
 
 
 def update_state(state: dict[str, Any], topic: str, items: list[Item], now: datetime) -> None:
@@ -155,6 +160,7 @@ def update_state(state: dict[str, Any], topic: str, items: list[Item], now: date
     state["topics"][topic] = {"ids": ids, "updated_at": now.isoformat()}
     global_ids = state.get("all_ids", [])
     state["all_ids"] = list(dict.fromkeys([item.uid for item in items] + global_ids))[:10000]
+    state["all_urls"] = list(dict.fromkeys([canonical_url(item.url) for item in items] + state.get("all_urls", [])))[:10000]
 
 
 def source_packet(items: list[Item]) -> str:
@@ -257,7 +263,13 @@ def groq_analyse(title: str, focus: str, items: list[Item], content_type: str = 
                 json=payload,
             )
             if response.status_code == 200:
-                return response.json()["choices"][0]["message"]["content"].strip()
+                data = response.json()
+                LOG.info("Groq token usage: %s", data.get("usage", {}))
+                choice = data["choices"][0]
+                if choice.get("finish_reason") not in {None, "stop"}:
+                    LOG.warning("Groq output did not finish normally; using source-only fallback")
+                    return fallback_report(items, content_type)
+                return choice["message"]["content"].strip()
             if response.status_code not in {429, 498, 500, 502, 503, 504}:
                 response.raise_for_status()
             wait = float(response.headers.get("retry-after", min(60, 2**attempt))) + random.random()

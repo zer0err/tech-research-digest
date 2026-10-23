@@ -54,9 +54,15 @@ def prepare_topic(
             report = fallback_report(selected, content_type)
     else:
         report = "## 本时段状态\n\n本时段未发现符合日期、相关性与去重条件的新资料。"
-    if config.get("content_type") == "radar" and not any(item.kind == "resource" for item in selected):
+    if config.get("content_type") == "radar":
         marker = "## 今日免费 VPS 与 AI 资源"
-        replacement = f"{marker}\n\n今日未发现新的、可由公开来源确认的免费资源。"
+        resources = [
+            f"- [{i}] **待核验线索：{item.title}**。免费期限、额度、信用卡、地区与续费条件："
+            f"尚未经官方页面核验。[查看来源]({item.url})"
+            for i, item in enumerate(selected, 1) if item.kind == "resource"
+        ]
+        resource_text = "\n".join(resources) if resources else "今日未发现新的、可由公开来源确认的免费资源。"
+        replacement = f"{marker}\n\n{resource_text}"
         if marker in report:
             report = re.sub(r"## 今日免费 VPS 与 AI 资源.*?(?=\n## |\Z)", replacement, report, flags=re.S)
         else:

@@ -4,6 +4,7 @@ import html
 import json
 from datetime import datetime
 from pathlib import Path
+from xml.etree.ElementTree import Element, SubElement, tostring
 from zoneinfo import ZoneInfo
 
 from markdown_it import MarkdownIt
@@ -25,7 +26,7 @@ SLOTS = [
 
 
 def render_timeline(entries: list[dict[str, object]]) -> None:
-    from .site import shell
+    from .site import base_url, shell
 
     today = datetime.now(ZoneInfo("Asia/Shanghai")).date().isoformat()
     days = sorted({today, *(str(e["date"])[:10] for e in entries)}, reverse=True)
@@ -61,6 +62,7 @@ def render_timeline(entries: list[dict[str, object]]) -> None:
         '<div class="hero-note"><span class="live-dot"></span>每周七天 · 每日十个编辑时段 · 有据可查</div></section>'
         '<section id="latest"><div class="timeline-toolbar"><div><p class="eyebrow">每日出版</p><h2>今日技术时间线</h2></div>'
         f'<label>浏览日期 <select id="date-picker">{options}</select></label></div>'
+        '<label class="timeline-search">搜索当前日期 <input id="timeline-search" type="search" placeholder="标题或摘要关键词"></label>'
         '<div class="filters" role="group" aria-label="筛选内容">'
         + "".join(
             f'<button type="button" data-filter="{v}" aria-pressed="{str(v == "全部").lower()}">{v}</button>'
@@ -71,7 +73,7 @@ def render_timeline(entries: list[dict[str, object]]) -> None:
         + '</section><section id="topics" class="principle-strip"><p class="eyebrow">我们的约定</p>'
         '<h2>求真 · 独立 · 实用 · 克制 · 尊重 · 可纠正</h2>'
         '<p>从模型研究到产品落地，让技术信息成为可以回查、能够行动的知识。</p>'
-        '<a href="about.html">阅读使命与编辑章程 ↗</a></section>'
+        '<a href="about.html">阅读使命与编辑章程 ↗</a> · <a href="feed.xml">订阅 RSS ↗</a></section>'
         '<script src="assets/timeline.js" defer></script>'
     )
     Path("docs").mkdir(exist_ok=True)
@@ -80,3 +82,15 @@ def render_timeline(entries: list[dict[str, object]]) -> None:
     about = '<article class="about-page article-body">' + md.render(charter_text()) + '</article>'
     Path("docs/about.html").write_text(shell("VORASIO · 使命与编辑章程", "品牌使命与自动编辑原则", about))
     Path("docs/posts.json").write_text(json.dumps(entries, ensure_ascii=False, indent=2) + "\n")
+    rss = Element("rss", {"version": "2.0"})
+    channel = SubElement(rss, "channel")
+    for tag, text in (("title", "VORASIO 技术简报"), ("link", base_url()), ("description", "以求证理解智能，以实践创造价值。")):
+        SubElement(channel, tag).text = text
+    for entry in entries[:100]:
+        item = SubElement(channel, "item")
+        for tag, text in (
+            ("title", str(entry["title"])), ("link", base_url() + "/" + str(entry["url"])),
+            ("guid", base_url() + "/" + str(entry["url"])), ("description", str(entry.get("summary", ""))),
+        ):
+            SubElement(item, tag).text = text
+    Path("docs/feed.xml").write_bytes(tostring(rss, encoding="utf-8", xml_declaration=True))
