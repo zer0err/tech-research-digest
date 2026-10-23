@@ -133,13 +133,15 @@
     },
     "open_source": {
       "ids": [
+        "da838ef163b59d2f4118281e",
+        "fe0903755f1ec81fb4fd8f3d",
         "0c1265997e299e56ca6c8050",
         "dc4edcc4b2ce6bfa1a9af973",
         "086f35e772e2c566616da508",
         "5ab246c57a29052d27d46ee0",
         "fc8671d3aacb7d5b2edf772d"
       ],
-      "updated_at": "2026-10-23T04:58:59.841009+00:00"
+      "updated_at": "2026-10-23T10:04:48.980336+00:00"
     },
     "prompt_engineering": {
       "ids": [
@@ -172,6 +174,8 @@
     }
   },
   "all_ids": [
+    "da838ef163b59d2f4118281e",
+    "fe0903755f1ec81fb4fd8f3d",
     "13710c68aa41a2658d4ede2d",
     "250cbb818fd0d4e8986b9afb",
     "100a07702742886da97e755d",
@@ -255,6 +259,8 @@
     "f1d85ffac16bb26af9193e11"
   ],
   "all_urls": [
+    "https://github.com/ollama/ollama/releases/tag/v0.40.9",
+    "https://github.com/huggingface/transformers/releases/tag/v5.20.2",
     "https://github.com/pytorch/pytorch/releases/tag/viable%2Fstrict%2F1792747910",
     "https://github.com/pytorch/pytorch/releases/tag/viable%2Fstrict%2F1792744610",
     "https://github.com/pytorch/pytorch/releases/tag/viable%2Fstrict%2F1792733309",
@@ -264,6 +270,8 @@
     "https://arxiv.org/abs/2610.31649v1"
   ],
   "all_titles": [
+    "3b92746be1a306be7a2ec2fd",
+    "fee017380f175c54fecd84c3",
     "50726890996812a367e93b6d",
     "a1b6872f9626d4b99aa88e0c",
     "1877bda2ddf17612fc247610"
