@@ -166,8 +166,9 @@ def fetch_entries(source: dict[str, Any], client: httpx.Client, now: datetime, c
         if token := os.getenv("GH_SOURCE_TOKEN", ""):
             headers["Authorization"] = f"Bearer {token}"
         records = get(client, url, params={"per_page": limit}, headers=headers).json()
+        repository = urlsplit(url).path.removeprefix("/repos/").removesuffix("/releases")
         return [
-            {"id": str(record["id"]), "title": record.get("name") or record.get("tag_name", ""),
+            {"id": str(record["id"]), "title": f"{repository}: {record.get('name') or record.get('tag_name', '')}",
              "link": record["html_url"], "published": record.get("published_at"), "summary": record.get("body", "")}
             for record in records if not record.get("draft") and not record.get("prerelease")
         ]

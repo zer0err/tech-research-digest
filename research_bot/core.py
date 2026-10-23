@@ -128,6 +128,8 @@ def collect(topic: dict[str, Any], now: datetime) -> list[Item]:
                 if exclude_any and any(contains_term(haystack, word) for word in exclude_any):
                     continue
                 uid = item_id(entry)
+                if uid in found and len(found[uid].summary) >= len(summary):
+                    continue
                 found[uid] = Item(
                     uid,
                     title,

@@ -60,3 +60,35 @@ def test_github_skips_drafts_and_prereleases(monkeypatch):
         records = fetch_entries({"type": "github", "url": "https://api.github.com/repos/a/b/releases"},
                                 client, datetime.now(UTC), datetime.now(UTC))
     assert len(records) == 1
+    assert records[0]["title"].startswith("a/b:")
+
+
+def test_acl_uses_paper_date_not_rss_correction(monkeypatch):
+    monkeypatch.setattr("research_bot.sources.time.sleep", lambda _: None)
+    feed = '''<rss version="2.0"><channel><title>ACL</title><link>https://aclanthology.org</link><description>ACL</description>
+      <item><title>Person</title><link>https://aclanthology.org/people/a/</link></item>
+      <item><title>Paper</title><link>https://aclanthology.org/2025.acl-long.1/</link>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate></item>
+    </channel></rss>'''
+    def handler(request):
+        if request.url.path == "/index.xml":
+            return httpx.Response(200, text=feed)
+        assert request.url.path == "/2025.acl-long.1/"
+        return httpx.Response(200, text='<meta name="citation_publication_date" content="2025/07/01">'
+                              '<div class="acl-abstract">Original abstract</div>')
+    with httpx.Client(transport=httpx.MockTransport(handler)) as client:
+        records = fetch_entries({"type": "acl", "url": "https://aclanthology.org/index.xml"}, client,
+                                datetime(2026, 10, 23, tzinfo=UTC), datetime(2025, 1, 1, tzinfo=UTC))
+    assert len(records) == 1
+    assert records[0]["published"].startswith("2025-07-01")
+    assert records[0]["summary"] == "Original abstract"
+
+
+def test_source_tokens_not_sent_to_other_hosts(monkeypatch):
+    import pytest
+    monkeypatch.setenv("OPENALEX_API_KEY", "secret")
+    monkeypatch.setenv("GH_SOURCE_TOKEN", "secret")
+    with httpx.Client(transport=httpx.MockTransport(lambda _: (_ for _ in ()).throw(AssertionError()))) as client:
+        for kind in ("openalex", "github"):
+            with pytest.raises(ValueError):
+                fetch_entries({"type": kind, "url": "https://example.com/"}, client, datetime.now(UTC), datetime.now(UTC))
