@@ -12,7 +12,7 @@ from zoneinfo import ZoneInfo
 import yaml
 
 from .audit import decision
-from .core import SourceUnavailable, collect, dump_items, groq_analyse, load_state, report_validation_errors, unseen
+from .core import SourceUnavailable, collect, dump_items, groq_analyse, load_state, normalize_report, report_validation_errors, unseen
 from .site import publish_post
 
 
@@ -69,7 +69,7 @@ def prepare_topic(
             logging.warning("Analysis unavailable for %s (%s); skipping publication", topic, type(exc).__name__)
             decision(key, "analysis_api_failure", error=type(exc).__name__, **counts)
             return False
-        report = re.sub(r"【(\d+)】", r"[\1]", report)
+        report = normalize_report(report, content_type)
         issues = report_validation_errors(report, selected, content_type)
         if "降级为" in report:
             issues.append("model_truncated_or_fallback")

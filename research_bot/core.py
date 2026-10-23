@@ -232,12 +232,20 @@ def report_validation_errors(report: str, items: list[Item], content_type: str) 
         for block in [*code_blocks, *commands] for line in block.splitlines() if line.strip()
     )
     # Conservative numeric guard for top-line claims; unsupported figures must not become headlines.
-    evidence = unicodedata.normalize("NFKC", " ".join(item.summary for item in items)).replace(",", "")
+    evidence = unicodedata.normalize("NFKC", " ".join(
+        f"{item.title} {item.published} {item.summary}" for item in items
+    )).replace(",", "")
+    for month, name in enumerate(("january", "february", "march", "april", "may", "june", "july", "august",
+                                  "september", "october", "november", "december"), 1):
+        evidence = re.sub(rf"\b{name}\b", str(month), evidence, flags=re.I)
+    evidence = re.sub(r"(?<=\d)\s+(?=%)", "", evidence)
     evidence_numbers = set(re.findall(r"\d+(?:\.\d+)?%?", evidence))
     headline = re.sub(r"\[\d+\]", "", unicodedata.normalize("NFKC", first_section)).replace(",", "")
     headline = re.sub(r"^\d+\.\s", "", headline, flags=re.M)
+    headline = re.sub(r"(?<=\d)\s+(?=%)", "", headline)
     grounded_numbers = set(re.findall(r"\d+(?:\.\d+)?%?", headline)) <= evidence_numbers
     checks = {
+        "missing_headline_evidence": bool(re.search(r"\[\d+\]", first_section)),
         "missing_sections": all(heading in report for heading in headings),
         "missing_source_numbers": all(f"[{index}]" in report for index in range(1, len(items) + 1)),
         "uncited_headline_claims": cited_claims,
@@ -245,6 +253,16 @@ def report_validation_errors(report: str, items: list[Item], content_type: str) 
         "unsupported_headline_numbers": grounded_numbers,
     }
     return [reason for reason, passed in checks.items() if not passed]
+
+
+def normalize_report(report: str, content_type: str) -> str:
+    """Fix citation glyphs; omit uncited headline bullets rather than invent attribution."""
+    report = re.sub(r"【(\d+)】", r"[\1]", report)
+    headings = REPORT_HEADINGS.get(content_type, REPORT_HEADINGS["brief"])
+    first, separator, rest = report.partition(headings[1])
+    first = "\n".join(line for line in first.splitlines()
+                      if not re.match(r"^(?:[-*]|\d+\.)\s+", line) or re.search(r"\[\d+\]", line))
+    return first + ("\n\n" + separator + rest if separator else "")
 
 
 def report_is_complete(report: str, items: list[Item], content_type: str) -> bool:
@@ -281,6 +299,7 @@ def groq_analyse(title: str, focus: str, items: list[Item], content_type: str = 
         "信息缺失时明确写‘摘要未提供/无法从摘要确认’，每项事实用对应的 [n] 标注。"
         "格式硬性要求：每一条要点、结论和事实所在的列表行必须在行末标注 [1] 等来源编号；"
         "参考资料也必须使用 [1] 标题 URL 的格式，不得只使用 1. 标题 URL。"
+        "引用数值时保留来源的原始小数精度，不要自行取整或估算百分比。"
         "区分摘要明确事实、作者主张和你的推断；不要把单篇论文概括成行业共识。"
     )
     system += "\n以下编辑章程具有最高编辑优先级：\n" + charter_text()

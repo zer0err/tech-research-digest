@@ -179,3 +179,10 @@ def test_report_rejects_invented_commands():
 def test_report_rejects_unsupported_headline_numbers():
     report = "## 本期要点\n- 性能提升 50%。[1]\n## 逐项速览\n内容\n## 值得采取的行动\n验证\n## 参考资料\n[1] URL"
     assert not report_is_complete(report, [sample("a")], "brief")
+
+
+def test_headline_date_can_come_from_source_title():
+    from dataclasses import replace
+    item = replace(sample("a"), title="September update", published="2026-10-22T00:00:00+00:00")
+    report = "## 本期要点\n- 2026年9月更新。[1]\n## 逐项速览\n内容\n## 值得采取的行动\n验证\n## 参考资料\n[1] URL"
+    assert report_is_complete(report, [item], "brief")
