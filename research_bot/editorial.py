@@ -11,6 +11,7 @@ from zoneinfo import ZoneInfo
 
 import yaml
 
+from .audit import decision
 from .main import prepare_topic
 from .site import base_url, publish_post
 
@@ -32,6 +33,9 @@ def resolve_slot(slot_name: str, now: datetime, editorial: dict[str, object], to
 
 def prepare_daily_digest(now: datetime, notify: bool = True) -> bool:
     Path("work/pending.json").unlink(missing_ok=True)
+    if os.getenv("PUBLICATION_MODE") == "test":
+        decision("daily_digest", "test_only")
+        return False
     data_path = Path("docs/posts.json")
     entries = json.loads(data_path.read_text()) if data_path.exists() else []
     local_date = now.astimezone(BEIJING).date().isoformat()

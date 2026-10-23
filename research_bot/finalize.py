@@ -14,6 +14,8 @@ def main() -> int:
     parser.add_argument("--state", default="state/seen.json")
     args = parser.parse_args()
     pending = json.loads(Path(args.pending).read_text())
+    if pending.get("mode", "production") != "production":
+        raise ValueError("Test output cannot be published or added to production state")
     items = [Item(**raw) for raw in pending["items"]]
     count = len(items) if pending["topic"] != "daily_digest" else int(pending.get("published_count", 0))
     if count <= 0:
@@ -24,6 +26,10 @@ def main() -> int:
     state_path = Path(args.state)
     state = load_state(state_path)
     update_state(state, pending["topic"], items, datetime.fromisoformat(pending["created_at"]))
+    if items:
+        state.setdefault("publications", {})[pending["url"]] = {
+            "topic": pending["topic"], "created_at": pending["created_at"], "items": pending["items"],
+        }
     state_path.parent.mkdir(parents=True, exist_ok=True)
     state_path.write_text(json.dumps(state, ensure_ascii=False, indent=2) + "\n")
     return 0

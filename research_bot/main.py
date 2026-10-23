@@ -11,7 +11,8 @@ from zoneinfo import ZoneInfo
 
 import yaml
 
-from .core import SourceUnavailable, collect, dump_items, groq_analyse, load_state, report_is_complete, unseen
+from .audit import decision
+from .core import SourceUnavailable, collect, dump_items, groq_analyse, load_state, report_validation_errors, unseen
 from .site import publish_post
 
 
@@ -26,17 +27,25 @@ def prepare_topic(
 ) -> bool:
     # A skipped run must never reuse a previous run's publish/notification request.
     Path("work/pending.json").unlink(missing_ok=True)
-    state = load_state(state_path)
+    mode = os.getenv("PUBLICATION_MODE", "production")
+    if mode not in {"production", "test"}:
+        raise ValueError("Unknown publication mode")
+    state = load_state(state_path) if mode == "production" else {"version": 1, "topics": {}}
+    key = publish_key or topic
     try:
         candidates = collect(config, now)
     except SourceUnavailable:
         if dry_run:
             raise
         logging.exception("Sources unavailable for %s", topic)
+        decision(key, "source_failure", mode=mode)
         return False
+    collected = len(candidates)
     candidates = [item for item in candidates if len(item.summary.strip()) >= 40 and item.title.strip()
                   and item.url.startswith("https://")]
     fresh = unseen(candidates, state, topic)
+    counts = {"collected": collected, "usable": len(candidates), "already_published": len(candidates) - len(fresh),
+              "unpublished": len(fresh), "mode": mode}
     limit = min(3, int(config["max_items"]))
     if config.get("content_type") == "radar":
         resources = [item for item in fresh if item.kind == "resource"][:2]
@@ -46,6 +55,8 @@ def prepare_topic(
         selected = fresh[:limit]
     if not selected:
         logging.info("No unseen in-window items for %s", topic)
+        reason = "already_published" if candidates else ("insufficient_abstract" if collected else "no_matching_in_window")
+        decision(key, reason, **counts)
         return False
     if dry_run:
         print(json.dumps(dump_items(selected), ensure_ascii=False, indent=2))
@@ -56,14 +67,21 @@ def prepare_topic(
             report = groq_analyse(str(config["title"]), str(config["analysis_focus"]), selected, content_type)
         except Exception as exc:
             logging.warning("Analysis unavailable for %s (%s); skipping publication", topic, type(exc).__name__)
+            decision(key, "analysis_api_failure", error=type(exc).__name__, **counts)
             return False
         report = re.sub(r"【(\d+)】", r"[\1]", report)
-        if report_is_complete(report, selected, content_type) and "降级为" not in report and len(report) >= 300:
+        issues = report_validation_errors(report, selected, content_type)
+        if "降级为" in report:
+            issues.append("model_truncated_or_fallback")
+        if len(report) < 300:
+            issues.append("insufficient_analysis")
+        if not issues:
             break
-        logging.warning("Incomplete analysis for %s; attempt %s rejected", topic, attempt + 1)
+        logging.warning("Analysis for %s rejected (%s); attempt %s", topic, ",".join(issues), attempt + 1)
         Path("reports").mkdir(exist_ok=True)
         Path(f"reports/rejected-{topic}-{now:%Y%m%dT%H%M%SZ}-{attempt}.md").write_text(report)
         if attempt == 1:
+            decision(key, "analysis_rejected", issues=issues, **counts)
             return False
         selected = selected[:2]
     if config.get("content_type") == "radar":
@@ -80,7 +98,11 @@ def prepare_topic(
         else:
             report += f"\n\n{replacement}"
     header = f"{config['title']}｜{now.astimezone(ZoneInfo('Asia/Shanghai')).strftime('%Y-%m-%d')}｜{len(selected)} 项\n\n"
-    key = publish_key or topic
+    if mode == "test":
+        Path("reports").mkdir(exist_ok=True)
+        Path(f"reports/test-{key}.md").write_text(header + report)
+        decision(key, "test_only", selected=len(selected), **counts)
+        return False
     public_url = publish_post(key, str(config["title"]), now, report, selected)
     Path("reports").mkdir(exist_ok=True)
     Path(f"reports/{key}-{now:%Y%m%dT%H%M%SZ}.md").write_text(header + report)
@@ -94,12 +116,14 @@ def prepare_topic(
                 "created_at": now.isoformat(),
                 "items": dump_items(selected),
                 "notify": config.get("notify", True),
+                "mode": mode,
             },
             ensure_ascii=False,
             indent=2,
         )
         + "\n"
     )
+    decision(key, "prepared", selected=len(selected), **counts)
     return True
 
 

@@ -218,7 +218,7 @@ REPORT_HEADINGS = {
 }
 
 
-def report_is_complete(report: str, items: list[Item], content_type: str) -> bool:
+def report_validation_errors(report: str, items: list[Item], content_type: str) -> list[str]:
     headings = REPORT_HEADINGS.get(content_type, REPORT_HEADINGS["brief"])
     first_section = report.split(headings[1], 1)[0]
     claims = re.findall(r"^(?:[-*]|\d+\.)\s+(.+)$", first_section, flags=re.M)
@@ -237,13 +237,18 @@ def report_is_complete(report: str, items: list[Item], content_type: str) -> boo
     headline = re.sub(r"\[\d+\]", "", unicodedata.normalize("NFKC", first_section)).replace(",", "")
     headline = re.sub(r"^\d+\.\s", "", headline, flags=re.M)
     grounded_numbers = set(re.findall(r"\d+(?:\.\d+)?%?", headline)) <= evidence_numbers
-    return (
-        all(heading in report for heading in headings)
-        and all(f"[{index}]" in report for index in range(1, len(items) + 1))
-        and cited_claims
-        and grounded_code
-        and grounded_numbers
-    )
+    checks = {
+        "missing_sections": all(heading in report for heading in headings),
+        "missing_source_numbers": all(f"[{index}]" in report for index in range(1, len(items) + 1)),
+        "uncited_headline_claims": cited_claims,
+        "unsupported_commands": grounded_code,
+        "unsupported_headline_numbers": grounded_numbers,
+    }
+    return [reason for reason, passed in checks.items() if not passed]
+
+
+def report_is_complete(report: str, items: list[Item], content_type: str) -> bool:
+    return not report_validation_errors(report, items, content_type)
 
 
 def fallback_report(items: list[Item], content_type: str) -> str:

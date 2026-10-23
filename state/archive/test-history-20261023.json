@@ -1,0 +1,279 @@
+{
+  "version": 1,
+  "topics": {
+    "ai_papers": {
+      "ids": [
+        "2a444f977a48d7ec1e9820b4",
+        "65d11ae7e39f68581ab2bac8",
+        "55d5923c687340b53bff0e94",
+        "abbb8393a455e0faab9e99c2",
+        "9dfe0a49320125ea779f5c17",
+        "3a516a55a30d5e060eb5870f"
+      ],
+      "updated_at": "2026-10-22T15:14:04.501592+00:00"
+    },
+    "audio": {
+      "ids": [
+        "eedbb9ce8ca2fd90973aaf0c",
+        "875a3bc074f2f34200deb6eb",
+        "02782fa1f7952889ee579f61",
+        "f66179d077751f69b77f81e0",
+        "0ce914df194aa7b292c4e01b",
+        "c5f39e9d9055560b8b044692",
+        "2708f37e0d9206aaee342378",
+        "f9b296488db423688acd4796"
+      ],
+      "updated_at": "2026-10-22T16:01:59.023496+00:00"
+    },
+    "efficient_ai": {
+      "ids": [
+        "54ecef377dfafcefd64743b6",
+        "207e2adb3d09cf03fb2d1b79",
+        "a63d54fd36dac3f29c9c252c",
+        "44a099906b01dac0d79480d4",
+        "8675e30e12934b4c8cd730da",
+        "17d3d4fa7dc22ea340e4bfe3",
+        "9bad65f0e74d546b26c588f4",
+        "b6a99a273a0a45e1d04ca500",
+        "70eb1e853c22c30296b1b84d",
+        "ca0e1c16e3bd9f41457731cd",
+        "8bab33e4d248901a1016b2de",
+        "25c40c34be9d3c8fea382806",
+        "cad0685c213cba58db2dbb5e",
+        "f1d85ffac16bb26af9193e11"
+      ],
+      "updated_at": "2026-10-22T23:02:06.977639+00:00"
+    },
+    "inference_systems": {
+      "ids": [
+        "c59027feefc78780fe91ebbb",
+        "cd23fc771f7eecc12d424e73",
+        "064f13e6044bf34bab8362e2",
+        "2ef8e39f031b368b3081a4e2",
+        "b6b0c3b08f91ed820480e752",
+        "cb36bcd6140cd3c392e033e2",
+        "420d185ba00b6f0f720850fb"
+      ],
+      "updated_at": "2026-10-22T23:04:31.838900+00:00"
+    },
+    "ai_hardware": {
+      "ids": [
+        "bbf3eb82c7b3a2a0ddf84b86",
+        "b45f29a2c99e4c32ba2bc397",
+        "f6755a75bfa1862e4a801aca",
+        "9014bf7fe711ab92cb0936ad",
+        "b8cbf33e30918bd7eea24906",
+        "57d01c7cdaadbc12c09e0c84",
+        "7afc649023de48f96e654f6a"
+      ],
+      "updated_at": "2026-10-22T23:05:18.564186+00:00"
+    },
+    "embodied": {
+      "ids": [
+        "9de6535df60f531d60691dc8",
+        "558e3b1bef6b6d23d5aef9aa",
+        "5869463a2d3db10f7be6cd0c",
+        "3b25a9be3cdc19ea9e5f8ed4",
+        "6ee3913e6ed3664e635759e1",
+        "cf2272f49f6763e1a21c57ae",
+        "b0be0fcde59142a6ed6783c4",
+        "6d8bd8f6cfe0e36b865ee148"
+      ],
+      "updated_at": "2026-10-22T23:06:10.138195+00:00"
+    },
+    "multimodal": {
+      "ids": [
+        "5102c2d6cf207a6223c53b75",
+        "990a113a4bbd0f9b5e472e24",
+        "ef82eace1d2cdfb672ccadb3",
+        "b2c29d1b6f67c9d00b7c2f08",
+        "6e3e1f0cdf044be944fa7210",
+        "1a9ffbfbda138d12ece9f935",
+        "08e6eb0088af6eae7d6caec7",
+        "e3692ecb8d1dd995faa3182e",
+        "7a3df18f694864f11cdc1787",
+        "8fad03930aea0ae0c0b25bae",
+        "5336551f9ef0205477ed68b1",
+        "380940bead383f635e066218"
+      ],
+      "updated_at": "2026-10-23T09:31:38.067863+00:00"
+    },
+    "product_safety": {
+      "ids": [
+        "befffc3f395c0d714e1a5b87",
+        "40d6d5f1480665dc509f029a",
+        "484d23a6490ae80739319446",
+        "30e75bb9739595bdeb6a7f2f",
+        "8e61e7d36604bc084f76a446",
+        "62e9c96c1122fc03731769c9",
+        "378df47c23744cd64ce34774"
+      ],
+      "updated_at": "2026-10-23T05:03:35.988047+00:00"
+    },
+    "model_research": {
+      "ids": [
+        "b9ad88b76e225ff9a37a24f5",
+        "9fd97eabe884fec8f05bcb12",
+        "dc279467e67af14f50176404",
+        "ca54039be19e2cb23bc2a069",
+        "a7937b44d5cccc751c885af6",
+        "19a95e04299c555b1637a44f"
+      ],
+      "updated_at": "2026-10-23T04:56:59.940193+00:00"
+    },
+    "morning_radar": {
+      "ids": [
+        "a45f5dfbc3465c866620e571",
+        "dea8ba729eb28582daacbbc8",
+        "767a7f383549ba646ff22647",
+        "7bf4630bf25d53522f00da09",
+        "c7c1db1d24f97b16930900ba"
+      ],
+      "updated_at": "2026-10-23T04:56:25.311340+00:00"
+    },
+    "open_source": {
+      "ids": [
+        "da838ef163b59d2f4118281e",
+        "fe0903755f1ec81fb4fd8f3d",
+        "0c1265997e299e56ca6c8050",
+        "dc4edcc4b2ce6bfa1a9af973",
+        "086f35e772e2c566616da508",
+        "5ab246c57a29052d27d46ee0",
+        "fc8671d3aacb7d5b2edf772d"
+      ],
+      "updated_at": "2026-10-23T10:04:48.980336+00:00"
+    },
+    "prompt_engineering": {
+      "ids": [
+        "20fc7f1e92b11c55a68821a8"
+      ],
+      "updated_at": "2026-10-23T05:01:05.712570+00:00"
+    },
+    "dev_practice": {
+      "ids": [
+        "13710c68aa41a2658d4ede2d",
+        "250cbb818fd0d4e8986b9afb",
+        "100a07702742886da97e755d",
+        "f7c874fb0dfb38db69a5d83a",
+        "c592cd3980d14f5cf675a5c2",
+        "0d66a3d73223c86cac1d8a2d",
+        "cd4ac2e345b5d6813642e921"
+      ],
+      "updated_at": "2026-10-23T10:02:45.713519+00:00"
+    },
+    "ecosystem": {
+      "ids": [
+        "522904cf90083f63c232bca4",
+        "ca07548f6acfab72b6a7c670"
+      ],
+      "updated_at": "2026-10-23T05:04:37.139687+00:00"
+    },
+    "daily_digest": {
+      "ids": [],
+      "updated_at": "2026-10-23T10:08:17.968312+00:00"
+    }
+  },
+  "all_ids": [
+    "da838ef163b59d2f4118281e",
+    "fe0903755f1ec81fb4fd8f3d",
+    "13710c68aa41a2658d4ede2d",
+    "250cbb818fd0d4e8986b9afb",
+    "100a07702742886da97e755d",
+    "5102c2d6cf207a6223c53b75",
+    "990a113a4bbd0f9b5e472e24",
+    "ef82eace1d2cdfb672ccadb3",
+    "b2c29d1b6f67c9d00b7c2f08",
+    "522904cf90083f63c232bca4",
+    "ca07548f6acfab72b6a7c670",
+    "f7c874fb0dfb38db69a5d83a",
+    "c592cd3980d14f5cf675a5c2",
+    "0d66a3d73223c86cac1d8a2d",
+    "cd4ac2e345b5d6813642e921",
+    "20fc7f1e92b11c55a68821a8",
+    "0c1265997e299e56ca6c8050",
+    "dc4edcc4b2ce6bfa1a9af973",
+    "086f35e772e2c566616da508",
+    "5ab246c57a29052d27d46ee0",
+    "fc8671d3aacb7d5b2edf772d",
+    "a45f5dfbc3465c866620e571",
+    "dea8ba729eb28582daacbbc8",
+    "767a7f383549ba646ff22647",
+    "7bf4630bf25d53522f00da09",
+    "c7c1db1d24f97b16930900ba",
+    "b9ad88b76e225ff9a37a24f5",
+    "9fd97eabe884fec8f05bcb12",
+    "dc279467e67af14f50176404",
+    "ca54039be19e2cb23bc2a069",
+    "a7937b44d5cccc751c885af6",
+    "19a95e04299c555b1637a44f",
+    "befffc3f395c0d714e1a5b87",
+    "40d6d5f1480665dc509f029a",
+    "484d23a6490ae80739319446",
+    "30e75bb9739595bdeb6a7f2f",
+    "8e61e7d36604bc084f76a446",
+    "62e9c96c1122fc03731769c9",
+    "378df47c23744cd64ce34774",
+    "6e3e1f0cdf044be944fa7210",
+    "1a9ffbfbda138d12ece9f935",
+    "08e6eb0088af6eae7d6caec7",
+    "e3692ecb8d1dd995faa3182e",
+    "7a3df18f694864f11cdc1787",
+    "8fad03930aea0ae0c0b25bae",
+    "5336551f9ef0205477ed68b1",
+    "380940bead383f635e066218",
+    "9de6535df60f531d60691dc8",
+    "558e3b1bef6b6d23d5aef9aa",
+    "5869463a2d3db10f7be6cd0c",
+    "3b25a9be3cdc19ea9e5f8ed4",
+    "6ee3913e6ed3664e635759e1",
+    "cf2272f49f6763e1a21c57ae",
+    "b0be0fcde59142a6ed6783c4",
+    "6d8bd8f6cfe0e36b865ee148",
+    "bbf3eb82c7b3a2a0ddf84b86",
+    "b45f29a2c99e4c32ba2bc397",
+    "f6755a75bfa1862e4a801aca",
+    "9014bf7fe711ab92cb0936ad",
+    "b8cbf33e30918bd7eea24906",
+    "57d01c7cdaadbc12c09e0c84",
+    "7afc649023de48f96e654f6a",
+    "c59027feefc78780fe91ebbb",
+    "cd23fc771f7eecc12d424e73",
+    "064f13e6044bf34bab8362e2",
+    "2ef8e39f031b368b3081a4e2",
+    "b6b0c3b08f91ed820480e752",
+    "cb36bcd6140cd3c392e033e2",
+    "420d185ba00b6f0f720850fb",
+    "54ecef377dfafcefd64743b6",
+    "207e2adb3d09cf03fb2d1b79",
+    "a63d54fd36dac3f29c9c252c",
+    "44a099906b01dac0d79480d4",
+    "8675e30e12934b4c8cd730da",
+    "17d3d4fa7dc22ea340e4bfe3",
+    "9bad65f0e74d546b26c588f4",
+    "b6a99a273a0a45e1d04ca500",
+    "70eb1e853c22c30296b1b84d",
+    "ca0e1c16e3bd9f41457731cd",
+    "8bab33e4d248901a1016b2de",
+    "25c40c34be9d3c8fea382806",
+    "cad0685c213cba58db2dbb5e",
+    "f1d85ffac16bb26af9193e11"
+  ],
+  "all_urls": [
+    "https://github.com/ollama/ollama/releases/tag/v0.40.9",
+    "https://github.com/huggingface/transformers/releases/tag/v5.20.2",
+    "https://github.com/pytorch/pytorch/releases/tag/viable%2Fstrict%2F1792747910",
+    "https://github.com/pytorch/pytorch/releases/tag/viable%2Fstrict%2F1792744610",
+    "https://github.com/pytorch/pytorch/releases/tag/viable%2Fstrict%2F1792733309",
+    "https://arxiv.org/abs/2610.31668v1",
+    "https://arxiv.org/abs/2610.31659v1",
+    "https://arxiv.org/abs/2610.31651v1",
+    "https://arxiv.org/abs/2610.31649v1"
+  ],
+  "all_titles": [
+    "3b92746be1a306be7a2ec2fd",
+    "fee017380f175c54fecd84c3",
+    "50726890996812a367e93b6d",
+    "a1b6872f9626d4b99aa88e0c",
+    "1877bda2ddf17612fc247610"
+  ]
+}
