@@ -14,21 +14,38 @@
         "361f7c9a0f57a189ca4c36ad"
       ],
       "updated_at": "2026-10-23T10:16:43.499651+00:00"
+    },
+    "morning_radar": {
+      "ids": [
+        "a45f5dfbc3465c866620e571",
+        "dea8ba729eb28582daacbbc8",
+        "767a7f383549ba646ff22647"
+      ],
+      "updated_at": "2026-10-23T10:18:49.470663+00:00"
     }
   },
   "all_ids": [
+    "a45f5dfbc3465c866620e571",
+    "dea8ba729eb28582daacbbc8",
+    "767a7f383549ba646ff22647",
     "808780f3283440c8b29d022b",
     "361f7c9a0f57a189ca4c36ad",
     "da838ef163b59d2f4118281e",
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://github.blog/changelog/2026-10-22-github-copilot-in-visual-studio-september-update-2",
+    "https://github.blog/changelog/2026-10-22-custom-skills-agents-and-mcp-servers-in-usage-metrics-api",
+    "https://github.blog/changelog/2026-10-22-global-default-for-copilot-features-generally-available",
     "https://doi.org/10.21203/rs.3.rs-11467404/v1",
     "https://doi.org/10.3389/fcimb.2026.1927286",
     "https://github.com/ollama/ollama/releases/tag/v0.40.9",
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "4e3960e3462f99864284d38d",
+    "f8f2005ca3bc87e3c75dda72",
+    "8fdbfce33094a005ca93e632",
     "06a06c0637e50865ece52a75",
     "d491811736c7d6c2f28b8e03",
     "3b92746be1a306be7a2ec2fd",
@@ -63,6 +80,45 @@
           "source": "Crossref Multimodal",
           "kind": "research",
           "doi": "10.3389/fcimb.2026.1927286",
+          "date_precision": "day"
+        }
+      ]
+    },
+    "https://vorasio.com/posts/20261023-morning_radar.html": {
+      "topic": "morning_radar",
+      "created_at": "2026-10-23T10:18:49.470663+00:00",
+      "items": [
+        {
+          "uid": "a45f5dfbc3465c866620e571",
+          "title": "GitHub Copilot in Visual Studio — September update",
+          "url": "https://github.blog/changelog/2026-10-22-github-copilot-in-visual-studio-september-update-2",
+          "published": "2026-10-23T00:17:51+00:00",
+          "summary": "September 2026 brought deeper visibility into your work: explore pull requests without leaving chat, bring the AI model your team trusts, and fix vulnerable packages the moment Visual Studio flags… The post GitHub Copilot in Visual Studio — September update appeared first on The GitHub Blog .",
+          "source": "GitHub 官方更新",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        },
+        {
+          "uid": "dea8ba729eb28582daacbbc8",
+          "title": "Custom skills, agents, and MCP servers in usage metrics API",
+          "url": "https://github.blog/changelog/2026-10-22-custom-skills-agents-and-mcp-servers-in-usage-metrics-api",
+          "published": "2026-10-22T22:19:17+00:00",
+          "summary": "Copilot usage metrics now show the names of the skills, custom agents, Model Context Protocol (MCP) servers, slash commands, and plugins that your organization creates, instead of grouping them under… The post Custom skills, agents, and MCP servers in usage metrics API appeared first on The GitHub Blog .",
+          "source": "GitHub 官方更新",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        },
+        {
+          "uid": "767a7f383549ba646ff22647",
+          "title": "Global default for Copilot features generally available",
+          "url": "https://github.blog/changelog/2026-10-22-global-default-for-copilot-features-generally-available",
+          "published": "2026-10-22T20:44:28+00:00",
+          "summary": "In September, we announced a global default policy for generally available GitHub Copilot features and supported client capabilities on Copilot Business and Copilot Enterprise plans. Starting today, we’re gradually rolling… The post Global default for Copilot features generally available appeared first on The GitHub Blog .",
+          "source": "GitHub 官方更新",
+          "kind": "research",
+          "doi": "",
           "date_precision": "day"
         }
       ]
