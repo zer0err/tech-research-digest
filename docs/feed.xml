@@ -1,2 +1,2 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>VORASIO 技术简报</title><link>https://vorasio.com</link><description>AI 研究、开发与智能硬件相关简报</description></channel></rss>
+<rss version="2.0"><channel><title>VORASIO 技术简报</title><link>https://vorasio.com</link><description>AI 研究、开发与智能硬件相关简报</description><item><title>AI 开发实践与部署（2026-10-23）</title><link>https://vorasio.com/posts/20261023-dev_practice.html</link><guid>https://vorasio.com/posts/20261023-dev_practice.html</guid><description>本期主题 本期简报聚焦于 PyTorch 发行版中对 Triton 与 Vision 依赖的哈希更新，帮助开发者在构建或升级模型时快速定位并同步最新的依赖版本。通过官方发布的 PR 记录，读者可了解更新的具体哈希值及其对应的分支，进而在 CI/CD 或本地环境中手动替换或验证。 实践步骤 1. 获取最新哈希 - 访问 </description></item></channel></rss>

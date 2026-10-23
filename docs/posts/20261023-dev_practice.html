@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 开发实践与部署（2026-10-23）</title><meta name="description" content="AI 开发实践与部署（2026-10-23）：3 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script src="../assets/article.js" defer></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav><a href="../index.html#latest">时间线</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">AI 开发实践与部署</p><dl><dt>发布日期</dt><dd>2026-10-23</dd><dt>研究条目</dt><dd>3 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · AI 开发实践与部署</p><h1>AI 开发实践与部署（2026-10-23）</h1><p class="disclosure">实践参考，未经运行验证。</p><div class="article-body"><h2>本期主题</h2>
+<p>本期简报聚焦于 <strong>PyTorch 发行版中对 Triton 与 Vision 依赖的哈希更新</strong>，帮助开发者在构建或升级模型时快速定位并同步最新的依赖版本。通过官方发布的 PR 记录，读者可了解更新的具体哈希值及其对应的分支，进而在 CI/CD 或本地环境中手动替换或验证。</p>
+<h2>实践步骤</h2>
+<ol>
+<li>
+<p><strong>获取最新哈希</strong></p>
+<ul>
+<li>访问 PyTorch Releases 页面，查看 <code>viable/strict/1792747910</code> PR 记录，获取 <strong>Triton</strong> 的最新哈希值（指向 <code>release/3.9.x</code> 分支）[1]。</li>
+<li>同理，访问 <code>viable/strict/1792744610</code> PR 记录，获取 <strong>Vision</strong> 的最新哈希值[2]。</li>
+</ul>
+</li>
+<li>
+<p><strong>更新本地依赖</strong></p>
+<ul>
+<li>在项目的 <code>requirements.txt</code> 或 <code>setup.py</code> 中，将对应依赖的哈希替换为上述最新值，例如：<pre><code class="language-text">triton @ git+&lt;https://github.com/triton-inference-server/triton.git@&gt;&lt;TRITON_HASH&gt;
+vision @ git+&lt;https://github.com/pytorch/vision.git@&gt;&lt;VISION_HASH&gt;
+</code></pre>
+</li>
+<li>若使用 <code>pip install -e .</code>，请确保 <code>git</code> 已安装并能访问对应仓库。</li>
+</ul>
+</li>
+<li>
+<p><strong>验证构建</strong></p>
+<ul>
+<li>重新执行项目的构建脚本（如 <code>python setup.py install</code> 或 <code>pip install .</code>），确认依赖已成功拉取并编译。</li>
+<li>运行项目自带的单元测试或示例脚本，确保功能正常。</li>
+</ul>
+</li>
+<li>
+<p><strong>记录与提交</strong></p>
+<ul>
+<li>若在 CI 环境中使用，更新 <code>.github/workflows/nightly.yml</code> 或相应的 CI 配置文件，确保使用新的哈希。</li>
+<li>提交更改并推送至仓库，触发自动化构建验证。</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p><strong>注意</strong>：上述步骤仅基于官方 PR 记录提供的哈希值，未包含任何命令行参数或兼容性说明。若需进一步配置，请参阅官方文档或自行测试。</p>
+</blockquote>
+<h2>验证清单</h2>
+<ul>
+<li><strong>版本核对</strong>：确认 <code>triton</code> 与 <code>vision</code> 的哈希与 PR 记录一致。</li>
+<li><strong>构建输出</strong>：构建日志中无 <code>git clone</code> 或 <code>pip install</code> 错误。</li>
+<li><strong>功能测试</strong>：运行核心功能（如模型推理）无异常。</li>
+<li><strong>失败条件</strong>：若出现编译错误、缺失依赖或运行时异常，需检查网络访问、权限或 Python 版本兼容性。</li>
+</ul>
+<h2>限制与风险</h2>
+<ul>
+<li><strong>兼容性未知</strong>：PR 仅更新哈希，未说明与现有代码的兼容性。</li>
+<li><strong>环境差异</strong>：不同操作系统或 Python 版本可能导致构建失败。</li>
+<li><strong>网络依赖</strong>：需要稳定的 GitHub 访问权限；若被墙，需使用代理。</li>
+<li><strong>未验证的功能</strong>：更新后功能是否完全兼容，需自行测试。</li>
+</ul>
+<h2>参考资料</h2>
+<p>[1] PyTorch Releases – “viable/strict/1792747910: [triton hash update] update the pinned triton hash (#201586)” – <a href="https://github.com/pytorch/pytorch/releases/tag/viable%2Fstrict%2F1792747910">https://github.com/pytorch/pytorch/releases/tag/viable%2Fstrict%2F1792747910</a><br />
+[2] PyTorch Releases – “viable/strict/1792744610: [vision hash update] update the pinned vision hash (#201786)” – <a href="https://github.com/pytorch/pytorch/releases/tag/viable%2Fstrict%2F1792744610">https://github.com/pytorch/pytorch/releases/tag/viable%2Fstrict%2F1792744610</a><br />
+[3] PyTorch Releases – “viable/strict/1792733309” – <a href="https://github.com/pytorch/pytorch/releases/tag/viable%2Fstrict%2F1792733309">https://github.com/pytorch/pytorch/releases/tag/viable%2Fstrict%2F1792733309</a></p>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>
