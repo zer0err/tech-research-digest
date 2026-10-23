@@ -1,5 +1,14 @@
 [
   {
+    "title": "Prompt、上下文工程与评测（2026-10-23）",
+    "date": "2026-10-23T13:01:05.712570+08:00",
+    "count": 1,
+    "url": "posts/20261023-prompt_engineering.html",
+    "topic": "prompt_engineering",
+    "status": "published",
+    "summary": "本期要点 - 模型配置刷新：更新了 Perplexity 模型配置文件，保证使用最新的模型信息。 - 依赖升级：将 certifi、urllib3、anyio 等关键依赖升级至更高版本。 - Agent API 搜索结果保持：修复了 Agent API 在搜索时结果被覆盖的问题。 - 缓存与流式输出改进：将 Respo"
+  },
+  {
     "title": "AI 论文午间速览（2026-10-23）",
     "date": "2026-10-23T12:59:35.299845+08:00",
     "count": 0,
