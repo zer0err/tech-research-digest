@@ -11,7 +11,7 @@ from zoneinfo import ZoneInfo
 
 import yaml
 
-from .core import SourceUnavailable, collect, dump_items, fallback_report, groq_analyse, load_state, report_is_complete, unseen
+from .core import SourceUnavailable, collect, dump_items, groq_analyse, load_state, report_is_complete, unseen
 from .site import publish_post
 
 
@@ -24,47 +24,47 @@ def prepare_topic(
     publish_key: str | None = None,
     allow_empty: bool = False,
 ) -> bool:
+    # A skipped run must never reuse a previous run's publish/notification request.
+    Path("work/pending.json").unlink(missing_ok=True)
     state = load_state(state_path)
-    source_unavailable = False
     try:
         candidates = collect(config, now)
     except SourceUnavailable:
         if dry_run:
             raise
         logging.exception("Sources unavailable for %s", topic)
-        source_unavailable = True
-        candidates = []
-    candidates = [item for item in candidates if item.summary.strip() and item.url.startswith("https://")]
+        return False
+    candidates = [item for item in candidates if len(item.summary.strip()) >= 40 and item.title.strip()
+                  and item.url.startswith("https://")]
     fresh = unseen(candidates, state, topic)
-    limit = int(config["max_items"])
+    limit = min(3, int(config["max_items"]))
     if config.get("content_type") == "radar":
         resources = [item for item in fresh if item.kind == "resource"][:2]
         regular = [item for item in fresh if item.kind != "resource"][: limit - len(resources)]
         selected = sorted(resources + regular, key=lambda item: item.published, reverse=True)
     else:
         selected = fresh[:limit]
-    if not selected and not allow_empty and not source_unavailable:
+    if not selected:
         logging.info("No unseen in-window items for %s", topic)
         return False
     if dry_run:
         print(json.dumps(dump_items(selected), ensure_ascii=False, indent=2))
         return bool(selected)
-    if selected:
-        content_type = str(config.get("content_type", "research"))
-        report = groq_analyse(
-            str(config["title"]),
-            str(config["analysis_focus"]),
-            selected,
-            content_type,
-        )
-        if not report_is_complete(report, selected, content_type):
-            logging.warning("Model output for %s failed completeness checks; publishing source-only fallback", topic)
-            report = fallback_report(selected, content_type)
-    else:
-        report = (
-            "## 来源访问异常\n\n来源暂时不可用，尚无法判断是否存在新资料。请稍后查看，不能将本次状态理解为没有新内容。"
-            if source_unavailable else "## 本时段状态\n\n本时段未发现符合日期、相关性与去重条件的新资料。"
-        )
+    content_type = str(config.get("content_type", "research"))
+    for attempt in range(2):
+        try:
+            report = groq_analyse(str(config["title"]), str(config["analysis_focus"]), selected, content_type)
+        except Exception as exc:
+            logging.warning("Analysis unavailable for %s (%s); skipping publication", topic, type(exc).__name__)
+            return False
+        if report_is_complete(report, selected, content_type) and "降级为" not in report and len(report) >= 300:
+            break
+        logging.warning("Incomplete analysis for %s; attempt %s rejected", topic, attempt + 1)
+        Path("reports").mkdir(exist_ok=True)
+        Path(f"reports/rejected-{topic}-{now:%Y%m%dT%H%M%SZ}-{attempt}.md").write_text(report)
+        if attempt == 1:
+            return False
+        selected = selected[:2]
     if config.get("content_type") == "radar":
         marker = "## 今日免费 VPS 与 AI 资源"
         resources = [

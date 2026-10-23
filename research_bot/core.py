@@ -279,6 +279,7 @@ def groq_analyse(title: str, focus: str, items: list[Item], content_type: str = 
         f"为“{title}”生成中文简报。栏目分析重点：{focus}\n\n"
         "严格使用以下 Markdown 结构，不要输出报告总标题：\n"
         f"{structure}\n全文必须保留 [n] 引用，不要只改写标题。\n\n"
+        "控制在约800-1200个汉字，优先保留证据与局限，避免重复、口号和空泛建议。\n\n"
         f"资料：\n{source_packet(items)}"
     )
     payload = {
@@ -287,6 +288,8 @@ def groq_analyse(title: str, focus: str, items: list[Item], content_type: str = 
         "temperature": 0.2,
         "max_completion_tokens": int(os.getenv("GROQ_MAX_TOKENS", "2800")),
     }
+    if model in {"openai/gpt-oss-20b", "openai/gpt-oss-120b"}:
+        payload["reasoning_effort"] = "low"
     with httpx.Client(timeout=90) as client:
         for attempt in range(6):
             response = client.post(

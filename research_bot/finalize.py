@@ -15,8 +15,12 @@ def main() -> int:
     args = parser.parse_args()
     pending = json.loads(Path(args.pending).read_text())
     items = [Item(**raw) for raw in pending["items"]]
+    count = len(items) if pending["topic"] != "daily_digest" else int(pending.get("published_count", 0))
+    if count <= 0:
+        raise ValueError("Refusing to notify or finalize empty content")
     if pending.get("notify", True):
-        send_telegram(f"{pending['title']}｜{len(items)} 项新内容\n完整内容：{pending['url']}")
+        label = "篇有效简报" if pending["topic"] == "daily_digest" else "项新内容"
+        send_telegram(f"{pending['title']}｜{count} {label}\n完整内容：{pending['url']}")
     state_path = Path(args.state)
     state = load_state(state_path)
     update_state(state, pending["topic"], items, datetime.fromisoformat(pending["created_at"]))
