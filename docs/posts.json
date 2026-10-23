@@ -1,5 +1,14 @@
 [
   {
+    "title": "AI 论文午间速览（2026-10-23）",
+    "date": "2026-10-23T18:16:43.499651+08:00",
+    "count": 2,
+    "url": "posts/20261023-paper_brief.html",
+    "topic": "paper_brief",
+    "status": "published",
+    "summary": "本期要点 - 视觉任务中，使用 2B 规模 Vision‑Language 模型（Qwen3‑VL‑2B）可在单张图像上直接生成可查询的 SQLite 数据库，表结构与外键匹配率高达 0.99，显著优于同族 8B 模型和传统 HTML‑to‑SQLite 方案 1。 - 在医学影像多模态诊断中，CT‑based 2.5"
+  },
+  {
     "title": "VORASIO AI 日报（2026-10-23）",
     "date": "2026-10-23T18:08:17.968312+08:00",
     "count": 1,

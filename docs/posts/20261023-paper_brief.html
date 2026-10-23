@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 论文午间速览（2026-10-23）</title><meta name="description" content="AI 论文午间速览（2026-10-23）：2 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script src="../assets/article.js" defer></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav><a href="../index.html#latest">时间线</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">AI 论文午间速览</p><dl><dt>发布日期</dt><dd>2026-10-23</dd><dt>研究条目</dt><dd>2 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · AI 论文午间速览</p><h1>AI 论文午间速览（2026-10-23）</h1><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期要点</h2>
+<ul>
+<li>视觉任务中，使用 2B 规模 Vision‑Language 模型（Qwen3‑VL‑2B）可在单张图像上直接生成可查询的 SQLite 数据库，表结构与外键匹配率高达 0.99，显著优于同族 8B 模型和传统 HTML‑to‑SQLite 方案 [1]。</li>
+<li>在医学影像多模态诊断中，CT‑based 2.5D 深度学习与临床、放射组学特征融合后，AUC 达 0.931，特异性 0.981，明显优于单一模型 [2]。</li>
+<li>两项研究均强调数据集与质量指标的关键性：PIX2DB 通过合成与真实图像双重训练保证跨域泛化；CT 研究采用 380 例真实病例并随机划分训练/测试集，验证了模型在不同模态下的鲁棒性 [1][2]。</li>
+<li>单模态与多模态贡献对比：单模态视觉模型已能完成复杂表格重建任务，但多模态（CT+临床+放射组学）在疾病鉴别上实现了更高的诊断准确率，表明多模态融合在高维、稀疏数据场景中更具优势 [1][2]。</li>
+</ul>
+<h2>逐项速览</h2>
+<table>
+<thead>
+<tr>
+<th>任务</th>
+<th>数据集</th>
+<th>质量指标</th>
+<th>实时性/交互</th>
+<th>单模态 vs 多模态</th>
+<th>证据</th>
+<th>局限</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>图像‑数据库重建</td>
+<td>36,589 训练对（Spider、PubTabNet、FinTabNet、CORD）</td>
+<td>表格 exact match 0.86；外键 recall 0.99；单元格 F1 0.81/0.96；CORN receipt recall 0.93</td>
+<td>通过 LoRA 微调后可在单张图像上即时生成 SQLite，推理时间未给出，但模型规模 2B 说明推理成本低于 8B 方案</td>
+<td>单模态（视觉‑语言）</td>
+<td>该系统在 TabRecSet 上仅 0.52，低于 8B HTML‑pipeline 0.58，主要受文本读取限制 [1]</td>
+<td>仅在公开数据集上评估，真实业务场景中 OCR 误差可能更大；未公开推理时延</td>
+</tr>
+<tr>
+<td>CT‑based 多模态肺部感染鉴别</td>
+<td>380 HIV/AIDS 病例（203 PTB，177 TSM）</td>
+<td>临床模型 AUC 0.856；放射组学 AUC 0.866；2.5D DL AUC 0.885；多模态融合 AUC 0.931；特异性 0.981</td>
+<td>采用 ResNet18 + MIL‑SVM，推理时间未报告，模型可在单张 CT 切片上完成预测</td>
+<td>多模态（CT + 临床 + 放射组学）</td>
+<td>多模态模型显著优于单模态，P 值分别为 0.020 与 0.008 [2]</td>
+<td>仅限 HIV/AIDS 患者，样本量相对有限；未评估跨医院、不同 CT 设备的泛化能力</td>
+</tr>
+</tbody>
+</table>
+<h2>值得采取的行动</h2>
+<ol>
+<li><strong>视觉表格重建</strong>：在需要将扫描文档直接转为可查询数据库的场景，可优先尝试 Qwen3‑VL‑2B + LoRA 方案，并结合 deterministic verify‑and‑repair 层以提升外键一致性。</li>
+<li><strong>多模态医学诊断</strong>：若项目涉及肺部感染鉴别，可考虑构建 2.5D ResNet18 + MIL‑SVM 的多模态融合框架，先收集临床、放射组学特征，再与 CT 切片特征联合训练。</li>
+<li><strong>数据集与评估</strong>：两项工作均强调合成与真实数据的双重训练，建议在自有数据集上先做合成扩增，再用真实样本微调，以提升跨域性能。</li>
+<li><strong>性能监控</strong>：对实时性要求高的应用，需在本地部署并测量推理时延，尤其是 2B 模型在边缘设备上的可行性。</li>
+</ol>
+<h2>参考资料</h2>
+<p>[1] PIX2DB: Reconstructing Executable Relational Databases from Document Images with a 2B Vision‑Language Model. Crossref Multimodal. <a href="https://doi.org/10.21203/rs.3.rs-11467404/v1">https://doi.org/10.21203/rs.3.rs-11467404/v1</a><br />
+[2] Differential diagnosis of pulmonary Talaromyces marneffei infection and pulmonary tuberculosis in HIV/AIDS patients using a CT‑based multimodal 2.5D deep learning approach. Crossref Multimodal. <a href="https://doi.org/10.3389/fcimb.2026.1927286">https://doi.org/10.3389/fcimb.2026.1927286</a></p>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>
