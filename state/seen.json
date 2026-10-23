@@ -83,6 +83,10 @@
     },
     "multimodal": {
       "ids": [
+        "5102c2d6cf207a6223c53b75",
+        "990a113a4bbd0f9b5e472e24",
+        "ef82eace1d2cdfb672ccadb3",
+        "b2c29d1b6f67c9d00b7c2f08",
         "6e3e1f0cdf044be944fa7210",
         "1a9ffbfbda138d12ece9f935",
         "08e6eb0088af6eae7d6caec7",
@@ -92,7 +96,7 @@
         "5336551f9ef0205477ed68b1",
         "380940bead383f635e066218"
       ],
-      "updated_at": "2026-10-23T05:01:41.406108+00:00"
+      "updated_at": "2026-10-23T09:31:38.067863+00:00"
     },
     "product_safety": {
       "ids": [
@@ -165,6 +169,10 @@
     }
   },
   "all_ids": [
+    "5102c2d6cf207a6223c53b75",
+    "990a113a4bbd0f9b5e472e24",
+    "ef82eace1d2cdfb672ccadb3",
+    "b2c29d1b6f67c9d00b7c2f08",
     "522904cf90083f63c232bca4",
     "ca07548f6acfab72b6a7c670",
     "f7c874fb0dfb38db69a5d83a",
@@ -239,5 +247,11 @@
     "25c40c34be9d3c8fea382806",
     "cad0685c213cba58db2dbb5e",
     "f1d85ffac16bb26af9193e11"
+  ],
+  "all_urls": [
+    "https://arxiv.org/abs/2610.31668v1",
+    "https://arxiv.org/abs/2610.31659v1",
+    "https://arxiv.org/abs/2610.31651v1",
+    "https://arxiv.org/abs/2610.31649v1"
   ]
 }
