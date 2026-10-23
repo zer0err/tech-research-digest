@@ -1,6 +1,7 @@
 from datetime import UTC, datetime
 
-from research_bot.core import Item, canonical_url, split_message, unseen, update_state
+from research_bot.core import Item, canonical_url, contains_term, fallback_report, report_is_complete, split_message, unseen, update_state
+from research_bot.editorial import resolve_slot
 from research_bot.site import base_url, publish_post
 
 
@@ -68,3 +69,52 @@ def test_publish_post_promotes_leading_bold_title(tmp_path, monkeypatch):
     page = next((tmp_path / "docs" / "posts").glob("*.html")).read_text()
     assert "<h1>AI 最新论文深度简报（2026‑10‑21）</h1>" in page
     assert "<p><strong>AI 最新论文深度简报" not in page
+
+
+def test_report_completeness_requires_all_sections_and_citations():
+    items = [sample("a"), sample("b")]
+    report = "## 本期要点\n[1] [2]\n## 逐项速览\n内容\n## 值得采取的行动\n内容\n## 参考资料\n内容"
+    assert report_is_complete(report, items, "brief")
+    assert not report_is_complete(report.replace("## 参考资料", "参考资料"), items, "brief")
+
+
+def test_fallback_report_keeps_sources_and_resource_boundary():
+    resource = Item("r", "Free service", "https://example.com/free", "2026-01-01T00:00:00+00:00", "可能免费", "search", "resource")
+    report = fallback_report([resource], "radar")
+    assert "## 今日免费 VPS 与 AI 资源" in report
+    assert "免费条件须打开原始页面核验" in report
+    assert "https://example.com/free" in report
+
+
+def test_editorial_weekday_topic_resolution():
+    now = datetime(2026, 10, 23, 6, tzinfo=UTC)  # Friday in Beijing
+    editorial = {"slots": {"paper": {"topic_by_weekday": {"5": "multimodal"}, "title": "午间速览"}}}
+    topics = {"multimodal": {"title": "多模态", "max_items": 8}}
+    topic, config = resolve_slot("paper", now, editorial, topics)
+    assert topic == "multimodal"
+    assert config["title"] == "午间速览"
+
+
+def test_source_specific_filters_reject_unrelated_free_result(monkeypatch):
+    import research_bot.core as core
+
+    feed = b"""<rss><channel><item><title>Free game downloads</title><link>https://example.com/game</link>
+    <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate><description>Free mods</description></item></channel></rss>"""
+
+    class Response:
+        content = feed
+
+        def raise_for_status(self):
+            return None
+
+    monkeypatch.setattr(core.httpx.Client, "get", lambda *args, **kwargs: Response())
+    topic = {
+        "lookback_hours": 48,
+        "sources": [{"name": "search", "url": "https://example.com/rss", "required_all": ["free"], "required_any": ["vps"]}],
+    }
+    assert core.collect(topic, datetime(2026, 10, 23, 1, tzinfo=UTC)) == []
+
+
+def test_short_filter_terms_use_word_boundaries():
+    assert contains_term("a free ai api", "ai")
+    assert not contains_term("documentation is available", "ai")

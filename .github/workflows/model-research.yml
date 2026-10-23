@@ -1,9 +1,5 @@
 name: Model research daily 10:00 CST
-on:
-  schedule:
-    - cron: "0 10 * * *"
-      timezone: "Asia/Shanghai"
-  workflow_dispatch:
+on: workflow_dispatch
 permissions: {contents: write, pages: write, id-token: write, actions: read}
 jobs:
   run:

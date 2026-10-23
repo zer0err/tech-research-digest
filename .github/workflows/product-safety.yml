@@ -1,9 +1,5 @@
 name: Product reliability Sunday 14:00 CST
-on:
-  schedule:
-    - cron: "0 14 * * 0"
-      timezone: "Asia/Shanghai"
-  workflow_dispatch:
+on: workflow_dispatch
 permissions: {contents: write, pages: write, id-token: write, actions: read}
 jobs:
   run:

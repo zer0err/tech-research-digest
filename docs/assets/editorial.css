@@ -1,0 +1,11 @@
+.topic-grid {
+  gap: 1px;
+  background: var(--line);
+}
+
+.topic-grid article,
+.topic-grid article:last-child {
+  border: 0 !important;
+  background: var(--surface);
+}
+

@@ -1,0 +1,78 @@
+slots:
+  morning_radar:
+    hour: 9
+    topic: morning_radar
+    publish_key: morning_radar
+    allow_empty: true
+  model_research:
+    hour: 10
+    topic: model_research
+    publish_key: model_research
+    notify: false
+    allow_empty: true
+  open_source:
+    hour: 11
+    topic: open_source
+    publish_key: open_source
+    allow_empty: true
+  paper_brief:
+    hour: 12
+    publish_key: paper_brief
+    title: "AI 论文午间速览"
+    content_type: brief
+    max_items: 4
+    allow_empty: true
+    topic_by_weekday:
+      "1": model_research
+      "2": embodied
+      "3": inference_systems
+      "4": efficient_ai
+      "5": multimodal
+      "6": ai_hardware
+      "7": product_safety
+  prompt_engineering:
+    hour: 13
+    topic: prompt_engineering
+    publish_key: prompt_engineering
+    allow_empty: true
+  core_research:
+    hour: 14
+    publish_key: core_research
+    notify: false
+    allow_empty: true
+    topic_by_weekday:
+      "1": efficient_ai
+      "2": inference_systems
+      "3": ai_hardware
+      "4": efficient_ai
+      "5": multimodal
+      "6": embodied
+      "7": product_safety
+  dev_practice:
+    hour: 15
+    topic: dev_practice
+    publish_key: dev_practice
+    allow_empty: true
+  applied_ai:
+    hour: 16
+    publish_key: applied_ai
+    notify: false
+    allow_empty: true
+    topic_by_weekday:
+      "1": ai_hardware
+      "2": embodied
+      "3": multimodal
+      "4": inference_systems
+      "5": product_safety
+      "6": efficient_ai
+      "7": embodied
+  ecosystem:
+    hour: 17
+    topic: ecosystem
+    publish_key: ecosystem
+    allow_empty: true
+  daily_digest:
+    hour: 18
+    special: daily_digest
+    publish_key: daily_digest
+

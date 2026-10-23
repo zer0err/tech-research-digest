@@ -15,7 +15,8 @@ def main() -> int:
     args = parser.parse_args()
     pending = json.loads(Path(args.pending).read_text())
     items = [Item(**raw) for raw in pending["items"]]
-    send_telegram(f"{pending['title']}｜{len(items)} 项新研究\n完整深度报告：{pending['url']}")
+    if pending.get("notify", True):
+        send_telegram(f"{pending['title']}｜{len(items)} 项新内容\n完整内容：{pending['url']}")
     state_path = Path(args.state)
     state = load_state(state_path)
     update_state(state, pending["topic"], items, datetime.fromisoformat(pending["created_at"]))

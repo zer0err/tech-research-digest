@@ -1,4 +1,78 @@
 topics:
+  morning_radar:
+    title: "AI 晨间雷达与免费资源"
+    analysis_focus: "筛选最近的重要 AI 动态，并单独检查免费 VPS 与免费 AI 服务线索。免费必须说明是永久免费层、限时试用、赠送额度还是尚待核验；不得把营销标题当成已确认事实。"
+    content_type: radar
+    notify: true
+    lookback_hours: 96
+    max_items: 6
+    sources:
+      - name: Google AI 官方博客
+        url: "https://blog.google/technology/ai/rss/"
+      - name: Hugging Face 官方博客
+        url: "https://huggingface.co/blog/feed.xml"
+      - name: GitHub 官方更新
+        required_any: [ai, copilot, model, agent]
+        url: "https://github.blog/changelog/feed/"
+      - name: 免费 VPS 公开检索线索
+        kind: resource
+        required_all: [free]
+        required_any: [vps, cloud server, virtual private server]
+        url: "https://www.bing.com/search?q=%28free+VPS+OR+always+free+cloud+server%29+official+free+tier&format=rss"
+      - name: 免费 AI 服务公开检索线索
+        kind: resource
+        required_all: [free]
+        required_any: [ai, artificial intelligence, llm, model api]
+        url: "https://www.bing.com/search?q=%28free+AI+API+OR+free+AI+tool%29+official+free+tier&format=rss"
+  open_source:
+    title: "AI 开源项目与工具更新"
+    analysis_focus: "关注正式版本、兼容性、性能变化、迁移风险和可复现入口；普通提交和没有发布说明的变化不作为重大更新。"
+    content_type: brief
+    notify: false
+    lookback_hours: 120
+    max_items: 5
+    sources:
+      - {name: Ollama Releases, url: "https://github.com/ollama/ollama/releases.atom"}
+      - {name: Transformers Releases, url: "https://github.com/huggingface/transformers/releases.atom"}
+      - {name: vLLM Releases, url: "https://github.com/vllm-project/vllm/releases.atom"}
+  prompt_engineering:
+    title: "Prompt、上下文工程与评测"
+    analysis_focus: "关注提示词、上下文管理、RAG、工具调用和评测方法的可验证更新；区分经验建议、正式文档和实证结果。"
+    content_type: brief
+    notify: false
+    lookback_hours: 240
+    max_items: 5
+    keywords: [prompt, context, eval, evaluation, rag, retrieval, tool, agent]
+    sources:
+      - {name: OpenAI Cookbook Updates, url: "https://github.com/openai/openai-cookbook/commits/main.atom"}
+      - {name: Prompt Engineering Guide Updates, url: "https://github.com/dair-ai/Prompt-Engineering-Guide/commits/main.atom"}
+      - {name: LangChain Releases, url: "https://github.com/langchain-ai/langchain/releases.atom"}
+  dev_practice:
+    title: "AI 开发实践与部署"
+    analysis_focus: "从官方版本说明和项目文档中提炼可执行实践；不能从资料确认的命令、参数和兼容性必须明确留待核验。"
+    content_type: practice
+    notify: false
+    lookback_hours: 168
+    max_items: 4
+    sources:
+      - name: PyTorch Releases
+        url: "https://github.com/pytorch/pytorch/releases.atom"
+        exclude_title_prefixes: ["ciflow/", "trunk/"]
+      - {name: Transformers Releases, url: "https://github.com/huggingface/transformers/releases.atom"}
+      - {name: FastAPI Releases, url: "https://github.com/fastapi/fastapi/releases.atom"}
+      - {name: Gradio Releases, url: "https://github.com/gradio-app/gradio/releases.atom"}
+  ecosystem:
+    title: "AI 人物、机构与产业生态"
+    analysis_focus: "追踪机构、实验室、开发者生态和正式发布；只总结公开资料中的可核验事实，不推断个人动机、立场或未公开关系。"
+    content_type: brief
+    notify: false
+    lookback_hours: 120
+    max_items: 5
+    keywords: [ai, artificial intelligence, model, agent, machine learning, research, developer]
+    sources:
+      - {name: Google AI 官方博客, url: "https://blog.google/technology/ai/rss/"}
+      - {name: Hugging Face 官方博客, url: "https://huggingface.co/blog/feed.xml"}
+      - {name: GitHub 官方博客, url: "https://github.blog/feed/"}
   model_research:
     title: "AI 模型、训练与基础研究"
     analysis_focus: "模型架构、预训练与后训练、推理能力、数据方法、评测可靠性；重点区分通用能力提升与特定应用。"

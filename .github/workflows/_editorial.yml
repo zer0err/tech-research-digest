@@ -1,0 +1,101 @@
+name: Editorial slot runner
+
+on:
+  workflow_call:
+    inputs:
+      slot:
+        required: true
+        type: string
+    secrets:
+      GROQ_API_KEY:
+        required: true
+      TELEGRAM_BOT_TOKEN:
+        required: true
+      TELEGRAM_CHAT_ID:
+        required: true
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+  actions: read
+
+concurrency:
+  group: editorial-state-writer-v1
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 0
+          persist-credentials: true
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.0.0
+        with:
+          python-version: "3.13"
+          cache: pip
+      - name: Install locked dependencies
+        run: python -m pip install --requirement requirements.txt
+      - name: Collect, analyse and prepare content
+        id: prepare
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GROQ_MODEL: ${{ vars.GROQ_MODEL || 'openai/gpt-oss-20b' }}
+          GROQ_MAX_TOKENS: ${{ vars.GROQ_MAX_TOKENS || '2800' }}
+          PUBLIC_BASE_URL: ${{ vars.PUBLIC_BASE_URL }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: python -m research_bot.editorial --slot "${{ inputs.slot }}"
+      - name: Record whether content was prepared
+        id: content
+        run: test -f work/pending.json && echo "ready=true" >> "$GITHUB_OUTPUT" || echo "ready=false" >> "$GITHUB_OUTPUT"
+      - name: Commit generated site
+        if: steps.content.outputs.ready == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/
+          git commit -m "publish: ${{ inputs.slot }} editorial slot [skip ci]"
+          git push
+      - name: Configure GitHub Pages
+        if: steps.content.outputs.ready == 'true'
+        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
+      - name: Upload GitHub Pages site
+        if: steps.content.outputs.ready == 'true'
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          name: github-pages-${{ inputs.slot }}
+          path: docs
+      - name: Deploy GitHub Pages site
+        id: deployment
+        if: steps.content.outputs.ready == 'true'
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1
+        with:
+          artifact_name: github-pages-${{ inputs.slot }}
+      - name: Notify selected digest times and update delivered state
+        if: steps.content.outputs.ready == 'true'
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python -m research_bot.finalize
+      - name: Commit delivered state
+        if: steps.content.outputs.ready == 'true'
+        run: |
+          git add state/seen.json
+          git commit -m "state: record delivered ${{ inputs.slot }} items [skip ci]"
+          git push
+      - name: Upload report for audit
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: report-${{ inputs.slot }}-${{ github.run_id }}
+          path: reports/*.md
+          if-no-files-found: ignore
+          retention-days: 14
+

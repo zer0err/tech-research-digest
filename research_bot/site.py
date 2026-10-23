@@ -19,7 +19,16 @@ POSTS_DIR = SITE_DIR / "posts"
 INDEX_DATA = SITE_DIR / "posts.json"
 
 TOPICS = {
-    "model_research": ("AI 模型、训练与基础研究", "每日 10:00"),
+    "morning_radar": ("AI 晨间雷达与免费资源", "每日 09:07"),
+    "model_research": ("AI 模型、训练与基础研究", "每日 10:17"),
+    "open_source": ("AI 开源项目与工具更新", "每日 11:27"),
+    "paper_brief": ("AI 论文午间速览", "每日 12:37"),
+    "prompt_engineering": ("Prompt、上下文工程与评测", "每日 13:47"),
+    "core_research": ("智能硬件技术专题", "每日 14:07"),
+    "dev_practice": ("AI 开发实践与部署", "每日 15:17"),
+    "applied_ai": ("AI 应用与落地专题", "每日 16:27"),
+    "ecosystem": ("AI 人物、机构与产业生态", "每日 17:37"),
+    "daily_digest": ("VORASIO AI 日报", "每日 18:47"),
     "efficient_ai": ("高效 AI、模型压缩与端侧适配", "周一、周四 14:00"),
     "inference_systems": ("推理引擎、编译器与嵌入式系统", "周二 14:00"),
     "ai_hardware": ("AI 芯片、计算架构与硬件平台", "周三 14:00"),
@@ -29,6 +38,22 @@ TOPICS = {
     "ai_papers": ("AI 最新论文（历史）", "已归档"),
     "audio": ("音频技术研究（历史）", "已归档"),
 }
+
+EDITORIAL_SLOTS = [
+    TOPICS[key]
+    for key in (
+        "morning_radar",
+        "model_research",
+        "open_source",
+        "paper_brief",
+        "prompt_engineering",
+        "core_research",
+        "dev_practice",
+        "applied_ai",
+        "ecosystem",
+        "daily_digest",
+    )
+]
 
 
 def base_url() -> str:
@@ -44,7 +69,8 @@ def shell(title: str, description: str, body: str, relative_root: str = "") -> s
     return f"""<!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{html.escape(title)}</title><meta name="description" content="{html.escape(description, quote=True)}">
-<link rel="stylesheet" href="{relative_root}assets/style.css"></head>
+<link rel="stylesheet" href="{relative_root}assets/style.css">
+<link rel="stylesheet" href="{relative_root}assets/editorial.css"></head>
 <body><header class="site-header"><a class="brand" href="{relative_root}index.html"><span>VORASIO</span> 研究简报</a>
 <nav><a href="{relative_root}index.html#latest">最新研究</a><a href="{relative_root}index.html#topics">研究栏目</a></nav></header>
 <main>{body}</main><footer><strong>VORASIO 研究简报</strong>
@@ -59,7 +85,9 @@ def publish_post(topic: str, title: str, now: datetime, report: str, items: list
     url = f"{base_url()}/posts/{slug}"
     md = MarkdownIt("commonmark", {"html": False}).enable("table")
     title_match = re.match(r"^\s*\*\*(.+?)\*\*\s*(?:\n+|$)", report)
-    display_title = title_match.group(1).strip() if title_match else f"{title}简报（{now:%Y-%m-%d}）"
+    display_title = title_match.group(1).strip() if title_match else (
+        title if f"{now:%Y-%m-%d}" in title else f"{title}（{now:%Y-%m-%d}）"
+    )
     report_body = report[title_match.end() :].lstrip() if title_match else report
     topic_name = TOPICS.get(topic, (title, "定期更新"))[0]
     article = (
@@ -90,27 +118,35 @@ def publish_post(topic: str, title: str, now: datetime, report: str, items: list
 
 def render_index(entries: list[dict[str, object]]) -> None:
     cards = []
+    descriptions = {
+        "morning_radar": "最新 AI 动态，以及当天新发现的免费 VPS 与免费 AI 服务线索。",
+        "open_source": "开源项目正式版本、兼容性与迁移风险速览。",
+        "prompt_engineering": "提示词、上下文工程、RAG 与评测方法更新。",
+        "dev_practice": "依据官方资料整理的开发与部署实践。",
+        "ecosystem": "人物、机构、实验室与开发者生态的可核验动态。",
+        "daily_digest": "汇总今天已经发布的全部站内内容。",
+    }
     for index, entry in enumerate(entries):
         date = str(entry["date"])[:10]
         topic_name = TOPICS.get(str(entry["topic"]), (str(entry["topic"]), ""))[0]
         card_class = "post-card featured" if index == 0 else "post-card"
+        summary = descriptions.get(str(entry["topic"]), f"基于 {int(entry['count'])} 项最新资料整理的中文技术简报。")
         cards.append(
             f'<article class="{card_class}"><a href="{html.escape(str(entry["url"]), quote=True)}">'
             f'<p class="card-topic">{html.escape(topic_name)}</p><h2>{html.escape(str(entry["title"]))}</h2>'
-            f'<p class="card-summary">基于 {int(entry["count"])} 项最新资料整理的中文深度研究简报。</p>'
+            f'<p class="card-summary">{html.escape(summary)}</p>'
             f'<p class="card-meta"><time>{html.escape(date)}</time><span>阅读全文 →</span></p></a></article>'
         )
     topics = "".join(
         f'<article><p>{html.escape(schedule)}</p><h3>{html.escape(name)}</h3><span>持续追踪、筛选与深度分析</span></article>'
-        for name, schedule in TOPICS.values()
-        if schedule != "已归档"
+        for name, schedule in EDITORIAL_SLOTS
     )
     body = (
         '<section class="hero"><div><p class="eyebrow">VORASIO · RESEARCH DIGEST</p>'
         '<h1>追踪 AI 模型，<br>直到智能硬件落地。</h1></div>'
         '<p class="hero-intro">覆盖模型训练、高效化、推理系统、芯片、感知交互、具身智能与产品可靠性的完整技术链。</p></section>'
         f'<section id="topics" class="topic-section"><div class="section-heading"><p>研究版图</p>'
-        f'<h2>七条持续更新的研究主线</h2></div><div class="topic-grid">{topics}</div></section>'
+        f'<h2>每天十个自动编辑时段</h2></div><div class="topic-grid">{topics}</div></section>'
         '<section id="latest" class="latest-section"><div class="section-heading"><p>最新发布</p>'
         '<h2>研究简报</h2></div><div class="post-grid">'
         + "".join(cards)
