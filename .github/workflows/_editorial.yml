@@ -7,6 +7,8 @@ on:
         required: true
         type: string
     secrets:
+      OPENALEX_API_KEY:
+        required: false
       GROQ_API_KEY:
         required: true
       TELEGRAM_BOT_TOKEN:
@@ -47,6 +49,8 @@ jobs:
         id: prepare
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
+          GH_SOURCE_TOKEN: ${{ github.token }}
           GROQ_MODEL: ${{ vars.GROQ_MODEL || 'openai/gpt-oss-20b' }}
           GROQ_MAX_TOKENS: ${{ vars.GROQ_MAX_TOKENS || '2800' }}
           PUBLIC_BASE_URL: ${{ vars.PUBLIC_BASE_URL }}

@@ -1,0 +1,62 @@
+from datetime import UTC, datetime
+
+import httpx
+
+from research_bot.core import item_id, title_key
+from research_bot.sources import PaperHTML, crossref_entries, date_parts, fetch_entries, inverse_abstract
+
+
+def test_openalex_abstract_and_doi_identity():
+    assert inverse_abstract({"world": [1], "Hello": [0]}) == "Hello world"
+    assert inverse_abstract(None) == ""
+    assert item_id({"doi": "https://doi.org/10.1/ABC"}) == item_id({"doi": "10.1/abc"})
+    assert title_key("AI: Model!") == title_key("AI Model")
+
+
+def test_crossref_uses_publication_not_index_timestamp():
+    entry = crossref_entries({"message": {"items": [{"DOI": "10.1/test", "title": ["Paper"],
+        "published": {"date-parts": [[2024, 2]]}, "indexed": {"date-time": "2026-10-23"}}]}})[0]
+    assert entry["published"].startswith("2024-02-01")
+    assert entry["date_precision"] == "month"
+    assert entry["summary"] == ""
+    assert date_parts([2026, 13]) == ("", "unknown")
+
+
+def test_paper_html_extracts_only_abstract():
+    page = PaperHTML()
+    page.feed('<meta name="citation_title" content="Real paper"><div id="abstract">Actual <b>abstract</b>.</div><p>Not abstract</p>')
+    assert page.meta["citation_title"] == "Real paper"
+    assert "Not abstract" not in " ".join(page.abstract)
+    assert "abstract" in " ".join(page.abstract)
+
+
+def test_openalex_key_in_header_not_url(monkeypatch):
+    monkeypatch.setenv("OPENALEX_API_KEY", "test-key")
+    def handler(request):
+        assert request.headers["Authorization"] == "Bearer test-key"
+        assert "test-key" not in str(request.url)
+        assert "from_publication_date" in request.url.params["filter"]
+        return httpx.Response(200, json={"results": []})
+    with httpx.Client(transport=httpx.MockTransport(handler)) as client:
+        assert fetch_entries({"type": "openalex", "url": "https://api.openalex.org/works", "query": "AI"},
+                             client, datetime(2026, 10, 23, tzinfo=UTC), datetime(2026, 10, 20, tzinfo=UTC)) == []
+
+
+def test_cvf_old_archive_does_not_become_daily_news():
+    def handler(request):
+        raise AssertionError("An old archive should not be fetched for today's news")
+    with httpx.Client(transport=httpx.MockTransport(handler)) as client:
+        assert fetch_entries({"type": "cvf", "url": "https://openaccess.thecvf.com/CVPR2026", "published": "2026-05-23", "name": "CVF"},
+                             client, datetime(2026, 10, 23, tzinfo=UTC), datetime(2026, 10, 20, tzinfo=UTC)) == []
+
+
+def test_github_skips_drafts_and_prereleases(monkeypatch):
+    monkeypatch.setenv("GH_SOURCE_TOKEN", "test-token")
+    def handler(request):
+        assert request.headers["Authorization"] == "Bearer test-token"
+        return httpx.Response(200, json=[{"id": 1, "html_url": "https://github.com/a/b/releases/tag/v1", "body": "Changes"},
+                                         {"id": 2, "draft": True}, {"id": 3, "prerelease": True}])
+    with httpx.Client(transport=httpx.MockTransport(handler)) as client:
+        records = fetch_entries({"type": "github", "url": "https://api.github.com/repos/a/b/releases"},
+                                client, datetime.now(UTC), datetime.now(UTC))
+    assert len(records) == 1

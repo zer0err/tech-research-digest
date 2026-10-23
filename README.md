@@ -145,6 +145,25 @@ python -m research_bot.main --topic model_research --dry-run
 
 ## 服务边界与成本
 
+### 已接入的补充来源
+
+| 来源 | 接入与筛选方式 | 边界 |
+|---|---|---|
+| OpenAlex | 官方 API，按主题检索及真实出版日期过滤 | 需要 Actions secret `OPENALEX_API_KEY`；通过 Authorization 请求头传递，不写入仓库或 URL |
+| ACL Anthology | 官方 RSS 发现论文，再读取论文页的摘要和出版日期 | RSS 包含旧论文更正和非论文记录；不把更正时间当作论文日期 |
+| CVF Open Access | 官方会议档案和论文页摘要 | 当前配置 CVPR 2026，档案发布日为 2026-05-23；不在窗口时跳过，不伪装成日更新源。后续会议需更新配置 |
+| Crossref | 官方 works API，出版日期过滤、DOI 去重 | 很多记录不提供摘要；没有摘要的条目不用于深度分析 |
+| GitHub | 官方 Releases API | 工作流自带 token，排除草稿和预发布；原有官方 RSS 继续保留 |
+| NVIDIA 技术博客 | 官方 RSS | 视作厂商技术资料，而非独立评测；仍需核验测试条件 |
+
+OpenReview 不启用。arXiv 继续保留为补充来源，各来源失败分别记录，不影响其他可用来源。OpenAlex 和 Crossref 按研究方向配置查询；所有结果仍经过栏目关键词、日期窗口及可用摘要过滤，不是直接搬运检索结果。
+
+跨来源去重采用 DOI、规范化 URL 和规范化标题；跨天保存于现有状态文件，继续由共享并发锁保护写入。只有年份或月份的出版日期保守取该周期第一天并标记精度，不用索引更新时间代替出版时间。缺摘要不会由模型补写。
+
+在 Actions 手动运行 **Source connector checks** 可只验证这六类连接器：不调用 Groq、不发布网页、不发 Telegram。ACL/CVF 使用较宽的诊断窗口检验解析器，诊断命中不代表今天有新资料。
+
+OpenAlex 注册免费使用有每日预算及速率限制，以官方账户面板为准；Crossref、ACL、CVF 和 NVIDIA 的公开访问不代表无限请求或可任意转载。GitHub API 也受 token 对应的速率限制。采集使用串行请求、数量上限及退避，网站仅呈现研究解读与原始链接。官方说明：[OpenAlex](https://docs.openalex.org/)、[ACL](https://aclanthology.org/faq/api/)、[CVF](https://openaccess.thecvf.com/)、[Crossref](https://www.crossref.org/documentation/retrieve-metadata/rest-api/)、[GitHub Releases](https://docs.github.com/en/rest/releases/releases)、[NVIDIA](https://developer.nvidia.com/blog/)。
+
 - GitHub Actions：公开仓库使用标准 GitHub-hosted runner 通常免费；私有仓库按账户方案有免费分钟和存储额度，超出后计费。cache 每仓库有独立额度，artifact 计入存储。具体数字会随方案变化，以 Billing 页面为准。
 - Groq：有免费计划，但速率和日额度因模型/组织而异；达到任一维度会返回 429。Developer 是付费按量方案，Flex/Batch 等能力可能仅限付费层。
 - Telegram Bot API：这里使用普通 HTTPS Bot API；官方没有为这种低频单聊天推送收取 API 费用，但有消息长度和发送速率等限制。

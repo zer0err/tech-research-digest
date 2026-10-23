@@ -8,17 +8,18 @@ import os
 import random
 import re
 import time
+import unicodedata
 from dataclasses import asdict, dataclass
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from typing import Any
 from urllib.parse import urlsplit, urlunsplit
 
-import feedparser
 import httpx
 from dateutil import parser as dateparser
 
 from .charter import charter_text
+from .sources import fetch_entries
 
 LOG = logging.getLogger(__name__)
 USER_AGENT = "tech-research-digest/1.0 (+GitHub Actions; contact repository owner)"
@@ -37,6 +38,8 @@ class Item:
     summary: str
     source: str
     kind: str = "research"
+    doi: str = ""
+    date_precision: str = "day"
 
 
 def canonical_url(url: str) -> str:
@@ -45,8 +48,17 @@ def canonical_url(url: str) -> str:
 
 
 def item_id(entry: Any) -> str:
-    raw = entry.get("id") or entry.get("guid") or canonical_url(entry.get("link", "")) or entry.get("title", "")
+    doi = str(entry.get("doi", "")).strip().lower()
+    doi = re.sub(r"^(?:https?://(?:dx\.)?doi\.org/|doi:\s*)", "", doi)
+    raw = "doi:" + doi if doi else (
+        entry.get("id") or entry.get("guid") or canonical_url(entry.get("link", "")) or entry.get("title", "")
+    )
     return hashlib.sha256(raw.strip().lower().encode()).hexdigest()[:24]
+
+
+def title_key(title: str) -> str:
+    normalized = re.sub(r"[^\w]", "", unicodedata.normalize("NFKC", title).casefold())
+    return hashlib.sha256(normalized.encode()).hexdigest()[:24] if normalized else ""
 
 
 def parse_time(entry: Any) -> datetime | None:
@@ -81,24 +93,14 @@ def collect(topic: dict[str, Any], now: datetime) -> list[Item]:
     successful_sources = 0
     with httpx.Client(timeout=25, follow_redirects=True, headers={"User-Agent": USER_AGENT}) as client:
         for source in topic["sources"]:
-            for attempt in range(3):
-                try:
-                    response = client.get(source["url"])
-                    response.raise_for_status()
-                    parsed = feedparser.parse(response.content)
-                    if parsed.bozo and not parsed.entries:
-                        raise ValueError(str(parsed.bozo_exception))
-                    break
-                except Exception as exc:
-                    if attempt == 2:
-                        LOG.warning("source failed: %s: %s", source["name"], exc)
-                        parsed = None
-                    else:
-                        time.sleep(2**attempt + random.random())
-            if not parsed:
+            try:
+                entries = fetch_entries(source, client, now, cutoff)
+            except Exception as exc:
+                code = exc.response.status_code if isinstance(exc, httpx.HTTPStatusError) else type(exc).__name__
+                LOG.warning("source failed: %s (%s)", source["name"], code)
                 continue
             successful_sources += 1
-            for entry in parsed.entries:
+            for entry in entries:
                 published = parse_time(entry)
                 if not published or published < cutoff or published > now + timedelta(hours=2):
                     continue
@@ -134,6 +136,8 @@ def collect(topic: dict[str, Any], now: datetime) -> list[Item]:
                     summary,
                     source["name"],
                     source.get("kind", "research"),
+                    entry.get("doi", ""),
+                    entry.get("date_precision", "day"),
                 )
     if topic["sources"] and not successful_sources:
         raise SourceUnavailable("All configured sources failed; cannot claim there are no new items")
@@ -141,10 +145,14 @@ def collect(topic: dict[str, Any], now: datetime) -> list[Item]:
     per_source = int(topic.get("max_per_source", len(ordered) or 1))
     counts: dict[str, int] = {}
     diversified = []
+    titles: set[str] = set()
     for item in ordered:
+        if title_key(item.title) in titles:
+            continue
         counts[item.source] = counts.get(item.source, 0) + 1
         if counts[item.source] <= per_source:
             diversified.append(item)
+            titles.add(title_key(item.title))
     return diversified
 
 
@@ -163,7 +171,9 @@ def unseen(items: list[Item], state: dict[str, Any], topic: str) -> list[Item]:
     for topic_state in state["topics"].values():
         seen.update(topic_state.get("ids", []))
     seen_urls = set(state.get("all_urls", []))
-    return [item for item in items if item.uid not in seen and canonical_url(item.url) not in seen_urls]
+    seen_titles = set(state.get("all_titles", []))
+    return [item for item in items if item.uid not in seen and canonical_url(item.url) not in seen_urls
+            and title_key(item.title) not in seen_titles]
 
 
 def update_state(state: dict[str, Any], topic: str, items: list[Item], now: datetime) -> None:
@@ -173,13 +183,14 @@ def update_state(state: dict[str, Any], topic: str, items: list[Item], now: date
     global_ids = state.get("all_ids", [])
     state["all_ids"] = list(dict.fromkeys([item.uid for item in items] + global_ids))[:10000]
     state["all_urls"] = list(dict.fromkeys([canonical_url(item.url) for item in items] + state.get("all_urls", [])))[:10000]
+    state["all_titles"] = list(dict.fromkeys([title_key(item.title) for item in items] + state.get("all_titles", [])))[:10000]
 
 
 def source_packet(items: list[Item]) -> str:
     blocks = []
     for i, item in enumerate(items, 1):
         blocks.append(
-            f"[{i}] 类型：{item.kind}\n标题：{item.title}\n日期：{item.published}\n来源：{item.source}\n"
+            f"[{i}] 类型：{item.kind}\n标题：{item.title}\n日期：{item.published}（精度：{item.date_precision}）\n来源：{item.source}\n"
             f"URL：{item.url}\n摘要：{item.summary}"
         )
     return "\n\n".join(blocks)
