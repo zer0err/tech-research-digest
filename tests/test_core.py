@@ -174,3 +174,8 @@ def test_report_rejects_invented_commands():
     report = ("## 本期要点\n- 更新。[1]\n## 逐项速览\n内容\n## 值得采取的行动\n"
               "```bash\npip install invented-package\n```\n## 参考资料\n[1] https://example.com/a")
     assert not report_is_complete(report, [sample("a")], "brief")
+
+
+def test_report_rejects_unsupported_headline_numbers():
+    report = "## 本期要点\n- 性能提升 50%。[1]\n## 逐项速览\n内容\n## 值得采取的行动\n验证\n## 参考资料\n[1] URL"
+    assert not report_is_complete(report, [sample("a")], "brief")

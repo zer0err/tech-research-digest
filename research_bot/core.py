@@ -231,11 +231,18 @@ def report_is_complete(report: str, items: list[Item], content_type: str) -> boo
         re.sub(r"\s+", " ", line).strip() in source_text
         for block in [*code_blocks, *commands] for line in block.splitlines() if line.strip()
     )
+    # Conservative numeric guard for top-line claims; unsupported figures must not become headlines.
+    evidence = unicodedata.normalize("NFKC", " ".join(item.summary for item in items)).replace(",", "")
+    evidence_numbers = set(re.findall(r"\d+(?:\.\d+)?%?", evidence))
+    headline = re.sub(r"\[\d+\]", "", unicodedata.normalize("NFKC", first_section)).replace(",", "")
+    headline = re.sub(r"^\d+\.\s", "", headline, flags=re.M)
+    grounded_numbers = set(re.findall(r"\d+(?:\.\d+)?%?", headline)) <= evidence_numbers
     return (
         all(heading in report for heading in headings)
         and all(f"[{index}]" in report for index in range(1, len(items) + 1))
         and cited_claims
         and grounded_code
+        and grounded_numbers
     )
 
 

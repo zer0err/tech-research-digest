@@ -57,6 +57,7 @@ def prepare_topic(
         except Exception as exc:
             logging.warning("Analysis unavailable for %s (%s); skipping publication", topic, type(exc).__name__)
             return False
+        report = re.sub(r"【(\d+)】", r"[\1]", report)
         if report_is_complete(report, selected, content_type) and "降级为" not in report and len(report) >= 300:
             break
         logging.warning("Incomplete analysis for %s; attempt %s rejected", topic, attempt + 1)
