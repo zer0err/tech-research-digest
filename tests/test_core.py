@@ -83,6 +83,7 @@ def test_report_completeness_requires_all_sections_and_citations():
     report = "## 本期要点\n[1] [2]\n## 逐项速览\n内容\n## 值得采取的行动\n内容\n## 参考资料\n内容"
     assert report_is_complete(report, items, "brief")
     assert not report_is_complete(report.replace("## 参考资料", "参考资料"), items, "brief")
+    assert not report_is_complete(report.replace("[1] [2]", "- 未标注来源的确定性结论"), items, "brief")
 
 
 def test_fallback_report_keeps_sources_and_resource_boundary():

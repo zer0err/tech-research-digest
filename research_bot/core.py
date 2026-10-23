@@ -183,7 +183,14 @@ REPORT_HEADINGS = {
 
 def report_is_complete(report: str, items: list[Item], content_type: str) -> bool:
     headings = REPORT_HEADINGS.get(content_type, REPORT_HEADINGS["brief"])
-    return all(heading in report for heading in headings) and all(f"[{index}]" in report for index in range(1, len(items) + 1))
+    first_section = report.split(headings[1], 1)[0]
+    claims = re.findall(r"^(?:[-*]|\d+\.)\s+(.+)$", first_section, flags=re.M)
+    cited_claims = all(re.search(r"\[\d+\]", claim) for claim in claims)
+    return (
+        all(heading in report for heading in headings)
+        and all(f"[{index}]" in report for index in range(1, len(items) + 1))
+        and cited_claims
+    )
 
 
 def fallback_report(items: list[Item], content_type: str) -> str:

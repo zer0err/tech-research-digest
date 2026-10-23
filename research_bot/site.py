@@ -79,7 +79,7 @@ def shell(title: str, description: str, body: str, relative_root: str = "") -> s
 
 
 def linkify_bare_urls(markdown: str) -> str:
-    return re.sub(r"(?<!\()(?P<url>https?://[^\s<>)，。；,;]+)", r"<\g<url>>", markdown)
+    return re.sub(r"(?<![\(<])(?P<url>https?://[^\s<>)，。；,;]+)", r"<\g<url>>", markdown)
 
 
 def publish_post(topic: str, title: str, now: datetime, report: str, items: list[Item]) -> str:
