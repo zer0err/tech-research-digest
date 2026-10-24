@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Agent、机器人与具身智能（2026-10-24）</title><meta name="description" content="Agent、机器人与具身智能（2026-10-24）：3 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script src="../assets/article.js" defer></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav><a href="../index.html#latest">时间线</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">智能硬件技术专题</p><dl><dt>发布日期</dt><dd>2026-10-24</dd><dt>研究条目</dt><dd>3 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · 智能硬件技术专题</p><h1>Agent、机器人与具身智能（2026-10-24）</h1><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期结论</h2>
+<ol>
+<li><strong>感知与运动对齐指标（$S^2$）可作为低成本离线评估工具</strong>，其与机器人任务成功率正相关，能够在闭环评估前筛选有潜力的模型。[2]</li>
+<li><strong>可定制化3D触觉皮肤（OpenTac）在多种机器人平台上实现了可扩展的触觉感知</strong>，并通过仿真与实测验证了其在接触反馈控制与操纵策略学习中的有效性。[3]</li>
+<li><strong>基于AI Agent的仿真训练（Microduck）展示了从感知到动作的闭环学习流程</strong>，但缺乏跨环境迁移的实证，提示仿真到现实的失败模式仍需进一步研究。[1]</li>
+</ol>
+<h2>逐项分析</h2>
+<table>
+<thead>
+<tr>
+<th>资料</th>
+<th>核心贡献</th>
+<th>方法与数据</th>
+<th>性能证据</th>
+<th>局限与证据等级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[1]</td>
+<td>通过AI Agent在仿真中训练Microduck机器人实现障碍课程导航</td>
+<td>结合视觉感知、平衡控制与动作调整的闭环策略；使用NVIDIA Isaac Sim进行仿真</td>
+<td>机器人成功通过障碍课程，展示了完整的感知‑决策‑执行链条</td>
+<td>仅在仿真环境中验证，缺乏真实世界迁移实验；证据等级 B</td>
+</tr>
+<tr>
+<td>[2]</td>
+<td>提出Sensorimotor Alignment ($S^2$) 作为离线评估指标</td>
+<td>训练无关的离线度量，比较不同模型的感知表示与物理运动几何的对齐程度</td>
+<td>$S^2$ 与下游机器人任务成功率正相关，能识别潜在VLM骨干</td>
+<td>仅基于统计相关性，未提供因果验证；证据等级 A</td>
+</tr>
+<tr>
+<td>[3]</td>
+<td>开发可定制化3D触觉皮肤OpenTac及其完整生态</td>
+<td>设计可扩展的电阻式触觉皮肤、CAD自动化生成、仿真与实测对比</td>
+<td>在30+机器人平台上实现触觉感知，验证了在接触反馈控制与操纵学习中的效果</td>
+<td>仅在实验室环境中测试，未评估长期耐久性与大规模部署成本；证据等级 A</td>
+</tr>
+</tbody>
+</table>
+<h2>工程行动建议</h2>
+<ul>
+<li><strong>验证实验</strong>
+<ul>
+<li>对[1]中的Microduck模型进行真实世界障碍课程测试，记录通过率与仿真差异。</li>
+<li>在不同机器人平台上使用$S^2$评估多种VLM骨干，随后进行闭环任务验证，以检验$S^2$的预测准确性。</li>
+<li>在工业机器人上部署OpenTac触觉皮肤，比较其在抓取与精细操作任务中的性能提升。</li>
+</ul>
+</li>
+<li><strong>落地评估</strong>
+<ul>
+<li>评估$S^2$在模型筛选流程中的时间与成本节约。</li>
+<li>对OpenTac的制造成本、耐久性与维护周期进行生命周期成本分析。</li>
+<li>对Microduck仿真训练的迁移学习策略进行成本效益比评估。</li>
+</ul>
+</li>
+<li><strong>后续跟踪指标</strong>
+<ul>
+<li>$S^2$与任务成功率的相关系数随模型规模变化的趋势。</li>
+<li>OpenTac触觉皮肤在不同材质与形状机器人上的感知误差分布。</li>
+<li>Microduck在真实环境中的失败模式分类（如感知误差、动力学不匹配等）。</li>
+</ul>
+</li>
+</ul>
+<h2>参考资料</h2>
+<ol>
+<li>Using AI Agents to Teach Robots Like Microduck to Walk in Simulation – NVIDIA Technical Blog – <a href="https://developer.nvidia.com/blog/using-ai-agents-to-teach-robots-like-microduck-to-walk-in-simulation">https://developer.nvidia.com/blog/using-ai-agents-to-teach-robots-like-microduck-to-walk-in-simulation</a></li>
+<li>Sensorimotor Alignment: A Platonic Proxy for Embodied Policy Success – arXiv Embodied Intelligence – <a href="https://arxiv.org/abs/2610.31670v1">https://arxiv.org/abs/2610.31670v1</a></li>
+<li>OpenTac: An Open Ecosystem for Customizable, Scalable, and Transferable 3D Tactile Sensing – arXiv Embodied Intelligence – <a href="https://arxiv.org/abs/2610.31661v1">https://arxiv.org/abs/2610.31661v1</a></li>
+</ol>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>
