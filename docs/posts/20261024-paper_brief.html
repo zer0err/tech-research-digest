@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 论文午间速览（2026-10-24）</title><meta name="description" content="AI 论文午间速览（2026-10-24）：3 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script src="../assets/article.js" defer></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav><a href="../index.html#latest">时间线</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">AI 论文午间速览</p><dl><dt>发布日期</dt><dd>2026-10-24</dd><dt>研究条目</dt><dd>3 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · AI 论文午间速览</p><h1>AI 论文午间速览（2026-10-24）</h1><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期要点</h2>
+<ul>
+<li>Neuromorphic 方案在边缘 IoT 设备中显著降低功耗与延迟，典型平台如 Intel Loihi、IBM TrueNorth 与 BrainScaleS 在能耗与吞吐上各有优势[1]。</li>
+<li>传统 FPGA 通过 hls4ml 可实现时钟驱动的 SNN 推理，单次推理延迟约 34 µs，验证了 HLS 与 Vivado 合成的可行性[2]。</li>
+<li>光学 neuromorphic 架构 SEPhIA 采用多波长激光与微环调制器，单脉冲神经元比率 &lt; 1，且在四分类任务上达 90 %+ 准确率，展示了光学实现的可扩展性与能效潜力[3]。</li>
+</ul>
+<h2>逐项速览</h2>
+<ol>
+<li>
+<p><strong>Neuromorphic Edge 推理</strong></p>
+<ul>
+<li>论文对 Loihi、TrueNorth 与 BrainScaleS 的学习架构、能耗、吞吐及边缘适用性进行了整体比较[1]。</li>
+<li>通过 Google Speech Commands 与 DVS Gesture 数据集的关键词识别与手势识别案例，验证了 SNN 在实时推理中的低功耗与低延迟特性。</li>
+<li>局限：摘要未给出具体功耗数值、吞吐率或面积/制程信息，无法量化不同平台的硬件成本。</li>
+</ul>
+</li>
+<li>
+<p><strong>FPGA 上的 SNN 推理</strong></p>
+<ul>
+<li>hls4ml 扩展支持将 PyTorch 训练的量化 SNN 部署至 FPGA，示例为 Heidelberg Spiking Digits 数据集的密集量化 SNN[2]。</li>
+<li>推理延迟约 34 µs，已通过软件参考、HLS C 模拟、HLS 合成及 Vivado 合成报告验证。</li>
+<li>该工作未讨论功耗、面积或制程细节，亦未说明在更大规模网络上的可扩展性。</li>
+</ul>
+</li>
+<li>
+<p><strong>光学 SNN 架构 SEPhIA</strong></p>
+<ul>
+<li>采用微环调制器与多波长激光实现单激光/神经元 &lt; 1 的比率，强调实现可行性与真实规模化[3]。</li>
+<li>通过时间域共模拟与物理感知的可训练光电 SNN 模型，四分类任务准确率 &gt; 90 %，与软件模型相近。</li>
+<li>设计空间研究量化了光学器件参数对 SNN 性能的影响，但摘要未给出具体功耗、延迟或面积数据，且未说明与传统 CMOS 或 FPGA 的直接对比。</li>
+</ul>
+</li>
+</ol>
+<h2>值得采取的行动</h2>
+<ul>
+<li><strong>对比实验</strong>：在同一边缘任务（如关键词识别）上，分别使用 Loihi、TrueNorth 与 SEPhIA 进行功耗与延迟测量，填补摘要缺失的定量数据。</li>
+<li><strong>FPGA 规模化验证</strong>：在更大规模的 SNN（多层、更多神经元）上使用 hls4ml 进行合成与功耗评估，验证 34 µs 延迟是否可保持。</li>
+<li><strong>光学与电子协同</strong>：探索 SEPhIA 与传统 FPGA 结合的混合架构，评估光学前端对整体功耗与面积的影响。</li>
+</ul>
+<h2>参考资料</h2>
+<p>[1] Neuromorphic Computing Architectures for Low-Power Edge Inference in IoT Applications – <a href="https://doi.org/10.31838/ece/03.02.08">https://doi.org/10.31838/ece/03.02.08</a><br />
+[2] Spiking neural network inference on FPGAs with hls4ml – <a href="https://doi.org/10.1088/2634-4386/aeb8ba">https://doi.org/10.1088/2634-4386/aeb8ba</a><br />
+[3] SEPhIA: spiking electro-photonic integrated tiled architecture leveraging multi-wavelength lasers for scalable optical neuromorphic computing – <a href="https://doi.org/10.1038/s44335-026-00102-3">https://doi.org/10.1038/s44335-026-00102-3</a></p>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>

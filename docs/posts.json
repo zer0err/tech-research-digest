@@ -1,5 +1,14 @@
 [
   {
+    "title": "AI 论文午间速览（2026-10-24）",
+    "date": "2026-10-24T18:51:03.986585+08:00",
+    "count": 3,
+    "url": "posts/20261024-paper_brief.html",
+    "topic": "paper_brief",
+    "status": "published",
+    "summary": "本期要点 - Neuromorphic 方案在边缘 IoT 设备中显著降低功耗与延迟，典型平台如 Intel Loihi、IBM TrueNorth 与 BrainScaleS 在能耗与吞吐上各有优势1。 - 传统 FPGA 通过 hls4ml 可实现时钟驱动的 SNN 推理，单次推理延迟约 34 µs，验证了 HLS"
+  },
+  {
     "title": "高效 AI、模型压缩与端侧适配（2026-10-24）",
     "date": "2026-10-24T17:04:00.370527+08:00",
     "count": 3,
