@@ -1,5 +1,14 @@
 [
   {
+    "title": "AI 晨间雷达与免费资源（2026-10-24）",
+    "date": "2026-10-24T10:52:19.578062+08:00",
+    "count": 2,
+    "url": "posts/20261024-morning_radar.html",
+    "topic": "morning_radar",
+    "status": "published",
+    "summary": "本时段要点 1. GitHub Copilot 的使用量 API 现已支持从 OpenCode 等工具收集模型使用数据，扩展了开发者使用情况的可视化范围。 1 2. GitHub 在 Teams 上推出新应用，将通知与 Copilot 结合，支持在聊天中直接将问题转化为代码修复，提升团队协作效率。 2 逐项速览 - C"
+  },
+  {
     "title": "VORASIO AI 日报（2026-10-23）",
     "date": "2026-10-23T23:29:51.628120+08:00",
     "count": 5,
