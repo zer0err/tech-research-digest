@@ -65,9 +65,20 @@
         "d8688b533028f131212f0a3d"
       ],
       "updated_at": "2026-10-24T09:04:00.370527+00:00"
+    },
+    "ai_hardware": {
+      "ids": [
+        "518992d77352c78bff2d2a29",
+        "1493351af77b0689ca43a1e9",
+        "739ced7097d3b092ed674790"
+      ],
+      "updated_at": "2026-10-24T10:51:03.986585+00:00"
     }
   },
   "all_ids": [
+    "518992d77352c78bff2d2a29",
+    "1493351af77b0689ca43a1e9",
+    "739ced7097d3b092ed674790",
     "7636d6d395b446725f42fbf5",
     "7e518a52776f0779cdbd16e6",
     "d8688b533028f131212f0a3d",
@@ -96,6 +107,9 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://doi.org/10.31838/ece/03.02.08",
+    "https://doi.org/10.1088/2634-4386/aeb8ba",
+    "https://doi.org/10.1038/s44335-026-00102-3",
     "https://arxiv.org/abs/2610.31667v1",
     "https://arxiv.org/abs/2610.31646v1",
     "https://arxiv.org/abs/2610.31642v1",
@@ -124,6 +138,9 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "d0760503f3d4c16c7d8ca968",
+    "53c6fae114734b3948e9b13d",
+    "29612b292ebd3c638e171911",
     "98705e9deac00319d2f98b04",
     "6e2b1c1290b59444071687db",
     "516523363d7c71e7b8aea632",
@@ -437,6 +454,45 @@
           "source": "arXiv Efficient AI",
           "kind": "research",
           "doi": "",
+          "date_precision": "day"
+        }
+      ]
+    },
+    "https://vorasio.com/posts/20261024-paper_brief.html": {
+      "topic": "ai_hardware",
+      "created_at": "2026-10-24T10:51:03.986585+00:00",
+      "items": [
+        {
+          "uid": "518992d77352c78bff2d2a29",
+          "title": "Neuromorphic Computing Architectures for Low-Power Edge Inference in IoT Applications",
+          "url": "https://doi.org/10.31838/ece/03.02.08",
+          "published": "2026-10-24T00:00:00+00:00",
+          "summary": "The blistering advancements witnessed in the Internet of Things (IoT) ecosystem have led to the urgency of search outcomes that provide energy efficient, low latency, and smart processing support that manifests itself right at the edge. The traditional edge computing devices built on von Neumann architecture are inherently limited by being optimized to be adjacent in memory and processing components, which results in the high power required and latency, which are highly undesirable in devices with limited power resources; wearables, smart sensors, and remote-monitoring systems. A Neuromorphic computing approach based on the human brain blueprint presents a better alternative due to its implementation of spiking neural networks (SNNs) that allow asynchronous and event-driven computation, thus dramatically lowering power demand and yet being able to run real-time inference. This paper includes a holistic comparison of the most recent examples of the neuromorphic hardware platforms, such as Intel Loihi, IBM TrueNorth, and BrainScaleS system, with regard to their learning architectures, energy consumption, throughput, and suitability to the edge-based IoT applications. An empirical case study is carried out, which is a keyword spotting case study and event-based gesture recognition case study using Google Speech Commands and the DVS Gesture dataset sets, respectively. The neuromorp",
+          "source": "OpenAlex AI Hardware",
+          "kind": "research",
+          "doi": "https://doi.org/10.31838/ece/03.02.08",
+          "date_precision": "day"
+        },
+        {
+          "uid": "1493351af77b0689ca43a1e9",
+          "title": "Spiking neural network inference on FPGAs with hls4ml",
+          "url": "https://doi.org/10.1088/2634-4386/aeb8ba",
+          "published": "2026-10-23T00:00:00+00:00",
+          "summary": "Abstract Spiking Neural Networks (SNNs) provide a naturally temporal machinelearning framework. Their neurons maintain an internal state and propagate information through discrete spikes, enabling low-latency temporal inference. Although SNNs are often associated with asynchronous neuromorphic processors, many scientific real-time inference systems rely on conventional synchronous fieldprogrammable gate arrays (FPGAs) and high-level synthesis (HLS) workflows. In this paper we present an extension of hls4ml that enables clock-driven deployment of SNNs trained in PyTorch onto FPGA firmware. We demonstrate the workflow using a dense quantised SNN trained on the Heidelberg Spiking Digits dataset where it achieves inference latencies of approximately 34µs. We validate the generated design through software reference comparisons, HLS C simulation, HLS synthesis, export, and Vivado synthesis reports. This work opens up the hls4ml toolkit to neuromorphic computing, allowing streamlined optimisation, synthesis, and deployment of SNN models for realtime inference.",
+          "source": "OpenAlex AI Hardware",
+          "kind": "research",
+          "doi": "https://doi.org/10.1088/2634-4386/aeb8ba",
+          "date_precision": "day"
+        },
+        {
+          "uid": "739ced7097d3b092ed674790",
+          "title": "SEPhIA: spiking electro-photonic integrated tiled architecture leveraging multi-wavelength lasers for scalable optical neuromorphic computing",
+          "url": "https://doi.org/10.1038/s44335-026-00102-3",
+          "published": "2026-10-23T00:00:00+00:00",
+          "summary": "Abstract Research into optical spiking neural networks (SNNs) has primarily focused on spiking devices, networks of excitable lasers or numerical modeling of large architectures, often overlooking key constraints such as limited optical power, crosstalk and footprint. We introduce SEPhIA, a photonic-electronic, multi-tiled SNN architecture emphasizing implementation feasibility and realistic scaling. SEPhIA leverages microring modulators (MRMs) and multi-wavelength sources to achieve effective $$ < 1$$ < 1 laser-per-spiking neuron ratio. We validate SEPhIA at both device and architecture levels by time‑domain co‑simulating excitable CMOS‑MRM coupled circuits and by devising a physics‑aware, trainable optoelectronic SNN model, with both approaches utilizing experimentally derived device parameters. The multi-layer optoelectronic SNN achieves classification accuracies over 90% on a four-class spike-encoded dataset, closely comparable to software models. A design space study further quantifies how photonic device parameters impact SNN performance under constrained signal-to-noise conditions. SEPhIA offers a scalable, expressive, physically grounded solution for neuromorphic photonic computing, capable of addressing spike-encoded tasks.",
+          "source": "OpenAlex AI Hardware",
+          "kind": "research",
+          "doi": "https://doi.org/10.1038/s44335-026-00102-3",
           "date_precision": "day"
         }
       ]
