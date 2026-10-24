@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 开源项目与工具更新（2026-10-24）</title><meta name="description" content="AI 开源项目与工具更新（2026-10-24）：1 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script src="../assets/article.js" defer></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav><a href="../index.html#latest">时间线</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">AI 开源项目与工具更新</p><dl><dt>发布日期</dt><dd>2026-10-24</dd><dt>研究条目</dt><dd>1 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · AI 开源项目与工具更新</p><h1>AI 开源项目与工具更新（2026-10-24）</h1><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期要点</h2>
+<ul>
+<li>Ollama 发布了 v0.40.10 版本，新增 NVIDIA Nemotron 3.5 Bolt E4B 模型，该模型基于 Gemma 4，支持 128K‑token 上下文窗口并加入 DFlash 预估解码功能。[1]</li>
+<li>新模型定位为“小型视觉‑语言模型”，旨在实现快速本地对话、图像理解与工具调用，但官方未提供性能基准或兼容性测试结果。[1]</li>
+<li>发行说明仅列出模型新增与变更的“完整变更日志”，未包含对现有模型或 API 的迁移风险评估。[1]</li>
+<li>该版本的发布未伴随正式的发布说明或兼容性声明，用户需自行验证与现有工作流的兼容性与性能差异。[1]</li>
+</ul>
+<h2>逐项速览</h2>
+<table>
+<thead>
+<tr>
+<th>变更</th>
+<th>证据</th>
+<th>局限</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>新增 Nemotron 3.5 Bolt E4B 模型</td>
+<td>发行说明中列出模型名称、功能与上下文窗口大小；提供模型下载链接与完整变更日志链接。[1]</td>
+<td>未公开模型权重、训练数据或精度指标；缺乏基准测试与对比结果。</td>
+</tr>
+<tr>
+<td>支持 128K‑token 上下文窗口</td>
+<td>摘要中明确指出上下文窗口大小。[1]</td>
+<td>未说明是否需要额外硬件资源或对现有模型的影响。</td>
+</tr>
+<tr>
+<td>引入 DFlash 预估解码</td>
+<td>摘要提到“DFlash draft for speculative decoding”。[1]</td>
+<td>具体实现细节、性能收益与兼容性未披露。</td>
+</tr>
+<tr>
+<td>发行说明缺乏迁移风险</td>
+<td>发行说明仅包含“Full Changelog”链接，未提供兼容性或迁移指南。[1]</td>
+<td>用户需自行评估对现有部署的影响。</td>
+</tr>
+</tbody>
+</table>
+<h2>值得采取的行动</h2>
+<ul>
+<li><strong>验证模型兼容性</strong>：在现有 Ollama 环境中尝试 <code>ollama run nemotron-3.5-bolt:e4b</code>，观察是否与之前模型共存或产生冲突。</li>
+<li><strong>性能基准测试</strong>：使用标准视觉‑语言任务（如 VQA 或 BLIP）对比新模型与旧模型的推理速度与准确率，记录 128K‑token 上下文窗口的实际内存占用。</li>
+<li><strong>监测资源需求</strong>：评估在不同 GPU/CPU 配置下的显存/CPU 占用，确认是否满足部署需求。</li>
+<li><strong>关注后续更新</strong>：关注 Ollama 官方仓库的后续发布说明，获取可能的兼容性修复或性能优化信息。</li>
+</ul>
+<h2>参考资料</h2>
+<p>[1] ollama/ollama: v0.40.10 – <a href="https://github.com/ollama/ollama/releases/tag/v0.40.10">https://github.com/ollama/ollama/releases/tag/v0.40.10</a></p>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>

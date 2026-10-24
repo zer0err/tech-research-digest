@@ -1,5 +1,14 @@
 [
   {
+    "title": "AI 开源项目与工具更新（2026-10-24）",
+    "date": "2026-10-24T16:09:58.231304+08:00",
+    "count": 1,
+    "url": "posts/20261024-open_source.html",
+    "topic": "open_source",
+    "status": "published",
+    "summary": "本期要点 - Ollama 发布了 v0.40.10 版本，新增 NVIDIA Nemotron 3.5 Bolt E4B 模型，该模型基于 Gemma 4，支持 128K‑token 上下文窗口并加入 DFlash 预估解码功能。1 - 新模型定位为“小型视觉‑语言模型”，旨在实现快速本地对话、图像理解与工具调用，但"
+  },
+  {
     "title": "AI 模型、训练与基础研究（2026-10-24）",
     "date": "2026-10-24T10:52:47.007657+08:00",
     "count": 2,

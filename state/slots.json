@@ -1,6 +1,33 @@
 {
   "version": 1,
   "slots": {
+    "2026-10-24:open_source": {
+      "status": "prepared",
+      "updated_at": "2026-10-24T08:09:58.231304+00:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "open_source",
+        "title": "AI 开源项目与工具更新",
+        "url": "https://vorasio.com/posts/20261024-open_source.html",
+        "created_at": "2026-10-24T08:09:58.231304+00:00",
+        "items": [
+          {
+            "uid": "c2a72d3ac07f7b01633952e2",
+            "title": "ollama/ollama: v0.40.10",
+            "url": "https://github.com/ollama/ollama/releases/tag/v0.40.10",
+            "published": "2026-10-23T15:03:59+00:00",
+            "summary": "## NVIDIA Nemotron 3.5 Bolt E4B [Nemotron 3.5 Bolt E4B](https://ollama.com/library/nemotron-3.5-bolt) is NVIDIA’s smaller, Gemma 4-based vision-language model for fast local conversations, image understanding, and tool use. It supports a 128K-token context window. The model includes a DFlash draft for speculative decoding. ollama run nemotron-3.5-bolt:e4b **Full Changelog**: https://github.com/ollama/ollama/compare/v0.40.9...v0.40.10",
+            "source": "Ollama Releases",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          }
+        ],
+        "notify": false,
+        "mode": "production",
+        "slot": "open_source"
+      }
+    },
     "2026-10-24:morning_radar": {
       "status": "published",
       "updated_at": "2026-10-24T02:52:19.578062+00:00",
