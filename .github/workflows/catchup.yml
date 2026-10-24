@@ -1,0 +1,39 @@
+name: Catch up overdue editorial slots
+on:
+  schedule:
+    # UTC, twice per hour. This shares GitHub's scheduler, so is recovery, not an independent clock.
+    - cron: "19,49 * * * *"
+  workflow_dispatch:
+  workflow_call:
+permissions: {contents: write, pages: write, id-token: write, actions: read}
+concurrency:
+  group: editorial-catchup-planner-v1
+  cancel-in-progress: false
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      slots: ${{ steps.plan.outputs.slots }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with: {python-version: "3.13"}
+      - run: python -m pip install -r requirements.txt
+      - id: plan
+        run: echo "slots=$(python -m research_bot.schedule)" >> "$GITHUB_OUTPUT"
+      - name: Record catch-up plan
+        run: cat reports/decision-catchup.json >> "$GITHUB_STEP_SUMMARY"
+  recover:
+    needs: plan
+    if: needs.plan.outputs.slots != '[]'
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        slot: ${{ fromJSON(needs.plan.outputs.slots) }}
+    uses: ./.github/workflows/_editorial.yml
+    with:
+      slot: ${{ matrix.slot }}
+    secrets: inherit

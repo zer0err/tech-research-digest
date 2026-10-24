@@ -69,8 +69,19 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/
-          git commit -m "publish: ${{ inputs.slot }} editorial slot [skip ci]"
+          git add docs/ state/slots.json
+          git diff --cached --quiet || git commit -m "publish: ${{ inputs.slot }} editorial slot [skip ci]"
+          git pull --rebase origin "${{ github.event.repository.default_branch }}"
+          git push
+      - name: Persist skipped-slot outcome without publishing empty content
+        if: steps.content.outputs.ready != 'true' && inputs.mode == 'production'
+        run: |
+          if [ ! -f state/slots.json ]; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add state/slots.json
+          git diff --cached --quiet || git commit -m "state: record ${{ inputs.slot }} decision [skip ci]"
+          git pull --rebase origin "${{ github.event.repository.default_branch }}"
           git push
       - name: Configure GitHub Pages
         if: steps.content.outputs.ready == 'true'
@@ -96,8 +107,9 @@ jobs:
       - name: Commit delivered state
         if: steps.content.outputs.ready == 'true'
         run: |
-          git add state/seen.json
-          git commit -m "state: record delivered ${{ inputs.slot }} items [skip ci]"
+          git add state/seen.json state/slots.json
+          git diff --cached --quiet || git commit -m "state: record delivered ${{ inputs.slot }} items [skip ci]"
+          git pull --rebase origin "${{ github.event.repository.default_branch }}"
           git push
       - name: Upload report for audit
         if: always()

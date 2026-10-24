@@ -2,26 +2,16 @@ name: Hourly AI editorial day 09:00-18:00 CST
 
 on:
   schedule:
-    - cron: "7 9 * * *"
-      timezone: "Asia/Shanghai"
-    - cron: "17 10 * * *"
-      timezone: "Asia/Shanghai"
-    - cron: "27 11 * * *"
-      timezone: "Asia/Shanghai"
-    - cron: "37 12 * * *"
-      timezone: "Asia/Shanghai"
-    - cron: "47 13 * * *"
-      timezone: "Asia/Shanghai"
-    - cron: "7 14 * * *"
-      timezone: "Asia/Shanghai"
-    - cron: "17 15 * * *"
-      timezone: "Asia/Shanghai"
-    - cron: "27 16 * * *"
-      timezone: "Asia/Shanghai"
-    - cron: "37 17 * * *"
-      timezone: "Asia/Shanghai"
-    - cron: "47 18 * * *"
-      timezone: "Asia/Shanghai"
+    - cron: "7 1 * * *"
+    - cron: "17 2 * * *"
+    - cron: "27 3 * * *"
+    - cron: "37 4 * * *"
+    - cron: "47 5 * * *"
+    - cron: "7 6 * * *"
+    - cron: "17 7 * * *"
+    - cron: "27 8 * * *"
+    - cron: "37 9 * * *"
+    - cron: "47 10 * * *"
   workflow_dispatch:
     inputs:
       slot:
@@ -44,7 +34,12 @@ on:
 permissions: {contents: write, pages: write, id-token: write, actions: read}
 
 jobs:
+  compensate:
+    if: github.event_name == 'schedule'
+    uses: ./.github/workflows/catchup.yml
+    secrets: inherit
   resolve:
+    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     outputs:
       slot: ${{ steps.slot.outputs.value }}

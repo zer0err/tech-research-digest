@@ -5,6 +5,7 @@ import json
 from datetime import datetime
 from pathlib import Path
 
+from . import schedule
 from .core import Item, load_state, send_telegram, update_state
 
 
@@ -32,6 +33,8 @@ def main() -> int:
         }
     state_path.parent.mkdir(parents=True, exist_ok=True)
     state_path.write_text(json.dumps(state, ensure_ascii=False, indent=2) + "\n")
+    if pending.get("slot"):
+        schedule.record(pending["slot"], datetime.fromisoformat(pending["created_at"]), "published")
     return 0
 
 

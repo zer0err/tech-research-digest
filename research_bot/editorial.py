@@ -11,6 +11,7 @@ from zoneinfo import ZoneInfo
 
 import yaml
 
+from . import schedule
 from .audit import decision
 from .main import prepare_topic
 from .site import base_url, publish_post
@@ -43,6 +44,7 @@ def prepare_daily_digest(now: datetime, notify: bool = True) -> bool:
               and entry.get("topic") != "daily_digest" and entry.get("status") == "published" and int(entry.get("count", 0)) > 0]
     if not todays:
         logging.info("No valid published articles today; skipping daily digest")
+        decision("daily_digest", "empty_digest")
         return False
     if todays:
         links = "\n".join(
@@ -95,11 +97,39 @@ def main() -> int:
     slot = editorial["slots"].get(args.slot)
     if not slot:
         raise ValueError(f"Unknown editorial slot: {args.slot}")
+    production = os.getenv("PUBLICATION_MODE", "production") == "production" and not args.dry_run
+    if production:
+        Path("work/pending.json").unlink(missing_ok=True)
+        ledger = schedule.load()
+        entries = json.loads(Path("docs/posts.json").read_text()) if Path("docs/posts.json").exists() else []
+        receipt = ledger["slots"].get(schedule.key(args.slot, now), {})
+        if receipt.get("status") == "prepared":
+            Path("work").mkdir(exist_ok=True)
+            Path("work/pending.json").write_text(json.dumps(receipt["pending"], ensure_ascii=False, indent=2) + "\n")
+            decision(args.slot, "resume_prepared_publication")
+            return 0
+        if not schedule.eligible(args.slot, now, ledger, entries):
+            decision(args.slot, "slot_already_completed_or_retry_limited")
+            return 0
+    def persist_result() -> None:
+        if not production:
+            return
+        pending_path = Path("work/pending.json")
+        if pending_path.exists():
+            pending = json.loads(pending_path.read_text())
+            pending["slot"] = args.slot
+            pending_path.write_text(json.dumps(pending, ensure_ascii=False, indent=2) + "\n")
+            schedule.record(args.slot, now, "prepared", pending)
+        else:
+            audit = Path(f"reports/decision-{args.slot}.json")
+            result = json.loads(audit.read_text()) if audit.exists() else {}
+            schedule.record(args.slot, now, result.get("reason", "analysis_rejected"))
     if slot.get("special") == "daily_digest":
         if args.dry_run:
             print("daily_digest")
             return 0
         prepare_daily_digest(now)
+        persist_result()
         return 0
     topic_name, config = resolve_slot(args.slot, now, editorial, topics)
     prepare_topic(
@@ -111,6 +141,7 @@ def main() -> int:
         publish_key=str(slot.get("publish_key", args.slot)),
         allow_empty=bool(slot.get("allow_empty", False)),
     )
+    persist_result()
     return 0
 
 
