@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 模型、训练与基础研究（2026-10-24）</title><meta name="description" content="AI 模型、训练与基础研究（2026-10-24）：2 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script src="../assets/article.js" defer></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav><a href="../index.html#latest">时间线</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">AI 模型、训练与基础研究</p><dl><dt>发布日期</dt><dd>2026-10-24</dd><dt>研究条目</dt><dd>2 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · AI 模型、训练与基础研究</p><h1>AI 模型、训练与基础研究（2026-10-24）</h1><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期结论</h2>
+<ol>
+<li><strong>可控审计机制能显著降低人工干预</strong>：在对大型语言模型（LLM）产生的决策进行在线监控时，采用基于置信度的选择性审计方法可在保证错误率低于阈值的前提下，将人工审核频率降低至最优水平[1]。</li>
+<li><strong>成本感知的拒绝策略在特定应用中有效</strong>：针对IT工单分类任务，利用成本感知的拒绝（abstention）策略在公开数据集上将错误路由率从15.3%降至3.5%，并将整体成本降低38.1%[2]。</li>
+<li><strong>通用模型与特定任务的性能差距仍显著</strong>：在同一IT工单数据集上，零/少量提示的LLM（如GPT‑4o‑mini）在准确率上远低于微调的DistilBERT模型，表明在特定应用场景下，专门训练的模型仍具优势[2]。</li>
+<li><strong>值得关注的信号</strong>：LLM在少量提示下的置信度分布与校准误差表现不一，提示在不同任务中需要针对性调优[2]。</li>
+</ol>
+<h2>逐项分析</h2>
+<table>
+<thead>
+<tr>
+<th>论文</th>
+<th>核心贡献</th>
+<th>方法与数据</th>
+<th>性能证据</th>
+<th>局限与证据等级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[1]</td>
+<td>提出在线选择性审计框架，给出无假设的误差控制算法</td>
+<td>采用置信度评分与专家审计决策，构建约束优化问题；在多种数据流（对抗性与i.i.d.）下证明最优审计率</td>
+<td>在“有害请求筛查”“文本标注”“数据标记”三类实验中，方法在保持错误率阈值的同时，显著降低了人工审计比例[1]</td>
+<td>A：摘要中包含方法、数据与定量结果；实验细节未公开，无法复现</td>
+</tr>
+<tr>
+<td>[2]</td>
+<td>评估成本感知拒绝策略在IT工单分类中的效果</td>
+<td>在47,837条公开工单数据集上，比较四种非LLM分类器与四种LLM（零/少量提示）；使用成本模型(c_ok,c_triage,c_wrong)=(0,1,5)进行策略校准</td>
+<td>TF‑IDF+LR在校准后将测试成本从0.763降至0.472，错误路由率从15.3%降至3.5%[2]；DistilBERT在同一子集上达到0.879准确率，LLM仅0.477[2]</td>
+<td>B：摘要给出定性结果与部分定量指标；缺乏完整实验细节与代码，无法独立验证</td>
+</tr>
+</tbody>
+</table>
+<h2>工程行动建议</h2>
+<ul>
+<li><strong>验证实验</strong>
+<ul>
+<li>对[1]的审计算法，在本组织的业务流程中实现置信度评分与专家审计接口，记录审计率与错误率，验证是否达到阈值。</li>
+<li>对[2]的成本感知拒绝策略，使用本组织的工单数据集，先行校准阈值，再评估成本与错误率变化。</li>
+</ul>
+</li>
+<li><strong>落地评估</strong>
+<ul>
+<li>监控审计系统上线后，持续收集人工审核次数与错误率，评估是否保持在预期范围。</li>
+<li>对IT工单分类系统，跟踪错误路由率与实际成本，比较LLM与微调模型的业务价值。</li>
+</ul>
+</li>
+<li><strong>后续跟踪指标</strong>
+<ul>
+<li>审计系统：平均审计率、未审计错误比例、系统延迟。</li>
+<li>工单分类：成本降低比例、错误路由率、模型准确率、用户满意度。</li>
+</ul>
+</li>
+</ul>
+<h2>参考资料</h2>
+<ol>
+<li>Reliable AI‑Assisted Decisions via Selective Auditing – <a href="https://arxiv.org/abs/2610.31662v1">https://arxiv.org/abs/2610.31662v1</a></li>
+<li>Cost‑Aware Abstention for LLM‑Based IT Ticket Classification – <a href="https://arxiv.org/abs/2610.31657v1">https://arxiv.org/abs/2610.31657v1</a></li>
+</ol>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>
