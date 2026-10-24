@@ -57,9 +57,20 @@
         "3784b5af97676cfa17afdceb"
       ],
       "updated_at": "2026-10-24T08:11:19.297276+00:00"
+    },
+    "efficient_ai": {
+      "ids": [
+        "7636d6d395b446725f42fbf5",
+        "7e518a52776f0779cdbd16e6",
+        "d8688b533028f131212f0a3d"
+      ],
+      "updated_at": "2026-10-24T09:04:00.370527+00:00"
     }
   },
   "all_ids": [
+    "7636d6d395b446725f42fbf5",
+    "7e518a52776f0779cdbd16e6",
+    "d8688b533028f131212f0a3d",
     "60d11f76ed8f58f21d6a18e7",
     "b6efb31dd4318138b7a990c1",
     "3784b5af97676cfa17afdceb",
@@ -85,6 +96,9 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://arxiv.org/abs/2610.31667v1",
+    "https://arxiv.org/abs/2610.31646v1",
+    "https://arxiv.org/abs/2610.31642v1",
     "https://developer.nvidia.com/blog/using-ai-agents-to-teach-robots-like-microduck-to-walk-in-simulation",
     "https://arxiv.org/abs/2610.31670v1",
     "https://arxiv.org/abs/2610.31661v1",
@@ -110,6 +124,9 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "98705e9deac00319d2f98b04",
+    "6e2b1c1290b59444071687db",
+    "516523363d7c71e7b8aea632",
     "7109b529a8e3f91b8d49a629",
     "e5a886c04b9d24039a41e944",
     "7922f06ceb63963486ddab6a",
@@ -379,6 +396,45 @@
           "published": "2026-10-22T17:59:06+00:00",
           "summary": "We present OpenTac, a novel sensor and a full-stack ecosystem for tactile skins that are highly customizable, scalable, and readily deployed in downstream robot control and learning applications. Our core contribution is twofold. First, we develop a scalable resistive tactile skin with a structured deformable overlay that converts tangential loading into spatially varying pressure. Differential responses across neighboring \"taxels\" support decoding of local shear vectors, and the common-mode response encodes normal force. Second, we provide a highly customizable sensor design tool that is able to automatically generate fabrication files for these tactile skins from 2D outlines and developable 3D surfaces, including from abstract descriptions such as text (e.g., \"design a sensor for a size 9 shoe insole\"). We develop an ecosystem around the OpenTac sensor, including the CAD design tool, a sensor simulator, cross-sensor transfer, and fast/adaptive data acquisition. We demonstrate the broad applicability of the OpenTac-CAD sensor design tool by designing and fabricating more than 30 sensors across a variety of robot embodiments. We characterize the three-dimensional tactile fields produced by OpenTac with a commercial, high-precision force/torque sensor. We demonstrate the broad applicability of 3D tactile sensing across contact-rich feedback control and manipulation policy learni",
           "source": "arXiv Embodied Intelligence",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        }
+      ]
+    },
+    "https://vorasio.com/posts/20261024-applied_ai.html": {
+      "topic": "efficient_ai",
+      "created_at": "2026-10-24T09:04:00.370527+00:00",
+      "items": [
+        {
+          "uid": "7636d6d395b446725f42fbf5",
+          "title": "Direct Pass@$k$ Optimization for Thought Pruning: Balancing Quality and Diversity in Test-Time Reasoning",
+          "url": "https://arxiv.org/abs/2610.31667v1",
+          "published": "2026-10-22T17:59:48+00:00",
+          "summary": "Test-time scaling has emerged as a key inference strategy for reasoning models, where a model generates a large number of candidate solutions in the hope of finding at least one correct solution. Running all candidate solutions to completion can be computationally demanding, so recent work prunes the candidate pool after generating only a short prefix, committing further computation only to the surviving candidates. Existing pruning strategies divide broadly into two categories: Quality-based methods assign a score to each partial solution and discard those predicted to ultimately lead to an incorrect final solution, while diversity-based methods select partial solutions that follow different reasoning trajectories and are therefore likely to cover different final solutions. The tension between these two objectives is an instance of exploration versus exploitation, yet little to no prior work on pruning exposes this trade-off directly, let alone optimizes it. In this paper, we introduce a pruning procedure that addresses this trade-off directly by optimizing pass@$k$ over the selected solution pool. In particular, it chooses the pool to maximize the probability that at least one of its partial solutions, when continued to completion, yields a correct answer. Because this objective simultaneously rewards high-quality partial solutions and penalizes redundancy among them, quality",
+          "source": "arXiv Efficient AI",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        },
+        {
+          "uid": "7e518a52776f0779cdbd16e6",
+          "title": "Low-Bit N-Gram Embeddings for Language Models",
+          "url": "https://arxiv.org/abs/2610.31646v1",
+          "published": "2026-10-22T17:56:13+00:00",
+          "summary": "Many recent open-weight language models use n-gram embedding tables to improve performance. These tables store learned representations of short token sequences, such as pairs or triples of consecutive tokens, which the model retrieves during processing. However, they can require substantial memory: DeepSeek-V4.1-Flash, for example, allocates 196 billion parameters to its Engram n-gram memory. We therefore investigate whether this memory cost can be reduced while preserving the performance improvement that the tables provide. We propose storing n-gram embeddings at low precision and systematically investigate different quantization methods and bit allocations across tables. Across nanochat-, Llama-, and GPT-2-family models trained from scratch, four-bit tables save approximately 75% of table memory while preserving more than 99% of the validation-loss improvement from adding the tables. Using fewer bits leads to a larger drop in performance, although we find that a short fine-tuning phase recovers a significant part of this loss. In addition, reinvesting the saved memory in larger tables can improve performance beyond that of the original full-precision tables while still using less memory. These table memory savings also extend to large existing models: on DeepSeek-V4.1-Flash and Qwen3.8-Flash-Next, low-bit tables save 47-55% of table memory, with perplexity increases of less t",
+          "source": "arXiv Efficient AI",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        },
+        {
+          "uid": "d8688b533028f131212f0a3d",
+          "title": "A Fix for Softmax and Cross-Entropy",
+          "url": "https://arxiv.org/abs/2610.31642v1",
+          "published": "2026-10-22T17:54:56+00:00",
+          "summary": "Standard implementations of softmax, log-softmax, and cross-entropy have two numerical bugs. The first bug, Softmax Collapse, rounds the target logit's gradient to zero if that one logit is much larger than the others, resulting in gradients that no longer sum to zero. The second bug, Softmax Cancellation, occurs when student logits are close to teacher logits, and produces non-zero gradients even when the student and teacher logits are equal. We present simple implementations of log-softmax, softmax, and cross-entropy that fix both bugs. Our fix eliminates the previously-observed \"Slingshot\" phenomenon, speeds up grokking with weight decay, prevents accuracy collapse without weight decay, stops student networks from drifting away from the teacher during distillation, and shows that after memorization, logit growth is bounded by an equilibrium between weight decay and Adam's $ε$ hyperparameter.",
+          "source": "arXiv Efficient AI",
           "kind": "research",
           "doi": "",
           "date_precision": "day"
