@@ -1,0 +1,13 @@
+name = "vorasio-editorial-watchdog"
+main = "worker.mjs"
+compatibility_date = "2026-10-24"
+workers_dev = false
+preview_urls = false
+
+[triggers]
+# UTC 01:11-15:41 = Beijing 09:11-23:41, 30 invocations/day.
+crons = ["11,41 1-15 * * *"]
+
+[observability]
+enabled = true
+head_sampling_rate = 1

@@ -161,6 +161,8 @@ python -m research_bot.main --topic model_research --dry-run
 - 没有合格内容只持久化审计结果，不生成空文章、不发送空通知。日报汇总有效文章。
 - **限制**：两个定时入口都在 GitHub，不能覆盖 GitHub 调度器整体故障；也不自动跨日期补发前一天内容。要求独立容灾，应另配 Cloudflare Workers 等外部定时源调用同一个补偿 workflow。外部时钟也无绝对准点保证。Telegram 超时的极端情况下可能重复送达，API 不提供端到端 exactly-once 保证。
 
+独立 Cloudflare 时钟的部署代码、权限及轮换说明见 [`infrastructure/cloudflare/README.md`](infrastructure/cloudflare/README.md)。代码入库不代表独立时钟已启用；必须完成 Cloudflare 部署、Secret 配置及调度验证。
+
 ### 已接入的补充来源
 
 | 来源 | 接入与筛选方式 | 边界 |

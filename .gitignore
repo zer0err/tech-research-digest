@@ -7,6 +7,9 @@ outputs/
 firebase-debug.log
 reports/*.md
 reports/*.json
+.wrangler/
+.dev.vars
+.dev.vars.*
 !reports/.gitkeep
 
 
