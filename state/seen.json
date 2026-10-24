@@ -23,11 +23,13 @@
     },
     "morning_radar": {
       "ids": [
+        "dc1ed52c8837fe68c51dff91",
+        "400d918642962961b8903f39",
         "a45f5dfbc3465c866620e571",
         "dea8ba729eb28582daacbbc8",
         "767a7f383549ba646ff22647"
       ],
-      "updated_at": "2026-10-23T10:18:49.470663+00:00"
+      "updated_at": "2026-10-24T02:52:19.578062+00:00"
     },
     "ecosystem": {
       "ids": [
@@ -42,6 +44,8 @@
     }
   },
   "all_ids": [
+    "dc1ed52c8837fe68c51dff91",
+    "400d918642962961b8903f39",
     "ef82eace1d2cdfb672ccadb3",
     "b2c29d1b6f67c9d00b7c2f08",
     "8e0a598854f23abf7a04e99a",
@@ -59,6 +63,8 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://github.blog/changelog/2026-10-23-usage-metrics-api-adds-usage-from-tools-like-opencode",
+    "https://github.blog/changelog/2026-10-23-turn-notifications-into-code-with-github-copilot-in-teams",
     "https://arxiv.org/abs/2610.31651v1",
     "https://arxiv.org/abs/2610.31649v1",
     "https://arxiv.org/abs/2610.31645v1",
@@ -76,6 +82,8 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "2418884ac1ef3778722b4101",
+    "01982d18e450e2a833e86693",
     "4e10c7f84230634e49f557ef",
     "a815e4aff49b38f9ed5d24e6",
     "65b312dde808e7d10d4bdf51",
@@ -225,6 +233,34 @@
           "published": "2026-10-19T18:47:22+00:00",
           "summary": "Learn how to move an agent session from the GitHub Copilot app into VS Code without losing the conversation, code changes, or working context. The post How to continue a GitHub Copilot app session in VS Code appeared first on The GitHub Blog .",
           "source": "GitHub 官方博客",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        }
+      ]
+    },
+    "https://vorasio.com/posts/20261024-morning_radar.html": {
+      "topic": "morning_radar",
+      "created_at": "2026-10-24T02:52:19.578062+00:00",
+      "items": [
+        {
+          "uid": "dc1ed52c8837fe68c51dff91",
+          "title": "Usage metrics API adds usage from tools like OpenCode",
+          "url": "https://github.blog/changelog/2026-10-23-usage-metrics-api-adds-usage-from-tools-like-opencode",
+          "published": "2026-10-23T23:42:03+00:00",
+          "summary": "The Copilot usage metrics API now reports model usage from more of the tools your developers use with Copilot, including tools like OpenCode that weren’t previously captured in your reports.… The post Usage metrics API adds usage from tools like OpenCode appeared first on The GitHub Blog .",
+          "source": "GitHub 官方更新",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        },
+        {
+          "uid": "400d918642962961b8903f39",
+          "title": "Turn notifications into code with GitHub Copilot in Teams",
+          "url": "https://github.blog/changelog/2026-10-23-turn-notifications-into-code-with-github-copilot-in-teams",
+          "published": "2026-10-23T21:29:58+00:00",
+          "summary": "The new GitHub app in Teams brings notifications and Copilot together, helping teams turn issues into fixes and ship code faster without leaving the conversation. Get notified in channels, group… The post Turn notifications into code with GitHub Copilot in Teams appeared first on The GitHub Blog .",
+          "source": "GitHub 官方更新",
           "kind": "research",
           "doi": "",
           "date_precision": "day"
