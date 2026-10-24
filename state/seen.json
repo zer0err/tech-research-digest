@@ -3,10 +3,11 @@
   "topics": {
     "open_source": {
       "ids": [
+        "c2a72d3ac07f7b01633952e2",
         "da838ef163b59d2f4118281e",
         "fe0903755f1ec81fb4fd8f3d"
       ],
-      "updated_at": "2026-10-23T10:04:48.980336+00:00"
+      "updated_at": "2026-10-24T08:09:58.231304+00:00"
     },
     "multimodal": {
       "ids": [
@@ -51,6 +52,7 @@
     }
   },
   "all_ids": [
+    "c2a72d3ac07f7b01633952e2",
     "f3a5508d0160d42195ab7174",
     "cb661d928a0dfa16bc4c4588",
     "dc1ed52c8837fe68c51dff91",
@@ -72,6 +74,7 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://github.com/ollama/ollama/releases/tag/v0.40.10",
     "https://arxiv.org/abs/2610.31662v1",
     "https://arxiv.org/abs/2610.31657v1",
     "https://github.blog/changelog/2026-10-23-usage-metrics-api-adds-usage-from-tools-like-opencode",
@@ -93,6 +96,7 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "49cde823c04db356c63056d6",
     "38443ae18b1a1963e4828e71",
     "f2d2fa92a06096e7086764e9",
     "2418884ac1ef3778722b4101",
@@ -302,6 +306,23 @@
           "published": "2026-10-22T17:58:52+00:00",
           "summary": "Wrong automatic routing of an IT support ticket can cost more than human triage. We evaluate cost-aware abstention as an offline, cost-conditional readiness assessment: select a routing policy on calibration data under explicit costs, then evaluate that frozen policy once on held-out test data. On a public 47,837-ticket, eight-class corpus, we compare four trained non-LLM classifiers with four large language models under zero- and few-shot prompting. Under the illustrative cost model (c_ok, c_triage, c_wrong) = (0, 1, 5), TF-IDF with logistic regression and a threshold of 0.60 selected on calibration reduces test cost from 0.763 to 0.472, a 38.1% relative reduction (paired ratio-bootstrap 95% CI [35.7%, 40.4%]), while lowering wrong routes from 15.3% to 3.5%. Frozen calibration-selected policies also beat both always-route and always-defer on held-out test data in 14 of 16 settings in a post-hoc cost-parameter analysis. The strongest prompted configuration reaches 0.477 accuracy on a stratified 1,000-ticket test subset, versus 0.879 for fine-tuned DistilBERT on the same tickets. Isotonic lowers expected calibration error without reliably improving discrimination: GPT-4o-mini few-shot has one confidence value before and after recalibration and correctness AUROC 0.500. We therefore report correctness AUROC and tie-aware risk-coverage area alongside ECE. At the analytically derive",
           "source": "arXiv Model Research",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        }
+      ]
+    },
+    "https://vorasio.com/posts/20261024-open_source.html": {
+      "topic": "open_source",
+      "created_at": "2026-10-24T08:09:58.231304+00:00",
+      "items": [
+        {
+          "uid": "c2a72d3ac07f7b01633952e2",
+          "title": "ollama/ollama: v0.40.10",
+          "url": "https://github.com/ollama/ollama/releases/tag/v0.40.10",
+          "published": "2026-10-23T15:03:59+00:00",
+          "summary": "## NVIDIA Nemotron 3.5 Bolt E4B [Nemotron 3.5 Bolt E4B](https://ollama.com/library/nemotron-3.5-bolt) is NVIDIA’s smaller, Gemma 4-based vision-language model for fast local conversations, image understanding, and tool use. It supports a 128K-token context window. The model includes a DFlash draft for speculative decoding. ollama run nemotron-3.5-bolt:e4b **Full Changelog**: https://github.com/ollama/ollama/compare/v0.40.9...v0.40.10",
+          "source": "Ollama Releases",
           "kind": "research",
           "doi": "",
           "date_precision": "day"
