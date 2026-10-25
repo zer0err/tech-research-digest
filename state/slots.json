@@ -37,19 +37,9 @@
       "attempts": 3
     },
     "2026-10-25:daily_digest": {
-      "status": "prepared",
+      "status": "published",
       "updated_at": "2026-10-25T11:17:10.004173+00:00",
-      "attempts": 1,
-      "pending": {
-        "topic": "daily_digest",
-        "title": "VORASIO AI 日报（2026-10-25）",
-        "url": "https://vorasio.com/posts/20261025-daily_digest.html",
-        "created_at": "2026-10-25T11:17:10.004173+00:00",
-        "items": [],
-        "published_count": 3,
-        "notify": true,
-        "slot": "daily_digest"
-      }
+      "attempts": 1
     },
     "2026-10-25:core_research": {
       "status": "analysis_rejected",
