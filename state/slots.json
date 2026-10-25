@@ -26,6 +26,11 @@
       "updated_at": "2026-10-25T06:01:07.332785+00:00",
       "attempts": 1
     },
+    "2026-10-25:ecosystem": {
+      "status": "already_published",
+      "updated_at": "2026-10-25T10:11:44.780811+00:00",
+      "attempts": 1
+    },
     "2026-10-25:dev_practice": {
       "status": "analysis_rejected",
       "updated_at": "2026-10-25T09:21:08.716508+00:00",
