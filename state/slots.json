@@ -6,6 +6,55 @@
       "updated_at": "2026-10-25T06:00:50.965946+00:00",
       "attempts": 2
     },
+    "2026-10-25:model_research": {
+      "status": "prepared",
+      "updated_at": "2026-10-25T06:01:07.332785+00:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "model_research",
+        "title": "AI 模型、训练与基础研究",
+        "url": "https://vorasio.com/posts/20261025-model_research.html",
+        "created_at": "2026-10-25T06:01:07.332785+00:00",
+        "items": [
+          {
+            "uid": "d83db9d8db1820c4d3cc0d76",
+            "title": "The Environmental Impacts of Language Model Training Keep Rising Now is the Time to Catch Impacts on the Rebound",
+            "url": "https://hal.science/hal-04839926v6",
+            "published": "2026-10-24T00:00:00+00:00",
+            "summary": "Recent Machine Learning (ML) approaches have shown increased performance on benchmarks at the cost of escalating compute demands. Hardware, algorithmic and carbon optimizations have been proposed to curb energy use and environmental impacts. We estimate the environmental impacts associated with training models documented in the Epoch AI database over the last decade, with a particular focus on impacts associated with Large Language Models and the hardware used to train them. We find that energy use and environmental impacts associated with training ML models have increased exponentially, even when considering impact reduction strategies such as using less carbon intensive electricity mixes or more efficient hardware. Optimization strategies do not mitigate the impacts induced by model training, suggesting rebound effect. We show that the impacts of hardware mustbe considered over the entire life cycle rather than the sole use phase in order to avoid impact shifting. Our study demonstrates that increasing efficiency alone does not ensure sustainability. There is an urgent need to systematically integrate environmental impacts in NLP evaluation practices to better inform the community and support the use of impact as a feature in research planning and decision making.",
+            "source": "OpenAlex Model Research",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          },
+          {
+            "uid": "7eb2677e57876d181074fa82",
+            "title": "Are Benchmarks a source of bias in LLMs? MMLU, CommonSenseQA and MGSM under the Microscope",
+            "url": "https://hal.science/hal-05783214v1",
+            "published": "2026-10-24T00:00:00+00:00",
+            "summary": "Evaluation is an essential process in the development and use of NLP systems. Benchmarks are widely used to calibrate systems, determine the efficiency of techniques, but also to advertise recently launched language models. Not only do benchmarks allow for evaluation and system comparisons, but they are also commonly utilized as training and validation corpora. In this paper, we aim at characterizing the \"world knowledge\" that is put forth by benchmarks by closely inspecting their content. Through qualitative manual annotations (+15k instances) as well as quantitative automatic analyses, we uncover the presence of both explicit and implicit biases in MMLU, Common-SenseQA and MGSM, ranging from representational imbalance to bluntly sexist and racist instances. Our findings demonstrate that current NLP evaluation practices pose numerous quality issues, reinforce stereotypes and even contain explicitly harmful content. The current operationalization of benchmarks is questioned, and we provide recommendations and directions for further ethical evaluation.",
+            "source": "OpenAlex Model Research",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          },
+          {
+            "uid": "3d1ee048a477c33f74857208",
+            "title": "Helping the Helper: LLM-Assisted Problem Articulation for Older Adults Seeking Technology Support",
+            "url": "https://doi.org/10.1145/3797867.3829031",
+            "published": "2026-10-23T00:00:00+00:00",
+            "summary": "Older adults often struggle to articulate technology support needs due to unfamiliar technical terminology and age-related cognitive changes. We explore how large language models (LLMs) can facilitate this problem articulation process. Through a diary study (n = 27), we identified four communication barriers in older adults’ queries: verbosity, incompleteness, over-specification, and under-specification. To mitigate these, we developed an LLM pipeline that clarifies context and paraphrases unstructured queries. LLM-rephrased queries significantly improved automated solution accuracy (69% vs. 35%). Furthermore, younger adults (n = 48) acting as technology helpers understood LLM-rephrased queries better (93.7% vs. 65.8%) and reported greater ease in providing support. Older adults (n = 34) also found the resulting solutions highly actionable (94.7%). Finally, we contribute the first synthetic dataset of older adults’ technology assistance queries (STAQ). This work demonstrates how LLMs can improve technology support seeking for older adults by addressing age-related communication barriers.",
+            "source": "OpenAlex Model Research",
+            "kind": "research",
+            "doi": "https://doi.org/10.1145/3797867.3829031",
+            "date_precision": "day"
+          }
+        ],
+        "notify": false,
+        "mode": "production",
+        "slot": "model_research"
+      }
+    },
     "2026-10-24:prompt_engineering": {
       "status": "no_matching_in_window",
       "updated_at": "2026-10-24T08:11:00.361869+00:00",
