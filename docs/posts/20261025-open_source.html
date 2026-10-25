@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 开源项目与工具更新（2026-10-25）</title><meta name="description" content="AI 开源项目与工具更新（2026-10-25）：1 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script src="../assets/article.js" defer></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav><a href="../index.html#latest">时间线</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">AI 开源项目与工具更新</p><dl><dt>发布日期</dt><dd>2026-10-25</dd><dt>研究条目</dt><dd>1 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · AI 开源项目与工具更新</p><h1>AI 开源项目与工具更新（2026-10-25）</h1><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期要点</h2>
+<ul>
+<li>Ollama 0.40.11 新增 macOS 上的语音生成能力，支持 <code>ollama run</code> 直接朗读文本或模型回复，并可通过 <code>/v1/audio/speech</code> 接口流式输出音频。[1]</li>
+<li>新增 d3 决策模型系列（2B、4B、9B、27B），可对文本、结构化状态或图像进行分类、二元判断或概率评分。[1]</li>
+<li>该版本未包含对现有模型兼容性或性能的显著改动，主要聚焦功能扩展。[1]</li>
+</ul>
+<h2>逐项速览</h2>
+<table>
+<thead>
+<tr>
+<th>变更</th>
+<th>证据</th>
+<th>局限</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>语音生成</strong></td>
+<td>发行说明中提到 “Ollama can now generate speech on macOS” 及示例命令 <code>ollama run phonon &quot;Hello from Ollama.&quot;</code>，并说明可通过 <code>/v1/audio/speech</code> 接口流式音频。[1]</td>
+<td>仅在 macOS 上可用；未说明对 Linux/Windows 的支持或性能指标。</td>
+</tr>
+<tr>
+<td><strong>d3 决策模型</strong></td>
+<td>说明中列出 “d3 brings vLLM Semantic Router's decision models to Ollama” 并给出模型尺寸与使用示例 <code>ollama run d3 &quot;A customer says their card was charged twice.&quot; --ask &quot;Is this a billing issue?&quot;</code>。[1]</td>
+<td>未提供模型准确率、推理延迟或与旧版模型的兼容性信息。</td>
+</tr>
+<tr>
+<td><strong>贡献者更新</strong></td>
+<td>记录了 @SynapShift 的首次贡献及完整变更日志链接。[1]</td>
+<td>与功能无直接关联，属于版本记录。</td>
+</tr>
+</tbody>
+</table>
+<h2>值得采取的行动</h2>
+<ul>
+<li>若需在 macOS 环境中实现文本转语音功能，可直接使用 <code>ollama run phonon</code> 或 <code>/v1/audio/speech</code> 接口进行测试。</li>
+<li>如计划使用决策模型进行业务分类，可先在本地实验 d3 2B/4B 版本，评估其推理速度与准确性。</li>
+<li>关注后续版本是否扩展至其他操作系统或提供性能基准，以便评估迁移风险。</li>
+</ul>
+<h2>参考资料</h2>
+<p>[1] ollama/ollama: v0.40.11 – Ollama Releases – <a href="https://github.com/ollama/ollama/releases/tag/v0.40.11">https://github.com/ollama/ollama/releases/tag/v0.40.11</a></p>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>
