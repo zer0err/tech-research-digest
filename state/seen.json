@@ -3,11 +3,12 @@
   "topics": {
     "open_source": {
       "ids": [
+        "8f27dffd6f4c2417b8c9b6bf",
         "c2a72d3ac07f7b01633952e2",
         "da838ef163b59d2f4118281e",
         "fe0903755f1ec81fb4fd8f3d"
       ],
-      "updated_at": "2026-10-24T08:09:58.231304+00:00"
+      "updated_at": "2026-10-25T07:39:01.485585+00:00"
     },
     "multimodal": {
       "ids": [
@@ -79,6 +80,7 @@
     }
   },
   "all_ids": [
+    "8f27dffd6f4c2417b8c9b6bf",
     "d83db9d8db1820c4d3cc0d76",
     "7eb2677e57876d181074fa82",
     "3d1ee048a477c33f74857208",
@@ -113,6 +115,7 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://github.com/ollama/ollama/releases/tag/v0.40.11",
     "https://hal.science/hal-04839926v6",
     "https://hal.science/hal-05783214v1",
     "https://doi.org/10.1145/3797867.3829031",
@@ -147,6 +150,7 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "b4ca881b1027d7ccbe4c2c75",
     "627a98eac581c0f8309b3692",
     "23e7b543cc972aef40e11f9a",
     "5612d3656da17f4395cf045c",
@@ -544,6 +548,23 @@
           "source": "OpenAlex Model Research",
           "kind": "research",
           "doi": "https://doi.org/10.1145/3797867.3829031",
+          "date_precision": "day"
+        }
+      ]
+    },
+    "https://vorasio.com/posts/20261025-open_source.html": {
+      "topic": "open_source",
+      "created_at": "2026-10-25T07:39:01.485585+00:00",
+      "items": [
+        {
+          "uid": "8f27dffd6f4c2417b8c9b6bf",
+          "title": "ollama/ollama: v0.40.11",
+          "url": "https://github.com/ollama/ollama/releases/tag/v0.40.11",
+          "published": "2026-10-24T00:30:13+00:00",
+          "summary": "## Speech Ollama can now generate [speech](https://docs.ollama.com/capabilities/speech) on macOS. `ollama run` plays text or a chat model's reply aloud as the audio is generated, and apps can stream audio through the OpenAI-compatible `/v1/audio/speech` endpoint. ```sh ollama run phonon \"Hello from Ollama.\" ``` ## d3 decision models [d3](https://ollama.com/library/d3) brings vLLM Semantic Router's decision models to Ollama. Give a model text, structured state, or an image, and ask it to classify, answer yes or no, or score options with probabilities. The family includes 2B, 4B, 9B, and 27B sizes. ```sh ollama run d3 \"A customer says their card was charged twice.\" --ask \"Is this a billing issue?\" ``` ## New Contributors * @SynapShift made their first contribution in https://github.com/ollama/ollama/pull/19173 **Full Changelog**: https://github.com/ollama/ollama/compare/v0.40.10...v0.40.11-rc0",
+          "source": "Ollama Releases",
+          "kind": "research",
+          "doi": "",
           "date_precision": "day"
         }
       ]
