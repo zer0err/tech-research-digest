@@ -36,6 +36,55 @@
       "updated_at": "2026-10-25T08:36:39.883630+00:00",
       "attempts": 2
     },
+    "2026-10-25:applied_ai": {
+      "status": "prepared",
+      "updated_at": "2026-10-25T08:37:09.561952+00:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "embodied",
+        "title": "Agent、机器人与具身智能",
+        "url": "https://vorasio.com/posts/20261025-applied_ai.html",
+        "created_at": "2026-10-25T08:37:09.561952+00:00",
+        "items": [
+          {
+            "uid": "bcbfa62119cdb87e0792a90a",
+            "title": "Physical AI Bridging the Digital Mind and the Material World",
+            "url": "https://doi.org/10.5281/zenodo.23304829",
+            "published": "2026-10-25T00:00:00+00:00",
+            "summary": "Physical AI is a pivotal moment in the interaction of machines with the physical world. It refers to a family of AI systems that interact with the physical world by integrating high-level models with sensors, actuators and control systems to perceive, reason, decide and act in the physical world. Physical AI, unlike generative or digital-only AI, that creates text, code or images within the confines of software, exists where what matters is measurable in motion, force and matter. This article discusses the field in six dimensions historical background in robotics and embodied cognition, underlying architecture of perception, planning and action, industries being reshaped, barriers that continue to limit the field, and engineering and policy reactions that are beginning to take shape, and paths that are likely to shape the next decade. The analysis is based on the latest research in the industry, market forecasts and peer-reviewed studies to ensure a balance between caution and enthusiasm. Results indicate that as Physical AI is making strides in sectors such as transportation, manufacturing, healthcare, and retail, there are still hurdles, including challenges in simulation to reality, energy consumption, ethical considerations, and workforce adaptation. The article ends by stating that there is a need for organizations and policy makers to get ready for a future where intellig",
+            "source": "OpenAlex Embodied",
+            "kind": "research",
+            "doi": "https://doi.org/10.5281/zenodo.23304829",
+            "date_precision": "day"
+          },
+          {
+            "uid": "1d55a5376f238b9e82563657",
+            "title": "Triboelectric Nanogenerators for Human‐Robot Motion Energy Harvesting and Sensing: Structures, Embodied Artificial Intelligence, and Self‐Powered Applications",
+            "url": "https://doi.org/10.1002/smll.76374",
+            "published": "2026-10-24T00:00:00+00:00",
+            "summary": "ABSTRACT The rapid development of humanoid robots and embodied artificial intelligence (EAI) is accelerating the transformation of elderly care and rehabilitation toward interactive, adaptive, and personalized human–robot collaboration. In this context, motion sensing technology is of critical importance. Triboelectric nanogenerators (TENGs), which convert biomechanical motions into electrical signals, offer a promising route toward self‐powered motion perception in embodied healthcare. This review summarizes recent advances in TENG‐based multimodal motion sensing for human–robot interaction, covering inertial vibration sensing, tactile sensing, non‐contact sensing, continuous trajectory sensing, and joint rotation sensing. The influences of structural configuration, motion mode, sensing direction, detection range, sensitivity, resolution, electrical output, and channel number on sensing performance under specific application scenarios are analyzed. Particular attention is paid to how TENG design strategies influence sensing universality, signal effectiveness, and the reliability of health monitoring and rehabilitation evaluation. Furthermore, the integration of TENGs with artificial intelligence (AI) technologies, including multimodal fusion, network architectures, edge computing, transfer learning, and large language models, is reviewed. Finally, applications in adaptive reha",
+            "source": "Crossref Embodied",
+            "kind": "research",
+            "doi": "10.1002/smll.76374",
+            "date_precision": "day"
+          },
+          {
+            "uid": "fcce55e74113f03ad6e4cfd9",
+            "title": "Physical Educational AI (PEAI) A Framework for Action-Centered Intelligence in Education",
+            "url": "https://doi.org/10.5281/zenodo.23592521",
+            "published": "2026-10-23T00:00:00+00:00",
+            "summary": "Artificial intelligence in education has traditionally emphasized computational processes such as knowledge representation, automated assessment, personalized feedback, conversational tutoring, and content generation. Recent advances in robotics, multimodal foundation models, and vision-language-action systems have expanded the possibility of connecting artificial intelligence with physical environments. However, the ability to perceive an educational environment or possess an embodied form does not necessarily mean that an AI system can reliably execute educational tasks under physical constraints. Educational environments involve moving students, manipulable objects, limited space, uncertain environmental conditions, safety requirements, time-sensitive interactions, and the possibility of action failure. This paper introduces and formally defines Physical Educational AI (PEAI) as a research framework for artificial intelligence systems that pursue educational objectives through physically grounded execution, real-time control, environmental feedback, and constraint-aware adaptation. PEAI emphasizes not only what an AI system understands or recommends, but also what it physically accomplishes, how it controls the execution process, and whether the resulting physical state satisfies the intended educational objective. The paper distinguishes PEAI from Artificial Intelligence in",
+            "source": "OpenAlex Embodied",
+            "kind": "research",
+            "doi": "https://doi.org/10.5281/zenodo.23592521",
+            "date_precision": "day"
+          }
+        ],
+        "notify": false,
+        "mode": "production",
+        "slot": "applied_ai"
+      }
+    },
     "2026-10-24:prompt_engineering": {
       "status": "no_matching_in_window",
       "updated_at": "2026-10-24T08:11:00.361869+00:00",
