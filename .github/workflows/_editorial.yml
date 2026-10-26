@@ -64,6 +64,19 @@ jobs:
       - name: Record whether content was prepared
         id: content
         run: test -f work/pending.json && echo "ready=true" >> "$GITHUB_OUTPUT" || echo "ready=false" >> "$GITHUB_OUTPUT"
+      - name: Export public task outcomes, including skipped slots
+        if: inputs.mode == 'production'
+        env:
+          PUBLIC_BASE_URL: ${{ vars.PUBLIC_BASE_URL }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: python -m research_bot.public_status
+      - name: Alert maintainer on exhausted retries or observed major delays
+        if: inputs.mode == 'production'
+        continue-on-error: true
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python -c 'from research_bot.public_status import notify_maintenance; notify_maintenance()'
       - name: Commit generated site
         if: steps.content.outputs.ready == 'true'
         run: |
@@ -79,22 +92,22 @@ jobs:
           if [ ! -f state/slots.json ]; then exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add state/slots.json
+          git add state/slots.json docs/
           git diff --cached --quiet || git commit -m "state: record ${{ inputs.slot }} decision [skip ci]"
           git pull --rebase origin "${{ github.event.repository.default_branch }}"
           git push
       - name: Configure GitHub Pages
-        if: steps.content.outputs.ready == 'true'
+        if: inputs.mode == 'production'
         uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
       - name: Upload GitHub Pages site
-        if: steps.content.outputs.ready == 'true'
+        if: inputs.mode == 'production'
         uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         with:
           name: github-pages-${{ inputs.slot }}
           path: docs
       - name: Deploy GitHub Pages site
         id: deployment
-        if: steps.content.outputs.ready == 'true'
+        if: inputs.mode == 'production'
         uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1
         with:
           artifact_name: github-pages-${{ inputs.slot }}
@@ -119,4 +132,13 @@ jobs:
           path: reports/*
           if-no-files-found: ignore
           retention-days: 14
+      - name: Notify maintainer of workflow failure
+        if: failure() && inputs.mode == 'production'
+        continue-on-error: true
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          FAILED_SLOT: ${{ inputs.slot }}
+          RUN_LINK: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: python -c 'import os; from research_bot.core import send_telegram; send_telegram("【维护提醒，非内容推送】" + os.environ["FAILED_SLOT"] + " 工作流异常，请检查：" + os.environ["RUN_LINK"])'
 

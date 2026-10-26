@@ -1,4 +1,5 @@
 import {visitorZone, dateInZone, timeInZone, timestampInZone, plannedInstant, localizedTitle, executionZone} from './time-display.mjs';
+import {slotStatus} from './slot-status.mjs';
 (() => {
   const picker = document.querySelector('#date-picker');
   if (!picker) return;
@@ -15,6 +16,7 @@ import {visitorZone, dateInZone, timeInZone, timestampInZone, plannedInstant, lo
   let category = '全部';
   let today = '';
   let previousToday = '';
+  let receipts = {};
 
   function renderDates(initial = false) {
     const clock = new Date();
@@ -49,8 +51,11 @@ import {visitorZone, dateInZone, timeInZone, timestampInZone, plannedInstant, lo
         row.querySelector('h2').textContent = localizedTitle(row.dataset.originalTitle, row.dataset.publishedAt, zone);
         row.querySelector('.publication-time').textContent = '实际发布：' + timestampInZone(row.dataset.publishedAt, zone);
       } else {
-        row.querySelector('.status').textContent = new Date(planned) > clock ? '未到执行时间'
-          : (day === today ? '等待有效内容' : '本时段未发布');
+        const record = receipts[row.dataset.executionDate + ':' + row.dataset.slot];
+        row.querySelector('.status').textContent = slotStatus(record, planned, clock, row.dataset.executionDate < executionDay);
+        row.querySelector('.timeline-card > p').textContent = record?.updated_at
+          ? '任务最近检查：' + timestampInZone(record.updated_at, zone) + '。未生成文章，不代表任务仍在等待。'
+          : '仅展示已通过检查的内容；没有任务记录时不推断已执行或无新增。';
       }
       if (!groups.has(day)) groups.set(day, []);
       groups.get(day).push(row);
@@ -66,6 +71,17 @@ import {visitorZone, dateInZone, timeInZone, timestampInZone, plannedInstant, lo
       section.querySelector('.day-heading span').textContent = '已更新 ' + completed + ' / ' + rows.length + ' 个时段 · ' + zone;
       section.querySelector('.progress-track span').style.width = (rows.length ? completed / rows.length * 100 : 0) + '%';
       section.querySelector('.timeline').replaceChildren(...rows);
+      const closed = rows.filter(row => !row.dataset.publishedAt && row.dataset.executionDate < executionDay);
+      if (closed.length) {
+        const details = document.createElement('details');
+        const summary = document.createElement('summary');
+        summary.textContent = '查看 ' + closed.length + ' 个未发布时段及原因';
+        const list = document.createElement('ol');
+        list.className = 'timeline';
+        list.append(...closed);
+        details.append(summary, list);
+        section.append(details);
+      }
       document.querySelector('#latest').append(section);
       const option = document.createElement('option');
       option.value = day;
@@ -100,5 +116,13 @@ import {visitorZone, dateInZone, timeInZone, timestampInZone, plannedInstant, lo
   const requested = new URLSearchParams(location.search).get('date');
   if ([...picker.options].some(option => option.value === requested)) picker.value = requested;
   update();
-  setInterval(() => { renderDates(); update(); }, 60000);
+  async function refreshReceipts() {
+    try {
+      const response = await fetch('slot-status.json', {cache: 'no-store'});
+      if (response.ok) receipts = await response.json();
+    } catch { /* Keep explicit unknown status when the network is unavailable. */ }
+    renderDates(); update();
+  }
+  refreshReceipts();
+  setInterval(refreshReceipts, 60000);
 })();

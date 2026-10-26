@@ -72,6 +72,8 @@ def record(slot: str, now: datetime, status: str, pending: dict | None = None) -
     data["slots"][key(slot, now)] = {
         "status": status, "updated_at": now.isoformat(), "attempts": int(previous.get("attempts", 0)) + (status != "published"),
     }
+    if previous.get("maintenance_notified"):
+        data["slots"][key(slot, now)]["maintenance_notified"] = True
     if pending:
         data["slots"][key(slot, now)]["pending"] = pending
     save(data)

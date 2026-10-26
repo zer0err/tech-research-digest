@@ -23,9 +23,11 @@ SLOTS = [
 
 def render_timeline(entries: list[dict[str, object]]) -> None:
     from .site import base_url, shell
+    from .public_status import export
 
+    receipts = export()
     today = datetime.now(ZoneInfo("Asia/Shanghai")).date().isoformat()
-    days = sorted({today, *(str(e["date"])[:10] for e in entries)}, reverse=True)
+    days = sorted({today, *(str(e["date"])[:10] for e in entries), *(key[:10] for key in receipts)}, reverse=True)
     sections = []
     for day in days:
         day_entries = [e for e in entries if str(e["date"])[:10] == day]
@@ -79,7 +81,7 @@ def render_timeline(entries: list[dict[str, object]]) -> None:
         '启用 JavaScript 后，日期及时间按浏览器时区显示。</p>'
         + "".join(sections)
         + '</section><p class="archive-links"><a href="feed.xml">订阅 RSS</a> · <a href="about.html">关于本站</a></p>'
-        '<script type="module" src="assets/timeline.js?v=visitor-time-4"></script>'
+        '<script type="module" src="assets/timeline.js?v=receipt-status-5"></script>'
     )
     Path("docs").mkdir(exist_ok=True)
     Path("docs/index.html").write_text(shell("VORASIO · AI 技术时间线", "每日 AI 研究、开发实践与智能硬件技术时间线", body))
