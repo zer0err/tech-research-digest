@@ -89,9 +89,18 @@
         "5f4fd058fd42810b8ce54c7a"
       ],
       "updated_at": "2026-10-25T15:59:00+00:00"
+    },
+    "dev_practice": {
+      "ids": [
+        "d6d4695a3bbbb17ae6058086",
+        "c592cd3980d14f5cf675a5c2"
+      ],
+      "updated_at": "2026-10-25T15:59:00+00:00"
     }
   },
   "all_ids": [
+    "d6d4695a3bbbb17ae6058086",
+    "c592cd3980d14f5cf675a5c2",
     "dd4ab24e6b10458eed08576d",
     "2bd9840f6e394aa65f0694db",
     "1dd573b9112c2e472f3b1413",
@@ -134,6 +143,8 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://github.com/fastapi/fastapi/releases/tag/0.162.0",
+    "https://github.com/fastapi/fastapi/releases/tag/0.161.1",
     "https://doi.org/10.70030/sjmakeu.2057008",
     "https://doi.org/10.1007/s10791-026-10753-2",
     "https://doi.org/10.62480/tjet.2026.vol60.pp1-5",
@@ -176,6 +187,8 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "d7b55d578a7c802c005b00ad",
+    "a47c46552c530d5aa8c682bc",
     "b5dc2e372a0e0bd2b3849ee0",
     "ada177f577ae5fa8251c9a84",
     "254d61b05f4ac611d83cfe0b",
@@ -693,6 +706,34 @@
           "source": "OpenAlex Device Security",
           "kind": "research",
           "doi": "https://doi.org/10.1007/s10791-026-10753-2",
+          "date_precision": "day"
+        }
+      ]
+    },
+    "https://vorasio.com/posts/20261025-dev_practice.html": {
+      "topic": "dev_practice",
+      "created_at": "2026-10-25T15:59:00+00:00",
+      "items": [
+        {
+          "uid": "d6d4695a3bbbb17ae6058086",
+          "title": "0.162.0",
+          "url": "https://github.com/fastapi/fastapi/releases/tag/0.162.0",
+          "published": "2026-10-23T18:47:17+00:00",
+          "summary": "Omitted bool and bool | None form fields now use their declared defaults or produce missing-field errors, consistent with other fields and Pydantic behavior. FastAPI no longer infers False for omitted booleans. This applies to individual form parameters, form models, and unions of form models. Omitted boolean model fields are excluded from model_dump(exclude_unset=True) , and their defaults no longer count as submitted fields during union selection. Default factories and validate_default follow the usual rules. For HTML checkboxes, declare a boolean with a default of False . See Boolean Form Fields . Breaking Changes 🐛 Restore default handling for omitted boolean form fields. PR #16605 by @tiangolo .",
+          "source": "FastAPI Releases",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        },
+        {
+          "uid": "c592cd3980d14f5cf675a5c2",
+          "title": "0.161.1",
+          "url": "https://github.com/fastapi/fastapi/releases/tag/0.161.1",
+          "published": "2026-10-22T22:21:50+00:00",
+          "summary": "Fixes 🐛 Fix OpenAPI schemas for standalone nullable form unions. PR #16598 by @tiangolo .",
+          "source": "FastAPI Releases",
+          "kind": "research",
+          "doi": "",
           "date_precision": "day"
         }
       ]
