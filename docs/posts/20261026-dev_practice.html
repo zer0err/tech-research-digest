@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 开发实践与部署（2026-10-26）</title><meta name="description" content="AI 开发实践与部署（2026-10-26）：2 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav><a href="../index.html#latest">时间线</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">AI 开发实践与部署</p><dl><dt>发布时间</dt><dd data-published-at="2026-10-26T15:42:16.178235+08:00">2026-10-26 15:42 · UTC+8</dd><dt>研究条目</dt><dd>2 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · AI 开发实践与部署</p><h1>AI 开发实践与部署（2026-10-26）</h1><!-- provenance:start --><p class="ai-analysis" title="mimo-v2.6-flash">AI 分析：Xiaomi MiMo</p><!-- provenance:end --><p class="disclosure">实践参考，未经运行验证。</p><div class="article-body"><h2>本期主题</h2>
+<p>本期聚焦 FastAPI 0.160.0 与 0.161.0 两个版本的官方发布说明，帮助开发者掌握两项可执行变更：一是 query/header/cookie/form 参数模型的 <code>extra</code> 配置现在会作用于同一参数位置下的全部提交字段（含其他模型字段、独立参数与依赖项），二是表单模型的 union 组合获得支持 [1][2]。读者可据此评估升级对现有接口校验行为的影响，并规划回归测试范围。</p>
+<h2>实践步骤</h2>
+<ol>
+<li>阅读 0.160.0 官方发布说明，确认 <code>extra=&quot;forbid&quot;</code>、<code>extra=&quot;allow&quot;</code>、<code>extra=&quot;ignore&quot;</code> 三种配置在同参数位置下对兄弟字段的新行为：forbid 会拒绝模型外字段（即便其他参数声明了该字段），allow 会将其纳入模型 extras，ignore 则忽略 [2]。</li>
+<li>检查项目中所有 query/header/cookie/form 参数模型，识别哪些接口此前依赖&quot;模型外字段不被该模型配置约束&quot;的旧行为，评估升级后是否出现意外拒绝或字段归类变化 [2]。</li>
+<li>阅读 0.161.0 发布说明，确认新增的表单模型 union 组合能力；具体语法、限制与示例摘要未提供，需查阅对应 PR #16596 原文核验 [1]。</li>
+<li>在隔离环境安装目标版本并运行现有测试套件，观察参数校验相关用例是否因 extra 配置作用域扩大而失败 [2]。</li>
+<li>依赖项方面，0.160.0 将 certifi 从 2026.1.4 升级至 2026.10.19，如项目对 TLS 根证书有固定依赖，需同步核验兼容性 [2]。</li>
+</ol>
+<h2>验证清单</h2>
+<ul>
+<li>核验当前项目 FastAPI 版本与目标版本（0.160.0 / 0.161.0）的差异 [1][2]。</li>
+<li>核验 <code>extra=&quot;forbid&quot;</code> 场景下，同参数位置其他参数声明的字段是否确实被拒绝（摘要明确为 Breaking Change）[2]。</li>
+<li>核验 <code>extra=&quot;allow&quot;</code> 场景下，模型外字段是否出现在 model extras 中 [2]。</li>
+<li>核验表单模型 union 组合的具体用法与边界条件——摘要未提供示例与命令，留待查阅 PR #16596 核验 [1]。</li>
+<li>核验 certifi 2026.10.19 在目标部署环境中的 TLS 兼容性 [2]。</li>
+<li>失败条件：若升级后同参数位置的兄弟字段校验行为与预期不符，或 union 表单模型无法按预期解析，应回退并记录复现步骤 [1][2]。</li>
+</ul>
+<h2>限制与风险</h2>
+<ul>
+<li>0.160.0 的 extra 配置作用域扩大被官方标记为 Breaking Changes，依赖旧行为的接口升级后可能出现请求被拒绝或字段归类变化 [2]。</li>
+<li>0.161.0 的 union 表单模型支持仅在摘要中提及特性存在，具体语法、支持的表单编码方式、与依赖项的交互均摘要未提供，无法从摘要确认 [1]。</li>
+<li>两条摘要均未提供安装命令、兼容的 Python/Pydantic 版本矩阵，相关兼容性信息留待核验 [1][2]。</li>
+<li>本简报仅依据两条官方 release 摘要，不代表 FastAPI 全部变更范围，也不构成对其他 Web 框架的类比结论 [1][2]。</li>
+</ul>
+<h2>参考资料</h2>
+<p>[1] 0.161.0 <a href="https://github.com/fastapi/fastapi/releases/tag/0.161.0">https://github.com/fastapi/fastapi/releases/tag/0.161.0</a>
+[2] 0.160.0 <a href="https://github.com/fastapi/fastapi/releases/tag/0.160.0">https://github.com/fastapi/fastapi/releases/tag/0.160.0</a></p>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>

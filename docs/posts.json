@@ -1,5 +1,44 @@
 [
   {
+    "title": "AI 开发实践与部署（2026-10-26）",
+    "date": "2026-10-26T15:42:16.178235+08:00",
+    "count": 2,
+    "url": "posts/20261026-dev_practice.html",
+    "topic": "dev_practice",
+    "status": "published",
+    "summary": "本期主题 本期聚焦 FastAPI 0.160.0 与 0.161.0 两个版本的官方发布说明，帮助开发者掌握两项可执行变更：一是 query/header/cookie/form 参数模型的 extra 配置现在会作用于同一参数位置下的全部提交字段（含其他模型字段、独立参数与依赖项），二是表单模型的 union 组合",
+    "provenance": {
+      "analysis": {
+        "provider": "Xiaomi MiMo",
+        "model": "mimo-v2.6-flash"
+      },
+      "sources": [
+        {
+          "title": "0.161.0",
+          "url": "https://github.com/fastapi/fastapi/releases/tag/0.161.0",
+          "publisher": "FastAPI Releases",
+          "host": "github.com",
+          "family": "代码与版本",
+          "published": "2026-10-22T18:30:24+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "0.160.0",
+          "url": "https://github.com/fastapi/fastapi/releases/tag/0.160.0",
+          "publisher": "FastAPI Releases",
+          "host": "github.com",
+          "family": "代码与版本",
+          "published": "2026-10-22T16:54:31+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "高效 AI、模型压缩与端侧适配（2026-10-26）",
     "date": "2026-10-26T15:14:13.311587+08:00",
     "count": 2,
