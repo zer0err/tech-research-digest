@@ -46,13 +46,14 @@
     },
     "model_research": {
       "ids": [
+        "ec36aee3ebe1a1b48f4d970e",
         "d83db9d8db1820c4d3cc0d76",
         "7eb2677e57876d181074fa82",
         "3d1ee048a477c33f74857208",
         "f3a5508d0160d42195ab7174",
         "cb661d928a0dfa16bc4c4588"
       ],
-      "updated_at": "2026-10-25T06:01:07.332785+00:00"
+      "updated_at": "2026-10-26T02:42:18.831007+00:00"
     },
     "embodied": {
       "ids": [
@@ -99,6 +100,7 @@
     }
   },
   "all_ids": [
+    "ec36aee3ebe1a1b48f4d970e",
     "d6d4695a3bbbb17ae6058086",
     "c592cd3980d14f5cf675a5c2",
     "dd4ab24e6b10458eed08576d",
@@ -143,6 +145,7 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://doi.org/10.66977/xsci.2610.002m",
     "https://github.com/fastapi/fastapi/releases/tag/0.162.0",
     "https://github.com/fastapi/fastapi/releases/tag/0.161.1",
     "https://doi.org/10.70030/sjmakeu.2057008",
@@ -187,6 +190,7 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "1512ef039de31a1fddcfcdc0",
     "d7b55d578a7c802c005b00ad",
     "a47c46552c530d5aa8c682bc",
     "b5dc2e372a0e0bd2b3849ee0",
@@ -734,6 +738,23 @@
           "source": "FastAPI Releases",
           "kind": "research",
           "doi": "",
+          "date_precision": "day"
+        }
+      ]
+    },
+    "https://vorasio.com/posts/20261026-model_research.html": {
+      "topic": "model_research",
+      "created_at": "2026-10-26T02:42:18.831007+00:00",
+      "items": [
+        {
+          "uid": "ec36aee3ebe1a1b48f4d970e",
+          "title": "Africa-Papers: A 10-Billion-Token Multi-Domain Academic Corpus for African Foundation Language Models",
+          "url": "https://doi.org/10.66977/xsci.2610.002m",
+          "published": "2026-10-24T00:00:00+00:00",
+          "summary": "Large Language Models (LLMs) depend fundamentally on the diversity, depth, and factual rigor of their pre-training corpora. However, contemporary foundational pre-training datasets (such as The Pile, S2ORC, and Dolma) exhibit a severe structural omission: African scientific, medical, legal, and agricultural scholarship constitutes less than 0.5% of global pre-training tokens. Consequently, state-of-the-art models suffer from systematic failure modes when reasoning about tropical epidemiology, localized smallholder agro-ecologies, regional economic governance, and indigenous linguistic structures. To resolve this representation deficit and advance African intellectual sovereignty in artificial intelligence, we introduce Africa-Papers, the largest curated multi-domain Pan-African academic pre-training corpus to date. Comprising over 844,807 full-text papers spanning 10.15 billion tokens across 879 Parquet shards, Africa-Papers unifies four primary scientific streams: (1) continental peer-reviewed journals indexed in DOAJ across 31 African nations, (2) the CGIAR CGSpace agricultural repository, (3) African-authored and African-focused STEM/AI preprints on arXiv, and (4) open-access international publications by scholars affiliated with African institutions indexed via OpenAlex. The entire corpus is processed into layout-aware, clean Markdown preserving section hierarchies, mathema",
+          "source": "OpenAlex Model Research",
+          "kind": "research",
+          "doi": "https://doi.org/10.66977/xsci.2610.002m",
           "date_precision": "day"
         }
       ]
