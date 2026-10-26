@@ -47,42 +47,9 @@
       "attempts": 1
     },
     "2026-10-25:core_research": {
-      "status": "prepared",
+      "status": "published",
       "updated_at": "2026-10-25T15:59:00+00:00",
-      "attempts": 4,
-      "pending": {
-        "topic": "product_safety",
-        "title": "智能硬件产品化、可靠性与安全",
-        "url": "https://vorasio.com/posts/20261025-core_research.html",
-        "created_at": "2026-10-25T15:59:00+00:00",
-        "items": [
-          {
-            "uid": "dd4ab24e6b10458eed08576d",
-            "title": "A Low-Cost IoT Smart Pill Box with Physical Intake Verification: Design and Evaluation in Real-Life Use",
-            "url": "https://doi.org/10.70030/sjmakeu.2057008",
-            "published": "2026-10-25T00:00:00+00:00",
-            "summary": "Medication non-adherence undermines the treatment of chronic diseases, and reminder applications cannot show whether a dose was taken. This paper reports a 52-day field evaluation of a low-cost smart pill box that registers each intake event with an infrared sensor and a reed switch, time-stamps it with a battery-backed clock, queues events locally during network outages and forwards them to a Laravel server that alerts the patient, a caregiver and a physician by staged e-mails. One user with multiple sclerosis, who is also an author, used the device with three scheduled doses per day. Of 155 planned doses, 90 were taken (58.1%); excluding an 8-day period in which the device was deliberately switched off, adherence was 68.7% (95% CI 59–78%) and differed between phases (83.3%, 47.6% and 73.2%). Taken doses were registered at a median deviation of 0 min, 94.4% within five minutes of the alarm; e-mail reminders were followed by intake in 4 of 69 cases. All 90 events recorded after installation matched a planned dose, all 103 device packets were consistent with the database, the median device-to-server delay was 2 s, and the notification chain fired at its thresholds in every case. Deep sleep extended the runtime on a 10,000 mAh power bank by 2.6-fold (from 14 h to 36 h). The sensors register intake events but do not verify ingestion. The record was consistent, and the local alarm ",
-            "source": "Crossref Device Security",
-            "kind": "research",
-            "doi": "10.70030/sjmakeu.2057008",
-            "date_precision": "day"
-          },
-          {
-            "uid": "2bd9840f6e394aa65f0694db",
-            "title": "Using digital twins as a shared information model for secure software lifecycle management in IoT",
-            "url": "https://doi.org/10.1007/s10791-026-10753-2",
-            "published": "2026-10-24T00:00:00+00:00",
-            "summary": "Secure software updates are essential for maintaining Internet of Things (IoT) systems throughout their operational lifetime. However, software lifecycle information is typically fragmented across software repositories, deployment services, device management platforms, and runtime monitoring systems, limiting interoperability and end-to-end lifecycle visibility. This paper proposes a Digital Twin (DT)-based information model that uses the DT of each device as a shared information contract throughout the operational stages of the IoT secure software update lifecycle. The proposed model extends the DT with software lifecycle information, enabling deployment intentions, installation status, verification results, and runtime observations to be exchanged through a shared representation across heterogeneous software management components. The approach is realised as an extension of Eclipse Ditto and evaluated in a laboratory set-up for telemedicine gateways that combines a real gateway with fleets of emulated devices. A real security update could be followed revision by revision in the gateway’s DT; queries over the DTs identified vulnerable, updated and failed devices correctly, despite injected installation and verification failures and temporarily offline devices; and new lifecycle information and an additional lifecycle component were introduced without changing the existing ones",
-            "source": "OpenAlex Device Security",
-            "kind": "research",
-            "doi": "https://doi.org/10.1007/s10791-026-10753-2",
-            "date_precision": "day"
-          }
-        ],
-        "notify": false,
-        "mode": "production",
-        "slot": "core_research"
-      }
+      "attempts": 4
     },
     "2026-10-25:applied_ai": {
       "status": "published",
