@@ -1,5 +1,21 @@
 [
   {
+    "title": "VORASIO AI 日报（2026-10-26）",
+    "date": "2026-10-26T19:12:21.176198+08:00",
+    "count": 5,
+    "url": "posts/20261026-daily_digest.html",
+    "topic": "daily_digest",
+    "status": "published",
+    "summary": "今日概览 今天共发布 5 个内容更新。以下列表仅汇总站内已经通过发布流程的内容，不额外生成未经来源支持的结论。 今日内容 - AI 模型、训练与基础研究（2026-10-26）(https://vorasio.com/posts/20261026-model_research.html) - AI 论文午间速览（202",
+    "provenance": {
+      "analysis": {
+        "provider": "程序汇总（未调用 AI）",
+        "model": "不适用"
+      },
+      "sources": []
+    }
+  },
+  {
     "title": "AI 芯片、计算架构与硬件平台（2026-10-26）",
     "date": "2026-10-26T16:42:23.844850+08:00",
     "count": 1,
