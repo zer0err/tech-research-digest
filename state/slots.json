@@ -6,6 +6,33 @@
       "updated_at": "2026-10-26T01:18:14.700849+00:00",
       "attempts": 1
     },
+    "2026-10-26:model_research": {
+      "status": "prepared",
+      "updated_at": "2026-10-26T02:42:18.831007+00:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "model_research",
+        "title": "AI 模型、训练与基础研究",
+        "url": "https://vorasio.com/posts/20261026-model_research.html",
+        "created_at": "2026-10-26T02:42:18.831007+00:00",
+        "items": [
+          {
+            "uid": "ec36aee3ebe1a1b48f4d970e",
+            "title": "Africa-Papers: A 10-Billion-Token Multi-Domain Academic Corpus for African Foundation Language Models",
+            "url": "https://doi.org/10.66977/xsci.2610.002m",
+            "published": "2026-10-24T00:00:00+00:00",
+            "summary": "Large Language Models (LLMs) depend fundamentally on the diversity, depth, and factual rigor of their pre-training corpora. However, contemporary foundational pre-training datasets (such as The Pile, S2ORC, and Dolma) exhibit a severe structural omission: African scientific, medical, legal, and agricultural scholarship constitutes less than 0.5% of global pre-training tokens. Consequently, state-of-the-art models suffer from systematic failure modes when reasoning about tropical epidemiology, localized smallholder agro-ecologies, regional economic governance, and indigenous linguistic structures. To resolve this representation deficit and advance African intellectual sovereignty in artificial intelligence, we introduce Africa-Papers, the largest curated multi-domain Pan-African academic pre-training corpus to date. Comprising over 844,807 full-text papers spanning 10.15 billion tokens across 879 Parquet shards, Africa-Papers unifies four primary scientific streams: (1) continental peer-reviewed journals indexed in DOAJ across 31 African nations, (2) the CGIAR CGSpace agricultural repository, (3) African-authored and African-focused STEM/AI preprints on arXiv, and (4) open-access international publications by scholars affiliated with African institutions indexed via OpenAlex. The entire corpus is processed into layout-aware, clean Markdown preserving section hierarchies, mathema",
+            "source": "OpenAlex Model Research",
+            "kind": "research",
+            "doi": "https://doi.org/10.66977/xsci.2610.002m",
+            "date_precision": "day"
+          }
+        ],
+        "notify": false,
+        "mode": "production",
+        "slot": "model_research"
+      }
+    },
     "2026-10-25:prompt_engineering": {
       "status": "no_matching_in_window",
       "updated_at": "2026-10-25T15:59:00+00:00",

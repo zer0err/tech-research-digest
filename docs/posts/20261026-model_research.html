@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 模型、训练与基础研究（2026-10-26）</title><meta name="description" content="AI 模型、训练与基础研究（2026-10-26）：1 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav><a href="../index.html#latest">时间线</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">AI 模型、训练与基础研究</p><dl><dt>发布时间</dt><dd data-published-at="2026-10-26T10:42:18.831007+08:00">2026-10-26 10:42 · UTC+8</dd><dt>研究条目</dt><dd>1 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · AI 模型、训练与基础研究</p><h1>AI 模型、训练与基础研究（2026-10-26）</h1><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期结论</h2>
+<ul>
+<li><strong>Africa-Papers 预训练语料库的规模与多样性显著提升</strong>：该语料库包含 10.15 billion tokens，覆盖 844,807 篇论文，涉及 31 个非洲国家的学术出版物、农业研究、arXiv 预印本及国际开放获取文献，显著弥补了现有预训练数据中非洲学术内容不足的缺口 [1]。</li>
+<li><strong>非洲学术内容的缺失导致 LLM 在特定领域的推理失效</strong>：作者指出，当前主流预训练数据集（如 The Pile、S2ORC、Dolma）中非洲科学、医学、法律与农业文献占比不足 0.5%，导致模型在热带流行病学、小农生态学、区域经济治理及土著语言结构等方面出现系统性错误 [1]。</li>
+<li><strong>值得关注的信号</strong>：虽然 Africa-Papers 通过聚合多域学术文献提供了更丰富的非洲语料，但目前仅有摘要层面的描述，缺乏对模型训练、评测或实际推理性能的定量验证，尚未形成可直接用于模型改进的实证依据 [1]。</li>
+</ul>
+<h2>逐项分析</h2>
+<table>
+<thead>
+<tr>
+<th>论文</th>
+<th>核心贡献</th>
+<th>方法与数据</th>
+<th>性能证据</th>
+<th>局限与证据等级</th>
+<th>工程意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Africa-Papers</td>
+<td>构建最大规模的多域非洲学术预训练语料库，填补非洲学术内容在 LLM 预训练中的缺口</td>
+<td>通过 DOAJ、CGIAR CGSpace、arXiv 及 OpenAlex 采集 844,807 篇论文，整理成 10.15 billion tokens 的 Markdown 文本，保留章节层级与数学公式</td>
+<td>仅在摘要中提及语料规模与覆盖范围，未给出任何模型训练或推理实验结果</td>
+<td>证据等级 <strong>C</strong>：摘要中仅主张缺失与解决方案，缺乏实验细节与定量结果</td>
+<td>为后续在非洲语料上预训练 LLM 提供了可用数据集，可能提升在非洲特定领域的推理准确性</td>
+</tr>
+</tbody>
+</table>
+<h2>工程行动建议</h2>
+<ul>
+<li><strong>验证实验</strong>：使用 Africa-Papers 语料对现有 LLM（如 LLaMA、GPT‑4）进行增量预训练或全量预训练，评估在非洲医学、农业、法律等领域的问答准确率。</li>
+<li><strong>落地评估</strong>：在非洲本土语言（如阿姆哈拉语、祖鲁语）和专业领域（如热带流行病学）上构建基准数据集，比较使用 Africa-Papers 预训练模型与传统模型的性能差异。</li>
+<li><strong>后续跟踪指标</strong>：监测模型在非洲特定任务上的错误率、覆盖率与公平性指标；记录训练成本与时间，以评估数据规模对资源消耗的影响。</li>
+</ul>
+<h2>参考资料</h2>
+<ol>
+<li>Africa-Papers: A 10-Billion-Token Multi-Domain Academic Corpus for African Foundation Language Models. <a href="https://doi.org/10.66977/xsci.2610.002m">https://doi.org/10.66977/xsci.2610.002m</a></li>
+</ol>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>
