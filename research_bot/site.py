@@ -82,7 +82,10 @@ def linkify_bare_urls(markdown: str) -> str:
     return re.sub(r"(?<![\(<])(?P<url>https?://[^\s<>)，。；,;]+)", r"<\g<url>>", markdown)
 
 
-def publish_post(topic: str, title: str, now: datetime, report: str, items: list[Item]) -> str:
+def publish_post(topic: str, title: str, now: datetime, report: str, items: list[Item], *, analysis: dict | None = None) -> str:
+    from .provenance import metadata, render
+    default_analysis = {"provider": "程序汇总（未调用 AI）", "model": "不适用"} if topic == 'daily_digest' else None
+    provenance = metadata(items, analysis or default_analysis)
     now = now.astimezone(ZoneInfo("Asia/Shanghai"))
     POSTS_DIR.mkdir(parents=True, exist_ok=True)
     (SITE_DIR / "assets").mkdir(parents=True, exist_ok=True)
@@ -112,7 +115,7 @@ def publish_post(topic: str, title: str, now: datetime, report: str, items: list
         f'<dt>研究条目</dt><dd>{len(items)} 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl>'
         '<a class="back-link" href="../index.html">← 返回全部简报</a></aside>'
         f'<article><p class="kicker">RESEARCH BRIEF · {html.escape(topic_name)}</p>'
-        f'<h1>{html.escape(display_title)}</h1><p class="disclosure">{disclosure}</p>'
+        f'<h1>{html.escape(display_title)}</h1>{render(provenance)}<p class="disclosure">{disclosure}</p>'
         f'<div class="article-body">{md.render(report_body)}</div></article></div>'
     )
     (POSTS_DIR / slug).write_text(shell(display_title, f"{display_title}：{len(items)} 项最新研究", article, "../"))
@@ -129,6 +132,7 @@ def publish_post(topic: str, title: str, now: datetime, report: str, items: list
             "topic": topic,
             "status": status,
             "summary": summary,
+            "provenance": provenance,
         },
     )
     INDEX_DATA.write_text(json.dumps(entries[:365], ensure_ascii=False, indent=2) + "\n")

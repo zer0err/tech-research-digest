@@ -64,6 +64,14 @@ def test_empty_or_yesterday_article_does_not_block_today():
     assert len(schedule.due_slots(now(), empty(), entries)) == 2
 
 
+def test_yesterday_backfill_does_not_complete_today_slot():
+    entries = [{"topic": "paper_brief", "date": "2026-10-26T10:36:00+08:00",
+                "execution_date": "2026-10-25", "status": "published", "count": 2}]
+    today = datetime(2026, 10, 26, 6, 23, tzinfo=UTC)
+    assert not schedule.completed('paper_brief', today, empty(), entries)
+    assert 'paper_brief' in schedule.due_slots(today, empty(), entries)
+
+
 def test_transient_retry_is_bounded_and_cooled_down():
     ledger = empty()
     record = {"status": "source_failure", "attempts": 1, "updated_at": now().isoformat()}

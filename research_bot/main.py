@@ -81,6 +81,7 @@ def prepare_topic(
             except Exception:
                 if analyse is not groq_analyse or not mimo_enabled():
                     raise
+                analyse = mimo_analyse
                 report = mimo_analyse(str(config["title"]), str(config["analysis_focus"]), selected, content_type)
         except Exception as exc:
             logging.warning("Analysis unavailable for %s (%s); skipping publication", topic, type(exc).__name__)
@@ -120,7 +121,9 @@ def prepare_topic(
         Path(f"reports/test-{key}.md").write_text(header + report)
         decision(key, "test_only", selected=len(selected), **counts)
         return False
-    public_url = publish_post(key, str(config["title"]), now, report, selected)
+    analysis = {"provider": "Xiaomi MiMo" if analyse is mimo_analyse else "Groq",
+                "model": "mimo-v2.6-flash" if analyse is mimo_analyse else os.getenv("GROQ_MODEL", "openai/gpt-oss-20b")}
+    public_url = publish_post(key, str(config["title"]), now, report, selected, analysis=analysis)
     Path("reports").mkdir(exist_ok=True)
     Path(f"reports/{key}-{now:%Y%m%dT%H%M%SZ}.md").write_text(header + report)
     Path("work").mkdir(exist_ok=True)
@@ -134,6 +137,7 @@ def prepare_topic(
                 "items": dump_items(selected),
                 "notify": config.get("notify", True),
                 "mode": mode,
+                "analysis": analysis,
             },
             ensure_ascii=False,
             indent=2,

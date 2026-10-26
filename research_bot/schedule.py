@@ -41,7 +41,8 @@ def completed(slot: str, now: datetime, ledger: dict, entries: list[dict]) -> bo
         return False  # Resume deploy/notification instead of generating again.
     if record.get("status") in {"published", "no_matching_in_window", "insufficient_abstract", "already_published", "empty_digest"}:
         return True
-    return any(entry.get("topic") == slot and str(entry.get("date", ""))[:10] == f"{now.astimezone(BEIJING):%Y-%m-%d}"
+    return any(entry.get("topic") == slot
+               and str(entry.get("execution_date", entry.get("date", "")))[:10] == f"{now.astimezone(BEIJING):%Y-%m-%d}"
                and entry.get("status") == "published" and int(entry.get("count", 0)) > 0 for entry in entries)
 
 

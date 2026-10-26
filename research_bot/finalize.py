@@ -30,6 +30,7 @@ def main() -> int:
     if items:
         state.setdefault("publications", {})[pending["url"]] = {
             "topic": pending["topic"], "created_at": pending["created_at"], "items": pending["items"],
+            "analysis": pending.get("analysis"),
         }
     state_path.parent.mkdir(parents=True, exist_ok=True)
     state_path.write_text(json.dumps(state, ensure_ascii=False, indent=2) + "\n")

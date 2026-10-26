@@ -40,7 +40,7 @@ def prepare_daily_digest(now: datetime, notify: bool = True) -> bool:
     data_path = Path("docs/posts.json")
     entries = json.loads(data_path.read_text()) if data_path.exists() else []
     local_date = now.astimezone(BEIJING).date().isoformat()
-    todays = [entry for entry in entries if str(entry.get("date", ""))[:10] == local_date
+    todays = [entry for entry in entries if str(entry.get("execution_date", entry.get("date", "")))[:10] == local_date
               and entry.get("topic") != "daily_digest" and entry.get("status") == "published" and int(entry.get("count", 0)) > 0]
     if not todays:
         logging.info("No valid published articles today; skipping daily digest")
