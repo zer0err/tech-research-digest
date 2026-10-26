@@ -10,6 +10,10 @@ on:
       slot:
         required: true
         type: string
+      replay_date:
+        required: false
+        default: ""
+        type: string
     secrets:
       OPENALEX_API_KEY:
         required: false
@@ -55,6 +59,7 @@ jobs:
         id: prepare
         env:
           PUBLICATION_MODE: ${{ inputs.mode }}
+          REPLAY_DATE: ${{ inputs.replay_date }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           MIMO_API_KEY: ${{ secrets.MIMO_API_KEY }}
           MIMO_FALLBACK_ENABLED: ${{ vars.MIMO_FALLBACK_ENABLED || 'false' }}
@@ -66,7 +71,7 @@ jobs:
           GROQ_MAX_TOKENS: ${{ vars.GROQ_MAX_TOKENS || '2800' }}
           PUBLIC_BASE_URL: ${{ vars.PUBLIC_BASE_URL }}
           GITHUB_REPOSITORY: ${{ github.repository }}
-        run: python -m research_bot.editorial --slot "${{ inputs.slot }}"
+        run: python -m research_bot.editorial --slot "${{ inputs.slot }}" --replay-date "$REPLAY_DATE"
       - name: Record whether content was prepared
         id: content
         run: test -f work/pending.json && echo "ready=true" >> "$GITHUB_OUTPUT" || echo "ready=false" >> "$GITHUB_OUTPUT"

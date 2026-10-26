@@ -71,7 +71,7 @@ def shell(title: str, description: str, body: str, relative_root: str = "") -> s
 <title>{html.escape(title)}</title><meta name="description" content="{html.escape(description, quote=True)}">
 <link rel="stylesheet" href="{relative_root}assets/style.css">
 <link rel="stylesheet" href="{relative_root}assets/editorial.css?v=timeline-2">
-<script type="module" src="{relative_root}assets/article.js?v=visitor-time-4"></script></head>
+<script type="module" src="{relative_root}assets/article.js?v=replay-6"></script></head>
 <body><header class="site-header"><a class="brand" href="{relative_root}index.html"><span>VORASIO</span> 研究简报</a>
 <nav><a href="{relative_root}index.html#latest">时间线</a><a href="{relative_root}about.html">关于</a></nav></header>
 <main>{body}</main><footer><strong>VORASIO 研究简报</strong>
@@ -101,10 +101,14 @@ def publish_post(topic: str, title: str, now: datetime, report: str, items: list
         status = "source_error"
     summary = re.sub(r"\s+", " ", re.sub(r"[#*\[\]`]+", "", report)).strip()[:160]
     disclosure = "实践参考，未经运行验证。" if topic == "dev_practice" else "依据公开来源自动整理，请核对证据边界。"
+    edition_date = os.getenv("REPLAY_EDITION_DATE")
+    published_at = datetime.now(ZoneInfo("Asia/Shanghai")) if edition_date else now
+    if edition_date:
+        disclosure += f" 本文为 {edition_date} 期补发，实际发布时间见侧栏；按历史日期筛选当前仍可访问的来源，不是历史网页快照。"
     article = (
         '<div class="article-layout"><aside class="article-meta">'
         f'<p class="eyebrow">{html.escape(topic_name)}</p><dl><dt>发布时间</dt>'
-        f'<dd data-published-at="{now.isoformat()}">{now:%Y-%m-%d %H:%M} · UTC+8</dd>'
+        f'<dd data-published-at="{published_at.isoformat()}">{published_at:%Y-%m-%d %H:%M} · UTC+8</dd>'
         f'<dt>研究条目</dt><dd>{len(items)} 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl>'
         '<a class="back-link" href="../index.html">← 返回全部简报</a></aside>'
         f'<article><p class="kicker">RESEARCH BRIEF · {html.escape(topic_name)}</p>'
@@ -118,7 +122,8 @@ def publish_post(topic: str, title: str, now: datetime, report: str, items: list
         0,
         {
             "title": display_title,
-            "date": now.isoformat(),
+            "date": published_at.isoformat(),
+            **({"execution_date": edition_date} if edition_date else {}),
             "count": len(items),
             "url": f"posts/{slug}",
             "topic": topic,

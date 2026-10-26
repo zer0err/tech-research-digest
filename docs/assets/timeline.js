@@ -48,7 +48,8 @@ import {slotStatus} from './slot-status.mjs';
       time.title = '东八区执行计划：' + row.dataset.executionDate + ' ' + row.dataset.executionTime;
       row.dataset.time = time.textContent;
       if (row.dataset.publishedAt) {
-        row.querySelector('h2').textContent = localizedTitle(row.dataset.originalTitle, row.dataset.publishedAt, zone);
+        row.querySelector('h2').textContent = row.dataset.replayed === 'true' ? row.dataset.originalTitle + ' · 补发'
+          : localizedTitle(row.dataset.originalTitle, row.dataset.publishedAt, zone);
         row.querySelector('.publication-time').textContent = '实际发布：' + timestampInZone(row.dataset.publishedAt, zone);
       } else {
         const record = receipts[row.dataset.executionDate + ':' + row.dataset.slot];

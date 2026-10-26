@@ -89,9 +89,17 @@ def main() -> int:
     parser.add_argument("--sources-config", default="config/sources.yml")
     parser.add_argument("--state", default="state/seen.json")
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--replay-date", default="", help="Explicit past Beijing edition date; preserve existing articles")
     args = parser.parse_args()
     logging.basicConfig(level=os.getenv("LOG_LEVEL", "INFO"), format="%(levelname)s %(message)s")
     now = datetime.now(UTC)
+    replay = bool(args.replay_date)
+    if replay:
+        edition = datetime.strptime(args.replay_date, "%Y-%m-%d").replace(hour=23, minute=59, tzinfo=BEIJING)
+        if edition.date() >= now.astimezone(BEIJING).date():
+            raise ValueError("Replay date must be a past Beijing date")
+        now = edition.astimezone(UTC)
+        os.environ["REPLAY_EDITION_DATE"] = args.replay_date
     editorial = yaml.safe_load(Path(args.editorial_config).read_text())
     topics = yaml.safe_load(Path(args.sources_config).read_text())["topics"]
     slot = editorial["slots"].get(args.slot)
@@ -106,12 +114,16 @@ def main() -> int:
         ledger = schedule.load()
         entries = json.loads(Path("docs/posts.json").read_text()) if Path("docs/posts.json").exists() else []
         receipt = ledger["slots"].get(schedule.key(args.slot, now), {})
+        if replay and any(e.get("topic") == args.slot and e.get("execution_date", str(e.get("date", ""))[:10]) == args.replay_date
+                          and e.get("status") == "published" for e in entries):
+            decision(args.slot, "existing_article_preserved", edition_date=args.replay_date)
+            return 0
         if receipt.get("status") == "prepared":
             Path("work").mkdir(exist_ok=True)
             Path("work/pending.json").write_text(json.dumps(receipt["pending"], ensure_ascii=False, indent=2) + "\n")
             decision(args.slot, "resume_prepared_publication")
             return 0
-        if not schedule.eligible(args.slot, now, ledger, entries):
+        if not replay and not schedule.eligible(args.slot, now, ledger, entries):
             decision(args.slot, "slot_already_completed_or_retry_limited")
             return 0
     def persist_result() -> None:

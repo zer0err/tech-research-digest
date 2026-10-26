@@ -27,10 +27,10 @@ def render_timeline(entries: list[dict[str, object]]) -> None:
 
     receipts = export()
     today = datetime.now(ZoneInfo("Asia/Shanghai")).date().isoformat()
-    days = sorted({today, *(str(e["date"])[:10] for e in entries), *(key[:10] for key in receipts)}, reverse=True)
+    days = sorted({today, *(str(e.get("execution_date", e["date"]))[:10] for e in entries), *(key[:10] for key in receipts)}, reverse=True)
     sections = []
     for day in days:
-        day_entries = [e for e in entries if str(e["date"])[:10] == day]
+        day_entries = [e for e in entries if str(e.get("execution_date", e["date"]))[:10] == day]
         rows = []
         for key, time, label, category in SLOTS:
             entry = next((e for e in day_entries if e["topic"] == key), None)
@@ -51,6 +51,7 @@ def render_timeline(entries: list[dict[str, object]]) -> None:
             rows.append(
                 f'<li class="timeline-row {status}" data-category="{category}" data-time="{time}" '
                 f'data-slot="{key}" data-label="{html.escape(label, quote=True)}" '
+                f'data-replayed="{str(bool(entry and entry.get("execution_date"))).lower()}" '
                 f'data-execution-date="{day}" data-execution-time="{time}" '
                 f'data-planned-at="{day}T{time}:00+08:00" data-published-at="{published_iso}">'
                 f'<div class="time-rail"><time datetime="{day}T{time}:00+08:00">{time}</time><span class="node"></span></div>'
@@ -81,7 +82,7 @@ def render_timeline(entries: list[dict[str, object]]) -> None:
         '启用 JavaScript 后，日期及时间按浏览器时区显示。</p>'
         + "".join(sections)
         + '</section><p class="archive-links"><a href="feed.xml">订阅 RSS</a> · <a href="about.html">关于本站</a></p>'
-        '<script type="module" src="assets/timeline.js?v=receipt-status-5"></script>'
+        '<script type="module" src="assets/timeline.js?v=replay-6"></script>'
     )
     Path("docs").mkdir(exist_ok=True)
     Path("docs/index.html").write_text(shell("VORASIO · AI 技术时间线", "每日 AI 研究、开发实践与智能硬件技术时间线", body))

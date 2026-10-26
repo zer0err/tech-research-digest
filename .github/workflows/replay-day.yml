@@ -1,0 +1,24 @@
+name: Replay past editorial day
+on:
+  workflow_dispatch:
+    inputs:
+      date:
+        description: Past Beijing edition date (YYYY-MM-DD); preserve published articles
+        required: true
+        type: string
+permissions: {contents: write, pages: write, id-token: write, actions: read}
+concurrency:
+  group: editorial-replay-day
+  cancel-in-progress: false
+jobs:
+  replay:
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        slot: [morning_radar, model_research, open_source, paper_brief, prompt_engineering, core_research, dev_practice, applied_ai, ecosystem, daily_digest]
+    uses: ./.github/workflows/_editorial.yml
+    with:
+      slot: ${{ matrix.slot }}
+      replay_date: ${{ inputs.date }}
+    secrets: inherit

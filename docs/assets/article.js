@@ -34,7 +34,7 @@ import {visitorZone, timestampInZone, localizedTitle} from './time-display.mjs';
       dateNode.previousElementSibling.textContent = '发布时间（本地）';
     }
     const heading = article.querySelector('h1');
-    heading.textContent = localizedTitle(entry.title, entry.date, zone);
+    heading.textContent = entry.execution_date ? entry.title + ' · 补发' : localizedTitle(entry.title, entry.date, zone);
     document.title = heading.textContent;
     const note = document.createElement('p');
     note.className = 'disclosure';
@@ -47,7 +47,7 @@ import {visitorZone, timestampInZone, localizedTitle} from './time-display.mjs';
       if (!entry) return;
       const link = document.createElement('a');
       link.href = '../' + entry.url;
-      link.textContent = label + ' · ' + localizedTitle(entry.title, entry.date, zone);
+      link.textContent = label + ' · ' + (entry.execution_date ? entry.title + ' · 补发' : localizedTitle(entry.title, entry.date, zone));
       nav.append(link);
     });
     article.append(nav);
