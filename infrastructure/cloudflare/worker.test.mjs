@@ -30,7 +30,7 @@ test("only fixed repository workflow and main branch can be dispatched", async (
     assert.ok(url.startsWith("https://api.github.com/repos/zer0err/tech-research-digest/actions/workflows/catchup.yml/"));
     assert.ok(!url.includes(env.GITHUB_DISPATCH_TOKEN));
     assert.equal(options.headers.Authorization, "Bearer fake-test-token");
-    assert.equal(options.redirect, "error");
+    assert.equal(options.redirect, "manual");
     return options.method === "POST" ? new Response(null, { status: 204 }) : Response.json({ workflow_runs: [] });
   });
   assert.equal(result.result, "dispatched");
@@ -43,4 +43,14 @@ test("expired token errors contain no token", async () => {
 });
 test("bad run data is not treated as permission to dispatch", async () => {
   await assert.rejects(tick(env, at, async () => Response.json({ message: "unexpected" })), /Invalid/);
+});
+
+test("redirect is rejected without following it or leaking credentials", async () => {
+  let calls = 0;
+  await assert.rejects(tick(env, at, async (_url, options) => {
+    calls++;
+    assert.equal(options.redirect, "manual");
+    return new Response(null, { status: 302, headers: { Location: "https://example.com/" } });
+  }), /HTTP 302/);
+  assert.equal(calls, 1);
 });

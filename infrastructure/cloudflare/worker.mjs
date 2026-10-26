@@ -6,7 +6,8 @@ async function github(path, env, options = {}, request = fetch) {
   for (let attempt = 0; attempt < 3; attempt++) {
     const response = await request(`https://api.github.com/repos/zer0err/tech-research-digest${path}`, {
       ...options,
-      redirect: "error",
+      // Workers supports manual/follow, not Node's redirect:error. Reject 3xx below without forwarding credentials.
+      redirect: "manual",
       signal: AbortSignal.timeout(15000),
       headers: {
         "Authorization": `Bearer ${env.GITHUB_DISPATCH_TOKEN}`,
