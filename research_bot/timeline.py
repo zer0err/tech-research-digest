@@ -22,8 +22,8 @@ SLOTS = [
 
 
 def render_timeline(entries: list[dict[str, object]]) -> None:
-    from .site import base_url, shell
     from .public_status import export
+    from .site import base_url, shell
 
     receipts = export()
     today = datetime.now(ZoneInfo("Asia/Shanghai")).date().isoformat()
