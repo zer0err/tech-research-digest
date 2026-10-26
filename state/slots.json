@@ -12,42 +12,9 @@
       "attempts": 1
     },
     "2026-10-25:paper_brief": {
-      "status": "prepared",
+      "status": "published",
       "updated_at": "2026-10-25T15:59:00+00:00",
-      "attempts": 4,
-      "pending": {
-        "topic": "product_safety",
-        "title": "AI 论文午间速览",
-        "url": "https://vorasio.com/posts/20261025-paper_brief.html",
-        "created_at": "2026-10-25T15:59:00+00:00",
-        "items": [
-          {
-            "uid": "1dd573b9112c2e472f3b1413",
-            "title": "Algorithms For Pre-Processing And Noise Filtering In Streaming Telemetry Data Of Iot Devices",
-            "url": "https://doi.org/10.62480/tjet.2026.vol60.pp1-5",
-            "published": "2026-10-25T00:00:00+00:00",
-            "summary": "This article examines algorithms for preprocessing and filtering noise in streaming telemetry data from IoT devices. We classify noise sources (measurement noise, ADC quantization, and impulse noise during packet loss and retransmission) and formulate requirements for online processing: limited memory, on-the-fly processing without re-passing the data, and predictable computational complexity per sample. We consider moving averages, exponential smoothing, median filters, Hampel filters, recursive Kalman filters, and wavelet noise suppression, as well as hybrid pipelines that combine outlier removal with subsequent smoothing. Using a synthetic telemetry stream simulating temperature sensor readings with Gaussian noise and impulse spikes, we compare the methods in terms of root mean square error (RMSE), processing time per sample, and response latency. The hybrid Hampel filter + exponential smoothing pipeline is shown to reduce RMSE by 84.1% while maintaining O(1) computational complexity per sample, making it suitable for deployment on low-power edge devices.",
-            "source": "Crossref Device Security",
-            "kind": "research",
-            "doi": "10.62480/tjet.2026.vol60.pp1-5",
-            "date_precision": "day"
-          },
-          {
-            "uid": "5f4fd058fd42810b8ce54c7a",
-            "title": "Experimental Validation of a Zero-Trust-Based Layered Cybersecurity and Hardening Framework for Smart Metering and IoT Modem Infrastructures",
-            "url": "https://doi.org/10.62520/fujece.2001687",
-            "published": "2026-10-25T00:00:00+00:00",
-            "summary": "Smart meters and Internet of Things (IoT) modems are now essential for remote monitoring and management in energy distribution systems, but they also widen the attack surface. Vulnerabilities span the hardware, firmware, communication, and data-management layers, and this study addresses them with a five-layer security and hardening framework based on the zero-trust model. Seven mechanisms are integrated within a single architecture: endpoint hardware protection, secure boot, mutual authentication, network micro-segmentation, operational command verification, artificial intelligence-based anomaly detection, and privacy-preserving data aggregation. The framework was evaluated in a laboratory testbed across eight scenarios: physical tampering, malicious firmware, unauthorized connection, network scanning, denial-of-service, replay attacks, low-rate stealthy network anomalies, and consumer profiling via data exposure. Cryptographic key zeroization had a mean latency of 14.2 ± 1.1 ms, unauthorized network traffic was blocked according to the configured security policies, and the SIEM alert associated with replay rejection was generated within 127.08 ms. The Long Short-Term Memory (LSTM)-based time-series model achieved 95.73% accuracy with an area under the curve (AUC) of 0.9696. For the privacy layer, anonymized load-profile data obtained from field-deployed smart meters operating",
-            "source": "Crossref Device Security",
-            "kind": "research",
-            "doi": "10.62520/fujece.2001687",
-            "date_precision": "day"
-          }
-        ],
-        "notify": true,
-        "mode": "production",
-        "slot": "paper_brief"
-      }
+      "attempts": 4
     },
     "2026-10-25:open_source": {
       "status": "published",
