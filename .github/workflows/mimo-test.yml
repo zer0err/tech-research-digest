@@ -1,0 +1,34 @@
+name: MiMo fallback connection test
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with: {python-version: "3.13"}
+      - run: python -m pip install --requirement requirements.txt
+      - name: Test one bounded request and mandatory Telegram usage notice
+        env:
+          MIMO_API_KEY: ${{ secrets.MIMO_API_KEY }}
+          MIMO_FALLBACK_ENABLED: ${{ vars.MIMO_FALLBACK_ENABLED || 'false' }}
+          GROQ_MAX_TOKENS: "128"
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          python - <<'PY'
+          import sys
+          from research_bot.core import mimo_analyse
+          try:
+              text = mimo_analyse('MiMo 连接测试（不发布文章）', '连接测试：仅回复“连接正常”，不要生成简报。', [])
+              if not text or '降级为' in text:
+                  raise RuntimeError('No completed model response')
+              print('MiMo request completed; Telegram usage notification accepted. No article or production state was created.')
+          except Exception as exc:
+              print('Connection test failed:', type(exc).__name__)
+              sys.exit(1)
+          PY
