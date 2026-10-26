@@ -40,11 +40,16 @@ def render_timeline(entries: list[dict[str, object]]) -> None:
                 "pending": "等待更新", "source_error": "来源访问异常",
             }[status]
             link = f'<a class="read-link" href="{html.escape(str(entry["url"]), quote=True)}">阅读全文 <span>↗</span></a>' if entry else ""
+            actual = ""
+            if entry:
+                published_at = datetime.fromisoformat(str(entry["date"])).astimezone(ZoneInfo("Asia/Shanghai"))
+                actual = f'<p class="publication-time">实际发布：{published_at:%Y-%m-%d %H:%M} · UTC+8</p>'
             rows.append(
-                f'<li class="timeline-row {status}" data-category="{category}" data-time="{time}">'
+                f'<li class="timeline-row {status}" data-category="{category}" data-time="{time}" '
+                f'data-slot="{key}" data-label="{html.escape(label, quote=True)}">'
                 f'<div class="time-rail"><time>{time}</time><span class="node"></span></div>'
                 f'<article class="timeline-card"><div class="card-top"><span>{category}</span><span class="status">{badge}</span></div>'
-                f'<h2>{title}</h2><p>{summary}</p>{link}</article></li>'
+                f'<h2>{title}</h2><p>{summary}</p>{actual}{link}</article></li>'
             )
         completed = sum(e.get("topic") in {s[0] for s in SLOTS} for e in day_entries)
         sections.append(
@@ -57,7 +62,8 @@ def render_timeline(entries: list[dict[str, object]]) -> None:
     body = (
         '<section class="editorial-hero"><h1>VORASIO</h1>'
         '<p class="hero-note">AI 技术简报 · 研究、开发与智能硬件</p></section>'
-        '<section id="latest"><div class="timeline-toolbar"><div><p class="eyebrow">每日出版</p><h2>今日技术时间线</h2></div>'
+        '<section id="latest"><div class="timeline-toolbar"><div><p class="eyebrow">每日出版</p>'
+        '<h2 id="timeline-heading">今日技术时间线</h2></div>'
         f'<label>浏览日期 <select id="date-picker">{options}</select></label></div>'
         '<label class="timeline-search">搜索当前日期 <input id="timeline-search" type="search" placeholder="标题或摘要关键词"></label>'
         '<div class="filters" role="group" aria-label="筛选内容">'
@@ -65,10 +71,10 @@ def render_timeline(entries: list[dict[str, object]]) -> None:
             f'<button type="button" data-filter="{v}" aria-pressed="{str(v == "全部").lower()}">{v}</button>'
             for v in ("全部", "研究", "开发", "快讯", "生态")
         )
-        + '</div><p class="schedule-note">时间为计划出版时间。到时尚无内容表示等待更新，不能据此判断任务失败。</p>'
+        + '</div><p class="schedule-note" id="timezone-note">全部时间为北京时间（UTC+8）。左侧为计划时间，实际发布时间见文章卡片。</p>'
         + "".join(sections)
         + '</section><p class="archive-links"><a href="feed.xml">订阅 RSS</a> · <a href="about.html">关于本站</a></p>'
-        '<script src="assets/timeline.js?v=timeline-2" defer></script>'
+        '<script src="assets/timeline.js?v=beijing-date-3" defer></script>'
     )
     Path("docs").mkdir(exist_ok=True)
     Path("docs/index.html").write_text(shell("VORASIO · AI 技术时间线", "每日 AI 研究、开发实践与智能硬件技术时间线", body))

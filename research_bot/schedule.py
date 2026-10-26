@@ -58,9 +58,12 @@ def eligible(slot: str, now: datetime, ledger: dict, entries: list[dict]) -> boo
     return True
 
 
+def is_due(slot: str, now: datetime) -> bool:
+    return now.astimezone(BEIJING).strftime("%H:%M") >= TIMES[slot]
+
+
 def due_slots(now: datetime, ledger: dict, entries: list[dict]) -> list[str]:
-    local = now.astimezone(BEIJING)
-    return [slot for slot, hhmm in TIMES.items() if local.strftime("%H:%M") >= hhmm and eligible(slot, now, ledger, entries)]
+    return [slot for slot in TIMES if is_due(slot, now) and eligible(slot, now, ledger, entries)]
 
 
 def record(slot: str, now: datetime, status: str, pending: dict | None = None) -> None:

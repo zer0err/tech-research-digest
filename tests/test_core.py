@@ -186,3 +186,14 @@ def test_headline_date_can_come_from_source_title():
     item = replace(sample("a"), title="September update", published="2026-10-22T00:00:00+00:00")
     report = "## 本期要点\n- 2026年9月更新。[1]\n## 逐项速览\n内容\n## 值得采取的行动\n验证\n## 参考资料\n[1] URL"
     assert report_is_complete(report, [item], "brief")
+
+
+def test_timeline_displays_actual_publication_in_beijing(tmp_path, monkeypatch):
+    from research_bot.timeline import render_timeline
+    monkeypatch.chdir(tmp_path)
+    render_timeline([{"topic": "model_research", "date": "2026-10-25T06:01:00+00:00", "count": 1,
+                      "status": "published", "title": "Example", "url": "posts/example.html"}])
+    page = (tmp_path / "docs/index.html").read_text()
+    assert "实际发布：2026-10-25 14:01 · UTC+8" in page
+    assert 'data-label="模型、训练与基础研究"' in page
+    assert 'id="timezone-note"' in page

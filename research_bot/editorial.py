@@ -100,6 +100,9 @@ def main() -> int:
     production = os.getenv("PUBLICATION_MODE", "production") == "production" and not args.dry_run
     if production:
         Path("work/pending.json").unlink(missing_ok=True)
+        if not schedule.is_due(args.slot, now):
+            decision(args.slot, "not_due_yet", timezone="Asia/Shanghai", planned_time=schedule.TIMES[args.slot])
+            return 0
         ledger = schedule.load()
         entries = json.loads(Path("docs/posts.json").read_text()) if Path("docs/posts.json").exists() else []
         receipt = ledger["slots"].get(schedule.key(args.slot, now), {})

@@ -25,6 +25,34 @@ def test_before_morning_does_not_publish_future_slots():
     assert schedule.due_slots(now().replace(hour=0), empty(), []) == []
 
 
+def test_east_eight_boundary_is_not_utc_hour():
+    assert not schedule.is_due("morning_radar", datetime(2026, 10, 26, 1, 6, 59, tzinfo=UTC))
+    assert schedule.is_due("morning_radar", datetime(2026, 10, 26, 1, 7, tzinfo=UTC))
+    assert not schedule.is_due("model_research", datetime(2026, 10, 26, 1, 24, tzinfo=UTC))
+
+
+def test_beijing_day_rollover_has_no_next_day_early_slots():
+    assert schedule.key("morning_radar", datetime(2026, 10, 25, 16, tzinfo=UTC)) == "2026-10-26:morning_radar"
+    assert schedule.due_slots(datetime(2026, 10, 25, 16, tzinfo=UTC), empty(), []) == []
+
+
+def test_production_entrypoint_refuses_future_slot(tmp_path, monkeypatch):
+    from research_bot import editorial
+    monkeypatch.chdir(tmp_path)
+    Path("editorial.yml").write_text("slots:\n  model_research:\n    topic: model_research\n")
+    Path("sources.yml").write_text("topics: {}\n")
+    Path("work").mkdir()
+    Path("work/pending.json").write_text('{"stale":true}')
+    monkeypatch.setenv("PUBLICATION_MODE", "production")
+    monkeypatch.setattr(schedule, "is_due", lambda *args: False)
+    monkeypatch.setattr("sys.argv", ["editorial", "--slot", "model_research", "--editorial-config", "editorial.yml",
+                                     "--sources-config", "sources.yml"])
+    assert editorial.main() == 0
+    assert not Path("work/pending.json").exists()
+    assert not Path("state/slots.json").exists()
+    assert json.loads(Path("reports/decision-model_research.json").read_text())["reason"] == "not_due_yet"
+
+
 def test_valid_visible_article_prevents_repeat():
     entries = [{"topic": "morning_radar", "date": "2026-10-24T09:30:00+08:00", "count": 2, "status": "published"}]
     assert schedule.due_slots(now(), empty(), entries) == ["model_research"]
