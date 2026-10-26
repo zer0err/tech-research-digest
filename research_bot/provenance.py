@@ -29,19 +29,13 @@ def render(data):
     def esc(value):
         return html.escape(str(value), quote=True)
     ai = data.get('analysis', {})
-    sources = data.get('sources', [])
-    rows = ''.join(
-        f'<li><a href="{esc(s["url"])}" rel="noopener">[{i}] {esc(s["title"])}</a>'
-        f'<dl><dt>来源</dt><dd>{esc(s["publisher"])} · {esc(s["host"])}</dd>'
-        f'<dt>类型</dt><dd>{esc(s["family"])}</dd><dt>原始日期</dt><dd>{esc(s["published"])}</dd>'
-        f'<dt>日期精度</dt><dd>{esc(s["date_precision"])}</dd>'
-        + (f'<dt>DOI</dt><dd>{esc(s["doi"])}</dd>' if s.get('doi') else '') + '</dl></li>'
-        for i, s in enumerate(sources, 1)
-    )
-    return ('<!-- provenance:start --><section class="source-provenance" aria-label="信息来源与分析记录">'
-            '<dl><dt>分析服务</dt><dd>' + esc(ai.get('provider', '未记录')) + '</dd>'
-            '<dt>分析模型</dt><dd>' + esc(ai.get('model', '未记录')) + '</dd>'
-            '<dt>证据范围</dt><dd>采集的摘要、公开页面或版本说明；不代表已阅读全文、独立复现或人工审校。</dd></dl>'
-            '<details><summary>信息来源 · ' + str(len(sources)) + ' 项（展开查看）</summary>'
-            + ('<ol>' + rows + '</ol>' if rows else '<p>未保留逐项来源记录，请查看正文参考资料；站内日报来源为正文列出的站内文章。</p>')
-            + '</details></section><!-- provenance:end -->')
+    provider = ai.get('provider', '历史记录未确认')
+    model = ai.get('model', '未记录')
+    if provider == '程序汇总（未调用 AI）':
+        label = '程序汇总 · 未使用 AI 分析'
+    elif provider in {'历史记录未确认', '未记录'}:
+        label = 'AI 分析：历史记录未确认'
+    else:
+        label = 'AI 分析：' + str(provider)
+    detail = f' title="{esc(model)}"' if model and model not in {'未记录', '不适用'} else ''
+    return '<!-- provenance:start --><p class="ai-analysis"' + detail + '>' + esc(label) + '</p><!-- provenance:end -->'
