@@ -23,8 +23,8 @@
     },
     "2026-10-25:morning_radar": {
       "status": "already_published",
-      "updated_at": "2026-10-25T06:00:50.965946+00:00",
-      "attempts": 2
+      "updated_at": "2026-10-25T15:59:00+00:00",
+      "attempts": 3
     },
     "2026-10-25:model_research": {
       "status": "published",
