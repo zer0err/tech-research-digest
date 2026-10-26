@@ -41,13 +41,17 @@ def render_timeline(entries: list[dict[str, object]]) -> None:
             }[status]
             link = f'<a class="read-link" href="{html.escape(str(entry["url"]), quote=True)}">阅读全文 <span>↗</span></a>' if entry else ""
             actual = ""
+            published_iso = ""
             if entry:
                 published_at = datetime.fromisoformat(str(entry["date"])).astimezone(ZoneInfo("Asia/Shanghai"))
+                published_iso = published_at.isoformat()
                 actual = f'<p class="publication-time">实际发布：{published_at:%Y-%m-%d %H:%M} · UTC+8</p>'
             rows.append(
                 f'<li class="timeline-row {status}" data-category="{category}" data-time="{time}" '
-                f'data-slot="{key}" data-label="{html.escape(label, quote=True)}">'
-                f'<div class="time-rail"><time>{time}</time><span class="node"></span></div>'
+                f'data-slot="{key}" data-label="{html.escape(label, quote=True)}" '
+                f'data-execution-date="{day}" data-execution-time="{time}" '
+                f'data-planned-at="{day}T{time}:00+08:00" data-published-at="{published_iso}">'
+                f'<div class="time-rail"><time datetime="{day}T{time}:00+08:00">{time}</time><span class="node"></span></div>'
                 f'<article class="timeline-card"><div class="card-top"><span>{category}</span><span class="status">{badge}</span></div>'
                 f'<h2>{title}</h2><p>{summary}</p>{actual}{link}</article></li>'
             )
@@ -71,10 +75,11 @@ def render_timeline(entries: list[dict[str, object]]) -> None:
             f'<button type="button" data-filter="{v}" aria-pressed="{str(v == "全部").lower()}">{v}</button>'
             for v in ("全部", "研究", "开发", "快讯", "生态")
         )
-        + '</div><p class="schedule-note" id="timezone-note">全部时间为北京时间（UTC+8）。左侧为计划时间，实际发布时间见文章卡片。</p>'
+        + '</div><p class="schedule-note" id="timezone-note">任务固定按北京时间（UTC+8）执行；'
+        '启用 JavaScript 后，日期及时间按浏览器时区显示。</p>'
         + "".join(sections)
         + '</section><p class="archive-links"><a href="feed.xml">订阅 RSS</a> · <a href="about.html">关于本站</a></p>'
-        '<script src="assets/timeline.js?v=beijing-date-3" defer></script>'
+        '<script type="module" src="assets/timeline.js?v=visitor-time-4"></script>'
     )
     Path("docs").mkdir(exist_ok=True)
     Path("docs/index.html").write_text(shell("VORASIO · AI 技术时间线", "每日 AI 研究、开发实践与智能硬件技术时间线", body))

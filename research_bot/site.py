@@ -71,7 +71,7 @@ def shell(title: str, description: str, body: str, relative_root: str = "") -> s
 <title>{html.escape(title)}</title><meta name="description" content="{html.escape(description, quote=True)}">
 <link rel="stylesheet" href="{relative_root}assets/style.css">
 <link rel="stylesheet" href="{relative_root}assets/editorial.css?v=timeline-2">
-<script src="{relative_root}assets/article.js" defer></script></head>
+<script type="module" src="{relative_root}assets/article.js?v=visitor-time-4"></script></head>
 <body><header class="site-header"><a class="brand" href="{relative_root}index.html"><span>VORASIO</span> 研究简报</a>
 <nav><a href="{relative_root}index.html#latest">时间线</a><a href="{relative_root}about.html">关于</a></nav></header>
 <main>{body}</main><footer><strong>VORASIO 研究简报</strong>
@@ -103,7 +103,8 @@ def publish_post(topic: str, title: str, now: datetime, report: str, items: list
     disclosure = "实践参考，未经运行验证。" if topic == "dev_practice" else "依据公开来源自动整理，请核对证据边界。"
     article = (
         '<div class="article-layout"><aside class="article-meta">'
-        f'<p class="eyebrow">{html.escape(topic_name)}</p><dl><dt>发布日期</dt><dd>{now:%Y-%m-%d}</dd>'
+        f'<p class="eyebrow">{html.escape(topic_name)}</p><dl><dt>发布时间</dt>'
+        f'<dd data-published-at="{now.isoformat()}">{now:%Y-%m-%d %H:%M} · UTC+8</dd>'
         f'<dt>研究条目</dt><dd>{len(items)} 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl>'
         '<a class="back-link" href="../index.html">← 返回全部简报</a></aside>'
         f'<article><p class="kicker">RESEARCH BRIEF · {html.escape(topic_name)}</p>'
