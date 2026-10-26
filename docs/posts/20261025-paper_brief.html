@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 论文午间速览（2026-10-25）</title><meta name="description" content="AI 论文午间速览（2026-10-25）：2 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav><a href="../index.html#latest">时间线</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">AI 论文午间速览</p><dl><dt>发布时间</dt><dd data-published-at="2026-10-26T10:36:11.919028+08:00">2026-10-26 10:36 · UTC+8</dd><dt>研究条目</dt><dd>2 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · AI 论文午间速览</p><h1>AI 论文午间速览（2026-10-25）</h1><p class="disclosure">依据公开来源自动整理，请核对证据边界。 本文为 2026-10-25 期补发，实际发布时间见侧栏；按历史日期筛选当前仍可访问的来源，不是历史网页快照。</p><div class="article-body"><h2>本期要点</h2>
+<ul>
+<li>IoT 设备端流式遥测数据的在线降噪方案取得量化结果：Hampel 滤波结合指数平滑的混合管线在合成温度传感流上将 RMSE 降低 84.1%，并保持每样本 O(1) 复杂度，作者主张适合低功耗边缘设备部署 [1]。</li>
+<li>面向智能电表与 IoT 调制解调器的五层零信任安全框架在实验室测试台的八类攻击场景下完成验证，涵盖密钥清零延迟、重放拒绝 SIEM 告警时延与 LSTM 异常检测指标 [2]。</li>
+<li>两篇均为实验原型阶段工作：[1] 使用合成数据流而非现场遥测，[2] 在实验室测试台评估，隐私层涉及现场部署电表数据但摘要未提供完整细节，均尚无量产或合规证据。</li>
+</ul>
+<h2>逐项速览</h2>
+<p><strong>[1] IoT 流式遥测预处理与噪声滤波算法</strong></p>
+<ul>
+<li>核心变化：对测量噪声、ADC 量化噪声、丢包重传期间的脉冲噪声进行分类，并提出在线处理约束（有限内存、单遍处理、每样本可预测复杂度）；比较滑动平均、指数平滑、中值滤波、Hampel 滤波、递归 Kalman 与小波抑制，以及&quot;离群点剔除+平滑&quot;混合管线 [1]。</li>
+<li>证据：在模拟温度传感器读数（高斯噪声+脉冲尖峰）的合成遥测流上，以 RMSE、每样本处理时间、响应延迟为指标对比；混合 Hampel+指数平滑管线 RMSE 降低 84.1%，每样本复杂度 O(1) [1]。</li>
+<li>局限：数据为合成流，非真实设备现场遥测；摘要未提供具体硬件平台、功耗实测或内存占用数据，&quot;适合低功耗边缘设备&quot;为作者主张，无法从摘要确认实际功耗收益 [1]。</li>
+</ul>
+<p><strong>[2] 基于零信任的分层网络安全与加固框架实验验证</strong></p>
+<ul>
+<li>核心变化：针对智能电表与 IoT 调制解调器的硬件、固件、通信、数据管理层漏洞，提出五层零信任框架，集成端点硬件保护、安全启动、双向认证、网络微隔离、操作指令校验、AI 异常检测、隐私保护数据聚合七项机制 [2]。</li>
+<li>证据：实验室测试台覆盖物理篡改、恶意固件、未授权连接、网络扫描、拒绝服务、重放攻击、低速率隐蔽网络异常、数据暴露导致的消费者画像八类场景；密钥清零平均延迟 14.2 ± 1.1 ms；重放拒绝触发的 SIEM 告警在 127.08 ms 内生成；LSTM 时序模型准确率 95.73%、AUC 0.9696 [2]。</li>
+<li>局限：评估环境为实验室测试台而非量产设备或现场部署；隐私层提到使用现场部署智能电表的匿名负荷曲线数据，但摘要在此处截断，具体聚合方案、隐私预算或合规对齐情况无法从摘要确认；未提供 OTA 更新链路的实测证据 [2]。</li>
+</ul>
+<h2>值得采取的行动</h2>
+<ul>
+<li>若在边缘设备上处理传感器遥测流，可将 [1] 的混合 Hampel+指数平滑管线作为候选基线，在自有数据集上复现 RMSE 与每样本延迟对比，验证其在目标 MCU 上的实际内存与功耗，而非直接采信&quot;适合低功耗设备&quot;的主张 [1]。</li>
+<li>若产品涉及智能电表类远程监控设备，可参照 [2] 的七项机制清单对照现有安全架构，重点核查安全启动、密钥清零时延与重放检测告警链路是否已覆盖；实验室指标不等于现场效果，建议在自有测试台复现后再评估引入 [2]。</li>
+<li>两篇均未提供 OTA 更新实测与量产测试/合规证据，涉及固件升级与合规要求的项目不应据此摘要下结论，需查阅原文全文或后续产品化资料 [1][2]。</li>
+</ul>
+<h2>参考资料</h2>
+<p>[1] Algorithms For Pre-Processing And Noise Filtering In Streaming Telemetry Data Of Iot Devices <a href="https://doi.org/10.62480/tjet.2026.vol60.pp1-5">https://doi.org/10.62480/tjet.2026.vol60.pp1-5</a>
+[2] Experimental Validation of a Zero-Trust-Based Layered Cybersecurity and Hardening Framework for Smart Metering and IoT Modem Infrastructures <a href="https://doi.org/10.62520/fujece.2001687">https://doi.org/10.62520/fujece.2001687</a></p>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>

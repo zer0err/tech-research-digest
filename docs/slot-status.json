@@ -10,9 +10,9 @@
     "attempts": 1
   },
   "2026-10-25:paper_brief": {
-    "status": "analysis_rejected",
-    "updated_at": "2026-10-25T09:20:42.021902+00:00",
-    "attempts": 3
+    "status": "prepared",
+    "updated_at": "2026-10-25T15:59:00+00:00",
+    "attempts": 4
   },
   "2026-10-25:open_source": {
     "status": "published",
