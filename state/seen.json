@@ -46,6 +46,7 @@
     },
     "model_research": {
       "ids": [
+        "062c1dec952b553992cc158e",
         "ec36aee3ebe1a1b48f4d970e",
         "d83db9d8db1820c4d3cc0d76",
         "7eb2677e57876d181074fa82",
@@ -53,7 +54,7 @@
         "f3a5508d0160d42195ab7174",
         "cb661d928a0dfa16bc4c4588"
       ],
-      "updated_at": "2026-10-26T02:42:18.831007+00:00"
+      "updated_at": "2026-10-26T07:12:28.005754+00:00"
     },
     "embodied": {
       "ids": [
@@ -100,6 +101,7 @@
     }
   },
   "all_ids": [
+    "062c1dec952b553992cc158e",
     "ec36aee3ebe1a1b48f4d970e",
     "d6d4695a3bbbb17ae6058086",
     "c592cd3980d14f5cf675a5c2",
@@ -145,6 +147,7 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://doi.org/10.3389/frai.2026.1950812",
     "https://doi.org/10.66977/xsci.2610.002m",
     "https://github.com/fastapi/fastapi/releases/tag/0.162.0",
     "https://github.com/fastapi/fastapi/releases/tag/0.161.1",
@@ -190,6 +193,7 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "59b824f19c631f60eeecc92e",
     "1512ef039de31a1fddcfcdc0",
     "d7b55d578a7c802c005b00ad",
     "a47c46552c530d5aa8c682bc",
@@ -758,6 +762,27 @@
           "date_precision": "day"
         }
       ]
+    },
+    "https://vorasio.com/posts/20261026-paper_brief.html": {
+      "topic": "model_research",
+      "created_at": "2026-10-26T07:12:28.005754+00:00",
+      "items": [
+        {
+          "uid": "062c1dec952b553992cc158e",
+          "title": "AOViT: an adaptive optimized vision transformer model for the classification of heritage paintings",
+          "url": "https://doi.org/10.3389/frai.2026.1950812",
+          "published": "2026-10-26T00:00:00+00:00",
+          "summary": "The automated classification of artistic styles in paintings is a fundamental task in digital art history and computational aesthetics. For years, the dominant paradigm for this image-recognition problem has relied on convolutional neural networks (CNNs), including architectures such as VGG16, VGG19, Inception, EfficientNet, and ResNet, whose inductive biases for local feature extraction have yielded strong performance. However, this reliance on local processing may limit a model's ability to capture global stylistic cues, such as composition, brushwork patterns, and holistic texture, that are often critical for distinguishing artistic movements. To address this limitation, this study proposes AOViT, a Vision Transformer (ViT)-based model tailored to artistic style classification. By exploiting the self-attention mechanism of the ViT architecture, the proposed model captures long-range dependencies and global contextual information. Experimental evaluation on the Persian Miniatures dataset yielded a mean accuracy of 93.85% under five-fold cross-validation. Furthermore, the results indicate that AOViT provides a competitive alternative to CNN-based models for artistic style classification, particularly when combined with appropriate training strategies under limited-data conditions.",
+          "source": "Crossref Model Research",
+          "kind": "research",
+          "doi": "10.3389/frai.2026.1950812",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      }
     }
   }
 }
