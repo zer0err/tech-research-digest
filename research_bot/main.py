@@ -12,7 +12,18 @@ from zoneinfo import ZoneInfo
 import yaml
 
 from .audit import decision
-from .core import SourceUnavailable, collect, dump_items, groq_analyse, load_state, normalize_report, report_validation_errors, unseen
+from .core import (
+    SourceUnavailable,
+    collect,
+    dump_items,
+    groq_analyse,
+    load_state,
+    mimo_analyse,
+    mimo_enabled,
+    normalize_report,
+    report_validation_errors,
+    unseen,
+)
 from .site import publish_post
 
 
@@ -64,7 +75,13 @@ def prepare_topic(
     content_type = str(config.get("content_type", "research"))
     for attempt in range(2):
         try:
-            report = groq_analyse(str(config["title"]), str(config["analysis_focus"]), selected, content_type)
+            analyse = mimo_analyse if attempt == 1 and mimo_enabled() else groq_analyse
+            try:
+                report = analyse(str(config["title"]), str(config["analysis_focus"]), selected, content_type)
+            except Exception:
+                if analyse is not groq_analyse or not mimo_enabled():
+                    raise
+                report = mimo_analyse(str(config["title"]), str(config["analysis_focus"]), selected, content_type)
         except Exception as exc:
             logging.warning("Analysis unavailable for %s (%s); skipping publication", topic, type(exc).__name__)
             decision(key, "analysis_api_failure", error=type(exc).__name__, **counts)

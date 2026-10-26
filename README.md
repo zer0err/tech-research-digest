@@ -199,3 +199,11 @@ OpenAlex 注册免费使用有每日预算及速率限制，以官方账户面�
 
 安全裁剪后的任务回执保存在 `docs/slot-status.json`，不包含待发布正文、密钥或内部请求。即使本次没有文章，也会部署状态更新；页面每分钟重新读取回执。维护提醒与内容推送分开标注，已观察到超过一小时的延迟或重试耗尽时通知维护者；任务完全没有启动时，仍依赖独立调度兜底，不能保证即时提醒。
 
+# MiMo 备用模型
+
+Groq 为主模型。可选 GitHub Secret `MIMO_API_KEY`，以及仓库 Variable `MIMO_FALLBACK_ENABLED=true` 才启用小米 `mimo-v2.6-flash` 兜底；默认关闭。接口固定为官方 `https://api.xiaomimimo.com/v1/chat/completions`（按量付费 API，不是 Token Plan 接口）。请先确认费用与账户额度，不要把限流上限误认为免费额度，程序无法保证只消耗赠送余额。
+
+Groq 调用异常或第一次分析未通过校验时切换；MiMo 同样必须通过原有质量检查，不会直接发布。每次实际尝试 MiMo 请求后，均额外发送一条 Telegram“备用 AI 使用通知”，即使该请求失败或最终没有文章；与正常文章链接通知独立。MiMo 单次不自动重试，关闭深度思考，输出最多 4000 token；每轮准备最多两次 MiMo 请求，受原有时段重试次数限制。Telegram 通知失败会阻止该次生成进入发布流程。不得在聊天、仓库或日志中保存 Key。
+
+官方文档：https://mimo.mi.com/docs/zh-CN/quick-start/summary/first-api-call
+
