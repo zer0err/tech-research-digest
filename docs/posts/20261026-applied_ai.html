@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 芯片、计算架构与硬件平台（2026-10-26）</title><meta name="description" content="AI 芯片、计算架构与硬件平台（2026-10-26）：1 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav><a href="../index.html#latest">时间线</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">AI 应用与落地专题</p><dl><dt>发布时间</dt><dd data-published-at="2026-10-26T16:42:23.844850+08:00">2026-10-26 16:42 · UTC+8</dd><dt>研究条目</dt><dd>1 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · AI 应用与落地专题</p><h1>AI 芯片、计算架构与硬件平台（2026-10-26）</h1><!-- provenance:start --><p class="ai-analysis" title="openai/gpt-oss-20b">AI 分析：Groq</p><!-- provenance:end --><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期结论</h2>
+<ul>
+<li>该可重构线缓冲体系结构在 FPGA 上实现时，LUT 利用率下降 15.25%，吞吐量提升 75%[1]。</li>
+<li>通过动态重构的加法器与池化单元，支持多种卷积核尺寸与层级，提升了硬件灵活性[1]。</li>
+<li>该工作仅基于 LeNet 作为验证案例，缺乏更大规模网络的实验，故其可推广性仍需进一步验证[1]。</li>
+</ul>
+<h2>逐项分析</h2>
+<table>
+<thead>
+<tr>
+<th>论文</th>
+<th>核心贡献</th>
+<th>方法与数据</th>
+<th>性能证据</th>
+<th>局限与证据等级</th>
+<th>工程意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[1]</td>
+<td>设计一种可重构的同步卷积网络加速器，利用线缓冲提升资源利用率与吞吐量</td>
+<td>采用可重构的 systolic 结构，动态重构以匹配 CNN 层需求；线缓冲用于数据重用；可重构加法器与池化单元支持多核尺寸[1]</td>
+<td>通过 FPGA 实现 LeNet，LUT 利用率下降 15.25%，吞吐量提升 75%，计算资源减少 2.44%[1]</td>
+<td>仅在 LeNet 上验证，未展示更大网络或不同 FPGA 设备的结果；缺乏功耗、面积、制程等完整指标[1]</td>
+<td>对 FPGA 端 CNN 加速器提供一种低成本、灵活的设计思路，可用于需要多样化卷积核尺寸的边缘 AI 设备[1]</td>
+</tr>
+</tbody>
+</table>
+<h2>工程行动建议</h2>
+<ul>
+<li><strong>验证实验</strong>：在不同规模的 CNN（如 ResNet、MobileNet）上实现该架构，测量 LUT、BRAM、DSP 使用率、功耗与延迟。</li>
+<li><strong>落地评估</strong>：在目标 FPGA 平台（如 Xilinx UltraScale+）上部署，比较与传统固定卷积核实现的面积、功耗与吞吐差异。</li>
+<li><strong>后续跟踪指标</strong>：记录不同网络层的重构频率、线缓冲占用率、以及在多核环境下的并行度与瓶颈。</li>
+</ul>
+<h2>参考资料</h2>
+<p>[1] A reconfigurable architecture for CNN acceleration using line buffers – OpenAlex AI Hardware – <a href="https://doi.org/10.1038/s41598-026-76651-1">https://doi.org/10.1038/s41598-026-76651-1</a></p>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>

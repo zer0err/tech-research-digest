@@ -38,6 +38,37 @@
       "attempts": 1,
       "maintenance_notified": true
     },
+    "2026-10-26:applied_ai": {
+      "status": "prepared",
+      "updated_at": "2026-10-26T08:42:23.844850+00:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "ai_hardware",
+        "title": "AI 芯片、计算架构与硬件平台",
+        "url": "https://vorasio.com/posts/20261026-applied_ai.html",
+        "created_at": "2026-10-26T08:42:23.844850+00:00",
+        "items": [
+          {
+            "uid": "35732c12f95c59a6b8dd9389",
+            "title": "A reconfigurable architecture for CNN acceleration using line buffers",
+            "url": "https://doi.org/10.1038/s41598-026-76651-1",
+            "published": "2026-10-23T00:00:00+00:00",
+            "summary": "Computer vision (CV) is experiencing a rapid increase in real-time applications driven by neural network (NN) processing. Convolutional neural networks (CNNs) are the core architecture of advanced CV applications based on artificial intelligence (AI) for autonomous driving, facial recognition, object detection, and information decryption. However, huge computational complexity and continuous memory bandwidth requirements restrict the efficient hardware implementation of CNNs on FPGA platforms. In this paper proposes a reconfigurable systolic CNN architecture using line buffers for enhancing the resource utilization and reducing delay. The proposed architecture dynamically reconfigured to CNN layer requirements, and line buffers improve the data reuse and reduce redundant memory access. In addition, reconfigurable adder and pooling structures are designed to increase the flexibility of accumulation and down sampling operations, supporting various kernel sizes and layers in CNNs. The proposed reconfigurable architecture is hardware-efficient through control signals and adapts to all CNN layers. FPGA implementation of this proposed reconfigurable architecture is performed using LeNet CNN architecture layers. This flexible and low-cost reconfigurable systolic CNN architecture achieves a 15.25% reduction in LUTs utilization, 75% improvement in throughput, and 2.44% reduction in comp",
+            "source": "OpenAlex AI Hardware",
+            "kind": "research",
+            "doi": "https://doi.org/10.1038/s41598-026-76651-1",
+            "date_precision": "day"
+          }
+        ],
+        "notify": false,
+        "mode": "production",
+        "analysis": {
+          "provider": "Groq",
+          "model": "openai/gpt-oss-20b"
+        },
+        "slot": "applied_ai"
+      }
+    },
     "2026-10-25:prompt_engineering": {
       "status": "no_matching_in_window",
       "updated_at": "2026-10-26T02:36:47.189492+00:00",

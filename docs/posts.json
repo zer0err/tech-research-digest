@@ -1,5 +1,33 @@
 [
   {
+    "title": "AI 芯片、计算架构与硬件平台（2026-10-26）",
+    "date": "2026-10-26T16:42:23.844850+08:00",
+    "count": 1,
+    "url": "posts/20261026-applied_ai.html",
+    "topic": "applied_ai",
+    "status": "published",
+    "summary": "本期结论 - 该可重构线缓冲体系结构在 FPGA 上实现时，LUT 利用率下降 15.25%，吞吐量提升 75%1。 - 通过动态重构的加法器与池化单元，支持多种卷积核尺寸与层级，提升了硬件灵活性1。 - 该工作仅基于 LeNet 作为验证案例，缺乏更大规模网络的实验，故其可推广性仍需进一步验证1。 逐项分析 | 论文",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "A reconfigurable architecture for CNN acceleration using line buffers",
+          "url": "https://doi.org/10.1038/s41598-026-76651-1",
+          "publisher": "OpenAlex AI Hardware",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-10-23T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.1038/s41598-026-76651-1",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 开发实践与部署（2026-10-26）",
     "date": "2026-10-26T15:42:16.178235+08:00",
     "count": 2,
