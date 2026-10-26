@@ -79,11 +79,12 @@
     },
     "ai_hardware": {
       "ids": [
+        "35732c12f95c59a6b8dd9389",
         "518992d77352c78bff2d2a29",
         "1493351af77b0689ca43a1e9",
         "739ced7097d3b092ed674790"
       ],
-      "updated_at": "2026-10-24T10:51:03.986585+00:00"
+      "updated_at": "2026-10-26T08:42:23.844850+00:00"
     },
     "product_safety": {
       "ids": [
@@ -105,6 +106,7 @@
     }
   },
   "all_ids": [
+    "35732c12f95c59a6b8dd9389",
     "0d66a3d73223c86cac1d8a2d",
     "cd4ac2e345b5d6813642e921",
     "2a83dbf1f4e400a9747a56a3",
@@ -155,6 +157,7 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://doi.org/10.1038/s41598-026-76651-1",
     "https://github.com/fastapi/fastapi/releases/tag/0.161.0",
     "https://github.com/fastapi/fastapi/releases/tag/0.160.0",
     "https://arxiv.org/abs/2610.32981v1",
@@ -205,6 +208,7 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "a56096141472bd0d680b95c3",
     "2901cd95157b218b5127404b",
     "54c9a51aa9c5a617b30e53bc",
     "0510dd525e479dd2cf1fd317",
@@ -862,6 +866,27 @@
       "analysis": {
         "provider": "Xiaomi MiMo",
         "model": "mimo-v2.6-flash"
+      }
+    },
+    "https://vorasio.com/posts/20261026-applied_ai.html": {
+      "topic": "ai_hardware",
+      "created_at": "2026-10-26T08:42:23.844850+00:00",
+      "items": [
+        {
+          "uid": "35732c12f95c59a6b8dd9389",
+          "title": "A reconfigurable architecture for CNN acceleration using line buffers",
+          "url": "https://doi.org/10.1038/s41598-026-76651-1",
+          "published": "2026-10-23T00:00:00+00:00",
+          "summary": "Computer vision (CV) is experiencing a rapid increase in real-time applications driven by neural network (NN) processing. Convolutional neural networks (CNNs) are the core architecture of advanced CV applications based on artificial intelligence (AI) for autonomous driving, facial recognition, object detection, and information decryption. However, huge computational complexity and continuous memory bandwidth requirements restrict the efficient hardware implementation of CNNs on FPGA platforms. In this paper proposes a reconfigurable systolic CNN architecture using line buffers for enhancing the resource utilization and reducing delay. The proposed architecture dynamically reconfigured to CNN layer requirements, and line buffers improve the data reuse and reduce redundant memory access. In addition, reconfigurable adder and pooling structures are designed to increase the flexibility of accumulation and down sampling operations, supporting various kernel sizes and layers in CNNs. The proposed reconfigurable architecture is hardware-efficient through control signals and adapts to all CNN layers. FPGA implementation of this proposed reconfigurable architecture is performed using LeNet CNN architecture layers. This flexible and low-cost reconfigurable systolic CNN architecture achieves a 15.25% reduction in LUTs utilization, 75% improvement in throughput, and 2.44% reduction in comp",
+          "source": "OpenAlex AI Hardware",
+          "kind": "research",
+          "doi": "https://doi.org/10.1038/s41598-026-76651-1",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
       }
     }
   }
