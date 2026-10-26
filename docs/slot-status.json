@@ -16,12 +16,12 @@
   },
   "2026-10-25:prompt_engineering": {
     "status": "no_matching_in_window",
-    "updated_at": "2026-10-25T15:59:00+00:00",
+    "updated_at": "2026-10-26T02:36:47.189492+00:00",
     "attempts": 2
   },
   "2026-10-25:paper_brief": {
     "status": "published",
-    "updated_at": "2026-10-25T15:59:00+00:00",
+    "updated_at": "2026-10-26T02:36:24+00:00",
     "attempts": 4
   },
   "2026-10-25:open_source": {
@@ -31,7 +31,7 @@
   },
   "2026-10-25:morning_radar": {
     "status": "already_published",
-    "updated_at": "2026-10-25T15:59:00+00:00",
+    "updated_at": "2026-10-26T02:33:32.843142+00:00",
     "attempts": 3
   },
   "2026-10-25:model_research": {
@@ -41,12 +41,12 @@
   },
   "2026-10-25:ecosystem": {
     "status": "already_published",
-    "updated_at": "2026-10-25T15:59:00+00:00",
+    "updated_at": "2026-10-26T02:40:13.695431+00:00",
     "attempts": 2
   },
   "2026-10-25:dev_practice": {
     "status": "published",
-    "updated_at": "2026-10-25T15:59:00+00:00",
+    "updated_at": "2026-10-26T02:39:25+00:00",
     "attempts": 4
   },
   "2026-10-25:daily_digest": {
@@ -56,7 +56,7 @@
   },
   "2026-10-25:core_research": {
     "status": "published",
-    "updated_at": "2026-10-25T15:59:00+00:00",
+    "updated_at": "2026-10-26T02:38:27+00:00",
     "attempts": 4
   },
   "2026-10-25:applied_ai": {

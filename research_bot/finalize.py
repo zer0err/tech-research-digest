@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
-from datetime import datetime
+from datetime import UTC, datetime
 from pathlib import Path
 
 from . import schedule
@@ -34,7 +34,8 @@ def main() -> int:
     state_path.parent.mkdir(parents=True, exist_ok=True)
     state_path.write_text(json.dumps(state, ensure_ascii=False, indent=2) + "\n")
     if pending.get("slot"):
-        schedule.record(pending["slot"], datetime.fromisoformat(pending["created_at"]), "published")
+        schedule.record(pending["slot"], datetime.fromisoformat(pending["created_at"]), "published",
+                        observed_at=datetime.now(UTC) if pending.get("replay_date") else None)
     return 0
 
 

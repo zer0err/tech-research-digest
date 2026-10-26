@@ -133,12 +133,14 @@ def main() -> int:
         if pending_path.exists():
             pending = json.loads(pending_path.read_text())
             pending["slot"] = args.slot
+            if replay:
+                pending["replay_date"] = args.replay_date
             pending_path.write_text(json.dumps(pending, ensure_ascii=False, indent=2) + "\n")
-            schedule.record(args.slot, now, "prepared", pending)
+            schedule.record(args.slot, now, "prepared", pending, observed_at=datetime.now(UTC) if replay else None)
         else:
             audit = Path(f"reports/decision-{args.slot}.json")
             result = json.loads(audit.read_text()) if audit.exists() else {}
-            schedule.record(args.slot, now, result.get("reason", "analysis_rejected"))
+            schedule.record(args.slot, now, result.get("reason", "analysis_rejected"), observed_at=datetime.now(UTC) if replay else None)
     if slot.get("special") == "daily_digest":
         if args.dry_run:
             print("daily_digest")

@@ -66,11 +66,12 @@ def due_slots(now: datetime, ledger: dict, entries: list[dict]) -> list[str]:
     return [slot for slot in TIMES if is_due(slot, now) and eligible(slot, now, ledger, entries)]
 
 
-def record(slot: str, now: datetime, status: str, pending: dict | None = None) -> None:
+def record(slot: str, now: datetime, status: str, pending: dict | None = None, *, observed_at: datetime | None = None) -> None:
     data = load()
     previous = data["slots"].get(key(slot, now), {})
     data["slots"][key(slot, now)] = {
-        "status": status, "updated_at": now.isoformat(), "attempts": int(previous.get("attempts", 0)) + (status != "published"),
+        "status": status, "updated_at": (observed_at or now).isoformat(),
+        "attempts": int(previous.get("attempts", 0)) + (status != "published"),
     }
     if previous.get("maintenance_notified"):
         data["slots"][key(slot, now)]["maintenance_notified"] = True
