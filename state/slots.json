@@ -6,6 +6,38 @@
       "updated_at": "2026-10-26T06:04:56.281733+00:00",
       "attempts": 1
     },
+    "2026-10-26:paper_brief": {
+      "status": "prepared",
+      "updated_at": "2026-10-26T07:12:28.005754+00:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "model_research",
+        "title": "AI 论文午间速览",
+        "url": "https://vorasio.com/posts/20261026-paper_brief.html",
+        "created_at": "2026-10-26T07:12:28.005754+00:00",
+        "items": [
+          {
+            "uid": "062c1dec952b553992cc158e",
+            "title": "AOViT: an adaptive optimized vision transformer model for the classification of heritage paintings",
+            "url": "https://doi.org/10.3389/frai.2026.1950812",
+            "published": "2026-10-26T00:00:00+00:00",
+            "summary": "The automated classification of artistic styles in paintings is a fundamental task in digital art history and computational aesthetics. For years, the dominant paradigm for this image-recognition problem has relied on convolutional neural networks (CNNs), including architectures such as VGG16, VGG19, Inception, EfficientNet, and ResNet, whose inductive biases for local feature extraction have yielded strong performance. However, this reliance on local processing may limit a model's ability to capture global stylistic cues, such as composition, brushwork patterns, and holistic texture, that are often critical for distinguishing artistic movements. To address this limitation, this study proposes AOViT, a Vision Transformer (ViT)-based model tailored to artistic style classification. By exploiting the self-attention mechanism of the ViT architecture, the proposed model captures long-range dependencies and global contextual information. Experimental evaluation on the Persian Miniatures dataset yielded a mean accuracy of 93.85% under five-fold cross-validation. Furthermore, the results indicate that AOViT provides a competitive alternative to CNN-based models for artistic style classification, particularly when combined with appropriate training strategies under limited-data conditions.",
+            "source": "Crossref Model Research",
+            "kind": "research",
+            "doi": "10.3389/frai.2026.1950812",
+            "date_precision": "day"
+          }
+        ],
+        "notify": true,
+        "mode": "production",
+        "analysis": {
+          "provider": "Groq",
+          "model": "openai/gpt-oss-20b"
+        },
+        "slot": "paper_brief"
+      },
+      "maintenance_notified": true
+    },
     "2026-10-26:open_source": {
       "status": "already_published",
       "updated_at": "2026-10-26T03:42:23.016450+00:00",

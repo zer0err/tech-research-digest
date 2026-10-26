@@ -1,5 +1,33 @@
 [
   {
+    "title": "AI 论文午间速览（2026-10-26）",
+    "date": "2026-10-26T15:12:28.005754+08:00",
+    "count": 1,
+    "url": "posts/20261026-paper_brief.html",
+    "topic": "paper_brief",
+    "status": "published",
+    "summary": "本期要点 - AOViT 采用 Vision Transformer 架构，利用自注意力捕获长程依赖，提升对全局艺术风格特征的建模能力。 1 - 在波斯迷你画集上，AOViT 在五折交叉验证中达到了 93.85% 的平均准确率，优于传统 CNN 体系。 1 - 该模型在有限数据条件下表现出竞争力，提示 ViT 在小样本",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "AOViT: an adaptive optimized vision transformer model for the classification of heritage paintings",
+          "url": "https://doi.org/10.3389/frai.2026.1950812",
+          "publisher": "Crossref Model Research",
+          "host": "doi.org",
+          "family": "书目索引",
+          "published": "2026-10-26T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "10.3389/frai.2026.1950812",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 模型、训练与基础研究（2026-10-26）",
     "date": "2026-10-26T10:42:18.831007+08:00",
     "count": 1,

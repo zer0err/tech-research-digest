@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 论文午间速览（2026-10-26）</title><meta name="description" content="AI 论文午间速览（2026-10-26）：1 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav><a href="../index.html#latest">时间线</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">AI 论文午间速览</p><dl><dt>发布时间</dt><dd data-published-at="2026-10-26T15:12:28.005754+08:00">2026-10-26 15:12 · UTC+8</dd><dt>研究条目</dt><dd>1 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · AI 论文午间速览</p><h1>AI 论文午间速览（2026-10-26）</h1><!-- provenance:start --><p class="ai-analysis" title="openai/gpt-oss-20b">AI 分析：Groq</p><!-- provenance:end --><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期要点</h2>
+<ul>
+<li>AOViT 采用 Vision Transformer 架构，利用自注意力捕获长程依赖，提升对全局艺术风格特征的建模能力。 [1]</li>
+<li>在波斯迷你画集上，AOViT 在五折交叉验证中达到了 93.85% 的平均准确率，优于传统 CNN 体系。 [1]</li>
+<li>该模型在有限数据条件下表现出竞争力，提示 ViT 在小样本艺术分类任务中具备潜在优势。 [1]</li>
+<li>研究未提供训练细节（如预训练策略、数据增强方式）或推理性能指标，限制了对模型可迁移性与部署可行性的评估。 [1]</li>
+</ul>
+<h2>逐项速览</h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>关键发现</th>
+<th>证据</th>
+<th>局限</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>模型架构</td>
+<td>AOViT 基于 Vision Transformer，利用自注意力捕获全局上下文</td>
+<td>摘要中提到“self-attention mechanism”与“long-range dependencies” [1]</td>
+<td>未说明是否采用多头注意力、层数或隐藏维度，无法复现</td>
+</tr>
+<tr>
+<td>预训练与后训练</td>
+<td>研究强调在“limited-data conditions”下有效，暗示可能使用迁移学习或微调</td>
+<td>摘要仅提及“appropriate training strategies” [1]</td>
+<td>未披露预训练模型、冻结层策略或学习率调度</td>
+</tr>
+<tr>
+<td>推理能力</td>
+<td>未提供推理速度、参数量或硬件需求</td>
+<td>摘要中无相关数据</td>
+<td>影响实际部署评估</td>
+</tr>
+<tr>
+<td>数据方法</td>
+<td>评估基于 Persian Miniatures 数据集，采用五折交叉验证</td>
+<td>摘要中明确“five-fold cross-validation”与“mean accuracy of 93.85%” [1]</td>
+<td>数据集规模、类别分布及预处理步骤未说明，难以判断结果的泛化性</td>
+</tr>
+<tr>
+<td>评测可靠性</td>
+<td>仅给出单一指标（准确率）与单一数据集</td>
+<td>摘要中仅列出准确率 [1]</td>
+<td>缺乏多指标评估（如 F1、召回率）及对比实验，评测可信度有限</td>
+</tr>
+</tbody>
+</table>
+<h2>值得采取的行动</h2>
+<ol>
+<li><strong>获取完整论文</strong>：下载并阅读原文以补充训练细节、模型超参数和推理性能，验证其在其他艺术风格数据集上的表现。</li>
+<li><strong>复现实验</strong>：在公开的 Persian Miniatures 数据集上复现 AOViT，记录训练日志、验证曲线和推理时间，以评估模型的可迁移性。</li>
+<li><strong>对比基线</strong>：将 AOViT 与主流 CNN（如 ResNet50、EfficientNet-B0）在相同数据集与训练设置下进行对比，检验自注意力是否确实带来优势。</li>
+<li><strong>探索数据增强</strong>：尝试多种增强策略（如随机裁剪、颜色抖动）以验证模型在极限数据条件下的鲁棒性。</li>
+</ol>
+<h2>参考资料</h2>
+<p>[1] AOViT: an adaptive optimized vision transformer model for the classification of heritage paintings. Crossref Model Research. <a href="https://doi.org/10.3389/frai.2026.1950812">https://doi.org/10.3389/frai.2026.1950812</a></p>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>
