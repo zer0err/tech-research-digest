@@ -37,9 +37,42 @@
       "attempts": 1
     },
     "2026-10-25:dev_practice": {
-      "status": "analysis_rejected",
-      "updated_at": "2026-10-25T11:16:41.986384+00:00",
-      "attempts": 3
+      "status": "prepared",
+      "updated_at": "2026-10-25T15:59:00+00:00",
+      "attempts": 4,
+      "pending": {
+        "topic": "dev_practice",
+        "title": "AI 开发实践与部署",
+        "url": "https://vorasio.com/posts/20261025-dev_practice.html",
+        "created_at": "2026-10-25T15:59:00+00:00",
+        "items": [
+          {
+            "uid": "d6d4695a3bbbb17ae6058086",
+            "title": "0.162.0",
+            "url": "https://github.com/fastapi/fastapi/releases/tag/0.162.0",
+            "published": "2026-10-23T18:47:17+00:00",
+            "summary": "Omitted bool and bool | None form fields now use their declared defaults or produce missing-field errors, consistent with other fields and Pydantic behavior. FastAPI no longer infers False for omitted booleans. This applies to individual form parameters, form models, and unions of form models. Omitted boolean model fields are excluded from model_dump(exclude_unset=True) , and their defaults no longer count as submitted fields during union selection. Default factories and validate_default follow the usual rules. For HTML checkboxes, declare a boolean with a default of False . See Boolean Form Fields . Breaking Changes 🐛 Restore default handling for omitted boolean form fields. PR #16605 by @tiangolo .",
+            "source": "FastAPI Releases",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          },
+          {
+            "uid": "c592cd3980d14f5cf675a5c2",
+            "title": "0.161.1",
+            "url": "https://github.com/fastapi/fastapi/releases/tag/0.161.1",
+            "published": "2026-10-22T22:21:50+00:00",
+            "summary": "Fixes 🐛 Fix OpenAPI schemas for standalone nullable form unions. PR #16598 by @tiangolo .",
+            "source": "FastAPI Releases",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          }
+        ],
+        "notify": false,
+        "mode": "production",
+        "slot": "dev_practice"
+      }
     },
     "2026-10-25:daily_digest": {
       "status": "published",

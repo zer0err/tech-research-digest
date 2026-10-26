@@ -1,5 +1,15 @@
 [
   {
+    "title": "AI 开发实践与部署（2026-10-25）",
+    "date": "2026-10-26T10:39:15.823720+08:00",
+    "execution_date": "2026-10-25",
+    "count": 2,
+    "url": "posts/20261025-dev_practice.html",
+    "topic": "dev_practice",
+    "status": "published",
+    "summary": "本期主题 - 本期聚焦 FastAPI 0.161.1 与 0.162.0 两个相邻版本的表单（form）行为变更，帮助使用 FastAPI 处理表单提交的开发者识别破坏性变更并调整代码 12 - 0.162.0 修复了省略的 bool 与 bool | None 表单字段的默认值处理：不再自动推断为 False，改为"
+  },
+  {
     "title": "智能硬件产品化、可靠性与安全（2026-10-25）",
     "date": "2026-10-26T10:38:16.524233+08:00",
     "execution_date": "2026-10-25",

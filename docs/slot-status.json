@@ -35,9 +35,9 @@
     "attempts": 1
   },
   "2026-10-25:dev_practice": {
-    "status": "analysis_rejected",
-    "updated_at": "2026-10-25T11:16:41.986384+00:00",
-    "attempts": 3
+    "status": "prepared",
+    "updated_at": "2026-10-25T15:59:00+00:00",
+    "attempts": 4
   },
   "2026-10-25:daily_digest": {
     "status": "published",
@@ -45,7 +45,7 @@
     "attempts": 1
   },
   "2026-10-25:core_research": {
-    "status": "prepared",
+    "status": "published",
     "updated_at": "2026-10-25T15:59:00+00:00",
     "attempts": 4
   },

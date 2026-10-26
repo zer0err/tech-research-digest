@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 开发实践与部署（2026-10-25）</title><meta name="description" content="AI 开发实践与部署（2026-10-25）：2 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav><a href="../index.html#latest">时间线</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">AI 开发实践与部署</p><dl><dt>发布时间</dt><dd data-published-at="2026-10-26T10:39:15.823720+08:00">2026-10-26 10:39 · UTC+8</dd><dt>研究条目</dt><dd>2 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · AI 开发实践与部署</p><h1>AI 开发实践与部署（2026-10-25）</h1><p class="disclosure">实践参考，未经运行验证。 本文为 2026-10-25 期补发，实际发布时间见侧栏；按历史日期筛选当前仍可访问的来源，不是历史网页快照。</p><div class="article-body"><h2>本期主题</h2>
+<ul>
+<li>本期聚焦 FastAPI 0.161.1 与 0.162.0 两个相邻版本的表单（form）行为变更，帮助使用 FastAPI 处理表单提交的开发者识别破坏性变更并调整代码 [1][2]</li>
+<li>0.162.0 修复了省略的 <code>bool</code> 与 <code>bool | None</code> 表单字段的默认值处理：不再自动推断为 <code>False</code>，改为使用声明的默认值或抛出缺失字段错误，与 Pydantic 及其他字段类型行为保持一致 [1]</li>
+<li>该变更覆盖单个表单参数、表单模型以及表单模型的联合（union）类型；省略的布尔模型字段不再计入 <code>model_dump(exclude_unset=True)</code>，其默认值在联合选择时也不再视为已提交字段 [1]</li>
+<li>0.161.1 修复了独立可空表单联合（standalone nullable form unions）的 OpenAPI schema 生成问题 [2]</li>
+</ul>
+<h2>实践步骤</h2>
+<ul>
+<li>升级到 0.162.0 前，检索项目中所有声明为 <code>bool</code> 或 <code>bool | None</code> 的表单字段（含 Form 参数、表单模型及其联合），确认是否依赖&quot;省略即 False&quot;的旧行为 [1]</li>
+<li>对依赖该行为的字段，显式声明 <code>default=False</code>；对 HTML checkbox 场景，官方明确建议声明带 <code>default=False</code> 的布尔字段 [1]</li>
+<li>检查使用 <code>model_dump(exclude_unset=True)</code> 的序列化逻辑：省略的布尔字段现在会被排除，需确认下游代码是否依赖其出现 [1]</li>
+<li>检查依赖表单模型联合选择的路由：省略字段的默认值不再计入&quot;已提交&quot;判定，联合分支选择结果可能改变 [1]</li>
+<li>使用 <code>validate_default</code> 或默认工厂（default factory）的字段按常规规则处理，无需额外改动，但建议回归测试 [1]</li>
+<li>升级到 0.161.1 后，重新生成或校验涉及可空表单联合的 OpenAPI 文档，确认 schema 与预期一致 [2]</li>
+<li>具体升级命令、依赖锁定方式及版本兼容矩阵，摘要未提供，需查阅官方发布说明与项目文档后核验</li>
+</ul>
+<h2>验证清单</h2>
+<ul>
+<li>核验目标 FastAPI 版本号：0.162.0（含布尔表单默认值变更）或 0.161.1（仅 OpenAPI schema 修复）[1][2]</li>
+<li>核验省略布尔表单字段时的响应：应返回声明的默认值或 422 缺失字段错误，而非自动 <code>False</code> [1]</li>
+<li>核验 <code>model_dump(exclude_unset=True)</code> 输出：省略的布尔字段应被排除 [1]</li>
+<li>核验表单模型联合路由在省略布尔字段时的分支选择结果是否符合预期 [1]</li>
+<li>核验生成的 OpenAPI schema 中独立可空表单联合的定义是否正确 [2]</li>
+<li>失败条件：任何路由仍出现&quot;省略即 False&quot;行为、<code>exclude_unset</code> 结果与预期不符、或 OpenAPI schema 异常，均需回查版本与代码声明 [1][2]</li>
+<li>摘要未提供具体测试命令与 CI 配置，无法从摘要确认</li>
+</ul>
+<h2>限制与风险</h2>
+<ul>
+<li>0.162.0 明确标注为破坏性变更（Breaking Changes），依赖旧行为的代码在升级后可能产生运行时错误或行为差异，需充分回归测试 [1]</li>
+<li>本次变更仅涉及表单（form）相关字段，不影响 JSON body 等其他输入方式，但摘要未明确说明 JSON 场景是否已有等价行为，需查阅文档确认 [1]</li>
+<li>0.161.1 为纯 bug 修复版本，摘要未说明是否包含其他变更，也未提供升级前置版本要求，需查阅完整发布说明 [2]</li>
+<li>两条摘要均未提供 Python 版本、Pydantic 版本兼容范围，也未提供性能影响数据，无法从摘要确认 [1][2]</li>
+<li>本简报仅依据两条官方 release 摘要，未覆盖 FastAPI 官方文档、迁移指南与社区反馈，不构成对 FastAPI 整体稳定性的判断</li>
+</ul>
+<h2>参考资料</h2>
+<p>[1] 0.162.0 <a href="https://github.com/fastapi/fastapi/releases/tag/0.162.0">https://github.com/fastapi/fastapi/releases/tag/0.162.0</a>
+[2] 0.161.1 <a href="https://github.com/fastapi/fastapi/releases/tag/0.161.1">https://github.com/fastapi/fastapi/releases/tag/0.161.1</a></p>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>
