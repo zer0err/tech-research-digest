@@ -5,7 +5,7 @@
     "attempts": 1
   },
   "2026-10-26:paper_brief": {
-    "status": "prepared",
+    "status": "published",
     "updated_at": "2026-10-26T07:12:28.005754+00:00",
     "attempts": 1
   },
@@ -22,6 +22,11 @@
   "2026-10-26:model_research": {
     "status": "published",
     "updated_at": "2026-10-26T02:42:18.831007+00:00",
+    "attempts": 1
+  },
+  "2026-10-26:core_research": {
+    "status": "prepared",
+    "updated_at": "2026-10-26T07:14:13.311587+00:00",
     "attempts": 1
   },
   "2026-10-25:prompt_engineering": {

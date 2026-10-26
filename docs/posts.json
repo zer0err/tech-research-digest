@@ -1,5 +1,44 @@
 [
   {
+    "title": "高效 AI、模型压缩与端侧适配（2026-10-26）",
+    "date": "2026-10-26T15:14:13.311587+08:00",
+    "count": 2,
+    "url": "posts/20261026-core_research.html",
+    "topic": "core_research",
+    "status": "published",
+    "summary": "本期结论 - 两项研究均通过\"减少主干模型参与的计算量\"换取效率提升：SEMAC 将 HOA 传输通道从 36 降至 16，Deco 用轻量解码器替代主干执行全部 beam search 12。 - 在受限资源下，\"低精度全量计算\"未必优于\"低维子空间+结构先验\"：SEMAC 摘要指出，编码更少传输通道加方向包络在感知",
+    "provenance": {
+      "analysis": {
+        "provider": "Xiaomi MiMo",
+        "model": "mimo-v2.6-flash"
+      },
+      "sources": [
+        {
+          "title": "SEMAC: Spherical Energy Matching Ambisonics Codec for Efficient Higher-Order Ambisonics Compression",
+          "url": "https://arxiv.org/abs/2610.32981v1",
+          "publisher": "arXiv Efficient AI",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-10-23T17:59:55+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "Separating Thinking from Spelling for Efficient Generative Recommendation",
+          "url": "https://arxiv.org/abs/2610.32980v1",
+          "publisher": "arXiv Efficient AI",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-10-23T17:59:24+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 论文午间速览（2026-10-26）",
     "date": "2026-10-26T15:12:28.005754+08:00",
     "count": 1,

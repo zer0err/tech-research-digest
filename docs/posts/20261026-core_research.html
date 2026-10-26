@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>高效 AI、模型压缩与端侧适配（2026-10-26）</title><meta name="description" content="高效 AI、模型压缩与端侧适配（2026-10-26）：2 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav><a href="../index.html#latest">时间线</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">智能硬件技术专题</p><dl><dt>发布时间</dt><dd data-published-at="2026-10-26T15:14:13.311587+08:00">2026-10-26 15:14 · UTC+8</dd><dt>研究条目</dt><dd>2 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · 智能硬件技术专题</p><h1>高效 AI、模型压缩与端侧适配（2026-10-26）</h1><!-- provenance:start --><p class="ai-analysis" title="mimo-v2.6-flash">AI 分析：Xiaomi MiMo</p><!-- provenance:end --><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期结论</h2>
+<ul>
+<li>两项研究均通过&quot;减少主干模型参与的计算量&quot;换取效率提升：SEMAC 将 HOA 传输通道从 36 降至 16，Deco 用轻量解码器替代主干执行全部 beam search [1][2]。</li>
+<li>在受限资源下，&quot;低精度全量计算&quot;未必优于&quot;低维子空间+结构先验&quot;：SEMAC 摘要指出，编码更少传输通道加方向包络在感知上优于对全部 HOA 通道做低精度编码 [1]。</li>
+<li>值得关注的信号：Deco 摘要称蒸馏可进一步提升轻量解码器精度，但摘要未提供蒸馏前后具体数值对比，无法从摘要确认增益幅度 [2]。</li>
+</ul>
+<h2>逐项分析</h2>
+<p><strong>[1] SEMAC</strong></p>
+<ul>
+<li>核心贡献：针对高阶 Ambisonics（HOA）码率随球谐阶数平方增长的问题，提出用量化全阶方向能量包络加更少 CELT 传输通道表示 HOA 信号 [1]。</li>
+<li>方法与数据：将 CELT 的&quot;能量包络与信号形状分离&quot;原理推广到方向信号；解码端在低维子空间重建后重新施加编码端观测到的全阶包络 [1]。</li>
+<li>性能证据：五阶素材 MUSHRA 主观测试，对比 Opus CMF3，512 与 768 kbit/s 两档；16/36 传输通道配置在两档下评分均高于全阶 CMF3，同通道数下高于阶数截断 [1]。</li>
+<li>局限与证据等级：摘要未给出具体 MUSHRA 分数、置信区间、客观指标（如 PESQ/STOI）或延迟/内存数据；证据等级 A（含方法、数据集与定量比较方向），但定量数值缺失 [1]。</li>
+<li>工程意义：适用于空间音频流式传输带宽受限场景；需自行评估解码端包络重施加的算力与内存开销，摘要未提供 [1]。</li>
+</ul>
+<p><strong>[2] Deco</strong></p>
+<ul>
+<li>核心贡献：生成式推荐中，历史输入为 TK 个 code token、beam search 每步均过主干导致 O(BK) 解码 token 成本；Deco 将&quot;读历史&quot;与&quot;写标识符&quot;解耦 [2]。</li>
+<li>方法与数据：主干将每个历史条目融合为单 token，一次性压缩为紧凑&quot;下一物品概念&quot;；轻量 KV 缓存解码器基于该概念与已生成前缀执行完整 beam search，标识符、trie 与自回归分解保持不变 [2]。</li>
+<li>性能证据：电商、电影、音乐流媒体共七个数据集；在 50 ms p95 延迟预算下，吞吐达标准生成式推荐器与融合输入全主干教师的 3.2–8.6 倍，精度相当或更优 [2]。</li>
+<li>局限与证据等级：摘要未说明轻量解码器参数量、内存占用、功耗及各数据集具体精度数值；蒸馏增益未量化；证据等级 A（含方法、数据集与定量吞吐结果），但资源维度数据缺失 [2]。</li>
+<li>工程意义：适合候选预算 B 大、SID 深度 K 深的在线推荐服务；落地需自行测量解码器内存与 KV 缓存随并发的增长情况，摘要未提供 [2]。</li>
+</ul>
+<h2>工程行动建议</h2>
+<ul>
+<li>验证实验：复现 SEMAC 16/36 通道配置在目标码率下的 MUSHRA 主观测试，并补充客观指标与解码延迟测量 [1]；复现 Deco 在 50 ms p95 预算下的吞吐与精度，记录解码器参数量与峰值内存 [2]。</li>
+<li>落地评估：SEMAC 需评估目标设备上包络重施加的算力与内存增量；Deco 需评估 KV 缓存随并发增长对内存的影响，摘要均未提供相关数据，无法从摘要确认 [1][2]。</li>
+<li>后续跟踪指标：SEMAC 跟踪更低码率档位与其他阶数下的表现及客观指标；Deco 跟踪蒸馏前后精度差、解码器参数量、不同 B/K 组合下的吞吐与内存曲线 [1][2]。</li>
+</ul>
+<h2>参考资料</h2>
+<p>[1] SEMAC: Spherical Energy Matching Ambisonics Codec for Efficient Higher-Order Ambisonics Compression <a href="https://arxiv.org/abs/2610.32981v1">https://arxiv.org/abs/2610.32981v1</a>
+[2] Separating Thinking from Spelling for Efficient Generative Recommendation <a href="https://arxiv.org/abs/2610.32980v1">https://arxiv.org/abs/2610.32980v1</a></p>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>

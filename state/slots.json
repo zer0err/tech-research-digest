@@ -27,6 +27,49 @@
       "updated_at": "2026-10-26T02:42:18.831007+00:00",
       "attempts": 1
     },
+    "2026-10-26:core_research": {
+      "status": "prepared",
+      "updated_at": "2026-10-26T07:14:13.311587+00:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "efficient_ai",
+        "title": "高效 AI、模型压缩与端侧适配",
+        "url": "https://vorasio.com/posts/20261026-core_research.html",
+        "created_at": "2026-10-26T07:14:13.311587+00:00",
+        "items": [
+          {
+            "uid": "2a83dbf1f4e400a9747a56a3",
+            "title": "SEMAC: Spherical Energy Matching Ambisonics Codec for Efficient Higher-Order Ambisonics Compression",
+            "url": "https://arxiv.org/abs/2610.32981v1",
+            "published": "2026-10-23T17:59:55+00:00",
+            "summary": "Higher-order Ambisonics (HOA) is an attractive format for immersive spatial audio, but its high channel count and directional properties present significant audio coding challenges. The widely deployed Opus audio codec supports HOA through Channel Mapping Families 2 and 3 (RFC 8486), which code and transmit every Ambisonics channel, so the bitrate grows quadratically with the spherical harmonic order. We introduce SEMAC, which instead represents an Ambisonics signal by a quantized full-order directional energy envelope together with fewer CELT-coded transport channels. CELT separates a per-band energy envelope from the signal shape and restores it after quantization, and SEMAC generalizes this principle to directional signals. Since the reduced transport spans only a lower-dimensional subspace, the decoder re-imposes the envelope observed at the encoder input, restoring the directional energy distribution at full order. A MUSHRA test on fifth-order material compares SEMAC against Opus CMF~3 in matched configurations at 512 and 768 kbit/s. SEMAC with 16 of 36 transport channels is rated above full-order CMF~3 at both rates, and at equal transport channel count above order truncation. The proposed SEMAC strategy of coding fewer transport channels with the directional envelope is found perceptually preferable to coding all HOA channels at low precision.",
+            "source": "arXiv Efficient AI",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          },
+          {
+            "uid": "cb7b025051bb6cf0a8d5c5bc",
+            "title": "Separating Thinking from Spelling for Efficient Generative Recommendation",
+            "url": "https://arxiv.org/abs/2610.32980v1",
+            "published": "2026-10-23T17:59:24+00:00",
+            "summary": "Generative recommenders retrieve items by writing their semantic IDs (SIDs) code by code under trie-constrained beam search, an approach now deployed on large web platforms. Standard autoregressive interfaces pay for the SID length K twice: a history of T items enters the backbone as TK code tokens, and every beam-search step runs through the backbone, so returning B candidates costs O(BK) backbone decode tokens per user. The second cost often dominates, and it grows with the backbone, the SID depth and the candidate budget. We introduce Deco (decoding from concepts), which separates reading the history from writing the identifier. The backbone reads each history item as one fused token and condenses the history once into a compact next-item concept; a light KV-cached decoder conditioned on the concept and the generated prefix runs the entire beam search, while the identifiers, the trie and the autoregressive factorization stay unchanged. The decoder approaches full-backbone accuracy with cross-entropy alone, and distillation improves it further. On seven datasets from e-commerce, movies and music streaming, Deco achieves comparable or better accuracy than both a standard generative recommender and the full-backbone teacher with fused inputs, while delivering 3.2--8.6$\\times$ their throughput under a 50 ms p95 latency budget in a production-style serving pipeline. Delegating be",
+            "source": "arXiv Efficient AI",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          }
+        ],
+        "notify": false,
+        "mode": "production",
+        "analysis": {
+          "provider": "Xiaomi MiMo",
+          "model": "mimo-v2.6-flash"
+        },
+        "slot": "core_research"
+      },
+      "maintenance_notified": true
+    },
     "2026-10-25:prompt_engineering": {
       "status": "no_matching_in_window",
       "updated_at": "2026-10-26T02:36:47.189492+00:00",
