@@ -96,13 +96,17 @@
     },
     "dev_practice": {
       "ids": [
+        "0d66a3d73223c86cac1d8a2d",
+        "cd4ac2e345b5d6813642e921",
         "d6d4695a3bbbb17ae6058086",
         "c592cd3980d14f5cf675a5c2"
       ],
-      "updated_at": "2026-10-25T15:59:00+00:00"
+      "updated_at": "2026-10-26T07:42:16.178235+00:00"
     }
   },
   "all_ids": [
+    "0d66a3d73223c86cac1d8a2d",
+    "cd4ac2e345b5d6813642e921",
     "2a83dbf1f4e400a9747a56a3",
     "cb7b025051bb6cf0a8d5c5bc",
     "062c1dec952b553992cc158e",
@@ -151,6 +155,8 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://github.com/fastapi/fastapi/releases/tag/0.161.0",
+    "https://github.com/fastapi/fastapi/releases/tag/0.160.0",
     "https://arxiv.org/abs/2610.32981v1",
     "https://arxiv.org/abs/2610.32980v1",
     "https://doi.org/10.3389/frai.2026.1950812",
@@ -199,6 +205,8 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "2901cd95157b218b5127404b",
+    "54c9a51aa9c5a617b30e53bc",
     "0510dd525e479dd2cf1fd317",
     "7f3e1b8f5a14ab5617383953",
     "59b824f19c631f60eeecc92e",
@@ -814,6 +822,38 @@
           "published": "2026-10-23T17:59:24+00:00",
           "summary": "Generative recommenders retrieve items by writing their semantic IDs (SIDs) code by code under trie-constrained beam search, an approach now deployed on large web platforms. Standard autoregressive interfaces pay for the SID length K twice: a history of T items enters the backbone as TK code tokens, and every beam-search step runs through the backbone, so returning B candidates costs O(BK) backbone decode tokens per user. The second cost often dominates, and it grows with the backbone, the SID depth and the candidate budget. We introduce Deco (decoding from concepts), which separates reading the history from writing the identifier. The backbone reads each history item as one fused token and condenses the history once into a compact next-item concept; a light KV-cached decoder conditioned on the concept and the generated prefix runs the entire beam search, while the identifiers, the trie and the autoregressive factorization stay unchanged. The decoder approaches full-backbone accuracy with cross-entropy alone, and distillation improves it further. On seven datasets from e-commerce, movies and music streaming, Deco achieves comparable or better accuracy than both a standard generative recommender and the full-backbone teacher with fused inputs, while delivering 3.2--8.6$\\times$ their throughput under a 50 ms p95 latency budget in a production-style serving pipeline. Delegating be",
           "source": "arXiv Efficient AI",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Xiaomi MiMo",
+        "model": "mimo-v2.6-flash"
+      }
+    },
+    "https://vorasio.com/posts/20261026-dev_practice.html": {
+      "topic": "dev_practice",
+      "created_at": "2026-10-26T07:42:16.178235+00:00",
+      "items": [
+        {
+          "uid": "0d66a3d73223c86cac1d8a2d",
+          "title": "0.161.0",
+          "url": "https://github.com/fastapi/fastapi/releases/tag/0.161.0",
+          "published": "2026-10-22T18:30:24+00:00",
+          "summary": "Features ✨ Add support for combining unions of form models. PR #16596 by @tiangolo .",
+          "source": "FastAPI Releases",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        },
+        {
+          "uid": "cd4ac2e345b5d6813642e921",
+          "title": "0.160.0",
+          "url": "https://github.com/fastapi/fastapi/releases/tag/0.160.0",
+          "published": "2026-10-22T16:54:31+00:00",
+          "summary": "Query, header, cookie, and form parameter models now apply their extra configuration to all submitted fields in the same parameter location, consistent with Pydantic behavior. This includes fields declared in other models, individual parameters, or dependencies, which were previously excluded. With extra=\"forbid\" , fields outside the model are rejected even if another parameter declares them. With extra=\"allow\" , those fields are included as model extras. With the default extra=\"ignore\" , they are ignored. Breaking Changes 🐛 Apply each parameter model's extra configuration to sibling fields. PR #16594 by @tiangolo . Internal ⬆ Bump certifi from 2026.1.4 to 2026.10.19. PR #16571 by @dependabot[bot] .",
+          "source": "FastAPI Releases",
           "kind": "research",
           "doi": "",
           "date_precision": "day"

@@ -28,46 +28,9 @@
       "attempts": 1
     },
     "2026-10-26:dev_practice": {
-      "status": "prepared",
+      "status": "published",
       "updated_at": "2026-10-26T07:42:16.178235+00:00",
-      "attempts": 1,
-      "pending": {
-        "topic": "dev_practice",
-        "title": "AI 开发实践与部署",
-        "url": "https://vorasio.com/posts/20261026-dev_practice.html",
-        "created_at": "2026-10-26T07:42:16.178235+00:00",
-        "items": [
-          {
-            "uid": "0d66a3d73223c86cac1d8a2d",
-            "title": "0.161.0",
-            "url": "https://github.com/fastapi/fastapi/releases/tag/0.161.0",
-            "published": "2026-10-22T18:30:24+00:00",
-            "summary": "Features ✨ Add support for combining unions of form models. PR #16596 by @tiangolo .",
-            "source": "FastAPI Releases",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day"
-          },
-          {
-            "uid": "cd4ac2e345b5d6813642e921",
-            "title": "0.160.0",
-            "url": "https://github.com/fastapi/fastapi/releases/tag/0.160.0",
-            "published": "2026-10-22T16:54:31+00:00",
-            "summary": "Query, header, cookie, and form parameter models now apply their extra configuration to all submitted fields in the same parameter location, consistent with Pydantic behavior. This includes fields declared in other models, individual parameters, or dependencies, which were previously excluded. With extra=\"forbid\" , fields outside the model are rejected even if another parameter declares them. With extra=\"allow\" , those fields are included as model extras. With the default extra=\"ignore\" , they are ignored. Breaking Changes 🐛 Apply each parameter model's extra configuration to sibling fields. PR #16594 by @tiangolo . Internal ⬆ Bump certifi from 2026.1.4 to 2026.10.19. PR #16571 by @dependabot[bot] .",
-            "source": "FastAPI Releases",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day"
-          }
-        ],
-        "notify": false,
-        "mode": "production",
-        "analysis": {
-          "provider": "Xiaomi MiMo",
-          "model": "mimo-v2.6-flash"
-        },
-        "slot": "dev_practice"
-      }
+      "attempts": 1
     },
     "2026-10-26:core_research": {
       "status": "published",
