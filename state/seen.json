@@ -64,6 +64,9 @@
     },
     "embodied": {
       "ids": [
+        "4c5e82e02225278ea68b0534",
+        "a16da8fe19e77d8ec732a8bb",
+        "aba61cfb73826a97f4c4b7c7",
         "bcbfa62119cdb87e0792a90a",
         "1d55a5376f238b9e82563657",
         "fcce55e74113f03ad6e4cfd9",
@@ -71,7 +74,7 @@
         "b6efb31dd4318138b7a990c1",
         "3784b5af97676cfa17afdceb"
       ],
-      "updated_at": "2026-10-25T08:37:09.561952+00:00"
+      "updated_at": "2026-10-27T04:42:18.359190+00:00"
     },
     "efficient_ai": {
       "ids": [
@@ -112,6 +115,9 @@
     }
   },
   "all_ids": [
+    "4c5e82e02225278ea68b0534",
+    "a16da8fe19e77d8ec732a8bb",
+    "aba61cfb73826a97f4c4b7c7",
     "bb3b7f34683beb7088780bc0",
     "160347f40295eec16cbc2d87",
     "6e84e95e2024d6e44b9654e0",
@@ -169,6 +175,9 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://doi.org/10.4018/979-8-3373-7549-6.ch010",
+    "https://doi.org/10.4018/979-8-3373-7549-6.ch005",
+    "https://developer.nvidia.com/blog/how-nvidia-mission-control-2-5-brings-autonomous-recovery-to-kubernetes",
     "https://github.com/huggingface/transformers/releases/tag/v5.21",
     "https://arxiv.org/abs/2610.35114v1",
     "https://arxiv.org/abs/2610.35113v1",
@@ -226,6 +235,9 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "83a1faaac3fb2e64ec73071f",
+    "8a8bbd14456cfc315e7edfb3",
+    "dbe14db4e8905afb54f87111",
     "1461e8b6388ef63d18d24fcd",
     "c15b10df44f7e159c7538fc2",
     "1c39fdd682bd543060d88569",
@@ -1007,6 +1019,49 @@
       "analysis": {
         "provider": "Xiaomi MiMo",
         "model": "mimo-v2.6-flash"
+      }
+    },
+    "https://vorasio.com/posts/20261027-paper_brief.html": {
+      "topic": "embodied",
+      "created_at": "2026-10-27T04:42:18.359190+00:00",
+      "items": [
+        {
+          "uid": "4c5e82e02225278ea68b0534",
+          "title": "AI-Assisted Peltier-Based Atmospheric Water Generator",
+          "url": "https://doi.org/10.4018/979-8-3373-7549-6.ch010",
+          "published": "2026-10-27T00:00:00+00:00",
+          "summary": "This chapter presents a conceptual and system-level design of a Peltier-based Atmospheric Water Generator (AWG) integrated with Artificial Intelligence (AI) for sustainable communities. The system uses thermoelectric cooling to condense atmospheric moisture on an aluminum surface, enabling decentralized potable water production. Sensor-based monitoring and a microcontroller-driven control unit optimize temperature, humidity response, airflow, and energy use through closed-loop operation. The framework supports future AI-based data optimization for predictive performance and adaptive control. To ensure low-carbon and off-grid functionality, the system is designed for solar energy integration. Key challenges including cooling efficiency, heat dissipation, airflow management, and scalability are addressed. The chapter positions AWG technology within the broader water–energy sustainability nexus, offering a forward-looking solution for water-scarce and developing regions.",
+          "source": "Crossref Embodied",
+          "kind": "research",
+          "doi": "10.4018/979-8-3373-7549-6.ch010",
+          "date_precision": "day"
+        },
+        {
+          "uid": "a16da8fe19e77d8ec732a8bb",
+          "title": "Cognitive Energy Intelligence",
+          "url": "https://doi.org/10.4018/979-8-3373-7549-6.ch005",
+          "published": "2026-10-27T00:00:00+00:00",
+          "summary": "Cognitive Energy Intelligence combines AI-based perception, learning and coordination to renewable energy systems in order to hasten the process of shifting to carbon-neutral societies. Through real-time prediction, reinforcement learning, digital twins and autonomous control, energy ecosystems will become adaptable, strong, and very efficient. This paradigm would deal with the shortcomings of traditional renewable infrastructures, maximizing storage, distributed resources as well as hydrogen systems as well as improving grid stability and emissions. Implementations in smart cities, industries, and mobility show high levels of increased reliability, sustainability, and flexibility of operation. Regulation, moral control and fair play are still needed to achieve safe and sustainable deployment. The cognitive Energy Intelligence provides a blue print on strategic low carbon futures that is smart and intelligent in bringing together the aim of technology innovation with that of the environment and society.",
+          "source": "Crossref Embodied",
+          "kind": "research",
+          "doi": "10.4018/979-8-3373-7549-6.ch005",
+          "date_precision": "day"
+        },
+        {
+          "uid": "aba61cfb73826a97f4c4b7c7",
+          "title": "How NVIDIA Mission Control 2.5 Brings Autonomous Recovery to Kubernetes",
+          "url": "https://developer.nvidia.com/blog/how-nvidia-mission-control-2-5-brings-autonomous-recovery-to-kubernetes",
+          "published": "2026-10-26T15:00:00+00:00",
+          "summary": "Training large-scale AI models on thousands of GPUs is a high-stakes operation where monitoring and automation must be built-in to optimize cluster resiliency...",
+          "source": "NVIDIA Technical Blog",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
       }
     }
   }
