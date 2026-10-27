@@ -1,6 +1,11 @@
 {
   "version": 1,
   "slots": {
+    "2026-10-27:prompt_engineering": {
+      "status": "no_matching_in_window",
+      "updated_at": "2026-10-27T06:12:20.757707+00:00",
+      "attempts": 1
+    },
     "2026-10-27:paper_brief": {
       "status": "published",
       "updated_at": "2026-10-27T04:42:18.359190+00:00",
