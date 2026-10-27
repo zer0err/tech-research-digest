@@ -1,6 +1,59 @@
 {
   "version": 1,
   "slots": {
+    "2026-10-27:paper_brief": {
+      "status": "prepared",
+      "updated_at": "2026-10-27T04:42:18.359190+00:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "embodied",
+        "title": "AI 论文午间速览",
+        "url": "https://vorasio.com/posts/20261027-paper_brief.html",
+        "created_at": "2026-10-27T04:42:18.359190+00:00",
+        "items": [
+          {
+            "uid": "4c5e82e02225278ea68b0534",
+            "title": "AI-Assisted Peltier-Based Atmospheric Water Generator",
+            "url": "https://doi.org/10.4018/979-8-3373-7549-6.ch010",
+            "published": "2026-10-27T00:00:00+00:00",
+            "summary": "This chapter presents a conceptual and system-level design of a Peltier-based Atmospheric Water Generator (AWG) integrated with Artificial Intelligence (AI) for sustainable communities. The system uses thermoelectric cooling to condense atmospheric moisture on an aluminum surface, enabling decentralized potable water production. Sensor-based monitoring and a microcontroller-driven control unit optimize temperature, humidity response, airflow, and energy use through closed-loop operation. The framework supports future AI-based data optimization for predictive performance and adaptive control. To ensure low-carbon and off-grid functionality, the system is designed for solar energy integration. Key challenges including cooling efficiency, heat dissipation, airflow management, and scalability are addressed. The chapter positions AWG technology within the broader water–energy sustainability nexus, offering a forward-looking solution for water-scarce and developing regions.",
+            "source": "Crossref Embodied",
+            "kind": "research",
+            "doi": "10.4018/979-8-3373-7549-6.ch010",
+            "date_precision": "day"
+          },
+          {
+            "uid": "a16da8fe19e77d8ec732a8bb",
+            "title": "Cognitive Energy Intelligence",
+            "url": "https://doi.org/10.4018/979-8-3373-7549-6.ch005",
+            "published": "2026-10-27T00:00:00+00:00",
+            "summary": "Cognitive Energy Intelligence combines AI-based perception, learning and coordination to renewable energy systems in order to hasten the process of shifting to carbon-neutral societies. Through real-time prediction, reinforcement learning, digital twins and autonomous control, energy ecosystems will become adaptable, strong, and very efficient. This paradigm would deal with the shortcomings of traditional renewable infrastructures, maximizing storage, distributed resources as well as hydrogen systems as well as improving grid stability and emissions. Implementations in smart cities, industries, and mobility show high levels of increased reliability, sustainability, and flexibility of operation. Regulation, moral control and fair play are still needed to achieve safe and sustainable deployment. The cognitive Energy Intelligence provides a blue print on strategic low carbon futures that is smart and intelligent in bringing together the aim of technology innovation with that of the environment and society.",
+            "source": "Crossref Embodied",
+            "kind": "research",
+            "doi": "10.4018/979-8-3373-7549-6.ch005",
+            "date_precision": "day"
+          },
+          {
+            "uid": "aba61cfb73826a97f4c4b7c7",
+            "title": "How NVIDIA Mission Control 2.5 Brings Autonomous Recovery to Kubernetes",
+            "url": "https://developer.nvidia.com/blog/how-nvidia-mission-control-2-5-brings-autonomous-recovery-to-kubernetes",
+            "published": "2026-10-26T15:00:00+00:00",
+            "summary": "Training large-scale AI models on thousands of GPUs is a high-stakes operation where monitoring and automation must be built-in to optimize cluster resiliency...",
+            "source": "NVIDIA Technical Blog",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          }
+        ],
+        "notify": true,
+        "mode": "production",
+        "analysis": {
+          "provider": "Groq",
+          "model": "openai/gpt-oss-20b"
+        },
+        "slot": "paper_brief"
+      }
+    },
     "2026-10-27:open_source": {
       "status": "published",
       "updated_at": "2026-10-27T03:42:20.368667+00:00",

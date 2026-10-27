@@ -1,6 +1,11 @@
 {
-  "2026-10-27:open_source": {
+  "2026-10-27:paper_brief": {
     "status": "prepared",
+    "updated_at": "2026-10-27T04:42:18.359190+00:00",
+    "attempts": 1
+  },
+  "2026-10-27:open_source": {
+    "status": "published",
     "updated_at": "2026-10-27T03:42:20.368667+00:00",
     "attempts": 1
   },

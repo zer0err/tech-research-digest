@@ -1,5 +1,55 @@
 [
   {
+    "title": "AI 论文午间速览（2026-10-27）",
+    "date": "2026-10-27T12:42:18.359190+08:00",
+    "count": 3,
+    "url": "posts/20261027-paper_brief.html",
+    "topic": "paper_brief",
+    "status": "published",
+    "summary": "本期要点 - AI驱动的Peltier式大气水生成器（AWG）实现了闭环温湿度与能耗优化，支持太阳能离网运行，面向水资源匮乏地区的可持续社区建设 1。 - “认知能源智能”框架通过实时预测、强化学习与数字孪生实现可再生能源系统的自适应控制，提升储能与分布式资源利用效率，已在智慧城市、工业与移动领域展现可靠性与灵活性 2",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "AI-Assisted Peltier-Based Atmospheric Water Generator",
+          "url": "https://doi.org/10.4018/979-8-3373-7549-6.ch010",
+          "publisher": "Crossref Embodied",
+          "host": "doi.org",
+          "family": "书目索引",
+          "published": "2026-10-27T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "10.4018/979-8-3373-7549-6.ch010",
+          "kind": "research"
+        },
+        {
+          "title": "Cognitive Energy Intelligence",
+          "url": "https://doi.org/10.4018/979-8-3373-7549-6.ch005",
+          "publisher": "Crossref Embodied",
+          "host": "doi.org",
+          "family": "书目索引",
+          "published": "2026-10-27T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "10.4018/979-8-3373-7549-6.ch005",
+          "kind": "research"
+        },
+        {
+          "title": "How NVIDIA Mission Control 2.5 Brings Autonomous Recovery to Kubernetes",
+          "url": "https://developer.nvidia.com/blog/how-nvidia-mission-control-2-5-brings-autonomous-recovery-to-kubernetes",
+          "publisher": "NVIDIA Technical Blog",
+          "host": "developer.nvidia.com",
+          "family": "博客/公开网页",
+          "published": "2026-10-26T15:00:00+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 开源项目与工具更新（2026-10-27）",
     "date": "2026-10-27T11:42:20.368667+08:00",
     "count": 1,
