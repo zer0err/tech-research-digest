@@ -1,5 +1,55 @@
 [
   {
+    "title": "Agent、机器人与具身智能（2026-10-27）",
+    "date": "2026-10-27T16:42:29.355762+08:00",
+    "count": 3,
+    "url": "posts/20261027-applied_ai.html",
+    "topic": "applied_ai",
+    "status": "published",
+    "summary": "本期结论 1. 人机协作与多模态交互在拆解与装配任务中能显著降低错误率，至少两篇研究（1）均报告错误率在 3.3%–4.1% 之间，且通过语音‑手势交互实现动态任务重新分配。 2. 力感知与自适应控制提升人形机器人在多接触任务中的成功率，2 在三项接触丰富任务中，力反应策略成功率 80% 远高于仅位置策略 26.7%。",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "Design and simulation of an interactive human robot disassembly system for end of life phones",
+          "url": "https://doi.org/10.3389/frobt.2026.1885382",
+          "publisher": "Crossref Embodied",
+          "host": "doi.org",
+          "family": "书目索引",
+          "published": "2026-10-27T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "10.3389/frobt.2026.1885382",
+          "kind": "research"
+        },
+        {
+          "title": "Learning Force-Reactive Humanoid Loco-Manipulation",
+          "url": "https://arxiv.org/abs/2610.35862v1",
+          "publisher": "arXiv Embodied Intelligence",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-10-26T17:59:11+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "Differentiable Contact Dynamics for Legged Locomotion: Policy Learning and Contact-Implicit Trajectory Optimization",
+          "url": "https://arxiv.org/abs/2610.35852v1",
+          "publisher": "arXiv Embodied Intelligence",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-10-26T17:57:14+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 开发实践与部署（2026-10-27）",
     "date": "2026-10-27T15:42:18.318730+08:00",
     "count": 2,

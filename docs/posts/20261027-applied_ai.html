@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Agent、机器人与具身智能（2026-10-27）</title><meta name="description" content="Agent、机器人与具身智能（2026-10-27）：3 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav><a href="../index.html#latest">时间线</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">AI 应用与落地专题</p><dl><dt>发布时间</dt><dd data-published-at="2026-10-27T16:42:29.355762+08:00">2026-10-27 16:42 · UTC+8</dd><dt>研究条目</dt><dd>3 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · AI 应用与落地专题</p><h1>Agent、机器人与具身智能（2026-10-27）</h1><!-- provenance:start --><p class="ai-analysis" title="openai/gpt-oss-20b">AI 分析：Groq</p><!-- provenance:end --><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期结论</h2>
+<ol>
+<li><strong>人机协作与多模态交互在拆解与装配任务中能显著降低错误率</strong>，至少两篇研究（[1]）均报告错误率在 3.3%–4.1% 之间，且通过语音‑手势交互实现动态任务重新分配。</li>
+<li><strong>力感知与自适应控制提升人形机器人在多接触任务中的成功率</strong>，[2] 在三项接触丰富任务中，力反应策略成功率 80% 远高于仅位置策略 26.7%。</li>
+<li><strong>可微接触动力学为腿式机器人提供更鲁棒的策略与轨迹优化</strong>，[3] 通过中心路径松弛实现跨接触模式的连续梯度，实验显示在硬件上能抵御冲击并通过碎片与滑面。</li>
+</ol>
+<h2>逐项分析</h2>
+<table>
+<thead>
+<tr>
+<th>资料</th>
+<th>核心贡献</th>
+<th>方法与数据</th>
+<th>性能证据</th>
+<th>局限与证据等级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[1]</td>
+<td>设计可交互的手机拆解协作机器人系统</td>
+<td>结合 RoboDK 模型、约束驱动仿真与 HRC 场景；超过 30 条操作与协作约束；语音‑手势交互实现动态任务重新分配</td>
+<td>平均每部手机 95.54 s 处理时间；错误率 3.3%–4.1%；30 条约束被数学化</td>
+<td>仅仿真验证，未在真实硬件上测试；缺乏长期运行数据；证据等级 A</td>
+</tr>
+<tr>
+<td>[2]</td>
+<td>学习力反应式人形机器人行走‑操纵框架 FLORE</td>
+<td>采集无机器人演示，使用手持力传感器与可穿戴跟踪器；力反应扩散策略结合全身合规控制器</td>
+<td>在三项接触任务中，力反应策略 80% 成功率，位置策略 26.7%；仿真中力跟踪误差小</td>
+<td>仅仿真与演示数据，未在真实机器人上验证；证据等级 A</td>
+</tr>
+<tr>
+<td>[3]</td>
+<td>可微摩擦接触动力学用于腿式机器人策略学习与轨迹优化</td>
+<td>中心路径松弛的二阶锥补全问题；在 100,000 样本下训练 2 min；硬件测试显示对冲击与滑面鲁棒</td>
+<td>通过硬件实验验证 trotting 策略能承受冲击并通过碎片与滑面</td>
+<td>仅 1 台硬件实验，缺乏多机器人、多环境验证；证据等级 A</td>
+</tr>
+</tbody>
+</table>
+<h2>工程行动建议</h2>
+<ol>
+<li>
+<p><strong>验证实验</strong></p>
+<ul>
+<li>对 [1] 的拆解系统，在真实工厂环境中部署 10 台机器人，记录每部手机的处理时间与错误率，验证仿真结果。</li>
+<li>对 [2] 的 FLORE，使用真实人形机器人（如 Atlas）执行同样的三项接触任务，比较力跟踪误差与成功率。</li>
+<li>对 [3] 的可微接触梯度，在不同地形（碎片、滑面、斜坡）上跑 5 次 trotting 试验，统计冲击抵御次数与轨迹偏差。</li>
+</ul>
+</li>
+<li>
+<p><strong>落地评估</strong></p>
+<ul>
+<li>评估拆解系统的可扩展性：在 100 台机器人并行运行时的系统吞吐量与错误聚合。</li>
+<li>评估 FLORE 的能耗与实时性：测量力传感器采样率、策略推理时间与电池续航。</li>
+<li>评估可微接触梯度在多机器人协作中的适用性：在 4 台腿式机器人协同完成障碍穿越时的协调误差。</li>
+</ul>
+</li>
+<li>
+<p><strong>后续跟踪指标</strong></p>
+<ul>
+<li>拆解系统：平均处理时间、错误率、任务重新分配成功率。</li>
+<li>FLORE：力跟踪误差、成功率、实时推理延迟。</li>
+<li>可微接触梯度：梯度连续性指标、硬件鲁棒性（冲击次数/成功率）、训练时间。</li>
+</ul>
+</li>
+</ol>
+<h2>参考资料</h2>
+<p>[1] Design and simulation of an interactive human robot disassembly system for end of life phones – <a href="https://doi.org/10.3389/frobt.2026.1885382">https://doi.org/10.3389/frobt.2026.1885382</a><br />
+[2] Learning Force-Reactive Humanoid Loco-Manipulation – <a href="https://arxiv.org/abs/2610.35862v1">https://arxiv.org/abs/2610.35862v1</a><br />
+[3] Differentiable Contact Dynamics for Legged Locomotion: Policy Learning and Contact-Implicit Trajectory Optimization – <a href="https://arxiv.org/abs/2610.35852v1">https://arxiv.org/abs/2610.35852v1</a></p>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>
