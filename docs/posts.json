@@ -1,5 +1,55 @@
 [
   {
+    "title": "AI 模型、训练与基础研究（2026-10-27）",
+    "date": "2026-10-27T10:42:20.849556+08:00",
+    "count": 3,
+    "url": "posts/20261027-model_research.html",
+    "topic": "model_research",
+    "status": "published",
+    "summary": "本期结论 1. 在低资源语言的核心指代解析中，高质量标注数据的少量投入显著优于大规模低质量数据集，且数据增强（尤其是反向翻译）可能导致性能下降1。 2. 跨语言迁移学习在低资源场景下表现不稳定：从远距离语言（如英语）迁移会降低性能，而与目标语言相关的迁移（如印地语）亦未显示一致优势1。 3. 现有多语言 Transfo",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "Quality over Quantity: Rethinking Data and Model Assumptions for Bengali Coreference Resolution",
+          "url": "https://arxiv.org/abs/2610.35114v1",
+          "publisher": "arXiv Model Research",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-10-26T09:53:02+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "UTA: Universal Training Adaptive Learning Rate Decay",
+          "url": "https://arxiv.org/abs/2610.35113v1",
+          "publisher": "arXiv Model Research",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-10-26T09:53:01+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "Subspace Crystallization in Grokking: Rank Compression Tracks the Phase Transition",
+          "url": "https://arxiv.org/abs/2610.35112v1",
+          "publisher": "arXiv Model Research",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-10-26T09:52:40+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 晨间雷达与免费资源（2026-10-27）",
     "date": "2026-10-27T09:12:21.309559+08:00",
     "count": 2,
