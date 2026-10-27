@@ -3,12 +3,13 @@
   "topics": {
     "open_source": {
       "ids": [
+        "bb3b7f34683beb7088780bc0",
         "8f27dffd6f4c2417b8c9b6bf",
         "c2a72d3ac07f7b01633952e2",
         "da838ef163b59d2f4118281e",
         "fe0903755f1ec81fb4fd8f3d"
       ],
-      "updated_at": "2026-10-25T07:39:01.485585+00:00"
+      "updated_at": "2026-10-27T03:42:20.368667+00:00"
     },
     "multimodal": {
       "ids": [
@@ -111,6 +112,7 @@
     }
   },
   "all_ids": [
+    "bb3b7f34683beb7088780bc0",
     "160347f40295eec16cbc2d87",
     "6e84e95e2024d6e44b9654e0",
     "796a73f01c273eb42407705d",
@@ -167,6 +169,7 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://github.com/huggingface/transformers/releases/tag/v5.21",
     "https://arxiv.org/abs/2610.35114v1",
     "https://arxiv.org/abs/2610.35113v1",
     "https://arxiv.org/abs/2610.35112v1",
@@ -223,6 +226,7 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "1461e8b6388ef63d18d24fcd",
     "c15b10df44f7e159c7538fc2",
     "1c39fdd682bd543060d88569",
     "87eaa5a30ee1d004f0410a79",
@@ -982,6 +986,27 @@
       "analysis": {
         "provider": "Groq",
         "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261027-open_source.html": {
+      "topic": "open_source",
+      "created_at": "2026-10-27T03:42:20.368667+00:00",
+      "items": [
+        {
+          "uid": "bb3b7f34683beb7088780bc0",
+          "title": "huggingface/transformers: Release: v5.21.0",
+          "url": "https://github.com/huggingface/transformers/releases/tag/v5.21",
+          "published": "2026-10-26T18:17:42+00:00",
+          "summary": "# Release v5.21.0 ## New Model additions ### MiniCPM-OCR MiniCPM-OCR is a document-understanding model from OpenBMB's MiniCPM-V family. It keeps the MiniCPM-V 4.6 architecture, which pairs a SigLIP vision encoder and a window-attention merger with a Qwen3.5 language model. It is specialized for reading text-dense images such as scanned pages, screenshots, receipts and tables. **Links:** [Documentation](https://huggingface.co/docs/transformers/main/en/model_doc/minicpm_ocr) | [Paper](https://huggingface.co/papers/2509.18154) * Feat test (#49920) by @guarin in [#49920](https://github.com/huggingface/transformers/pull/49920) ### Flint Flint is Recursive's mixture-of-experts language model. Compared to a standard SwiGLU MoE transformer such as Qwen3-MoE, it uses hybrid attention (sliding-window attention with rotary embeddings over the current token and the previous 512 tokens in most layers, and full attention without positional encoding in the remaining layers). It also has learned attention sinks, as in GPT-OSS, with per-head RMS-normalized queries and keys. Each sparse layer routes a token to 6 of 256 experts by sigmoid score and adds an ungated shared expert, and the first two layers are dense. **Links:** [Documentation](https://huggingface.co/docs/transformers/main/en/model_doc/flint) * Add Flint model support. (#49824) by @lovishmadaan in [#49824](https://github.com/huggingf",
+          "source": "Transformers Releases",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Xiaomi MiMo",
+        "model": "mimo-v2.6-flash"
       }
     }
   }

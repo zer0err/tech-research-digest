@@ -2,35 +2,9 @@
   "version": 1,
   "slots": {
     "2026-10-27:open_source": {
-      "status": "prepared",
+      "status": "published",
       "updated_at": "2026-10-27T03:42:20.368667+00:00",
-      "attempts": 1,
-      "pending": {
-        "topic": "open_source",
-        "title": "AI 开源项目与工具更新",
-        "url": "https://vorasio.com/posts/20261027-open_source.html",
-        "created_at": "2026-10-27T03:42:20.368667+00:00",
-        "items": [
-          {
-            "uid": "bb3b7f34683beb7088780bc0",
-            "title": "huggingface/transformers: Release: v5.21.0",
-            "url": "https://github.com/huggingface/transformers/releases/tag/v5.21",
-            "published": "2026-10-26T18:17:42+00:00",
-            "summary": "# Release v5.21.0 ## New Model additions ### MiniCPM-OCR MiniCPM-OCR is a document-understanding model from OpenBMB's MiniCPM-V family. It keeps the MiniCPM-V 4.6 architecture, which pairs a SigLIP vision encoder and a window-attention merger with a Qwen3.5 language model. It is specialized for reading text-dense images such as scanned pages, screenshots, receipts and tables. **Links:** [Documentation](https://huggingface.co/docs/transformers/main/en/model_doc/minicpm_ocr) | [Paper](https://huggingface.co/papers/2509.18154) * Feat test (#49920) by @guarin in [#49920](https://github.com/huggingface/transformers/pull/49920) ### Flint Flint is Recursive's mixture-of-experts language model. Compared to a standard SwiGLU MoE transformer such as Qwen3-MoE, it uses hybrid attention (sliding-window attention with rotary embeddings over the current token and the previous 512 tokens in most layers, and full attention without positional encoding in the remaining layers). It also has learned attention sinks, as in GPT-OSS, with per-head RMS-normalized queries and keys. Each sparse layer routes a token to 6 of 256 experts by sigmoid score and adds an ungated shared expert, and the first two layers are dense. **Links:** [Documentation](https://huggingface.co/docs/transformers/main/en/model_doc/flint) * Add Flint model support. (#49824) by @lovishmadaan in [#49824](https://github.com/huggingf",
-            "source": "Transformers Releases",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day"
-          }
-        ],
-        "notify": false,
-        "mode": "production",
-        "analysis": {
-          "provider": "Xiaomi MiMo",
-          "model": "mimo-v2.6-flash"
-        },
-        "slot": "open_source"
-      }
+      "attempts": 1
     },
     "2026-10-27:morning_radar": {
       "status": "published",
