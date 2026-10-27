@@ -26,6 +26,59 @@
       "updated_at": "2026-10-27T02:42:20.849556+00:00",
       "attempts": 1
     },
+    "2026-10-27:core_research": {
+      "status": "prepared",
+      "updated_at": "2026-10-27T06:12:52.989384+00:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "inference_systems",
+        "title": "推理引擎、编译器与嵌入式系统",
+        "url": "https://vorasio.com/posts/20261027-core_research.html",
+        "created_at": "2026-10-27T06:12:52.989384+00:00",
+        "items": [
+          {
+            "uid": "d696353576022aff2ab300a8",
+            "title": "PhantomShield: A Reinforcement Learning–Based AI Defense System for Real-Time Attack Detection and Self-Retraining",
+            "url": "https://doi.org/10.21203/rs.3.rs-11490008/v1",
+            "published": "2026-10-27T00:00:00+00:00",
+            "summary": "Abstract Traditional cybersecurity products relying on signature-based detection and rule-based defense are insufficient for detecting contemporary threats such as polymorphic malware and zero-day attacks. To address these limitations, this paper introduces PhantomShield, a real-time, adaptive intrusion detection system that integrates reinforcement learning (RL) with honeypot-based threat intelligence. PhantomShield employs a Proximal Policy Optimization (PPO) agent to classify incoming network events as ignore, alert, or block, and autonomously triggers retraining when performance degrades or novel threat patterns emerge. The system incorporates a 5-dimensional observation vector derived from network traffic metadata during production inference, expanded to 7 dimensions during training for enhanced feature representation. A circuit breaker mechanism provides fail-safe operation by falling back to rule-based decisions when the model becomes unavailable, and an explainable dashboard offers real-time analyst visibility into agent decisions and system health. Experimental evaluation demonstrates high classification accuracy with an average inference latency of 0.12 seconds, significantly outperforming conventional signature-based systems in both detection rate and false positive rate. PhantomShield achieves these results with low computational overhead, operating efficiently on s",
+            "source": "Crossref Inference",
+            "kind": "research",
+            "doi": "10.21203/rs.3.rs-11490008/v1",
+            "date_precision": "day"
+          },
+          {
+            "uid": "b018c3901f5052e513d7f7de",
+            "title": "SPARTA: A Sparse Ternary LLM Accelerator with Adaptive Attention and Unified Datapath for Long-Context Edge Inference",
+            "url": "https://arxiv.org/abs/2610.34824v1",
+            "published": "2026-10-26T04:13:47+00:00",
+            "summary": "LLMs on edge devices are constrained by limited memory and bandwidth. Although 1.58-bit ternary weights greatly reduce model storage, long-context inference is increasingly bottlenecked by KV-cache traffic and attention. Existing accelerators also use separate datapaths for ternary linear layers and attention, incurring hardware and execution overhead. We present SPARTA, a sparse ternary LLM accelerator for efficient long-context edge inference. SPARTA integrates: (1) a phase-aware sparse dataflow exploiting heterogeneous sparsity across compute-bound prefill and memory-bound decode; (2) a unified compute fabric mapping ternary SpMM/SpMV and bit-serial attention onto shared processing elements to exploit zero-weight and zero-bit sparsity; and (3) an adaptive two-stage attention engine combining page-level Top-k selection to reduce K-cache accesses with token-level Top-p pruning to reduce V-cache traffic. SPARTA reduces KV traffic by 4.1-4.8x over full attention and 1.3-1.5x over a state-of-the-art sparse-attention scheme, with task-dependent quality loss. Compared with NVIDIA Jetson AGX Orin, SPARTA achieves 3.9x higher generation throughput and 8.3x higher end-to-end energy efficiency on average; versus AMD Ryzen 7 9700X, the gains are 5.0x and 81.7x. It also delivers 1.6-12.0x higher throughput, 2.0-4.2x higher energy efficiency, and 1.3-51.4x higher area efficiency than FIGL",
+            "source": "arXiv Inference Systems",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          },
+          {
+            "uid": "4ac4eda1121470f5cf1d1a5b",
+            "title": "HobbyLM: A Sparse Mixture-of-Experts Model Family on a Hobby Budget",
+            "url": "https://arxiv.org/abs/2610.34582v1",
+            "published": "2026-10-25T21:26:24+00:00",
+            "summary": "We describe HobbyLM, a family of small sparse Mixture-of-Experts (MoE) models trained from scratch with a few hundred to a few thousand dollars of rented GPU time. The core is a decoder-only transformer with fine-grained experts, sigmoid routing with auxiliary-loss-free load balancing, grouped-query attention with per-head QK-normalization, and aMuon/AdamW optimizer split. Each of these choices was selected with a single-variable ablation suite at 130M parameters. On this architecture we train a 500M-parameter model (169M active) on 40B FineWeb tokens and post-train it into a chat model, a masked-diffusion language model, a function-calling and computer-use agent, and a single \"omni\" checkpoint that reads text, images, video, sound and speech through frozen encoders and small projectors. We run these models on a laptop CPU with a from-scratch Rust inference engine. Two of the authors then adopted the architecture without architectural changes to build HobbyLM-1B (1.04B total, 305M active parameters), trained on a 100B-token curated mixture with a high-quality anneal. HobbyLM-1B reaches a 47.5 average on seven zero-shot benchmarks, and its builders also release an instruction-tuned model and an on-device macOS computer-use adapter. Finally, we describe HobbyLM-Image, a 333M-parameter flow-matching diffusion transformer that generates 1024x1024 images in a 32x-compressed latent s",
+            "source": "arXiv Inference Systems",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          }
+        ],
+        "notify": false,
+        "mode": "production",
+        "analysis": {
+          "provider": "Groq",
+          "model": "openai/gpt-oss-20b"
+        },
+        "slot": "core_research"
+      }
+    },
     "2026-10-26:prompt_engineering": {
       "status": "no_matching_in_window",
       "updated_at": "2026-10-26T06:04:56.281733+00:00",

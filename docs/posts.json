@@ -1,5 +1,55 @@
 [
   {
+    "title": "推理引擎、编译器与嵌入式系统（2026-10-27）",
+    "date": "2026-10-27T14:12:52.989384+08:00",
+    "count": 3,
+    "url": "posts/20261027-core_research.html",
+    "topic": "core_research",
+    "status": "published",
+    "summary": "本期结论 1. 边缘 LLM 推理可通过稀疏三元量化与统一数据流显著提升能效。SPARTA 在 Jetson AGX Orin 上实现 3.9 倍生成吞吐量、8.3 倍能效提升；与 AMD Ryzen 7 9700X 对比，分别提升 5.0 倍和 81.7 倍，表明稀疏三元加速器在 CPU/GPU/NPU 协同场景中具",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "PhantomShield: A Reinforcement Learning–Based AI Defense System for Real-Time Attack Detection and Self-Retraining",
+          "url": "https://doi.org/10.21203/rs.3.rs-11490008/v1",
+          "publisher": "Crossref Inference",
+          "host": "doi.org",
+          "family": "书目索引",
+          "published": "2026-10-27T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "10.21203/rs.3.rs-11490008/v1",
+          "kind": "research"
+        },
+        {
+          "title": "SPARTA: A Sparse Ternary LLM Accelerator with Adaptive Attention and Unified Datapath for Long-Context Edge Inference",
+          "url": "https://arxiv.org/abs/2610.34824v1",
+          "publisher": "arXiv Inference Systems",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-10-26T04:13:47+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "HobbyLM: A Sparse Mixture-of-Experts Model Family on a Hobby Budget",
+          "url": "https://arxiv.org/abs/2610.34582v1",
+          "publisher": "arXiv Inference Systems",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-10-25T21:26:24+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 论文午间速览（2026-10-27）",
     "date": "2026-10-27T12:42:18.359190+08:00",
     "count": 3,
