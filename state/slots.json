@@ -1,6 +1,48 @@
 {
   "version": 1,
   "slots": {
+    "2026-10-27:morning_radar": {
+      "status": "prepared",
+      "updated_at": "2026-10-27T01:12:21.309559+00:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "morning_radar",
+        "title": "AI 晨间雷达与免费资源",
+        "url": "https://vorasio.com/posts/20261027-morning_radar.html",
+        "created_at": "2026-10-27T01:12:21.309559+00:00",
+        "items": [
+          {
+            "uid": "051483cefe7ff38558fb687d",
+            "title": "GPT-6.1 Terra in GitHub Copilot",
+            "url": "https://github.blog/changelog/2026-10-26-gpt-6-1-terra-in-github-copilot",
+            "published": "2026-10-26T19:15:53+00:00",
+            "summary": "GPT-6.1 Terra, OpenAI’s newest model, is now generally available in GitHub Copilot. It is designed for everyday agentic coding and terminal work at a lower cost than GPT-6.1 Sol. In… The post GPT-6.1 Terra in GitHub Copilot appeared first on The GitHub Blog .",
+            "source": "GitHub 官方更新",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          },
+          {
+            "uid": "b1d7eb2dedce5839f5898b83",
+            "title": "Our newest AI Quest: Mapping the human brain",
+            "url": "https://blog.google/products-and-platforms/products/education/ai-quests-polar-peaks",
+            "published": "2026-10-26T16:00:00+00:00",
+            "summary": "An illustration of a planet rotating to show various cartoon figures waving. At the top is the text \"AI Quests\"",
+            "source": "Google AI 官方博客",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          }
+        ],
+        "notify": true,
+        "mode": "production",
+        "analysis": {
+          "provider": "Groq",
+          "model": "openai/gpt-oss-20b"
+        },
+        "slot": "morning_radar"
+      }
+    },
     "2026-10-26:prompt_engineering": {
       "status": "no_matching_in_window",
       "updated_at": "2026-10-26T06:04:56.281733+00:00",
