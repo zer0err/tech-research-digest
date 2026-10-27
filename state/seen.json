@@ -106,12 +106,14 @@
     },
     "dev_practice": {
       "ids": [
+        "9501467965ee051d4dad588a",
+        "fdf24760efc899740d265b57",
         "0d66a3d73223c86cac1d8a2d",
         "cd4ac2e345b5d6813642e921",
         "d6d4695a3bbbb17ae6058086",
         "c592cd3980d14f5cf675a5c2"
       ],
-      "updated_at": "2026-10-26T07:42:16.178235+00:00"
+      "updated_at": "2026-10-27T07:42:18.318730+00:00"
     },
     "inference_systems": {
       "ids": [
@@ -123,6 +125,8 @@
     }
   },
   "all_ids": [
+    "9501467965ee051d4dad588a",
+    "fdf24760efc899740d265b57",
     "d696353576022aff2ab300a8",
     "b018c3901f5052e513d7f7de",
     "4ac4eda1121470f5cf1d1a5b",
@@ -186,6 +190,8 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://github.com/fastapi/fastapi/releases/tag/0.159.1",
+    "https://github.com/fastapi/fastapi/releases/tag/0.159.0",
     "https://doi.org/10.21203/rs.3.rs-11490008/v1",
     "https://arxiv.org/abs/2610.34824v1",
     "https://arxiv.org/abs/2610.34582v1",
@@ -249,6 +255,8 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "e31a7937740ecef70c01632f",
+    "48a7430a3d2798b90d10b411",
     "4be4a40c2234aa1e6351b355",
     "7389642d218eb0b64ceaebd9",
     "6891e61204dcd6c018bc8886",
@@ -1122,6 +1130,38 @@
       "analysis": {
         "provider": "Groq",
         "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261027-dev_practice.html": {
+      "topic": "dev_practice",
+      "created_at": "2026-10-27T07:42:18.318730+00:00",
+      "items": [
+        {
+          "uid": "9501467965ee051d4dad588a",
+          "title": "0.159.1",
+          "url": "https://github.com/fastapi/fastapi/releases/tag/0.159.1",
+          "published": "2026-10-21T20:59:13+00:00",
+          "summary": "Features ✨ Add support for optional unions of form models. PR #16586 by @tiangolo .",
+          "source": "FastAPI Releases",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        },
+        {
+          "uid": "fdf24760efc899740d265b57",
+          "title": "0.159.0",
+          "url": "https://github.com/fastapi/fastapi/releases/tag/0.159.0",
+          "published": "2026-10-21T20:03:57+00:00",
+          "summary": "Features ✨ Add support for optional query, header, and cookie parameter models. PR #16584 by @tiangolo .",
+          "source": "FastAPI Releases",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Xiaomi MiMo",
+        "model": "mimo-v2.6-flash"
       }
     }
   }
