@@ -25,13 +25,15 @@
     },
     "morning_radar": {
       "ids": [
+        "051483cefe7ff38558fb687d",
+        "b1d7eb2dedce5839f5898b83",
         "dc1ed52c8837fe68c51dff91",
         "400d918642962961b8903f39",
         "a45f5dfbc3465c866620e571",
         "dea8ba729eb28582daacbbc8",
         "767a7f383549ba646ff22647"
       ],
-      "updated_at": "2026-10-24T02:52:19.578062+00:00"
+      "updated_at": "2026-10-27T01:12:21.309559+00:00"
     },
     "ecosystem": {
       "ids": [
@@ -106,6 +108,8 @@
     }
   },
   "all_ids": [
+    "051483cefe7ff38558fb687d",
+    "b1d7eb2dedce5839f5898b83",
     "35732c12f95c59a6b8dd9389",
     "0d66a3d73223c86cac1d8a2d",
     "cd4ac2e345b5d6813642e921",
@@ -157,6 +161,8 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://github.blog/changelog/2026-10-26-gpt-6-1-terra-in-github-copilot",
+    "https://blog.google/products-and-platforms/products/education/ai-quests-polar-peaks",
     "https://doi.org/10.1038/s41598-026-76651-1",
     "https://github.com/fastapi/fastapi/releases/tag/0.161.0",
     "https://github.com/fastapi/fastapi/releases/tag/0.160.0",
@@ -208,6 +214,8 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "92fbbd1bcdf8ab50db2fd084",
+    "9f6289e58d755a4ef189a38f",
     "a56096141472bd0d680b95c3",
     "2901cd95157b218b5127404b",
     "54c9a51aa9c5a617b30e53bc",
@@ -881,6 +889,38 @@
           "source": "OpenAlex AI Hardware",
           "kind": "research",
           "doi": "https://doi.org/10.1038/s41598-026-76651-1",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261027-morning_radar.html": {
+      "topic": "morning_radar",
+      "created_at": "2026-10-27T01:12:21.309559+00:00",
+      "items": [
+        {
+          "uid": "051483cefe7ff38558fb687d",
+          "title": "GPT-6.1 Terra in GitHub Copilot",
+          "url": "https://github.blog/changelog/2026-10-26-gpt-6-1-terra-in-github-copilot",
+          "published": "2026-10-26T19:15:53+00:00",
+          "summary": "GPT-6.1 Terra, OpenAI’s newest model, is now generally available in GitHub Copilot. It is designed for everyday agentic coding and terminal work at a lower cost than GPT-6.1 Sol. In… The post GPT-6.1 Terra in GitHub Copilot appeared first on The GitHub Blog .",
+          "source": "GitHub 官方更新",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        },
+        {
+          "uid": "b1d7eb2dedce5839f5898b83",
+          "title": "Our newest AI Quest: Mapping the human brain",
+          "url": "https://blog.google/products-and-platforms/products/education/ai-quests-polar-peaks",
+          "published": "2026-10-26T16:00:00+00:00",
+          "summary": "An illustration of a planet rotating to show various cartoon figures waving. At the top is the text \"AI Quests\"",
+          "source": "Google AI 官方博客",
+          "kind": "research",
+          "doi": "",
           "date_precision": "day"
         }
       ],
