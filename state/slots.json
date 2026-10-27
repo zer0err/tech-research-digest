@@ -36,6 +36,21 @@
       "updated_at": "2026-10-27T07:42:18.318730+00:00",
       "attempts": 1
     },
+    "2026-10-27:daily_digest": {
+      "status": "prepared",
+      "updated_at": "2026-10-27T11:03:13.136170+00:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "daily_digest",
+        "title": "VORASIO AI 日报（2026-10-27）",
+        "url": "https://vorasio.com/posts/20261027-daily_digest.html",
+        "created_at": "2026-10-27T11:03:13.136170+00:00",
+        "items": [],
+        "published_count": 7,
+        "notify": true,
+        "slot": "daily_digest"
+      }
+    },
     "2026-10-27:core_research": {
       "status": "published",
       "updated_at": "2026-10-27T06:12:52.989384+00:00",
