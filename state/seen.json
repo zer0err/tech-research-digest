@@ -48,6 +48,9 @@
     },
     "model_research": {
       "ids": [
+        "160347f40295eec16cbc2d87",
+        "6e84e95e2024d6e44b9654e0",
+        "796a73f01c273eb42407705d",
         "062c1dec952b553992cc158e",
         "ec36aee3ebe1a1b48f4d970e",
         "d83db9d8db1820c4d3cc0d76",
@@ -56,7 +59,7 @@
         "f3a5508d0160d42195ab7174",
         "cb661d928a0dfa16bc4c4588"
       ],
-      "updated_at": "2026-10-26T07:12:28.005754+00:00"
+      "updated_at": "2026-10-27T02:42:20.849556+00:00"
     },
     "embodied": {
       "ids": [
@@ -108,6 +111,9 @@
     }
   },
   "all_ids": [
+    "160347f40295eec16cbc2d87",
+    "6e84e95e2024d6e44b9654e0",
+    "796a73f01c273eb42407705d",
     "051483cefe7ff38558fb687d",
     "b1d7eb2dedce5839f5898b83",
     "35732c12f95c59a6b8dd9389",
@@ -161,6 +167,9 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://arxiv.org/abs/2610.35114v1",
+    "https://arxiv.org/abs/2610.35113v1",
+    "https://arxiv.org/abs/2610.35112v1",
     "https://github.blog/changelog/2026-10-26-gpt-6-1-terra-in-github-copilot",
     "https://blog.google/products-and-platforms/products/education/ai-quests-polar-peaks",
     "https://doi.org/10.1038/s41598-026-76651-1",
@@ -214,6 +223,9 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "c15b10df44f7e159c7538fc2",
+    "1c39fdd682bd543060d88569",
+    "87eaa5a30ee1d004f0410a79",
     "92fbbd1bcdf8ab50db2fd084",
     "9f6289e58d755a4ef189a38f",
     "a56096141472bd0d680b95c3",
@@ -919,6 +931,49 @@
           "published": "2026-10-26T16:00:00+00:00",
           "summary": "An illustration of a planet rotating to show various cartoon figures waving. At the top is the text \"AI Quests\"",
           "source": "Google AI 官方博客",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261027-model_research.html": {
+      "topic": "model_research",
+      "created_at": "2026-10-27T02:42:20.849556+00:00",
+      "items": [
+        {
+          "uid": "160347f40295eec16cbc2d87",
+          "title": "Quality over Quantity: Rethinking Data and Model Assumptions for Bengali Coreference Resolution",
+          "url": "https://arxiv.org/abs/2610.35114v1",
+          "published": "2026-10-26T09:53:02+00:00",
+          "summary": "Multilingual transformer models are often assumed to generalise across languages, but their effectiveness for coreference resolution in low-resource settings remains unverified. We investigate this gap in Bengali, a language with over 250 million speakers but limited annotated coreference resources. We evaluate transformer-based pre-trained encoders under multiple settings, including zero-shot, fine-tuning, data augmentation, and cross-lingual transfer. Our results challenge several common assumptions about model generalisation and data efficiency in low-resource NLP. We demonstrate that a small amount of high-quality annotated data significantly outperforms larger mixed-quality datasets (p < 0.01). We find that data augmentation, particularly back-translation, does not improve performance and can degrade results in coreference resolution. Cross-lingual transfer is also inconsistent: transfer from a distant language like English reduces performance, and transfer from the related language Hindi provides no consistent benefit across models. Several widely used multilingual models exhibit collapsed embedding spaces, rendering them unsuitable for similarity-based clustering tasks. These findings highlight the importance of annotation quality over data quantity and provide empirical guidance for developing coreference resolution systems in low-resource languages.",
+          "source": "arXiv Model Research",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        },
+        {
+          "uid": "6e84e95e2024d6e44b9654e0",
+          "title": "UTA: Universal Training Adaptive Learning Rate Decay",
+          "url": "https://arxiv.org/abs/2610.35113v1",
+          "published": "2026-10-26T09:53:01+00:00",
+          "summary": "Learning rate decay (LRD) is critical for training high-performance models, yet most designs remain empirically driven. Although the Universal Budget Aware (UBA) LRD offers a theoretical framework, its reliance on SGD dynamics limits its applicability to modern Adam-type optimizers and leaves its key `optimization difficulty parameter' opaque. To bridge this gap, we propose the Universal Training Adaptive (UTA) LRD. Unlike UBA's fixed offline trajectory anchored solely to iterations, UTA treats LRD as a closed-loop shape-and-scale problem. By continuous-time formulation, UTA is training-state adaptive with segment-wise optimal shape. This adaptivity links external iterations with internal training states, enabling a near-optimal path in both progression shape and learning rate (LR) scale, a property unattainable by other LRDs, including UBA. Empirically, we demonstrate consistent improvements across language models (LLaMA 60M to 1B) and vision models (ResNet50, ViT-B) on ImageNet with plug-and-play ease and negligible overhead. Extensive ablation studies further confirm UTA's robustness across dimensions, including peak LR, final decay ratio, its parameter $\\varphi_0$, component efficacy and generalization to fine-tuning scenarios, underscoring its practical implementability.",
+          "source": "arXiv Model Research",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        },
+        {
+          "uid": "796a73f01c273eb42407705d",
+          "title": "Subspace Crystallization in Grokking: Rank Compression Tracks the Phase Transition",
+          "url": "https://arxiv.org/abs/2610.35112v1",
+          "published": "2026-10-26T09:52:40+00:00",
+          "summary": "Grokking describes understanding something deeply and intuitively. In neural networks, it is the phenomenon where a network generalizes long after memorizing its training data. This delay has been linked to a fall in the effective rank of the network's weight matrices, but whether this rank compression drives grokking or follows it is still unresolved. We study a mean-field MLP and a one-layer transformer trained on modular arithmetic and observe that: (i) Compression follows the onset, not memorization. Every transformer memorizes its training data within 250 steps, while the grokking onset (the first step at which test accuracy reaches 95%) varies from 6,500 to 21,000 steps. The steepest fall in effective rank comes about 900 steps after the onset, however late the onset occurs, and networks that memorize without grokking compress far less. (ii) Subspace crystallization. We call the span of the fewest top singular directions of a weight matrix that preserve 99% of test accuracy its sufficient subspace. Its size can shrink as the margin between the correct and the best wrong output grows, so we also count the directions needed to keep the outputs within 10%. In the transformer, this count falls during the transition from a quarter or more of the available directions to about a tenth, which we call subspace crystallization. (iii) Imposing low rank does not speed up grokking. Ag",
+          "source": "arXiv Model Research",
           "kind": "research",
           "doi": "",
           "date_precision": "day"
