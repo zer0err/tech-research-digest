@@ -1,5 +1,33 @@
 [
   {
+    "title": "AI 开源项目与工具更新（2026-10-27）",
+    "date": "2026-10-27T11:42:20.368667+08:00",
+    "count": 1,
+    "url": "posts/20261027-open_source.html",
+    "topic": "open_source",
+    "status": "published",
+    "summary": "本期要点 - Transformers 发布 v5.21.0，新增 MiniCPM-OCR 文档理解模型支持，面向扫描页、截图、票据、表格等密集文本图像 1。 - 同版本新增 Flint 混合注意力 MoE 模型支持，采用滑窗+全注意力混合、sigmoid 路由 6/256 专家与共享专家设计 1。 - 摘要仅披露模型",
+    "provenance": {
+      "analysis": {
+        "provider": "Xiaomi MiMo",
+        "model": "mimo-v2.6-flash"
+      },
+      "sources": [
+        {
+          "title": "huggingface/transformers: Release: v5.21.0",
+          "url": "https://github.com/huggingface/transformers/releases/tag/v5.21",
+          "publisher": "Transformers Releases",
+          "host": "github.com",
+          "family": "代码与版本",
+          "published": "2026-10-26T18:17:42+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 模型、训练与基础研究（2026-10-27）",
     "date": "2026-10-27T10:42:20.849556+08:00",
     "count": 3,
