@@ -26,6 +26,48 @@
       "updated_at": "2026-10-27T02:42:20.849556+00:00",
       "attempts": 1
     },
+    "2026-10-27:dev_practice": {
+      "status": "prepared",
+      "updated_at": "2026-10-27T07:42:18.318730+00:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "dev_practice",
+        "title": "AI 开发实践与部署",
+        "url": "https://vorasio.com/posts/20261027-dev_practice.html",
+        "created_at": "2026-10-27T07:42:18.318730+00:00",
+        "items": [
+          {
+            "uid": "9501467965ee051d4dad588a",
+            "title": "0.159.1",
+            "url": "https://github.com/fastapi/fastapi/releases/tag/0.159.1",
+            "published": "2026-10-21T20:59:13+00:00",
+            "summary": "Features ✨ Add support for optional unions of form models. PR #16586 by @tiangolo .",
+            "source": "FastAPI Releases",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          },
+          {
+            "uid": "fdf24760efc899740d265b57",
+            "title": "0.159.0",
+            "url": "https://github.com/fastapi/fastapi/releases/tag/0.159.0",
+            "published": "2026-10-21T20:03:57+00:00",
+            "summary": "Features ✨ Add support for optional query, header, and cookie parameter models. PR #16584 by @tiangolo .",
+            "source": "FastAPI Releases",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          }
+        ],
+        "notify": false,
+        "mode": "production",
+        "analysis": {
+          "provider": "Xiaomi MiMo",
+          "model": "mimo-v2.6-flash"
+        },
+        "slot": "dev_practice"
+      }
+    },
     "2026-10-27:core_research": {
       "status": "published",
       "updated_at": "2026-10-27T06:12:52.989384+00:00",

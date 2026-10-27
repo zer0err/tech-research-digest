@@ -1,5 +1,44 @@
 [
   {
+    "title": "AI 开发实践与部署（2026-10-27）",
+    "date": "2026-10-27T15:42:18.318730+08:00",
+    "count": 2,
+    "url": "posts/20261027-dev_practice.html",
+    "topic": "dev_practice",
+    "status": "published",
+    "summary": "本期主题 - 本期聚焦 FastAPI 0.159.x 系列的两项参数建模能力更新，帮助开发者判断是否升级以简化接口参数定义 12。 - 0.159.0 引入对可选 query、header、cookie 参数模型的支持，可将多个可选参数归入一个模型 2。 - 0.159.1 在其基础上补充对表单模型可选联合（opti",
+    "provenance": {
+      "analysis": {
+        "provider": "Xiaomi MiMo",
+        "model": "mimo-v2.6-flash"
+      },
+      "sources": [
+        {
+          "title": "0.159.1",
+          "url": "https://github.com/fastapi/fastapi/releases/tag/0.159.1",
+          "publisher": "FastAPI Releases",
+          "host": "github.com",
+          "family": "代码与版本",
+          "published": "2026-10-21T20:59:13+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "0.159.0",
+          "url": "https://github.com/fastapi/fastapi/releases/tag/0.159.0",
+          "publisher": "FastAPI Releases",
+          "host": "github.com",
+          "family": "代码与版本",
+          "published": "2026-10-21T20:03:57+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "推理引擎、编译器与嵌入式系统（2026-10-27）",
     "date": "2026-10-27T14:12:52.989384+08:00",
     "count": 3,
