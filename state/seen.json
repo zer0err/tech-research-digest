@@ -26,6 +26,8 @@
     },
     "morning_radar": {
       "ids": [
+        "92608e65bdba9862559e3872",
+        "b26f70c790034ce0463adf39",
         "051483cefe7ff38558fb687d",
         "b1d7eb2dedce5839f5898b83",
         "dc1ed52c8837fe68c51dff91",
@@ -34,7 +36,7 @@
         "dea8ba729eb28582daacbbc8",
         "767a7f383549ba646ff22647"
       ],
-      "updated_at": "2026-10-27T01:12:21.309559+00:00"
+      "updated_at": "2026-10-28T01:12:22.100978+00:00"
     },
     "ecosystem": {
       "ids": [
@@ -128,6 +130,8 @@
     }
   },
   "all_ids": [
+    "92608e65bdba9862559e3872",
+    "b26f70c790034ce0463adf39",
     "0b5a8d65158261953a1010ae",
     "54a2fdc854bf799019c66983",
     "89d8ba9edb11a5b208b5d6c7",
@@ -196,6 +200,8 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://github.blog/changelog/2026-10-27-github-copilot-supports-server-to-server-authentication",
+    "https://github.blog/changelog/2026-10-26-github-copilot-assisted-permissions-generally-available",
     "https://doi.org/10.3389/frobt.2026.1885382",
     "https://arxiv.org/abs/2610.35862v1",
     "https://arxiv.org/abs/2610.35852v1",
@@ -264,6 +270,8 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "d40e1ae4c000ab71dc5acabb",
+    "004a17f1ba1ed223befbfd7a",
     "3670f137aa46674e2b910b3e",
     "aabdd8f7cd4ed8ef9d9664a0",
     "a393ca6eba30fef93584979e",
@@ -1209,6 +1217,38 @@
           "published": "2026-10-26T17:57:14+00:00",
           "summary": "This paper proposes a smooth analytic gradient for frictional contact and applies it to policy learning and contact-implicit trajectory optimization for legged locomotion. The exact contact sensitivity is available in closed form but describes changes within the current contact mode, providing no first-order information toward neighboring contact modes. The proposed gradient replaces this sensitivity only in the backward pass, leaving the hard-contact forward solve unchanged and the realized rollout feasible. A central-path relaxation of the de Saxcé-corrected second-order-cone complementarity problem for Coulomb friction smooths the conditions defining the separating, clamping, and sliding modes. The relaxed sensitivity is evaluated at a point on the central path obtained by a Newton iteration initialized from the hard-contact solution. The sensitivity remains continuous through contact-mode transitions and converges to the exact sensitivity as the relaxation vanishes. Using 100,000 samples and less than 2 min of training on a desktop PC, policy learning with the proposed gradient produces a policy that transfers to hardware without fine-tuning. On hardware, the robot under a trotting policy withstands pushes and traverses debris and slippery ground. In trajectory optimization, the proposed gradient reaches contact-rich solutions missed by exact and Signorini-relaxed gradients",
           "source": "arXiv Embodied Intelligence",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261028-morning_radar.html": {
+      "topic": "morning_radar",
+      "created_at": "2026-10-28T01:12:22.100978+00:00",
+      "items": [
+        {
+          "uid": "92608e65bdba9862559e3872",
+          "title": "GitHub Copilot supports server-to-server authentication",
+          "url": "https://github.blog/changelog/2026-10-27-github-copilot-supports-server-to-server-authentication",
+          "published": "2026-10-27T21:36:55+00:00",
+          "summary": "GitHub Copilot now supports server-to-server authentication for GitHub Apps installed on organizations, available in public preview. Services and agents built with the GitHub Copilot SDK can now make requests on… The post GitHub Copilot supports server-to-server authentication appeared first on The GitHub Blog .",
+          "source": "GitHub 官方更新",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        },
+        {
+          "uid": "b26f70c790034ce0463adf39",
+          "title": "GitHub Copilot assisted permissions generally available",
+          "url": "https://github.blog/changelog/2026-10-26-github-copilot-assisted-permissions-generally-available",
+          "published": "2026-10-26T22:31:30+00:00",
+          "summary": "Assisted permissions are now generally available in GitHub Copilot CLI, GitHub Copilot app, and Visual Studio Code. When Copilot requests permission to run a command, access a file system path,… The post GitHub Copilot assisted permissions generally available appeared first on The GitHub Blog .",
+          "source": "GitHub 官方更新",
           "kind": "research",
           "doi": "",
           "date_precision": "day"
