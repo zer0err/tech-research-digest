@@ -1,5 +1,55 @@
 [
   {
+    "title": "AI 论文午间速览（2026-10-28）",
+    "date": "2026-10-28T12:42:14.668610+08:00",
+    "count": 3,
+    "url": "posts/20261028-paper_brief.html",
+    "topic": "paper_brief",
+    "status": "published",
+    "summary": "本期要点 - PIML 框架通过贝叶斯推理将临床先验知识嵌入 ML 模型，显著提升诊断性能并保持可解释性1。 - NVIDIA DGX Spark 上的 MoE 推理可通过三种优化手段（批量大小、张量并行、混合精度）实现速度提升2。 - 在 commodity x86 芯片上，INT8 量化对自监督 SAR‑Optic",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "Prior-informed machine learning for clinically interpretable medical diagnosis",
+          "url": "https://doi.org/10.3389/fbioe.2026.1973664",
+          "publisher": "Crossref Inference",
+          "host": "doi.org",
+          "family": "书目索引",
+          "published": "2026-10-28T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "10.3389/fbioe.2026.1973664",
+          "kind": "research"
+        },
+        {
+          "title": "3 Ways to Boost MoE Inference on NVIDIA DGX Spark",
+          "url": "https://developer.nvidia.com/blog/3-ways-to-boost-moe-inference-on-nvidia-dgx-spark",
+          "publisher": "NVIDIA Technical Blog",
+          "host": "developer.nvidia.com",
+          "family": "博客/公开网页",
+          "published": "2026-10-27T15:00:00+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "Quantized Edge Inference of a Self-Supervised SAR-Optical Encoder on Commodity x86 Hardware",
+          "url": "https://arxiv.org/abs/2610.37056v1",
+          "publisher": "arXiv Inference Systems",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-10-27T11:24:25+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 模型、训练与基础研究（2026-10-28）",
     "date": "2026-10-28T10:42:17.729866+08:00",
     "count": 2,

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 论文午间速览（2026-10-28）</title><meta name="description" content="AI 论文午间速览（2026-10-28）：3 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav><a href="../index.html#latest">时间线</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">AI 论文午间速览</p><dl><dt>发布时间</dt><dd data-published-at="2026-10-28T12:42:14.668610+08:00">2026-10-28 12:42 · UTC+8</dd><dt>研究条目</dt><dd>3 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · AI 论文午间速览</p><h1>AI 论文午间速览（2026-10-28）</h1><!-- provenance:start --><p class="ai-analysis" title="openai/gpt-oss-20b">AI 分析：Groq</p><!-- provenance:end --><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期要点</h2>
+<ul>
+<li>PIML 框架通过贝叶斯推理将临床先验知识嵌入 ML 模型，显著提升诊断性能并保持可解释性[1]。</li>
+<li>NVIDIA DGX Spark 上的 MoE 推理可通过三种优化手段（批量大小、张量并行、混合精度）实现速度提升[2]。</li>
+<li>在 commodity x86 芯片上，INT8 量化对自监督 SAR‑Optical 编码器的精度影响可忽略，仅带来 1.45–1.53 倍的 CPU 延迟与能耗下降[3]。</li>
+</ul>
+<h2>逐项速览</h2>
+<h3>1. Prior‑Informed Machine Learning (PIML)</h3>
+<ul>
+<li><strong>核心变化</strong>：将敏感度与特异度的优化目标直接嵌入 ML 训练流程，并通过贝叶斯推理融合临床先验[1]。</li>
+<li><strong>证据</strong>：在宫颈癌、口腔高危病变和早产检测三大临床域中，PIML 与传统 ML 相比表现更佳，且与知识驱动方法竞争或优于[1]。</li>
+<li><strong>局限</strong>：摘要未提供具体数值或对比基准，无法评估提升幅度；未说明模型在不同硬件上的可复现性与部署成本[1]。</li>
+</ul>
+<h3>2. MoE 推理加速（NVIDIA DGX Spark）</h3>
+<ul>
+<li><strong>核心变化</strong>：通过三种策略（批量大小优化、张量并行、混合精度）提升 Ling‑3.0‑flash 的推理吞吐量[2]。</li>
+<li><strong>证据</strong>：博客指出在 batch‑size‑1 评估中，识别性能瓶颈后实施上述优化可显著加速，但未给出具体速度提升百分比[2]。</li>
+<li><strong>局限</strong>：缺乏实验细节（如基准模型、硬件配置、测量方法），无法复现或量化加速效果[2]。</li>
+</ul>
+<h3>3. 量化边缘推理（Self‑Supervised SAR‑Optical Encoder）</h3>
+<ul>
+<li><strong>核心变化</strong>：在三种 commodity x86 芯片上对预训练的 SAR‑Optical masked‑autoencoder 进行 FP32/FP16/INT8 推理，并测量延迟、能耗与线性探针精度[3]。</li>
+<li><strong>证据</strong>：INT8 量化仅使 micro‑mAP 变动 +0.0006，属于种子波动范围内，说明精度保持不变；同时 CPU 延迟下降 1.45×，能耗下降，VNNI 参考进一步提升 1.53×[3]。</li>
+<li><strong>局限</strong>：未提供具体硬件型号、测量环境或对比基准；未说明量化对模型训练阶段的影响[3]。</li>
+</ul>
+<h2>值得采取的行动</h2>
+<ul>
+<li>对 PIML 框架进行实验复现：在公开的医疗诊断数据集上实现贝叶斯先验嵌入，并记录敏感度/特异度提升幅度[1]。</li>
+<li>在本地 DGX Spark 环境中实现文中提到的三种 MoE 优化策略，使用 Ling‑3.0‑flash 进行基准测试，记录吞吐量与延迟变化[2]。</li>
+<li>在自有 x86 芯片上复现 INT8 量化实验，验证 micro‑mAP 变化与 CPU 延迟/能耗下降的可重复性，并探索 VNNI 加速的实际收益[3]。</li>
+</ul>
+<h2>参考资料</h2>
+<ol>
+<li>Prior-informed machine learning for clinically interpretable medical diagnosis. Crossref Inference. <a href="https://doi.org/10.3389/fbioe.2026.1973664">https://doi.org/10.3389/fbioe.2026.1973664</a></li>
+<li>3 Ways to Boost MoE Inference on NVIDIA DGX Spark. NVIDIA Technical Blog. <a href="https://developer.nvidia.com/blog/3-ways-to-boost-moe-inference-on-nvidia-dgx-spark">https://developer.nvidia.com/blog/3-ways-to-boost-moe-inference-on-nvidia-dgx-spark</a></li>
+<li>Quantized Edge Inference of a Self‑Supervised SAR‑Optical Encoder on Commodity x86 Hardware. arXiv Inference Systems. <a href="https://arxiv.org/abs/2610.37056v1">https://arxiv.org/abs/2610.37056v1</a></li>
+</ol>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>
