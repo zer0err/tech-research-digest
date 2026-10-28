@@ -117,6 +117,8 @@
     },
     "dev_practice": {
       "ids": [
+        "60b35e55605ba41029ae5cc7",
+        "26c0e6b400ff69eb4f433a05",
         "9501467965ee051d4dad588a",
         "fdf24760efc899740d265b57",
         "0d66a3d73223c86cac1d8a2d",
@@ -124,7 +126,7 @@
         "d6d4695a3bbbb17ae6058086",
         "c592cd3980d14f5cf675a5c2"
       ],
-      "updated_at": "2026-10-27T07:42:18.318730+00:00"
+      "updated_at": "2026-10-28T07:30:37.392330+00:00"
     },
     "inference_systems": {
       "ids": [
@@ -139,6 +141,8 @@
     }
   },
   "all_ids": [
+    "60b35e55605ba41029ae5cc7",
+    "26c0e6b400ff69eb4f433a05",
     "f2d6f72510116a7a87864d43",
     "1b06dd5dd7e658e962fbc023",
     "c0f5cd5fdec6c357b70efa86",
@@ -218,6 +222,8 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://github.com/fastapi/fastapi/releases/tag/0.158.2",
+    "https://github.com/fastapi/fastapi/releases/tag/0.158.1",
     "https://doi.org/10.11591/ijres.v15.i3.pp727-736",
     "https://doi.org/10.11591/ijres.v15.i3.pp859-867",
     "https://doi.org/10.11591/ijres.v15.i3.pp596-608",
@@ -297,6 +303,8 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "20912504eb6bcf918b622fad",
+    "3b557aee789fa38b0d132dea",
     "c5e7a1ecd56056be9c41be32",
     "9f4ba6e90f87c583ed1350c4",
     "b0cf9e3f04b1ccca908335dc",
@@ -1432,6 +1440,38 @@
       "analysis": {
         "provider": "Groq",
         "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261028-dev_practice.html": {
+      "topic": "dev_practice",
+      "created_at": "2026-10-28T07:30:37.392330+00:00",
+      "items": [
+        {
+          "uid": "60b35e55605ba41029ae5cc7",
+          "title": "0.158.2",
+          "url": "https://github.com/fastapi/fastapi/releases/tag/0.158.2",
+          "published": "2026-10-21T19:20:32+00:00",
+          "summary": "Features ✨ Add support for optional form models. PR #16582 by @tiangolo .",
+          "source": "FastAPI Releases",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        },
+        {
+          "uid": "26c0e6b400ff69eb4f433a05",
+          "title": "0.158.1",
+          "url": "https://github.com/fastapi/fastapi/releases/tag/0.158.1",
+          "published": "2026-10-21T17:47:27+00:00",
+          "summary": "Fixes 🐛 Preserve form media types in OpenAPI. PR #16579 by @tiangolo .",
+          "source": "FastAPI Releases",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Xiaomi MiMo",
+        "model": "mimo-v2.6-flash"
       }
     }
   }

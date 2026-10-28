@@ -28,46 +28,9 @@
       "attempts": 1
     },
     "2026-10-28:dev_practice": {
-      "status": "prepared",
+      "status": "published",
       "updated_at": "2026-10-28T07:30:37.392330+00:00",
-      "attempts": 1,
-      "pending": {
-        "topic": "dev_practice",
-        "title": "AI 开发实践与部署",
-        "url": "https://vorasio.com/posts/20261028-dev_practice.html",
-        "created_at": "2026-10-28T07:30:37.392330+00:00",
-        "items": [
-          {
-            "uid": "60b35e55605ba41029ae5cc7",
-            "title": "0.158.2",
-            "url": "https://github.com/fastapi/fastapi/releases/tag/0.158.2",
-            "published": "2026-10-21T19:20:32+00:00",
-            "summary": "Features ✨ Add support for optional form models. PR #16582 by @tiangolo .",
-            "source": "FastAPI Releases",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day"
-          },
-          {
-            "uid": "26c0e6b400ff69eb4f433a05",
-            "title": "0.158.1",
-            "url": "https://github.com/fastapi/fastapi/releases/tag/0.158.1",
-            "published": "2026-10-21T17:47:27+00:00",
-            "summary": "Fixes 🐛 Preserve form media types in OpenAPI. PR #16579 by @tiangolo .",
-            "source": "FastAPI Releases",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day"
-          }
-        ],
-        "notify": false,
-        "mode": "production",
-        "analysis": {
-          "provider": "Xiaomi MiMo",
-          "model": "mimo-v2.6-flash"
-        },
-        "slot": "dev_practice"
-      }
+      "attempts": 1
     },
     "2026-10-28:core_research": {
       "status": "published",
