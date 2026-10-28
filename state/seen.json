@@ -124,14 +124,20 @@
     },
     "inference_systems": {
       "ids": [
+        "da3eeb03a84a88b91a182932",
+        "546162506c19a020f3239a7d",
+        "0678ef779e838564d381747e",
         "d696353576022aff2ab300a8",
         "b018c3901f5052e513d7f7de",
         "4ac4eda1121470f5cf1d1a5b"
       ],
-      "updated_at": "2026-10-27T06:12:52.989384+00:00"
+      "updated_at": "2026-10-28T04:42:14.668610+00:00"
     }
   },
   "all_ids": [
+    "da3eeb03a84a88b91a182932",
+    "546162506c19a020f3239a7d",
+    "0678ef779e838564d381747e",
     "773e691ccae9867f46b5b0f7",
     "ec649539e81b4f979b6e3eb6",
     "92608e65bdba9862559e3872",
@@ -204,6 +210,9 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://doi.org/10.3389/fbioe.2026.1973664",
+    "https://developer.nvidia.com/blog/3-ways-to-boost-moe-inference-on-nvidia-dgx-spark",
+    "https://arxiv.org/abs/2610.37056v1",
     "https://arxiv.org/abs/2610.37656v1",
     "https://arxiv.org/abs/2610.37651v1",
     "https://github.blog/changelog/2026-10-27-github-copilot-supports-server-to-server-authentication",
@@ -276,6 +285,9 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "1ec1747f244a84e8a7e1f42b",
+    "db23910872e0148fe455950b",
+    "a76f2c8b43f9e0b35f588e82",
     "d6a116ba1cafd3f90ae6938a",
     "66c53a2ed4e4752e53b01921",
     "d40e1ae4c000ab71dc5acabb",
@@ -1297,6 +1309,49 @@
       "analysis": {
         "provider": "Xiaomi MiMo",
         "model": "mimo-v2.6-flash"
+      }
+    },
+    "https://vorasio.com/posts/20261028-paper_brief.html": {
+      "topic": "inference_systems",
+      "created_at": "2026-10-28T04:42:14.668610+00:00",
+      "items": [
+        {
+          "uid": "da3eeb03a84a88b91a182932",
+          "title": "Prior-informed machine learning for clinically interpretable medical diagnosis",
+          "url": "https://doi.org/10.3389/fbioe.2026.1973664",
+          "published": "2026-10-28T00:00:00+00:00",
+          "summary": "Traditional machine learning (ML) in medical diagnostics often suffers from limited clinical interpretability and poor generalization, owing to its black-box, data-driven nature. Here, we present Prior-Informed Machine Learning (PIML), a framework that integrates clinically grounded generative reasoning with data-driven, ML-enabled discriminative modeling through Bayesian inference to provide clinically interpretable, patient-specific diagnostic outcomes. By embedding the optimization of sensitivity and specificity in data-driven diagnosis—requirements for subsequent Bayesian inference—directly into the ML model development process, PIML enables a synergistic integration of machine learning and clinical expertise that cannot be achieved through either data-driven or clinically grounded approaches alone. PIML was validated across three clinical domains—cervical neoplasia detection, high-risk oral lesion detection, and preterm birth detection—where Bayesian inference was systematically employed to integrate electrical impedance spectroscopy (EIS)-based machine learning with domain-specific clinical expertise, thereby enabling more comprehensive and enhanced diagnostic decision-making. Our results demonstrate that PIML generally improves diagnostic performance compared with standard ML approaches and provides competitive or superior performance relative to knowledge-based and feat",
+          "source": "Crossref Inference",
+          "kind": "research",
+          "doi": "10.3389/fbioe.2026.1973664",
+          "date_precision": "day"
+        },
+        {
+          "uid": "546162506c19a020f3239a7d",
+          "title": "3 Ways to Boost MoE Inference on NVIDIA DGX Spark",
+          "url": "https://developer.nvidia.com/blog/3-ways-to-boost-moe-inference-on-nvidia-dgx-spark",
+          "published": "2026-10-27T15:00:00+00:00",
+          "summary": "Generating tokens faster starts with identifying what limits inference performance. In the batch-size-1 evaluation of Ling-3.0-flash from Inclusion AI on NVIDIA...",
+          "source": "NVIDIA Technical Blog",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        },
+        {
+          "uid": "0678ef779e838564d381747e",
+          "title": "Quantized Edge Inference of a Self-Supervised SAR-Optical Encoder on Commodity x86 Hardware",
+          "url": "https://arxiv.org/abs/2610.37056v1",
+          "published": "2026-10-27T11:24:25+00:00",
+          "summary": "Self-supervised vision transformers are increasingly used as reusable encoders for Earth observation, but their inference cost on the hardware available in the field is rarely characterized. We deploy a pretrained SAR-optical masked-autoencoder encoder on three commodity x86 nodes, from a low-power CPU without AVX2 to an AVX2+VNNI reference, at FP32, FP16 and INT8 on the CPU and, where present, the integrated GPU, and report latency, energy (RAPL and wall plug) and linear-probe accuracy. Quantization is accuracy-neutral: INT8 changes micro-mAP by only +0.0006, within the seed spread, so precision becomes a pure cost decision. INT8 lowers CPU latency on every node, by 1.45x even on the CPU without AVX2, and CPU energy wherever it is measured, and the VNNI reference (1.53x) suggests a further gain beyond AVX2. The Pareto-optimal device shifts from the integrated GPU, which is 4.38x faster than the CPU on the weakest node, to the CPU as the CPU class improves.",
+          "source": "arXiv Inference Systems",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
       }
     }
   }
