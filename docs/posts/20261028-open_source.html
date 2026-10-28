@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 开源项目与工具更新（2026-10-28）</title><meta name="description" content="AI 开源项目与工具更新（2026-10-28）：1 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav><a href="../index.html#latest">时间线</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">AI 开源项目与工具更新</p><dl><dt>发布时间</dt><dd data-published-at="2026-10-28T13:12:22.390212+08:00">2026-10-28 13:12 · UTC+8</dd><dt>研究条目</dt><dd>1 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · AI 开源项目与工具更新</p><h1>AI 开源项目与工具更新（2026-10-28）</h1><!-- provenance:start --><p class="ai-analysis" title="openai/gpt-oss-20b">AI 分析：Groq</p><!-- provenance:end --><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期要点</h2>
+<ul>
+<li>Ollama 发布 v0.40.12，新增 Liquid AI LFM3 系列模型，支持文本、图像、音频多模态推理，并提供 256K‑token 上下文窗口的 1.7B 文本模型[1]。</li>
+<li>d1 系列模型升级至 2B 参数，基于 LFM3，新增音频决策能力，已在 Apple 设备上正式支持[1]。</li>
+<li>兼容性方面，Apple Silicon 上 Gemma 4、Flint 与 Laguna 模型的提示处理速度提升，MLX 与 llama.cpp 亦已更新[1]。</li>
+<li>迁移风险：当前仅 Apple 设备支持 LFM3 与 d1‑2b，Linux/Windows 仍待发布，迁移至其他平台需等待官方补丁[1]。</li>
+</ul>
+<h2>逐项速览</h2>
+<table>
+<thead>
+<tr>
+<th>变更</th>
+<th>证据</th>
+<th>局限</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>LFM3 系列模型</strong></td>
+<td>新增 lfm3、lfm3‑vl、lfm3‑audio、lfm3‑omni，分别支持文本、图像、音频及多模态推理；提供 256K‑token 上下文窗口[1]。</td>
+<td>仅在 Apple 设备上可用，Linux/Windows 支持尚未发布；模型大小与推理速度未给出具体数值。</td>
+</tr>
+<tr>
+<td><strong>d1 系列模型</strong></td>
+<td>d1 与 d1‑omni 基于 LFM3，参数 2B，支持文本、图像及音频决策；已在 Apple 设备上正式支持[1]。</td>
+<td>同上，跨平台兼容性待补丁；未提供性能基准或与旧版 d1 的对比。</td>
+</tr>
+<tr>
+<td><strong>Apple Silicon 性能提升</strong></td>
+<td>Gemma 4、Flint 与 Laguna 模型提示处理速度提升；Gemma 4 在小图像上保留更多细节[1]。</td>
+<td>具体加速倍数未披露；仅针对 Apple Silicon，其他平台无改动。</td>
+</tr>
+<tr>
+<td><strong>MLX 与 llama.cpp 更新</strong></td>
+<td>Speculative decoding 支持 DFlash2 草稿模型；<code>ollama launch</code> 与 OpenCode v2 兼容[1]。</td>
+<td>仅列出功能点，缺乏兼容性测试细节与性能数据。</td>
+</tr>
+<tr>
+<td><strong>工具调用修复</strong></td>
+<td>修复 Kimi CLI 的工具仅助手切换问题[1]。</td>
+<td>仅提及修复，未说明影响范围或重现步骤。</td>
+</tr>
+</tbody>
+</table>
+<h2>值得采取的行动</h2>
+<ul>
+<li><strong>在 Apple 设备上测试 LFM3 与 d1‑2b</strong>：使用 <code>ollama run lfm3</code> 与 <code>ollama run d1:2b</code> 进行基准测试，验证多模态推理与上下文窗口功能。</li>
+<li><strong>关注跨平台支持公告</strong>：监控 Ollama 官方渠道，获取 Linux/Windows 版 LFM3 与 d1‑2b 的发布日期与兼容性说明。</li>
+<li><strong>评估 Gemma 4 性能提升</strong>：在 Apple Silicon 上对比旧版与新版 Gemma 4 的提示处理时间，确认是否满足项目需求。</li>
+<li><strong>验证 Speculative Decoding</strong>：尝试在 MLX 环境下使用 DFlash2 草稿模型，确认解码支持与性能变化。</li>
+</ul>
+<h2>参考资料</h2>
+<p>[1] ollama/ollama: v0.40.12 – <a href="https://github.com/ollama/ollama/releases/tag/v0.40.12">https://github.com/ollama/ollama/releases/tag/v0.40.12</a></p>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>

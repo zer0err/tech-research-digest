@@ -7,9 +7,36 @@
       "attempts": 1
     },
     "2026-10-28:open_source": {
-      "status": "analysis_rejected",
-      "updated_at": "2026-10-28T03:42:24.756546+00:00",
-      "attempts": 1
+      "status": "prepared",
+      "updated_at": "2026-10-28T05:12:22.390212+00:00",
+      "attempts": 2,
+      "pending": {
+        "topic": "open_source",
+        "title": "AI 开源项目与工具更新",
+        "url": "https://vorasio.com/posts/20261028-open_source.html",
+        "created_at": "2026-10-28T05:12:22.390212+00:00",
+        "items": [
+          {
+            "uid": "8a255500d712d0aeccb5fa8e",
+            "title": "ollama/ollama: v0.40.12",
+            "url": "https://github.com/ollama/ollama/releases/tag/v0.40.12",
+            "published": "2026-10-27T00:07:12+00:00",
+            "summary": "## Liquid AI LFM3 [LFM3](https://ollama.com/library/lfm3) is Liquid AI's new family of small models built for local agents, tool calling, and structured output, on Liquid's new tri-hybrid architecture. The family includes: - [lfm3](https://ollama.com/library/lfm3): a 1.7B text model with a 256K-token context window - [lfm3-vl](https://ollama.com/library/lfm3-vl): adds image understanding - [lfm3-audio](https://ollama.com/library/lfm3-audio): speech recognition, translation, and text-to-speech in 18 languages - [lfm3-omni](https://ollama.com/library/lfm3-omni): text, images, and audio in one model ```sh ollama run lfm3 ``` ## d1 decision models Liquid AI's d1 models now come in a 2B size, built on LFM3. [d1](https://ollama.com/library/d1) makes decisions about text and images, and [d1-omni](https://ollama.com/library/d1-omni) adds audio. ```sh ollama run d1:2b \"I was charged twice for order 4417.\" --ask \"Is this a billing issue?\" ``` Note: lfm3 and d1 2b are supported on Apple hardware in this release. Support for Linux/Windows coming soon. ## What's Changed - Faster prompt processing on Apple silicon for Gemma 4, Flint and Laguna models - Speculative decoding now supports DFlash2 draft models on MLX - Gemma 4 keeps more detail in small images - `ollama launch` now works with OpenCode v2 - Fixed tool-only assistant turns from Kimi CLI - Updated MLX and llama.cpp **Full Changelog",
+            "source": "Ollama Releases",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          }
+        ],
+        "notify": false,
+        "mode": "production",
+        "analysis": {
+          "provider": "Groq",
+          "model": "openai/gpt-oss-20b"
+        },
+        "slot": "open_source"
+      },
+      "maintenance_notified": true
     },
     "2026-10-28:morning_radar": {
       "status": "published",

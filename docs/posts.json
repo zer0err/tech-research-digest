@@ -1,5 +1,33 @@
 [
   {
+    "title": "AI 开源项目与工具更新（2026-10-28）",
+    "date": "2026-10-28T13:12:22.390212+08:00",
+    "count": 1,
+    "url": "posts/20261028-open_source.html",
+    "topic": "open_source",
+    "status": "published",
+    "summary": "本期要点 - Ollama 发布 v0.40.12，新增 Liquid AI LFM3 系列模型，支持文本、图像、音频多模态推理，并提供 256K‑token 上下文窗口的 1.7B 文本模型1。 - d1 系列模型升级至 2B 参数，基于 LFM3，新增音频决策能力，已在 Apple 设备上正式支持1。 - 兼容性方",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "ollama/ollama: v0.40.12",
+          "url": "https://github.com/ollama/ollama/releases/tag/v0.40.12",
+          "publisher": "Ollama Releases",
+          "host": "github.com",
+          "family": "代码与版本",
+          "published": "2026-10-27T00:07:12+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 论文午间速览（2026-10-28）",
     "date": "2026-10-28T12:42:14.668610+08:00",
     "count": 3,
