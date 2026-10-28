@@ -1,6 +1,48 @@
 {
   "version": 1,
   "slots": {
+    "2026-10-28:morning_radar": {
+      "status": "prepared",
+      "updated_at": "2026-10-28T01:12:22.100978+00:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "morning_radar",
+        "title": "AI 晨间雷达与免费资源",
+        "url": "https://vorasio.com/posts/20261028-morning_radar.html",
+        "created_at": "2026-10-28T01:12:22.100978+00:00",
+        "items": [
+          {
+            "uid": "92608e65bdba9862559e3872",
+            "title": "GitHub Copilot supports server-to-server authentication",
+            "url": "https://github.blog/changelog/2026-10-27-github-copilot-supports-server-to-server-authentication",
+            "published": "2026-10-27T21:36:55+00:00",
+            "summary": "GitHub Copilot now supports server-to-server authentication for GitHub Apps installed on organizations, available in public preview. Services and agents built with the GitHub Copilot SDK can now make requests on… The post GitHub Copilot supports server-to-server authentication appeared first on The GitHub Blog .",
+            "source": "GitHub 官方更新",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          },
+          {
+            "uid": "b26f70c790034ce0463adf39",
+            "title": "GitHub Copilot assisted permissions generally available",
+            "url": "https://github.blog/changelog/2026-10-26-github-copilot-assisted-permissions-generally-available",
+            "published": "2026-10-26T22:31:30+00:00",
+            "summary": "Assisted permissions are now generally available in GitHub Copilot CLI, GitHub Copilot app, and Visual Studio Code. When Copilot requests permission to run a command, access a file system path,… The post GitHub Copilot assisted permissions generally available appeared first on The GitHub Blog .",
+            "source": "GitHub 官方更新",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          }
+        ],
+        "notify": true,
+        "mode": "production",
+        "analysis": {
+          "provider": "Groq",
+          "model": "openai/gpt-oss-20b"
+        },
+        "slot": "morning_radar"
+      }
+    },
     "2026-10-27:prompt_engineering": {
       "status": "no_matching_in_window",
       "updated_at": "2026-10-27T06:12:20.757707+00:00",

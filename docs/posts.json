@@ -1,5 +1,44 @@
 [
   {
+    "title": "AI 晨间雷达与免费资源（2026-10-28）",
+    "date": "2026-10-28T09:12:22.100978+08:00",
+    "count": 2,
+    "url": "posts/20261028-morning_radar.html",
+    "topic": "morning_radar",
+    "status": "published",
+    "summary": "本时段要点 1. GitHub Copilot 已在公开预览阶段支持服务器‑对‑服务器身份验证，允许 GitHub Apps 在组织内以服务身份发起请求。1 2. Copilot 的“协助权限”功能已全面上线，覆盖 Copilot CLI、Copilot 应用及 VS Code，提升了权限请求的自动化与安全性。2 3.",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "GitHub Copilot supports server-to-server authentication",
+          "url": "https://github.blog/changelog/2026-10-27-github-copilot-supports-server-to-server-authentication",
+          "publisher": "GitHub 官方更新",
+          "host": "github.blog",
+          "family": "博客/公开网页",
+          "published": "2026-10-27T21:36:55+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "GitHub Copilot assisted permissions generally available",
+          "url": "https://github.blog/changelog/2026-10-26-github-copilot-assisted-permissions-generally-available",
+          "publisher": "GitHub 官方更新",
+          "host": "github.blog",
+          "family": "博客/公开网页",
+          "published": "2026-10-26T22:31:30+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "VORASIO AI 日报（2026-10-27）",
     "date": "2026-10-27T19:03:13.136170+08:00",
     "count": 7,
