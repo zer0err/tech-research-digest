@@ -1,11 +1,16 @@
 {
+  "2026-10-28:open_source": {
+    "status": "analysis_rejected",
+    "updated_at": "2026-10-28T03:42:24.756546+00:00",
+    "attempts": 1
+  },
   "2026-10-28:morning_radar": {
     "status": "published",
     "updated_at": "2026-10-28T01:12:22.100978+00:00",
     "attempts": 1
   },
   "2026-10-28:model_research": {
-    "status": "prepared",
+    "status": "published",
     "updated_at": "2026-10-28T02:42:17.729866+00:00",
     "attempts": 1
   },
