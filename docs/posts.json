@@ -1,5 +1,55 @@
 [
   {
+    "title": "AI 芯片、计算架构与硬件平台（2026-10-28）",
+    "date": "2026-10-28T14:12:45.992413+08:00",
+    "count": 3,
+    "url": "posts/20261028-core_research.html",
+    "topic": "core_research",
+    "status": "published",
+    "summary": "本期结论 1. Posit 16‑bit算术在内存受限 AI 任务中可替代 IEEE‑754 32‑bit浮点，实现 50% 内存带宽节省且保持 ResNet 推理精度不变1。 2. Vedic‑Reversible FIR 设计在 FPGA 上实现 30.932 ns 延迟、2.645 mW 功耗，比传统 MCM F",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "Hardware architectures for posit arithmetic: evolution, trade-offs, and artificial intelligence",
+          "url": "https://doi.org/10.11591/ijres.v15.i3.pp727-736",
+          "publisher": "OpenAlex AI Hardware",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-10-25T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.11591/ijres.v15.i3.pp727-736",
+          "kind": "research"
+        },
+        {
+          "title": "Hybrid LBPH-inspired CNN for interactive web interface-based multi-face emotion recognition on embedded and IoT platforms",
+          "url": "https://doi.org/10.11591/ijres.v15.i3.pp859-867",
+          "publisher": "OpenAlex AI Hardware",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-10-25T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.11591/ijres.v15.i3.pp859-867",
+          "kind": "research"
+        },
+        {
+          "title": "A high-speed fault-tolerant vedic FIR filter architecture on FPGA using reversible logic for ML accelerator applications",
+          "url": "https://doi.org/10.11591/ijres.v15.i3.pp596-608",
+          "publisher": "OpenAlex AI Hardware",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-10-25T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.11591/ijres.v15.i3.pp596-608",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 开源项目与工具更新（2026-10-28）",
     "date": "2026-10-28T13:12:22.390212+08:00",
     "count": 1,
