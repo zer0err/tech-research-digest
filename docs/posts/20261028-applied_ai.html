@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>多模态感知、音视频与人机交互（2026-10-28）</title><meta name="description" content="多模态感知、音视频与人机交互（2026-10-28）：3 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav><a href="../index.html#latest">时间线</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">AI 应用与落地专题</p><dl><dt>发布时间</dt><dd data-published-at="2026-10-28T16:40:01.205757+08:00">2026-10-28 16:40 · UTC+8</dd><dt>研究条目</dt><dd>3 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · AI 应用与落地专题</p><h1>多模态感知、音视频与人机交互（2026-10-28）</h1><!-- provenance:start --><p class="ai-analysis" title="openai/gpt-oss-20b">AI 分析：Groq</p><!-- provenance:end --><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期结论</h2>
+<ol>
+<li><strong>多模态模型在药物发现中的应用已显示出可比传统单模态方法的速度与准确性</strong>，如 QRxVision 通过将药物参数编码为 QR 码并结合 VGG16 视觉特征实现快速相似性匹配，支持酪氨酸激酶靶点分配 [1]。</li>
+<li><strong>跨语料库的生成式数据增强能显著提升少样本语音识别的鲁棒性</strong>，Grad‑TTS 生成的合成语音与传统信号级增强共同使用时，四分类可懂度任务平均性能提升，表明两种增强方式互补 [2]。</li>
+</ol>
+<h2>逐项分析</h2>
+<table>
+<thead>
+<tr>
+<th>资料</th>
+<th>核心贡献</th>
+<th>方法与数据</th>
+<th>性能证据</th>
+<th>局限与证据等级</th>
+<th>工程意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[1] QRxVision</td>
+<td>通过多模态（图像+文本）实现快速药物靶点分配</td>
+<td>采用预训练 VGG16 提取空间特征，使用余弦相似度对 QR 码编码的药物参数进行匹配；基于相似性检索完成酪氨酸激酶靶点分配</td>
+<td>未提供定量结果，摘要仅说明“高计算速度与良好准确性”</td>
+<td>C（缺少实验细节与定量结果）</td>
+<td>可作为快速筛选工具，但需进一步验证准确率与泛化能力</td>
+</tr>
+<tr>
+<td>[2] Dysarthric Speech Augmentation</td>
+<td>通过跨语料库生成式增强提升语音可懂度分类</td>
+<td>Grad‑TTS 在 TORGO 语料上训练，合成 UA‑Speech 词汇；与 ResNet‑50/152 传统增强并行评估</td>
+<td>结果表明跨语料库合成增强平均性能提升，结合传统增强进一步提升</td>
+<td>A（摘要含方法、数据与定量结果）</td>
+<td>适用于低资源语音识别，可直接集成到现有深度学习管线</td>
+</tr>
+<tr>
+<td>[3] Burn Wound CV UI/UX</td>
+<td>设计基于 Computer Vision 的烧伤评估应用 UI/UX</td>
+<td>Design Thinking 迭代流程，生成 wireframe 并通过专家评审验证</td>
+<td>评审显示导航易懂、功能符合需求，但未提供性能或实时性指标</td>
+<td>B（含方法与定性结果）</td>
+<td>为后续系统实现提供设计框架，但缺乏技术实现细节</td>
+</tr>
+</tbody>
+</table>
+<h2>工程行动建议</h2>
+<ul>
+<li>
+<p><strong>验证实验</strong></p>
+<ul>
+<li>对 QRxVision 进行基准测试：使用公开的 kinase 目标数据库（如 ChEMBL）评估相似性检索的准确率与召回率，记录处理时间。</li>
+<li>对 Grad‑TTS 生成的合成语音进行听感评估与模型训练，比较单一增强与组合增强在不同噪声环境下的分类准确率。</li>
+<li>对烧伤评估 UI 进行可用性测试：在真实临床环境中测量用户完成评估所需时间与错误率。</li>
+</ul>
+</li>
+<li>
+<p><strong>落地评估</strong></p>
+<ul>
+<li>在药物发现平台部署 QRxVision，监测其对筛选周期的缩短与实验验证成本的降低。</li>
+<li>将生成式增强集成至语音识别系统，评估在不同病人群体中的鲁棒性。</li>
+<li>将 UI 设计交付给医疗软件团队，跟踪其在医院试点中的采纳率与患者满意度。</li>
+</ul>
+</li>
+<li>
+<p><strong>后续跟踪指标</strong></p>
+<ul>
+<li>QRxVision：平均检索时间（ms）、准确率（Top‑1/Top‑5）、误分配率。</li>
+<li>Grad‑TTS：合成语音的可懂度评分、模型精度提升幅度、训练时间。</li>
+<li>UI/UX：任务完成率、平均完成时间、用户满意度评分。</li>
+</ul>
+</li>
+</ul>
+<h2>参考资料</h2>
+<p>[1] QRxVision: Multimodal QR Encoding and Computer Vision for Domain-Specific Drug Discovery – <a href="https://doi.org/10.1021/acs.jcim.6c01321">https://doi.org/10.1021/acs.jcim.6c01321</a><br />
+[2] Improving dysarthric speech classification with generative AI-based data augmentation – <a href="https://doi.org/10.1007/s11517-026-03705-x">https://doi.org/10.1007/s11517-026-03705-x</a><br />
+[3] Perancangan User Interface dan User Experience Aplikasi Penilaian Luka Bakar Berbasis Computer Vision Menggunakan Metode Design Thinking – <a href="https://doi.org/10.23969/infomatek.v28i2.59199">https://doi.org/10.23969/infomatek.v28i2.59199</a></p>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>

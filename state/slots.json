@@ -37,6 +37,59 @@
       "updated_at": "2026-10-28T06:12:45.992413+00:00",
       "attempts": 1
     },
+    "2026-10-28:applied_ai": {
+      "status": "prepared",
+      "updated_at": "2026-10-28T08:40:01.205757+00:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "multimodal",
+        "title": "多模态感知、音视频与人机交互",
+        "url": "https://vorasio.com/posts/20261028-applied_ai.html",
+        "created_at": "2026-10-28T08:40:01.205757+00:00",
+        "items": [
+          {
+            "uid": "df8e2c8a1ea704c83d48afc8",
+            "title": "QRxVision: Multimodal QR Encoding and Computer Vision for Domain-Specific Drug Discovery",
+            "url": "https://doi.org/10.1021/acs.jcim.6c01321",
+            "published": "2026-10-28T00:00:00+00:00",
+            "summary": "Abstract Computational approaches applied to the drug discovery pipeline are invaluable because of their overall speed or time to solution, sustainability, accessibility combined with ever improving accuracy. Furthermore, the high-throughput virtual screening supports practical sampling of the vast chemical space for target-relevant bioactive compounds that can be experimentally validated further downstream in the drug development process. The current paradigm being practiced in computer-aided drug screening strategies centers around structure-based and ligand-based approaches supported by a range of computational tools including de novo design, molecular dynamics-based approaches, and machine learning (ML). Overall, the latter approach has shown great promise generating models of high computational speed coupled with good accuracy. In this work, we developed QRxVision, a domain-specific multimodal ML model explicitly optimized for kinase target assignment using similarity-based profile matching and retrieval. QRxVision utilizes image vision from a pretrained VGG16 (Visual Geometry Group–16) model for deep spatial feature extraction and cosine similarity calculation. By encoding drug multimodality-associated parameters (MAP) into standardized QR code images, QRxVision can evaluate the similarity between test and reference compounds. Drug targets can then be assigned via transit",
+            "source": "Crossref Multimodal",
+            "kind": "research",
+            "doi": "10.1021/acs.jcim.6c01321",
+            "date_precision": "day"
+          },
+          {
+            "uid": "c86bc7ad8771c1fc0bd1b15f",
+            "title": "Improving dysarthric speech classification with generative AI-based data augmentation",
+            "url": "https://doi.org/10.1007/s11517-026-03705-x",
+            "published": "2026-10-28T00:00:00+00:00",
+            "summary": "Abstract Dysarthria is a neurological speech disorder characterized by impaired motor control of speech production, resulting in reduced intelligibility. It commonly arises in the context of neurodegenerative conditions, including amyotrophic lateral sclerosis and cerebral palsy. The development of deep learning systems for dysarthria assessment is hindered by the scarcity of annotated data, which restricts the ability of models to generalize to unseen speakers. This study proposes a cross-corpus diffusion-based data augmentation strategy for improving automatic speech intelligibility classification from dysarthric speech. A Grad-TTS model is trained on dysarthric speakers from the TORGO dataset and used to synthesize the vocabulary of UA-Speech, producing speaker-conditioned samples intended to transfer pathological acoustic traits across corpora. The proposed strategy is evaluated both independently and in combination with conventional signal-level augmentation using ResNet-50 and ResNet-152 classifiers in binary and four-class intelligibility classification tasks. The results indicate that cross-corpus synthetic augmentation improves average performance and that, in most settings, its integration with conventional augmentation yields further gains, suggesting that the two strategies introduce complementary forms of variability.",
+            "source": "Crossref Multimodal",
+            "kind": "research",
+            "doi": "10.1007/s11517-026-03705-x",
+            "date_precision": "day"
+          },
+          {
+            "uid": "f59577ea92399c6109d50db7",
+            "title": "Perancangan User Interface dan User Experience Aplikasi Penilaian Luka Bakar Berbasis Computer Vision Menggunakan Metode Design Thinking",
+            "url": "https://doi.org/10.23969/infomatek.v28i2.59199",
+            "published": "2026-10-28T00:00:00+00:00",
+            "summary": "Luka bakar merupakan salah satu permasalahan kesehatan yang memerlukan penilaian cepat dan akurat untuk menentukan tingkat keparahan serta penatalaksanaan yang tepat. Perkembangan teknologi Computer Vision memberikan peluang untuk mendukung proses identifikasi luka bakar, namun sebagian besar penelitian masih berfokus pada pengembangan algoritma dan belum banyak membahas aspek antarmuka serta pengalaman pengguna. Penelitian ini bertujuan memperoleh rancangan User Interface dan User Experience aplikasi penilaian luka bakar berbasis Computer Vision yang sesuai dengan kebutuhan pengguna. Penelitian menggunakan metode Design Thinking yang terdiri atas tahapan Empathize, Define, Ideate, Prototype, dan Test. Data diperoleh melalui studi literatur terhadap proses penilaian luka bakar, kemudian dianalisis untuk merumuskan kebutuhan pengguna dan kebutuhan sistem. Hasil penelitian berupa rancangan wireframe aplikasi yang mencakup fitur autentikasi pengguna, identitas pasien, informasi luka bakar, identifikasi area luka bakar, rekomendasi penatalaksanaan, riwayat penggunaan aplikasi, dan profil pengguna. Evaluasi melalui expert review menunjukkan bahwa rancangan yang dihasilkan memiliki alur navigasi yang mudah dipahami, fitur yang sesuai dengan kebutuhan pengguna, serta penyajian informasi yang jelas. Penelitian ini berkontribusi dalam menyediakan landasan desain aplikasi kesehatan berba",
+            "source": "Crossref Multimodal",
+            "kind": "research",
+            "doi": "10.23969/infomatek.v28i2.59199",
+            "date_precision": "day"
+          }
+        ],
+        "notify": false,
+        "mode": "production",
+        "analysis": {
+          "provider": "Groq",
+          "model": "openai/gpt-oss-20b"
+        },
+        "slot": "applied_ai"
+      }
+    },
     "2026-10-27:prompt_engineering": {
       "status": "no_matching_in_window",
       "updated_at": "2026-10-27T06:12:20.757707+00:00",

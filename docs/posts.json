@@ -1,5 +1,55 @@
 [
   {
+    "title": "多模态感知、音视频与人机交互（2026-10-28）",
+    "date": "2026-10-28T16:40:01.205757+08:00",
+    "count": 3,
+    "url": "posts/20261028-applied_ai.html",
+    "topic": "applied_ai",
+    "status": "published",
+    "summary": "本期结论 1. 多模态模型在药物发现中的应用已显示出可比传统单模态方法的速度与准确性，如 QRxVision 通过将药物参数编码为 QR 码并结合 VGG16 视觉特征实现快速相似性匹配，支持酪氨酸激酶靶点分配 1。 2. 跨语料库的生成式数据增强能显著提升少样本语音识别的鲁棒性，Grad‑TTS 生成的合成语音与传统",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "QRxVision: Multimodal QR Encoding and Computer Vision for Domain-Specific Drug Discovery",
+          "url": "https://doi.org/10.1021/acs.jcim.6c01321",
+          "publisher": "Crossref Multimodal",
+          "host": "doi.org",
+          "family": "书目索引",
+          "published": "2026-10-28T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "10.1021/acs.jcim.6c01321",
+          "kind": "research"
+        },
+        {
+          "title": "Improving dysarthric speech classification with generative AI-based data augmentation",
+          "url": "https://doi.org/10.1007/s11517-026-03705-x",
+          "publisher": "Crossref Multimodal",
+          "host": "doi.org",
+          "family": "书目索引",
+          "published": "2026-10-28T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "10.1007/s11517-026-03705-x",
+          "kind": "research"
+        },
+        {
+          "title": "Perancangan User Interface dan User Experience Aplikasi Penilaian Luka Bakar Berbasis Computer Vision Menggunakan Metode Design Thinking",
+          "url": "https://doi.org/10.23969/infomatek.v28i2.59199",
+          "publisher": "Crossref Multimodal",
+          "host": "doi.org",
+          "family": "书目索引",
+          "published": "2026-10-28T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "10.23969/infomatek.v28i2.59199",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 开发实践与部署（2026-10-28）",
     "date": "2026-10-28T15:30:37.392330+08:00",
     "count": 2,
