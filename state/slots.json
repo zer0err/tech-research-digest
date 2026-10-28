@@ -28,57 +28,9 @@
       "attempts": 1
     },
     "2026-10-28:core_research": {
-      "status": "prepared",
+      "status": "published",
       "updated_at": "2026-10-28T06:12:45.992413+00:00",
-      "attempts": 1,
-      "pending": {
-        "topic": "ai_hardware",
-        "title": "AI 芯片、计算架构与硬件平台",
-        "url": "https://vorasio.com/posts/20261028-core_research.html",
-        "created_at": "2026-10-28T06:12:45.992413+00:00",
-        "items": [
-          {
-            "uid": "f2d6f72510116a7a87864d43",
-            "title": "Hardware architectures for posit arithmetic: evolution, trade-offs, and artificial intelligence",
-            "url": "https://doi.org/10.11591/ijres.v15.i3.pp727-736",
-            "published": "2026-10-25T00:00:00+00:00",
-            "summary": "The IEEE 754 floating-point standard has been the backbone of scientific computing for decades. However, the rapid growth of deep learning (DL) and edge computing has highlighted its drawbacks, mainly in high memory bandwidth and energy usage. To solve this, the posit number system was introduced in 2017. It uses \"tapered precision\" to dynamically allocate more bits to the \"Golden Zone,\" where artificial intelligence (AI) weights usually fall. Although theoretically better, early posit hardware faced a major \"hardware tax\" because decoding variable-length regime bits was too slow. This paper presents a detailed survey of posit hardware architectures from 2017 to 2025. We trace its evolution from basic scalar generators to advanced vectorized accelerators and compute-in-memory (CIM) designs. We highlight major improvements, such as leading difference detectors (LDD) and Radix-4 dividers, which have successfully reduced decoding delay by over 40% and energy consumption by 80%. Our comparative study shows that 16-bit posits can effectively replace 32-bit IEEE floats for memory-bound tasks. It saves 50% memory bandwidth without losing accuracy in applications like ResNet inference and climate modeling. Finally, we conclude that with recent RISC-V posit vector units (PVUs), posits demonstrate competitive potential relative to BFLOAT16 and FP8 formats, particularly in memory-bound ed",
-            "source": "OpenAlex AI Hardware",
-            "kind": "research",
-            "doi": "https://doi.org/10.11591/ijres.v15.i3.pp727-736",
-            "date_precision": "day"
-          },
-          {
-            "uid": "1b06dd5dd7e658e962fbc023",
-            "title": "Hybrid LBPH-inspired CNN for interactive web interface-based multi-face emotion recognition on embedded and IoT platforms",
-            "url": "https://doi.org/10.11591/ijres.v15.i3.pp859-867",
-            "published": "2026-10-25T00:00:00+00:00",
-            "summary": "Deploying real-time facial emotion recognition on internet of things (IoT) nodes, embedded boards, and reconfigurable-computing platforms is difficult, since conventional deep convolutional neural networks (CNNs) are usually too heavy, computationally for such hardware. This work proposes a hybrid, local binary patterns histograms (LBPH)-inspired CNN pipeline: an LBPH-style illumination-normalization stage is paired with a compact, purpose-built convolutional network, keeping memory and compute demands low enough to later port to embedded and field-programmable gate array (FPGA) targets. A Streamlit-based web interface prototypes the pipeline, supporting multi-face detection with live histogram display. Tested on FER2013, the model reaches 68.5% accuracy ahead of plain LBPH's 58.4%, and close to much deeper CNNs while needing only 11.5 MB of memory (2.9 MB once int8-quantized) and 22 ms of central processing unit (CPU) inference time per face. An input-resolution ablation study identifies 96×96 as the best accuracy-latency trade-off. Beyond a single accuracy number, per-class metrics are reported, along with a discussion of where the model is likely to confuse similar emotions and a layer-by-layer breakdown of parameters and multiply-accumulate operations, intended to be directly useful for later hardware-synthesis work.",
-            "source": "OpenAlex AI Hardware",
-            "kind": "research",
-            "doi": "https://doi.org/10.11591/ijres.v15.i3.pp859-867",
-            "date_precision": "day"
-          },
-          {
-            "uid": "c0f5cd5fdec6c357b70efa86",
-            "title": "A high-speed fault-tolerant vedic FIR filter architecture on FPGA using reversible logic for ML accelerator applications",
-            "url": "https://doi.org/10.11591/ijres.v15.i3.pp596-608",
-            "published": "2026-10-25T00:00:00+00:00",
-            "summary": "communication, and machine-learning hardware require high speed, low power consumption, and fault tolerance. This work proposes a high-speed, power-efficient, and fault-tolerant finite impulse response (FIR) filter architecture by integrating Vedic mathematics, reversible logic, and error-correction coding into an FPGA-based framework for machine-learning accelerators. A 16-tap FIR filter is implemented on a Xilinx Virtex-5 FPGA using the Urdhva-Tiryakbhayam Vedic multiplication technique with reversible Peres and controlled-NOT (CNOT) gates and a reversible look-ahead carry adder (LACA), enabling parallel computation with reduced information loss. A Hamming-code-based error correction code (ECC) module is incorporated to detect and correct single-bit soft errors without the hardware overhead associated with triple modular redundancy (TMR). Synthesis results demonstrate a propagation delay of 30.932 ns and power consumption of 2.645 mW, achieving a 5.57% latency improvement over an multiple constant multiplication (MCM)-based FIR baseline while providing single-bit fault correction. The proposed architecture demonstrates its suitability as a replacement for multiply-accumulate (MAC) units in convolutional neural network accelerators, particularly for power-constrained and fault-sensitive edge artificial intelligence applications.",
-            "source": "OpenAlex AI Hardware",
-            "kind": "research",
-            "doi": "https://doi.org/10.11591/ijres.v15.i3.pp596-608",
-            "date_precision": "day"
-          }
-        ],
-        "notify": false,
-        "mode": "production",
-        "analysis": {
-          "provider": "Groq",
-          "model": "openai/gpt-oss-20b"
-        },
-        "slot": "core_research"
-      }
+      "attempts": 1
     },
     "2026-10-27:prompt_engineering": {
       "status": "no_matching_in_window",
