@@ -1,5 +1,44 @@
 [
   {
+    "title": "AI 模型、训练与基础研究（2026-10-28）",
+    "date": "2026-10-28T10:42:17.729866+08:00",
+    "count": 2,
+    "url": "posts/20261028-model_research.html",
+    "topic": "model_research",
+    "status": "published",
+    "summary": "本期结论 - 关系图注意力机制的对称性约束研究提出：在允许每个实体坐标系独立旋转的前提下，Wilson 环形式的边注意力是唯一满足对称性要求的更新方式，属于值得关注的信号（仅单篇理论工作，尚无独立复现）1。 - 针对智能体提示优化的噪声过滤与成功轨迹检索框架 GEPA-Curator，在四个基准上相对 GEPA 与 A",
+    "provenance": {
+      "analysis": {
+        "provider": "Xiaomi MiMo",
+        "model": "mimo-v2.6-flash"
+      },
+      "sources": [
+        {
+          "title": "Attention as Lattice Gauge Theory: Relations Interact Only Through Wilson Loops",
+          "url": "https://arxiv.org/abs/2610.37656v1",
+          "publisher": "arXiv Model Research",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-10-27T17:58:48+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "GEPA-Curator: Curated Learning for Self Improving Agents",
+          "url": "https://arxiv.org/abs/2610.37651v1",
+          "publisher": "arXiv Model Research",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-10-27T17:58:11+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 晨间雷达与免费资源（2026-10-28）",
     "date": "2026-10-28T09:12:22.100978+08:00",
     "count": 2,

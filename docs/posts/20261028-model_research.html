@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 模型、训练与基础研究（2026-10-28）</title><meta name="description" content="AI 模型、训练与基础研究（2026-10-28）：2 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav><a href="../index.html#latest">时间线</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">AI 模型、训练与基础研究</p><dl><dt>发布时间</dt><dd data-published-at="2026-10-28T10:42:17.729866+08:00">2026-10-28 10:42 · UTC+8</dd><dt>研究条目</dt><dd>2 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · AI 模型、训练与基础研究</p><h1>AI 模型、训练与基础研究（2026-10-28）</h1><!-- provenance:start --><p class="ai-analysis" title="mimo-v2.6-flash">AI 分析：Xiaomi MiMo</p><!-- provenance:end --><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期结论</h2>
+<ul>
+<li>关系图注意力机制的对称性约束研究提出：在允许每个实体坐标系独立旋转的前提下，Wilson 环形式的边注意力是唯一满足对称性要求的更新方式，属于值得关注的信号（仅单篇理论工作，尚无独立复现）[1]。</li>
+<li>针对智能体提示优化的噪声过滤与成功轨迹检索框架 GEPA-Curator，在四个基准上相对 GEPA 与 ACE 均有提升，最高分别达 20.7% 与 21.2%，属于值得关注的信号（单篇论文，跨基准但同属一个框架）[2]。</li>
+</ul>
+<h2>逐项分析</h2>
+<p><strong>[1] Attention as Lattice Gauge Theory</strong></p>
+<ul>
+<li>核心贡献：论证在每实体坐标系可独立旋转的规范自由度下，无共享环的关系无法相互作用，三角形的唯一规范不变量是 holonomy 的类函数（Wilson 环），并给出唯一等变边更新形式 $U = Ψ(H), T_{ij}$ [1]。</li>
+<li>方法与数据：将知识图谱的交换算子嵌入、AlphaFold 三角更新、Edge Transformer 与格点 QCD 归入同一形式的不同扇区，并在一般关系图上实例化为 holonomy attention；在稀疏图上以组合推理方式推断未观测 $S_4$ 关系 [1]。</li>
+<li>性能证据：无需训练，在 1/5 边被污染条件下达到 0.88，作者称&quot;达到或略低于专业同步方法&quot;（摘要未给出对比方法名称与完整基线）[1]。</li>
+<li>局限与证据等级：摘要未提供训练细节、数据集规模、方差或显著性检验，证据等级 C（理论主张含少量定量结果但缺完整实验细节）[1]。</li>
+<li>工程意义：为知识图谱推理、分子图与关系结构建模提供带对称性约束的架构候选，但落地前需在真实任务上与现有 GNN/Transformer 对比 [1]。</li>
+</ul>
+<p><strong>[2] GEPA-Curator</strong></p>
+<ul>
+<li>核心贡献：主张智能体失败可能源于提示缺陷、harness 限制、随机执行或噪声评判，此类信号对提示优化无益甚至有害，因此需要对送入优化器的任务进行筛选 [2]。</li>
+<li>方法与数据：包含任务筛选（过滤高噪声任务）与先验成功检索（为优化器提供历史成功轨迹上下文）两个组件；在 GoBrowse、ALFWorld、AppWorld、τ-bench 上以 Gemini 3.1 Pro 与 Claude Opus 5 作为优化模型评估 [2]。</li>
+<li>性能证据：匹配或超过两个基线的平均性能，相对 GEPA 最高提升 20.7%，相对 ACE 最高提升 21.2%（摘要未给出各基准分解与方差）[2]。</li>
+<li>局限与证据等级：证据等级 B（含方法与定性/部分定量结果，缺逐基准细节与评判噪声量化）[2]。</li>
+<li>工程意义：对多轮智能体提示优化流水线，任务质量筛选可能是低成本高收益的改进点，但需在自有 harness 上复现 [2]。</li>
+</ul>
+<h2>工程行动建议</h2>
+<ul>
+<li>验证实验：在自有关系图任务上实现 holonomy attention，与 GAT/Edge Transformer 在相同数据划分下对比，检验 0.88 是否可复现 [1]；在自有智能体任务上复现 GEPA-Curator 的任务筛选逻辑，量化噪声任务占比与筛选后提升 [2]。</li>
+<li>落地评估：[1] 适用于知识图谱补全、分子属性预测等关系结构任务，暂不建议直接替换生产模型 [1]；[2] 可在提示优化成本敏感的场景试点，注意其依赖特定优化模型与评判器 [2]。</li>
+<li>后续跟踪指标：[1] 需跟踪独立复现、与 AlphaFold 三角更新的定量对比 [1]；[2] 需跟踪跨模型（非 Gemini/Claude）泛化性、筛选阈值敏感性与评判噪声测量方法 [2]。</li>
+</ul>
+<h2>参考资料</h2>
+<p>[1] Attention as Lattice Gauge Theory: Relations Interact Only Through Wilson Loops <a href="https://arxiv.org/abs/2610.37656v1">https://arxiv.org/abs/2610.37656v1</a>
+[2] GEPA-Curator: Curated Learning for Self Improving Agents <a href="https://arxiv.org/abs/2610.37651v2">https://arxiv.org/abs/2610.37651v2</a></p>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>
