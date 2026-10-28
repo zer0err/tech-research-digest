@@ -1,5 +1,44 @@
 [
   {
+    "title": "AI 开发实践与部署（2026-10-28）",
+    "date": "2026-10-28T15:30:37.392330+08:00",
+    "count": 2,
+    "url": "posts/20261028-dev_practice.html",
+    "topic": "dev_practice",
+    "status": "published",
+    "summary": "本期主题 本期聚焦 FastAPI 0.158.x 系列的两个相邻版本更新，帮助使用 FastAPI 构建 AI 服务接口的开发者判断是否升级、升级后表单相关接口可能出现哪些行为变化 12。0.158.2 新增了对可选表单模型（optional form models）的支持 1；0.158.1 修复了 OpenAPI",
+    "provenance": {
+      "analysis": {
+        "provider": "Xiaomi MiMo",
+        "model": "mimo-v2.6-flash"
+      },
+      "sources": [
+        {
+          "title": "0.158.2",
+          "url": "https://github.com/fastapi/fastapi/releases/tag/0.158.2",
+          "publisher": "FastAPI Releases",
+          "host": "github.com",
+          "family": "代码与版本",
+          "published": "2026-10-21T19:20:32+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "0.158.1",
+          "url": "https://github.com/fastapi/fastapi/releases/tag/0.158.1",
+          "publisher": "FastAPI Releases",
+          "host": "github.com",
+          "family": "代码与版本",
+          "published": "2026-10-21T17:47:27+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 芯片、计算架构与硬件平台（2026-10-28）",
     "date": "2026-10-28T14:12:45.992413+08:00",
     "count": 3,
