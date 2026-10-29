@@ -7,57 +7,9 @@
       "attempts": 1
     },
     "2026-10-29:model_research": {
-      "status": "prepared",
+      "status": "published",
       "updated_at": "2026-10-29T02:42:16.061473+00:00",
-      "attempts": 1,
-      "pending": {
-        "topic": "model_research",
-        "title": "AI 模型、训练与基础研究",
-        "url": "https://vorasio.com/posts/20261029-model_research.html",
-        "created_at": "2026-10-29T02:42:16.061473+00:00",
-        "items": [
-          {
-            "uid": "b2cdbdd2504fd314d9f68cde",
-            "title": "Language and Thought: The View from LLMs",
-            "url": "https://doi.org/10.1093/9780198999102.003.0008",
-            "published": "2026-10-29T00:00:00+00:00",
-            "summary": "Abstract Daniel Dennett speculated in Kinds of Minds (1996): “Perhaps the kind of mind you get when you add language to it is so different from the kind of mind you can have without language that calling them both minds is a mistake.” Recent work in AI can be seen as testing Dennett’s thesis by exploring the performance of AI systems with and without linguistic training. The chapter argues that the success of Large Language Models (LLMs) at inferential reasoning, limited though it is, supports Dennett’s radical view about the effect of language on thought. It suggests it is the abstractness and efficiency of linguistic encoding that lies behind the capacity of LLMs to perform inferences across a wide range of domains. In a slogan, language makes inference computationally tractable. The chapter assesses what these results in AI indicate about the role of language in the workings of our own biological minds.",
-            "source": "Crossref Model Research",
-            "kind": "research",
-            "doi": "10.1093/9780198999102.003.0008",
-            "date_precision": "day"
-          },
-          {
-            "uid": "5f51ab997879e689785cbc51",
-            "title": "Supervising the search process produces reliable and generalizable information-seeking agents",
-            "url": "https://doi.org/10.1038/s41467-026-78807-z",
-            "published": "2026-10-28T00:00:00+00:00",
-            "summary": "Abstract Large language models (LLMs) are transforming web search by shifting from document ranking to synthesizing answers, and are increasingly deployed as autonomous agentic search systems that iteratively interact with external knowledge sources. Despite this progress, building effective search agents remains challenging because high-quality intermediate search steps are difficult to generate. Previous approaches have primarily relied on outcome supervision, rewarding agents only for producing correct final answers. This often leads to reward hacking and excessive dependence on parametric memory, limiting generalization to out-of-domain tasks. To address these limitations, we introduce RAG-Gym, a framework that shifts supervision from final answers to the search process itself. With RAG-Gym, we systematically investigate architecture design, parameter optimization, and action evaluation, identifying reasoning reflection as a critical capability for search agents. Building on this insight, we propose Re 2 Search++, a process-supervised agent that achieves substantial improvements on multi-hop information-seeking benchmarks, especially in out-of-domain settings. Performance gains are driven primarily by higher-quality search queries rather than answer optimization alone, and the learned search critics transfer across models, including proprietary LLMs. These findings show tha",
-            "source": "OpenAlex Model Research",
-            "kind": "research",
-            "doi": "https://doi.org/10.1038/s41467-026-78807-z",
-            "date_precision": "day"
-          },
-          {
-            "uid": "4dc5c9372bf35d4af48e9959",
-            "title": "LESS-PseU: A Language Model-Enhanced Semistacking Framework for RNA Pseudouridine Site Prediction",
-            "url": "https://doi.org/10.1021/acs.jcim.6c02817",
-            "published": "2026-10-28T00:00:00+00:00",
-            "summary": "Abstract Accurate prediction of RNA pseudouridine (Ψ) sites remains challenging because existing models often struggle to integrate interpretable handcrafted features with high-dimensional contextual representations from pretrained genomic language models. To address this issue, we propose LESS-PseU, a language model-enhanced semistacking framework that fuses the predicted probability features of primary learners with DNABERT2 embeddings for multiple species Ψ site prediction. Specifically, we first built three primary learners based on three kinds of hand-crafted features, including one-hot, k-mer, and nucleotide chemical property features. Instead of training a primary learner based on the embeddings extracted from DNABERT2, the embeddings were directly concatenated with the predicted probabilities of the three primary learners as the input features for a Logistic Regression meta-learner for final prediction. Under a leakage-aware cross-validation setting, our model was validated on the training sets of three species. Furthermore, on independent test sets from human, mouse, and yeast, LESS-PseU achieved AUC values of 0.9069, 0.8833, and 0.8820, respectively, which were higher than those of the compared models. A Friedman test indicated an overall difference (p = 0.029). Paired DeLong tests further showed that the AUC improvements over Meta-PseU were significant for the human ",
-            "source": "OpenAlex Model Research",
-            "kind": "research",
-            "doi": "https://doi.org/10.1021/acs.jcim.6c02817",
-            "date_precision": "day"
-          }
-        ],
-        "notify": false,
-        "mode": "production",
-        "analysis": {
-          "provider": "Groq",
-          "model": "openai/gpt-oss-20b"
-        },
-        "slot": "model_research"
-      }
+      "attempts": 1
     },
     "2026-10-28:prompt_engineering": {
       "status": "no_matching_in_window",
