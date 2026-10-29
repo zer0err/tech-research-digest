@@ -1,5 +1,55 @@
 [
   {
+    "title": "AI 模型、训练与基础研究（2026-10-29）",
+    "date": "2026-10-29T10:42:16.061473+08:00",
+    "count": 3,
+    "url": "posts/20261029-model_research.html",
+    "topic": "model_research",
+    "status": "published",
+    "summary": "本期结论 1. 语言编码的抽象性与效率显著提升推理能力，支持 Dennett 关于语言对思维影响的观点，且在多领域推理任务中表现出可观的性能提升1。 2. 通过对搜索过程的过程监督（RAG‑Gym）可显著提高信息‑寻求型代理的泛化能力，尤其在跨域任务中表现优于仅靠最终答案奖励的模型2。 3. 在特定生物信息学任务中，将",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "Language and Thought: The View from LLMs",
+          "url": "https://doi.org/10.1093/9780198999102.003.0008",
+          "publisher": "Crossref Model Research",
+          "host": "doi.org",
+          "family": "书目索引",
+          "published": "2026-10-29T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "10.1093/9780198999102.003.0008",
+          "kind": "research"
+        },
+        {
+          "title": "Supervising the search process produces reliable and generalizable information-seeking agents",
+          "url": "https://doi.org/10.1038/s41467-026-78807-z",
+          "publisher": "OpenAlex Model Research",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-10-28T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.1038/s41467-026-78807-z",
+          "kind": "research"
+        },
+        {
+          "title": "LESS-PseU: A Language Model-Enhanced Semistacking Framework for RNA Pseudouridine Site Prediction",
+          "url": "https://doi.org/10.1021/acs.jcim.6c02817",
+          "publisher": "OpenAlex Model Research",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-10-28T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.1021/acs.jcim.6c02817",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 晨间雷达与免费资源（2026-10-29）",
     "date": "2026-10-29T09:12:25.766303+08:00",
     "count": 3,

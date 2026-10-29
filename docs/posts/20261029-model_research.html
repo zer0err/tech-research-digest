@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 模型、训练与基础研究（2026-10-29）</title><meta name="description" content="AI 模型、训练与基础研究（2026-10-29）：3 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav><a href="../index.html#latest">时间线</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">AI 模型、训练与基础研究</p><dl><dt>发布时间</dt><dd data-published-at="2026-10-29T10:42:16.061473+08:00">2026-10-29 10:42 · UTC+8</dd><dt>研究条目</dt><dd>3 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · AI 模型、训练与基础研究</p><h1>AI 模型、训练与基础研究（2026-10-29）</h1><!-- provenance:start --><p class="ai-analysis" title="openai/gpt-oss-20b">AI 分析：Groq</p><!-- provenance:end --><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期结论</h2>
+<ol>
+<li>语言编码的抽象性与效率显著提升推理能力，支持 Dennett 关于语言对思维影响的观点，且在多领域推理任务中表现出可观的性能提升[1]。</li>
+<li>通过对搜索过程的过程监督（RAG‑Gym）可显著提高信息‑寻求型代理的泛化能力，尤其在跨域任务中表现优于仅靠最终答案奖励的模型[2]。</li>
+<li>在特定生物信息学任务中，将预训练基因语言模型（DNABERT2）与传统手工特征融合的半堆叠框架（LESS‑PseU）可实现更高的预测准确率，表明预训练模型在特定领域仍具显著优势[3]。</li>
+</ol>
+<h2>逐项分析</h2>
+<table>
+<thead>
+<tr>
+<th>资料</th>
+<th>核心贡献</th>
+<th>方法与数据</th>
+<th>性能证据</th>
+<th>局限与证据等级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[1]</td>
+<td>论证语言对推理能力的决定性作用</td>
+<td>对比 LLM 在有语言训练与无语言训练下的推理表现</td>
+<td>通过多领域推理实验显示 LLM 在语言训练后显著提升，支持 Dennett 观点</td>
+<td>A（摘要含方法、数据及定量结果）</td>
+</tr>
+<tr>
+<td>[2]</td>
+<td>引入过程监督框架 RAG‑Gym，提升搜索代理泛化</td>
+<td>通过对搜索步骤的监督，设计 Re 2 Search++，评估多跳信息寻求基准</td>
+<td>在跨域基准上显著提升，主要归因于更高质量的查询；学习到的搜索评判器可迁移至多种 LLM</td>
+<td>A</td>
+</tr>
+<tr>
+<td>[3]</td>
+<td>提出 LESS‑PseU 半堆叠框架，融合手工特征与 DNABERT2 嵌入</td>
+<td>训练三种基学习器（one‑hot、k‑mer、化学属性），将其预测概率与 DNABERT2 嵌入拼接给 Logistic 回归元学习器</td>
+<td>在三种物种的独立测试集上分别取得 AUC 0.9069、0.8833、0.8820，显著优于对比模型[3]</td>
+<td>A</td>
+</tr>
+</tbody>
+</table>
+<h2>工程行动建议</h2>
+<ul>
+<li><strong>验证实验</strong>
+<ul>
+<li>对于通用推理能力，可复现 [1] 中的多领域推理实验，使用相同的语言训练与无语言训练设置，评估推理准确率与推理时间。</li>
+<li>对于搜索代理，可在公开的多跳信息寻求基准（如 HotpotQA、SearchQA）上实现 RAG‑Gym 并对比 Re 2 Search++ 与传统奖励方式的性能。</li>
+<li>对于特定应用，可在 RNA 伪尿苷位点预测任务中复现 LESS‑PseU，使用公开的三种物种数据集，验证 AUC 与对比模型差异。</li>
+</ul>
+</li>
+<li><strong>落地评估</strong>
+<ul>
+<li>评估通用推理模型在实际业务场景（如客服问答、技术文档检索）中的响应速度与准确率。</li>
+<li>对搜索代理，测量查询生成质量、外部知识检索次数与最终答案准确率，评估跨域迁移效果。</li>
+<li>对特定模型，结合实验室或行业数据，验证在不同物种或实验条件下的鲁棒性。</li>
+</ul>
+</li>
+<li><strong>后续跟踪指标</strong>
+<ul>
+<li>推理模型：推理准确率、推理时间、模型参数量。</li>
+<li>搜索代理：查询质量得分、跨域准确率、搜索步骤数。</li>
+<li>特定模型：AUC、F1、跨物种迁移性能。</li>
+</ul>
+</li>
+</ul>
+<h2>参考资料</h2>
+<ol>
+<li>Language and Thought: The View from LLMs. Crossref Model Research. <a href="https://doi.org/10.1093/9780198999102.003.0008">https://doi.org/10.1093/9780198999102.003.0008</a></li>
+<li>Supervising the search process produces reliable and generalizable information-seeking agents. OpenAlex Model Research. <a href="https://doi.org/10.1038/s41467-026-78807-z">https://doi.org/10.1038/s41467-026-78807-z</a></li>
+<li>LESS-PseU: A Language Model-Enhanced Semistacking Framework for RNA Pseudouridine Site Prediction. OpenAlex Model Research. <a href="https://doi.org/10.1021/acs.jcim.6c02817">https://doi.org/10.1021/acs.jcim.6c02817</a></li>
+</ol>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>
