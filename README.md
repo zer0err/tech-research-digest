@@ -31,7 +31,7 @@ VORASIO 是面向 AI 开发者与智能硬件实践者的自动化技术研究�
 
 AI 学习课程采用整套生成、AI 自查、代码实测后全量发布的方式，不建设课程后台或逐日定时释出。需求见 [`planning/COURSE_PLATFORM_REQUIREMENTS.md`](planning/COURSE_PLATFORM_REQUIREMENTS.md)，阶段 1 的确定性校验工具见 [`course_system/README.md`](course_system/README.md)。
 
-AI 生态工具目录正在按“先证据、后页面”的顺序实施。阶段 A 已建立 14 条官方开源项目样例及确定性校验，尚未公开空壳目录；分类、免费口径、地区规则和后续静态页面方案见 [`planning/AI_TOOLS_DIRECTORY_REQUIREMENTS.md`](planning/AI_TOOLS_DIRECTORY_REQUIREMENTS.md)。
+AI 生态工具目录按“先证据、后页面”的顺序实施。阶段 A、B 已完成：首批公开 14 条经官方来源核验的开源本地项目，并提供搜索、领域与使用方式筛选；不发布空分类，不把软件开源误写成模型、硬件或外部服务免费。扩充大陆/海外与免费层/试用/付费产品属于下一阶段，规则见 [`planning/AI_TOOLS_DIRECTORY_REQUIREMENTS.md`](planning/AI_TOOLS_DIRECTORY_REQUIREMENTS.md)。
 
 ## 自动编辑日（北京时间）
 
