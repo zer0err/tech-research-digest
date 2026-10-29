@@ -1,5 +1,55 @@
 [
   {
+    "title": "高效 AI、模型压缩与端侧适配（2026-10-29）",
+    "date": "2026-10-29T14:12:22.109951+08:00",
+    "count": 3,
+    "url": "posts/20261029-core_research.html",
+    "topic": "core_research",
+    "status": "published",
+    "summary": "本期结论 1. 低电压、低变异的BEOL铁电突触权重：在 180 nm CMOS 生产线上集成 2‑端 WOx/HfO₂‑ZrO₂ 叠层，可在 1.8 V 以下完成编程，循环间变异低于 3 %3。这表明铁电突触可实现低功耗、低延迟的权重存储，适合端侧推理。 2. 端到端差分仿真学习：通过差分移动间隙公式，将稀疏通过事件",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "Learning Visuomotor Quadrotor Flight Through Dynamic Narrow Gaps via Differentiable Simulation",
+          "url": "https://arxiv.org/abs/2610.37557v1",
+          "publisher": "arXiv Efficient AI",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-10-27T17:05:05+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "Finite-Resolution Physics from Additivity Symmetry",
+          "url": "https://arxiv.org/abs/2610.37556v1",
+          "publisher": "arXiv Efficient AI",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-10-27T17:04:59+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "Back-End-Of-Line Integration of 2-Terminal Ferroelectric Hafnia Synaptic Weights on Commercial CMOS Process",
+          "url": "https://arxiv.org/abs/2610.37530v1",
+          "publisher": "arXiv Efficient AI",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-10-27T16:51:15+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 论文午间速览（2026-10-29）",
     "date": "2026-10-29T12:42:17.740958+08:00",
     "count": 3,

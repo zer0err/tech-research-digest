@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>高效 AI、模型压缩与端侧适配（2026-10-29）</title><meta name="description" content="高效 AI、模型压缩与端侧适配（2026-10-29）：3 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav><a href="../index.html#latest">时间线</a><a href="../courses/index.html">AI 学习</a><a href="../tools/index.html">AI 工具</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">智能硬件技术专题</p><dl><dt>发布时间</dt><dd data-published-at="2026-10-29T14:12:22.109951+08:00">2026-10-29 14:12 · UTC+8</dd><dt>研究条目</dt><dd>3 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · 智能硬件技术专题</p><h1>高效 AI、模型压缩与端侧适配（2026-10-29）</h1><!-- provenance:start --><p class="ai-analysis" title="openai/gpt-oss-20b">AI 分析：Groq</p><!-- provenance:end --><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期结论</h2>
+<ol>
+<li><strong>低电压、低变异的BEOL铁电突触权重</strong>：在 180 nm CMOS 生产线上集成 2‑端 WOx/[HfO₂‑ZrO₂] 叠层，可在 1.8 V 以下完成编程，循环间变异低于 3 %[3]。这表明铁电突触可实现低功耗、低延迟的权重存储，适合端侧推理。</li>
+<li><strong>端到端差分仿真学习</strong>：通过差分移动间隙公式，将稀疏通过事件转化为稠密路径目标，单阶段从随机初始化训练即可在仿真中达到 99.3 % 的成功率，仅需数分钟训练时间[1]。这提示在缺乏教师或规划器的情况下，差分学习可显著提升精度关键任务的训练效率。</li>
+</ol>
+<h2>逐项分析</h2>
+<h3>1. Learning Visuomotor Quadrotor Flight Through Dynamic Narrow Gaps via Differentiable Simulation</h3>
+<ul>
+<li><strong>核心贡献</strong>：提出一种差分可移动间隙的仿真框架，将通过事件稀疏化为路径级目标，直接在视觉与惯性测量上训练控制策略，无需教师或规划器[1]。</li>
+<li><strong>方法与数据</strong>：使用签名距离对齐、平滑碰撞项进行门控；在合成与真实实验中验证，仿真成功率 99.3 %[1]。</li>
+<li><strong>性能证据</strong>：仅需数分钟训练即可达到高成功率，表明梯度稠密化显著提升学习效率[1]。</li>
+<li><strong>局限与证据等级</strong>：摘要未给出硬件延迟、功耗或内存占用等端侧指标；仅报告仿真与实验成功率，缺乏量化的资源消耗数据[1]。证据等级 <strong>A</strong>。</li>
+<li><strong>工程意义</strong>：可用于在嵌入式视觉系统中实现端到端控制，但需进一步评估模型大小与推理延迟。</li>
+</ul>
+<h3>2. Finite-Resolution Physics from Additivity Symmetry</h3>
+<ul>
+<li><strong>核心贡献</strong>：从有限分辨率加法群的四项一致性约束推导量子场论的 Hilbert 空间、Born 规则等[2]。</li>
+<li><strong>方法与数据</strong>：理论推导，无实验数据。</li>
+<li><strong>性能证据</strong>：无实验或数值验证。</li>
+<li><strong>局限与证据等级</strong>：缺乏实验细节与量化结果，属于理论主张[2]。证据等级 <strong>C</strong>。</li>
+<li><strong>工程意义</strong>：对 AI 模型压缩与端侧适配无直接可操作结论。</li>
+</ul>
+<h3>3. Back-End-Of-Line Integration of 2-Terminal Ferroelectric Hafnia Synaptic Weights on Commercial CMOS Process</h3>
+<ul>
+<li><strong>核心贡献</strong>：首次在 180 nm CMOS BEOL 中集成 2‑端铁电突触权重，提出 WOx/[HfO₂‑ZrO₂] 叠层，低电压编程与低变异[3]。</li>
+<li><strong>方法与数据</strong>：在 450 °C 下编程 &lt;1.8 V，循环间变异 &lt;3 %；500 °C 下权重更新更平滑；在完整集成后 NMOS 仍保持功能[3]。</li>
+<li><strong>性能证据</strong>：硬件实验报告编程电压、变异率；通过硬件感知神经网络仿真展示热预算与训练性能权衡[3]。</li>
+<li><strong>局限与证据等级</strong>：未给出权重存储容量、推理延迟、功耗或吞吐量等端侧指标；仅提供单个工艺节点的实验结果[3]。证据等级 <strong>A</strong>。</li>
+<li><strong>工程意义</strong>：表明 BEOL 铁电突触可用于低功耗、低延迟的神经网络加速器，但需进一步评估大规模部署与多任务推理的资源占用。</li>
+</ul>
+<h2>工程行动建议</h2>
+<table>
+<thead>
+<tr>
+<th>目标</th>
+<th>验证实验</th>
+<th>落地评估</th>
+<th>后续跟踪指标</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>铁电突触端侧推理</strong></td>
+<td>在 180 nm CMOS 上搭建小型 CNN，测量权重存储容量、推理延迟、功耗与温度变化[3]</td>
+<td>对比传统 SRAM/DRAM 加速器的能耗与吞吐量</td>
+<td>变异率随温度/工作周期的漂移；功耗随工作频率的变化</td>
+</tr>
+<tr>
+<td><strong>差分学习控制策略</strong></td>
+<td>在嵌入式视觉+惯性平台上部署训练好的策略，记录推理延迟、CPU/GPU 负载与功耗[1]</td>
+<td>与传统规划器/教师学习方法的成功率与资源占用做对比</td>
+<td>训练时间、模型大小、推理延迟与成功率的相关性</td>
+</tr>
+<tr>
+<td><strong>跨工艺验证</strong></td>
+<td>在 65 nm/28 nm CMOS 上重复铁电突触集成实验，评估热预算与电压阈值[3]</td>
+<td>评估不同工艺节点下的能效与可靠性</td>
+<td>热预算对权重更新速率与变异率的影响</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>注意</strong>：上述实验均基于摘要中提供的实验数据；若缺乏具体数值，建议先进行原型验证后再制定量化指标。</p>
+</blockquote>
+<h2>参考资料</h2>
+<ol>
+<li>Learning Visuomotor Quadrotor Flight Through Dynamic Narrow Gaps via Differentiable Simulation – <a href="https://arxiv.org/abs/2610.37557v1">https://arxiv.org/abs/2610.37557v1</a></li>
+<li>Finite-Resolution Physics from Additivity Symmetry – <a href="https://arxiv.org/abs/2610.37556v1">https://arxiv.org/abs/2610.37556v1</a></li>
+<li>Back-End-Of-Line Integration of 2-Terminal Ferroelectric Hafnia Synaptic Weights on Commercial CMOS Process – <a href="https://arxiv.org/abs/2610.37530v1">https://arxiv.org/abs/2610.37530v1</a></li>
+</ol>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>

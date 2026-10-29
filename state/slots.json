@@ -26,6 +26,59 @@
       "updated_at": "2026-10-29T02:42:16.061473+00:00",
       "attempts": 1
     },
+    "2026-10-29:core_research": {
+      "status": "prepared",
+      "updated_at": "2026-10-29T06:12:22.109951+00:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "efficient_ai",
+        "title": "高效 AI、模型压缩与端侧适配",
+        "url": "https://vorasio.com/posts/20261029-core_research.html",
+        "created_at": "2026-10-29T06:12:22.109951+00:00",
+        "items": [
+          {
+            "uid": "9d9b360d84ae608458801c6f",
+            "title": "Learning Visuomotor Quadrotor Flight Through Dynamic Narrow Gaps via Differentiable Simulation",
+            "url": "https://arxiv.org/abs/2610.37557v1",
+            "published": "2026-10-27T17:05:05+00:00",
+            "summary": "Threading a quadrotor through a moving narrow gap is a demanding test of agile flight, requiring centimeter-level spatial alignment and precise temporal execution. We address this challenge using a control policy that operates directly on onboard visual and inertial measurements to output collective thrust and body-rate commands. The task is difficult because success lies on a thin feasible manifold: small errors in timing, position, attitude, or visual observability cause collision. Prior planning and learning methods rely on privileged state, teachers, planners, or distillation; learning dynamic narrow-gap traversal directly, from scratch, remains open. We introduce a differentiable moving-gap formulation that gates centering, alignment, and smooth collision terms by signed distance to a time-varying gap plane, turning a sparse traversal event into a dense pathwise objective. We integrate this formulation into a visual-feature-to-command policy trained in one stage from random initialization, without a teacher, planner, or distillation. We validate our approach in both synthetic and real-world experiments. In controlled benchmarks, we demonstrate that pathwise gradients significantly outperform score-function gradients for precision-critical tasks, yielding a 99.3% success rate in simulation after only a few minutes of training on a single GPU. Furthermore, the policy transfe",
+            "source": "arXiv Efficient AI",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          },
+          {
+            "uid": "9c5d500a8baf2ec064a2c110",
+            "title": "Finite-Resolution Physics from Additivity Symmetry",
+            "url": "https://arxiv.org/abs/2610.37556v1",
+            "published": "2026-10-27T17:04:59+00:00",
+            "summary": "Quantum field theory unifies special relativity and quantum mechanics, yet relies on externally imposed prescriptions for quantization, renormalization, and probabilistic interpretation that lack a common algebraic foundation. This work derives these features from a single principle: the finite-resolution realization of the additive group (R, +) under four consistency constraints: finite operational resolution (FR1), multiplicative linearity (FR2), phase coherence (FR3), and statistical typicality (FR4). The Hilbert-space formalism of quantum theory, the Born probability rule, and the Kolmogorov structure of statistical mechanics emerge as limiting projections of a common additive algebra, without additional postulates. Extending this framework to spacetime translations and their automorphisms, we recover the kinematic and dynamical structure of quantum field theory and address ultraviolet divergences through intrinsic finiteness rather than external renormalization. Quantization and unitarity emerge from additive symmetry, while the gravitational field is interpreted as the algebraic kernel transporting boundary information into bulk observables, without requiring an independent quantization of the metric. This framework aims to provide a unified, finite, and algebraic foundation for physical law.nite, and algebraic foundation for physical law.",
+            "source": "arXiv Efficient AI",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          },
+          {
+            "uid": "43c3488e0a10dddb5dd927f4",
+            "title": "Back-End-Of-Line Integration of 2-Terminal Ferroelectric Hafnia Synaptic Weights on Commercial CMOS Process",
+            "url": "https://arxiv.org/abs/2610.37530v1",
+            "published": "2026-10-27T16:51:15+00:00",
+            "summary": "Functionalising the back-end-of-line (BEOL) of CMOS with emerging materials is a key route to neural network accelerators and neuromorphic systems. In this work, we demonstrate for the first time the integration of 2-terminal ferroelectric synaptic weights in the BEOL of as-delivered commercial 180 nm CMOS dies. A novel material stack is proposed, in which a WOx/[HfO2-ZrO2] bilayer is sandwiched between TiN and Mo electrodes. For devices annealed at 450 °C, programming below 1.8 V is achieved with a cycle-to-cycle variation below 3 %. Synaptic weights annealed at 500 °C exhibit more gradual weight updates, while the tested underlying NMOS transistors remain functional after the complete integration process. The trade-off between thermal budget and on-device training performance is illustrated using hardware-aware neural network simulations.",
+            "source": "arXiv Efficient AI",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          }
+        ],
+        "notify": false,
+        "mode": "production",
+        "analysis": {
+          "provider": "Groq",
+          "model": "openai/gpt-oss-20b"
+        },
+        "slot": "core_research"
+      }
+    },
     "2026-10-28:prompt_engineering": {
       "status": "no_matching_in_window",
       "updated_at": "2026-10-28T06:12:17.892084+00:00",
