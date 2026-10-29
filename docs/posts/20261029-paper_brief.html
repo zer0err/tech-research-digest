@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 论文午间速览（2026-10-29）</title><meta name="description" content="AI 论文午间速览（2026-10-29）：3 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav><a href="../index.html#latest">时间线</a><a href="../courses/index.html">AI 学习</a><a href="../tools/index.html">AI 工具</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">AI 论文午间速览</p><dl><dt>发布时间</dt><dd data-published-at="2026-10-29T12:42:17.740958+08:00">2026-10-29 12:42 · UTC+8</dd><dt>研究条目</dt><dd>3 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · AI 论文午间速览</p><h1>AI 论文午间速览（2026-10-29）</h1><!-- provenance:start --><p class="ai-analysis" title="openai/gpt-oss-20b">AI 分析：Groq</p><!-- provenance:end --><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期要点</h2>
+<ol>
+<li>FPNet‑NSNP 通过非线性膜系统激励的 ConvSNP 单元实现多尺度特征净化，实验表明在图像伪造定位任务上与现有方法竞争性表现，但未给出具体参数量或推理延迟数据[1]。</li>
+<li>Factorized Vector Quantization（FVQ）在离散视觉表示中突破量化误差饱和，理论上可在更高位宽下匹配连续表示的语义理解性能，但缺乏对模型规模、功耗或设备适配性的实测结果[2]。</li>
+<li>MoI‑Bench 为移动端图像生成与编辑提供细粒度评估框架，已测得服务器端与移动端模型在操作×目标维度上的性能差距，但未公开具体内存占用、延迟或吞吐量指标[3]。</li>
+</ol>
+<h2>逐项速览</h2>
+<ul>
+<li>
+<p><strong>FPNet‑NSNP</strong></p>
+<ul>
+<li><strong>核心变化</strong>：引入 CFF、VP 与 FP 三模块，ConvSNP 单元模仿非线性脉冲神经元系统实现特征净化。</li>
+<li><strong>证据</strong>：在公开图像伪造定位基准上“竞争性表现”，并在噪声、JPEG 压缩及医学图像跨域实验中验证鲁棒性。</li>
+<li><strong>局限</strong>：摘要未提供模型参数量、量化位宽、剪枝/蒸馏策略、内存/延迟/吞吐/功耗数据，亦未说明目标设备或部署方式[1]。</li>
+</ul>
+</li>
+<li>
+<p><strong>Factorized Vector Quantization</strong></p>
+<ul>
+<li><strong>核心变化</strong>：采用对称并行码本对固定维度视图进行量化，解决传统量化器在高位宽下饱和问题。</li>
+<li><strong>证据</strong>：在工业规模多模态数据上，FVQ 在多模态理解任务中分别比 UniAR 和 Emu3‑Chat 提升 22.8% 与 59.2%。</li>
+<li><strong>局限</strong>：未给出模型规模、参数量、量化位宽、剪枝或蒸馏方法、内存占用、延迟、吞吐或功耗；未说明是否适用于移动或嵌入式设备[2]。</li>
+</ul>
+</li>
+<li>
+<p><strong>MoI‑Bench</strong></p>
+<ul>
+<li><strong>核心变化</strong>：构建 64 个子任务、1150 个样本的移动端评估基准，涵盖 16 种操作与 8 视觉目标，配合 MoI‑Eval 任务特定指标。</li>
+<li><strong>证据</strong>：对比服务器端与移动端模型，揭示特定能力缺口（如文本替换）优先级。</li>
+<li><strong>局限</strong>：摘要未提供模型参数量、量化策略、剪枝/蒸馏、内存、延迟、吞吐或功耗数据；未说明评估所用设备规格或部署环境[3]。</li>
+</ul>
+</li>
+</ul>
+<h2>值得采取的行动</h2>
+<ul>
+<li><strong>针对 FPNet‑NSNP</strong>：在实验室环境下复现其 ConvSNP 单元，记录参数量、推理延迟与功耗，评估其在目标移动设备上的可行性。</li>
+<li><strong>针对 FVQ</strong>：实现 Factorized Vector Quantization 并在标准多模态基准上测量模型压缩率、位宽与推理速度，验证其在低功耗设备上的部署潜力。</li>
+<li><strong>针对 MoI‑Bench</strong>：使用该基准在本地移动设备上跑一组代表性模型，收集内存占用、延迟与吞吐量数据，形成完整的资源与质量对比报告。</li>
+</ul>
+<h2>参考资料</h2>
+<ol>
+<li>Nonlinear Membrane-System-Based Multiscale Feature Purification Learning Framework. Crossref Efficient AI. <a href="https://doi.org/10.1142/s0129065727500389">https://doi.org/10.1142/s0129065727500389</a></li>
+<li>Can Discrete Tokens Serve as Semantically Lossless Representations of Visual Signals? arXiv Efficient AI. <a href="https://arxiv.org/abs/2610.37662v1">https://arxiv.org/abs/2610.37662v1</a></li>
+<li>MoI-Bench: A Benchmark for Image Generation and Editing on Mobile Devices. arXiv Efficient AI. <a href="https://arxiv.org/abs/2610.37599v1">https://arxiv.org/abs/2610.37599v1</a></li>
+</ol>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>

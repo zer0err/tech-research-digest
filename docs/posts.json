@@ -1,5 +1,55 @@
 [
   {
+    "title": "AI 论文午间速览（2026-10-29）",
+    "date": "2026-10-29T12:42:17.740958+08:00",
+    "count": 3,
+    "url": "posts/20261029-paper_brief.html",
+    "topic": "paper_brief",
+    "status": "published",
+    "summary": "本期要点 1. FPNet‑NSNP 通过非线性膜系统激励的 ConvSNP 单元实现多尺度特征净化，实验表明在图像伪造定位任务上与现有方法竞争性表现，但未给出具体参数量或推理延迟数据1。 2. Factorized Vector Quantization（FVQ）在离散视觉表示中突破量化误差饱和，理论上可在更高位宽下",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "Nonlinear Membrane-System-Based Multiscale Feature Purification Learning Framework",
+          "url": "https://doi.org/10.1142/s0129065727500389",
+          "publisher": "Crossref Efficient AI",
+          "host": "doi.org",
+          "family": "书目索引",
+          "published": "2026-10-29T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "10.1142/s0129065727500389",
+          "kind": "research"
+        },
+        {
+          "title": "Can Discrete Tokens Serve as Semantically Lossless Representations of Visual Signals?",
+          "url": "https://arxiv.org/abs/2610.37662v1",
+          "publisher": "arXiv Efficient AI",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-10-27T17:59:22+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "MoI-Bench: A Benchmark for Image Generation and Editing on Mobile Devices",
+          "url": "https://arxiv.org/abs/2610.37599v1",
+          "publisher": "arXiv Efficient AI",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-10-27T17:31:40+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 开源项目与工具更新（2026-10-29）",
     "date": "2026-10-29T11:42:17.690495+08:00",
     "count": 1,
