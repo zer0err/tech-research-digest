@@ -1,0 +1,868 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>从模型到智能体：一篇看懂 AI 生态、代表产品与常见术语 · VORASIO</title><meta name="description" content="七个观察层、73 个代表模型与工具，读懂 model、harness、agent、vibe coding 的关系和应用场景。">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<link rel="stylesheet" href="../assets/knowledge.css?v=1"></head>
+<body class="knowledge-page"><a class="knowledge-skip" href="#main">跳到正文</a><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav aria-label="主导航"><a href="../index.html#latest">时间线</a><a aria-current="page" href="../knowledge/index.html">AI 知识科普</a><a href="../courses/index.html">AI 学习</a><a href="../tools/index.html">AI 工具</a><a href="../about.html">关于</a></nav></header>
+<main id="main"><nav class="knowledge-breadcrumb" aria-label="面包屑"><a href="../index.html">首页</a> / <a href="index.html">AI 知识科普</a> / 生态与术语</nav><div class="knowledge-layout"><aside class="knowledge-toc" aria-label="本文目录"><h2>本文目录</h2><ol><li class="top"><a href="#section-1">一、先看全貌：AI 生态如何分层</a></li><li class="top"><a href="#section-2">二、模型及其上层，哪些作品值得认识</a></li><li class="sub"><a href="#layer-1">① 模型层：提供理解、推理与生成能力</a></li><li class="sub"><a href="#layer-2">② 推理与接入层：让模型真正跑起来</a></li><li class="sub"><a href="#layer-3">③ 知识与工具层：让 AI 能查资料、做操作</a></li><li class="sub"><a href="#layer-4">④ 智能体框架与运行时层：让 AI 持续推进任务</a></li><li class="sub"><a href="#layer-5">⑤ 工作流与搭建平台层：把 AI 组织成业务流程</a></li><li class="sub"><a href="#layer-6">⑥ 编程与软件创造应用层：从辅助写代码到交付软件</a></li><li class="sub"><a href="#layer-7">⑦ 通用与专业应用层：直接解决用户问题</a></li><li class="top"><a href="#section-10">三、最关键的四个术语：model、harness、agent、vibe coding</a></li><li class="sub"><a href="#section-11">1. Model：模型，是能力来源</a></li><li class="sub"><a href="#section-12">2. Harness：让模型持续工作的运行控制系统</a></li><li class="sub"><a href="#section-13">3. Agent：围绕目标观察、行动并利用反馈的系统</a></li><li class="sub"><a href="#section-14">4. Vibe coding：通过描述、运行和反馈来做软件</a></li><li class="top"><a href="#section-15">四、其他常见术语，以及什么时候会用到</a></li><li class="sub"><a href="#section-16">围绕模型与输入</a></li><li class="sub"><a href="#section-17">围绕知识、工具与连接</a></li><li class="sub"><a href="#section-18">围绕任务执行与质量</a></li><li class="top"><a href="#section-19">五、用三个真实场景，把这些概念连起来</a></li><li class="top"><a href="#section-20">六、面对这么多工具，应该怎样选择</a></li><li class="top"><a href="#section-21">来源与编辑说明</a></li></ol></aside><article class="knowledge-article"><p class="eyebrow">AI 知识科普 · 01</p><h1>从模型到智能体：一篇看懂 AI 生态、代表产品与常见术语</h1><div class="knowledge-meta"><span>资料查证：<time datetime="2026-10-29">2026-10-29</time></span><span>7 个观察层 · 73 个代表作品</span><span>AI 辅助整理 · 含官方来源</span></div><details class="knowledge-mobile-toc"><summary>展开本文目录</summary><ol><li class="top"><a href="#section-1">一、先看全貌：AI 生态如何分层</a></li><li class="top"><a href="#section-2">二、模型及其上层，哪些作品值得认识</a></li><li class="sub"><a href="#layer-1">① 模型层：提供理解、推理与生成能力</a></li><li class="sub"><a href="#layer-2">② 推理与接入层：让模型真正跑起来</a></li><li class="sub"><a href="#layer-3">③ 知识与工具层：让 AI 能查资料、做操作</a></li><li class="sub"><a href="#layer-4">④ 智能体框架与运行时层：让 AI 持续推进任务</a></li><li class="sub"><a href="#layer-5">⑤ 工作流与搭建平台层：把 AI 组织成业务流程</a></li><li class="sub"><a href="#layer-6">⑥ 编程与软件创造应用层：从辅助写代码到交付软件</a></li><li class="sub"><a href="#layer-7">⑦ 通用与专业应用层：直接解决用户问题</a></li><li class="top"><a href="#section-10">三、最关键的四个术语：model、harness、agent、vibe coding</a></li><li class="sub"><a href="#section-11">1. Model：模型，是能力来源</a></li><li class="sub"><a href="#section-12">2. Harness：让模型持续工作的运行控制系统</a></li><li class="sub"><a href="#section-13">3. Agent：围绕目标观察、行动并利用反馈的系统</a></li><li class="sub"><a href="#section-14">4. Vibe coding：通过描述、运行和反馈来做软件</a></li><li class="top"><a href="#section-15">四、其他常见术语，以及什么时候会用到</a></li><li class="sub"><a href="#section-16">围绕模型与输入</a></li><li class="sub"><a href="#section-17">围绕知识、工具与连接</a></li><li class="sub"><a href="#section-18">围绕任务执行与质量</a></li><li class="top"><a href="#section-19">五、用三个真实场景，把这些概念连起来</a></li><li class="top"><a href="#section-20">六、面对这么多工具，应该怎样选择</a></li><li class="top"><a href="#section-21">来源与编辑说明</a></li></ol></details><div class="article-body"><p>我们平时说“这个 AI 很厉害”，可能是在评价一个模型，也可能是在评价一整套软件系统。</p>
+<p>这两者差别很大：模型负责理解、推理和生成；完整产品还要负责查资料、调用工具、保存进度、处理错误，以及把结果交到你手上。理解 AI 生态，关键就是弄清楚这些能力分别来自哪里。</p>
+<p>本文从模型开始，把生态划分为七个观察层，收录 <strong>73 个代表模型、项目和产品，每层不少于 10 个</strong>，再解释 harness、agent、vibe coding 等常见术语。</p>
+<p>资料查证时间为 <strong>2026 年 10 月 29 日</strong>。以下是按代表性、特色和实际用途挑选的学习地图，不是性能排行榜。模型以家族为单位介绍，避免把同一家族的多个版本重复计数；名称附官方链接，便于继续了解。</p>
+<h2 id="section-1">一、先看全貌：AI 生态如何分层</h2>
+<p>模型下面还有芯片、云计算、训练框架、数据和训练系统。它们决定模型如何被制造出来；本文重点讨论模型本身，以及模型如何变成可用产品。</p>
+<table>
+<thead>
+<tr>
+<th>观察层</th>
+<th>回答的问题</th>
+<th>可以怎样理解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>① 模型层</td>
+<td>AI 能理解、推理和生成什么？</td>
+<td>提供基础能力</td>
+</tr>
+<tr>
+<td>② 推理与接入层</td>
+<td>模型在哪里运行，怎样被调用？</td>
+<td>把能力变成可访问的服务</td>
+</tr>
+<tr>
+<td>③ 知识与工具层</td>
+<td>AI 如何获得外部信息、操作外部世界？</td>
+<td>接上资料库和工具箱</td>
+</tr>
+<tr>
+<td>④ 智能体框架与运行时层</td>
+<td>AI 如何连续执行任务并处理反馈？</td>
+<td>组织执行循环</td>
+</tr>
+<tr>
+<td>⑤ 工作流与搭建平台层</td>
+<td>如何把 AI 接入业务流程？</td>
+<td>组装自动化系统</td>
+</tr>
+<tr>
+<td>⑥ 编程与软件创造应用层</td>
+<td>如何让 AI 帮人开发软件？</td>
+<td>面向软件工作的成品工具</td>
+</tr>
+<tr>
+<td>⑦ 通用与专业应用层</td>
+<td>普通用户怎样直接获得结果？</td>
+<td>面向具体需求的产品</td>
+</tr>
+</tbody>
+</table>
+<p>这里的“层”是一种理解方式，并非所有系统都严格逐层搭建。⑥和⑦实际上是应用层的两条分支；③中的工具也可能直接被应用调用。许多产品横跨多层，以下按主要用途归类。</p>
+<p>评测、日志、权限、成本管理和安全控制则贯穿整个系统。</p>
+<hr />
+<h2 id="section-2">二、模型及其上层，哪些作品值得认识</h2>
+<h3 id="layer-1">① 模型层：提供理解、推理与生成能力</h3>
+<p>模型是经过训练得到的参数系统。输入文字、图片或其他信息后，它产生回答、代码、图像、音频，或者提出工具调用请求。</p>
+<p>模型本身通常不等于聊天软件，也不天然拥有你的文件、浏览器和账户权限。</p>
+<table>
+<thead>
+<tr>
+<th>代表模型家族</th>
+<th>简短介绍与典型用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://developers.openai.com/api/docs/models">GPT</a></td>
+<td>OpenAI 的模型家族，覆盖通用理解、推理、编程及多模态任务，是多种助手和开发应用的能力来源。</td>
+</tr>
+<tr>
+<td><a href="https://platform.claude.com/docs/en/models/overview">Claude</a></td>
+<td>Anthropic 的模型家族，常用于文档分析、写作、编程和工具使用。</td>
+</tr>
+<tr>
+<td><a href="https://ai.google.dev/gemini-api/docs/models">Gemini</a></td>
+<td>Google 的多模态模型家族，可用于文本、图像、音视频相关任务，并与 Google 开发生态结合。</td>
+</tr>
+<tr>
+<td><a href="https://api-docs.deepseek.com/">DeepSeek</a></td>
+<td>覆盖通用对话、推理和编程等方向；部分模型提供开放权重，兼顾 API 使用与部署研究。</td>
+</tr>
+<tr>
+<td><a href="https://qwen.ai/">Qwen／通义千问</a></td>
+<td>阿里巴巴的模型家族，覆盖语言、代码、视觉等方向，拥有丰富的开放模型生态。</td>
+</tr>
+<tr>
+<td><a href="https://github.com/MoonshotAI/Kimi-K2">Kimi</a></td>
+<td>月之暗面开发的模型系列，代表方向包括复杂任务、代码和工具调用；需与同名助手产品区分。</td>
+</tr>
+<tr>
+<td><a href="https://docs.z.ai/">GLM</a></td>
+<td>智谱／Z.ai 的模型家族，覆盖语言、推理、编程及智能体相关任务。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mistral.ai/models">Mistral</a></td>
+<td>提供商用及开放权重模型，也覆盖代码、文档识别和语音等方向。</td>
+</tr>
+<tr>
+<td><a href="https://github.com/meta-llama/llama-models">Llama</a></td>
+<td>Meta 的开放权重模型家族，是自建应用、微调和模型研究的重要基础之一。</td>
+</tr>
+<tr>
+<td><a href="https://docs.x.ai/developers/models">Grok</a></td>
+<td>提供通用对话、推理和多模态能力的模型家族，可通过 API 用于应用开发。</td>
+</tr>
+<tr>
+<td><a href="https://bfl.ai/">FLUX</a></td>
+<td>Black Forest Labs 的生成模型家族，以图像生成和编辑闻名，可用于视觉创作与素材生产。</td>
+</tr>
+<tr>
+<td><a href="https://stability.ai/">Stable Diffusion</a></td>
+<td>图像生成领域的重要模型家族，围绕它形成了丰富的微调、控制和本地创作工具生态。</td>
+</tr>
+</tbody>
+</table>
+<p>需要注意：<strong>开放权重不自动等于完整开源，更不自动等于可以任意商用。</strong> 不同版本的代码、权重、训练资料和许可证可能不同。</p>
+<h3 id="layer-2">② 推理与接入层：让模型真正跑起来</h3>
+<p>训练完成的模型，需要运行环境才能提供服务。这一层主要解决速度、显存、并发、部署和接口接入。</p>
+<p>其中既有底层推理引擎，也有本地运行工具和云服务入口，它们解决的是同一阶段的不同问题。</p>
+<table>
+<thead>
+<tr>
+<th>代表作品</th>
+<th>简短介绍与典型用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://docs.vllm.ai/">vLLM</a></td>
+<td>高吞吐模型推理与服务框架，适合团队部署多人同时调用的模型 API。</td>
+</tr>
+<tr>
+<td><a href="https://docs.sglang.io/">SGLang</a></td>
+<td>面向语言和多模态模型的高性能服务框架，关注低延迟、缓存复用和并行推理。</td>
+</tr>
+<tr>
+<td><a href="https://github.com/ggml-org/llama.cpp">llama.cpp</a></td>
+<td>使用 C/C++ 实现的模型推理项目，支持多种硬件，适合本地与资源受限环境。</td>
+</tr>
+<tr>
+<td><a href="https://nvidia.github.io/TensorRT-LLM/">TensorRT-LLM</a></td>
+<td>NVIDIA 的大模型推理优化工具，适合围绕其 GPU 做性能优化。</td>
+</tr>
+<tr>
+<td><a href="https://ollama.com/">Ollama</a></td>
+<td>简化开放模型的获取、运行和调用，适合个人实验及搭建本地 AI 服务。</td>
+</tr>
+<tr>
+<td><a href="https://lmstudio.ai/">LM Studio</a></td>
+<td>围绕开放模型提供桌面使用体验，适合希望通过图形界面探索本地模型的用户。</td>
+</tr>
+<tr>
+<td><a href="https://huggingface.co/inference-endpoints">Hugging Face Inference Endpoints</a></td>
+<td>将模型部署为托管推理端点，减少自行维护服务的工作。</td>
+</tr>
+<tr>
+<td><a href="https://openrouter.ai/docs/quickstart">OpenRouter</a></td>
+<td>多模型 API 接入与路由平台，适合在统一入口比较、切换不同模型。</td>
+</tr>
+<tr>
+<td><a href="https://www.together.ai/">Together AI</a></td>
+<td>提供模型推理、部署及训练相关云服务，适合开发者使用开放模型生态。</td>
+</tr>
+<tr>
+<td><a href="https://fireworks.ai/">Fireworks AI</a></td>
+<td>提供模型推理与定制服务，适合把模型能力接入实际应用。</td>
+</tr>
+</tbody>
+</table>
+<p>这一层容易混淆的地方是：<strong>Ollama 不是一个模型，OpenRouter 也不是一个模型。</strong> 它们帮助你运行或接入模型。</p>
+<h3 id="layer-3">③ 知识与工具层：让 AI 能查资料、做操作</h3>
+<p>模型训练时学到的知识有边界，也不会自动知道公司的内部制度、最新订单或你的日程。</p>
+<p>这一层提供两类能力：找到相关资料，以及执行外部操作。</p>
+<table>
+<thead>
+<tr>
+<th>代表作品</th>
+<th>简短介绍与典型用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.pinecone.io/">Pinecone</a></td>
+<td>托管向量检索与知识基础设施，常用于企业知识库和语义搜索。</td>
+</tr>
+<tr>
+<td><a href="https://weaviate.io/">Weaviate</a></td>
+<td>支持向量与混合检索的数据库，适合构建语义搜索和知识应用。</td>
+</tr>
+<tr>
+<td><a href="https://qdrant.tech/">Qdrant</a></td>
+<td>向量搜索引擎，可结合结构化条件筛选，适合带业务约束的相似内容检索。</td>
+</tr>
+<tr>
+<td><a href="https://milvus.io/">Milvus</a></td>
+<td>面向大规模向量检索的数据库，适合海量文本、图片等内容搜索。</td>
+</tr>
+<tr>
+<td><a href="https://www.trychroma.com/">Chroma</a></td>
+<td>面向 AI 应用的搜索基础设施，可用于知识检索和应用原型。</td>
+</tr>
+<tr>
+<td><a href="https://github.com/pgvector/pgvector">pgvector</a></td>
+<td>为 PostgreSQL 增加向量搜索能力，适合已有 PostgreSQL 系统的团队。</td>
+</tr>
+<tr>
+<td><a href="https://www.elastic.co/">Elasticsearch</a></td>
+<td>搜索引擎，支持关键词、向量和混合检索，适合结合现有企业搜索系统。</td>
+</tr>
+<tr>
+<td><a href="https://www.firecrawl.dev/">Firecrawl</a></td>
+<td>将网页抓取并转换为适合 AI 处理的内容，适合研究、资料采集和知识库建设。</td>
+</tr>
+<tr>
+<td><a href="https://www.tavily.com/">Tavily</a></td>
+<td>面向 AI 应用提供搜索和网页信息获取能力，适合研究型智能体。</td>
+</tr>
+<tr>
+<td><a href="https://playwright.dev/">Playwright</a></td>
+<td>浏览器自动化工具，可以打开网页、点击和填写表单；接入智能体后可成为操作工具。</td>
+</tr>
+</tbody>
+</table>
+<p>向量数据库只是检索系统的一部分。资料清洗、权限过滤、关键词搜索和结果重排，同样影响答案质量。Playwright 则是通用自动化工具，其本身并不是 AI。</p>
+<h3 id="layer-4">④ 智能体框架与运行时层：让 AI 持续推进任务</h3>
+<p>一次模型调用，通常是“一问一答”。复杂任务需要反复获取信息、执行操作、检查结果，再决定下一步。</p>
+<p>这一层帮助开发者组织这样的循环。框架提供构建模块；harness 则更强调实际执行时，模型周围那套控制和管理机制。</p>
+<table>
+<thead>
+<tr>
+<th>代表作品</th>
+<th>简短介绍与典型用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://docs.langchain.com/oss/python/langgraph/overview">LangGraph</a></td>
+<td>用图和状态组织智能体执行，适合需要分支、恢复、人工介入的复杂任务。</td>
+</tr>
+<tr>
+<td><a href="https://developers.openai.com/api/docs/guides/agents/sdk">OpenAI Agents SDK</a></td>
+<td>提供构建智能体、工具调用、交接和追踪等能力，适合在应用内组织 agent。</td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/agent-sdk/overview">Claude Agent SDK</a></td>
+<td>将 Claude Code 的执行能力用于程序化应用，适合文件、代码和工具密集型任务。</td>
+</tr>
+<tr>
+<td><a href="https://adk.dev/">Google ADK</a></td>
+<td>Agent Development Kit，用于构建、运行和评估智能体及多智能体系统。</td>
+</tr>
+<tr>
+<td><a href="https://ai.pydantic.dev/">Pydantic AI</a></td>
+<td>强调类型、结构化结果与验证，适合需要把模型输出可靠接入业务代码的 Python 项目。</td>
+</tr>
+<tr>
+<td><a href="https://docs.crewai.com/">CrewAI</a></td>
+<td>围绕角色、任务和流程组织智能体，适合研究、写作等分工协作场景。</td>
+</tr>
+<tr>
+<td><a href="https://learn.microsoft.com/en-us/agent-framework/">Microsoft Agent Framework</a></td>
+<td>微软的智能体与工作流开发框架，适合企业应用和多智能体编排。</td>
+</tr>
+<tr>
+<td><a href="https://docs.llamaindex.ai/">LlamaIndex</a></td>
+<td>强调数据接入、检索与智能体结合，适合围绕私有文档构建知识型应用。</td>
+</tr>
+<tr>
+<td><a href="https://github.com/deepset-ai/haystack">Haystack</a></td>
+<td>模块化 AI 应用框架，适合组合检索、路由、生成和智能体流程。</td>
+</tr>
+<tr>
+<td><a href="https://dspy.ai/">DSPy</a></td>
+<td>用程序结构和评测优化模型系统，适合系统化改进提示与多步骤任务。</td>
+</tr>
+</tbody>
+</table>
+<p>这十个项目并不全是“开箱即用的完整 harness”。它们覆盖从组件、优化框架到运行时的不同位置，不能只看是否支持 agent 就当作同类产品比较。</p>
+<h3 id="layer-5">⑤ 工作流与搭建平台层：把 AI 组织成业务流程</h3>
+<p>这一层更接近业务人员和应用搭建者。它通常提供可视化界面、连接器、知识库、流程节点和发布入口。</p>
+<table>
+<thead>
+<tr>
+<th>代表作品</th>
+<th>简短介绍与典型用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://dify.ai/">Dify</a></td>
+<td>集成模型、知识库、工具和工作流，适合搭建客服、知识助手及业务 AI 应用。</td>
+</tr>
+<tr>
+<td><a href="https://github.com/coze-dev/coze-studio">Coze／扣子生态</a></td>
+<td>提供智能体与工作流搭建能力；Coze Studio 是其中的开源项目，适合学习和自行部署。</td>
+</tr>
+<tr>
+<td><a href="https://www.langflow.org/">Langflow</a></td>
+<td>可视化连接模型、工具与数据组件，适合搭建 RAG 和智能体应用。</td>
+</tr>
+<tr>
+<td><a href="https://n8n.io/">n8n</a></td>
+<td>将业务系统、触发器、代码和 AI 节点连接起来，适合持续运行的自动化流程。</td>
+</tr>
+<tr>
+<td><a href="https://zapier.com/agents">Zapier Agents</a></td>
+<td>结合应用连接能力构建 AI 助手，适合跨多个办公软件执行任务。</td>
+</tr>
+<tr>
+<td><a href="https://www.make.com/">Make</a></td>
+<td>可视化自动化平台，可把应用、数据和 AI 模型组成业务流程。</td>
+</tr>
+<tr>
+<td><a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio">Microsoft Copilot Studio</a></td>
+<td>用低代码方式搭建和管理企业智能体，连接组织数据并发布到工作渠道。</td>
+</tr>
+<tr>
+<td><a href="https://www.microsoft.com/en-us/power-platform/products/power-automate">Power Automate</a></td>
+<td>结合工作流、AI 与机器人流程自动化，适合审批、文档及桌面业务操作。</td>
+</tr>
+<tr>
+<td><a href="https://relevanceai.com/">Relevance AI</a></td>
+<td>面向业务团队搭建智能体和自动化系统，典型场景包括销售、客户运营与研究。</td>
+</tr>
+<tr>
+<td><a href="https://www.workato.com/">Workato</a></td>
+<td>面向企业集成、自动化和智能体编排，适合连接多个核心业务系统。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>工作流与智能体可以相互嵌套。</strong> 比如整体退款流程固定，但“分析客户诉求”这一步交给智能体；分析完成后，再回到固定审批流程。</p>
+<h3 id="layer-6">⑥ 编程与软件创造应用层：从辅助写代码到交付软件</h3>
+<p>这一层与 harness、agent、vibe coding 的关系最直接。它们都能帮助写软件，但有的围绕现有代码库工作，有的更强调通过对话创建新应用。</p>
+<table>
+<thead>
+<tr>
+<th>代表作品</th>
+<th>简短介绍与典型用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://cursor.com/">Cursor</a></td>
+<td>将 AI 深度融入代码编辑与项目工作，适合持续开发、跨文件修改和理解代码库。</td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/overview">Claude Code</a></td>
+<td>可阅读项目、编辑文件并运行工具的编程智能体，适合修复问题和完成开发任务。</td>
+</tr>
+<tr>
+<td><a href="https://developers.openai.com/codex/">OpenAI Codex</a></td>
+<td>面向软件任务的智能体产品与工具生态，适合代码修改、调试及围绕项目开展工作。</td>
+</tr>
+<tr>
+<td><a href="https://github.com/features/copilot">GitHub Copilot</a></td>
+<td>覆盖代码建议、对话和智能体任务，与编辑器及 GitHub 工作流程结合。</td>
+</tr>
+<tr>
+<td><a href="https://devin.ai/desktop">Devin Desktop／Windsurf 产品脉络</a></td>
+<td>围绕本地及云端编程智能体提供工作界面；原 Windsurf 官网目前跳转至 Devin Desktop。</td>
+</tr>
+<tr>
+<td><a href="https://aider.chat/">Aider</a></td>
+<td>终端中的 AI 结对编程工具，结合代码库信息与 Git，适合喜欢命令行的开发者。</td>
+</tr>
+<tr>
+<td><a href="https://cline.bot/">Cline</a></td>
+<td>开源编程智能体生态，支持模型选择和工具扩展，适合希望掌握配置与执行过程的用户。</td>
+</tr>
+<tr>
+<td><a href="https://replit.com/">Replit</a></td>
+<td>将应用创建、运行和发布放在云端平台中，适合从想法快速做到可体验的应用。</td>
+</tr>
+<tr>
+<td><a href="https://lovable.dev/">Lovable</a></td>
+<td>通过自然语言构建应用与网站，适合产品原型、内部工具和早期业务验证。</td>
+</tr>
+<tr>
+<td><a href="https://bolt.new/">Bolt</a></td>
+<td>对话式网站与应用搭建工具，适合快速生成、运行和迭代网页项目。</td>
+</tr>
+<tr>
+<td><a href="https://v0.app/">v0</a></td>
+<td>Vercel 的 AI 应用构建工具，可用于界面生成、Web 应用搭建和发布。</td>
+</tr>
+</tbody>
+</table>
+<p>同一个工具既可以用于快速试验，也可以用于严谨的软件工程。是否属于 vibe coding，取决于使用方式，不能仅凭产品名称判断。</p>
+<h3 id="layer-7">⑦ 通用与专业应用层：直接解决用户问题</h3>
+<p>用户通常不需要关心底层部署和框架，而是直接告诉产品想完成什么。</p>
+<table>
+<thead>
+<tr>
+<th>代表作品</th>
+<th>简短介绍与典型用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://learn.chatgpt.com/">ChatGPT</a></td>
+<td>综合型 AI 助手，覆盖问答、写作、学习、资料分析及工具辅助工作。</td>
+</tr>
+<tr>
+<td><a href="https://claude.ai/">Claude</a></td>
+<td>面向写作、分析、代码和文档工作的助手，Artifacts 可承载可查看、可迭代的成果。</td>
+</tr>
+<tr>
+<td><a href="https://gemini.google.com/">Gemini</a></td>
+<td>Google 的 AI 助手产品，适合多模态交互及结合其生态开展工作。</td>
+</tr>
+<tr>
+<td><a href="https://www.perplexity.ai/">Perplexity</a></td>
+<td>以搜索和信息研究为主要入口，适合查找资料、了解主题并追踪来源。</td>
+</tr>
+<tr>
+<td><a href="https://workspace.google.com/intl/en_in/products/gemini-notebook/">Gemini Notebook，原 NotebookLM</a></td>
+<td>围绕用户提供的资料开展问答、学习和整理，适合阅读文档与研究材料。</td>
+</tr>
+<tr>
+<td><a href="https://manus.im/">Manus</a></td>
+<td>面向多步骤任务的智能体产品，可用于研究、演示文稿和网站等成果制作。</td>
+</tr>
+<tr>
+<td><a href="https://www.notion.com/product/ai">Notion AI</a></td>
+<td>将 AI 放进团队知识与协作环境，覆盖搜索、会议记录和工作自动化。</td>
+</tr>
+<tr>
+<td><a href="https://gamma.app/">Gamma</a></td>
+<td>面向演示文稿、文档等视觉表达，适合将内容快速组织成可展示的成果。</td>
+</tr>
+<tr>
+<td><a href="https://runway.com/">Runway</a></td>
+<td>面向视觉内容生产的创作平台，适合视频生成、编辑和创意制作。</td>
+</tr>
+<tr>
+<td><a href="https://elevenlabs.io/">ElevenLabs</a></td>
+<td>提供语音生成、转写、配音和语音智能体能力，适合内容生产与语音交互。</td>
+</tr>
+</tbody>
+</table>
+<p>这里再次出现 Claude、Gemini，是因为同一个品牌可以同时指模型家族和应用产品。判断讨论对象时，要问清楚：说的是模型 API，还是用户正在使用的软件？</p>
+<hr />
+<h2 id="section-10">三、最关键的四个术语：model、harness、agent、vibe coding</h2>
+<h3 id="section-11">1. Model：模型，是能力来源</h3>
+<p>模型根据收到的上下文，产生文本、代码、多模态内容或工具调用请求。</p>
+<p>例如，你提供一份报错记录，模型可以分析原因、提出修改方案。但要读取真实项目、执行修改并运行测试，还需要外部系统配合。</p>
+<p>适用场景包括文本分类、翻译、摘要、问答、内容生成，以及智能体中的推理与决策。</p>
+<h3 id="section-12">2. Harness：让模型持续工作的运行控制系统</h3>
+<p>Harness 原意与固定、控制设备有关。在 AI 智能体语境里，可以理解为围绕模型搭建的执行控制系统。</p>
+<p>它通常负责：</p>
+<ul>
+<li>组织模型调用和执行循环。</li>
+<li>准备上下文，处理历史信息。</li>
+<li>把工具调用交给实际工具执行。</li>
+<li>保存进度、处理错误并恢复任务。</li>
+<li>管理权限、人工确认、日志和停止条件。</li>
+</ul>
+<p>各家的定义边界略有不同，但核心都是：<strong>让模型在真实环境里持续、可管理地推进工作。</strong> OpenAI 的运行时文档也将工具路由、状态、恢复和追踪等列为 harness 的职责。<a href="https://developers.openai.com/api/docs/guides/agents/sandboxes">官方说明</a></p>
+<p>以“修复登录问题”为例，模型可能提出修改方案；harness 负责把项目文件交给它、执行修改、运行测试，再把失败信息送回模型，继续下一轮。</p>
+<p>适用场景：代码修复、长时间研究、批量文件处理，以及需要跨多轮执行的任务。</p>
+<h3 id="section-13">3. Agent：围绕目标观察、行动并利用反馈的系统</h3>
+<p>Agent 通常译为“智能体”。在本文语境中，它指使用模型，根据任务状态选择行动，并根据结果继续推进的系统。</p>
+<p>典型循环是：</p>
+<pre><code class="language-text">接收目标
+   ↓
+查看当前信息
+   ↓
+决定下一步
+   ↓
+调用工具或生成成果
+   ↓
+检查结果
+   ↓
+继续行动、请求人工帮助，或结束
+</code></pre>
+<p>例如，“告诉我怎样分析销售数据”主要是问答；“读取这些销售表，找出异常、生成图表并保存报告”则可能需要智能体执行。</p>
+<p>Agent 不必拥有无限权限，也不必由多个角色组成。一个只允许读取资料、生成草稿的系统，同样可以是 agent。</p>
+<p>适用场景：调研、数据处理、软件开发、运营协助和需要动态选择步骤的任务。</p>
+<h3 id="section-14">4. Vibe coding：通过描述、运行和反馈来做软件</h3>
+<p>Vibe coding 通常译为“氛围编程”或“凭感觉编程”，由 Andrej Karpathy 在 2025 年提出。</p>
+<p>它原本强调：主要通过自然语言指挥 AI，运行后看效果，继续描述修改，较少审读生成的代码。后来它也被宽泛地用于指代自然语言开发。Simon Willison 专门讨论过这种用法变化。<a href="https://simonwillison.net/2025/Mar/19/vibe-coding/">术语辨析</a></p>
+<p>一个典型过程是：</p>
+<blockquote>
+<p>“做一个个人读书网站。”<br />
+“首页再简洁一点。”<br />
+“这里报错了，帮我修好。”<br />
+“加上按作者筛选。”</p>
+</blockquote>
+<p>它适合快速探索想法、个人小工具和早期原型。若项目需要长期维护，就还要补上代码理解、测试、权限设计和运维等工程工作。</p>
+<p><strong>这四个词的关系可以这样记：</strong></p>
+<table>
+<thead>
+<tr>
+<th>术语</th>
+<th>关注点</th>
+<th>类比</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Model</td>
+<td>有什么理解和生成能力</td>
+<td>发动机</td>
+</tr>
+<tr>
+<td>Harness</td>
+<td>如何组织持续运行</td>
+<td>控制与运行系统</td>
+</tr>
+<tr>
+<td>Agent</td>
+<td>如何围绕目标采取行动</td>
+<td>执行任务的整套系统</td>
+</tr>
+<tr>
+<td>Vibe coding</td>
+<td>人如何借助 AI 创造软件</td>
+<td>一种工作方式</td>
+</tr>
+</tbody>
+</table>
+<p>这些类比只帮助理解，边界仍以具体系统为准。</p>
+<hr />
+<h2 id="section-15">四、其他常见术语，以及什么时候会用到</h2>
+<h3 id="section-16">围绕模型与输入</h3>
+<table>
+<thead>
+<tr>
+<th>术语</th>
+<th>通俗解释</th>
+<th>场景应用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LLM，大语言模型</td>
+<td>以语言理解和生成为核心的模型。</td>
+<td>写作、问答、分类、代码生成。</td>
+</tr>
+<tr>
+<td>Multimodal，多模态</td>
+<td>能处理文字、图片、声音、视频等多种信息。</td>
+<td>看截图找问题、分析录音与画面。</td>
+</tr>
+<tr>
+<td>Token，词元</td>
+<td>模型处理信息的基本单位，与汉字或单词不一一对应。</td>
+<td>理解输入长度、输出长度和调用成本。</td>
+</tr>
+<tr>
+<td>Context window，上下文窗口</td>
+<td>一次处理时可容纳的信息范围。</td>
+<td>判断能否放入长文档或较多项目资料。</td>
+</tr>
+<tr>
+<td>Prompt，提示词</td>
+<td>给模型的指令、问题、约束和示例。</td>
+<td>指定任务、语气及输出格式。</td>
+</tr>
+<tr>
+<td>Prompt engineering，提示工程</td>
+<td>设计和验证提示的方式。</td>
+<td>改善分类准确率、减少格式错误。</td>
+</tr>
+<tr>
+<td>Context engineering，上下文工程</td>
+<td>决定任务每一步给模型哪些信息。</td>
+<td>选择相关代码、检索资料和历史结果。</td>
+</tr>
+<tr>
+<td>Inference，推理运行</td>
+<td>使用训练好的模型产生输出；这里的“推理”不一定特指逻辑思考。</td>
+<td>在线问答、本地模型运行和 API 服务。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="section-17">围绕知识、工具与连接</h3>
+<table>
+<thead>
+<tr>
+<th>术语</th>
+<th>通俗解释</th>
+<th>场景应用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Embedding，向量表示</td>
+<td>将内容转换为可计算相似度的数值表示。</td>
+<td>找相似文档、图片或商品。</td>
+</tr>
+<tr>
+<td>RAG，检索增强生成</td>
+<td>先找相关资料，再将资料提供给模型生成答案。</td>
+<td>企业知识库、产品手册问答。</td>
+</tr>
+<tr>
+<td>Reranker，重排模型</td>
+<td>对初步检索结果重新排序。</td>
+<td>减少无关资料，提高引用质量。</td>
+</tr>
+<tr>
+<td>Tool calling／Function calling</td>
+<td>模型提出结构化工具调用请求，由外部系统执行。</td>
+<td>查订单、运行计算、读取文件。</td>
+</tr>
+<tr>
+<td>MCP，模型上下文协议</td>
+<td>连接 AI 应用与外部工具、数据和提示的标准协议。</td>
+<td>让助手连接数据库、文件或业务系统。</td>
+</tr>
+<tr>
+<td>Skill，技能</td>
+<td>某类任务的可复用操作知识，可能含说明、脚本和模板；各产品实现不同。</td>
+<td>按团队规范制作报告或执行代码审查。</td>
+</tr>
+<tr>
+<td>Memory，记忆</td>
+<td>在当前对话之外保存并在以后使用的信息。</td>
+<td>保存偏好、项目约定和任务历史。</td>
+</tr>
+<tr>
+<td>Fine-tuning，微调</td>
+<td>用额外训练调整模型参数。</td>
+<td>学习特定分类任务或稳定的表达风格。</td>
+</tr>
+</tbody>
+</table>
+<p>MCP 是连接协议，不是模型，也不会自动赋予工具权限。<a href="https://modelcontextprotocol.io/introduction">MCP 官方介绍</a></p>
+<p>RAG 通常不修改模型参数；微调会修改。最新制度、频繁更新的资料，往往适合通过检索提供；稳定行为的学习则可能考虑微调。</p>
+<h3 id="section-18">围绕任务执行与质量</h3>
+<table>
+<thead>
+<tr>
+<th>术语</th>
+<th>通俗解释</th>
+<th>场景应用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Workflow，工作流</td>
+<td>预先组织步骤、条件和数据流。</td>
+<td>收到表单后分类、生成草稿并进入审批。</td>
+</tr>
+<tr>
+<td>Orchestration，编排</td>
+<td>协调模型、工具、智能体和工作流的执行关系。</td>
+<td>安排研究、写作、校对的先后与交接。</td>
+</tr>
+<tr>
+<td>Agentic workflow，智能体式工作流</td>
+<td>在流程中引入由模型动态选择的步骤。</td>
+<td>流程固定，但允许 AI 决定还需查询什么。</td>
+</tr>
+<tr>
+<td>Multi-agent，多智能体</td>
+<td>多个智能体分工或协作。</td>
+<td>研究与复核分离；也会增加通信成本。</td>
+</tr>
+<tr>
+<td>Sandbox，隔离环境</td>
+<td>为代码和工具提供受限制的运行空间。</td>
+<td>让智能体测试代码、处理文件。</td>
+</tr>
+<tr>
+<td>Human-in-the-loop，人在回路</td>
+<td>在部分步骤由人判断、补充或批准。</td>
+<td>对外发送、付款、重要数据修改。</td>
+</tr>
+<tr>
+<td>Guardrails，约束与防护</td>
+<td>对输入、输出及行动施加限制。</td>
+<td>限制可用工具、检查敏感数据。</td>
+</tr>
+<tr>
+<td>Evals，评测</td>
+<td>用任务和指标检查系统表现。</td>
+<td>比较模型、提示或 harness 的修改效果。</td>
+</tr>
+<tr>
+<td>Tracing，执行追踪</td>
+<td>记录模型调用、工具操作和中间结果。</td>
+<td>找到失败步骤、分析延迟与成本。</td>
+</tr>
+<tr>
+<td>Hallucination，幻觉</td>
+<td>生成看似可信、实际缺乏依据或错误的内容。</td>
+<td>检查引用、数字和事实是否可验证。</td>
+</tr>
+<tr>
+<td>Grounding，依据约束</td>
+<td>让输出建立在可核实的资料或观察上。</td>
+<td>要求答案引用文件和查询结果。</td>
+</tr>
+<tr>
+<td>AI-assisted coding，AI 辅助编程</td>
+<td>人使用 AI 写代码，并对设计与验证负责。</td>
+<td>日常开发、重构和测试生成。</td>
+</tr>
+<tr>
+<td>Spec-driven development，规格驱动开发</td>
+<td>先明确需求和验收标准，再让 AI 实现。</td>
+<td>团队项目、复杂功能和长期维护的软件。</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="section-19">五、用三个真实场景，把这些概念连起来</h2>
+<p><strong>场景一：制作一份有出处的竞品报告</strong></p>
+<p>需求：“比较五家产品，整理定价、功能和目标客户，附上来源。”</p>
+<p>系统可能这样工作：</p>
+<table>
+<thead>
+<tr>
+<th>环节</th>
+<th>对应概念</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>理解需求，提出比较维度</td>
+<td>Model</td>
+</tr>
+<tr>
+<td>搜索官网和帮助文档</td>
+<td>Tools</td>
+</tr>
+<tr>
+<td>提取网页、找相关段落</td>
+<td>知识获取、RAG</td>
+</tr>
+<tr>
+<td>发现缺失信息后继续查找</td>
+<td>Agent</td>
+</tr>
+<tr>
+<td>保存进度、重试失败请求、限制执行时长</td>
+<td>Harness</td>
+</tr>
+<tr>
+<td>检查每项结论是否有出处</td>
+<td>Grounding、Evals</td>
+</tr>
+<tr>
+<td>生成可阅读的报告</td>
+<td>应用与成果交付</td>
+</tr>
+</tbody>
+</table>
+<p>如果你只是让 AI 写一个报告提纲，直接对话就可能足够。需要它持续查证、补齐资料并生成文件时，智能体系统的价值才更明显。</p>
+<p><strong>场景二：建立公司内部知识助手</strong></p>
+<p>需求：“员工可以询问报销、休假和采购制度，答案要附原文。”</p>
+<p>关键通常是：</p>
+<ol>
+<li>整理有效制度，移除过期文件。</li>
+<li>根据员工权限检索资料。</li>
+<li>把相关原文交给模型。</li>
+<li>生成带出处的答案。</li>
+<li>找不到依据时说明资料不足。</li>
+</ol>
+<p>这里 <strong>RAG、资料质量和权限设计</strong> 往往比复杂的多智能体结构更关键。可视化平台能简化搭建，但不能替你保证原始制度正确。</p>
+<p><strong>场景三：从一句话做出一个读书应用</strong></p>
+<p>需求：“做一个能记录书籍、评分并按作者筛选的应用。”</p>
+<p>可以采用不同工作方式：</p>
+<table>
+<thead>
+<tr>
+<th>工作方式</th>
+<th>人主要负责什么</th>
+<th>典型特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vibe coding</td>
+<td>描述想法，运行后反馈效果</td>
+<td>适合迅速探索和做原型</td>
+</tr>
+<tr>
+<td>AI 辅助编程</td>
+<td>理解设计，审查代码，验证结果</td>
+<td>适合持续开发</td>
+</tr>
+<tr>
+<td>规格驱动开发</td>
+<td>先写清数据、行为和验收标准</td>
+<td>适合需求明确、协作较多的项目</td>
+</tr>
+</tbody>
+</table>
+<p>三种方式可以出现在同一个项目中。例如先通过 vibe coding 验证界面，再把需求整理成规格，进入可测试、可维护的开发流程。</p>
+<hr />
+<h2 id="section-20">六、面对这么多工具，应该怎样选择</h2>
+<p>先判断任务，再选择需要的层。</p>
+<table>
+<thead>
+<tr>
+<th>你的目标</th>
+<th>优先了解什么</th>
+<th>可以从哪些代表开始</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>学习、写作、日常分析</td>
+<td>成品助手</td>
+<td>ChatGPT、Claude、Gemini</td>
+</tr>
+<tr>
+<td>搜索资料、了解一个新领域</td>
+<td>搜索与研究应用</td>
+<td>Perplexity、Gemini Notebook</td>
+</tr>
+<tr>
+<td>快速做一个网页或应用原型</td>
+<td>对话式应用搭建</td>
+<td>Lovable、Bolt、Replit、v0</td>
+</tr>
+<tr>
+<td>在现有项目里持续开发</td>
+<td>编程智能体与编辑器</td>
+<td>Cursor、Claude Code、Codex、Copilot</td>
+</tr>
+<tr>
+<td>搭建公司知识助手</td>
+<td>RAG、数据权限、应用平台</td>
+<td>Dify、Langflow、LlamaIndex</td>
+</tr>
+<tr>
+<td>把多个办公系统串起来</td>
+<td>工作流与连接器</td>
+<td>n8n、Make、Zapier、Workato</td>
+</tr>
+<tr>
+<td>在本地尝试开放模型</td>
+<td>本地运行与推理工具</td>
+<td>Ollama、LM Studio、llama.cpp</td>
+</tr>
+<tr>
+<td>开发复杂、可恢复的智能体</td>
+<td>框架、harness、评测</td>
+<td>LangGraph、Agents SDK、ADK</td>
+</tr>
+</tbody>
+</table>
+<p>选择时可以依次问四个问题：<strong>需要生成什么结果？需要哪些外部资料？需要执行哪些操作？怎样判断任务完成？</strong></p>
+<p>这四个问题能帮助你分辨：眼前的问题是模型能力不足、资料没有提供、工具没有接上，还是执行与验证机制需要改进。</p>
+<h2 id="section-21">来源与编辑说明</h2>
+<p>本文由 AI 辅助整理，依据 2026 年 10 月 29 日查阅的公开资料编写。各代表作品名称链接至官网、官方文档或官方仓库，作为对应简介的来源入口。收录代表性不等于性能排名，也不代表逐项安装或实测。七个观察层是教学分类；框架、运行时与应用存在交叉。模型与产品可能更名、停用或调整能力，使用前请复核对应官方页面。</p>
+<ul>
+<li><a href="https://developers.openai.com/api/docs/guides/agents/sandboxes">Harness 的职责：OpenAI 官方文档</a></li>
+<li><a href="https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents">长任务的 Harness 设计：Anthropic</a></li>
+<li><a href="https://modelcontextprotocol.io/introduction">MCP 官方介绍</a></li>
+<li><a href="https://simonwillison.net/2025/Mar/19/vibe-coding/">Vibe coding 的术语辨析：Simon Willison</a></li>
+</ul>
+</div><div class="knowledge-end"><a href="index.html">← 返回 AI 知识科普</a> · <a href="../tools/index.html">浏览 AI 工具目录</a> · <a href="../courses/index.html">开始系统学习</a></div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>AI 辅助整理的科普内容，参考来源见正文；产品能力与名称以官方最新说明为准。</span></footer></body></html>

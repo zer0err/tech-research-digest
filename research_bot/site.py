@@ -73,7 +73,7 @@ def shell(title: str, description: str, body: str, relative_root: str = "") -> s
 <link rel="stylesheet" href="{relative_root}assets/editorial.css?v=timeline-2">
 <script type="module" src="{relative_root}assets/article.js?v=replay-6"></script></head>
 <body><header class="site-header"><a class="brand" href="{relative_root}index.html"><span>VORASIO</span> 研究简报</a>
-<nav><a href="{relative_root}index.html#latest">时间线</a><a href="{relative_root}courses/index.html">AI 学习</a><a href="{relative_root}tools/index.html">AI 工具</a><a href="{relative_root}about.html">关于</a></nav></header>
+<nav aria-label="主导航"><a href="{relative_root}index.html#latest">时间线</a><a href="{relative_root}knowledge/index.html">AI 知识科普</a><a href="{relative_root}courses/index.html">AI 学习</a><a href="{relative_root}tools/index.html">AI 工具</a><a href="{relative_root}about.html">关于</a></nav></header>
 <main>{body}</main><footer><strong>VORASIO 研究简报</strong>
 <span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>"""
 
