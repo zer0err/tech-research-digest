@@ -1,5 +1,21 @@
 [
   {
+    "title": "VORASIO AI 日报（2026-10-29）",
+    "date": "2026-10-29T19:03:34.431548+08:00",
+    "count": 6,
+    "url": "posts/20261029-daily_digest.html",
+    "topic": "daily_digest",
+    "status": "published",
+    "summary": "今日概览 今天共发布 6 个内容更新。以下列表仅汇总站内已经通过发布流程的内容，不额外生成未经来源支持的结论。 今日内容 - AI 晨间雷达与免费资源（2026-10-29）(https://vorasio.com/posts/20261029-morning_radar.html) - AI 模型、训练与基础研究（2",
+    "provenance": {
+      "analysis": {
+        "provider": "程序汇总（未调用 AI）",
+        "model": "不适用"
+      },
+      "sources": []
+    }
+  },
+  {
     "title": "推理引擎、编译器与嵌入式系统（2026-10-29）",
     "date": "2026-10-29T16:37:06.438204+08:00",
     "count": 2,
