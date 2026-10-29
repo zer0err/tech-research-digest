@@ -6,7 +6,7 @@ from datetime import UTC, datetime
 from pathlib import Path
 
 from . import schedule
-from .core import Item, load_state, send_telegram, update_state
+from .core import Item, load_state, send_ntfy, send_telegram, update_state
 
 
 def main() -> int:
@@ -23,7 +23,13 @@ def main() -> int:
         raise ValueError("Refusing to notify or finalize empty content")
     if pending.get("notify", True):
         label = "篇有效简报" if pending["topic"] == "daily_digest" else "项新内容"
-        send_telegram(f"{pending['title']}｜{count} {label}\n完整内容：{pending['url']}")
+        message = f"{pending['title']}｜{count} {label}\n完整内容：{pending['url']}"
+        send_telegram(message)
+        try:
+            send_ntfy(message, title=str(pending["title"]), click_url=str(pending["url"]))
+        except Exception:
+            # Telegram remains the maintenance channel if the optional ntfy delivery fails.
+            send_telegram(f"【维护提醒，非内容推送】{pending['title']} 的 ntfy 推送失败，请检查 GitHub Actions。")
     state_path = Path(args.state)
     state = load_state(state_path)
     update_state(state, pending["topic"], items, datetime.fromisoformat(pending["created_at"]))

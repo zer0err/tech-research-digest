@@ -106,6 +106,12 @@ Actions 的 `decision-*.json` 分别记录来源失败、无窗口内匹配资�
    - `GROQ_API_KEY`
    - `TELEGRAM_BOT_TOKEN`
    - `TELEGRAM_CHAT_ID`
+   - `NTFY_TOPIC`（可选；使用高熵随机主题名，不要写入仓库）
+   - `NTFY_TOKEN`（仅在 ntfy 服务器启用访问令牌时需要）
+
+   ntfy 默认服务器是 `https://ntfy.sh`。如需自托管，可新增仓库变量
+   `NTFY_BASE_URL`，值必须是无路径、无凭据的 HTTPS 地址。配置 `NTFY_TOPIC`
+   后，每篇成功部署的简报会同时推送到 Telegram 和 ntfy，点击 ntfy 通知会打开文章页面。
 
 6. 仓库 **Settings → Pages → Build and deployment → Source** 选择 **GitHub Actions**。工作流用 GitHub 官方 Pages actions 直接上传并部署 `docs/`，同时把生成文章提交回仓库留档。首次发布完成后会得到 `https://<用户>.github.io/<仓库>/`。
 7. 可选 Repository variables：

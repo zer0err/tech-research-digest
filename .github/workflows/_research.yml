@@ -15,6 +15,10 @@ on:
         required: true
       TELEGRAM_CHAT_ID:
         required: true
+      NTFY_TOPIC:
+        required: false
+      NTFY_TOKEN:
+        required: false
 
 permissions:
   contents: write
@@ -86,6 +90,9 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          NTFY_TOKEN: ${{ secrets.NTFY_TOKEN }}
+          NTFY_BASE_URL: ${{ vars.NTFY_BASE_URL || 'https://ntfy.sh' }}
         run: python -m research_bot.finalize
       - name: Commit delivered state
         if: steps.digest.outputs.has_digest == 'true'

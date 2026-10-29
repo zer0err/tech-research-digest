@@ -425,5 +425,42 @@ def send_telegram(text: str) -> None:
                 raise RuntimeError("Telegram failed after retries")
 
 
+def send_ntfy(text: str, *, title: str = "VORASIO 内容更新", click_url: str = "") -> bool:
+    """Publish one notification to ntfy when the optional topic secret is configured."""
+    topic = os.getenv("NTFY_TOPIC", "").strip()
+    if not topic:
+        return False
+    if not re.fullmatch(r"[A-Za-z0-9_-]{8,128}", topic):
+        raise ValueError("NTFY_TOPIC must be an 8-128 character private topic name")
+    base_url = os.getenv("NTFY_BASE_URL", "https://ntfy.sh").strip().rstrip("/")
+    parts = urlsplit(base_url)
+    if parts.scheme != "https" or not parts.netloc or parts.username or parts.password or parts.path:
+        raise ValueError("NTFY_BASE_URL must be an HTTPS origin without credentials or a path")
+    payload: dict[str, Any] = {
+        "topic": topic,
+        "title": title[:120],
+        "message": text[:4000],
+        "priority": 3,
+        "tags": ["newspaper"],
+    }
+    if click_url:
+        click = urlsplit(click_url)
+        if click.scheme != "https" or not click.netloc:
+            raise ValueError("ntfy click URL must be HTTPS")
+        payload["click"] = click_url
+    token = os.getenv("NTFY_TOKEN", "").strip()
+    headers = {"Authorization": f"Bearer {token}"} if token else {}
+    with httpx.Client(timeout=30) as client:
+        for attempt in range(5):
+            response = client.post(base_url, json=payload, headers=headers)
+            if response.status_code in {200, 202}:
+                return True
+            if response.status_code != 429 and response.status_code < 500:
+                raise RuntimeError(f"ntfy rejected request: HTTP {response.status_code}")
+            wait = float(response.headers.get("retry-after", min(30, 2**attempt))) + random.random()
+            time.sleep(wait)
+    raise RuntimeError("ntfy failed after retries")
+
+
 def dump_items(items: list[Item]) -> list[dict[str, str]]:
     return [asdict(x) for x in items]
