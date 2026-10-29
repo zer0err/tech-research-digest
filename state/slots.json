@@ -1,6 +1,59 @@
 {
   "version": 1,
   "slots": {
+    "2026-10-29:morning_radar": {
+      "status": "prepared",
+      "updated_at": "2026-10-29T01:12:25.766303+00:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "morning_radar",
+        "title": "AI 晨间雷达与免费资源",
+        "url": "https://vorasio.com/posts/20261029-morning_radar.html",
+        "created_at": "2026-10-29T01:12:25.766303+00:00",
+        "items": [
+          {
+            "uid": "cf876ffc1c86119489a59ef2",
+            "title": "Route and orchestrate models with GitHub Copilot Fusion",
+            "url": "https://github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion",
+            "published": "2026-10-28T16:00:00+00:00",
+            "summary": "GitHub Copilot Fusion is generally available. Instead of picking a model for each task, choose Copilot Fusion and let Copilot intelligently route and orchestrate which models it uses for you.… The post Route and orchestrate models with GitHub Copilot Fusion appeared first on The GitHub Blog .",
+            "source": "GitHub 官方更新",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          },
+          {
+            "uid": "60148f43d4c53f3ff836111b",
+            "title": "GitHub Copilot app, Universe releases",
+            "url": "https://github.blog/changelog/2026-10-28-github-copilot-app-universe-releases",
+            "published": "2026-10-28T15:55:00+00:00",
+            "summary": "Work doesn’t always fit in a single repository or session. A feature can span several repositories. A launch plan can pull in specs, designs, and assets without touching a repository… The post GitHub Copilot app, Universe releases appeared first on The GitHub Blog .",
+            "source": "GitHub 官方更新",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          },
+          {
+            "uid": "52eae160f737565b8d60e782",
+            "title": "GitHub Enterprise now includes access to GitHub Copilot",
+            "url": "https://github.blog/changelog/2026-10-28-github-enterprise-now-includes-access-to-github-copilot",
+            "published": "2026-10-28T15:50:00+00:00",
+            "summary": "Enterprises working with a GitHub or Microsoft account team can now get Copilot included with GitHub Enterprise for every licensed user. Previously, you had to manage two things: how many… The post GitHub Enterprise now includes access to GitHub Copilot appeared first on The GitHub Blog .",
+            "source": "GitHub 官方更新",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          }
+        ],
+        "notify": true,
+        "mode": "production",
+        "analysis": {
+          "provider": "Groq",
+          "model": "openai/gpt-oss-20b"
+        },
+        "slot": "morning_radar"
+      }
+    },
     "2026-10-28:prompt_engineering": {
       "status": "no_matching_in_window",
       "updated_at": "2026-10-28T06:12:17.892084+00:00",
