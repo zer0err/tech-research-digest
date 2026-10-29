@@ -22,13 +22,27 @@ LAYERS = (
     ("编程与软件创造", "11 个编程应用"),
     ("通用与专业应用", "10 个成品应用"),
 )
+DIAGRAMS = (
+    ('ecosystem', '生态地图', '从能力到应用', '箭头表示常见的能力组合方向；不是所有产品都需要逐层搭建。第六与第七项是应用层的两条分支。'),
+    ('model-harness-agent', '三个核心概念', 'Model、Harness 与 Agent', '外框表示整个 Agent 系统；虚线范围表示 Harness 在运行中的组织与调度范围，并不表示模型参数属于 Harness。'),
+    ('agent-loop', '执行循环', 'Agent 怎样完成任务', '工具结果和验收条件决定是否完成；未完成就带着反馈继续，缺少信息或权限时请人协助。'),
+    ('rag-vs-finetuning', '知识与训练', 'RAG 与微调', 'RAG 通常不改模型参数，微调会调整参数；二者可以结合使用。'),
+    ('ai-coding-methods', '编程方式', '三种 AI 编程方式', '区别在于人怎样组织、审查和验收工作；三种方式可以组合，不是固定的升级阶梯。'),
+)
+DIAGRAM_HEIGHTS = {
+    'ecosystem': (664, 1000),
+    'model-harness-agent': (580, 866),
+    'agent-loop': (454, 866),
+    'rag-vs-finetuning': (526, 1000),
+    'ai-coding-methods': (382, 773),
+}
 
 
 def page_shell(title: str, description: str, body: str) -> str:
     page = shell(title, description, body, "../")
     page = page.replace(
         '<script type="module" src="../assets/article.js?v=replay-6"></script>',
-        '<link rel="stylesheet" href="../assets/knowledge.css?v=1">',
+        '<link rel="stylesheet" href="../assets/knowledge.css?v=2">',
     )
     page = page.replace('<body>', '<body class="knowledge-page"><a class="knowledge-skip" href="#main">跳到正文</a>')
     page = page.replace('<main>', '<main id="main">')
@@ -85,7 +99,28 @@ def render_article(source: str) -> tuple[str, list[tuple[int, str, str]]]:
         toc.append((int(token.tag[1:]), anchor, label))
     if layer != 7:
         raise ValueError(f'Expected seven ecosystem layers, got {layer}')
-    return md.renderer.render(tokens, md.options, {}), toc
+    rendered = md.renderer.render(tokens, md.options, {})
+    for index, (key, _, title, caption) in enumerate(DIAGRAMS, 1):
+        pattern = rf'<p><img src="\.\./assets/knowledge/{key}\.svg" alt="([^"]*)"\s*/?></p>'
+
+        def figure(match: re.Match[str]) -> str:
+            alt = match.group(1)
+            desktop_height, mobile_height = DIAGRAM_HEIGHTS[key]
+            return (
+                f'<figure class="knowledge-figure" id="diagram-{key}" '
+                f'style="--diagram-ratio:900 / {desktop_height};--diagram-mobile-ratio:360 / {mobile_height}">'
+                f'<div class="figure-heading"><span>图 {index:02d}</span><strong>{html.escape(title)}</strong></div>'
+                '<picture>'
+                f'<source media="(max-width: 600px)" srcset="../assets/knowledge/{key}-mobile.svg">'
+                f'<img src="../assets/knowledge/{key}.svg" alt="{alt}" width="900" height="{desktop_height}" decoding="async">'
+                '</picture>'
+                f'<figcaption><b>读图提示：</b>{html.escape(caption)}</figcaption></figure>'
+            )
+
+        rendered, count = re.subn(pattern, figure, rendered)
+        if count != 1:
+            raise ValueError(f'Expected one illustration for {key}, got {count}')
+    return rendered, toc
 
 
 def toc_html(toc: list[tuple[int, str, str]]) -> str:
@@ -97,6 +132,9 @@ def toc_html(toc: list[tuple[int, str, str]]) -> str:
 
 
 def render_knowledge(repo: Path = Path('.')) -> Path:
+    from .knowledge_art import render_illustrations
+
+    render_illustrations(repo)
     source = (repo / 'content/knowledge' / f'{SLUG}.md').read_text(encoding='utf-8')
     rendered, toc = render_article(source)
     output = repo / 'docs/knowledge'
@@ -104,6 +142,10 @@ def render_knowledge(repo: Path = Path('.')) -> Path:
     links = toc_html(toc)
     core_anchor = next(anchor for _, anchor, label in toc if label.startswith('三、'))
     scenarios_anchor = next(anchor for _, anchor, label in toc if label.startswith('五、'))
+    visual_links = ''.join(
+        f'<a href="#diagram-{key}"><span>0{index}</span>{label}</a>'
+        for index, (key, label, _, _) in enumerate(DIAGRAMS, 1)
+    )
     article = (
         '<nav class="knowledge-breadcrumb" aria-label="面包屑">'
         '<a href="../index.html">首页</a> / <a href="index.html">AI 知识科普</a> / 生态与术语</nav>'
@@ -111,7 +153,9 @@ def render_knowledge(repo: Path = Path('.')) -> Path:
         f'<h2>本文目录</h2>{links}</aside><article class="knowledge-article">'
         f'<p class="eyebrow">AI 知识科普 · 01</p><h1>{TITLE}</h1>'
         f'<div class="knowledge-meta"><span>资料查证：<time datetime="{VERIFIED}">{VERIFIED}</time></span>'
-        '<span>7 个观察层 · 73 个代表作品</span><span>AI 辅助整理 · 含官方来源</span></div>'
+        '<span>7 个观察层 · 73 个代表作品 · 5 组示意图</span><span>AI 辅助整理 · 含官方来源</span></div>'
+        '<nav class="knowledge-visual-index" aria-label="五张图快速阅读"><p>先看图，再读正文</p>'
+        f'<div>{visual_links}</div></nav>'
         '<details class="knowledge-mobile-toc"><summary>展开本文目录</summary>'
         f'{links}</details><div class="article-body">{rendered}</div>'
         '<div class="knowledge-end"><a href="index.html">← 返回 AI 知识科普</a> · '
@@ -132,8 +176,8 @@ def render_knowledge(repo: Path = Path('.')) -> Path:
         '<span>Model / Harness / Agent / Vibe coding</span></p></header>'
         '<article class="knowledge-card"><div><p class="eyebrow">入门长文 · 01</p>'
         f'<h2><a href="{SLUG}.html">{TITLE}</a></h2>'
-        '<p>模型提供能力，工具连接外部世界，Harness 组织执行循环。'
-        '一篇串起七个观察层、核心术语和三个应用场景，附代表作品官方链接。</p>'
+        '<p>五组示意图串起七个观察层、核心术语和三个应用场景。'
+        '先看生态地图与概念关系，再查阅 73 个代表作品及其官方来源。</p>'
         f'<p class="disclosure">资料查证：{VERIFIED} · 按家族与项目收录，非性能排行榜</p></div>'
         f'<a class="read-link" href="{SLUG}.html">阅读全文 →</a></article>'
         '<h2>从哪一层开始了解？</h2><p class="disclosure">按主要用途分类；编程与通用应用是应用层的两条分支。</p>'

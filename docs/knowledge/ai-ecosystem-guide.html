@@ -3,10 +3,10 @@
 <title>从模型到智能体：一篇看懂 AI 生态、代表产品与常见术语 · VORASIO</title><meta name="description" content="七个观察层、73 个代表模型与工具，读懂 model、harness、agent、vibe coding 的关系和应用场景。">
 <link rel="stylesheet" href="../assets/style.css">
 <link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
-<link rel="stylesheet" href="../assets/knowledge.css?v=1"></head>
+<link rel="stylesheet" href="../assets/knowledge.css?v=2"></head>
 <body class="knowledge-page"><a class="knowledge-skip" href="#main">跳到正文</a><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
 <nav aria-label="主导航"><a href="../index.html#latest">时间线</a><a aria-current="page" href="../knowledge/index.html">AI 知识科普</a><a href="../courses/index.html">AI 学习</a><a href="../tools/index.html">AI 工具</a><a href="../about.html">关于</a></nav></header>
-<main id="main"><nav class="knowledge-breadcrumb" aria-label="面包屑"><a href="../index.html">首页</a> / <a href="index.html">AI 知识科普</a> / 生态与术语</nav><div class="knowledge-layout"><aside class="knowledge-toc" aria-label="本文目录"><h2>本文目录</h2><ol><li class="top"><a href="#section-1">一、先看全貌：AI 生态如何分层</a></li><li class="top"><a href="#section-2">二、模型及其上层，哪些作品值得认识</a></li><li class="sub"><a href="#layer-1">① 模型层：提供理解、推理与生成能力</a></li><li class="sub"><a href="#layer-2">② 推理与接入层：让模型真正跑起来</a></li><li class="sub"><a href="#layer-3">③ 知识与工具层：让 AI 能查资料、做操作</a></li><li class="sub"><a href="#layer-4">④ 智能体框架与运行时层：让 AI 持续推进任务</a></li><li class="sub"><a href="#layer-5">⑤ 工作流与搭建平台层：把 AI 组织成业务流程</a></li><li class="sub"><a href="#layer-6">⑥ 编程与软件创造应用层：从辅助写代码到交付软件</a></li><li class="sub"><a href="#layer-7">⑦ 通用与专业应用层：直接解决用户问题</a></li><li class="top"><a href="#section-10">三、最关键的四个术语：model、harness、agent、vibe coding</a></li><li class="sub"><a href="#section-11">1. Model：模型，是能力来源</a></li><li class="sub"><a href="#section-12">2. Harness：让模型持续工作的运行控制系统</a></li><li class="sub"><a href="#section-13">3. Agent：围绕目标观察、行动并利用反馈的系统</a></li><li class="sub"><a href="#section-14">4. Vibe coding：通过描述、运行和反馈来做软件</a></li><li class="top"><a href="#section-15">四、其他常见术语，以及什么时候会用到</a></li><li class="sub"><a href="#section-16">围绕模型与输入</a></li><li class="sub"><a href="#section-17">围绕知识、工具与连接</a></li><li class="sub"><a href="#section-18">围绕任务执行与质量</a></li><li class="top"><a href="#section-19">五、用三个真实场景，把这些概念连起来</a></li><li class="top"><a href="#section-20">六、面对这么多工具，应该怎样选择</a></li><li class="top"><a href="#section-21">来源与编辑说明</a></li></ol></aside><article class="knowledge-article"><p class="eyebrow">AI 知识科普 · 01</p><h1>从模型到智能体：一篇看懂 AI 生态、代表产品与常见术语</h1><div class="knowledge-meta"><span>资料查证：<time datetime="2026-10-29">2026-10-29</time></span><span>7 个观察层 · 73 个代表作品</span><span>AI 辅助整理 · 含官方来源</span></div><details class="knowledge-mobile-toc"><summary>展开本文目录</summary><ol><li class="top"><a href="#section-1">一、先看全貌：AI 生态如何分层</a></li><li class="top"><a href="#section-2">二、模型及其上层，哪些作品值得认识</a></li><li class="sub"><a href="#layer-1">① 模型层：提供理解、推理与生成能力</a></li><li class="sub"><a href="#layer-2">② 推理与接入层：让模型真正跑起来</a></li><li class="sub"><a href="#layer-3">③ 知识与工具层：让 AI 能查资料、做操作</a></li><li class="sub"><a href="#layer-4">④ 智能体框架与运行时层：让 AI 持续推进任务</a></li><li class="sub"><a href="#layer-5">⑤ 工作流与搭建平台层：把 AI 组织成业务流程</a></li><li class="sub"><a href="#layer-6">⑥ 编程与软件创造应用层：从辅助写代码到交付软件</a></li><li class="sub"><a href="#layer-7">⑦ 通用与专业应用层：直接解决用户问题</a></li><li class="top"><a href="#section-10">三、最关键的四个术语：model、harness、agent、vibe coding</a></li><li class="sub"><a href="#section-11">1. Model：模型，是能力来源</a></li><li class="sub"><a href="#section-12">2. Harness：让模型持续工作的运行控制系统</a></li><li class="sub"><a href="#section-13">3. Agent：围绕目标观察、行动并利用反馈的系统</a></li><li class="sub"><a href="#section-14">4. Vibe coding：通过描述、运行和反馈来做软件</a></li><li class="top"><a href="#section-15">四、其他常见术语，以及什么时候会用到</a></li><li class="sub"><a href="#section-16">围绕模型与输入</a></li><li class="sub"><a href="#section-17">围绕知识、工具与连接</a></li><li class="sub"><a href="#section-18">围绕任务执行与质量</a></li><li class="top"><a href="#section-19">五、用三个真实场景，把这些概念连起来</a></li><li class="top"><a href="#section-20">六、面对这么多工具，应该怎样选择</a></li><li class="top"><a href="#section-21">来源与编辑说明</a></li></ol></details><div class="article-body"><p>我们平时说“这个 AI 很厉害”，可能是在评价一个模型，也可能是在评价一整套软件系统。</p>
+<main id="main"><nav class="knowledge-breadcrumb" aria-label="面包屑"><a href="../index.html">首页</a> / <a href="index.html">AI 知识科普</a> / 生态与术语</nav><div class="knowledge-layout"><aside class="knowledge-toc" aria-label="本文目录"><h2>本文目录</h2><ol><li class="top"><a href="#section-1">一、先看全貌：AI 生态如何分层</a></li><li class="top"><a href="#section-2">二、模型及其上层，哪些作品值得认识</a></li><li class="sub"><a href="#layer-1">① 模型层：提供理解、推理与生成能力</a></li><li class="sub"><a href="#layer-2">② 推理与接入层：让模型真正跑起来</a></li><li class="sub"><a href="#layer-3">③ 知识与工具层：让 AI 能查资料、做操作</a></li><li class="sub"><a href="#layer-4">④ 智能体框架与运行时层：让 AI 持续推进任务</a></li><li class="sub"><a href="#layer-5">⑤ 工作流与搭建平台层：把 AI 组织成业务流程</a></li><li class="sub"><a href="#layer-6">⑥ 编程与软件创造应用层：从辅助写代码到交付软件</a></li><li class="sub"><a href="#layer-7">⑦ 通用与专业应用层：直接解决用户问题</a></li><li class="top"><a href="#section-10">三、最关键的四个术语：model、harness、agent、vibe coding</a></li><li class="sub"><a href="#section-11">1. Model：模型，是能力来源</a></li><li class="sub"><a href="#section-12">2. Harness：让模型持续工作的运行控制系统</a></li><li class="sub"><a href="#section-13">3. Agent：围绕目标观察、行动并利用反馈的系统</a></li><li class="sub"><a href="#section-14">4. Vibe coding：通过描述、运行和反馈来做软件</a></li><li class="top"><a href="#section-15">四、其他常见术语，以及什么时候会用到</a></li><li class="sub"><a href="#section-16">围绕模型与输入</a></li><li class="sub"><a href="#section-17">围绕知识、工具与连接</a></li><li class="sub"><a href="#section-18">围绕任务执行与质量</a></li><li class="top"><a href="#section-19">五、用三个真实场景，把这些概念连起来</a></li><li class="top"><a href="#section-20">六、面对这么多工具，应该怎样选择</a></li><li class="top"><a href="#section-21">来源与编辑说明</a></li></ol></aside><article class="knowledge-article"><p class="eyebrow">AI 知识科普 · 01</p><h1>从模型到智能体：一篇看懂 AI 生态、代表产品与常见术语</h1><div class="knowledge-meta"><span>资料查证：<time datetime="2026-10-29">2026-10-29</time></span><span>7 个观察层 · 73 个代表作品 · 5 组示意图</span><span>AI 辅助整理 · 含官方来源</span></div><nav class="knowledge-visual-index" aria-label="五张图快速阅读"><p>先看图，再读正文</p><div><a href="#diagram-ecosystem"><span>01</span>生态地图</a><a href="#diagram-model-harness-agent"><span>02</span>三个核心概念</a><a href="#diagram-agent-loop"><span>03</span>执行循环</a><a href="#diagram-rag-vs-finetuning"><span>04</span>知识与训练</a><a href="#diagram-ai-coding-methods"><span>05</span>编程方式</a></div></nav><details class="knowledge-mobile-toc"><summary>展开本文目录</summary><ol><li class="top"><a href="#section-1">一、先看全貌：AI 生态如何分层</a></li><li class="top"><a href="#section-2">二、模型及其上层，哪些作品值得认识</a></li><li class="sub"><a href="#layer-1">① 模型层：提供理解、推理与生成能力</a></li><li class="sub"><a href="#layer-2">② 推理与接入层：让模型真正跑起来</a></li><li class="sub"><a href="#layer-3">③ 知识与工具层：让 AI 能查资料、做操作</a></li><li class="sub"><a href="#layer-4">④ 智能体框架与运行时层：让 AI 持续推进任务</a></li><li class="sub"><a href="#layer-5">⑤ 工作流与搭建平台层：把 AI 组织成业务流程</a></li><li class="sub"><a href="#layer-6">⑥ 编程与软件创造应用层：从辅助写代码到交付软件</a></li><li class="sub"><a href="#layer-7">⑦ 通用与专业应用层：直接解决用户问题</a></li><li class="top"><a href="#section-10">三、最关键的四个术语：model、harness、agent、vibe coding</a></li><li class="sub"><a href="#section-11">1. Model：模型，是能力来源</a></li><li class="sub"><a href="#section-12">2. Harness：让模型持续工作的运行控制系统</a></li><li class="sub"><a href="#section-13">3. Agent：围绕目标观察、行动并利用反馈的系统</a></li><li class="sub"><a href="#section-14">4. Vibe coding：通过描述、运行和反馈来做软件</a></li><li class="top"><a href="#section-15">四、其他常见术语，以及什么时候会用到</a></li><li class="sub"><a href="#section-16">围绕模型与输入</a></li><li class="sub"><a href="#section-17">围绕知识、工具与连接</a></li><li class="sub"><a href="#section-18">围绕任务执行与质量</a></li><li class="top"><a href="#section-19">五、用三个真实场景，把这些概念连起来</a></li><li class="top"><a href="#section-20">六、面对这么多工具，应该怎样选择</a></li><li class="top"><a href="#section-21">来源与编辑说明</a></li></ol></details><div class="article-body"><p>我们平时说“这个 AI 很厉害”，可能是在评价一个模型，也可能是在评价一整套软件系统。</p>
 <p>这两者差别很大：模型负责理解、推理和生成；完整产品还要负责查资料、调用工具、保存进度、处理错误，以及把结果交到你手上。理解 AI 生态，关键就是弄清楚这些能力分别来自哪里。</p>
 <p>本文从模型开始，把生态划分为七个观察层，收录 <strong>73 个代表模型、项目和产品，每层不少于 10 个</strong>，再解释 harness、agent、vibe coding 等常见术语。</p>
 <p>资料查证时间为 <strong>2026 年 10 月 29 日</strong>。以下是按代表性、特色和实际用途挑选的学习地图，不是性能排行榜。模型以家族为单位介绍，避免把同一家族的多个版本重复计数；名称附官方链接，便于继续了解。</p>
@@ -60,6 +60,7 @@
 </table>
 <p>这里的“层”是一种理解方式，并非所有系统都严格逐层搭建。⑥和⑦实际上是应用层的两条分支；③中的工具也可能直接被应用调用。许多产品横跨多层，以下按主要用途归类。</p>
 <p>评测、日志、权限、成本管理和安全控制则贯穿整个系统。</p>
+<figure class="knowledge-figure" id="diagram-ecosystem" style="--diagram-ratio:900 / 664;--diagram-mobile-ratio:360 / 1000"><div class="figure-heading"><span>图 01</span><strong>从能力到应用</strong></div><picture><source media="(max-width: 600px)" srcset="../assets/knowledge/ecosystem-mobile.svg"><img src="../assets/knowledge/ecosystem.svg" alt="AI 生态七个观察层：基础能力、执行组织，以及应用层的两条分支" width="900" height="664" decoding="async"></picture><figcaption><b>读图提示：</b>箭头表示常见的能力组合方向；不是所有产品都需要逐层搭建。第六与第七项是应用层的两条分支。</figcaption></figure>
 <hr />
 <h2 id="section-2">二、模型及其上层，哪些作品值得认识</h2>
 <h3 id="layer-1">① 模型层：提供理解、推理与生成能力</h3>
@@ -451,6 +452,7 @@
 <p>这里再次出现 Claude、Gemini，是因为同一个品牌可以同时指模型家族和应用产品。判断讨论对象时，要问清楚：说的是模型 API，还是用户正在使用的软件？</p>
 <hr />
 <h2 id="section-10">三、最关键的四个术语：model、harness、agent、vibe coding</h2>
+<figure class="knowledge-figure" id="diagram-model-harness-agent" style="--diagram-ratio:900 / 580;--diagram-mobile-ratio:360 / 866"><div class="figure-heading"><span>图 02</span><strong>Model、Harness 与 Agent</strong></div><picture><source media="(max-width: 600px)" srcset="../assets/knowledge/model-harness-agent-mobile.svg"><img src="../assets/knowledge/model-harness-agent.svg" alt="Agent 是完整执行系统，Harness 组织执行并调度模型、工具与状态" width="900" height="580" decoding="async"></picture><figcaption><b>读图提示：</b>外框表示整个 Agent 系统；虚线范围表示 Harness 在运行中的组织与调度范围，并不表示模型参数属于 Harness。</figcaption></figure>
 <h3 id="section-11">1. Model：模型，是能力来源</h3>
 <p>模型根据收到的上下文，产生文本、代码、多模态内容或工具调用请求。</p>
 <p>例如，你提供一份报错记录，模型可以分析原因、提出修改方案。但要读取真实项目、执行修改并运行测试，还需要外部系统配合。</p>
@@ -471,18 +473,7 @@
 <h3 id="section-13">3. Agent：围绕目标观察、行动并利用反馈的系统</h3>
 <p>Agent 通常译为“智能体”。在本文语境中，它指使用模型，根据任务状态选择行动，并根据结果继续推进的系统。</p>
 <p>典型循环是：</p>
-<pre><code class="language-text">接收目标
-   ↓
-查看当前信息
-   ↓
-决定下一步
-   ↓
-调用工具或生成成果
-   ↓
-检查结果
-   ↓
-继续行动、请求人工帮助，或结束
-</code></pre>
+<figure class="knowledge-figure" id="diagram-agent-loop" style="--diagram-ratio:900 / 454;--diagram-mobile-ratio:360 / 866"><div class="figure-heading"><span>图 03</span><strong>Agent 怎样完成任务</strong></div><picture><source media="(max-width: 600px)" srcset="../assets/knowledge/agent-loop-mobile.svg"><img src="../assets/knowledge/agent-loop.svg" alt="智能体接收目标、查看信息、决定行动、执行检查，再依据结果继续或交付" width="900" height="454" decoding="async"></picture><figcaption><b>读图提示：</b>工具结果和验收条件决定是否完成；未完成就带着反馈继续，缺少信息或权限时请人协助。</figcaption></figure>
 <p>例如，“告诉我怎样分析销售数据”主要是问答；“读取这些销售表，找出异常、生成图表并保存报告”则可能需要智能体执行。</p>
 <p>Agent 不必拥有无限权限，也不必由多个角色组成。一个只允许读取资料、生成草稿的系统，同样可以是 agent。</p>
 <p>适用场景：调研、数据处理、软件开发、运营协助和需要动态选择步骤的任务。</p>
@@ -638,6 +629,7 @@
 </table>
 <p>MCP 是连接协议，不是模型，也不会自动赋予工具权限。<a href="https://modelcontextprotocol.io/introduction">MCP 官方介绍</a></p>
 <p>RAG 通常不修改模型参数；微调会修改。最新制度、频繁更新的资料，往往适合通过检索提供；稳定行为的学习则可能考虑微调。</p>
+<figure class="knowledge-figure" id="diagram-rag-vs-finetuning" style="--diagram-ratio:900 / 526;--diagram-mobile-ratio:360 / 1000"><div class="figure-heading"><span>图 04</span><strong>RAG 与微调</strong></div><picture><source media="(max-width: 600px)" srcset="../assets/knowledge/rag-vs-finetuning-mobile.svg"><img src="../assets/knowledge/rag-vs-finetuning.svg" alt="RAG 检索资料辅助当前回答，微调通过额外训练更新模型参数" width="900" height="526" decoding="async"></picture><figcaption><b>读图提示：</b>RAG 通常不改模型参数，微调会调整参数；二者可以结合使用。</figcaption></figure>
 <h3 id="section-18">围绕任务执行与质量</h3>
 <table>
 <thead>
@@ -800,6 +792,7 @@
 </tbody>
 </table>
 <p>三种方式可以出现在同一个项目中。例如先通过 vibe coding 验证界面，再把需求整理成规格，进入可测试、可维护的开发流程。</p>
+<figure class="knowledge-figure" id="diagram-ai-coding-methods" style="--diagram-ratio:900 / 382;--diagram-mobile-ratio:360 / 773"><div class="figure-heading"><span>图 05</span><strong>三种 AI 编程方式</strong></div><picture><source media="(max-width: 600px)" srcset="../assets/knowledge/ai-coding-methods-mobile.svg"><img src="../assets/knowledge/ai-coding-methods.svg" alt="Vibe coding、AI 辅助编程与规格驱动开发的关注点和操作方式" width="900" height="382" decoding="async"></picture><figcaption><b>读图提示：</b>区别在于人怎样组织、审查和验收工作；三种方式可以组合，不是固定的升级阶梯。</figcaption></figure>
 <hr />
 <h2 id="section-20">六、面对这么多工具，应该怎样选择</h2>
 <p>先判断任务，再选择需要的层。</p>

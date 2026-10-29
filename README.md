@@ -223,5 +223,6 @@ Groq 调用异常或第一次分析未通过校验时切换；MiMo 同样必须�
 - 专区入口：`docs/knowledge/index.html`（线上 `/knowledge/index.html`）。
 - 首篇文章：`docs/knowledge/ai-ecosystem-guide.html`，包含七个生态观察层、73 个代表作品、核心术语及应用场景。
 - 内容源文件：`content/knowledge/ai-ecosystem-guide.md`；资料核验日期、产品名称与链接需随文章修订更新。
-- 重新生成：`python -m research_bot.knowledge`，使用项目现有 `markdown-it-py` 依赖。
+- 重新生成：`python -m research_bot.knowledge`，使用项目现有 `markdown-it-py` 依赖；同时生成五组示意图的桌面与手机 SVG 版本。
+- 图示生成器：`research_bot/knowledge_art.py`；图源位于 `docs/assets/knowledge/`，正文配有图注、替代文本与快速跳转。
 - 专区独立于定时简报；首页入口保存在 `research_bot/timeline.py`，导航保存在站点模板中，后续日报生成会保留入口。
