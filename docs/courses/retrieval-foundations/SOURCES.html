@@ -1,0 +1,52 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; script-src &#x27;self&#x27;; style-src &#x27;self&#x27;; img-src &#x27;self&#x27;; font-src &#x27;self&#x27;; connect-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;; form-action &#x27;none&#x27;"><meta name="robots" content="index,follow"><meta name="referrer" content="no-referrer"><title>来源与使用记录 · VORASIO</title><link rel="stylesheet" href="../../assets/course.css"><script defer src="../../assets/course-progress.js"></script><script defer src="../../assets/course-reader.js"></script></head><body><a class="skip-link" href="#main">跳到正文</a><header class="site-header"><a class="brand" href="../../index.html">VORASIO</a><nav aria-label="主导航"><a href="../../index.html#latest">时间线</a><a aria-current="page" href="../../courses/index.html">AI 学习</a></nav></header><main id="main"><article class="support-page"><a href="index.html">← 返回系列</a><h1>来源与使用记录</h1><div class="lesson-body"><p>核查日期：2026-10-28。以下是完整 18 课路线实际使用的主要依据；未声称找到客观上唯一最优秀的课程。</p>
+<p>环境与 Python 基础：<a href="https://docs.astral.sh/uv/getting-started/installation/">uv 安装</a>、<a href="https://docs.astral.sh/uv/guides/install-python/">uv 管理 Python</a>、<a href="https://docs.python.org/3.12/library/json.html">Python 3.12 JSON</a>、<a href="https://docs.python.org/3.12/library/pathlib.html">pathlib</a>、<a href="https://docs.python.org/3.12/tutorial/controlflow.html">控制流程</a>、<a href="https://docs.python.org/3.12/library/dataclasses.html">dataclasses</a>、<a href="https://docs.python.org/3.12/library/collections.html#collections.deque">collections.deque</a>。这些第一方页面支持固定环境、文件解析、函数、数据结构、对话状态与限流实现。</p>
+<p>AI 与网页部分核查：<a href="https://developers.openai.com/api/docs/quickstart">OpenAI Developer Quickstart</a>、<a href="https://developers.openai.com/api/reference/python">OpenAI Python API Reference</a>、<a href="https://console.groq.com/docs/openai">Groq OpenAI compatibility</a>、<a href="https://flask.palletsprojects.com/en/stable/quickstart/">Flask Quickstart</a>、<a href="https://flask.palletsprojects.com/en/stable/deploying/">Flask deployment</a>、<a href="https://developer.mozilla.org/docs/Web/API/Fetch_API">MDN Fetch API</a>。课程采用可配置接口并把真实调用与离线替身分开；不保证第三方服务长期维持完全相同的模型、限额或兼容行为。</p>
+<table>
+<thead>
+<tr>
+<th>来源</th>
+<th>采用原因</th>
+<th>使用方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/microsoft/generative-ai-for-beginners">Microsoft Generative AI for Beginners</a></td>
+<td>21 课公开书面课程，有 Python 示例与明确仓库许可</td>
+<td>参考生成式 AI 课程范围与先后关系，不复制其正文、图表或习题</td>
+</tr>
+<tr>
+<td><a href="https://github.com/microsoft/generative-ai-for-beginners/tree/main/15-rag-and-vector-databases">Microsoft Generative AI for Beginners，第 15 课</a></td>
+<td>RAG 书面课程，适合检索路线对照</td>
+<td>只参考检索与生成流程；本课程另写中文数据、算法、练习和测试</td>
+</tr>
+<tr>
+<td><a href="https://github.com/microsoft/generative-ai-for-beginners/blob/main/LICENSE">Microsoft 课程 LICENSE</a></td>
+<td>官方仓库 MIT 许可</td>
+<td>本轮核查许可；若未来复制实质内容，须随副本保留版权及完整许可</td>
+</tr>
+<tr>
+<td><a href="https://docs.python.org/3.12/library/unittest.html">Python 3.12 unittest</a></td>
+<td>标准库一手文档</td>
+<td>核查自动发现测试和异常断言行为</td>
+</tr>
+<tr>
+<td><a href="https://docs.python.org/3.12/library/collections.html">Python 3.12 collections</a></td>
+<td>标准库一手文档</td>
+<td>比较计数与集合表示，最终代码未采用 Counter</td>
+</tr>
+<tr>
+<td><a href="https://docs.python.org/3.12/tutorial/datastructures.html">Python 3.12 数据结构</a></td>
+<td>基础语义依据</td>
+<td>字典、集合和排序延伸阅读</td>
+</tr>
+<tr>
+<td><a href="https://docs.python.org/3.12/library/re.html">Python 3.12 re</a></td>
+<td>分词模式依据</td>
+<td>正则表达式延伸阅读</td>
+</tr>
+</tbody>
+</table>
+<p>本轮直接读取了微软课程与许可、Python、uv、OpenAI、Groq、Flask 和 MDN 的官方页面。软件行为仍以本地锁定依赖和实际测试为准。网页 URL 可能随上游更新；当前引用没有锁定为不可变网页快照，维护时必须重新核查，不可静默假设历史内容未变。</p>
+<p>设备资料、查询、18 课教学编排、练习、Python 实现和网页界面为本项目原创教学材料，设备行为均为虚构。公开课程只引用来源，不复制大段教材；真实设备不可依据这些虚构说明操作。</p>
+</div></article></main><footer>VORASIO · AI 学习 <span>学习记录仅保存在你的浏览器，不上传。</span></footer></body></html>

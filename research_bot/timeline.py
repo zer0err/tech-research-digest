@@ -69,6 +69,10 @@ def render_timeline(entries: list[dict[str, object]]) -> None:
     body = (
         '<section class="editorial-hero"><h1>VORASIO</h1>'
         '<p class="hero-note">AI 技术简报 · 研究、开发与智能硬件</p></section>'
+        '<section class="section-gateways section-gateways-single" aria-label="专题入口">'
+        '<article><p class="eyebrow">系统学习</p><h2>AI 学习路线</h2>'
+        '<p>从第一行 Python 代码开始，完成一套可验证的 AI 应用。</p>'
+        '<a class="read-link" href="courses/index.html">进入课程 →</a></article></section>'
         '<section id="latest"><div class="timeline-toolbar"><div><p class="eyebrow">每日出版</p>'
         '<h2 id="timeline-heading">今日技术时间线</h2></div>'
         f'<label>浏览日期 <select id="date-picker">{options}</select></label></div>'

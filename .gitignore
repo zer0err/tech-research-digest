@@ -3,6 +3,7 @@ __pycache__/
 .ruff_cache/
 .venv/
 work/
+course_work/
 outputs/
 firebase-debug.log
 reports/*.md

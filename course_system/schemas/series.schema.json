@@ -1,0 +1,170 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vorasio.com/schemas/course-series-v1.json",
+  "title": "VORASIO course series metadata",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "series_id",
+    "content_version",
+    "title_zh",
+    "title_en",
+    "audience",
+    "prerequisites",
+    "final_outcome",
+    "status",
+    "release_confirmation",
+    "environment",
+    "sources",
+    "lessons"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "series_id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+    "content_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "title_zh": {"type": "string", "minLength": 1},
+    "title_en": {"type": "string", "minLength": 1},
+    "audience": {"type": "string", "minLength": 1},
+    "prerequisites": {"type": "string", "minLength": 1},
+    "final_outcome": {"type": "string", "minLength": 1},
+    "status": {"$ref": "#/$defs/status"},
+    "release_confirmation": {
+      "oneOf": [
+        {"type": "null"},
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["confirmed_at", "note"],
+          "properties": {
+            "confirmed_at": {"type": "string", "format": "date-time"},
+            "note": {"type": "string", "minLength": 1}
+          }
+        }
+      ]
+    },
+    "environment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["python", "os", "package_manager", "lockfile", "test_command"],
+      "properties": {
+        "python": {"type": "string", "pattern": "^3\\.[0-9]+$"},
+        "os": {"type": "string", "minLength": 1},
+        "package_manager": {"type": "string", "minLength": 1},
+        "lockfile": {"type": "string", "minLength": 1},
+        "test_command": {"type": "string", "minLength": 1}
+      }
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/source"}
+    },
+    "lessons": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 30,
+      "items": {"$ref": "#/$defs/lesson"}
+    }
+  },
+  "$defs": {
+    "status": {
+      "enum": [
+        "planned",
+        "sourced",
+        "drafted",
+        "ai_checked",
+        "tested",
+        "release_confirmed",
+        "published",
+        "needs_revision"
+      ]
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_id", "title", "publisher", "url", "license", "accessed_at"],
+      "properties": {
+        "source_id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+        "title": {"type": "string", "minLength": 1},
+        "publisher": {"type": "string", "minLength": 1},
+        "url": {"type": "string", "format": "uri", "pattern": "^https://"},
+        "license": {"type": "string", "minLength": 1},
+        "accessed_at": {"type": "string", "format": "date"}
+      }
+    },
+    "lesson": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lesson_id",
+        "ordinal",
+        "title",
+        "content_version",
+        "status",
+        "required",
+        "estimated_minutes",
+        "generation",
+        "ai_check",
+        "test_evidence",
+        "source_ids",
+        "exercises"
+      ],
+      "properties": {
+        "lesson_id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+        "ordinal": {"type": "integer", "minimum": 1},
+        "title": {"type": "string", "minLength": 1},
+        "content_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+        "status": {"$ref": "#/$defs/status"},
+        "required": {"const": true},
+        "estimated_minutes": {"type": "integer", "minimum": 1},
+        "exercises": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "$comment": "The Python validator also enforces uniqueness of exercise_id within each lesson.",
+          "items": {"$ref": "#/$defs/exercise"}
+        },
+        "generation": {"$ref": "#/$defs/model_evidence"},
+        "ai_check": {"$ref": "#/$defs/model_evidence"},
+        "test_evidence": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["command", "completed_at", "result"],
+          "properties": {
+            "command": {"type": "string", "minLength": 1},
+            "completed_at": {"type": "string", "format": "date-time"},
+            "result": {"const": "passed"}
+          }
+        },
+        "source_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "exercise": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["exercise_id", "title", "required"],
+      "properties": {
+        "exercise_id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+        "title": {"type": "string", "minLength": 1},
+        "required": {"const": true}
+      }
+    },
+    "model_evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["provider", "model_id", "completed_at", "result"],
+      "properties": {
+        "provider": {"const": "openai"},
+        "model_id": {"type": "string", "pattern": "^gpt-6(?:\\.[0-9]+)?(?:-[a-z0-9]+(?:-[a-z0-9]+)*)?$"},
+        "completed_at": {"type": "string", "format": "date-time"},
+        "result": {"const": "passed"}
+      }
+    }
+  }
+}

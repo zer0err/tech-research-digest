@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "series_id": "python-ai-foundations",
+  "content_version": "1.0.0",
+  "title_zh": "Python AI 开发基础",
+  "title_en": "Python Foundations for AI Development",
+  "audience": "具备基础计算机操作经验的 AI 开发初学者",
+  "prerequisites": "能够使用命令行并理解基本编程概念",
+  "final_outcome": "完成一个经过自动测试的小型 AI 应用",
+  "status": "release_confirmed",
+  "release_confirmation": {
+    "confirmed_at": "2026-10-27T01:00:00Z",
+    "note": "Publisher reviewed the complete local preview"
+  },
+  "environment": {
+    "python": "3.12",
+    "os": "Ubuntu 24.04",
+    "package_manager": "uv",
+    "lockfile": "uv.lock",
+    "test_command": "pytest -q"
+  },
+  "sources": [
+    {
+      "source_id": "python-docs-tutorial",
+      "title": "The Python Tutorial",
+      "publisher": "Python Software Foundation",
+      "url": "https://docs.python.org/3/tutorial/",
+      "license": "PSF License Agreement",
+      "accessed_at": "2026-10-26"
+    }
+  ],
+  "lessons": [
+    {
+      "lesson_id": "environment-and-first-test",
+      "ordinal": 1,
+      "title": "建立可复现环境并运行第一个测试",
+      "exercises": [{"exercise_id": "ex-01", "title": "合成环境练习", "required": true}],
+      "content_version": "1.0.0",
+      "status": "release_confirmed",
+      "required": true,
+      "estimated_minutes": 120,
+      "generation": {
+        "provider": "openai",
+        "model_id": "gpt-6-astra",
+        "completed_at": "2026-10-27T00:20:00Z",
+        "result": "passed"
+      },
+      "ai_check": {
+        "provider": "openai",
+        "model_id": "gpt-6-astra",
+        "completed_at": "2026-10-27T00:30:00Z",
+        "result": "passed"
+      },
+      "test_evidence": {
+        "command": "pytest -q",
+        "completed_at": "2026-10-27T00:40:00Z",
+        "result": "passed"
+      },
+      "source_ids": ["python-docs-tutorial"]
+    },
+    {
+      "lesson_id": "data-and-functions",
+      "ordinal": 2,
+      "title": "用数据与函数组织可测试程序",
+      "exercises": [{"exercise_id": "ex-01", "title": "合成数据练习", "required": true}],
+      "content_version": "1.0.0",
+      "status": "release_confirmed",
+      "required": true,
+      "estimated_minutes": 120,
+      "generation": {
+        "provider": "openai",
+        "model_id": "gpt-6-astra",
+        "completed_at": "2026-10-27T00:21:00Z",
+        "result": "passed"
+      },
+      "ai_check": {
+        "provider": "openai",
+        "model_id": "gpt-6-astra",
+        "completed_at": "2026-10-27T00:31:00Z",
+        "result": "passed"
+      },
+      "test_evidence": {
+        "command": "pytest -q",
+        "completed_at": "2026-10-27T00:41:00Z",
+        "result": "passed"
+      },
+      "source_ids": ["python-docs-tutorial"]
+    },
+    {
+      "lesson_id": "small-ai-application",
+      "ordinal": 3,
+      "title": "组装并验证一个小型 AI 应用",
+      "exercises": [{"exercise_id": "ex-01", "title": "合成组装练习", "required": true}],
+      "content_version": "1.0.0",
+      "status": "release_confirmed",
+      "required": true,
+      "estimated_minutes": 120,
+      "generation": {
+        "provider": "openai",
+        "model_id": "gpt-6-astra",
+        "completed_at": "2026-10-27T00:22:00Z",
+        "result": "passed"
+      },
+      "ai_check": {
+        "provider": "openai",
+        "model_id": "gpt-6-astra",
+        "completed_at": "2026-10-27T00:32:00Z",
+        "result": "passed"
+      },
+      "test_evidence": {
+        "command": "pytest -q",
+        "completed_at": "2026-10-27T00:42:00Z",
+        "result": "passed"
+      },
+      "source_ids": ["python-docs-tutorial"]
+    }
+  ]
+}
