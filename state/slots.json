@@ -2,57 +2,9 @@
   "version": 1,
   "slots": {
     "2026-10-29:paper_brief": {
-      "status": "prepared",
+      "status": "published",
       "updated_at": "2026-10-29T04:42:17.740958+00:00",
-      "attempts": 1,
-      "pending": {
-        "topic": "efficient_ai",
-        "title": "AI 论文午间速览",
-        "url": "https://vorasio.com/posts/20261029-paper_brief.html",
-        "created_at": "2026-10-29T04:42:17.740958+00:00",
-        "items": [
-          {
-            "uid": "8188288769ea7a19a5ebcf88",
-            "title": "Nonlinear Membrane-System-Based Multiscale Feature Purification Learning Framework",
-            "url": "https://doi.org/10.1142/s0129065727500389",
-            "published": "2026-10-29T00:00:00+00:00",
-            "summary": "Deep neural networks have achieved remarkable performance in visual representation learning, but their hierarchical feature aggregation often introduces redundant and task-irrelevant responses, limiting representation quality in fine-grained visual analysis tasks. To address this issue, this paper proposes FPNet-NSNP, an NSNP-inspired multiscale feature purification framework for image forgery localization. The proposed framework integrates three complementary components: a Cross-layer Feature Fusion (CFF) module for hierarchical feature interaction, a Visual Perception (VP) module for multiscale contextual representation, and a Feature Purification (FP) module for adaptive feature refinement. In particular, the proposed ConvSNP unit incorporates nonlinear response regulation inspired by Nonlinear Spiking Neural P Systems (NSNP), enabling more effective feature transformation and redundancy reduction during propagation. Extensive experiments on benchmark image forgery localization datasets demonstrate that FPNet-NSNP achieves competitive performance compared with existing methods. Moreover, robustness evaluations under noise perturbation and JPEG compression, together with cross-domain experiments on medical image manipulation data, further verify the stability and generalization capability of the proposed framework. The results indicate that NSNP-inspired nonlinear regulation ",
-            "source": "Crossref Efficient AI",
-            "kind": "research",
-            "doi": "10.1142/s0129065727500389",
-            "date_precision": "day"
-          },
-          {
-            "uid": "ef656ac89010e7c900002a88",
-            "title": "Can Discrete Tokens Serve as Semantically Lossless Representations of Visual Signals?",
-            "url": "https://arxiv.org/abs/2610.37662v1",
-            "published": "2026-10-27T17:59:22+00:00",
-            "summary": "Discrete visual tokens represent vision in a discrete form analogous to language, offering a native interface for multimodal modeling under a shared next-token prediction objective. However, quantization error is widely assumed to cause unavoidable semantic loss, fundamentally limiting the semantic fidelity of discrete visual tokens and positioning continuous visual representations as an intrinsic upper bound. Using multimodal understanding as a proxy for semantic fidelity, we revisit this assumption and find quantization error unreliable, as discrete representations with substantially larger errors can achieve better understanding. Instead, the effective bit budget of discrete indices emerges as a key determinant of downstream performance. However, existing quantizers eventually saturate as additional codebooks contribute progressively less semantic information. As one approach to alleviating this saturation, we introduce Factorized Vector Quantization, which quantizes complementary, fixed-dimensional views of the visual feature with symmetric parallel codebooks. It continues to improve at larger bit budgets, ultimately matching continuous visual representations in multimodal understanding. Trained on industrial-scale multimodal data, our model achieves state-of-the-art performance among discrete-representation models, outperforming UniAR and Emu3-Chat by 22.8% and 59.2%, resp",
-            "source": "arXiv Efficient AI",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day"
-          },
-          {
-            "uid": "f1594d4deb389b81b6aac58e",
-            "title": "MoI-Bench: A Benchmark for Image Generation and Editing on Mobile Devices",
-            "url": "https://arxiv.org/abs/2610.37599v1",
-            "published": "2026-10-27T17:31:40+00:00",
-            "summary": "Developing on-device image models requires considering practical user needs, task types and device resource constraints. However, existing benchmarks provide limited guidance on identifying capability gaps between on-device models and server-side models. We introduce MoI-Bench, a benchmark grounded in mobile user needs, comprising 64 subtasks and 1150 samples. It defines 16 operations, such as removal and replacement, and eight visual target categories covering content such as portraits and text. These form two orthogonal axes whose applicable combinations define specific tasks, such as removing facial makeup. To better guide model improvement, we further propose MoI-Eval, which introduces task-specific criteria covering instruction following, visual quality and detail preservation. We further construct sample-level evaluation questions and aggregate their scores into overall quality and capability profiles along the operation, target and criteria axes. We evaluate representative on-device and server-side models and measure mobile deployment costs. Results show that this decoupled Operation x Target design provides finer-grained guidance for improving compact models. For example, it highlights the need to prioritize specific capability gaps (e.g., text-replacement) over broad application-level goals (e.g., improving text editing). Unlike conventional benchmarks that rank models",
-            "source": "arXiv Efficient AI",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day"
-          }
-        ],
-        "notify": true,
-        "mode": "production",
-        "analysis": {
-          "provider": "Groq",
-          "model": "openai/gpt-oss-20b"
-        },
-        "slot": "paper_brief"
-      }
+      "attempts": 1
     },
     "2026-10-29:open_source": {
       "status": "published",

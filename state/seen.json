@@ -96,13 +96,16 @@
     },
     "efficient_ai": {
       "ids": [
+        "8188288769ea7a19a5ebcf88",
+        "ef656ac89010e7c900002a88",
+        "f1594d4deb389b81b6aac58e",
         "2a83dbf1f4e400a9747a56a3",
         "cb7b025051bb6cf0a8d5c5bc",
         "7636d6d395b446725f42fbf5",
         "7e518a52776f0779cdbd16e6",
         "d8688b533028f131212f0a3d"
       ],
-      "updated_at": "2026-10-26T07:14:13.311587+00:00"
+      "updated_at": "2026-10-29T04:42:17.740958+00:00"
     },
     "ai_hardware": {
       "ids": [
@@ -151,6 +154,9 @@
     }
   },
   "all_ids": [
+    "8188288769ea7a19a5ebcf88",
+    "ef656ac89010e7c900002a88",
+    "f1594d4deb389b81b6aac58e",
     "369212866d51bd4cce52fcbf",
     "b2cdbdd2504fd314d9f68cde",
     "5f51ab997879e689785cbc51",
@@ -242,6 +248,9 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://doi.org/10.1142/s0129065727500389",
+    "https://arxiv.org/abs/2610.37662v1",
+    "https://arxiv.org/abs/2610.37599v1",
     "https://github.com/ollama/ollama/releases/tag/v0.40.13",
     "https://doi.org/10.1093/9780198999102.003.0008",
     "https://doi.org/10.1038/s41467-026-78807-z",
@@ -333,6 +342,9 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "138d37cf3446ff03205b431d",
+    "cf3dbc01709f5914acf5ac68",
+    "952bd182f60d38031987b87c",
     "b377c3597d6c091b1057b5f4",
     "3c2051c98e4e00b58d854aa8",
     "ea01c8ac3684f1ba27d42109",
@@ -1654,6 +1666,49 @@
           "published": "2026-10-28T19:55:04+00:00",
           "summary": "## LFM3 on Linux and Windows Liquid AI's [LFM3](https://ollama.com/library/lfm3) models, including text-to-speech in [lfm3-audio](https://ollama.com/library/lfm3-audio) and [lfm3-omni](https://ollama.com/library/lfm3-omni), now run on Linux and Windows as well as Apple silicon. **Full Changelog**: https://github.com/ollama/ollama/compare/v0.40.12...v0.40.13",
           "source": "Ollama Releases",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261029-paper_brief.html": {
+      "topic": "efficient_ai",
+      "created_at": "2026-10-29T04:42:17.740958+00:00",
+      "items": [
+        {
+          "uid": "8188288769ea7a19a5ebcf88",
+          "title": "Nonlinear Membrane-System-Based Multiscale Feature Purification Learning Framework",
+          "url": "https://doi.org/10.1142/s0129065727500389",
+          "published": "2026-10-29T00:00:00+00:00",
+          "summary": "Deep neural networks have achieved remarkable performance in visual representation learning, but their hierarchical feature aggregation often introduces redundant and task-irrelevant responses, limiting representation quality in fine-grained visual analysis tasks. To address this issue, this paper proposes FPNet-NSNP, an NSNP-inspired multiscale feature purification framework for image forgery localization. The proposed framework integrates three complementary components: a Cross-layer Feature Fusion (CFF) module for hierarchical feature interaction, a Visual Perception (VP) module for multiscale contextual representation, and a Feature Purification (FP) module for adaptive feature refinement. In particular, the proposed ConvSNP unit incorporates nonlinear response regulation inspired by Nonlinear Spiking Neural P Systems (NSNP), enabling more effective feature transformation and redundancy reduction during propagation. Extensive experiments on benchmark image forgery localization datasets demonstrate that FPNet-NSNP achieves competitive performance compared with existing methods. Moreover, robustness evaluations under noise perturbation and JPEG compression, together with cross-domain experiments on medical image manipulation data, further verify the stability and generalization capability of the proposed framework. The results indicate that NSNP-inspired nonlinear regulation ",
+          "source": "Crossref Efficient AI",
+          "kind": "research",
+          "doi": "10.1142/s0129065727500389",
+          "date_precision": "day"
+        },
+        {
+          "uid": "ef656ac89010e7c900002a88",
+          "title": "Can Discrete Tokens Serve as Semantically Lossless Representations of Visual Signals?",
+          "url": "https://arxiv.org/abs/2610.37662v1",
+          "published": "2026-10-27T17:59:22+00:00",
+          "summary": "Discrete visual tokens represent vision in a discrete form analogous to language, offering a native interface for multimodal modeling under a shared next-token prediction objective. However, quantization error is widely assumed to cause unavoidable semantic loss, fundamentally limiting the semantic fidelity of discrete visual tokens and positioning continuous visual representations as an intrinsic upper bound. Using multimodal understanding as a proxy for semantic fidelity, we revisit this assumption and find quantization error unreliable, as discrete representations with substantially larger errors can achieve better understanding. Instead, the effective bit budget of discrete indices emerges as a key determinant of downstream performance. However, existing quantizers eventually saturate as additional codebooks contribute progressively less semantic information. As one approach to alleviating this saturation, we introduce Factorized Vector Quantization, which quantizes complementary, fixed-dimensional views of the visual feature with symmetric parallel codebooks. It continues to improve at larger bit budgets, ultimately matching continuous visual representations in multimodal understanding. Trained on industrial-scale multimodal data, our model achieves state-of-the-art performance among discrete-representation models, outperforming UniAR and Emu3-Chat by 22.8% and 59.2%, resp",
+          "source": "arXiv Efficient AI",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        },
+        {
+          "uid": "f1594d4deb389b81b6aac58e",
+          "title": "MoI-Bench: A Benchmark for Image Generation and Editing on Mobile Devices",
+          "url": "https://arxiv.org/abs/2610.37599v1",
+          "published": "2026-10-27T17:31:40+00:00",
+          "summary": "Developing on-device image models requires considering practical user needs, task types and device resource constraints. However, existing benchmarks provide limited guidance on identifying capability gaps between on-device models and server-side models. We introduce MoI-Bench, a benchmark grounded in mobile user needs, comprising 64 subtasks and 1150 samples. It defines 16 operations, such as removal and replacement, and eight visual target categories covering content such as portraits and text. These form two orthogonal axes whose applicable combinations define specific tasks, such as removing facial makeup. To better guide model improvement, we further propose MoI-Eval, which introduces task-specific criteria covering instruction following, visual quality and detail preservation. We further construct sample-level evaluation questions and aggregate their scores into overall quality and capability profiles along the operation, target and criteria axes. We evaluate representative on-device and server-side models and measure mobile deployment costs. Results show that this decoupled Operation x Target design provides finer-grained guidance for improving compact models. For example, it highlights the need to prioritize specific capability gaps (e.g., text-replacement) over broad application-level goals (e.g., improving text editing). Unlike conventional benchmarks that rank models",
+          "source": "arXiv Efficient AI",
           "kind": "research",
           "doi": "",
           "date_precision": "day"
