@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 开源项目与工具更新（2026-10-29）</title><meta name="description" content="AI 开源项目与工具更新（2026-10-29）：1 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav><a href="../index.html#latest">时间线</a><a href="../courses/index.html">AI 学习</a><a href="../tools/index.html">AI 工具</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">AI 开源项目与工具更新</p><dl><dt>发布时间</dt><dd data-published-at="2026-10-29T11:42:17.690495+08:00">2026-10-29 11:42 · UTC+8</dd><dt>研究条目</dt><dd>1 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · AI 开源项目与工具更新</p><h1>AI 开源项目与工具更新（2026-10-29）</h1><!-- provenance:start --><p class="ai-analysis" title="openai/gpt-oss-20b">AI 分析：Groq</p><!-- provenance:end --><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期要点</h2>
+<ul>
+<li>Ollama v0.40.13 版新增 <strong>LFM3</strong> 系列模型（含文本转语音）在 Linux 与 Windows 上可运行，扩展了跨平台兼容性。 [1]</li>
+<li>该版本的发布日志未列出显著的性能改进或迁移风险，仅说明模型可在新平台上使用。 [1]</li>
+<li>变更范围局限于模型兼容性，未涉及 API 版本或依赖更新。 [1]</li>
+</ul>
+<h2>逐项速览</h2>
+<table>
+<thead>
+<tr>
+<th>变更</th>
+<th>证据</th>
+<th>局限</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>LFM3 模型跨平台支持</strong></td>
+<td>发行说明指出 “LFM3 models, including text‑to‑speech in lfm3‑audio and lfm3‑omni, now run on Linux and Windows as well as Apple silicon.” [1]</td>
+<td>仅确认模型可运行，未提供性能基准或资源占用数据。</td>
+</tr>
+<tr>
+<td><strong>发布日志完整性</strong></td>
+<td>“Full Changelog” 链接指向 <code>v0.40.12...v0.40.13</code> 对比，未显示新增 API 或重大功能。 [1]</td>
+<td>变更细节仅在对比页面，未在摘要中列出具体差异。</td>
+</tr>
+<tr>
+<td><strong>兼容性扩展</strong></td>
+<td>说明中提到 “now run on Linux and Windows as well as Apple silicon.” [1]</td>
+<td>未说明是否需要额外依赖或配置步骤。</td>
+</tr>
+<tr>
+<td><strong>迁移风险</strong></td>
+<td>摘要未提及迁移风险或回退方案。 [1]</td>
+<td>可能存在未披露的兼容性问题，需自行验证。</td>
+</tr>
+</tbody>
+</table>
+<h2>值得采取的行动</h2>
+<ul>
+<li>在 Linux 或 Windows 环境中尝试部署 <code>lfm3</code>, <code>lfm3-audio</code> 与 <code>lfm3-omni</code>，确认模型加载与推理正常。</li>
+<li>对比 <code>v0.40.12</code> 与 <code>v0.40.13</code> 的依赖清单，检查是否有新增或变更的系统库。</li>
+<li>记录任何运行时错误或性能差异，以便后续评估迁移风险。</li>
+</ul>
+<h2>参考资料</h2>
+<p>[1] ollama/ollama: v0.40.13 – <a href="https://github.com/ollama/ollama/releases/tag/v0.40.13">https://github.com/ollama/ollama/releases/tag/v0.40.13</a></p>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>

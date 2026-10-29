@@ -1,6 +1,37 @@
 {
   "version": 1,
   "slots": {
+    "2026-10-29:open_source": {
+      "status": "prepared",
+      "updated_at": "2026-10-29T03:42:17.690495+00:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "open_source",
+        "title": "AI 开源项目与工具更新",
+        "url": "https://vorasio.com/posts/20261029-open_source.html",
+        "created_at": "2026-10-29T03:42:17.690495+00:00",
+        "items": [
+          {
+            "uid": "369212866d51bd4cce52fcbf",
+            "title": "ollama/ollama: v0.40.13",
+            "url": "https://github.com/ollama/ollama/releases/tag/v0.40.13",
+            "published": "2026-10-28T19:55:04+00:00",
+            "summary": "## LFM3 on Linux and Windows Liquid AI's [LFM3](https://ollama.com/library/lfm3) models, including text-to-speech in [lfm3-audio](https://ollama.com/library/lfm3-audio) and [lfm3-omni](https://ollama.com/library/lfm3-omni), now run on Linux and Windows as well as Apple silicon. **Full Changelog**: https://github.com/ollama/ollama/compare/v0.40.12...v0.40.13",
+            "source": "Ollama Releases",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          }
+        ],
+        "notify": false,
+        "mode": "production",
+        "analysis": {
+          "provider": "Groq",
+          "model": "openai/gpt-oss-20b"
+        },
+        "slot": "open_source"
+      }
+    },
     "2026-10-29:morning_radar": {
       "status": "published",
       "updated_at": "2026-10-29T01:12:25.766303+00:00",

@@ -1,5 +1,33 @@
 [
   {
+    "title": "AI 开源项目与工具更新（2026-10-29）",
+    "date": "2026-10-29T11:42:17.690495+08:00",
+    "count": 1,
+    "url": "posts/20261029-open_source.html",
+    "topic": "open_source",
+    "status": "published",
+    "summary": "本期要点 - Ollama v0.40.13 版新增 LFM3 系列模型（含文本转语音）在 Linux 与 Windows 上可运行，扩展了跨平台兼容性。 1 - 该版本的发布日志未列出显著的性能改进或迁移风险，仅说明模型可在新平台上使用。 1 - 变更范围局限于模型兼容性，未涉及 API 版本或依赖更新。 1 逐项速",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "ollama/ollama: v0.40.13",
+          "url": "https://github.com/ollama/ollama/releases/tag/v0.40.13",
+          "publisher": "Ollama Releases",
+          "host": "github.com",
+          "family": "代码与版本",
+          "published": "2026-10-28T19:55:04+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 模型、训练与基础研究（2026-10-29）",
     "date": "2026-10-29T10:42:16.061473+08:00",
     "count": 3,
