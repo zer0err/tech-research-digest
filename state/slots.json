@@ -36,6 +36,48 @@
       "updated_at": "2026-10-29T06:12:22.109951+00:00",
       "attempts": 1
     },
+    "2026-10-29:applied_ai": {
+      "status": "prepared",
+      "updated_at": "2026-10-29T08:37:06.438204+00:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "inference_systems",
+        "title": "推理引擎、编译器与嵌入式系统",
+        "url": "https://vorasio.com/posts/20261029-applied_ai.html",
+        "created_at": "2026-10-29T08:37:06.438204+00:00",
+        "items": [
+          {
+            "uid": "9a353cad7c13daac5c22e7cc",
+            "title": "Automated Logging Is Language-Sensitive: A Multilingual Benchmark and Empirical Study of LLMs",
+            "url": "https://doi.org/10.1145/3860542",
+            "published": "2026-10-26T00:00:00+00:00",
+            "summary": "Logging statements are central to debugging, failure diagnosis, and production observability, yet writing them requires developers to decide where to place a logging statement, which API and severity level to use, and what runtime information to expose. Automated logging aims to reduce this burden, but existing evidence remains dominated by Java-centric repositorysnapshot datasets. Thus, Java-centered benchmarks do not show whether findings on model behavior and model selection generalize to other programming languages or to real-world maintenance changes that introduce logging statements. This paper presents MultiLogBench, a multilingual benchmark and empirical study spanning six programming language ecosystems. MultiLogBench contains 63,965 production-code repository-snapshot instances, 744 revision-history cases where developers introduce logging statements during maintenance, and a paired transformed revision-history branch for robustness analysis. Using seven contemporary large language models under a unified protocol, we evaluate logging-site localization, frameworkanchor matching, severity prediction, message generation, variable recovery, and cascaded overall quality. Results show that automated logging is sensitive to language-ecosystem conditions. On repository-snapshot data, absolute performance levels and component profiles vary across language-specific subsets, wit",
+            "source": "OpenAlex Inference",
+            "kind": "research",
+            "doi": "https://doi.org/10.1145/3860542",
+            "date_precision": "day"
+          },
+          {
+            "uid": "61e220367e4e1e404322ee49",
+            "title": "PastaLean: Deterministic transpilation from Python to Lean for Verification",
+            "url": "https://arxiv.org/abs/2610.34205v1",
+            "published": "2026-10-25T10:47:21+00:00",
+            "summary": "We present PastaLean, an extensible system for deterministic translation from Python to Lean via the Abstract Syntax Tree of Python. This allows for verification of Python code, especially auxiliary code used by AI. Every program is translated into a provable twin written in the form Lean's verification tooling can reason about, and a runnable twin that gives a fast and correct computation support. We also introduce our Type Inference engine TypeInfer which provides static typing support for untyped Python code. Our tool provides coverage of more than 92\\% for LeetCode and HumanEval\\textsuperscript{+} and more than 98\\% for LiveCodeBench ground truth Python files. Further, at least 97\\% of each dataset's (numerical) test cases pass, with 100\\% on HumanEval\\textsuperscript{+} and LiveCodeBench. The TypeInfer engine is the best-scoring tool on the TypeEvalPy static leaderboard, and on a repository-level TypyBench benchmark it scores above every competing repository-level inference tool.",
+            "source": "arXiv Inference Systems",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          }
+        ],
+        "notify": false,
+        "mode": "production",
+        "analysis": {
+          "provider": "Xiaomi MiMo",
+          "model": "mimo-v2.6-flash"
+        },
+        "slot": "applied_ai"
+      }
+    },
     "2026-10-28:prompt_engineering": {
       "status": "no_matching_in_window",
       "updated_at": "2026-10-28T06:12:17.892084+00:00",

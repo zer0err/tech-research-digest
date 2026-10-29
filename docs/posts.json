@@ -1,5 +1,44 @@
 [
   {
+    "title": "推理引擎、编译器与嵌入式系统（2026-10-29）",
+    "date": "2026-10-29T16:37:06.438204+08:00",
+    "count": 2,
+    "url": "posts/20261029-applied_ai.html",
+    "topic": "applied_ai",
+    "status": "published",
+    "summary": "本期结论 - 本期两篇资料均不直接涉及推理引擎、编译器与嵌入式系统的性能优化，与栏目分析重点（算子优化、异构调度、实时性等）匹配度低，无法形成趋势判断 12。 - 值得关注的信号：PastaLean 提出 Python 到 Lean 的确定性转译路径，其\"可运行孪生\"概念若扩展至推理引擎中间表示验证，可能与编译器正确性",
+    "provenance": {
+      "analysis": {
+        "provider": "Xiaomi MiMo",
+        "model": "mimo-v2.6-flash"
+      },
+      "sources": [
+        {
+          "title": "Automated Logging Is Language-Sensitive: A Multilingual Benchmark and Empirical Study of LLMs",
+          "url": "https://doi.org/10.1145/3860542",
+          "publisher": "OpenAlex Inference",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-10-26T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.1145/3860542",
+          "kind": "research"
+        },
+        {
+          "title": "PastaLean: Deterministic transpilation from Python to Lean for Verification",
+          "url": "https://arxiv.org/abs/2610.34205v1",
+          "publisher": "arXiv Inference Systems",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-10-25T10:47:21+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "高效 AI、模型压缩与端侧适配（2026-10-29）",
     "date": "2026-10-29T14:12:22.109951+08:00",
     "count": 3,
