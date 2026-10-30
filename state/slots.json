@@ -36,6 +36,59 @@
       "updated_at": "2026-10-30T06:12:41.931660+00:00",
       "attempts": 1
     },
+    "2026-10-30:applied_ai": {
+      "status": "prepared",
+      "updated_at": "2026-10-30T08:42:17.304255+00:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "product_safety",
+        "title": "智能硬件产品化、可靠性与安全",
+        "url": "https://vorasio.com/posts/20261030-applied_ai.html",
+        "created_at": "2026-10-30T08:42:17.304255+00:00",
+        "items": [
+          {
+            "uid": "55a2be6a71657f68b8536be6",
+            "title": "LARVA-Net: A Bio-Inspired Recursive Attention Model for IoT-Based Microclimate Prediction in Black Soldier Fly Insectariums",
+            "url": "https://doi.org/10.15408/jti.v19i2.54220",
+            "published": "2026-10-30T00:00:00+00:00",
+            "summary": "Microclimate prediction is critical for optimizing larval growth and productivity in Black Soldier Fly (BSF) insectariums, where temperature and humidity exhibit nonlinear and time-varying dynamics. Conventional models such as Vector Autoregression (VAR) and Adaptive Neuro-Fuzzy Inference Systems (ANFIS) often struggle to balance accuracy, efficiency, and interpretability in IoT-based environments. This study proposes LARVA-Net, a bio-inspired recursive attention framework for multivariate microclimate prediction in BSF insectariums. LARVA-Net integrates a VAR-based linear baseline with selective recursive attention and adaptive fuzzy-state learning. The bio-inspired aspect represents a computational abstraction of adaptive and energy-efficient information processing observed in larval behavior, rather than a biological simulation. By selectively updating internal states based on contextual relevance, the model suppresses error accumulation while maintaining interpretability and stable learning. The proposed method is evaluated using real-world IoT microclimate data collected from a semi-controlled BSF insectarium. Experimental results show that LARVA-Net outperforms VAR, ANFIS, and VARFIS, achieving an RMSE of 0.2440, MAE of 0.1466, MAPE of 0.4566%, and R² of 0.9911. These results demonstrate strong predictive performance and robustness under time-aware evaluation, indicating ",
+            "source": "Crossref Device Security",
+            "kind": "research",
+            "doi": "10.15408/jti.v19i2.54220",
+            "date_precision": "day"
+          },
+          {
+            "uid": "4476c06ca2d120a02f3fd13d",
+            "title": "TGTV: An Interpretable Framework for UAV Fault Detection and Traceability via Spatiotemporal Graph Learning and Large Language Models",
+            "url": "https://arxiv.org/abs/2610.38106v1",
+            "published": "2026-10-28T00:44:22+00:00",
+            "summary": "Fixed-wing unmanned aerial vehicles experience operating-condition transitions, asynchronous sensor sampling, and control-system compensation that can obscure fault signatures. Existing temporal detection methods have limited capacity to represent coupled faults across subsystems, track their evolution, and constrain language-model diagnoses with quantitative evidence. This paper proposes TGTV, an interpretable fault detection and traceability framework that integrates spatiotemporal graph learning with a large language model. A temporal convolutional network and a graph attention network with weighted fused adjacency extract multiscale temporal patterns and spatial dependencies among sensors. A hybrid temporal Transformer and variational autoencoder then evaluates window-level anomalies using prediction errors and reconstruction probabilities. Continuous-time Shapley attribution identifies critical sensors and high-contribution intervals while preserving the temporal continuity of fault evolution. A structured evidence package combines detection results, graph relationships, temporal attribution, sensor attribution, and operating context. An evidence-constrained diagnosis protocol uses this package to generate flight-level conclusions with traceable evidence identifiers. Cross-flight holdout experiments on the public ALFA fixed-wing flight dataset yield a window-level area und",
+            "source": "arXiv Hardware Reliability",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          },
+          {
+            "uid": "90626dc00414501928394dc9",
+            "title": "IoT-Based Smart Soil Monitoring and Fertilizer Recommendation System",
+            "url": "https://doi.org/10.48175/ijarsct-40345",
+            "published": "2026-10-28T00:00:00+00:00",
+            "summary": "Agricultural productivity is strongly influenced by soil health and the availability of essential nutrients. Conventional soil testing methods generally require sample collection, laboratory analysis and manual interpretation, which may delay decisions related to irrigation and fertilizer application. Internet of Things (IoT) technologies provide an opportunity to monitor important soil parameters continuously and make the information available remotely. This review paper studies IoT-based approaches for soil monitoring and fertilizer recommendation, with emphasis on measurement of nitrogen, phosphorus, potassium (NPK), soil pH and soil moisture. The reviewed approaches use sensors, embedded controllers, communication interfaces and cloud-based monitoring platforms to collect and process soil information. Particular attention is given to STM32F103C8T6 as the proposed processing controller, RS485 Modbus for sensor communication and ESP8266 for wireless connectivity. The paper also reviews existing methods, identifies limitations such as sensor accuracy, calibration, communication reliability and recommendation complexity, and discusses the role of data analysis in converting measured soil conditions into useful fertilizer recommendations. Based on the review, an IoT-based architecture integrating NPK, pH and moisture sensing with remote monitoring can provide a practical foundat",
+            "source": "OpenAlex Device Security",
+            "kind": "research",
+            "doi": "https://doi.org/10.48175/ijarsct-40345",
+            "date_precision": "day"
+          }
+        ],
+        "notify": false,
+        "mode": "production",
+        "analysis": {
+          "provider": "Groq",
+          "model": "openai/gpt-oss-20b"
+        },
+        "slot": "applied_ai"
+      }
+    },
     "2026-10-29:prompt_engineering": {
       "status": "no_matching_in_window",
       "updated_at": "2026-10-29T05:50:45.482714+00:00",

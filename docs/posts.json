@@ -1,5 +1,55 @@
 [
   {
+    "title": "智能硬件产品化、可靠性与安全（2026-10-30）",
+    "date": "2026-10-30T16:42:17.304255+08:00",
+    "count": 3,
+    "url": "posts/20261030-applied_ai.html",
+    "topic": "applied_ai",
+    "status": "published",
+    "summary": "本期结论 1. 多模态感知与自适应学习在工业 IoT 设备中能显著提升预测精度，如 LARVA‑Net 在黑水虻养殖环境中实现 RMSE 0.2440、MAE 0.1466、MAPE 0.4566% 及 R² 0.9911 的预测性能，表明递归注意力与模糊状态学习的组合在非线性、时变场景下具有优势 1。 2. 基于图学",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "LARVA-Net: A Bio-Inspired Recursive Attention Model for IoT-Based Microclimate Prediction in Black Soldier Fly Insectariums",
+          "url": "https://doi.org/10.15408/jti.v19i2.54220",
+          "publisher": "Crossref Device Security",
+          "host": "doi.org",
+          "family": "书目索引",
+          "published": "2026-10-30T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "10.15408/jti.v19i2.54220",
+          "kind": "research"
+        },
+        {
+          "title": "TGTV: An Interpretable Framework for UAV Fault Detection and Traceability via Spatiotemporal Graph Learning and Large Language Models",
+          "url": "https://arxiv.org/abs/2610.38106v1",
+          "publisher": "arXiv Hardware Reliability",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-10-28T00:44:22+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "IoT-Based Smart Soil Monitoring and Fertilizer Recommendation System",
+          "url": "https://doi.org/10.48175/ijarsct-40345",
+          "publisher": "OpenAlex Device Security",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-10-28T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.48175/ijarsct-40345",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 开发实践与部署（2026-10-30）",
     "date": "2026-10-30T15:42:20.057546+08:00",
     "count": 1,
