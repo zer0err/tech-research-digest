@@ -1,5 +1,33 @@
 [
   {
+    "title": "AI 开源项目与工具更新（2026-10-30）",
+    "date": "2026-10-30T11:42:22.598176+08:00",
+    "count": 1,
+    "url": "posts/20261030-open_source.html",
+    "topic": "open_source",
+    "status": "published",
+    "summary": "本期要点 - Hugging Face Transformers 发布 v5.22.0，新增 Mistral Large 4 (Le Chonk)，为 1 T 参数的多模态 Mixture‑of‑Experts 模型，支持 1 M 上下文长度和 160+ 语言。 1 - 新模型采用 128 路由专家（每 token 4",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "huggingface/transformers: v5.22.0: Mistral Large 4 (Le Chonk)",
+          "url": "https://github.com/huggingface/transformers/releases/tag/v5.22.0",
+          "publisher": "Transformers Releases",
+          "host": "github.com",
+          "family": "代码与版本",
+          "published": "2026-10-29T14:15:39+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 模型、训练与基础研究（2026-10-30）",
     "date": "2026-10-30T10:41:32.029615+08:00",
     "count": 2,
