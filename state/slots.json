@@ -27,57 +27,9 @@
       "attempts": 1
     },
     "2026-10-30:core_research": {
-      "status": "prepared",
+      "status": "published",
       "updated_at": "2026-10-30T06:12:41.931660+00:00",
-      "attempts": 1,
-      "pending": {
-        "topic": "multimodal",
-        "title": "多模态感知、音视频与人机交互",
-        "url": "https://vorasio.com/posts/20261030-core_research.html",
-        "created_at": "2026-10-30T06:12:41.931660+00:00",
-        "items": [
-          {
-            "uid": "26449c53acd1094f78583fac",
-            "title": "Pre-Event DEM-Based Deep-Seated Landslide Susceptibility Mapping Using a Vision Transformer in the Kii Mountains, Japan",
-            "url": "https://doi.org/10.59490/6ad2937c6ee698573e4dd024",
-            "published": "2026-10-30T00:00:00+00:00",
-            "summary": "This study evaluates deep-seated landslide susceptibility using pre-event LiDAR-derived DEM data from the 2011 Kii Peninsula heavy rainfall disaster. Terrain parameters representing gravitational deformation were calculated and used as inputs to compare a Convolutional Neural Network (CNN) and a Vision Transformer (ViT). Validation results show that ViT achieved higher classification accuracy (0.867) than CNN (0.837), with recall for the landslide class exceeding 95%. ViT effectively captured broader geomorphological context, whereas CNN emphasized local terrain features. Both models showed difficulty in distinguishing DSGSD, reflecting its intermediate geomorphic characteristics. Tests in unseen areas indicate the potential to identify terrain prone to future failure using pre-event topography alone.",
-            "source": "Crossref Multimodal",
-            "kind": "research",
-            "doi": "10.59490/6ad2937c6ee698573e4dd024",
-            "date_precision": "day"
-          },
-          {
-            "uid": "af4027ba5751c4dafe687e44",
-            "title": "Micro-Edits: Computational Support for Fine-Scale Edits in Film",
-            "url": "https://arxiv.org/abs/2610.40653v1",
-            "published": "2026-10-29T17:59:49+00:00",
-            "summary": "In film editing, every frame matters. While macro, content-level edits shape the high-level narrative of a film, small local edits often control timing and direct visual attention. For example, editors can adjust the precise timing of clips to control the length of a meaningful silence, or cut to shots that highlight a specific character's reactions to important moments. These small, detailed edits are slow and tedious to make in standard editing tools because users have to map high-level narrative goals to low-level frame-by-frame adjustments. At the same time, these fine-scale adjustments, which we call micro-edits, can be nuanced and expressive, with different choices serving different creative goals. In this work, we start by conducting a formative study with professional editors to understand the structure of micro-edits and how they are used. We then derive a mathematical formalization for this structure to develop tools that leverage AI and optimization to make exploring micro-edits simpler and more efficient for users. Finally, we validate our tools in multiple user studies and a wide range of video examples.",
-            "source": "arXiv Perception",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day"
-          },
-          {
-            "uid": "cb93289eff3ed55f77cb4a47",
-            "title": "Rethinking Neural Thickets Without Weight Perturbations",
-            "url": "https://arxiv.org/abs/2610.40649v1",
-            "published": "2026-10-29T17:59:29+00:00",
-            "summary": "The Neural Thickets hypothesis posits that pretrained language models lie in dense neighborhoods of task-specific experts in weight space, which random Gaussian perturbations can uncover. We reproduce the reported gains, but show that they do not require this geometric explanation. Perturbing a single decoder block already recovers much of the improvement, while keeping the model entirely frozen and adding a random bias to its output logits matches or exceeds full-weight perturbations on most reasoning tasks. This suggests an alternative explanation based on output diversity, validation-based selection, and voting. We formalize this view as Perturb-Select-Vote (PSV), a general procedure that generates perturbed predictors, selects high-performing members on a small validation set, and aggregates their predictions. This interpretation connects Neural Thickets to established inference-time methods, including sampling, self-consistency, and verifier-guided selection. A first-order analysis further shows that small weight perturbations act primarily through their induced logit shifts. We extend this analysis to vision, where logit PSV substantially improves performance under domain shift, including on Earth observation, while full-weight perturbations provide little additional benefit. Together, these results suggest that the gains attributed to nearby weight-space experts can inst",
-            "source": "arXiv Perception",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day"
-          }
-        ],
-        "notify": false,
-        "mode": "production",
-        "analysis": {
-          "provider": "Groq",
-          "model": "openai/gpt-oss-20b"
-        },
-        "slot": "core_research"
-      }
+      "attempts": 1
     },
     "2026-10-29:prompt_engineering": {
       "status": "no_matching_in_window",
