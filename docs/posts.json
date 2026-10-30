@@ -1,5 +1,44 @@
 [
   {
+    "title": "AI 论文午间速览（2026-10-30）",
+    "date": "2026-10-30T12:42:20.433972+08:00",
+    "count": 2,
+    "url": "posts/20261030-paper_brief.html",
+    "topic": "paper_brief",
+    "status": "published",
+    "summary": "本期要点 - 一篇文献计量研究系统梳理了财报电话会议中\"语气\"测量的多模态现状：文本分析仍占主导，声学与交互建模尚处早期，视频分析几乎空白 1。 - 该研究发现 2023 年后 Transformer 架构显著增加（Cochran–Armitage pBH = 0.018），但与词典法和深度学习基线并存而非取代 1。 ",
+    "provenance": {
+      "analysis": {
+        "provider": "Xiaomi MiMo",
+        "model": "mimo-v2.6-flash"
+      },
+      "sources": [
+        {
+          "title": "More Than Words: Managerial Tone, Communication Modalities, and Multimodal Measures in Earnings Calls",
+          "url": "https://doi.org/10.47852/bonviewjdsis620210679",
+          "publisher": "Crossref Multimodal",
+          "host": "doi.org",
+          "family": "书目索引",
+          "published": "2026-10-30T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "10.47852/bonviewjdsis620210679",
+          "kind": "research"
+        },
+        {
+          "title": "Linguistic Validation and Prevalence of Computer Vision Syndrome among University Lecturers in Ondo City, Ondo State, Nigeria",
+          "url": "https://doi.org/10.47760/cognizance.2026.v06i10.001",
+          "publisher": "Crossref Multimodal",
+          "host": "doi.org",
+          "family": "书目索引",
+          "published": "2026-10-30T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "10.47760/cognizance.2026.v06i10.001",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 开源项目与工具更新（2026-10-30）",
     "date": "2026-10-30T11:42:22.598176+08:00",
     "count": 1,
