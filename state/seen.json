@@ -144,6 +144,7 @@
     },
     "dev_practice": {
       "ids": [
+        "7d293d8b6dfa5c53b34a345a",
         "60b35e55605ba41029ae5cc7",
         "26c0e6b400ff69eb4f433a05",
         "9501467965ee051d4dad588a",
@@ -153,7 +154,7 @@
         "d6d4695a3bbbb17ae6058086",
         "c592cd3980d14f5cf675a5c2"
       ],
-      "updated_at": "2026-10-28T07:30:37.392330+00:00"
+      "updated_at": "2026-10-30T07:42:20.057546+00:00"
     },
     "inference_systems": {
       "ids": [
@@ -170,6 +171,7 @@
     }
   },
   "all_ids": [
+    "7d293d8b6dfa5c53b34a345a",
     "26449c53acd1094f78583fac",
     "af4027ba5751c4dafe687e44",
     "cb93289eff3ed55f77cb4a47",
@@ -280,6 +282,7 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://github.com/huggingface/transformers/releases/tag/v5.21.1",
     "https://doi.org/10.59490/6ad2937c6ee698573e4dd024",
     "https://arxiv.org/abs/2610.40653v1",
     "https://arxiv.org/abs/2610.40649v1",
@@ -390,6 +393,7 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "22bb2fdeb89a936d29748122",
     "8a5c32919936a30d8796c610",
     "6989cc3ceabd30838821a1d7",
     "015380bca6ebed732c212820",
@@ -2027,6 +2031,27 @@
       "analysis": {
         "provider": "Groq",
         "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261030-dev_practice.html": {
+      "topic": "dev_practice",
+      "created_at": "2026-10-30T07:42:20.057546+00:00",
+      "items": [
+        {
+          "uid": "7d293d8b6dfa5c53b34a345a",
+          "title": "Patch release v5.21.1",
+          "url": "https://github.com/huggingface/transformers/releases/tag/v5.21.1",
+          "published": "2026-10-29T08:35:02+00:00",
+          "summary": "Patch release v5.21.1 ** Fix rope_scaling setter for configs that assign it during init ( #50080 ) We broke remote code loading in vllm, this fixes it sorry everyone!",
+          "source": "Transformers Releases",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Xiaomi MiMo",
+        "model": "mimo-v2.6-flash"
       }
     }
   }
