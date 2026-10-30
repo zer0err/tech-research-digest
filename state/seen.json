@@ -16,6 +16,8 @@
     },
     "multimodal": {
       "ids": [
+        "cfe540e4cac41891ad6b6100",
+        "987a5f350df4a1a19e59714b",
         "df8e2c8a1ea704c83d48afc8",
         "c86bc7ad8771c1fc0bd1b15f",
         "f59577ea92399c6109d50db7",
@@ -28,7 +30,7 @@
         "808780f3283440c8b29d022b",
         "361f7c9a0f57a189ca4c36ad"
       ],
-      "updated_at": "2026-10-28T08:40:01.205757+00:00"
+      "updated_at": "2026-10-30T04:42:20.433972+00:00"
     },
     "morning_radar": {
       "ids": [
@@ -165,6 +167,8 @@
     }
   },
   "all_ids": [
+    "cfe540e4cac41891ad6b6100",
+    "987a5f350df4a1a19e59714b",
     "f6422fbbd22beb54c40b0451",
     "503b1edcd4982f133bde50da",
     "aa2093a5de505d7c72029bb2",
@@ -270,6 +274,8 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://doi.org/10.47852/bonviewjdsis620210679",
+    "https://doi.org/10.47760/cognizance.2026.v06i10.001",
     "https://github.com/huggingface/transformers/releases/tag/v5.22.0",
     "https://doi.org/10.66308/air.e80134906",
     "https://arxiv.org/abs/2610.38838v1",
@@ -375,6 +381,8 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "4f6ff48df659f72b3389bb0f",
+    "630f946e156effa8a23801b1",
     "0d8e71a385d0eb310d7d873a",
     "958217a16d261afcb21bfce9",
     "7486ce3e8430c6f55c9f3004",
@@ -1932,6 +1940,38 @@
       "analysis": {
         "provider": "Groq",
         "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261030-paper_brief.html": {
+      "topic": "multimodal",
+      "created_at": "2026-10-30T04:42:20.433972+00:00",
+      "items": [
+        {
+          "uid": "cfe540e4cac41891ad6b6100",
+          "title": "More Than Words: Managerial Tone, Communication Modalities, and Multimodal Measures in Earnings Calls",
+          "url": "https://doi.org/10.47852/bonviewjdsis620210679",
+          "published": "2026-10-30T00:00:00+00:00",
+          "summary": "Earnings conference calls are inherently multimodal communication events, yet research on managerial tone has developed predominantly through text-centered measurement strategies. This study addresses three research questions concerning how tone is measured, which communication modalities are examined, and what opportunities exist for multimodal corporate communication research within top-tier accounting and finance venues. A hybrid systematic literature review and bibliometric analysis of 178 peerreviewed publications (166 journal articles and 12 conference papers) was conducted, in accordance with PRISMA 2020 guidelines, spanning 2010–2026. Our bibliometric tools include keyword co-occurrence networks, bibliographic coupling, fractional authorship attribution, and international co-authorship mapping. Furthermore, an algorithmic binary coding across a 31-dimensional thematic taxonomy was applied, validated via dual-coder review on a stratified 60-paper subsample (macro precision = 0.852, recall = 0.739, F1 = 0.777). A significant structural shift toward transformer-based architectures emerges after 2023 (Cochran–Armitage pBH = 0.018), expanding alongside, rather than displacing, established lexicon-based and deep learning baselines. Although textual analysis still anchors the literature, vocal and interactional modeling remain nascent, video analytics is virtually untapped in ",
+          "source": "Crossref Multimodal",
+          "kind": "research",
+          "doi": "10.47852/bonviewjdsis620210679",
+          "date_precision": "day"
+        },
+        {
+          "uid": "987a5f350df4a1a19e59714b",
+          "title": "Linguistic Validation and Prevalence of Computer Vision Syndrome among University Lecturers in Ondo City, Ondo State, Nigeria",
+          "url": "https://doi.org/10.47760/cognizance.2026.v06i10.001",
+          "published": "2026-10-30T00:00:00+00:00",
+          "summary": "This study investigates the prevalence of Computer Vision Syndrome (CVS) among university lecturers in Ondo City, Ondo State, Nigeria, emphasizing the importance of linguistic validation of assessment tools. As digital device usage increases among academics for teaching, research, and administrative tasks, concerns about visual health risks, such as eye strain, dry eyes, headaches, and blurred vision, have grown. Despite these concerns, there is limited data on how widespread CVS is within this population, partly due to the lack of culturally and linguistically appropriate assessment instruments. Many existing questionnaires were developed in non-African contexts, potentially leading to inaccurate reporting due to linguistic and cultural differences. This study aims at determining the prevalence of CVS among lecturers and to validate a questionnaire tailored to a domesticated language and culture, thereby improving reliability and accuracy. The findings will provide valuable insights for developing targeted interventions to promote visual health, reduce symptoms, and enhance the overall well-being of university lecturers in this region.",
+          "source": "Crossref Multimodal",
+          "kind": "research",
+          "doi": "10.47760/cognizance.2026.v06i10.001",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Xiaomi MiMo",
+        "model": "mimo-v2.6-flash"
       }
     }
   }
