@@ -34,6 +34,11 @@
     "updated_at": "2026-10-30T07:42:20.057546+00:00",
     "attempts": 1
   },
+  "2026-10-30:daily_digest": {
+    "status": "prepared",
+    "updated_at": "2026-10-30T10:59:48.577109+00:00",
+    "attempts": 1
+  },
   "2026-10-30:core_research": {
     "status": "published",
     "updated_at": "2026-10-30T06:12:41.931660+00:00",
