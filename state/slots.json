@@ -7,46 +7,9 @@
       "attempts": 1
     },
     "2026-10-30:model_research": {
-      "status": "prepared",
+      "status": "published",
       "updated_at": "2026-10-30T02:41:32.029615+00:00",
-      "attempts": 1,
-      "pending": {
-        "topic": "model_research",
-        "title": "AI 模型、训练与基础研究",
-        "url": "https://vorasio.com/posts/20261030-model_research.html",
-        "created_at": "2026-10-30T02:41:32.029615+00:00",
-        "items": [
-          {
-            "uid": "503b1edcd4982f133bde50da",
-            "title": "How much model does warning triage need? A cost-aware comparison from rules to locally run language models",
-            "url": "https://doi.org/10.66308/air.e80134906",
-            "published": "2026-10-29T00:00:00+00:00",
-            "summary": "Static analysis tools report far more warnings than developers act on, and machine learning is widely proposed to identify the actionable ones. Published comparisons rarely include a simple label-based reference, and rarely report quality on unseen projects together with compute time. This study compares five levels of model complexity on two open datasets, NASCAR (Java) and AW4C (C): a warning-type prior, a linear model on term frequency-inverse document frequency (TF-IDF) features, a frozen code encoder, fine-tuned code encoders, and open-weight large language models (LLMs) run locally. All models were scored on the same 1,000 warnings per dataset and protocol, using the Matthews correlation coefficient (MCC) with project-level bootstrap intervals. Three findings emerged. First, in the original AW4C release the number of lines in the supplied code context predicted the label with an MCC of 0.91 on unseen projects, and fine-tuned CodeBERT reached 0.81; in a variant rebuilt with a uniform context window, which also differs in composition, the corresponding values were 0.12 and 0.30. Second, on unseen NASCAR projects an advantage of fine-tuned encoders over the warning-type prior was not established: the paired difference in MCC was −0.08 (95% CI −0.21 to 0.02) for CodeBERT. Third, locally run LLMs without task-specific training scored near zero on NASCAR with the default thresh",
-            "source": "OpenAlex Model Research",
-            "kind": "research",
-            "doi": "https://doi.org/10.66308/air.e80134906",
-            "date_precision": "day"
-          },
-          {
-            "uid": "aa2093a5de505d7c72029bb2",
-            "title": "Discovery of Diverse and Realistic Financial Tail-Risk Using Generative Flow Networks",
-            "url": "https://arxiv.org/abs/2610.38838v1",
-            "published": "2026-10-28T20:26:01+00:00",
-            "summary": "Accurate modeling of rare, high-impact financial events is essential for robust risk management. Sampling-based techniques such as Sequential Markov Chain Monte Carlo (SMCMC) generate diverse scenarios but inefficiently explore high-risk regions, while Deep Reinforcement Learning (DRL) converges on narrow sets of scenarios, limiting diversity. We present GRID, which uses Generative Flow Networks (GFlowNets) -- samplers that draw objects in proportion to a reward -- to systematically generate diverse and realistic financial tail-risk scenarios. Building on continuous GFlowNets, GRID introduces a flexible mixture-policy architecture with variable-specific distribution families for high-dimensional, sequential macro-financial data, together with plausibility constraints that keep generated trajectories realistic. A central practical advantage is robustness to reward-proxy imperfection: because GFlowNets sample proportionally rather than maximize, they remain broadly exploratory even when the oracle's out-of-sample accuracy is low -- an unavoidable reality in financial forecasting. On three real-world crises, GRID improves scenario diversity, realism, and tail-risk coverage over RL and MCMC baselines, and ablations over oracle architectures and distribution families yield practical insights into continuous GFlowNet behavior under noisy rewards.",
-            "source": "arXiv Model Research",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day"
-          }
-        ],
-        "notify": false,
-        "mode": "production",
-        "analysis": {
-          "provider": "Xiaomi MiMo",
-          "model": "mimo-v2.6-flash"
-        },
-        "slot": "model_research"
-      }
+      "attempts": 1
     },
     "2026-10-29:prompt_engineering": {
       "status": "no_matching_in_window",
