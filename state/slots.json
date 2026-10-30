@@ -2,35 +2,9 @@
   "version": 1,
   "slots": {
     "2026-10-30:open_source": {
-      "status": "prepared",
+      "status": "published",
       "updated_at": "2026-10-30T03:42:22.598176+00:00",
-      "attempts": 1,
-      "pending": {
-        "topic": "open_source",
-        "title": "AI 开源项目与工具更新",
-        "url": "https://vorasio.com/posts/20261030-open_source.html",
-        "created_at": "2026-10-30T03:42:22.598176+00:00",
-        "items": [
-          {
-            "uid": "f6422fbbd22beb54c40b0451",
-            "title": "huggingface/transformers: v5.22.0: Mistral Large 4 (Le Chonk)",
-            "url": "https://github.com/huggingface/transformers/releases/tag/v5.22.0",
-            "published": "2026-10-29T14:15:39+00:00",
-            "summary": "## New Models ### Mistral Large 4 (Le Chonk) Mistral Large 4 is Mistral's largest and most capable model to date: a 1 trillion-parameter natively multimodal Mixture-of-Experts model with 49 billion active parameters per token (52 billion including embeddings and output layers), trained from scratch on 3,800 NVIDIA Grace Blackwell GPUs in Mistral's own datacenters in Europe. Mistral Large 4 unifies instruction following, reasoning, coding, and agentic workflows in a single set of weights. While a generalist model, it shows especially good performance on workloads such as cybersecurity, finance, and law, and it surpasses frontier closed models on visual grounding. It is natively fluent in 160+ languages, including every official language of the European Union. #### Key Features Mistral Large 4 includes the following architectural choices: - **~1T total / ~52B active parameters**: granular Mixture-of-Experts with 128 routed experts (4 active per token) and 1 shared expert. - **1M context length**, for long-context workloads. - **Multimodal input**: accepts text and image input, with text output. Pixtral-style vision encoder trained to handle variable image sizes and aspect ratios. - **Instruct and Reasoning functionalities** with function calls, reasoning effort configurable per request. Mistral Large 4 offers the following capabilities: - **Reasoning Mode**: three reasoning effor",
-            "source": "Transformers Releases",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day"
-          }
-        ],
-        "notify": false,
-        "mode": "production",
-        "analysis": {
-          "provider": "Groq",
-          "model": "openai/gpt-oss-20b"
-        },
-        "slot": "open_source"
-      }
+      "attempts": 1
     },
     "2026-10-30:morning_radar": {
       "status": "published",
