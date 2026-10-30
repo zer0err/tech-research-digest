@@ -31,6 +31,9 @@
     },
     "morning_radar": {
       "ids": [
+        "dd4b9a8fd034b6f22463383b",
+        "0f9e3af0b07d14731714332f",
+        "82ed05d102dcf1977377416a",
         "cf876ffc1c86119489a59ef2",
         "60148f43d4c53f3ff836111b",
         "52eae160f737565b8d60e782",
@@ -44,7 +47,7 @@
         "dea8ba729eb28582daacbbc8",
         "767a7f383549ba646ff22647"
       ],
-      "updated_at": "2026-10-29T01:12:25.766303+00:00"
+      "updated_at": "2026-10-30T01:12:31.493847+00:00"
     },
     "ecosystem": {
       "ids": [
@@ -159,6 +162,9 @@
     }
   },
   "all_ids": [
+    "dd4b9a8fd034b6f22463383b",
+    "0f9e3af0b07d14731714332f",
+    "82ed05d102dcf1977377416a",
     "9a353cad7c13daac5c22e7cc",
     "61e220367e4e1e404322ee49",
     "9d9b360d84ae608458801c6f",
@@ -258,6 +264,9 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://github.blog/changelog/2026-10-28-security-extension-for-the-github-copilot-app",
+    "https://github.blog/changelog/2026-10-28-build-shared-workflows-for-your-team-with-copilot-automations",
+    "https://github.blog/changelog/2026-10-28-github-copilot-in-vs-code-universe-releases",
     "https://doi.org/10.1145/3860542",
     "https://arxiv.org/abs/2610.34205v1",
     "https://arxiv.org/abs/2610.37557v1",
@@ -357,6 +366,9 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "c4fdd4b97828a0b784c77724",
+    "dbd739d9a0568bde458d8ae9",
+    "3b784f772d3978e54dcfa62c",
     "b5ca16df00825993b60a38c7",
     "7882d2082b4950b47f054363",
     "73331812409eb9a8837a54ce",
@@ -1812,6 +1824,49 @@
       "analysis": {
         "provider": "Xiaomi MiMo",
         "model": "mimo-v2.6-flash"
+      }
+    },
+    "https://vorasio.com/posts/20261030-morning_radar.html": {
+      "topic": "morning_radar",
+      "created_at": "2026-10-30T01:12:31.493847+00:00",
+      "items": [
+        {
+          "uid": "dd4b9a8fd034b6f22463383b",
+          "title": "Security extension for the GitHub Copilot app",
+          "url": "https://github.blog/changelog/2026-10-28-security-extension-for-the-github-copilot-app",
+          "published": "2026-10-28T15:45:00+00:00",
+          "summary": "You can now work through your repository’s GitHub code scanning alerts without leaving the GitHub Copilot app. The new GitHub security extension, now in public preview, lets you find the… The post Security extension for the GitHub Copilot app appeared first on The GitHub Blog .",
+          "source": "GitHub 官方更新",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        },
+        {
+          "uid": "0f9e3af0b07d14731714332f",
+          "title": "Build shared workflows for your team with Copilot Automations",
+          "url": "https://github.blog/changelog/2026-10-28-build-shared-workflows-for-your-team-with-copilot-automations",
+          "published": "2026-10-28T15:35:00+00:00",
+          "summary": "Shared Copilot Automations are rolling out, enabling teams to build and maintain AI-powered workflows together. With Copilot Automations, you can combine prompts, triggers, and tools to design workflows around the… The post Build shared workflows for your team with Copilot Automations appeared first on The GitHub Blog .",
+          "source": "GitHub 官方更新",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        },
+        {
+          "uid": "82ed05d102dcf1977377416a",
+          "title": "GitHub Copilot in VS Code, Universe releases",
+          "url": "https://github.blog/changelog/2026-10-28-github-copilot-in-vs-code-universe-releases",
+          "published": "2026-10-28T15:33:00+00:00",
+          "summary": "This year, we focused on giving you more choice in how you work with GitHub Copilot in Visual Studio Code: which models you use, where your agents run, and how… The post GitHub Copilot in VS Code, Universe releases appeared first on The GitHub Blog .",
+          "source": "GitHub 官方更新",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
       }
     }
   }
