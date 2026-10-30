@@ -26,6 +26,37 @@
       "updated_at": "2026-10-30T02:41:32.029615+00:00",
       "attempts": 1
     },
+    "2026-10-30:dev_practice": {
+      "status": "prepared",
+      "updated_at": "2026-10-30T07:42:20.057546+00:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "dev_practice",
+        "title": "AI 开发实践与部署",
+        "url": "https://vorasio.com/posts/20261030-dev_practice.html",
+        "created_at": "2026-10-30T07:42:20.057546+00:00",
+        "items": [
+          {
+            "uid": "7d293d8b6dfa5c53b34a345a",
+            "title": "Patch release v5.21.1",
+            "url": "https://github.com/huggingface/transformers/releases/tag/v5.21.1",
+            "published": "2026-10-29T08:35:02+00:00",
+            "summary": "Patch release v5.21.1 ** Fix rope_scaling setter for configs that assign it during init ( #50080 ) We broke remote code loading in vllm, this fixes it sorry everyone!",
+            "source": "Transformers Releases",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          }
+        ],
+        "notify": false,
+        "mode": "production",
+        "analysis": {
+          "provider": "Xiaomi MiMo",
+          "model": "mimo-v2.6-flash"
+        },
+        "slot": "dev_practice"
+      }
+    },
     "2026-10-30:core_research": {
       "status": "published",
       "updated_at": "2026-10-30T06:12:41.931660+00:00",

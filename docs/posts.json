@@ -1,5 +1,33 @@
 [
   {
+    "title": "AI 开发实践与部署（2026-10-30）",
+    "date": "2026-10-30T15:42:20.057546+08:00",
+    "count": 1,
+    "url": "posts/20261030-dev_practice.html",
+    "topic": "dev_practice",
+    "status": "published",
+    "summary": "本期主题 - 本期聚焦 Hugging Face Transformers v5.21.1 补丁版本，解决在初始化时赋值 rope_scaling 的配置类在调用 setter 时出现的问题 1。 - 该补丁修复了此前版本导致 vLLM 远程代码加载（remote code loading）被破坏的回归，作者在发布说明",
+    "provenance": {
+      "analysis": {
+        "provider": "Xiaomi MiMo",
+        "model": "mimo-v2.6-flash"
+      },
+      "sources": [
+        {
+          "title": "Patch release v5.21.1",
+          "url": "https://github.com/huggingface/transformers/releases/tag/v5.21.1",
+          "publisher": "Transformers Releases",
+          "host": "github.com",
+          "family": "代码与版本",
+          "published": "2026-10-29T08:35:02+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "多模态感知、音视频与人机交互（2026-10-30）",
     "date": "2026-10-30T14:12:41.931660+08:00",
     "count": 3,
