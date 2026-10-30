@@ -1,5 +1,44 @@
 [
   {
+    "title": "AI 模型、训练与基础研究（2026-10-30）",
+    "date": "2026-10-30T10:41:32.029615+08:00",
+    "count": 2,
+    "url": "posts/20261030-model_research.html",
+    "topic": "model_research",
+    "status": "published",
+    "summary": "本期结论 - 静态分析告警分诊任务中，简单基线（如告警类型先验、上下文行数）在部分数据集上可达到甚至超过微调代码编码器与本地 LLM 的效果，提示\"更大模型=更好\"在该类任务上不成立 1。 - 数据集构建方式（如上下文窗口是否统一）会显著改变模型相对排名，评测可靠性本身是关键变量，跨研究比较需谨慎 1。 - 生成流网络",
+    "provenance": {
+      "analysis": {
+        "provider": "Xiaomi MiMo",
+        "model": "mimo-v2.6-flash"
+      },
+      "sources": [
+        {
+          "title": "How much model does warning triage need? A cost-aware comparison from rules to locally run language models",
+          "url": "https://doi.org/10.66308/air.e80134906",
+          "publisher": "OpenAlex Model Research",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-10-29T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.66308/air.e80134906",
+          "kind": "research"
+        },
+        {
+          "title": "Discovery of Diverse and Realistic Financial Tail-Risk Using Generative Flow Networks",
+          "url": "https://arxiv.org/abs/2610.38838v1",
+          "publisher": "arXiv Model Research",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-10-28T20:26:01+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 晨间雷达与免费资源（2026-10-30）",
     "date": "2026-10-30T09:12:31.493847+08:00",
     "count": 3,

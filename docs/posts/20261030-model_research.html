@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 模型、训练与基础研究（2026-10-30）</title><meta name="description" content="AI 模型、训练与基础研究（2026-10-30）：2 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav aria-label="主导航"><a href="../index.html#latest">时间线</a><a href="../knowledge/index.html">AI 知识科普</a><a href="../courses/index.html">AI 学习</a><a href="../tools/index.html">AI 工具</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">AI 模型、训练与基础研究</p><dl><dt>发布时间</dt><dd data-published-at="2026-10-30T10:41:32.029615+08:00">2026-10-30 10:41 · UTC+8</dd><dt>研究条目</dt><dd>2 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · AI 模型、训练与基础研究</p><h1>AI 模型、训练与基础研究（2026-10-30）</h1><!-- provenance:start --><p class="ai-analysis" title="mimo-v2.6-flash">AI 分析：Xiaomi MiMo</p><!-- provenance:end --><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期结论</h2>
+<ul>
+<li>静态分析告警分诊任务中，简单基线（如告警类型先验、上下文行数）在部分数据集上可达到甚至超过微调代码编码器与本地 LLM 的效果，提示&quot;更大模型=更好&quot;在该类任务上不成立 [1]。</li>
+<li>数据集构建方式（如上下文窗口是否统一）会显著改变模型相对排名，评测可靠性本身是关键变量，跨研究比较需谨慎 [1]。</li>
+<li>生成流网络（GFlowNets）在金融尾部风险场景生成上被作者主张优于 RL 与 MCMC 基线，属于值得关注的信号，尚需更多独立验证 [2]。</li>
+</ul>
+<h2>逐项分析</h2>
+<p><strong>[1] 告警分诊的成本感知比较</strong></p>
+<ul>
+<li>核心贡献：在同一协议下比较五级模型复杂度（类型先验、TF-IDF 线性模型、冻结编码器、微调编码器、本地 LLM），并同时报告未见项目上的质量与计算时间 [1]。</li>
+<li>方法与数据：使用 NASCAR（Java）与 AW4C（C）两个公开数据集，各取 1,000 条告警，以 MCC 评分并做项目级 bootstrap 区间 [1]。</li>
+<li>性能证据：AW4C 原始版本中，代码上下文行数这一&quot;伪特征&quot;在未见项目上 MCC 达 0.91，微调 CodeBERT 为 0.81；重建为统一上下文窗口后，两者分别降至 0.12 与 0.30 [1]。NASCAR 未见项目上，微调 CodeBERT 相对类型先验的配对 MCC 差为 −0.08（95% CI −0.21 至 0.02），优势未确立 [1]。本地 LLM 无任务特定训练时在 NASCAR 上接近零分 [1]。</li>
+<li>局限与证据等级：摘要未提供完整 LLM 结果与计算时间细节；AW4C 两个版本除窗口外构成也有差异，混淆未完全排除。证据等级 A（含方法、数据与定量结果）[1]。</li>
+<li>工程意义：在该类任务上应先建立简单基线并核查数据集泄漏，再评估是否值得引入编码器或 LLM [1]。</li>
+</ul>
+<p><strong>[2] 基于 GFlowNets 的金融尾部风险场景生成（GRID）</strong></p>
+<ul>
+<li>核心贡献：提出 GRID，用 GFlowNets 按奖励比例采样的特性生成多样化尾部风险场景，并引入混合策略架构与可塑性约束 [2]。</li>
+<li>方法与数据：面向高维序列化宏观金融数据，针对连续 GFlowNets 设计变量特定分布族；在三个真实金融危机上评估 [2]。</li>
+<li>性能证据：作者主张在场景多样性、真实性与尾部风险覆盖上优于 RL 与 MCMC 基线，并对 oracle 架构与分布族做了消融 [2]；摘要未提供具体数值。</li>
+<li>局限与证据等级：缺少定量指标与基线细节，无法从摘要确认提升幅度。证据等级 B（含方法与定性结果）[2]。</li>
+<li>工程意义：若奖励代理本身不可靠，按比例采样而非最大化可能更稳健，值得在内部数据上做小规模对照 [2]。</li>
+</ul>
+<h2>工程行动建议</h2>
+<ul>
+<li>验证实验：复现 [1] 的五级基线协议，在自有告警数据上先跑类型先验与 TF-IDF，再评估编码器；对 [2] 在历史危机窗口外做时间外推测试。</li>
+<li>落地评估：[1] 提示在数据集构建未审计前不应直接采购 LLM 方案；[2] 需先确认奖励代理的样本外表现再谈部署。</li>
+<li>后续跟踪指标：[1] 关注 MCC 的项目级置信区间与计算时间；[2] 关注尾部覆盖率、场景多样性指标及消融结论的独立复现情况。</li>
+</ul>
+<h2>参考资料</h2>
+<p>[1] How much model does warning triage need? A cost-aware comparison from rules to locally run language models <a href="https://doi.org/10.66308/air.e80134906">https://doi.org/10.66308/air.e80134906</a>
+[2] Discovery of Diverse and Realistic Financial Tail-Risk Using Generative Flow Networks <a href="https://arxiv.org/abs/2610.38838v1">https://arxiv.org/abs/2610.38838v1</a></p>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>
