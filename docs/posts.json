@@ -1,5 +1,55 @@
 [
   {
+    "title": "AI 晨间雷达与免费资源（2026-10-30）",
+    "date": "2026-10-30T09:12:31.493847+08:00",
+    "count": 3,
+    "url": "posts/20261030-morning_radar.html",
+    "topic": "morning_radar",
+    "status": "published",
+    "summary": "本时段要点 1. GitHub 在 2026‑10‑28 推出了 GitHub Copilot 安全扩展，允许在 Copilot 应用内直接处理仓库的代码扫描警报，进入公开预览阶段。 1 2. 同日 GitHub 发布 Copilot Automations，支持团队共享并维护 AI 驱动的工作流，可组合提示、触发器与",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "Security extension for the GitHub Copilot app",
+          "url": "https://github.blog/changelog/2026-10-28-security-extension-for-the-github-copilot-app",
+          "publisher": "GitHub 官方更新",
+          "host": "github.blog",
+          "family": "博客/公开网页",
+          "published": "2026-10-28T15:45:00+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "Build shared workflows for your team with Copilot Automations",
+          "url": "https://github.blog/changelog/2026-10-28-build-shared-workflows-for-your-team-with-copilot-automations",
+          "publisher": "GitHub 官方更新",
+          "host": "github.blog",
+          "family": "博客/公开网页",
+          "published": "2026-10-28T15:35:00+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "GitHub Copilot in VS Code, Universe releases",
+          "url": "https://github.blog/changelog/2026-10-28-github-copilot-in-vs-code-universe-releases",
+          "publisher": "GitHub 官方更新",
+          "host": "github.blog",
+          "family": "博客/公开网页",
+          "published": "2026-10-28T15:33:00+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "VORASIO AI 日报（2026-10-29）",
     "date": "2026-10-29T19:03:34.431548+08:00",
     "count": 6,
