@@ -116,6 +116,8 @@
     },
     "efficient_ai": {
       "ids": [
+        "5d69f8d7e97ab3926a75084e",
+        "a90a413338f50ec66517ff94",
         "9d9b360d84ae608458801c6f",
         "9c5d500a8baf2ec064a2c110",
         "43c3488e0a10dddb5dd927f4",
@@ -128,7 +130,7 @@
         "7e518a52776f0779cdbd16e6",
         "d8688b533028f131212f0a3d"
       ],
-      "updated_at": "2026-10-29T06:12:22.109951+00:00"
+      "updated_at": "2026-10-31T08:29:50.054058+00:00"
     },
     "ai_hardware": {
       "ids": [
@@ -184,6 +186,8 @@
     }
   },
   "all_ids": [
+    "5d69f8d7e97ab3926a75084e",
+    "a90a413338f50ec66517ff94",
     "100466b9c2db58e60e4726e3",
     "b15e2f46c4f789c0d9b1b03b",
     "ac31cd2f826b44fd05b139a5",
@@ -308,6 +312,8 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://arxiv.org/abs/2610.40620v1",
+    "https://arxiv.org/abs/2610.40618v1",
     "https://developer.nvidia.com/blog/build-specialized-agents-on-a-stack-you-control-with-nvidia-nemoclaw",
     "https://arxiv.org/abs/2610.40646v1",
     "https://arxiv.org/abs/2610.40637v1",
@@ -432,6 +438,8 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "cf544a5680284fa2fe2397d7",
+    "f4d8794eb8d0930c60286a2c",
     "90d18c85d2b678da0f186cfd",
     "69ae248907dff5ea94bb83df",
     "4f3a680e9a8d77ee4dd26e54",
@@ -2307,6 +2315,38 @@
       "analysis": {
         "provider": "Groq",
         "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261031-applied_ai.html": {
+      "topic": "efficient_ai",
+      "created_at": "2026-10-31T08:29:50.054058+00:00",
+      "items": [
+        {
+          "uid": "5d69f8d7e97ab3926a75084e",
+          "title": "Tessera: Fast Join-Aggregates over Skewed Sparse Relations in Database Engines",
+          "url": "https://arxiv.org/abs/2610.40620v1",
+          "published": "2026-10-29T17:55:38+00:00",
+          "summary": "Join-aggregate queries count or sum matching rows for each pair of values, often over skewed sparse relations in which a few values are frequent and most pairs of values never co-occur. Conventional execution plans materialize billions of intermediate join rows, taking minutes to tens of minutes per query. Recent matrix-based solutions reformulate these queries as matrix multiplication to reduce or avoid this materialization. However, they remain slow because they either store result cells for non-matching pairs or still materialize intermediate join rows for infrequent values. We present Tessera, a skew-aware join-aggregate operator for database engines that avoids both sources of overhead. Specifically, Tessera computes a sparse matrix product directly over the engine's rows, emits only nonzero cells as result rows, and prunes values that cannot meet the query's threshold before multiplication begins. It also offloads the dense block formed by pairs of the most frequent values to a CPU matrix accelerator when that block is dense enough. Experimental results show that Tessera is faster than the fastest existing system by 2.8x to 18.8x. In addition, Tessera outperforms DuckDB's execution plans by up to 1,802x.",
+          "source": "arXiv Efficient AI",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        },
+        {
+          "uid": "a90a413338f50ec66517ff94",
+          "title": "An ODE-based Sampler for Discrete Diffusion Models",
+          "url": "https://arxiv.org/abs/2610.40618v1",
+          "published": "2026-10-29T17:55:25+00:00",
+          "summary": "The marginals of a continuous diffusion model can be reproduced by a deterministic ordinary differential equation (ODE), known as the probability flow ODE, which provides a foundation for accelerated sampling and consistency distillation. In this paper we address the question whether an analogous formulation exists for discrete diffusion models and answer it affirmatively by introducing exponential residual flows (ERFs). Our framework augments the discrete state with a continuous residual variable for each token and position. These residuals evolve deterministically according to piecewise-defined ODEs whose vector fields depend on the current discrete state and the forward and backward rate matrices of the prescribed diffusion model. The discrete state changes whenever a residual reaches zero. We prove that this construction preserves the marginals of the original diffusion. We derive a practical discretization of our sampler and specialize it to masked and uniform diffusion. The deterministic trajectories of ERFs support consistency distillation and yield empirical improvements over previous approaches across a variety of benchmarks including code and text generation tasks.",
+          "source": "arXiv Efficient AI",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Xiaomi MiMo",
+        "model": "mimo-v2.6-flash"
       }
     }
   }

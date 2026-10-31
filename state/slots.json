@@ -37,46 +37,9 @@
       "attempts": 1
     },
     "2026-10-31:applied_ai": {
-      "status": "prepared",
+      "status": "published",
       "updated_at": "2026-10-31T08:29:50.054058+00:00",
-      "attempts": 1,
-      "pending": {
-        "topic": "efficient_ai",
-        "title": "高效 AI、模型压缩与端侧适配",
-        "url": "https://vorasio.com/posts/20261031-applied_ai.html",
-        "created_at": "2026-10-31T08:29:50.054058+00:00",
-        "items": [
-          {
-            "uid": "5d69f8d7e97ab3926a75084e",
-            "title": "Tessera: Fast Join-Aggregates over Skewed Sparse Relations in Database Engines",
-            "url": "https://arxiv.org/abs/2610.40620v1",
-            "published": "2026-10-29T17:55:38+00:00",
-            "summary": "Join-aggregate queries count or sum matching rows for each pair of values, often over skewed sparse relations in which a few values are frequent and most pairs of values never co-occur. Conventional execution plans materialize billions of intermediate join rows, taking minutes to tens of minutes per query. Recent matrix-based solutions reformulate these queries as matrix multiplication to reduce or avoid this materialization. However, they remain slow because they either store result cells for non-matching pairs or still materialize intermediate join rows for infrequent values. We present Tessera, a skew-aware join-aggregate operator for database engines that avoids both sources of overhead. Specifically, Tessera computes a sparse matrix product directly over the engine's rows, emits only nonzero cells as result rows, and prunes values that cannot meet the query's threshold before multiplication begins. It also offloads the dense block formed by pairs of the most frequent values to a CPU matrix accelerator when that block is dense enough. Experimental results show that Tessera is faster than the fastest existing system by 2.8x to 18.8x. In addition, Tessera outperforms DuckDB's execution plans by up to 1,802x.",
-            "source": "arXiv Efficient AI",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day"
-          },
-          {
-            "uid": "a90a413338f50ec66517ff94",
-            "title": "An ODE-based Sampler for Discrete Diffusion Models",
-            "url": "https://arxiv.org/abs/2610.40618v1",
-            "published": "2026-10-29T17:55:25+00:00",
-            "summary": "The marginals of a continuous diffusion model can be reproduced by a deterministic ordinary differential equation (ODE), known as the probability flow ODE, which provides a foundation for accelerated sampling and consistency distillation. In this paper we address the question whether an analogous formulation exists for discrete diffusion models and answer it affirmatively by introducing exponential residual flows (ERFs). Our framework augments the discrete state with a continuous residual variable for each token and position. These residuals evolve deterministically according to piecewise-defined ODEs whose vector fields depend on the current discrete state and the forward and backward rate matrices of the prescribed diffusion model. The discrete state changes whenever a residual reaches zero. We prove that this construction preserves the marginals of the original diffusion. We derive a practical discretization of our sampler and specialize it to masked and uniform diffusion. The deterministic trajectories of ERFs support consistency distillation and yield empirical improvements over previous approaches across a variety of benchmarks including code and text generation tasks.",
-            "source": "arXiv Efficient AI",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day"
-          }
-        ],
-        "notify": false,
-        "mode": "production",
-        "analysis": {
-          "provider": "Xiaomi MiMo",
-          "model": "mimo-v2.6-flash"
-        },
-        "slot": "applied_ai"
-      }
+      "attempts": 1
     },
     "2026-10-30:prompt_engineering": {
       "status": "no_matching_in_window",
