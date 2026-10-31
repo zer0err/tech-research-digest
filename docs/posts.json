@@ -1,5 +1,44 @@
 [
   {
+    "title": "AI 晨间雷达与免费资源（2026-10-31）",
+    "date": "2026-10-31T09:12:20.172278+08:00",
+    "count": 2,
+    "url": "posts/20261031-morning_radar.html",
+    "topic": "morning_radar",
+    "status": "published",
+    "summary": "本时段要点 1. GitHub 在 2026‑10‑28 发布了 Repository plugin defaults 与 enterprise plugin controls 的正式可用版本，支持 VS Code、Copilot CLI 与 Copilot App。该功能允许受信任的仓库预装并启用默认插件，提升团队协",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "Repository plugin defaults and enterprise plugin controls generally available",
+          "url": "https://github.blog/changelog/2026-10-28-repository-plugin-defaults-and-enterprise-plugin-controls-generally-available",
+          "publisher": "GitHub 官方更新",
+          "host": "github.blog",
+          "family": "博客/公开网页",
+          "published": "2026-10-28T15:33:00+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "Generate and edit images directly in Copilot",
+          "url": "https://github.blog/changelog/2026-10-28-generate-and-edit-images-directly-in-copilot",
+          "publisher": "GitHub 官方更新",
+          "host": "github.blog",
+          "family": "博客/公开网页",
+          "published": "2026-10-28T15:30:55+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "VORASIO AI 日报（2026-10-30）",
     "date": "2026-10-30T18:59:48.577109+08:00",
     "count": 7,

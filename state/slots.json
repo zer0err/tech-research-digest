@@ -1,6 +1,48 @@
 {
   "version": 1,
   "slots": {
+    "2026-10-31:morning_radar": {
+      "status": "prepared",
+      "updated_at": "2026-10-31T01:12:20.172278+00:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "morning_radar",
+        "title": "AI 晨间雷达与免费资源",
+        "url": "https://vorasio.com/posts/20261031-morning_radar.html",
+        "created_at": "2026-10-31T01:12:20.172278+00:00",
+        "items": [
+          {
+            "uid": "7ea5e5653a712c312f80ca1d",
+            "title": "Repository plugin defaults and enterprise plugin controls generally available",
+            "url": "https://github.blog/changelog/2026-10-28-repository-plugin-defaults-and-enterprise-plugin-controls-generally-available",
+            "published": "2026-10-28T15:33:00+00:00",
+            "summary": "Repository plugin defaults and enterprise-managed plugin controls are now generally available in VS Code, Copilot CLI, and the GitHub Copilot app. Trusted repositories can install and enable default plugins for… The post Repository plugin defaults and enterprise plugin controls generally available appeared first on The GitHub Blog .",
+            "source": "GitHub 官方更新",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          },
+          {
+            "uid": "a8d5896b41e236f8c3b2c9dc",
+            "title": "Generate and edit images directly in Copilot",
+            "url": "https://github.blog/changelog/2026-10-28-generate-and-edit-images-directly-in-copilot",
+            "published": "2026-10-28T15:30:55+00:00",
+            "summary": "You can now generate and edit images using natural language in GitHub Copilot. When you ask for an image, your selected reasoning model calls a dedicated image-generation tool powered by… The post Generate and edit images directly in Copilot appeared first on The GitHub Blog .",
+            "source": "GitHub 官方更新",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          }
+        ],
+        "notify": true,
+        "mode": "production",
+        "analysis": {
+          "provider": "Groq",
+          "model": "openai/gpt-oss-20b"
+        },
+        "slot": "morning_radar"
+      }
+    },
     "2026-10-30:prompt_engineering": {
       "status": "no_matching_in_window",
       "updated_at": "2026-10-30T06:12:17.381909+00:00",
