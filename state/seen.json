@@ -129,6 +129,7 @@
     },
     "ai_hardware": {
       "ids": [
+        "1e580de796272795b2be0011",
         "f2d6f72510116a7a87864d43",
         "1b06dd5dd7e658e962fbc023",
         "c0f5cd5fdec6c357b70efa86",
@@ -137,7 +138,7 @@
         "1493351af77b0689ca43a1e9",
         "739ced7097d3b092ed674790"
       ],
-      "updated_at": "2026-10-28T06:12:45.992413+00:00"
+      "updated_at": "2026-10-31T04:42:20.872960+00:00"
     },
     "product_safety": {
       "ids": [
@@ -180,6 +181,7 @@
     }
   },
   "all_ids": [
+    "1e580de796272795b2be0011",
     "94a4d27cf01294c2cb6c23bf",
     "566ce7e9ef2618de24356a15",
     "a4190dafa285f6fc879de5a3",
@@ -300,6 +302,7 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://doi.org/10.3390/photonics13111020",
     "https://github.com/huggingface/transformers/releases/tag/v5.22.1",
     "https://doi.org/10.5281/zenodo.23688329",
     "https://doi.org/10.5281/zenodo.23784964",
@@ -420,6 +423,7 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "75d28a5002f69ef2d67d31ea",
     "b56848687d7a8baa1228399a",
     "2aff900646619dc24ec5ade9",
     "8edad0d1986e9aa7eb1a60cc",
@@ -2221,6 +2225,27 @@
           "source": "Transformers Releases",
           "kind": "research",
           "doi": "",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261031-paper_brief.html": {
+      "topic": "ai_hardware",
+      "created_at": "2026-10-31T04:42:20.872960+00:00",
+      "items": [
+        {
+          "uid": "1e580de796272795b2be0011",
+          "title": "A Scoping Review on Intelligent Computing upon Silicon Photonics and Optical Network on Chips",
+          "url": "https://doi.org/10.3390/photonics13111020",
+          "published": "2026-10-28T00:00:00+00:00",
+          "summary": "The continuous expansion of data-intensive applications, including deep learning, autonomous control, and real-time analytics, has pushed conventional electronic computing toward its limits in performance and energy efficiency. Combining silicon photonics with Optical Network on Chip (ONoC) provides a pathway toward high-bandwidth and low-latency communication with reduced power consumption, positioning these technologies as promising enablers for next-generation intelligent systems. This work systematically reviews current efforts to integrate silicon photonics and ONoC architectures with Artificial Intelligence (AI) models such as Machine Learning (ML), Deep Neural Network (DNN), and Large Language Model (LLM), highlighting recent progress, application areas, and open research challenges. A structured literature review was carried out across two focus areas, each searched and screened as a separate stream: (1) Optical Neural Network (ONN) developed for AI inference and training, and (2) ML-based optimization techniques applied to ONoC design. Peer-reviewed studies, and preprints under an explicitly stated rule, were examined with attention to device-level innovations, architectural co-design, acceleration of AI workloads, and photonic-aware system optimization. Recent studies report advances in photonic devices such as modulators, detectors, and microring resonators, along wi",
+          "source": "OpenAlex AI Hardware",
+          "kind": "research",
+          "doi": "https://doi.org/10.3390/photonics13111020",
           "date_precision": "day"
         }
       ],
