@@ -1,5 +1,55 @@
 [
   {
+    "title": "AI 模型、训练与基础研究（2026-10-31）",
+    "date": "2026-10-31T10:42:25.630912+08:00",
+    "count": 3,
+    "url": "posts/20261031-model_research.html",
+    "topic": "model_research",
+    "status": "published",
+    "summary": "本期结论 1. 大模型在专业领域的表现并不总优于通用模型，尤其在医学文本理解上，通用模型在术语识别任务上显著优于医学微调模型，提示专业微调需更细致的训练设计和评估方法。2 2. 数据质量与模型训练方式直接影响推理可靠性，训练数据中的冗余与词汇干扰会显著降低数据归因性能，表明在构建可靠推理系统时需控制数据多样性与噪声。3",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "AI Hallucinations",
+          "url": "https://doi.org/10.5281/zenodo.23688329",
+          "publisher": "OpenAlex Model Research",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-10-31T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.5281/zenodo.23688329",
+          "kind": "research"
+        },
+        {
+          "title": "A Domain Label Is Not a Treatment: Why Specialist and General-Purpose Language Models Trade Places Across Studies, What a 'Medical' Checkpoint Leaves Unspecified, and the Matched Contrasts That Would Assign the Gain",
+          "url": "https://doi.org/10.5281/zenodo.23784964",
+          "publisher": "OpenAlex Model Research",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-10-30T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.5281/zenodo.23784964",
+          "kind": "research"
+        },
+        {
+          "title": "Elucidating the Design Space of LM Data Attribution",
+          "url": "https://arxiv.org/abs/2610.40655v1",
+          "publisher": "arXiv Model Research",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-10-29T17:59:53+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 晨间雷达与免费资源（2026-10-31）",
     "date": "2026-10-31T09:12:20.172278+08:00",
     "count": 2,

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 模型、训练与基础研究（2026-10-31）</title><meta name="description" content="AI 模型、训练与基础研究（2026-10-31）：3 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav aria-label="主导航"><a href="../index.html#latest">时间线</a><a href="../knowledge/index.html">AI 知识科普</a><a href="../courses/index.html">AI 学习</a><a href="../tools/index.html">AI 工具</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">AI 模型、训练与基础研究</p><dl><dt>发布时间</dt><dd data-published-at="2026-10-31T10:42:25.630912+08:00">2026-10-31 10:42 · UTC+8</dd><dt>研究条目</dt><dd>3 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · AI 模型、训练与基础研究</p><h1>AI 模型、训练与基础研究（2026-10-31）</h1><!-- provenance:start --><p class="ai-analysis" title="openai/gpt-oss-20b">AI 分析：Groq</p><!-- provenance:end --><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期结论</h2>
+<ol>
+<li><strong>大模型在专业领域的表现并不总优于通用模型</strong>，尤其在医学文本理解上，通用模型在术语识别任务上显著优于医学微调模型，提示专业微调需更细致的训练设计和评估方法。[2]</li>
+<li><strong>数据质量与模型训练方式直接影响推理可靠性</strong>，训练数据中的冗余与词汇干扰会显著降低数据归因性能，表明在构建可靠推理系统时需控制数据多样性与噪声。[3]</li>
+<li><strong>模型“幻觉”问题是设计层面的系统性缺陷</strong>，而非单纯的训练误差，解决方案需多学科协作与检索增强、数据清洗、人类审核等多维手段共同作用。[1]</li>
+<li><strong>数据归因方法的评估需要可控实验设计</strong>，单一指标难以揭示算法弱点，CATT 提供了可变参数的实验框架，可用于系统性诊断归因算法。[3]</li>
+<li><strong>专业微调的收益取决于多维度因素</strong>（训练内容、对照基线、提示格式、目标技能、统计方法），单一实验结果难以概括，需多实验对比才能得出稳健结论。[2]</li>
+</ol>
+<h2>逐项分析</h2>
+<table>
+<thead>
+<tr>
+<th>资料</th>
+<th>核心贡献</th>
+<th>方法与数据</th>
+<th>性能证据</th>
+<th>局限与证据等级</th>
+<th>工程意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[1] AI Hallucinations</td>
+<td>系统性梳理 LLM 幻觉类型与成因，提出多维修复思路</td>
+<td>文献综述与案例分析，讨论逻辑错误、虚构内容与误解数据</td>
+<td>通过多案例说明幻觉普遍存在，未给定定量指标</td>
+<td>C（缺少实验细节）</td>
+<td>需在工程中加入检索增强、数据清洗与人类审核机制，提升可靠性</td>
+</tr>
+<tr>
+<td>[2] Domain Label Is Not a Treatment</td>
+<td>对比 8B 通用模型与医学微调模型，揭示专业化并非必然提升</td>
+<td>对比实验：同基线、同规模、不同微调，评估术语识别与意义选择</td>
+<td>通用模型在术语识别上显著优于医学模型，差异显著</td>
+<td>A（含方法、数据及定量结果）</td>
+<td>在构建医疗 LLM 时需重新设计微调策略与评估指标，避免单一指标误导</td>
+</tr>
+<tr>
+<td>[3] Elucidating the Design Space of LM Data Attribution</td>
+<td>提出 CATT 评估框架，系统探查数据归因算法对冗余与干扰的敏感性</td>
+<td>通过合成数据（完全虚构知识）控制单一变量，评估归因性能</td>
+<td>冗余与词汇干扰均显著降低归因准确率；标准方法在文档级聚合时会稀释关键信息</td>
+<td>A（含方法、数据及定量结果）</td>
+<td>在实际部署中需采用更细粒度的归因聚合与损失函数优化，以提升解释性与可靠性</td>
+</tr>
+</tbody>
+</table>
+<h2>工程行动建议</h2>
+<ul>
+<li><strong>验证实验</strong>
+<ol>
+<li>在本地部署 CATT，使用自定义冗余与干扰参数，评估现有归因算法的鲁棒性。</li>
+<li>对比通用与医学微调模型在术语识别与意义选择任务上的表现，验证是否与文献一致。</li>
+</ol>
+</li>
+<li><strong>落地评估</strong>
+<ol>
+<li>在医疗问答系统中引入检索增强与人类审核流程，监测幻觉率变化。</li>
+<li>对归因结果进行可视化，评估关键 token 的聚合方式是否符合 CATT 发现的最佳实践。</li>
+</ol>
+</li>
+<li><strong>后续跟踪指标</strong>
+<ol>
+<li>幻觉率（事实错误比例）与用户满意度。</li>
+<li>归因准确率（基于 CATT 的标准）与归因聚合误差。</li>
+<li>专业微调模型与通用模型在多维指标（术语识别、意义选择、推理步骤）上的差异幅度。</li>
+</ol>
+</li>
+</ul>
+<h2>参考资料</h2>
+<ol>
+<li>AI Hallucinations – <a href="https://doi.org/10.5281/zenodo.23688329">https://doi.org/10.5281/zenodo.23688329</a></li>
+<li>A Domain Label Is Not a Treatment – <a href="https://doi.org/10.5281/zenodo.23784964">https://doi.org/10.5281/zenodo.23784964</a></li>
+<li>Elucidating the Design Space of LM Data Attribution – <a href="https://arxiv.org/abs/2610.40655v1">https://arxiv.org/abs/2610.40655v1</a></li>
+</ol>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>
