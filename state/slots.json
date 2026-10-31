@@ -1,6 +1,37 @@
 {
   "version": 1,
   "slots": {
+    "2026-10-31:open_source": {
+      "status": "prepared",
+      "updated_at": "2026-10-31T03:42:13.516158+00:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "open_source",
+        "title": "AI 开源项目与工具更新",
+        "url": "https://vorasio.com/posts/20261031-open_source.html",
+        "created_at": "2026-10-31T03:42:13.516158+00:00",
+        "items": [
+          {
+            "uid": "94a4d27cf01294c2cb6c23bf",
+            "title": "huggingface/transformers: Patch release v5.22.1",
+            "url": "https://github.com/huggingface/transformers/releases/tag/v5.22.1",
+            "published": "2026-10-30T09:36:03+00:00",
+            "summary": "# Patch release v5.22.1 We just had to fix the documentation! ** [Fix] Remove WIP doc for Ml4 (https://github.com/huggingface/transformers/pull/50124) from @remi-or",
+            "source": "Transformers Releases",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          }
+        ],
+        "notify": false,
+        "mode": "production",
+        "analysis": {
+          "provider": "Groq",
+          "model": "openai/gpt-oss-20b"
+        },
+        "slot": "open_source"
+      }
+    },
     "2026-10-31:morning_radar": {
       "status": "published",
       "updated_at": "2026-10-31T01:12:20.172278+00:00",

@@ -1,5 +1,33 @@
 [
   {
+    "title": "AI 开源项目与工具更新（2026-10-31）",
+    "date": "2026-10-31T11:42:13.516158+08:00",
+    "count": 1,
+    "url": "posts/20261031-open_source.html",
+    "topic": "open_source",
+    "status": "published",
+    "summary": "本期要点 - Transformers v5.22.1 仅为文档修复版本，未包含功能或性能改动 1。 - 主要变更为删除 Ml4 相关的 WIP 文档，修正了文档链接错误 1。 - 由于缺乏代码或 API 变更，迁移风险极低，兼容性保持不变 1。 - 该更新不提供可复现入口，用户仅需更新至 v5.22.1 即可获得修复",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "huggingface/transformers: Patch release v5.22.1",
+          "url": "https://github.com/huggingface/transformers/releases/tag/v5.22.1",
+          "publisher": "Transformers Releases",
+          "host": "github.com",
+          "family": "代码与版本",
+          "published": "2026-10-30T09:36:03+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 模型、训练与基础研究（2026-10-31）",
     "date": "2026-10-31T10:42:25.630912+08:00",
     "count": 3,
