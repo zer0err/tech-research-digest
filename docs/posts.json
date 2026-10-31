@@ -1,5 +1,33 @@
 [
   {
+    "title": "AI 论文午间速览（2026-10-31）",
+    "date": "2026-10-31T12:42:20.872960+08:00",
+    "count": 1,
+    "url": "posts/20261031-paper_brief.html",
+    "topic": "paper_brief",
+    "status": "published",
+    "summary": "本期要点 - 光子学与芯片级光网络（ONoC）正被视为突破传统电子计算在吞吐与功耗极限的关键技术，尤其适用于深度学习、自动驾驶与实时分析等数据密集型 AI 应用。1 - 研究综述显示，光子器件（调制器、探测器、微环谐振器）已实现显著性能提升，但仍缺乏系统级的协同设计与优化方法，导致实际吞吐与延迟提升有限。1 - 现有工",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "A Scoping Review on Intelligent Computing upon Silicon Photonics and Optical Network on Chips",
+          "url": "https://doi.org/10.3390/photonics13111020",
+          "publisher": "OpenAlex AI Hardware",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-10-28T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.3390/photonics13111020",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 开源项目与工具更新（2026-10-31）",
     "date": "2026-10-31T11:42:13.516158+08:00",
     "count": 1,

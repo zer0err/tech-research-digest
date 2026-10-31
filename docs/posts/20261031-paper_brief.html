@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 论文午间速览（2026-10-31）</title><meta name="description" content="AI 论文午间速览（2026-10-31）：1 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav aria-label="主导航"><a href="../index.html#latest">时间线</a><a href="../knowledge/index.html">AI 知识科普</a><a href="../courses/index.html">AI 学习</a><a href="../tools/index.html">AI 工具</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">AI 论文午间速览</p><dl><dt>发布时间</dt><dd data-published-at="2026-10-31T12:42:20.872960+08:00">2026-10-31 12:42 · UTC+8</dd><dt>研究条目</dt><dd>1 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · AI 论文午间速览</p><h1>AI 论文午间速览（2026-10-31）</h1><!-- provenance:start --><p class="ai-analysis" title="openai/gpt-oss-20b">AI 分析：Groq</p><!-- provenance:end --><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期要点</h2>
+<ul>
+<li>光子学与芯片级光网络（ONoC）正被视为突破传统电子计算在吞吐与功耗极限的关键技术，尤其适用于深度学习、自动驾驶与实时分析等数据密集型 AI 应用。[1]</li>
+<li>研究综述显示，光子器件（调制器、探测器、微环谐振器）已实现显著性能提升，但仍缺乏系统级的协同设计与优化方法，导致实际吞吐与延迟提升有限。[1]</li>
+<li>现有工作聚焦于光子网络与 AI 模型（ML、DNN、LLM）的集成，提出了光子感知系统优化与基于 ML 的 ONoC 设计优化策略，但缺乏对功耗、面积与制程的量化评估。[1]</li>
+<li>综述指出，光子网络在实现高带宽与低延迟方面具有潜力，但在硬件实现层面仍面临光学与电子互连、功耗管理及可扩展性等挑战。[1]</li>
+</ul>
+<h2>逐项速览</h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>关键发现</th>
+<th>证据</th>
+<th>局限</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>架构</td>
+<td>光子网络可与 AI 加速器协同工作，形成光子+电子混合架构。</td>
+<td>综述提到“光子网络与 AI 模型的集成”与“光子感知系统优化”[1]</td>
+<td>仅为综述级别，缺乏具体实现案例与性能基准。</td>
+</tr>
+<tr>
+<td>存储与互连</td>
+<td>ONoC 通过光学互连实现高带宽、低延迟通信，减少电路互连功耗。</td>
+<td>综述强调“高带宽与低延迟通信”与“降低功耗”[1]</td>
+<td>未给出具体带宽/功耗数值，无法评估与传统互连的对比。</td>
+</tr>
+<tr>
+<td>吞吐</td>
+<td>光子器件的进步（调制器、探测器、微环谐振器）暗示潜在吞吐提升。</td>
+<td>综述列举“光子器件进步”[1]</td>
+<td>未提供吞吐量测量或与电子基准的对比。</td>
+</tr>
+<tr>
+<td>延迟</td>
+<td>光子网络可实现低延迟通信，但实际延迟受光学组件与电子接口影响。</td>
+<td>综述提到“低延迟通信”[1]</td>
+<td>缺乏实验数据，延迟分解不完整。</td>
+</tr>
+<tr>
+<td>功耗</td>
+<td>光子网络有望降低功耗，但光学组件自身功耗与热管理仍未充分评估。</td>
+<td>综述指出“降低功耗”与“光子感知系统优化”[1]</td>
+<td>未给出功耗基准，缺乏面积/功耗权衡。</td>
+</tr>
+<tr>
+<td>面积</td>
+<td>光子器件尺寸小，可在芯片上实现高集成度。</td>
+<td>综述提到“微环谐振器”等器件[1]</td>
+<td>未提供面积统计或与传统电路的比较。</td>
+</tr>
+<tr>
+<td>制程</td>
+<td>综述未讨论制程技术与工艺兼容性。</td>
+<td>综述未涉及制程细节[1]</td>
+<td>需进一步研究光子与 CMOS 制程的集成路径。</td>
+</tr>
+<tr>
+<td>软硬件协同</td>
+<td>综述提出 ML 优化 ONoC 设计，暗示软硬件协同潜力。</td>
+<td>综述提到“ML-based optimization techniques applied to ONoC design”[1]</td>
+<td>仅为概念性讨论，缺乏实现细节与验证。</td>
+</tr>
+</tbody>
+</table>
+<h2>值得采取的行动</h2>
+<ul>
+<li><strong>系统级评估</strong>：开展光子+电子混合架构的实验验证，测量吞吐、延迟、功耗与面积，并与传统电子架构做对比。</li>
+<li><strong>协同设计流程</strong>：构建光子器件与 AI 加速器的协同设计框架，结合 ML 优化 ONoC 布局，验证其对性能与功耗的实际影响。</li>
+<li><strong>制程兼容性研究</strong>：评估现有 CMOS 制程与光子器件的集成可行性，探索多工艺层叠或异构集成方案。</li>
+<li><strong>标准化基准</strong>：制定光子网络在 AI 推理与训练中的性能基准（吞吐/延迟/功耗/面积），为后续研究提供可比性。</li>
+</ul>
+<h2>参考资料</h2>
+<p>[1] A Scoping Review on Intelligent Computing upon Silicon Photonics and Optical Network on Chips. OpenAlex AI Hardware. <a href="https://doi.org/10.3390/photonics13111020">https://doi.org/10.3390/photonics13111020</a></p>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>
