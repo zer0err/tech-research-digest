@@ -1,5 +1,55 @@
 [
   {
+    "title": "Agent、机器人与具身智能（2026-10-31）",
+    "date": "2026-10-31T14:12:52.204798+08:00",
+    "count": 3,
+    "url": "posts/20261031-core_research.html",
+    "topic": "core_research",
+    "status": "published",
+    "summary": "本期结论 1. 工具与设备调用的模块化实现正在成为机器人操控的关键方向。SwapBot 提供了低成本、可快速切换的工具适配器，并通过触觉传感器提升了演示质量和策略性能，表明工具中心化的设计在日常任务中具有显著优势2。 2. 可解释的世界模型能够在控制任务中实现更高效的参数利用。world2vec 在 71 个基准上展示",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "Build Specialized Agents on a Stack You Control with NVIDIA NemoClaw",
+          "url": "https://developer.nvidia.com/blog/build-specialized-agents-on-a-stack-you-control-with-nvidia-nemoclaw",
+          "publisher": "NVIDIA Technical Blog",
+          "host": "developer.nvidia.com",
+          "family": "博客/公开网页",
+          "published": "2026-10-30T16:00:00+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "SwapBot: Tool-Centric Robot Manipulation via Interchangeable End-Effectors and Tactile Sensing",
+          "url": "https://arxiv.org/abs/2610.40646v1",
+          "publisher": "arXiv Embodied Intelligence",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-10-29T17:59:20+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "world2vec: Mechanistic world models through latent dynamics learning",
+          "url": "https://arxiv.org/abs/2610.40637v1",
+          "publisher": "arXiv Embodied Intelligence",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-10-29T17:58:23+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 论文午间速览（2026-10-31）",
     "date": "2026-10-31T12:42:20.872960+08:00",
     "count": 1,

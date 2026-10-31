@@ -26,6 +26,59 @@
       "updated_at": "2026-10-31T02:42:25.630912+00:00",
       "attempts": 1
     },
+    "2026-10-31:core_research": {
+      "status": "prepared",
+      "updated_at": "2026-10-31T06:12:52.204798+00:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "embodied",
+        "title": "Agent、机器人与具身智能",
+        "url": "https://vorasio.com/posts/20261031-core_research.html",
+        "created_at": "2026-10-31T06:12:52.204798+00:00",
+        "items": [
+          {
+            "uid": "100466b9c2db58e60e4726e3",
+            "title": "Build Specialized Agents on a Stack You Control with NVIDIA NemoClaw",
+            "url": "https://developer.nvidia.com/blog/build-specialized-agents-on-a-stack-you-control-with-nvidia-nemoclaw",
+            "published": "2026-10-30T16:00:00+00:00",
+            "summary": "Building an autonomous agent requires a model, a harness, and domain-specific tools. To deploy an agent more securely, developers need a runtime that enforces...",
+            "source": "NVIDIA Technical Blog",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          },
+          {
+            "uid": "b15e2f46c4f789c0d9b1b03b",
+            "title": "SwapBot: Tool-Centric Robot Manipulation via Interchangeable End-Effectors and Tactile Sensing",
+            "url": "https://arxiv.org/abs/2610.40646v1",
+            "published": "2026-10-29T17:59:20+00:00",
+            "summary": "Robot manipulation in everyday environments inherently involves substantial tool usage. Seemingly simple household tasks, such as cooking pan-fried tofu, require forceful cutting, delicate brushing, and precise placement using different tools under contact-rich interaction. Thus, the ability to autonomously swap and use task-appropriate tools is important for tool-centric manipulation. We introduce SwapBot, a modular, tool-centric end effector system featuring low-cost adapters that quickly convert common household tools into robot end effectors. Rather than pursuing a single universal gripper, SwapBot adopts a unified design principle that combines a fixed robot-side coupling interface with low-cost, tool-side adapters, enabling compatibility with diverse tools, including articulated ones, and multiple robot platforms. Each adapter integrates compact tactile sensors, supports fast autonomous swapping, and interfaces with an intuitive teleoperation system for efficient demonstration collection. User studies show that, during teleoperation, SwapBot reduces task completion time and operator workload. Using collected demonstrations on the robot, we train imitation learning policies to successfully perform tool-centric tasks like cooking tofu, stirring salad, flipping meat. Our ablation study shows that using tactile-augmented demonstrations improves policy performance across conta",
+            "source": "arXiv Embodied Intelligence",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          },
+          {
+            "uid": "ac31cd2f826b44fd05b139a5",
+            "title": "world2vec: Mechanistic world models through latent dynamics learning",
+            "url": "https://arxiv.org/abs/2610.40637v1",
+            "published": "2026-10-29T17:58:23+00:00",
+            "summary": "World models can achieve strong control performance without faithfully capturing the dynamics of their environment, limiting their potential for mechanistic interpretability and scientific discovery. Here, we introduce world2vec to learn mechanistic world models without reward information directly from observations and actions. World2vec learns latent dynamics that faithfully reproduce the true system over long prediction horizons, with at least one order of magnitude fewer parameters than DreamerV3, TD-MPC2 and LeWM. This enables state of the art performance in controlling continuous environments from pixels and accurate system identification across a benchmark of 71 attractors, demonstrating how world models are amenable to scientific discovery.",
+            "source": "arXiv Embodied Intelligence",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          }
+        ],
+        "notify": false,
+        "mode": "production",
+        "analysis": {
+          "provider": "Groq",
+          "model": "openai/gpt-oss-20b"
+        },
+        "slot": "core_research"
+      }
+    },
     "2026-10-30:prompt_engineering": {
       "status": "no_matching_in_window",
       "updated_at": "2026-10-30T06:12:17.381909+00:00",

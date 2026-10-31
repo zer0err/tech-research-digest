@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Agent、机器人与具身智能（2026-10-31）</title><meta name="description" content="Agent、机器人与具身智能（2026-10-31）：3 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav aria-label="主导航"><a href="../index.html#latest">时间线</a><a href="../knowledge/index.html">AI 知识科普</a><a href="../courses/index.html">AI 学习</a><a href="../tools/index.html">AI 工具</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">智能硬件技术专题</p><dl><dt>发布时间</dt><dd data-published-at="2026-10-31T14:12:52.204798+08:00">2026-10-31 14:12 · UTC+8</dd><dt>研究条目</dt><dd>3 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · 智能硬件技术专题</p><h1>Agent、机器人与具身智能（2026-10-31）</h1><!-- provenance:start --><p class="ai-analysis" title="openai/gpt-oss-20b">AI 分析：Groq</p><!-- provenance:end --><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期结论</h2>
+<ol>
+<li><strong>工具与设备调用的模块化实现正在成为机器人操控的关键方向</strong>。SwapBot 提供了低成本、可快速切换的工具适配器，并通过触觉传感器提升了演示质量和策略性能，表明工具中心化的设计在日常任务中具有显著优势[2]。</li>
+<li><strong>可解释的世界模型能够在控制任务中实现更高效的参数利用</strong>。world2vec 在 71 个基准上展示了至少十倍参数压缩的同时保持了长期预测精度，提示在具身智能中采用机制化世界模型可兼顾控制性能与可解释性[3]。</li>
+<li><strong>安全与可控的 Agent 堆栈正在被关注</strong>。NVIDIA NemoClaw 强调了在受控运行时环境中部署自主 Agent 的必要性，暗示未来 Agent 需要在安全性与可扩展性之间取得平衡[1]。</li>
+</ol>
+<h2>逐项分析</h2>
+<table>
+<thead>
+<tr>
+<th>资料</th>
+<th>核心贡献</th>
+<th>方法与数据</th>
+<th>性能证据</th>
+<th>局限与证据等级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[1]</td>
+<td>提出可控堆栈下的专用 Agent 架构</td>
+<td>通过 NVIDIA NemoClaw 组合模型、运行时与领域工具</td>
+<td>未给出定量结果，仅描述安全部署需求</td>
+<td>C（缺少实验细节）</td>
+</tr>
+<tr>
+<td>[2]</td>
+<td>模块化工具中心化机器人末端执行器 SwapBot</td>
+<td>低成本适配器、触觉传感器、演示收集与模仿学习</td>
+<td>通过用户研究显示任务完成时间缩短、工作负荷降低；演示数据训练的策略成功完成烹饪、搅拌等任务</td>
+<td>B（含方法及定性结果）</td>
+</tr>
+<tr>
+<td>[3]</td>
+<td>机制化世界模型 world2vec</td>
+<td>通过无奖励观测-动作学习获得潜在动力学；与 DreamerV3、TD-MPC2、LeWM 对比</td>
+<td>在 71 个基准上实现长期预测精度与控制性能，参数量至少十倍更少</td>
+<td>A（摘要含方法、数据及定量结果）</td>
+</tr>
+</tbody>
+</table>
+<h2>工程行动建议</h2>
+<ul>
+<li><strong>验证实验</strong>
+<ul>
+<li>对 SwapBot 进行跨平台适配测试，记录不同工具切换时间与抓取成功率，以量化模块化优势。</li>
+<li>在自定义环境中复现 world2vec 的参数压缩与预测精度，评估其对控制任务的实际收益。</li>
+</ul>
+</li>
+<li><strong>落地评估</strong>
+<ul>
+<li>在工业厨房或仓储场景部署 SwapBot，监测任务完成时间、能耗与维护成本。</li>
+<li>在安全关键领域（如医疗机器人）使用 NemoClaw 进行堆栈安全性评估，验证运行时隔离与权限控制效果。</li>
+</ul>
+</li>
+<li><strong>后续跟踪指标</strong>
+<ul>
+<li>工具切换频率、触觉反馈利用率、模型参数占用率、长期预测误差率。</li>
+</ul>
+</li>
+</ul>
+<h2>参考资料</h2>
+<ol>
+<li>Build Specialized Agents on a Stack You Control with NVIDIA NemoClaw – NVIDIA Technical Blog – <a href="https://developer.nvidia.com/blog/build-specialized-agents-on-a-stack-you-control-with-nvidia-nemoclaw">https://developer.nvidia.com/blog/build-specialized-agents-on-a-stack-you-control-with-nvidia-nemoclaw</a></li>
+<li>SwapBot: Tool-Centric Robot Manipulation via Interchangeable End-Effectors and Tactile Sensing – arXiv Embodied Intelligence – <a href="https://arxiv.org/abs/2610.40646v1">https://arxiv.org/abs/2610.40646v1</a></li>
+<li>world2vec: Mechanistic world models through latent dynamics learning – arXiv Embodied Intelligence – <a href="https://arxiv.org/abs/2610.40637v1">https://arxiv.org/abs/2610.40637v1</a></li>
+</ol>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>
