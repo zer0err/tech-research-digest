@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>高效 AI、模型压缩与端侧适配（2026-10-31）</title><meta name="description" content="高效 AI、模型压缩与端侧适配（2026-10-31）：2 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav aria-label="主导航"><a href="../index.html#latest">时间线</a><a href="../knowledge/index.html">AI 知识科普</a><a href="../courses/index.html">AI 学习</a><a href="../tools/index.html">AI 工具</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">AI 应用与落地专题</p><dl><dt>发布时间</dt><dd data-published-at="2026-10-31T16:29:50.054058+08:00">2026-10-31 16:29 · UTC+8</dd><dt>研究条目</dt><dd>2 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · AI 应用与落地专题</p><h1>高效 AI、模型压缩与端侧适配（2026-10-31）</h1><!-- provenance:start --><p class="ai-analysis" title="mimo-v2.6-flash">AI 分析：Xiaomi MiMo</p><!-- provenance:end --><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期结论</h2>
+<ul>
+<li>本期两篇资料均涉及&quot;高效计算&quot;，但方向不同：一篇是数据库 join-aggregate 算子优化，一篇是离散扩散模型采样加速，未构成同一技术趋势 [1][2]。</li>
+<li>值得关注的信号：Tessera 通过稀疏感知与阈值剪枝在倾斜稀疏关系上取得 2.8x–18.8x 加速，说明针对数据分布特化的算子设计在特定负载下可带来数量级收益 [1]。</li>
+<li>值得关注的信号：ERF 将离散扩散的边缘分布用确定性 ODE 刻画，并支持一致性蒸馏，为离散生成模型的采样加速提供了新的理论路径 [2]。</li>
+<li>两篇摘要均未提供参数量、量化位宽、内存占用、延迟、吞吐、功耗或目标设备等端侧适配指标，无法从摘要确认其对模型压缩或端侧部署的直接证据 [1][2]。</li>
+</ul>
+<h2>逐项分析</h2>
+<p><strong>[1] Tessera</strong></p>
+<ul>
+<li>核心贡献：面向倾斜稀疏关系的 join-aggregate 算子，避免中间连接行物化与非匹配对结果存储 [1]。</li>
+<li>方法与数据：直接在引擎行上做稀疏矩阵乘，仅输出非零单元；乘法前剪枝低于阈值的值；对高频值形成的稠密块在足够稠密时卸载到 CPU 矩阵加速器 [1]。</li>
+<li>性能证据：比最快现有系统快 2.8x–18.8x；比 DuckDB 执行计划最高快 1,802x [1]。</li>
+<li>局限与证据等级：摘要未给出硬件配置、数据集规模、内存占用、功耗与延迟分布，加速比的适用条件无法确认；证据等级 A（含方法与定量结果，但缺实验细节）[1]。</li>
+<li>工程意义：对分析型数据库中高频-长尾分布的 join-aggregate 查询有直接参考价值；是否适用于 AI 推理或训练负载无法从摘要确认 [1]。</li>
+</ul>
+<p><strong>[2] ODE-based Sampler for Discrete Diffusion</strong></p>
+<ul>
+<li>核心贡献：提出指数残差流（ERF），为离散扩散模型建立类概率流 ODE 的确定性刻画，并证明保持原扩散的边缘分布 [2]。</li>
+<li>方法与数据：为每个 token 与位置附加连续残差变量，残差按分段定义的 ODE 确定性演化，向量场依赖当前离散状态及前向/后向速率矩阵；离散状态在残差触零时更新；推导了实用离散化并特化到掩码与均匀扩散 [2]。</li>
+<li>性能证据：确定性轨迹支持一致性蒸馏，在代码与文本生成等多个基准上相对先前方法有经验性提升 [2]。</li>
+<li>局限与证据等级：摘要未给出具体基准名称、评测指标数值、采样步数、延迟或显存占用；&quot;empirical improvements&quot;缺少定量支撑；证据等级 B（含方法与定性结果）[2]。</li>
+<li>工程意义：为离散扩散模型的少步采样与蒸馏提供了理论与算法基础；对端侧部署的实际收益（步数减少带来的延迟/功耗）无法从摘要确认 [2]。</li>
+</ul>
+<h2>工程行动建议</h2>
+<ul>
+<li>验证实验：若评估 Tessera，需在自有倾斜稀疏数据集上复现其 2.8x–18.8x 加速区间，记录中间行物化量、剪枝比例与稠密块卸载触发条件 [1]；若评估 ERF，需在目标离散扩散任务上测量蒸馏前后步数、FID/代码评测指标与单步耗时 [2]。</li>
+<li>落地评估：Tessera 的 CPU 矩阵加速器依赖需核对目标服务器硬件是否具备；ERF 的一致性蒸馏需评估额外残差变量带来的显存开销，摘要未提供该数据 [1][2]。</li>
+<li>后续跟踪指标：跟踪 Tessera 在非倾斜分布下的退化程度与内存峰值；跟踪 ERF 在更大模型规模上的边缘分布保持性证明的工程近似误差与采样质量稳定性 [1][2]。</li>
+</ul>
+<h2>参考资料</h2>
+<p>[1] Tessera: Fast Join-Aggregates over Skewed Sparse Relations in Database Engines <a href="https://arxiv.org/abs/2610.40620v1">https://arxiv.org/abs/2610.40620v1</a>
+[2] An ODE-based Sampler for Discrete Diffusion Models <a href="https://arxiv.org/abs/2610.40618v1">https://arxiv.org/abs/2610.40618v1</a></p>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>

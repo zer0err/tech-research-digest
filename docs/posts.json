@@ -1,5 +1,44 @@
 [
   {
+    "title": "高效 AI、模型压缩与端侧适配（2026-10-31）",
+    "date": "2026-10-31T16:29:50.054058+08:00",
+    "count": 2,
+    "url": "posts/20261031-applied_ai.html",
+    "topic": "applied_ai",
+    "status": "published",
+    "summary": "本期结论 - 本期两篇资料均涉及\"高效计算\"，但方向不同：一篇是数据库 join-aggregate 算子优化，一篇是离散扩散模型采样加速，未构成同一技术趋势 12。 - 值得关注的信号：Tessera 通过稀疏感知与阈值剪枝在倾斜稀疏关系上取得 2.8x–18.8x 加速，说明针对数据分布特化的算子设计在特定负载下可",
+    "provenance": {
+      "analysis": {
+        "provider": "Xiaomi MiMo",
+        "model": "mimo-v2.6-flash"
+      },
+      "sources": [
+        {
+          "title": "Tessera: Fast Join-Aggregates over Skewed Sparse Relations in Database Engines",
+          "url": "https://arxiv.org/abs/2610.40620v1",
+          "publisher": "arXiv Efficient AI",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-10-29T17:55:38+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "An ODE-based Sampler for Discrete Diffusion Models",
+          "url": "https://arxiv.org/abs/2610.40618v1",
+          "publisher": "arXiv Efficient AI",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-10-29T17:55:25+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "Agent、机器人与具身智能（2026-10-31）",
     "date": "2026-10-31T14:12:52.204798+08:00",
     "count": 3,
