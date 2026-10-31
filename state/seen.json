@@ -37,6 +37,8 @@
     },
     "morning_radar": {
       "ids": [
+        "7ea5e5653a712c312f80ca1d",
+        "a8d5896b41e236f8c3b2c9dc",
         "dd4b9a8fd034b6f22463383b",
         "0f9e3af0b07d14731714332f",
         "82ed05d102dcf1977377416a",
@@ -53,7 +55,7 @@
         "dea8ba729eb28582daacbbc8",
         "767a7f383549ba646ff22647"
       ],
-      "updated_at": "2026-10-30T01:12:31.493847+00:00"
+      "updated_at": "2026-10-31T01:12:20.172278+00:00"
     },
     "ecosystem": {
       "ids": [
@@ -174,6 +176,8 @@
     }
   },
   "all_ids": [
+    "7ea5e5653a712c312f80ca1d",
+    "a8d5896b41e236f8c3b2c9dc",
     "55a2be6a71657f68b8536be6",
     "4476c06ca2d120a02f3fd13d",
     "90626dc00414501928394dc9",
@@ -288,6 +292,8 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://github.blog/changelog/2026-10-28-repository-plugin-defaults-and-enterprise-plugin-controls-generally-available",
+    "https://github.blog/changelog/2026-10-28-generate-and-edit-images-directly-in-copilot",
     "https://doi.org/10.15408/jti.v19i2.54220",
     "https://arxiv.org/abs/2610.38106v1",
     "https://doi.org/10.48175/ijarsct-40345",
@@ -402,6 +408,8 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "b8da88eeee1fe3cfb1ab5576",
+    "2ffc4dcd5ca1f60ae348d397",
     "62e9ce1ebbc6e6d397a1f808",
     "54af7e98c845fc59a5c2ec53",
     "ff12e40b4d3af4ef5db7419c",
@@ -2101,6 +2109,38 @@
           "source": "OpenAlex Device Security",
           "kind": "research",
           "doi": "https://doi.org/10.48175/ijarsct-40345",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261031-morning_radar.html": {
+      "topic": "morning_radar",
+      "created_at": "2026-10-31T01:12:20.172278+00:00",
+      "items": [
+        {
+          "uid": "7ea5e5653a712c312f80ca1d",
+          "title": "Repository plugin defaults and enterprise plugin controls generally available",
+          "url": "https://github.blog/changelog/2026-10-28-repository-plugin-defaults-and-enterprise-plugin-controls-generally-available",
+          "published": "2026-10-28T15:33:00+00:00",
+          "summary": "Repository plugin defaults and enterprise-managed plugin controls are now generally available in VS Code, Copilot CLI, and the GitHub Copilot app. Trusted repositories can install and enable default plugins for… The post Repository plugin defaults and enterprise plugin controls generally available appeared first on The GitHub Blog .",
+          "source": "GitHub 官方更新",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        },
+        {
+          "uid": "a8d5896b41e236f8c3b2c9dc",
+          "title": "Generate and edit images directly in Copilot",
+          "url": "https://github.blog/changelog/2026-10-28-generate-and-edit-images-directly-in-copilot",
+          "published": "2026-10-28T15:30:55+00:00",
+          "summary": "You can now generate and edit images using natural language in GitHub Copilot. When you ask for an image, your selected reasoning model calls a dedicated image-generation tool powered by… The post Generate and edit images directly in Copilot appeared first on The GitHub Blog .",
+          "source": "GitHub 官方更新",
+          "kind": "research",
+          "doi": "",
           "date_precision": "day"
         }
       ],
