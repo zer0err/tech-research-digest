@@ -70,6 +70,9 @@
     },
     "model_research": {
       "ids": [
+        "566ce7e9ef2618de24356a15",
+        "a4190dafa285f6fc879de5a3",
+        "e8d8fb06f867dd0c27172aeb",
         "503b1edcd4982f133bde50da",
         "aa2093a5de505d7c72029bb2",
         "b2cdbdd2504fd314d9f68cde",
@@ -88,7 +91,7 @@
         "f3a5508d0160d42195ab7174",
         "cb661d928a0dfa16bc4c4588"
       ],
-      "updated_at": "2026-10-30T02:41:32.029615+00:00"
+      "updated_at": "2026-10-31T02:42:25.630912+00:00"
     },
     "embodied": {
       "ids": [
@@ -176,6 +179,9 @@
     }
   },
   "all_ids": [
+    "566ce7e9ef2618de24356a15",
+    "a4190dafa285f6fc879de5a3",
+    "e8d8fb06f867dd0c27172aeb",
     "7ea5e5653a712c312f80ca1d",
     "a8d5896b41e236f8c3b2c9dc",
     "55a2be6a71657f68b8536be6",
@@ -292,6 +298,9 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://doi.org/10.5281/zenodo.23688329",
+    "https://doi.org/10.5281/zenodo.23784964",
+    "https://arxiv.org/abs/2610.40655v1",
     "https://github.blog/changelog/2026-10-28-repository-plugin-defaults-and-enterprise-plugin-controls-generally-available",
     "https://github.blog/changelog/2026-10-28-generate-and-edit-images-directly-in-copilot",
     "https://doi.org/10.15408/jti.v19i2.54220",
@@ -408,6 +417,9 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "2aff900646619dc24ec5ade9",
+    "8edad0d1986e9aa7eb1a60cc",
+    "833962fbc0287a4f59116851",
     "b8da88eeee1fe3cfb1ab5576",
     "2ffc4dcd5ca1f60ae348d397",
     "62e9ce1ebbc6e6d397a1f808",
@@ -2139,6 +2151,49 @@
           "published": "2026-10-28T15:30:55+00:00",
           "summary": "You can now generate and edit images using natural language in GitHub Copilot. When you ask for an image, your selected reasoning model calls a dedicated image-generation tool powered by… The post Generate and edit images directly in Copilot appeared first on The GitHub Blog .",
           "source": "GitHub 官方更新",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261031-model_research.html": {
+      "topic": "model_research",
+      "created_at": "2026-10-31T02:42:25.630912+00:00",
+      "items": [
+        {
+          "uid": "566ce7e9ef2618de24356a15",
+          "title": "AI Hallucinations",
+          "url": "https://doi.org/10.5281/zenodo.23688329",
+          "published": "2026-10-31T00:00:00+00:00",
+          "summary": "Artificial Intelligence has really transformed areas like healthcare, legal services, education, finance, and business. But its quick spread also brings persistent tech troubles, mainly the confusing issue of AI mistakes, errors, and misinformation. Large Language Models (LLMs) can handle all sorts of tasks, from text creation and code writing to answering questions and summarizing info. Still, despite their big achievements, LLMs sometimes spout incorrect stuff – factually wrong or made-up content – which is called \"hallucination.\" This paper dives deep into AI failures, showing how they differ based on errors in logic, generated fiction presented confidently, and correct data being misinterpreted. It looks at why AI systems act overly sure of themselves, how messy training data messes up, and ideas for fixing this like boosted retrieval methods, cleaner training data, and humans checking the work. What stands out is that these glitches aren't just random tech snafus. Instead, they're a design quirk of big AI language models. Fixing them demands teamwork from folks in various fields, not just developers. So, while there are big issues, figuring out ways to collaborate could make these systems way more reliable in the future.",
+          "source": "OpenAlex Model Research",
+          "kind": "research",
+          "doi": "https://doi.org/10.5281/zenodo.23688329",
+          "date_precision": "day"
+        },
+        {
+          "uid": "a4190dafa285f6fc879de5a3",
+          "title": "A Domain Label Is Not a Treatment: Why Specialist and General-Purpose Language Models Trade Places Across Studies, What a 'Medical' Checkpoint Leaves Unspecified, and the Matched Contrasts That Would Assign the Gain",
+          "url": "https://doi.org/10.5281/zenodo.23784964",
+          "published": "2026-10-30T00:00:00+00:00",
+          "summary": "(c) 2026 Pranay Mahendrakar. Licensed under CC BY 4.0. Life of Research A September 2026 study compares an 8B general-purpose instruction-tuned model with a medically fine-tuned checkpoint built on the same base and finds that the general model scores higher both at selecting the meaning of medical jargon and at recognising when a word is being used as jargon, significantly so on the second, and that the medical checkpoint's deficit on the second task sits in a few pre-existing components it over-weights. The finding joins a run of 2024-2026 results in which medical models fail to beat their bases, set against an older and still-growing record in which domain-adapted models in code, mathematics, chip design, law and clinical text beat general ones by wide margins. In this analysis the author reviews and synthesises published results to show that these verdicts are not answers to one question, because a specialist-versus-generalist comparison is indexed by five things that the studies set differently: the treatment (what was trained, on how much text the base had not already seen), the comparator (the starting checkpoint, a post-trained sibling, or a model of another lineage), the elicitation (whose prompt format and whose decision threshold), the target skill (recall, terminology, extraction against labels, or multi-step computation), and the statistic (paired tests, intervals,",
+          "source": "OpenAlex Model Research",
+          "kind": "research",
+          "doi": "https://doi.org/10.5281/zenodo.23784964",
+          "date_precision": "day"
+        },
+        {
+          "uid": "e8d8fb06f867dd0c27172aeb",
+          "title": "Elucidating the Design Space of LM Data Attribution",
+          "url": "https://arxiv.org/abs/2610.40655v1",
+          "published": "2026-10-29T17:59:53+00:00",
+          "summary": "Data attribution methods for Language Models (LMs) are typically evaluated using downstream tasks like fact retrieval. However, existing evaluations vary multiple dataset properties simultaneously, making it impossible to isolate exactly why an attribution algorithm fails. To diagnose these failures, we explore the design space of LLM data attribution, with a primary focus on evaluation. We introduce the Controlled Attribution Benchmark (CATT) for fact tracing, in which we fine-tune LLMs on entirely fictitious knowledge, providing unambiguous ground truth for attribution. This synthetic setup allows us to systematically alter one dataset configuration at a time, such as document redundancy and lexical distractors. With this configurable evaluation, we demonstrate that redundancy and distractors consistently degrade attribution performance. Rather than proposing a new estimator, we examine two design choices that are underexplored: the loss used to compute gradients and how per-token attribution scores are aggregated into a document score. We find that the true causal evidence within a training document is highly localized, but standard methods dilute this evidence into noise by averaging attribution scores across the entire document. We find that replacing standard cross-entropy loss gradients with the negative log-odds gradients surfaces the critical tokens from other uninform",
+          "source": "arXiv Model Research",
           "kind": "research",
           "doi": "",
           "date_precision": "day"
