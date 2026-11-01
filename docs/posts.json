@@ -1,5 +1,55 @@
 [
   {
+    "title": "智能硬件产品化、可靠性与安全（2026-11-01）",
+    "date": "2026-11-01T14:12:39.603648+08:00",
+    "count": 3,
+    "url": "posts/20261101-core_research.html",
+    "topic": "core_research",
+    "status": "published",
+    "summary": "本期结论 1. 基于序列的深度学习模型在DDoS检测中能显著提升对短期与长期依赖的捕获，该结论得到1中对RNN、LSTM和XGBoost‑RNN三种模型的系统评估支持。 2. IoT与AI技术在农业水质监测中可提高监测频率并实现异常检测，该趋势由2的综述与多篇近年研究共同支持。 逐项分析 1 Validation of",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "Validation of three DDoS attack detection solutions using deep learning with recent datasets",
+          "url": "https://doi.org/10.1108/ijpcc-03-2025-0094",
+          "publisher": "OpenAlex Device Security",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-10-30T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.1108/ijpcc-03-2025-0094",
+          "kind": "research"
+        },
+        {
+          "title": "Digital Water Quality Monitoring for Pre-Harvest Safety: A Critical Review of IoT, AI and Rapid Sensors in Irrigation Management",
+          "url": "https://doi.org/10.21203/rs.3.rs-11540054/v1",
+          "publisher": "OpenAlex Device Security",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-10-30T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.21203/rs.3.rs-11540054/v1",
+          "kind": "research"
+        },
+        {
+          "title": "A Conceptual Design Framework for Integrating Smart PPE Monitoring with Proposed Predictive Analytics in Smart Manufacturing Safety Management",
+          "url": "https://doi.org/10.47116/apjcri.2026.10.23",
+          "publisher": "OpenAlex Device Security",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-10-29T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.47116/apjcri.2026.10.23",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 论文午间速览（2026-11-01）",
     "date": "2026-11-01T12:42:26.354423+08:00",
     "count": 3,
