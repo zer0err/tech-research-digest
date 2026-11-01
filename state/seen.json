@@ -71,6 +71,8 @@
     },
     "model_research": {
       "ids": [
+        "38c31abc8be6a43eae7f0f57",
+        "172f1da6e1724e805493bedd",
         "566ce7e9ef2618de24356a15",
         "a4190dafa285f6fc879de5a3",
         "e8d8fb06f867dd0c27172aeb",
@@ -92,7 +94,7 @@
         "f3a5508d0160d42195ab7174",
         "cb661d928a0dfa16bc4c4588"
       ],
-      "updated_at": "2026-10-31T02:42:25.630912+00:00"
+      "updated_at": "2026-11-01T02:40:07.922134+00:00"
     },
     "embodied": {
       "ids": [
@@ -186,6 +188,8 @@
     }
   },
   "all_ids": [
+    "38c31abc8be6a43eae7f0f57",
+    "172f1da6e1724e805493bedd",
     "5d69f8d7e97ab3926a75084e",
     "a90a413338f50ec66517ff94",
     "100466b9c2db58e60e4726e3",
@@ -312,6 +316,8 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://tsukuba.repo.nii.ac.jp/records/2024994",
+    "https://ink.library.smu.edu.sg/sis_research/11177",
     "https://arxiv.org/abs/2610.40620v1",
     "https://arxiv.org/abs/2610.40618v1",
     "https://developer.nvidia.com/blog/build-specialized-agents-on-a-stack-you-control-with-nvidia-nemoclaw",
@@ -438,6 +444,8 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "e437230b3b28415ea6f36ff0",
+    "efc7049e4c510bbe3d0ced7f",
     "cf544a5680284fa2fe2397d7",
     "f4d8794eb8d0930c60286a2c",
     "90d18c85d2b678da0f186cfd",
@@ -2339,6 +2347,38 @@
           "published": "2026-10-29T17:55:25+00:00",
           "summary": "The marginals of a continuous diffusion model can be reproduced by a deterministic ordinary differential equation (ODE), known as the probability flow ODE, which provides a foundation for accelerated sampling and consistency distillation. In this paper we address the question whether an analogous formulation exists for discrete diffusion models and answer it affirmatively by introducing exponential residual flows (ERFs). Our framework augments the discrete state with a continuous residual variable for each token and position. These residuals evolve deterministically according to piecewise-defined ODEs whose vector fields depend on the current discrete state and the forward and backward rate matrices of the prescribed diffusion model. The discrete state changes whenever a residual reaches zero. We prove that this construction preserves the marginals of the original diffusion. We derive a practical discretization of our sampler and specialize it to masked and uniform diffusion. The deterministic trajectories of ERFs support consistency distillation and yield empirical improvements over previous approaches across a variety of benchmarks including code and text generation tasks.",
           "source": "arXiv Efficient AI",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Xiaomi MiMo",
+        "model": "mimo-v2.6-flash"
+      }
+    },
+    "https://vorasio.com/posts/20261101-model_research.html": {
+      "topic": "model_research",
+      "created_at": "2026-11-01T02:40:07.922134+00:00",
+      "items": [
+        {
+          "uid": "38c31abc8be6a43eae7f0f57",
+          "title": "Multi-dimensional hierarchical temporal alignment for improved temporal commonsense reasoning in large language models",
+          "url": "https://tsukuba.repo.nii.ac.jp/records/2024994",
+          "published": "2026-11-01T00:00:00+00:00",
+          "summary": "Benefiting from recent advances in generative AI and large language models (LLMs), current LLM-driven AI systems are rapidly reshaping how we reason, plan, and make decisions. Yet endowing these systems with human-like temporal intelligence (e.g., understanding and comparing events across time) remains largely unresolved. To address this gap, we introduce a novel Multi-dimensional Hierarchical Temporal Alignment framework (denoted as MHTA), of which the core idea is to effectively ground the temporal alignment of an LLM in both event-specific and cross-event real-world temporal commonsense knowledge. Specifically, we first frame the temporal space as a multi-dimensional hierarchical space, where each dimension comprises its own set of temporal units. Building on this formulation, we curate an initial burn-in dataset in which annotations are constructed to reflect real-world human temporal commonsense in accordance with our defined temporal space. Based on the initial burn-in dataset, we propose two complementary fine-tuning objectives: (i) Grounding the temporal alignment in event-specific temporal commonsense knowledge, which is achieved through a novel hierarchy-preserving Wasserstein loss, and (ii) Grounding the temporal alignment in cross-event temporal commonsense knowledge, which is achieved via a margin-adaptive triplet loss. To evaluate the effectiveness of MHTA, we con",
+          "source": "OpenAlex Model Research",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        },
+        {
+          "uid": "172f1da6e1724e805493bedd",
+          "title": "Semantic-structural decoupling: Disentangling semantic attention from structural bias in the attention manifold",
+          "url": "https://ink.library.smu.edu.sg/sis_research/11177",
+          "published": "2026-11-01T00:00:00+00:00",
+          "summary": "The empirical success of attention mechanism in Multimodal Large Language Models (MLLMs) often obscures its inherent, subtle flaws. Specifically, MLLMs consistently exhibit disproportionate attention toward certain semantically uninformative visual tokens, a phenomenon termed \"register\" or \"Visual Attention Sinks.\" While existing inference intervention methods attempt to identify these sink tokens and redistribute their attention weights, such approaches typically treat these tokens in isolation and suffer from computational inefficiency. Instead, we reframe this phenomenon as a generalized textual bias exerted over visual features that extends beyond isolated sink tokens. From this perspective, a pervasive structural bias leads to the dilution of the semantic visual signal, precipitating multimodal hallucinations as the model prioritizes linguistic priors over valid visual evidence. To address this limitation, we introduce Saliency-guided Purification and Adaptive Redistribution (SPAR), a training-free, plug-and-play intervention. SPAR mitigates this generalized textual bias by purifying structural noise and subsequently redistributing the reclaimed attention budget to the most informative visual regions. Comprehensive evaluations across a diverse spectrum of hallucination benchmarks demonstrate that SPAR effectively restores authentic visual grounding with negligible computat",
+          "source": "OpenAlex Model Research",
           "kind": "research",
           "doi": "",
           "date_precision": "day"
