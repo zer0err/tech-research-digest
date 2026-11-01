@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 模型、训练与基础研究（2026-11-01）</title><meta name="description" content="AI 模型、训练与基础研究（2026-11-01）：2 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav aria-label="主导航"><a href="../index.html#latest">时间线</a><a href="../knowledge/index.html">AI 知识科普</a><a href="../courses/index.html">AI 学习</a><a href="../tools/index.html">AI 工具</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">AI 模型、训练与基础研究</p><dl><dt>发布时间</dt><dd data-published-at="2026-11-01T10:40:07.922134+08:00">2026-11-01 10:40 · UTC+8</dd><dt>研究条目</dt><dd>2 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · AI 模型、训练与基础研究</p><h1>AI 模型、训练与基础研究（2026-11-01）</h1><!-- provenance:start --><p class="ai-analysis" title="mimo-v2.6-flash">AI 分析：Xiaomi MiMo</p><!-- provenance:end --><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期结论</h2>
+<ul>
+<li>两篇研究均指向同一方向：LLM 的注意力/对齐机制存在可被显式建模或干预的结构性缺陷，属于&quot;值得关注的信号&quot;（仅两篇，样本有限，尚不足以称为趋势）[1][2]。</li>
+<li>MHTA 通过多维层次时间空间与双目标微调，将时间常识显式注入 LLM，属特定能力（时间推理）的针对性提升，而非通用能力改进；摘要未提供定量结果，效果无法确认 [1]。</li>
+<li>SPAR 为免训练、即插即用的注意力干预，将视觉注意力下沉重新解释为覆盖孤立 token 的广义文本偏置，通过净化与再分配恢复视觉接地，声称在多个幻觉基准上有效且计算开销可忽略，但摘要未给出具体数字，属作者主张 [2]。</li>
+<li>两者路径互补：[1] 依赖标注数据与微调目标，[2] 依赖推理期干预；工程上需分别评估数据成本与推理期侵入性。</li>
+</ul>
+<h2>逐项分析</h2>
+<p><strong>[1] MHTA：多维层次时间对齐</strong></p>
+<ul>
+<li>核心贡献：提出 MHTA 框架，将时间空间建模为多维层次空间，每维含自身时间单元，用于增强 LLM 时间常识推理 [1]。</li>
+<li>方法与数据：构建初始 burn-in 数据集，标注反映真实人类时间常识；提出两个互补微调目标——层次保持 Wasserstein 损失（事件内时间常识）与 margin-adaptive triplet 损失（跨事件时间常识）[1]。</li>
+<li>性能证据：摘要在&quot;To evaluate...&quot;处截断，未提供任何定量结果或基准名称，无法从摘要确认 [1]。</li>
+<li>局限与证据等级：缺少数据规模、基线对比与评测指标，证据等级 C（主张缺少实验细节）[1]。</li>
+<li>工程意义：适用于需要时间序列理解或事件比较的场景；落地前需自行复现并验证时间推理基准提升是否显著 [1]。</li>
+</ul>
+<p><strong>[2] SPAR：语义-结构解耦的注意力净化</strong></p>
+<ul>
+<li>核心贡献：将视觉注意力下沉重新表述为覆盖孤立 sink token 的广义文本偏置，提出免训练、即插即用的 SPAR 干预 [2]。</li>
+<li>方法与数据：通过显著性引导净化结构噪声，将回收的注意力预算再分配至信息量最高的视觉区域；摘要未说明具体基准名称与数据集 [2]。</li>
+<li>性能证据：声称在&quot;多样幻觉基准&quot;上有效恢复视觉接地且计算开销可忽略，但未给出定量数字，无法从摘要确认 [2]。</li>
+<li>局限与证据等级：缺少具体基准、指标与对比方法，证据等级 C（主张缺少实验细节）[2]。</li>
+<li>工程意义：适用于多模态幻觉缓解，无需重训模型，集成成本低；需在自有幻觉评测集上验证是否复现 [2]。</li>
+</ul>
+<h2>工程行动建议</h2>
+<ul>
+<li>验证实验：对 [1]，需获取 burn-in 数据集与损失实现，在时间常识基准（如 TimeQA 类）上对比微调前后表现；对 [2]，在自有 MLLM 上接入 SPAR，对比接入前后幻觉率与推理延迟 [1][2]。</li>
+<li>落地评估：[1] 需评估标注数据获取成本与微调算力；[2] 需评估注意力干预对非幻觉任务（如通用 VQA）的副作用 [1][2]。</li>
+<li>后续跟踪指标：跟踪 [1] 后续版本是否补充定量结果与公开数据；跟踪 [2] 是否公布具体基准数字与代码；两者均需关注是否被独立复现 [1][2]。</li>
+</ul>
+<h2>参考资料</h2>
+<p>[1] Multi-dimensional hierarchical temporal alignment for improved temporal commonsense reasoning in large language models <a href="https://tsukuba.repo.nii.ac.jp/records/2024994">https://tsukuba.repo.nii.ac.jp/records/2024994</a>
+[2] Semantic-structural decoupling: Disentangling semantic attention from structural bias in the attention manifold <a href="https://ink.library.smu.edu.sg/sis_research/11177">https://ink.library.smu.edu.sg/sis_research/11177</a></p>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>
