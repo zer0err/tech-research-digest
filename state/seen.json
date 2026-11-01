@@ -149,6 +149,9 @@
     },
     "product_safety": {
       "ids": [
+        "80375502e94c9c6e51d01eca",
+        "b0c9e2f183e20812ff364d1f",
+        "eb8313318b51373dae953821",
         "6d9b134fd9fb5cb2510539bb",
         "1af09fc9677a7c3e24a07880",
         "ffdbfeae0313817ce7c98b30",
@@ -160,7 +163,7 @@
         "1dd573b9112c2e472f3b1413",
         "5f4fd058fd42810b8ce54c7a"
       ],
-      "updated_at": "2026-11-01T04:42:26.354423+00:00"
+      "updated_at": "2026-11-01T06:12:39.603648+00:00"
     },
     "dev_practice": {
       "ids": [
@@ -191,6 +194,9 @@
     }
   },
   "all_ids": [
+    "80375502e94c9c6e51d01eca",
+    "b0c9e2f183e20812ff364d1f",
+    "eb8313318b51373dae953821",
     "6d9b134fd9fb5cb2510539bb",
     "1af09fc9677a7c3e24a07880",
     "ffdbfeae0313817ce7c98b30",
@@ -322,6 +328,9 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://doi.org/10.1108/ijpcc-03-2025-0094",
+    "https://doi.org/10.21203/rs.3.rs-11540054/v1",
+    "https://doi.org/10.47116/apjcri.2026.10.23",
     "https://developer.nvidia.com/blog/how-to-check-and-configure-nvidia-gpudirect-storage-for-your-platform",
     "https://doi.org/10.1038/s41598-026-77245-7",
     "https://doi.org/10.22214/ijraset.2026.85437",
@@ -453,6 +462,9 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "b30221149ffb785e6bf3540b",
+    "bc976c3ea87e266e65ca2624",
+    "7f74392bab49f3340029a660",
     "07d8f28983c78789838230f9",
     "f768ce52d2a9dced1794f2ef",
     "c6c4d503ad00d4b55ef52f80",
@@ -2436,6 +2448,49 @@
           "source": "OpenAlex Device Security",
           "kind": "research",
           "doi": "https://doi.org/10.22214/ijraset.2026.85437",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261101-core_research.html": {
+      "topic": "product_safety",
+      "created_at": "2026-11-01T06:12:39.603648+00:00",
+      "items": [
+        {
+          "uid": "80375502e94c9c6e51d01eca",
+          "title": "Validation of three DDoS attack detection solutions using deep learning with recent datasets",
+          "url": "https://doi.org/10.1108/ijpcc-03-2025-0094",
+          "published": "2026-10-30T00:00:00+00:00",
+          "summary": "Purpose This study aims to clearly emphasize (i) the use of five-packet sequences to capture temporal and sequential dependencies in network traffic and (ii) the comprehensive evaluation of the RNN, LSTM, and hybrid XGBoost-RNN models using ROC curves, confusion matrices and calibration curves. These analyses provide a more comprehensive assessment of both the predictive performance and the reliability and calibration of the investigated models. The main contribution of this study lies in improving the capture of dependencies between sequential packages by adopting an approach based on the sequences of the five packages. Although relevant, this approach has often been neglected in previous studies. Design/methodology/approach To validate three DDoS detection models (RNN, LSTM, XGBoost-RNN) on recent IoT and SDN data sets, the study uses a of five flow windows approach to capture both short and long-term dependencies. Each data set undergoes extensive preprocessing: outlier handling with IQR, missing-value imputation, MinMaxScaler normalization and one-hot encoding for categorical attributes. XGBoost is used to select relevant features, thereby enhancing training efficiency. Models are trained with the Adam optimizer and evaluated via accuracy, recall, F1-score, confusion matrices, ROC curves and calibration curves. This methodology enables robust performance assessment and demo",
+          "source": "OpenAlex Device Security",
+          "kind": "research",
+          "doi": "https://doi.org/10.1108/ijpcc-03-2025-0094",
+          "date_precision": "day"
+        },
+        {
+          "uid": "b0c9e2f183e20812ff364d1f",
+          "title": "Digital Water Quality Monitoring for Pre-Harvest Safety: A Critical Review of IoT, AI and Rapid Sensors in Irrigation Management",
+          "url": "https://doi.org/10.21203/rs.3.rs-11540054/v1",
+          "published": "2026-10-30T00:00:00+00:00",
+          "summary": "Abstract Irrigation water is a recognized pathway for pre-harvest contamination of fresh produce, yet conventional laboratory testing limits monitoring frequency and timeliness of management decisions. This critical review examines how digital technologies - Internet of Things (IoT)-enabled sensors, rapid biosensors and molecular methods, and artificial intelligence (AI) and machine learning - may support irrigation water monitoring and pre-harvest food safety. Literature was purposively selected from Scopus, Web of Science, ScienceDirect, SpringerLink and IEEE Xplore, with an initial scoping from January 2018 to October 2026; the final 29 peer-reviewed studies that met critical relevance criteria clustered between 2020 and 2026, including two 2026 early-online articles, reflecting the recent emergence of this field. The review was complemented by guidance from the Food and Agriculture Organization (FAO), Codex Alimentarius Commission (2023), World Health Organization (WHO) and United States Food and Drug Administration (FDA 2024 Final Rule on Pre-Harvest Agricultural Water). The synthesis shows that IoT systems can increase monitoring frequency for physicochemical parameters and support baseline characterization and anomaly detection, while rapid biosensors and molecular assays offer more direct detection of microbial hazards with reduced time-to-result compared with conventio",
+          "source": "OpenAlex Device Security",
+          "kind": "research",
+          "doi": "https://doi.org/10.21203/rs.3.rs-11540054/v1",
+          "date_precision": "day"
+        },
+        {
+          "uid": "eb8313318b51373dae953821",
+          "title": "A Conceptual Design Framework for Integrating Smart PPE Monitoring with Proposed Predictive Analytics in Smart Manufacturing Safety Management",
+          "url": "https://doi.org/10.47116/apjcri.2026.10.23",
+          "published": "2026-10-29T00:00:00+00:00",
+          "summary": "Manufacturing safety is being digitalized through wearable sensors, connected-worker platforms, and artificial intelligence (AI), but the evidence does not yet justify treating a conceptual architecture as a validated predictive safety system.This study therefore proposes a conceptual design framework for integrating smart personal protective equipment (PPE) monitoring with future predictive analytics in smart manufacturing.We conducted a structured integrative synthesis of peerreviewed literature published from 2018 through September 2026 in Scopus, IEEE Xplore, and ScienceDirect, supplemented by targeted searches of occupational safety agencies, standards bodies, and primary manufacturer documentation.Search concepts combined smart PPE or workplace wearables with occupational safety, manufacturing, ergonomics, human-robot collaboration, IoT, anomaly detection, and machine learning.Sources were assembled by theoretical sampling from anchor reviews and their citation networks, and selection stopped at conceptual saturation of the framework's design space rather than at exhaustive coverage of the field.We coded eligible sources by industrial sector, hazard, sensing modality, connectivity, analytical method, validation maturity, and governance coverage against a published codebook.We organized recurrent capture-transmit-analyzeact functions into four technical layers.We linked th",
+          "source": "OpenAlex Device Security",
+          "kind": "research",
+          "doi": "https://doi.org/10.47116/apjcri.2026.10.23",
           "date_precision": "day"
         }
       ],
