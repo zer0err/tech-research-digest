@@ -26,6 +26,11 @@
       "updated_at": "2026-11-01T02:40:07.922134+00:00",
       "attempts": 1
     },
+    "2026-11-01:ecosystem": {
+      "status": "no_matching_in_window",
+      "updated_at": "2026-11-01T09:42:22.461350+00:00",
+      "attempts": 1
+    },
     "2026-11-01:dev_practice": {
       "status": "already_published",
       "updated_at": "2026-11-01T07:27:32.437750+00:00",
