@@ -36,6 +36,48 @@
       "updated_at": "2026-11-01T06:12:39.603648+00:00",
       "attempts": 1
     },
+    "2026-11-01:applied_ai": {
+      "status": "prepared",
+      "updated_at": "2026-11-01T08:42:19.816590+00:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "embodied",
+        "title": "Agent、机器人与具身智能",
+        "url": "https://vorasio.com/posts/20261101-applied_ai.html",
+        "created_at": "2026-11-01T08:42:19.816590+00:00",
+        "items": [
+          {
+            "uid": "027a4f04cb84850356aedc8a",
+            "title": "HypeRL: Hypernetwork-based reinforcement learning for control of parametrized dynamical systems",
+            "url": "https://doi.org/10.1016/j.cma.2026.119501",
+            "published": "2026-10-30T00:00:00+00:00",
+            "summary": "In this work, we devise a new, general-purpose reinforcement learning strategy for the optimal control of parametric dynamical systems. Such problems frequently arise in applied sciences and engineering and entail a significant complexity when control and/or state variables are distributed in high-dimensional space or depend on varying parameters. Traditional numerical methods, relying on either iterative minimization algorithms -- exploiting, e.g., the solution of the adjoint problem -- or dynamic programming -- also involving the solution of the Hamilton-Jacobi-Bellman (HJB) equation -- while reliable, often become computationally infeasible. In this paper, we propose HypeRL a deep reinforcement learning (DRL) framework to overcome the limitations shown by traditional methods. HypeRL aims at approximating the optimal control policy directly. Specifically, we employ an actor-critic DRL approach to learn an optimal feedback control strategy that can generalize across the range of variation of the parameters. To effectively learn such optimal control laws for different instances of the parameters, encoding the parameter information into the DRL policy and value function neural networks (NNs) is essential. HypeRL uses two additional NNs, called hypernetworks, to learn the weights and biases of the value function and the policy NNs. In this way, HypeRL effectively embeds the param",
+            "source": "OpenAlex Embodied",
+            "kind": "research",
+            "doi": "https://doi.org/10.1016/j.cma.2026.119501",
+            "date_precision": "day"
+          },
+          {
+            "uid": "1745ce51b3d75ed7b02d21a1",
+            "title": "The impact of gait pattern personalization on the perception of rigid robotic guidance: a pilot user experience evaluation",
+            "url": "https://doi.org/10.3389/frobt.2026.1937649",
+            "published": "2026-10-30T00:00:00+00:00",
+            "summary": "Introduction Robot-aided gait rehabilitation facilitates high-intensity and repeatable therapy. However, most exoskeletons rely on pre-recorded, non-personalized gait trajectories constrained to the sagittal plane, potentially limiting movement naturalness and user comfort. Methods We present a data-driven gait personalization framework for an exoskeleton that supports multi-planar motion, including hip abduction/adduction and pelvic translation and rotation. Personalized trajectories to individual participants were generated using regression models trained on anthropometric, demographic, and walking speed data from a normative database. In a within-subject experiment involving ten young unimpaired participants, these personalized trajectories were evaluated in regard to comfort, naturalness, and overall experience and compared against two standard patterns from the same database: one averaging all the trajectories, and one randomly selected. Results We did not find significant differences across pattern conditions, despite all trajectories being executed with high accuracy thanks to a stiff position-derivative controller. We found, however, that pattern conditions in later trials were rated as significantly more comfortable and natural than those in the first trial. Discussion Our results suggest that participants might have adapted to walking within the exoskeleton, regardles",
+            "source": "OpenAlex Embodied",
+            "kind": "research",
+            "doi": "https://doi.org/10.3389/frobt.2026.1937649",
+            "date_precision": "day"
+          }
+        ],
+        "notify": false,
+        "mode": "production",
+        "analysis": {
+          "provider": "Xiaomi MiMo",
+          "model": "mimo-v2.6-flash"
+        },
+        "slot": "applied_ai"
+      }
+    },
     "2026-10-31:prompt_engineering": {
       "status": "no_matching_in_window",
       "updated_at": "2026-10-31T06:12:28.504556+00:00",

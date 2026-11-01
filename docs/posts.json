@@ -1,5 +1,44 @@
 [
   {
+    "title": "Agent、机器人与具身智能（2026-11-01）",
+    "date": "2026-11-01T16:42:19.816590+08:00",
+    "count": 2,
+    "url": "posts/20261101-applied_ai.html",
+    "topic": "applied_ai",
+    "status": "published",
+    "summary": "本期结论 - 参数化动力系统的强化学习控制与外骨骼步态个性化均属具身控制方向，但两者任务、方法与证据类型差异大，暂不足以合并为共同趋势 12。 - 值得关注的信号：HypeRL 用超网络生成策略与价值网络权重，以编码参数变化，作者主张其可跨参数范围泛化，但摘要未提供定量对比结果，需谨慎看待 1。 - 值得关注的信号：外",
+    "provenance": {
+      "analysis": {
+        "provider": "Xiaomi MiMo",
+        "model": "mimo-v2.6-flash"
+      },
+      "sources": [
+        {
+          "title": "HypeRL: Hypernetwork-based reinforcement learning for control of parametrized dynamical systems",
+          "url": "https://doi.org/10.1016/j.cma.2026.119501",
+          "publisher": "OpenAlex Embodied",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-10-30T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.1016/j.cma.2026.119501",
+          "kind": "research"
+        },
+        {
+          "title": "The impact of gait pattern personalization on the perception of rigid robotic guidance: a pilot user experience evaluation",
+          "url": "https://doi.org/10.3389/frobt.2026.1937649",
+          "publisher": "OpenAlex Embodied",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-10-30T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.3389/frobt.2026.1937649",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "智能硬件产品化、可靠性与安全（2026-11-01）",
     "date": "2026-11-01T14:12:39.603648+08:00",
     "count": 3,
