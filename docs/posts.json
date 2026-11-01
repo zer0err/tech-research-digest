@@ -1,5 +1,55 @@
 [
   {
+    "title": "AI 论文午间速览（2026-11-01）",
+    "date": "2026-11-01T12:42:26.354423+08:00",
+    "count": 3,
+    "url": "posts/20261101-paper_brief.html",
+    "topic": "paper_brief",
+    "status": "published",
+    "summary": "本期要点 - NVIDIA GPUDirect Storage (GDS) 为 GPU 与存储之间提供了高效、可移植的数据通道，可显著降低 I/O 延迟并提升吞吐量，适用于边缘与云端混合部署场景1。 - 通过区块链与 IoT 结合的权限链框架，可在食品供应链中实现对食品损失与浪费（FLW）减排的可追溯审计，已在西班牙鲜",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "How to Check and Configure NVIDIA GPUDirect Storage for Your Platform",
+          "url": "https://developer.nvidia.com/blog/how-to-check-and-configure-nvidia-gpudirect-storage-for-your-platform",
+          "publisher": "NVIDIA Technical Blog",
+          "host": "developer.nvidia.com",
+          "family": "博客/公开网页",
+          "published": "2026-10-30T15:01:36+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "Designing a blockchain-enabled certification framework for food loss and waste reduction: a proof-of-concept in the fresh food supply chain",
+          "url": "https://doi.org/10.1038/s41598-026-77245-7",
+          "publisher": "OpenAlex Device Security",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-10-30T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.1038/s41598-026-77245-7",
+          "kind": "research"
+        },
+        {
+          "title": "Nexus: A Low-Cost Wearable AI Health Companion Using IoT, Edge AI and a Smartphone-Hosted Voice Assistant",
+          "url": "https://doi.org/10.22214/ijraset.2026.85437",
+          "publisher": "OpenAlex Device Security",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-10-30T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.22214/ijraset.2026.85437",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 模型、训练与基础研究（2026-11-01）",
     "date": "2026-11-01T10:40:07.922134+08:00",
     "count": 2,
