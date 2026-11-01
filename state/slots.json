@@ -2,57 +2,9 @@
   "version": 1,
   "slots": {
     "2026-11-01:paper_brief": {
-      "status": "prepared",
+      "status": "published",
       "updated_at": "2026-11-01T04:42:26.354423+00:00",
-      "attempts": 1,
-      "pending": {
-        "topic": "product_safety",
-        "title": "AI 论文午间速览",
-        "url": "https://vorasio.com/posts/20261101-paper_brief.html",
-        "created_at": "2026-11-01T04:42:26.354423+00:00",
-        "items": [
-          {
-            "uid": "6d9b134fd9fb5cb2510539bb",
-            "title": "How to Check and Configure NVIDIA GPUDirect Storage for Your Platform",
-            "url": "https://developer.nvidia.com/blog/how-to-check-and-configure-nvidia-gpudirect-storage-for-your-platform",
-            "published": "2026-10-30T15:01:36+00:00",
-            "summary": "NVIDIA GPUDirect Storage (GDS) accelerates GPU storage access in on-premises and cloud environments. It provides a robust, portable, and efficient data path...",
-            "source": "NVIDIA Technical Blog",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day"
-          },
-          {
-            "uid": "1af09fc9677a7c3e24a07880",
-            "title": "Designing a blockchain-enabled certification framework for food loss and waste reduction: a proof-of-concept in the fresh food supply chain",
-            "url": "https://doi.org/10.1038/s41598-026-77245-7",
-            "published": "2026-10-30T00:00:00+00:00",
-            "summary": "Blockchain technology, supported by IoT, has proven essential for improving traceability in food supply chains, but its application to auditing and certifying food loss and waste (FLW) reduction remains largely unexplored. This paper addresses this gap by proposing the architectural design, data models, and audit workflow of a permissioned blockchain-enabled tool developed within the EU H2020 FOODRUS project. Focused on the Spanish fresh vegetable supply chain pilot, the proposed framework integrates Hyperledger Fabric to establish a decentralized and immutable ledger for recording audit evidence and verifying compliance indicators. Rather than assessing long-term operational impact, this study demonstrates the baseline technical feasibility of automating FLW certification workflows through a deployed proof-of-concept prototype. The implementation highlights key architectural contributions, such as standardized data schemas and an integrated 7-stage audit lifecycle, while identifying primary deployment hurdles, notably stakeholder reluctance toward ERP data sharing. The findings confirm that while a permissioned blockchain design effectively secures audit record integrity, broader adoption hinges on establishing legally recognized FLW certification schemes and granular data-governance mechanisms.",
-            "source": "OpenAlex Device Security",
-            "kind": "research",
-            "doi": "https://doi.org/10.1038/s41598-026-77245-7",
-            "date_precision": "day"
-          },
-          {
-            "uid": "ffdbfeae0313817ce7c98b30",
-            "title": "Nexus: A Low-Cost Wearable AI Health Companion Using IoT, Edge AI and a Smartphone-Hosted Voice Assistant",
-            "url": "https://doi.org/10.22214/ijraset.2026.85437",
-            "published": "2026-10-30T00:00:00+00:00",
-            "summary": "Elderly people and patients with long-term conditions benefit from continuous, low-effort monitoring, yet most commercial health wearables are costly, screen-dependent and passive. This paper presents Nexus (Neural-Enabled eXtended User Support), a low-cost wearable AI health companion built on a three-layer IoT architecture. A wrist-worn ESP32-S3 device senses heart rate, blood oxygen saturation, motion and skin temperature and runs lightweight edge AI. A smartphone acts as the AI gateway and hosts speech recognition, a conversational assistant and speech synthesis. A caregiver interface provides status, alerts, history and location. The device has no display; it uses two-way voice, haptic feedback and a single SOS/TALK button. A proactive, health-focused assistant with short-term memory explains alerts in simple language, and a graded alert scheme with an emergency verification step reduces false alarms before caregivers are notified. The paper describes the requirements, hardware, software and AI design, privacy considerations, development methodology and a planned evaluation. Nexus is a health-monitoring and assistance prototype and is not a medical diagnostic device.",
-            "source": "OpenAlex Device Security",
-            "kind": "research",
-            "doi": "https://doi.org/10.22214/ijraset.2026.85437",
-            "date_precision": "day"
-          }
-        ],
-        "notify": true,
-        "mode": "production",
-        "analysis": {
-          "provider": "Groq",
-          "model": "openai/gpt-oss-20b"
-        },
-        "slot": "paper_brief"
-      }
+      "attempts": 1
     },
     "2026-11-01:open_source": {
       "status": "already_published",
