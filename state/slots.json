@@ -1,6 +1,11 @@
 {
   "version": 1,
   "slots": {
+    "2026-11-01:morning_radar": {
+      "status": "already_published",
+      "updated_at": "2026-11-01T01:12:18.819046+00:00",
+      "attempts": 1
+    },
     "2026-10-31:prompt_engineering": {
       "status": "no_matching_in_window",
       "updated_at": "2026-10-31T06:12:28.504556+00:00",
