@@ -71,6 +71,9 @@
     },
     "model_research": {
       "ids": [
+        "282f057baf2d5931b9207816",
+        "85d556636c6aeefe69aedf6c",
+        "a1b08d9bf69cf0971c28ce55",
         "b6991acccf2e729ad09d5fc0",
         "c9b09f2a2dc08f9558a16f32",
         "c1910c018fb8df7029d7e7db",
@@ -97,7 +100,7 @@
         "f3a5508d0160d42195ab7174",
         "cb661d928a0dfa16bc4c4588"
       ],
-      "updated_at": "2026-11-02T02:42:15.196268+00:00"
+      "updated_at": "2026-11-02T04:42:16.726331+00:00"
     },
     "embodied": {
       "ids": [
@@ -199,6 +202,9 @@
     }
   },
   "all_ids": [
+    "282f057baf2d5931b9207816",
+    "85d556636c6aeefe69aedf6c",
+    "a1b08d9bf69cf0971c28ce55",
     "b6991acccf2e729ad09d5fc0",
     "c9b09f2a2dc08f9558a16f32",
     "c1910c018fb8df7029d7e7db",
@@ -338,6 +344,9 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://arxiv.org/abs/2610.42149v1",
+    "https://arxiv.org/abs/2610.42116v1",
+    "https://arxiv.org/abs/2610.42112v1",
     "https://real.mtak.hu/247847/1/aacl_2026.pdf",
     "https://arxiv.org/abs/2610.41264v1",
     "https://arxiv.org/abs/2610.41232v1",
@@ -477,6 +486,9 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "1339034b86ab964ce654bc05",
+    "6d1a6db190ef2e74d5a17535",
+    "8da2d818cdf225760b1a685d",
     "a71fa8c8f80556d070030016",
     "93ffdaebff3f1c9dcf6d7714",
     "8af191a24b4983ce6544a4b3",
@@ -2583,6 +2595,49 @@
           "url": "https://arxiv.org/abs/2610.41232v1",
           "published": "2026-10-30T04:13:20+00:00",
           "summary": "As Large Language Models (LLMs) become increasingly multilingual, distinguishing human-written from AI-generated text is essential for maintaining information integrity. However, research remains English-centric, with limited benchmarks for low-resource languages such as Hindi. To address this gap, we introduce SHAKTI, a large-scale Hindi benchmark covering four genres, eight LLM families, multiple prompting strategies, and adversarial transformations. We evaluate its quality through human annotation and analyze linguistic, grammatical, and sentiment-based differences between human- and AI-generated texts. Building on these findings, we propose TRIDENT, a round-trip translation-based detection framework with three variants: TRIDENT-S (static threshold), TRIDENT-D (dynamic threshold), and TRIDENT-C (logistic regression using multi-distance RTT features). TRIDENT leverages semantic consistency between original and round-trip translated texts to identify AI-generated content. Extensive experiments show that TRIDENT outperforms conventional and supervised baselines, with TRIDENT-S achieving the best overall performance. Further evaluations across seven languages, adversarial settings, and unseen LLMs demonstrate its multilingual applicability and robustness, while highlighting sensitivity to the translation model.",
+          "source": "arXiv Model Research",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261102-paper_brief.html": {
+      "topic": "model_research",
+      "created_at": "2026-11-02T04:42:16.726331+00:00",
+      "items": [
+        {
+          "uid": "282f057baf2d5931b9207816",
+          "title": "Latent Reasoning in Continuous Space for Unified Multimodal Models",
+          "url": "https://arxiv.org/abs/2610.42149v1",
+          "published": "2026-10-30T17:59:43+00:00",
+          "summary": "Unified Multimodal Models (UMMs) achieve remarkable success on diverse multimodal understanding and generation tasks, yet they still struggle to effectively leverage language-based chain-of-thought reasoning for image generation. As a result, existing reasoning-augmented UMMs often fail to inherit the test-time scaling and fine-grained controllability observed in large language models. We attribute this failure to a fundamental modality mismatch: reasoning is performed in a discrete token space, whereas image generation operates in a continuous space. To bridge this gap, we introduce a Latent Reasoning framework in Continuous space (LARC), which alleviates the token-level bottleneck by reasoning over continuous hidden states. Specifically, the training framework consists of two stages: (i) curriculum supervised fine-tuning (SFT), and (ii) information-gain reinforcement learning (RL). First, the curriculum SFT stage gradually converts token-level reasoning into latent reasoning. Subsequently, the information-gain RL stage self-evolves latent reasoning without ground truth supervision. Experiments across diverse text-to-image generation benchmarks show that LARC consistently improves generation quality, prompt following, and compositional fidelity. Notably, LARC achieves state-of-the-art performance on GenEval with a 7%p gain over BAGEL and demonstrates clear test-time scaling be",
+          "source": "arXiv Model Research",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        },
+        {
+          "uid": "85d556636c6aeefe69aedf6c",
+          "title": "ACCT: Asymmetric Cross-LLM Context Transfer",
+          "url": "https://arxiv.org/abs/2610.42116v1",
+          "published": "2026-10-30T17:50:49+00:00",
+          "summary": "In real-world deployments, large language model (LLM) systems are increasingly evolving from single-model invocation toward heterogeneous deployments in which different models are dynamically invoked for inference. When the same context is reused across models, however, each newly selected target model typically has to process it again, repeatedly incurring substantial computational costs. Therefore, we propose ACCT (Asymmetric Cross-LLM Context Transfer), which targets KV cache transfer between models of different scales within the same model family. ACCT transforms the KV cache produced by a source model into sparse KV states that can be directly consumed by a target model, thereby enabling cross-model reuse of context computation and decoupling context computation from downstream inference. ACCT consists of three lightweight components: the Cartographer identifies query-relevant context tokens for each target layer and KV head; the Allocator determines how many context tokens each target layer and KV head retains under a shared total KV budget; and the Compiler transforms selected source KV into sparse target KV. The target model can therefore perform inference using the transferred KV without reprocessing the original context. We evaluate ACCT in two complementary settings comprising five general-capability benchmarks and six highly context-dependent tasks. Experiments show",
+          "source": "arXiv Model Research",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        },
+        {
+          "uid": "a1b08d9bf69cf0971c28ce55",
+          "title": "Subquadratic Attention with a Hierarchical Tree-Structured Indexer",
+          "url": "https://arxiv.org/abs/2610.42112v1",
+          "published": "2026-10-30T17:48:37+00:00",
+          "summary": "The quadratic scaling of attention is a fundamental bottleneck limiting the long-context capabilities of large language models (LLMs). A variety of approaches have attempted to circumvent this, but they either fail to match attention's expressiveness (e.g., sliding-window or linear attention variants with fixed-size state) or only achieve constant-factor speedups (e.g., sparse attention methods whose indexers themselves scale quadratically). In this paper, we derive an asymptotically subquadratic sparse attention method based on a hierarchical, tree-structured indexer, which we call Zyphra Hierarchical Attention (ZHA). ZHA constructs a tree of recursively compressed key summaries over the KV cache, which future queries traverse from the top down to retrieve a sparse subset of keys. Crucially, by iteratively growing the tree's depth, the total cost including routing and final attention grows sublinearly in sequence length, resulting in overall subquadratic (but superlinear) scaling for attention. We demonstrate that ZHA can be cheaply applied to existing pretrained models with only a short KL distillation training stage over a few billion tokens, and maintains performance on long-context retrieval and challenging reasoning, mathematical, and agentic coding evaluation tasks. Moreover, we show that our method is highly robust to tree geometry including very deep trees of up to 6 l",
           "source": "arXiv Model Research",
           "kind": "research",
           "doi": "",
