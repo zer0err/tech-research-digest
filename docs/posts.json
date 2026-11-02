@@ -1,5 +1,55 @@
 [
   {
+    "title": "AI 模型、训练与基础研究（2026-11-02）",
+    "date": "2026-11-02T10:42:15.196268+08:00",
+    "count": 3,
+    "url": "posts/20261102-model_research.html",
+    "topic": "model_research",
+    "status": "published",
+    "summary": "本期结论 1. Latent Semantic Modeling (LSM) 能显著提升预训练效率：在1中，作者指出使用LSM预训练的编码器模型在下游任务中往往与使用传统掩码预训练且计算量更大的模型相当或更优，表明LSM在样本效率和表示质量上具有潜在优势。 2. 基于回放的奖励信号可缓解长期策略游戏中的“scorebo",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "No Masking Needed: Predicting Latent Semantics for Efficient Pre-training of Encoder-based Language Models",
+          "url": "https://real.mtak.hu/247847/1/aacl_2026.pdf",
+          "publisher": "OpenAlex Model Research",
+          "host": "real.mtak.hu",
+          "family": "博客/公开网页",
+          "published": "2026-11-01T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "Rome Wasn't Built in One Turn: Replay-Grounded Reward Signals for Long-Horizon Freeciv Agents",
+          "url": "https://arxiv.org/abs/2610.41264v1",
+          "publisher": "arXiv Model Research",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-10-30T05:13:31+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "TRIDENT and SHAKTI: A Framework and Benchmark for Hindi AI-Text Detection",
+          "url": "https://arxiv.org/abs/2610.41232v1",
+          "publisher": "arXiv Model Research",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-10-30T04:13:20+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "VORASIO AI 日报（2026-11-01）",
     "date": "2026-11-01T19:12:20.074927+08:00",
     "count": 4,
