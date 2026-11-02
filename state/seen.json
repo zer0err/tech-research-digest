@@ -126,6 +126,9 @@
     },
     "efficient_ai": {
       "ids": [
+        "db2f0eca00db6e232dcd05a5",
+        "59b73b31b916a73dc87b2f24",
+        "36261eb7a1c4b20b17107bcc",
         "5d69f8d7e97ab3926a75084e",
         "a90a413338f50ec66517ff94",
         "9d9b360d84ae608458801c6f",
@@ -140,7 +143,7 @@
         "7e518a52776f0779cdbd16e6",
         "d8688b533028f131212f0a3d"
       ],
-      "updated_at": "2026-10-31T08:29:50.054058+00:00"
+      "updated_at": "2026-11-02T06:12:47.208229+00:00"
     },
     "ai_hardware": {
       "ids": [
@@ -202,6 +205,9 @@
     }
   },
   "all_ids": [
+    "db2f0eca00db6e232dcd05a5",
+    "59b73b31b916a73dc87b2f24",
+    "36261eb7a1c4b20b17107bcc",
     "282f057baf2d5931b9207816",
     "85d556636c6aeefe69aedf6c",
     "a1b08d9bf69cf0971c28ce55",
@@ -344,6 +350,9 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://doi.org/10.66157/jisca.1.2.36",
+    "https://doi.org/10.57159/jcmm.5.5.261320",
+    "https://arxiv.org/abs/2610.42147v1",
     "https://arxiv.org/abs/2610.42149v1",
     "https://arxiv.org/abs/2610.42116v1",
     "https://arxiv.org/abs/2610.42112v1",
@@ -486,6 +495,9 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "c0d69fc54ce97df0f7ab3bd3",
+    "99877e37d9824e045af9f5bb",
+    "941ce8a5735f596ffd6def17",
     "1339034b86ab964ce654bc05",
     "6d1a6db190ef2e74d5a17535",
     "8da2d818cdf225760b1a685d",
@@ -2639,6 +2651,49 @@
           "published": "2026-10-30T17:48:37+00:00",
           "summary": "The quadratic scaling of attention is a fundamental bottleneck limiting the long-context capabilities of large language models (LLMs). A variety of approaches have attempted to circumvent this, but they either fail to match attention's expressiveness (e.g., sliding-window or linear attention variants with fixed-size state) or only achieve constant-factor speedups (e.g., sparse attention methods whose indexers themselves scale quadratically). In this paper, we derive an asymptotically subquadratic sparse attention method based on a hierarchical, tree-structured indexer, which we call Zyphra Hierarchical Attention (ZHA). ZHA constructs a tree of recursively compressed key summaries over the KV cache, which future queries traverse from the top down to retrieve a sparse subset of keys. Crucially, by iteratively growing the tree's depth, the total cost including routing and final attention grows sublinearly in sequence length, resulting in overall subquadratic (but superlinear) scaling for attention. We demonstrate that ZHA can be cheaply applied to existing pretrained models with only a short KL distillation training stage over a few billion tokens, and maintains performance on long-context retrieval and challenging reasoning, mathematical, and agentic coding evaluation tasks. Moreover, we show that our method is highly robust to tree geometry including very deep trees of up to 6 l",
           "source": "arXiv Model Research",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261102-core_research.html": {
+      "topic": "efficient_ai",
+      "created_at": "2026-11-02T06:12:47.208229+00:00",
+      "items": [
+        {
+          "uid": "db2f0eca00db6e232dcd05a5",
+          "title": "A Robust and Blind Watermarking Framework for Medical Images Using Whale-Optimized DCT-QIM with CNN Restoration",
+          "url": "https://doi.org/10.66157/jisca.1.2.36",
+          "published": "2026-10-31T00:00:00+00:00",
+          "summary": "This paper presents a robust and imperceptible watermarking scheme for DICOM medical images that integrates the Whale Optimization Algorithm (WOA) with a Denoising Convolutional Neural Network (CNN). The objective is to embed sensitive patient information directly inside the medical image so that authenticity, confidentiality, and integrity are preserved without degrading diagnostic quality. In the proposed scheme, each DICOM slice is segmented to isolate its Region of Interest (ROI), which is then partitioned into equal-sized blocks and transformed into the frequency domain using the block Discrete Cosine Transform (DCT). A chaotic Duffing map generates a secret key that determines the candidate blocks used for embedding, while the WOA optimizes the per-slice quantization step of a Quantization-Index-Modulation (QIM) embedding to minimize the average Mean Squared Error (MSE) while preserving robustness, thereby achieving the best trade-off between imperceptibility and robustness. After embedding, a Denoising CNN suppresses the residual distortion introduced during the embedding stage, and the processed slices are merged back into the watermarked DICOM volume. The watermark is blindly extracted by minimum-distance QIM decoding of the same DCT coefficients followed by majority voting over the redundant copies, requiring no access to the original image. Experiments on a real 10-s",
+          "source": "OpenAlex Efficient AI",
+          "kind": "research",
+          "doi": "https://doi.org/10.66157/jisca.1.2.36",
+          "date_precision": "day"
+        },
+        {
+          "uid": "59b73b31b916a73dc87b2f24",
+          "title": "A Lightweight and Explainable Deep Learning Framework for Cross-Load Bearing Fault Diagnosis with Zero-Shot Cross-Machine Evaluation",
+          "url": "https://doi.org/10.57159/jcmm.5.5.261320",
+          "published": "2026-10-31T00:00:00+00:00",
+          "summary": "Rolling-element bearing failures cause a large share of unplanned downtime in rotating machinery. Convolutional neural networks (CNNs) reach near-perfect accuracy on single-machine benchmarks such as the Case Western Reserve University (CWRU) bearing dataset, but their behavior under load and machine shift is rarely tested, many are too large for edge hardware, and black-box predictions give engineers little diagnostic context. This paper evaluates a lightweight one-dimensional CNN built from depthwise-separable convolutions, with a Domain-Adversarial Neural Network (DANN) branch for load-invariant feature learning, Gradient-weighted Class Activation Mapping (Grad-CAM) for post-hoc explanation, and knowledge distillation with dynamic INT8 quantization for compression. A file-grouped protocol separates two settings: cross-load generalization within CWRU, training on three loads and holding out the fourth, and strict zero-shot cross-machine evaluation from CWRU to the Society for Machinery Failure Prevention Technology (MFPT) bearing dataset. On the unseen CWRU load, the DANN reaches 98.0% accuracy (macro-F1 0.978), against 100.0% for a plain CNN and 76.9% for a hand-crafted-feature SVM, so the adversarial branch gave no accuracy gain in this saturated setting. Zero-shot CWRU-to-MFPT transfer reaches only 4.5% accuracy (macro-F1 0.036), below the 48.2% majority-class baseline, an",
+          "source": "OpenAlex Efficient AI",
+          "kind": "research",
+          "doi": "https://doi.org/10.57159/jcmm.5.5.261320",
+          "date_precision": "day"
+        },
+        {
+          "uid": "36261eb7a1c4b20b17107bcc",
+          "title": "Latent Sparse Attention: Towards Subquadratic Ultra-Long Context Attention",
+          "url": "https://arxiv.org/abs/2610.42147v1",
+          "published": "2026-10-30T17:59:34+00:00",
+          "summary": "Agentic workflows are increasingly shifting towards long-horizon tasks, such as open-ended scientific work, where models benefit from long context windows. However, at ultra-long context (above 1M tokens), full attention is prohibitively expensive. A promising approach is sparse attention, in which a dedicated indexer selects a subset of keys for the attention. Yet current methods of indexing either still have quadratic cost in context size or lose accuracy at ultra-long context scale. We address this with Latent Sparse Attention (LSA), an efficient attention method that maintains accuracy at ultra-long context. In LSA, keys are hierarchically clustered in a learned latent space, and queries score the hierarchy of clusters instead of scoring every key, making prefill, decode and training faster at long context. We propose two variants, Distilled-LSA (D-LSA), which can be applied to pre-trained models via distillation, and Native-LSA (N-LSA), which is trained natively on the next-token loss alone. On GLM-5.3-FLASH (QWEN-3.8-27B) at 10M tokens, D-LSA speeds up one attention layer by 22.7x (72.4x) in prefill and 4.6x (42.5x) in decode over its original sparse attention (full attention), while keeping similar accuracy across a variety of tasks. N-LSA matches the accuracy of full attention with a training speedup of 1.6x per layer at 128k tokens. LSA offers practical and efficient a",
+          "source": "arXiv Efficient AI",
           "kind": "research",
           "doi": "",
           "date_precision": "day"
