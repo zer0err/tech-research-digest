@@ -1,5 +1,21 @@
 [
   {
+    "title": "VORASIO AI 日报（2026-11-02）",
+    "date": "2026-11-02T19:12:22.399942+08:00",
+    "count": 4,
+    "url": "posts/20261102-daily_digest.html",
+    "topic": "daily_digest",
+    "status": "published",
+    "summary": "今日概览 今天共发布 4 个内容更新。以下列表仅汇总站内已经通过发布流程的内容，不额外生成未经来源支持的结论。 今日内容 - AI 模型、训练与基础研究（2026-11-02）(https://vorasio.com/posts/20261102-model_research.html) - AI 论文午间速览（202",
+    "provenance": {
+      "analysis": {
+        "provider": "程序汇总（未调用 AI）",
+        "model": "不适用"
+      },
+      "sources": []
+    }
+  },
+  {
     "title": "AI 芯片、计算架构与硬件平台（2026-11-02）",
     "date": "2026-11-02T16:42:29.387379+08:00",
     "count": 2,
