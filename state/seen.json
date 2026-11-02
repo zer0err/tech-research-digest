@@ -71,6 +71,9 @@
     },
     "model_research": {
       "ids": [
+        "b6991acccf2e729ad09d5fc0",
+        "c9b09f2a2dc08f9558a16f32",
+        "c1910c018fb8df7029d7e7db",
         "38c31abc8be6a43eae7f0f57",
         "172f1da6e1724e805493bedd",
         "566ce7e9ef2618de24356a15",
@@ -94,7 +97,7 @@
         "f3a5508d0160d42195ab7174",
         "cb661d928a0dfa16bc4c4588"
       ],
-      "updated_at": "2026-11-01T02:40:07.922134+00:00"
+      "updated_at": "2026-11-02T02:42:15.196268+00:00"
     },
     "embodied": {
       "ids": [
@@ -196,6 +199,9 @@
     }
   },
   "all_ids": [
+    "b6991acccf2e729ad09d5fc0",
+    "c9b09f2a2dc08f9558a16f32",
+    "c1910c018fb8df7029d7e7db",
     "027a4f04cb84850356aedc8a",
     "1745ce51b3d75ed7b02d21a1",
     "80375502e94c9c6e51d01eca",
@@ -332,6 +338,9 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://real.mtak.hu/247847/1/aacl_2026.pdf",
+    "https://arxiv.org/abs/2610.41264v1",
+    "https://arxiv.org/abs/2610.41232v1",
     "https://doi.org/10.1016/j.cma.2026.119501",
     "https://doi.org/10.3389/frobt.2026.1937649",
     "https://doi.org/10.1108/ijpcc-03-2025-0094",
@@ -468,6 +477,9 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "a71fa8c8f80556d070030016",
+    "93ffdaebff3f1c9dcf6d7714",
+    "8af191a24b4983ce6544a4b3",
     "c2125fad98f03753224d35ca",
     "bef3ff6565cd9e3ba0566797",
     "b30221149ffb785e6bf3540b",
@@ -2537,6 +2549,49 @@
       "analysis": {
         "provider": "Xiaomi MiMo",
         "model": "mimo-v2.6-flash"
+      }
+    },
+    "https://vorasio.com/posts/20261102-model_research.html": {
+      "topic": "model_research",
+      "created_at": "2026-11-02T02:42:15.196268+00:00",
+      "items": [
+        {
+          "uid": "b6991acccf2e729ad09d5fc0",
+          "title": "No Masking Needed: Predicting Latent Semantics for Efficient Pre-training of Encoder-based Language Models",
+          "url": "https://real.mtak.hu/247847/1/aacl_2026.pdf",
+          "published": "2026-11-01T00:00:00+00:00",
+          "summary": "In this paper, we introduce Latent Semantic Modeling (LSM), a sample-efficient alternative for pre-training encoder-based language models that does not require the use of a special mask symbol. This is beneficial, as it allows us to perform pre-training on naturally occurring sentences (as opposed to such ones that contain an unnatural mask symbol, which symbol is otherwise not included during fine-tuning). The main idea behind LSM is that instead of requiring the language model to return the exact identity of randomly selected (sub)tokens from an input sequence, it determines their latent semantic properties extracted from an auxiliary model using sparse coding over its activations. When fine-tuned for downstream applications, models pre-trained with LSM often perform as good or better as alternatively pre-trained models that use considerably more compute per update steps and which have gone through considerably more pre-training steps, illustrating the improved representation developed during LSM pre-training. We release our code base for replicating our results under https://github.com/szegedai/MLSM.",
+          "source": "OpenAlex Model Research",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        },
+        {
+          "uid": "c9b09f2a2dc08f9558a16f32",
+          "title": "Rome Wasn't Built in One Turn: Replay-Grounded Reward Signals for Long-Horizon Freeciv Agents",
+          "url": "https://arxiv.org/abs/2610.41264v1",
+          "published": "2026-10-30T05:13:31+00:00",
+          "summary": "Training language-model agents to play long-horizon strategy games is hard because deterministic feedback is sparse and often arrives only at the end of a game. In-game scores can offer dense signals, but they do not reliably predict future outcomes: in 8-68% of position pairs across eight strategy games, the higher-scoring position leads to the worse outcome. We term this phenomenon scoreboard traps. In Freeciv, an open-source turn-based empire-building game where several players manage units, cities, and diplomacy over hundreds of turns, we look into better reward signals for gameplay agents. To facilitate this, we build CivHarness, an open system that saves current game states, branches on different decisions, and replays the game to future turns to provide measurable long-horizon feedback from saved positions. We use CivHarness to train CivTelescope, an LLM Judge that predicts which one of two game positions will yield the better outcome. On scoreboard-trap pairs, CivTelescope is 1.3-2.0 times more accurate than off-the-shelf language models, and it generalizes to new game starts, later turns, and unseen rules. We then train a Freeciv gameplay agent with CivTelescope as a dense reward, and call this recipe CivMarshmallow. When used in the middle stage of the game where scoreboard traps are common, CivMarshmallow reaches an average training phase gain of 8.94 points, 77% mor",
+          "source": "arXiv Model Research",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        },
+        {
+          "uid": "c1910c018fb8df7029d7e7db",
+          "title": "TRIDENT and SHAKTI: A Framework and Benchmark for Hindi AI-Text Detection",
+          "url": "https://arxiv.org/abs/2610.41232v1",
+          "published": "2026-10-30T04:13:20+00:00",
+          "summary": "As Large Language Models (LLMs) become increasingly multilingual, distinguishing human-written from AI-generated text is essential for maintaining information integrity. However, research remains English-centric, with limited benchmarks for low-resource languages such as Hindi. To address this gap, we introduce SHAKTI, a large-scale Hindi benchmark covering four genres, eight LLM families, multiple prompting strategies, and adversarial transformations. We evaluate its quality through human annotation and analyze linguistic, grammatical, and sentiment-based differences between human- and AI-generated texts. Building on these findings, we propose TRIDENT, a round-trip translation-based detection framework with three variants: TRIDENT-S (static threshold), TRIDENT-D (dynamic threshold), and TRIDENT-C (logistic regression using multi-distance RTT features). TRIDENT leverages semantic consistency between original and round-trip translated texts to identify AI-generated content. Extensive experiments show that TRIDENT outperforms conventional and supervised baselines, with TRIDENT-S achieving the best overall performance. Further evaluations across seven languages, adversarial settings, and unseen LLMs demonstrate its multilingual applicability and robustness, while highlighting sensitivity to the translation model.",
+          "source": "arXiv Model Research",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
       }
     }
   }
