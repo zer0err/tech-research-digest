@@ -1,4 +1,9 @@
 {
+  "2026-11-02:morning_radar": {
+    "status": "no_matching_in_window",
+    "updated_at": "2026-11-02T01:12:20.539106+00:00",
+    "attempts": 1
+  },
   "2026-11-01:prompt_engineering": {
     "status": "no_matching_in_window",
     "updated_at": "2026-11-01T06:12:17.343433+00:00",
@@ -35,7 +40,7 @@
     "attempts": 1
   },
   "2026-11-01:daily_digest": {
-    "status": "prepared",
+    "status": "published",
     "updated_at": "2026-11-01T11:12:20.074927+00:00",
     "attempts": 1
   },
