@@ -37,46 +37,9 @@
       "attempts": 1
     },
     "2026-11-02:applied_ai": {
-      "status": "prepared",
+      "status": "published",
       "updated_at": "2026-11-02T08:42:29.387379+00:00",
-      "attempts": 1,
-      "pending": {
-        "topic": "ai_hardware",
-        "title": "AI 芯片、计算架构与硬件平台",
-        "url": "https://vorasio.com/posts/20261102-applied_ai.html",
-        "created_at": "2026-11-02T08:42:29.387379+00:00",
-        "items": [
-          {
-            "uid": "1e2042cf11255cbd1cb69dfa",
-            "title": "ZERA: A Loop-Skipping Mechanism for Sparsity-Aware RISC-V Multicore Accelerator",
-            "url": "https://hal.science/hal-05745137v1",
-            "published": "2026-11-02T00:00:00+00:00",
-            "summary": "Deep Neural Networks exhibit high sparsity, yet conventional RISC-V-based architectures remain inefficient by processing zero-valued operands as a useful value, resulting in sub-optimal throughput. This paper presents ZERA, a sparsityaware RISC-V multi-core architecture featuring a Zero-Detected ISA and a hardware-integrated loop-skipping mechanism. By utilizing a Zero Mask Memory (ZMM) and a Hardware Loop Engine (HWE), ZERA collapses entire innermost loop iterations into single-cycle skips provided that the loop iteration comprises a multiplication by zero. If not, conventional data flow is executed, ensuring ZERA provides consistent speedup for both dense and sparse operands. Prototyped on an AMD Kria KV260, an 8-PE ZERA cluster achieves an average speedup of 3.4× at 90% sparsity over conventional execution without zero optimization, acted as a baseline, incurring only a 7% hardware overhead. A SqueezeNet-1D case study for intrusion detection demonstrates a 2.30× speedup over a baseline while maintaining 86.34% accuracy, significantly outperforming general-purpose processors like the ARM Cortex-A53 in execution efficiency ranging from 1.1× to 4.65× speed improvement.",
-            "source": "OpenAlex AI Hardware",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day"
-          },
-          {
-            "uid": "b6a8f6891c9c6ddb1d3a2eb8",
-            "title": "Input-dependent Neuromodulation Enhances Mixed-Signal Neuromorphic Hardware",
-            "url": "https://arxiv.org/abs/2610.41265v1",
-            "published": "2026-10-30T05:14:35+00:00",
-            "summary": "Gating mechanisms allow a fixed neural network to adapt its computation to the current input by dynamically modulating its effective parameters. In the brain, neuromodulation uses this principle to move neural circuits between dynamical regimes, and deep learning exploits input-dependent gating, e.g., in gated recurrent networks and self-attention. Input-dependent modulation has also recently been shown to improve spiking neural networks, with particularly strong benefits in small, parameter-limited ones. This makes neuromodulation especially promising for neuromorphic processors at the edge, where area, memory and energy budgets constrain network size, while circuit physics limits parameter precision. Here we demonstrate input-dependent, within-trial neuromodulation of a spiking recurrent neural network on a mixed-signal neuromorphic processor. An off-chip modulator reads the on-chip network's input and activity and adjusts its population-level gains while the chip's analog circuits compute with the physics of the silicon. Neuromodulation raises binary spoken-digit classification accuracy by $+17.3 \\pm 10.4$ percentage points, tested across five hardware network instantiations.",
-            "source": "arXiv AI Hardware",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day"
-          }
-        ],
-        "notify": false,
-        "mode": "production",
-        "analysis": {
-          "provider": "Xiaomi MiMo",
-          "model": "mimo-v2.6-flash"
-        },
-        "slot": "applied_ai"
-      }
+      "attempts": 1
     },
     "2026-11-01:prompt_engineering": {
       "status": "no_matching_in_window",
