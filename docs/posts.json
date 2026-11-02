@@ -1,5 +1,44 @@
 [
   {
+    "title": "AI 芯片、计算架构与硬件平台（2026-11-02）",
+    "date": "2026-11-02T16:42:29.387379+08:00",
+    "count": 2,
+    "url": "posts/20261102-applied_ai.html",
+    "topic": "applied_ai",
+    "status": "published",
+    "summary": "本期结论 - 稀疏性感知的硬件机制在 RISC-V 多核加速器上获得可量化加速：ZERA 在 90% 稀疏度下平均加速 3.4×，硬件开销仅 7% 1。 - 混合信号神经形态处理器上，输入依赖的神经调制可提升任务精度（+17.3 ± 10.4 个百分点，跨五次硬件实例化测试）2。 - 两项工作分别从\"跳过零值计算\"与\"",
+    "provenance": {
+      "analysis": {
+        "provider": "Xiaomi MiMo",
+        "model": "mimo-v2.6-flash"
+      },
+      "sources": [
+        {
+          "title": "ZERA: A Loop-Skipping Mechanism for Sparsity-Aware RISC-V Multicore Accelerator",
+          "url": "https://hal.science/hal-05745137v1",
+          "publisher": "OpenAlex AI Hardware",
+          "host": "hal.science",
+          "family": "博客/公开网页",
+          "published": "2026-11-02T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "Input-dependent Neuromodulation Enhances Mixed-Signal Neuromorphic Hardware",
+          "url": "https://arxiv.org/abs/2610.41265v1",
+          "publisher": "arXiv AI Hardware",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-10-30T05:14:35+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "高效 AI、模型压缩与端侧适配（2026-11-02）",
     "date": "2026-11-02T14:12:47.208229+08:00",
     "count": 3,

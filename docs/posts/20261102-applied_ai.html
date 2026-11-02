@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 芯片、计算架构与硬件平台（2026-11-02）</title><meta name="description" content="AI 芯片、计算架构与硬件平台（2026-11-02）：2 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav aria-label="主导航"><a href="../index.html#latest">时间线</a><a href="../knowledge/index.html">AI 知识科普</a><a href="../courses/index.html">AI 学习</a><a href="../tools/index.html">AI 工具</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">AI 应用与落地专题</p><dl><dt>发布时间</dt><dd data-published-at="2026-11-02T16:42:29.387379+08:00">2026-11-02 16:42 · UTC+8</dd><dt>研究条目</dt><dd>2 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · AI 应用与落地专题</p><h1>AI 芯片、计算架构与硬件平台（2026-11-02）</h1><!-- provenance:start --><p class="ai-analysis" title="mimo-v2.6-flash">AI 分析：Xiaomi MiMo</p><!-- provenance:end --><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期结论</h2>
+<ul>
+<li>稀疏性感知的硬件机制在 RISC-V 多核加速器上获得可量化加速：ZERA 在 90% 稀疏度下平均加速 3.4×，硬件开销仅 7% [1]。</li>
+<li>混合信号神经形态处理器上，输入依赖的神经调制可提升任务精度（+17.3 ± 10.4 个百分点，跨五次硬件实例化测试）[2]。</li>
+<li>两项工作分别从&quot;跳过零值计算&quot;与&quot;动态调制增益&quot;两条路径改善边缘 AI 硬件效率，但场景与指标不同，尚不足以称为统一趋势——属值得关注的信号 [1][2]。</li>
+</ul>
+<h2>逐项分析</h2>
+<p><strong>[1] ZERA</strong></p>
+<ul>
+<li>核心贡献：提出 Zero-Detected ISA 与硬件循环跳过机制，通过 Zero Mask Memory 与 Hardware Loop Engine 将含零乘法的最内层循环迭代折叠为单周期跳过 [1]。</li>
+<li>方法与数据：在 AMD Kria KV260 上原型验证，8-PE 集群；90% 稀疏度下相对无零值优化基线平均加速 3.4×，硬件开销 7%；SqueezeNet-1D 入侵检测案例加速 2.30×，精度 86.34%；相对 ARM Cortex-A53 执行效率提升 1.1×–4.65× [1]。</li>
+<li>性能证据：含方法、定量结果与基线对比，证据等级 A [1]。</li>
+<li>局限：摘要未提供制程、功耗、面积数据；基线为&quot;无零值优化&quot;的自设对照，非同类加速器横向对比；稀疏度 90% 为特定条件 [1]。</li>
+<li>工程意义：对稀疏 DNN 推理的 RISC-V 边缘加速器设计有直接参考价值，尤其在零值密集场景 [1]。</li>
+</ul>
+<p><strong>[2] 输入依赖神经调制</strong></p>
+<ul>
+<li>核心贡献：在混合信号神经形态处理器上演示片上脉冲循环网络的输入依赖、试次内神经调制；片外调制器读取输入与活动并调整群体级增益 [2]。</li>
+<li>方法与数据：二值语音数字分类精度提升 +17.3 ± 10.4 个百分点，跨五个硬件网络实例化测试 [2]。</li>
+<li>性能证据：含方法与定量结果（含标准差），但摘要未披露功耗、面积、延迟等硬件指标，证据等级 A（就精度指标而言）[2]。</li>
+<li>局限：片外调制器引入额外延迟与功耗，摘要未量化；精度提升标准差较大（±10.4），稳定性需关注；未与同类神经形态方案对比 [2]。</li>
+<li>工程意义：为参数受限的边缘神经形态处理器提供一种在不增加片上参数预算下提升精度的协同设计思路 [2]。</li>
+</ul>
+<h2>工程行动建议</h2>
+<ul>
+<li>验证实验：复现 ZERA 的 90% 稀疏度加速比，测量实际功耗与面积开销（摘要未提供）；在目标混合信号芯片上复测神经调制的精度增益与片外调制器开销 [1][2]。</li>
+<li>落地评估：若场景为稀疏 DNN 边缘推理，可评估 ZERA 类机制在自有 RISC-V 平台的移植成本；神经形态方案需评估片外调制器对系统延迟与能效的净影响 [1][2]。</li>
+<li>后续跟踪指标：ZERA 在不同稀疏度与网络结构下的加速比稳定性、与商用 NPU 的能效对比；神经调制在更多任务与更多硬件实例上的精度增益方差及功耗代价 [1][2]。</li>
+</ul>
+<h2>参考资料</h2>
+<p>[1] ZERA: A Loop-Skipping Mechanism for Sparsity-Aware RISC-V Multicore Accelerator <a href="https://hal.science/hal-05745137v1">https://hal.science/hal-05745137v1</a>
+[2] Input-dependent Neuromodulation Enhances Mixed-Signal Neuromorphic Hardware <a href="https://arxiv.org/abs/2610.41265v1">https://arxiv.org/abs/2610.41265v1</a></p>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>
