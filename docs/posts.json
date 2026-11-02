@@ -1,5 +1,55 @@
 [
   {
+    "title": "高效 AI、模型压缩与端侧适配（2026-11-02）",
+    "date": "2026-11-02T14:12:47.208229+08:00",
+    "count": 3,
+    "url": "posts/20261102-core_research.html",
+    "topic": "core_research",
+    "status": "published",
+    "summary": "本期结论 1. 采用深度可分离卷积与 INT8 量化的轻量级 1‑D CNN 能在边缘设备上实现高精度（98.0%）的负载不变性诊断，表明模型压缩与量化可兼顾精度与资源约束 2。 2. Latent Sparse Attention（LSA）在 10M‑token 上将单层注意力预填充时间提升 22.7×，解码时间提升",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "A Robust and Blind Watermarking Framework for Medical Images Using Whale-Optimized DCT-QIM with CNN Restoration",
+          "url": "https://doi.org/10.66157/jisca.1.2.36",
+          "publisher": "OpenAlex Efficient AI",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-10-31T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.66157/jisca.1.2.36",
+          "kind": "research"
+        },
+        {
+          "title": "A Lightweight and Explainable Deep Learning Framework for Cross-Load Bearing Fault Diagnosis with Zero-Shot Cross-Machine Evaluation",
+          "url": "https://doi.org/10.57159/jcmm.5.5.261320",
+          "publisher": "OpenAlex Efficient AI",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-10-31T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.57159/jcmm.5.5.261320",
+          "kind": "research"
+        },
+        {
+          "title": "Latent Sparse Attention: Towards Subquadratic Ultra-Long Context Attention",
+          "url": "https://arxiv.org/abs/2610.42147v1",
+          "publisher": "arXiv Efficient AI",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-10-30T17:59:34+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 论文午间速览（2026-11-02）",
     "date": "2026-11-02T12:42:16.726331+08:00",
     "count": 3,

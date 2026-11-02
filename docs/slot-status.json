@@ -24,6 +24,11 @@
     "updated_at": "2026-11-02T02:42:15.196268+00:00",
     "attempts": 1
   },
+  "2026-11-02:core_research": {
+    "status": "prepared",
+    "updated_at": "2026-11-02T06:12:47.208229+00:00",
+    "attempts": 1
+  },
   "2026-11-01:prompt_engineering": {
     "status": "no_matching_in_window",
     "updated_at": "2026-11-01T06:12:17.343433+00:00",

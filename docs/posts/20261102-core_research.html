@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>高效 AI、模型压缩与端侧适配（2026-11-02）</title><meta name="description" content="高效 AI、模型压缩与端侧适配（2026-11-02）：3 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav aria-label="主导航"><a href="../index.html#latest">时间线</a><a href="../knowledge/index.html">AI 知识科普</a><a href="../courses/index.html">AI 学习</a><a href="../tools/index.html">AI 工具</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">智能硬件技术专题</p><dl><dt>发布时间</dt><dd data-published-at="2026-11-02T14:12:47.208229+08:00">2026-11-02 14:12 · UTC+8</dd><dt>研究条目</dt><dd>3 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · 智能硬件技术专题</p><h1>高效 AI、模型压缩与端侧适配（2026-11-02）</h1><!-- provenance:start --><p class="ai-analysis" title="openai/gpt-oss-20b">AI 分析：Groq</p><!-- provenance:end --><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期结论</h2>
+<ol>
+<li>采用深度可分离卷积与 INT8 量化的轻量级 1‑D CNN 能在边缘设备上实现高精度（98.0%）的负载不变性诊断，表明模型压缩与量化可兼顾精度与资源约束 [2]。</li>
+<li>Latent Sparse Attention（LSA）在 10M‑token 上将单层注意力预填充时间提升 22.7×，解码时间提升 4.6×，同时保持与全注意力相近的准确性，显示稀疏注意力是处理超长上下文的可行路径 [3]。</li>
+<li>目前的水印嵌入方案侧重鲁棒性与不可见性，未公开模型参数或推理资源消耗，难以评估其在端侧的可行性，需进一步实验验证 [1]。</li>
+</ol>
+<h2>逐项分析</h2>
+<table>
+<thead>
+<tr>
+<th>论文</th>
+<th>核心贡献</th>
+<th>方法与数据</th>
+<th>性能证据</th>
+<th>局限与证据等级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[1]</td>
+<td>将鲸鱼优化算法与 DCT‑QIM 结合，利用 CNN 去噪实现医学图像水印</td>
+<td>采用 WOA 优化每片 DCT 的量化步长，使用 Chaotic Duffing map 生成密钥，嵌入后通过 CNN 去噪</td>
+<td>仅提及“实验在真实 10‑s”片段上验证，未给出参数量、延迟或功耗</td>
+<td>证据等级 C：摘要缺少实验细节与定量结果</td>
+</tr>
+<tr>
+<td>[2]</td>
+<td>轻量化 1‑D CNN + DANN + Grad‑CAM + INT8 量化，实现跨负载、跨机的故障诊断</td>
+<td>深度可分离卷积、域对抗学习、Grad‑CAM 解释、动态 INT8 量化</td>
+<td>在 CWRU 未见负载上 98.0% 准确率（宏 F1 0.978），与 100.0% 的全模型相比无显著损失；跨机零样本仅 4.5%</td>
+<td>证据等级 A：摘要包含方法、数据与定量结果</td>
+</tr>
+<tr>
+<td>[3]</td>
+<td>Latent Sparse Attention（LSA）实现超长上下文的子二次复杂度注意力</td>
+<td>通过层次聚类的潜在空间索引查询，提出 D‑LSA 与 N‑LSA 两种变体</td>
+<td>在 GLM‑5.3‑FLASH（QWEN‑3.8‑27B）10M tokens 上，D‑LSA 预填充 22.7×、解码 4.6×；N‑LSA 训练 1.6×/层</td>
+<td>证据等级 A：摘要给出方法、实验规模与定量加速比</td>
+</tr>
+</tbody>
+</table>
+<h2>工程行动建议</h2>
+<table>
+<thead>
+<tr>
+<th>目标</th>
+<th>验证实验</th>
+<th>落地评估</th>
+<th>后续跟踪指标</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>轻量化 1‑D CNN 在边缘设备上部署</td>
+<td>在目标 MCU/Edge AI 芯片上实现 INT8 量化模型，测量推理延迟、内存占用与功耗</td>
+<td>与原始 100% 模型对比，评估 1‑% 以内的精度损失</td>
+<td>设备功耗（mW）、推理吞吐（samples/s）</td>
+</tr>
+<tr>
+<td>LSA 在长文本推理上的可行性</td>
+<td>在 1M‑token 语料上部署 N‑LSA，记录预填充/解码时间与 GPU/CPU 资源</td>
+<td>与全注意力模型对比，验证准确率差异</td>
+<td>计算成本（GFLOPs）、显存占用</td>
+</tr>
+<tr>
+<td>医学图像水印方案的端侧可行性</td>
+<td>在边缘 GPU 上实现 DCT‑QIM + CNN 去噪，测量嵌入/提取时间与能耗</td>
+<td>验证水印对诊断质量的影响（PSNR/MSE）</td>
+<td>水印鲁棒性（对压缩、噪声的抗性）</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>注</strong>：若缺乏实验数据，建议先在公开数据集上复现论文方法，再进行设备级评估。</p>
+</blockquote>
+<h2>参考资料</h2>
+<p>[1] A Robust and Blind Watermarking Framework for Medical Images Using Whale-Optimized DCT-QIM with CNN Restoration – <a href="https://doi.org/10.66157/jisca.1.2.36">https://doi.org/10.66157/jisca.1.2.36</a><br />
+[2] A Lightweight and Explainable Deep Learning Framework for Cross-Load Bearing Fault Diagnosis with Zero-Shot Cross-Machine Evaluation – <a href="https://doi.org/10.57159/jcmm.5.5.261320">https://doi.org/10.57159/jcmm.5.5.261320</a><br />
+[3] Latent Sparse Attention: Towards Subquadratic Ultra-Long Context Attention – <a href="https://arxiv.org/abs/2610.42147v1">https://arxiv.org/abs/2610.42147v1</a></p>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>
