@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 论文午间速览（2026-11-02）</title><meta name="description" content="AI 论文午间速览（2026-11-02）：3 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav aria-label="主导航"><a href="../index.html#latest">时间线</a><a href="../knowledge/index.html">AI 知识科普</a><a href="../courses/index.html">AI 学习</a><a href="../tools/index.html">AI 工具</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">AI 论文午间速览</p><dl><dt>发布时间</dt><dd data-published-at="2026-11-02T12:42:16.726331+08:00">2026-11-02 12:42 · UTC+8</dd><dt>研究条目</dt><dd>3 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · AI 论文午间速览</p><h1>AI 论文午间速览（2026-11-02）</h1><!-- provenance:start --><p class="ai-analysis" title="openai/gpt-oss-20b">AI 分析：Groq</p><!-- provenance:end --><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期要点</h2>
+<ul>
+<li>LARC 通过在连续隐藏空间进行推理，解决了 UMM 在图像生成中离散推理与连续生成之间的模态不匹配问题，显著提升了文本到图像任务的质量与可控性 [1]。</li>
+<li>ACCT 通过将源模型的 KV 缓存转换为稀疏目标 KV，实现在不同规模 LLM 之间的上下文重用，降低了重复计算成本并保持了通用能力评测的稳定性 [2]。</li>
+<li>ZHA 采用层次化树结构索引实现子二次稀疏注意力，理论上实现了注意力的子二次复杂度，并在长上下文检索与推理任务中保持了性能，且仅需短期 KL 迁移训练即可应用于现有预训练模型 [3]。</li>
+</ul>
+<h2>逐项速览</h2>
+<table>
+<thead>
+<tr>
+<th>论文</th>
+<th>核心变化</th>
+<th>证据</th>
+<th>局限</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Latent Reasoning in Continuous Space for Unified Multimodal Models</strong></td>
+<td>① 在连续隐藏空间进行推理，替代离散 token 推理；② 采用两阶段训练（curriculum SFT + 信息增益 RL）。</td>
+<td>① 通过实验在多种文本到图像基准上提升生成质量、提示遵循和组合完整性；② 在 GenEval 上比 BAGEL 提升 7%p，且表现出明显的测试时刻可扩展性。</td>
+<td>① 仅在图像生成任务验证，未评估跨模态推理的通用性；② 训练流程复杂，需两阶段 fine‑tune 与 RL，资源成本未公开。</td>
+</tr>
+<tr>
+<td><strong>ACCT: Asymmetric Cross-LLM Context Transfer</strong></td>
+<td>① 将源模型 KV 缓存转化为稀疏 KV，供目标模型直接使用；② 通过 Cartographer、Allocator、Compiler 三个轻量组件实现跨模型上下文重用。</td>
+<td>① 在包含 5 个通用基准和 6 个高度依赖上下文任务的两种设置中，实验表明 ACCT 能在不重新处理原始上下文的情况下完成推理。</td>
+<td>① 仅在同一模型族内不同规模模型间验证，跨族或跨框架的适用性未知；② 具体的 KV 预算分配策略与稀疏化程度对性能影响未量化。</td>
+</tr>
+<tr>
+<td><strong>Subquadratic Attention with a Hierarchical Tree-Structured Indexer</strong></td>
+<td>① 采用树形索引压缩 KV，查询时从根到叶遍历获取稀疏键；② 通过递增树深度实现子二次复杂度。</td>
+<td>① 在长上下文检索、推理、数学与编码任务上保持性能；② 仅需短期 KL 迁移训练即可应用于现有预训练模型。</td>
+<td>① 仅在实验中测试了“深度树 up to 6”，更深树的稳定性未探讨；② 具体的路由与注意力成本分解未公开，实际部署时的内存与吞吐量仍需评估。</td>
+</tr>
+</tbody>
+</table>
+<h2>值得采取的行动</h2>
+<ol>
+<li><strong>实验验证 LARC</strong>：在自有文本到图像数据集上复现两阶段训练流程，评估生成质量与提示遵循的提升幅度，验证其对不同 UMM 结构的适用性。</li>
+<li><strong>部署 ACCT</strong>：在本地多规模 LLM 环境中实现 KV 转换管线，测量上下文重用前后推理时间与 GPU 利用率，确认跨模型上下文共享的实际收益。</li>
+<li><strong>尝试 ZHA</strong>：在现有 LLM 上引入树形索引，使用短期 KL 迁移训练，比较原始注意力与 ZHA 在长序列推理任务中的准确率与延迟，评估其在资源受限环境下的可行性。</li>
+</ol>
+<h2>参考资料</h2>
+<p>[1] Latent Reasoning in Continuous Space for Unified Multimodal Models – <a href="https://arxiv.org/abs/2610.42149v1">https://arxiv.org/abs/2610.42149v1</a><br />
+[2] ACCT: Asymmetric Cross-LLM Context Transfer – <a href="https://arxiv.org/abs/2610.42116v1">https://arxiv.org/abs/2610.42116v1</a><br />
+[3] Subquadratic Attention with a Hierarchical Tree-Structured Indexer – <a href="https://arxiv.org/abs/2610.42112v1">https://arxiv.org/abs/2610.42112v1</a></p>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>

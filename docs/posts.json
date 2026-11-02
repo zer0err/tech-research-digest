@@ -1,5 +1,55 @@
 [
   {
+    "title": "AI 论文午间速览（2026-11-02）",
+    "date": "2026-11-02T12:42:16.726331+08:00",
+    "count": 3,
+    "url": "posts/20261102-paper_brief.html",
+    "topic": "paper_brief",
+    "status": "published",
+    "summary": "本期要点 - LARC 通过在连续隐藏空间进行推理，解决了 UMM 在图像生成中离散推理与连续生成之间的模态不匹配问题，显著提升了文本到图像任务的质量与可控性 1。 - ACCT 通过将源模型的 KV 缓存转换为稀疏目标 KV，实现在不同规模 LLM 之间的上下文重用，降低了重复计算成本并保持了通用能力评测的稳定性 2",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "Latent Reasoning in Continuous Space for Unified Multimodal Models",
+          "url": "https://arxiv.org/abs/2610.42149v1",
+          "publisher": "arXiv Model Research",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-10-30T17:59:43+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "ACCT: Asymmetric Cross-LLM Context Transfer",
+          "url": "https://arxiv.org/abs/2610.42116v1",
+          "publisher": "arXiv Model Research",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-10-30T17:50:49+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "Subquadratic Attention with a Hierarchical Tree-Structured Indexer",
+          "url": "https://arxiv.org/abs/2610.42112v1",
+          "publisher": "arXiv Model Research",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-10-30T17:48:37+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 模型、训练与基础研究（2026-11-02）",
     "date": "2026-11-02T10:42:15.196268+08:00",
     "count": 3,
