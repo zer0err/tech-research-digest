@@ -26,6 +26,11 @@
       "updated_at": "2026-11-03T02:42:24.530833+00:00",
       "attempts": 1
     },
+    "2026-11-03:dev_practice": {
+      "status": "already_published",
+      "updated_at": "2026-11-03T07:44:11.071307+00:00",
+      "attempts": 1
+    },
     "2026-11-03:core_research": {
       "status": "published",
       "updated_at": "2026-11-03T07:42:16.881857+00:00",
