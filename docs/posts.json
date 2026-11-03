@@ -1,5 +1,55 @@
 [
   {
+    "title": "AI 论文午间速览（2026-11-03）",
+    "date": "2026-11-03T12:42:33.140374+08:00",
+    "count": 3,
+    "url": "posts/20261103-paper_brief.html",
+    "topic": "paper_brief",
+    "status": "published",
+    "summary": "本期要点 - 微电网规划与控制正被 AI 技术（机器学习、深度学习、优化）所驱动，能提升可靠性、降低成本并增强抗扰性1。 - 物理 AI 开发者在构建世界模型时面临传感器适配与模型部署两大挑战2。 - 强化学习与控制理论虽共享动态规划根源，却在方法论与目标上存在显著差距；新型混合框架正在尝试弥合这一鸿沟3。 逐项速览 ",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "Intelligent Energy Systems",
+          "url": "https://doi.org/10.4018/979-8-2600-0026-7.ch003",
+          "publisher": "Crossref Embodied",
+          "host": "doi.org",
+          "family": "书目索引",
+          "published": "2026-11-03T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "10.4018/979-8-2600-0026-7.ch003",
+          "kind": "research"
+        },
+        {
+          "title": "Build World Models for Interactive Simulation with NVIDIA Cosmos",
+          "url": "https://developer.nvidia.com/blog/build-world-models-for-interactive-simulation-with-nvidia-cosmos",
+          "publisher": "NVIDIA Technical Blog",
+          "host": "developer.nvidia.com",
+          "family": "博客/公开网页",
+          "published": "2026-11-02T17:00:00+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "Foundations of Reinforcement Learning and Control: Connections and New Perspectives",
+          "url": "https://doi.org/10.1287/educ.2026.0310",
+          "publisher": "OpenAlex Embodied",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-11-01T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.1287/educ.2026.0310",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 模型、训练与基础研究（2026-11-03）",
     "date": "2026-11-03T10:42:24.530833+08:00",
     "count": 3,

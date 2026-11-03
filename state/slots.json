@@ -1,6 +1,59 @@
 {
   "version": 1,
   "slots": {
+    "2026-11-03:paper_brief": {
+      "status": "prepared",
+      "updated_at": "2026-11-03T04:42:33.140374+00:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "embodied",
+        "title": "AI 论文午间速览",
+        "url": "https://vorasio.com/posts/20261103-paper_brief.html",
+        "created_at": "2026-11-03T04:42:33.140374+00:00",
+        "items": [
+          {
+            "uid": "cbed61964e5086cfd9b25dbf",
+            "title": "Intelligent Energy Systems",
+            "url": "https://doi.org/10.4018/979-8-2600-0026-7.ch003",
+            "published": "2026-11-03T00:00:00+00:00",
+            "summary": "The rapid growth of distributed energy resources and renewable technologies has increased the need for intelligent management of modern power systems. Microgrids offer a reliable, flexible, and sustainable solution by integrating local generation, storage, and controllable loads. However, their planning and control are complex due to uncertainties in renewable generation, varying load demand, and dynamic conditions. Artificial Intelligence (AI) has emerged as an effective tool to address these challenges. Techniques such as machine learning, deep learning, and optimization enable accurate forecasting of energy demand, renewable output, and system behavior.AI also enhances real-time control through adaptive decision-making and efficient energy management. This improves reliability, reduces costs, and increases resilience to disturbances. Overall, AI integration enables efficient resource use, minimizes losses, and supports the transition to smart, sustainable, and decentralized power systems.",
+            "source": "Crossref Embodied",
+            "kind": "research",
+            "doi": "10.4018/979-8-2600-0026-7.ch003",
+            "date_precision": "day"
+          },
+          {
+            "uid": "bbe0d9ee07b786060158dc28",
+            "title": "Build World Models for Interactive Simulation with NVIDIA Cosmos",
+            "url": "https://developer.nvidia.com/blog/build-world-models-for-interactive-simulation-with-nvidia-cosmos",
+            "published": "2026-11-02T17:00:00+00:00",
+            "summary": "Physical AI developers working with world models face two distinct challenges: adapting models to their sensors, tasks, and data, and getting those models into...",
+            "source": "NVIDIA Technical Blog",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          },
+          {
+            "uid": "463e9f4844e4b4406a1a37bc",
+            "title": "Foundations of Reinforcement Learning and Control: Connections and New Perspectives",
+            "url": "https://doi.org/10.1287/educ.2026.0310",
+            "published": "2026-11-01T00:00:00+00:00",
+            "summary": "Reinforcement learning and control theory are two adjacent scientific fields that focus on optimizing the controller of unknown dynamical systems using feedback. While both fields have common roots in dynamic programming, they have evolved with distinct methodologies, goals, and cultures. Despite decades of mutual influence, a significant gap persists between the two communities. This tutorial introduces adaptive control, actor-critic reinforcement algorithms, and a new way to combine these two paradigms for data-driven decision making on a classical locomotion control problem. Our aim is to provide a foundation for understanding the core differences between the two approaches and insights to help experts in each field better understand and engage with the tools and approaches of the other.",
+            "source": "OpenAlex Embodied",
+            "kind": "research",
+            "doi": "https://doi.org/10.1287/educ.2026.0310",
+            "date_precision": "day"
+          }
+        ],
+        "notify": true,
+        "mode": "production",
+        "analysis": {
+          "provider": "Groq",
+          "model": "openai/gpt-oss-20b"
+        },
+        "slot": "paper_brief"
+      }
+    },
     "2026-11-03:open_source": {
       "status": "already_published",
       "updated_at": "2026-11-03T03:42:16.301266+00:00",
