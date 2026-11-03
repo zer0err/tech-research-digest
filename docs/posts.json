@@ -1,5 +1,33 @@
 [
   {
+    "title": "AI 晨间雷达与免费资源（2026-11-03）",
+    "date": "2026-11-03T09:12:22.750011+08:00",
+    "count": 1,
+    "url": "posts/20261103-morning_radar.html",
+    "topic": "morning_radar",
+    "status": "published",
+    "summary": "本时段要点 1. Google AI 在 2026 年 10 月发布了一系列新 AI 相关动态，内容以动画轮播形式展示，涵盖多种 AI 主题。 1 2. 该更新未提供具体技术细节或实验数据，仅以视觉呈现方式呈现信息。 1 3. 由于缺乏文字说明，无法确认任何新模型、算法或应用的具体实现细节。 1 逐项速览 - Goog",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "The latest AI news we announced in October 2026",
+          "url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-october-2026",
+          "publisher": "Google AI 官方博客",
+          "host": "blog.google",
+          "family": "博客/公开网页",
+          "published": "2026-11-02T17:45:00+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "VORASIO AI 日报（2026-11-02）",
     "date": "2026-11-02T19:12:22.399942+08:00",
     "count": 4,

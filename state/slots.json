@@ -1,6 +1,37 @@
 {
   "version": 1,
   "slots": {
+    "2026-11-03:morning_radar": {
+      "status": "prepared",
+      "updated_at": "2026-11-03T01:12:22.750011+00:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "morning_radar",
+        "title": "AI 晨间雷达与免费资源",
+        "url": "https://vorasio.com/posts/20261103-morning_radar.html",
+        "created_at": "2026-11-03T01:12:22.750011+00:00",
+        "items": [
+          {
+            "uid": "c45a0b6d7de18ac55a144d19",
+            "title": "The latest AI news we announced in October 2026",
+            "url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-october-2026",
+            "published": "2026-11-02T17:45:00+00:00",
+            "summary": "Animated carousel of images from AI posts in October",
+            "source": "Google AI 官方博客",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          }
+        ],
+        "notify": true,
+        "mode": "production",
+        "analysis": {
+          "provider": "Groq",
+          "model": "openai/gpt-oss-20b"
+        },
+        "slot": "morning_radar"
+      }
+    },
     "2026-11-02:prompt_engineering": {
       "status": "no_matching_in_window",
       "updated_at": "2026-11-02T06:12:20.418833+00:00",
