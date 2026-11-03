@@ -1,5 +1,44 @@
 [
   {
+    "title": "推理引擎、编译器与嵌入式系统（2026-11-03）",
+    "date": "2026-11-03T15:42:16.881857+08:00",
+    "count": 2,
+    "url": "posts/20261103-core_research.html",
+    "topic": "core_research",
+    "status": "published",
+    "summary": "本期结论 - 本期两篇资料均不涉及推理引擎、编译器或嵌入式系统，栏目核心议题（编译器、运行时、算子与内存优化、异构调度、CPU/GPU/NPU 协同、实时性、边云协同）在所给摘要中无任何可复现的系统性能数据 12。 - 值得关注的信号：2 报告了自动推理引擎在三个法语数据集上的三元准确率（65.37%、70.33%、7",
+    "provenance": {
+      "analysis": {
+        "provider": "Xiaomi MiMo",
+        "model": "mimo-v2.6-flash"
+      },
+      "sources": [
+        {
+          "title": "Integrating Transformer Neural Processes and Deep Kernel Learning for High-Throughput Screening and Uncertainty Quantification for Water-Splitting Electrocatalysts Across Perovskites and Metal Alloys",
+          "url": "https://doi.org/10.4018/979-8-2600-0026-7.ch013",
+          "publisher": "Crossref Inference",
+          "host": "doi.org",
+          "family": "书目索引",
+          "published": "2026-11-03T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "10.4018/979-8-2600-0026-7.ch013",
+          "kind": "research"
+        },
+        {
+          "title": "FOLLIE: Automated Reasoning over the First Dataset of Sentences with their First-Order Logical Representation for French",
+          "url": "https://arxiv.org/abs/2611.02129v1",
+          "publisher": "arXiv Inference Systems",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-11-01T19:03:15+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 论文午间速览（2026-11-03）",
     "date": "2026-11-03T12:42:33.140374+08:00",
     "count": 3,

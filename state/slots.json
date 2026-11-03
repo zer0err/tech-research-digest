@@ -27,9 +27,47 @@
       "attempts": 1
     },
     "2026-11-03:core_research": {
-      "status": "analysis_rejected",
-      "updated_at": "2026-11-03T06:12:52.062908+00:00",
-      "attempts": 1
+      "status": "prepared",
+      "updated_at": "2026-11-03T07:42:16.881857+00:00",
+      "attempts": 2,
+      "pending": {
+        "topic": "inference_systems",
+        "title": "推理引擎、编译器与嵌入式系统",
+        "url": "https://vorasio.com/posts/20261103-core_research.html",
+        "created_at": "2026-11-03T07:42:16.881857+00:00",
+        "items": [
+          {
+            "uid": "8693ef6c8c0b55e10f5fe531",
+            "title": "Integrating Transformer Neural Processes and Deep Kernel Learning for High-Throughput Screening and Uncertainty Quantification for Water-Splitting Electrocatalysts Across Perovskites and Metal Alloys",
+            "url": "https://doi.org/10.4018/979-8-2600-0026-7.ch013",
+            "published": "2026-11-03T00:00:00+00:00",
+            "summary": "Years of experimentation have failed to enable the prediction of an efficient electrocatalyst from either a perovskite or an alloy without weeks of experimentation. There are more than a million perovskites, more exponential number of alloys but fewer than 0.1% of them have been studied. The traditional approach has failed. Density Functional Theory is impractical because of costs. Gaussian Process Regression struggles with scalability and lacks transfer between families. Its uncertainty calibration is off by miles. More importantly, the literature is not homogenous. Any framework that ignores that problem learns procedures, not physics. We gather Transformer Neural Processes (meta-learning across families) with Deep Kernel Learning (statistical uncertainty). This neural architecture can scale and model overpotential, stability, and activity with correlated uncertainties. Standardization of overpotential is done through Tafel correction. Prediction errors in the range of 50 millivolts and two- to three-fold reduction of experiments through Bayesian Optimization are our goals.",
+            "source": "Crossref Inference",
+            "kind": "research",
+            "doi": "10.4018/979-8-2600-0026-7.ch013",
+            "date_precision": "day"
+          },
+          {
+            "uid": "6ce409540b085dadf08343fe",
+            "title": "FOLLIE: Automated Reasoning over the First Dataset of Sentences with their First-Order Logical Representation for French",
+            "url": "https://arxiv.org/abs/2611.02129v1",
+            "published": "2026-11-01T19:03:15+00:00",
+            "summary": "FOLLIE (for First-Order Logic for Language Inference and Entailment for French) connects French sentences, compositional first-order representations and automated natural language inference (NLI). The first French NLI-ready, NL-to-FOL resource, it contains 19,983 inference records and 36,987 non-empty sentence-slot--formula mappings from six heterogeneous NLI sources, retaining French lexical material and source problem structure. Its silver annotations are produced by a neural--symbolic pipeline, with 111 separately identified LLM-assisted additions. The construction combines morphosyntactic analysis, probability-conditioned categorial multitagging, grammatical proof search, discourse representation and first-order semantic construction. Stage-wise experiments show substantial gains in derivation coverage; analyses of conjunction distributions, logical-operator incidence and scope alternation characterise the resulting resource. We then develop an automatic inference engine whose input-conditioned background theories address lexical relations, quantification, quantities, event structure and temporal dependencies. Prover9 supplies proofs for entailment and contradiction, while Mace4 supports bounded consistency checks. Three-way accuracies are 65.37% on all 335 FraCaS-FR problems, 70.33% on 300 GQNLI-FR problems and 71.35% on 9,399 eligible SICK-FR records pooled across splits.",
+            "source": "arXiv Inference Systems",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          }
+        ],
+        "notify": false,
+        "mode": "production",
+        "analysis": {
+          "provider": "Xiaomi MiMo",
+          "model": "mimo-v2.6-flash"
+        },
+        "slot": "core_research"
+      },
+      "maintenance_notified": true
     },
     "2026-11-02:prompt_engineering": {
       "status": "no_matching_in_window",

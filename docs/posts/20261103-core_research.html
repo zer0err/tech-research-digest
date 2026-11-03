@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>推理引擎、编译器与嵌入式系统（2026-11-03）</title><meta name="description" content="推理引擎、编译器与嵌入式系统（2026-11-03）：2 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav aria-label="主导航"><a href="../index.html#latest">时间线</a><a href="../knowledge/index.html">AI 知识科普</a><a href="../courses/index.html">AI 学习</a><a href="../tools/index.html">AI 工具</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">智能硬件技术专题</p><dl><dt>发布时间</dt><dd data-published-at="2026-11-03T15:42:16.881857+08:00">2026-11-03 15:42 · UTC+8</dd><dt>研究条目</dt><dd>2 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · 智能硬件技术专题</p><h1>推理引擎、编译器与嵌入式系统（2026-11-03）</h1><!-- provenance:start --><p class="ai-analysis" title="mimo-v2.6-flash">AI 分析：Xiaomi MiMo</p><!-- provenance:end --><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期结论</h2>
+<ul>
+<li>本期两篇资料均不涉及推理引擎、编译器或嵌入式系统，栏目核心议题（编译器、运行时、算子与内存优化、异构调度、CPU/GPU/NPU 协同、实时性、边云协同）在所给摘要中无任何可复现的系统性能数据 [1][2]。</li>
+<li>值得关注的信号：[2] 报告了自动推理引擎在三个法语数据集上的三元准确率（65.37%、70.33%、71.35%），属符号推理引擎而非神经网络推理引擎，其工程实现细节（Prover9/Mace4 调用开销、延迟、吞吐）摘要未提供，无法从摘要确认 [2]。</li>
+<li>值得关注的信号：[1] 提出以 Transformer Neural Processes 结合 Deep Kernel Learning 做电催化剂筛选，其&quot;预测误差 50 毫伏量级、实验量减少两至三倍&quot;在摘要中被表述为目标（goals），而非已达成的实验结果，证据等级为 C [1]。</li>
+</ul>
+<h2>逐项分析</h2>
+<p><strong>[1] Integrating Transformer Neural Processes and Deep Kernel Learning...</strong></p>
+<ul>
+<li>核心贡献：针对钙钛矿与合金电催化剂的高通量筛选与不确定性量化，提出元学习（跨材料家族）+ 深度核学习（统计不确定性）的组合架构 [1]。</li>
+<li>方法与数据：摘要提及 Tafel 校正标准化过电位、贝叶斯优化，但未给出数据集规模、划分方式、基线模型或训练配置 [1]。</li>
+<li>性能证据：摘要仅陈述&quot;50 毫伏量级预测误差&quot;与&quot;两至三倍实验量减少&quot;为<strong>目标</strong>，未提供已达成的实验数值、误差分布或对照实验 [1]。</li>
+<li>局限与证据等级：C（主张缺少实验细节）；与本栏目主题无直接关联 [1]。</li>
+<li>工程意义：对推理引擎/编译器方向无直接可复用结论；其不确定性量化思路若未来有系统级实现（如嵌入式贝叶斯推理），才值得跟踪 [1]。</li>
+</ul>
+<p><strong>[2] FOLLIE: Automated Reasoning over the First Dataset...</strong></p>
+<ul>
+<li>核心贡献：构建首个法语句子—一阶逻辑表示资源，并开发输入条件化背景理论的自动推理引擎 [2]。</li>
+<li>方法与数据：19,983 条推理记录、36,987 条句槽—公式映射，源自六个异构 NLI 源；银标注由神经—符号流水线产生，含 111 条 LLM 辅助补充；证明由 Prover9 提供，Mace4 做有界一致性检查 [2]。</li>
+<li>性能证据：三元准确率 65.37%（FraCaS-FR 全部 335 题）、70.33%（GQNLI-FR 300 题）、71.35%（SICK-FR 9,399 条合格记录，跨划分合并）[2]。</li>
+<li>局限与证据等级：A（含方法、数据及定量结果）；但摘要未报告推理延迟、吞吐、内存占用或硬件配置，无法评估其作为&quot;推理引擎&quot;的系统性能 [2]。</li>
+<li>工程意义：可作为符号推理引擎准确率的参考基线；若要评估其在嵌入式/实时场景的可行性，需补充延迟与资源占用数据 [2]。</li>
+</ul>
+<h2>工程行动建议</h2>
+<ul>
+<li>验证实验：若需评估 [2] 类符号推理引擎的实时性，可在目标 CPU 上复现 Prover9/Mace4 流水线，测量单条查询端到端延迟与峰值内存；摘要未提供这些数据，无法从摘要确认 [2]。</li>
+<li>落地评估：本期无任何资料涉及编译器、算子优化或异构调度，不建议基于现有摘要做技术选型或落地决策 [1][2]。</li>
+<li>后续跟踪指标：跟踪 [2] 后续版本是否公开延迟/吞吐/硬件配置；跟踪 [1] 是否将&quot;目标&quot;转化为带误差分布与基线对照的实测结果 [1][2]。</li>
+</ul>
+<h2>参考资料</h2>
+<p>[1] Integrating Transformer Neural Processes and Deep Kernel Learning for High-Throughput Screening and Uncertainty Quantification for Water-Splitting Electrocatalysts Across Perovskites and Metal Alloys <a href="https://doi.org/10.4018/979-8-2600-0026-7.ch013">https://doi.org/10.4018/979-8-2600-0026-7.ch013</a>
+[2] FOLLIE: Automated Reasoning over the First Dataset of Sentences with their First-Order Logical Representation for French <a href="https://arxiv.org/abs/2611.02129v1">https://arxiv.org/abs/2611.02129v1</a></p>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>

@@ -25,9 +25,9 @@
     "attempts": 1
   },
   "2026-11-03:core_research": {
-    "status": "analysis_rejected",
-    "updated_at": "2026-11-03T06:12:52.062908+00:00",
-    "attempts": 1
+    "status": "prepared",
+    "updated_at": "2026-11-03T07:42:16.881857+00:00",
+    "attempts": 2
   },
   "2026-11-02:prompt_engineering": {
     "status": "no_matching_in_window",
