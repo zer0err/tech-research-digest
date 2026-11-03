@@ -6,6 +6,59 @@
       "updated_at": "2026-11-03T01:12:22.750011+00:00",
       "attempts": 1
     },
+    "2026-11-03:model_research": {
+      "status": "prepared",
+      "updated_at": "2026-11-03T02:42:24.530833+00:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "model_research",
+        "title": "AI 模型、训练与基础研究",
+        "url": "https://vorasio.com/posts/20261103-model_research.html",
+        "created_at": "2026-11-03T02:42:24.530833+00:00",
+        "items": [
+          {
+            "uid": "92820dc029105f16bbd59507",
+            "title": "Natural Language Processing for Interactive Learning Experiences",
+            "url": "https://doi.org/10.4018/979-8-3373-6581-7.ch008",
+            "published": "2026-11-03T00:00:00+00:00",
+            "summary": "Natural Language Processing (NLP) has become a core component for next generation e-learning ecosystems, especially in content delivery. It enables platforms to understand, respond and adapt to individual learners. With the rise of deep learning models especially transformer based architectures, NLP now offers state of the art capabilities for real-time interaction, personalized feedback, and adaptive learning pathways. This chapter examines NLP-driven systems powered by deep learning to enhance learner engagement, motivation, and cognitive development. It is developed by converting static educational materials into dynamic, conversational, and highly interactive experiences. The key ideas in this chapter includes understanding text, language models that can generate responses, intelligent tutoring systems, automatic grading, feedback that considers emotions, and learning that uses multiple types of media (such as text, audio, and images). Practical use cases and emerging research trends are highlighted. Ethical, pedagogical and technological challenges are also discussed.",
+            "source": "Crossref Model Research",
+            "kind": "research",
+            "doi": "10.4018/979-8-3373-6581-7.ch008",
+            "date_precision": "day"
+          },
+          {
+            "uid": "36e7af8c831e5fd06378b934",
+            "title": "Well-Log LLM Benchmark: The First ADNOC Domain-Expert Curated Benchmark for LLM Reasoning of Well Logs on Carbonate Reservoirs",
+            "url": "https://doi.org/10.2118/236501-ms",
+            "published": "2026-11-02T00:00:00+00:00",
+            "summary": "Abstract Large language models (LLMs) are increasingly being explored for technical tasks in the oil and gas industry. Well-log interpretation requires combining depth-indexed measurements, derived petrophysical properties, and quality-control information to characterize lithology, porosity, permeability, fluid saturation, and reservoir quality within intervals and across formations and wells. Reliable interpretation depends on cross-curve consistency, data quality, and the availability of complementary measurements. Recent work introduced WellLogBench and WellLog-LLM (Shikhar, S. et al., 2026) to provide such a reproducible evaluation setting. WellLogBench established an expert-validated benchmark based on public LAS data and structured petrophysical contexts. These contexts are constructed using Petrophys (Shikhar, S. et al., 2026), an open-source library for standardized well-log processing, normalization, derivation of petrophysical properties, and assembly of model-ready interpretation contexts. WellLog-LLM combines Dynamic Feature Selection with supervised fine-tuning, direct preference optimization, and Group Relative Context Optimization (GRCO). GRCO is a training-free, GRPO-inspired method that derives reusable guidance from relative comparisons of model rollouts and applies it during inference without updating model weights. Although the aforementioned work provides a",
+            "source": "OpenAlex Model Research",
+            "kind": "research",
+            "doi": "https://doi.org/10.2118/236501-ms",
+            "date_precision": "day"
+          },
+          {
+            "uid": "690919cc57255be2944a873d",
+            "title": "Dual-Counterfactual Evidence Decomposition and Selective Editing for Hallucination Mitigation in Large Vision-Language Models",
+            "url": "https://doi.org/10.21203/rs.3.rs-11118276/v1",
+            "published": "2026-11-02T00:00:00+00:00",
+            "summary": "Abstract Large vision-language models (LVLMs) often generate fluent but visually unsupported content. Existing training-free methods mainly recalibrate output distributions or edit representations without identifying whether the evidence behind the current claim is visual, linguistic, or shared. This limits intervention precision: unsupported language priors may survive, whereas grounded visual information may be weakened. We introduce a dual-counterfactual evidence decomposition and selective editing framework. Paired visual and linguistic counterfactuals act as sample-specific evidence probes, whose hidden-state responses are decomposed into shared, visual-exclusive, and linguistic-exclusive components. A claim-aware gate attenuates unsupported linguistic evidence only for visually verifiable claims, while an evidence-preserving update protects shared and visual-exclusive support. The method is training-free and requires neither parameter updates nor external verification models. Across three LVLM families, it achieves the highest Accuracy and F1 in all nine POPE backbone--split settings. On CHAIR, it obtains the lowest CHAIR_i on all three evaluated backbones, reducing it by 9.1%-14.7% relative to HulluEdit while maintaining comparable BLEU scores. It also achieves the highest aggregate MME-H on all three backbones, the best results on all four HallusionBench metrics, and a ",
+            "source": "OpenAlex Model Research",
+            "kind": "research",
+            "doi": "https://doi.org/10.21203/rs.3.rs-11118276/v1",
+            "date_precision": "day"
+          }
+        ],
+        "notify": false,
+        "mode": "production",
+        "analysis": {
+          "provider": "Groq",
+          "model": "openai/gpt-oss-20b"
+        },
+        "slot": "model_research"
+      }
+    },
     "2026-11-02:prompt_engineering": {
       "status": "no_matching_in_window",
       "updated_at": "2026-11-02T06:12:20.418833+00:00",

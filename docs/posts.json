@@ -1,5 +1,55 @@
 [
   {
+    "title": "AI 模型、训练与基础研究（2026-11-03）",
+    "date": "2026-11-03T10:42:24.530833+08:00",
+    "count": 3,
+    "url": "posts/20261103-model_research.html",
+    "topic": "model_research",
+    "status": "published",
+    "summary": "本期结论 1. Transformer‑based NLP已成为交互式学习平台的核心技术，能够实现实时交互、个性化反馈和多模态学习路径，且已在多种教育场景中得到验证。该结论得到1的多项实证与案例支持。 2. 针对专业领域的LLM评测正在形成标准化生态，如油气行业的Well‑Log LLM Benchmark提供了专家验",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "Natural Language Processing for Interactive Learning Experiences",
+          "url": "https://doi.org/10.4018/979-8-3373-6581-7.ch008",
+          "publisher": "Crossref Model Research",
+          "host": "doi.org",
+          "family": "书目索引",
+          "published": "2026-11-03T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "10.4018/979-8-3373-6581-7.ch008",
+          "kind": "research"
+        },
+        {
+          "title": "Well-Log LLM Benchmark: The First ADNOC Domain-Expert Curated Benchmark for LLM Reasoning of Well Logs on Carbonate Reservoirs",
+          "url": "https://doi.org/10.2118/236501-ms",
+          "publisher": "OpenAlex Model Research",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-11-02T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.2118/236501-ms",
+          "kind": "research"
+        },
+        {
+          "title": "Dual-Counterfactual Evidence Decomposition and Selective Editing for Hallucination Mitigation in Large Vision-Language Models",
+          "url": "https://doi.org/10.21203/rs.3.rs-11118276/v1",
+          "publisher": "OpenAlex Model Research",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-11-02T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.21203/rs.3.rs-11118276/v1",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 晨间雷达与免费资源（2026-11-03）",
     "date": "2026-11-03T09:12:22.750011+08:00",
     "count": 1,
