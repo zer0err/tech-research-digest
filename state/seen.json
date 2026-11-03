@@ -108,6 +108,9 @@
     },
     "embodied": {
       "ids": [
+        "cbed61964e5086cfd9b25dbf",
+        "bbe0d9ee07b786060158dc28",
+        "463e9f4844e4b4406a1a37bc",
         "027a4f04cb84850356aedc8a",
         "1745ce51b3d75ed7b02d21a1",
         "100466b9c2db58e60e4726e3",
@@ -126,7 +129,7 @@
         "b6efb31dd4318138b7a990c1",
         "3784b5af97676cfa17afdceb"
       ],
-      "updated_at": "2026-11-01T08:42:19.816590+00:00"
+      "updated_at": "2026-11-03T04:42:33.140374+00:00"
     },
     "efficient_ai": {
       "ids": [
@@ -211,6 +214,9 @@
     }
   },
   "all_ids": [
+    "cbed61964e5086cfd9b25dbf",
+    "bbe0d9ee07b786060158dc28",
+    "463e9f4844e4b4406a1a37bc",
     "92820dc029105f16bbd59507",
     "36e7af8c831e5fd06378b934",
     "690919cc57255be2944a873d",
@@ -362,6 +368,9 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://doi.org/10.4018/979-8-2600-0026-7.ch003",
+    "https://developer.nvidia.com/blog/build-world-models-for-interactive-simulation-with-nvidia-cosmos",
+    "https://doi.org/10.1287/educ.2026.0310",
     "https://doi.org/10.4018/979-8-3373-6581-7.ch008",
     "https://doi.org/10.2118/236501-ms",
     "https://doi.org/10.21203/rs.3.rs-11118276/v1",
@@ -513,6 +522,9 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "aa4f410dc3ce8827f88293d9",
+    "eaeeee8d3eee51c24084e939",
+    "fbe57797d8c95fa5365bdcae",
     "f266fc39b7c0ef5db1d84e2f",
     "ed904e4e82a32fed3c83a307",
     "4990875eb6b43dcec4e85512",
@@ -2816,6 +2828,49 @@
           "source": "OpenAlex Model Research",
           "kind": "research",
           "doi": "https://doi.org/10.21203/rs.3.rs-11118276/v1",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261103-paper_brief.html": {
+      "topic": "embodied",
+      "created_at": "2026-11-03T04:42:33.140374+00:00",
+      "items": [
+        {
+          "uid": "cbed61964e5086cfd9b25dbf",
+          "title": "Intelligent Energy Systems",
+          "url": "https://doi.org/10.4018/979-8-2600-0026-7.ch003",
+          "published": "2026-11-03T00:00:00+00:00",
+          "summary": "The rapid growth of distributed energy resources and renewable technologies has increased the need for intelligent management of modern power systems. Microgrids offer a reliable, flexible, and sustainable solution by integrating local generation, storage, and controllable loads. However, their planning and control are complex due to uncertainties in renewable generation, varying load demand, and dynamic conditions. Artificial Intelligence (AI) has emerged as an effective tool to address these challenges. Techniques such as machine learning, deep learning, and optimization enable accurate forecasting of energy demand, renewable output, and system behavior.AI also enhances real-time control through adaptive decision-making and efficient energy management. This improves reliability, reduces costs, and increases resilience to disturbances. Overall, AI integration enables efficient resource use, minimizes losses, and supports the transition to smart, sustainable, and decentralized power systems.",
+          "source": "Crossref Embodied",
+          "kind": "research",
+          "doi": "10.4018/979-8-2600-0026-7.ch003",
+          "date_precision": "day"
+        },
+        {
+          "uid": "bbe0d9ee07b786060158dc28",
+          "title": "Build World Models for Interactive Simulation with NVIDIA Cosmos",
+          "url": "https://developer.nvidia.com/blog/build-world-models-for-interactive-simulation-with-nvidia-cosmos",
+          "published": "2026-11-02T17:00:00+00:00",
+          "summary": "Physical AI developers working with world models face two distinct challenges: adapting models to their sensors, tasks, and data, and getting those models into...",
+          "source": "NVIDIA Technical Blog",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        },
+        {
+          "uid": "463e9f4844e4b4406a1a37bc",
+          "title": "Foundations of Reinforcement Learning and Control: Connections and New Perspectives",
+          "url": "https://doi.org/10.1287/educ.2026.0310",
+          "published": "2026-11-01T00:00:00+00:00",
+          "summary": "Reinforcement learning and control theory are two adjacent scientific fields that focus on optimizing the controller of unknown dynamical systems using feedback. While both fields have common roots in dynamic programming, they have evolved with distinct methodologies, goals, and cultures. Despite decades of mutual influence, a significant gap persists between the two communities. This tutorial introduces adaptive control, actor-critic reinforcement algorithms, and a new way to combine these two paradigms for data-driven decision making on a classical locomotion control problem. Our aim is to provide a foundation for understanding the core differences between the two approaches and insights to help experts in each field better understand and engage with the tools and approaches of the other.",
+          "source": "OpenAlex Embodied",
+          "kind": "research",
+          "doi": "https://doi.org/10.1287/educ.2026.0310",
           "date_precision": "day"
         }
       ],
