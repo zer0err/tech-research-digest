@@ -1,5 +1,55 @@
 [
   {
+    "title": "Agent、机器人与具身智能（2026-11-03）",
+    "date": "2026-11-03T16:42:30.421935+08:00",
+    "count": 3,
+    "url": "posts/20261103-applied_ai.html",
+    "topic": "applied_ai",
+    "status": "published",
+    "summary": "本期结论 - Pixel 系列系统通过硬件、数据采集、控制与学习的协同设计，显著提升了移动操纵任务的完成率，平均任务进度达 87.0%1，表明“全栈协同”是实现具身智能的关键趋势。 - 通过 EgoActionBench 对人类细粒度动作的评估，现有模型在动作原子性与时序精度上仍存在显著缺陷，提示“动作细粒度理解”仍是",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "Pixel-UMI: Learning Environment-Aware Whole-Body Manipulation from Sensorized Human Demonstrations",
+          "url": "https://arxiv.org/abs/2611.03647v1",
+          "publisher": "arXiv Embodied Intelligence",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-11-02T18:59:32+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "Pixel: A Co-Designed Full-Stack Robot System for Learning General-Purpose Mobile Manipulation",
+          "url": "https://arxiv.org/abs/2611.03648v1",
+          "publisher": "arXiv Embodied Intelligence",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-11-02T18:59:32+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "EgoActionBench: Benchmarking Dense Action Captioning for Egocentric Human Videos",
+          "url": "https://arxiv.org/abs/2611.03646v1",
+          "publisher": "arXiv Embodied Intelligence",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-11-02T18:59:29+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "推理引擎、编译器与嵌入式系统（2026-11-03）",
     "date": "2026-11-03T15:42:16.881857+08:00",
     "count": 2,
