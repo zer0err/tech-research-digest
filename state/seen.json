@@ -211,6 +211,8 @@
     },
     "inference_systems": {
       "ids": [
+        "e20944903311c69519ae4423",
+        "fa5f328373b8d5edfb6c22bf",
         "8693ef6c8c0b55e10f5fe531",
         "6ce409540b085dadf08343fe",
         "9a353cad7c13daac5c22e7cc",
@@ -222,10 +224,12 @@
         "b018c3901f5052e513d7f7de",
         "4ac4eda1121470f5cf1d1a5b"
       ],
-      "updated_at": "2026-11-03T07:42:16.881857+00:00"
+      "updated_at": "2026-11-04T04:42:26.023099+00:00"
     }
   },
   "all_ids": [
+    "e20944903311c69519ae4423",
+    "fa5f328373b8d5edfb6c22bf",
     "03ed8288a8dc0539d63605ab",
     "791ff198614f0090d5041873",
     "43cdd1931bd2a8c08bba079e",
@@ -392,6 +396,8 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://doi.org/10.1145/3845995",
+    "https://developer.nvidia.com/blog/build-a-validated-kubernetes-runtime-for-nvidia-dynamo",
     "https://github.com/ollama/ollama/releases/tag/v0.40.14",
     "https://arxiv.org/abs/2611.04277v1",
     "https://arxiv.org/abs/2611.04225v1",
@@ -558,6 +564,8 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "2c6b33f851361dc3dfb392df",
+    "9f9fdf4d623e3df48c4ec62a",
     "edcebc594ad6cfe0430114bf",
     "9d999923ff4bdea69ddcd81c",
     "11d9847255b8808fc2fba691",
@@ -3099,6 +3107,38 @@
           "published": "2026-11-03T01:40:40+00:00",
           "summary": "## What's Changed * `ollama launch claude` now applies the model's output token limit for Claude Code, so cloud models no longer run into the 128k default cap * Cloud web search responses on `/api/chat` are now decoded correctly, including compressed responses * OpenAI-compatible endpoints no longer override a model's packaged sampler defaults — clients that send no `temperature`/`top_p` get the model's own values instead of 1.0, matching `/api/chat` * `/v1/responses` now preserves readable input content, including prior assistant refusals, instead of flattening it * Ollama's app can now retry ChatGPT disconnect failures instead of leaving the connection in a broken state * `ollama launch codex` verifies ChatGPT routing before configuring, and reports a clear error when routing is unavailable * Faster top-k sampling on MLX for large vocabularies **Full Changelog**: https://github.com/ollama/ollama/compare/v0.40.13...v0.40.14",
           "source": "Ollama Releases",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261104-paper_brief.html": {
+      "topic": "inference_systems",
+      "created_at": "2026-11-04T04:42:26.023099+00:00",
+      "items": [
+        {
+          "uid": "e20944903311c69519ae4423",
+          "title": "A Survey of LLM-based Software Repair: Taxonomies, Design Paradigms, and Applications",
+          "url": "https://doi.org/10.1145/3845995",
+          "published": "2026-11-02T00:00:00+00:00",
+          "summary": "Large language models (LLMs) are reshaping automated program repair. We present a reproducible hierarchical taxonomy that organizes 66 LLM-based repair systems according to where repair capability and control logic principally reside: taskadapted parameters, prompt and context design, designer-specified workflows, or LLM-directed runtime control. Adaptation, generation pattern, runtime control, and auxiliary evidence remain separate coded dimensions. This representation exposes control distinctions hidden by utilization labels and supports cross-paradigm analysis of system design and evaluation evidence. To the best of our knowledge, it is the first publicly available LLM-based software repair survey to operationalize Fine-Tuning, Prompting, Procedural, and Agentic as one corpus-wide primary classification. Our hierarchy complements prior surveys with a single corpus-wide primary decision rule, while the result-level protocol audit bounds which reported results are defensibly comparable. To analyze how repair systems use benchmarks, we record benchmark variants, metrics, base models, and fault-localization assumptions for each system’s primary reported result, identifying protocol-aligned comparison windows and benchmark-family fragments. We clarify paradigm trade-offs in task alignment, deployment cost, controllability, and multi-hunk or cross-file repair. We outline open chal",
+          "source": "OpenAlex Inference",
+          "kind": "research",
+          "doi": "https://doi.org/10.1145/3845995",
+          "date_precision": "day"
+        },
+        {
+          "uid": "fa5f328373b8d5edfb6c22bf",
+          "title": "Build a Validated Kubernetes Runtime for NVIDIA Dynamo",
+          "url": "https://developer.nvidia.com/blog/build-a-validated-kubernetes-runtime-for-nvidia-dynamo",
+          "published": "2026-10-30T21:35:31+00:00",
+          "summary": "Teams building AI applications need a repeatable path from a model configuration to a working inference endpoint. NVIDIA Dynamo is a distributed inference...",
+          "source": "NVIDIA Technical Blog",
           "kind": "research",
           "doi": "",
           "date_precision": "day"
