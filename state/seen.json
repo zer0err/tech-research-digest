@@ -75,6 +75,9 @@
     },
     "model_research": {
       "ids": [
+        "791ff198614f0090d5041873",
+        "43cdd1931bd2a8c08bba079e",
+        "019887062877834f71874de7",
         "92820dc029105f16bbd59507",
         "36e7af8c831e5fd06378b934",
         "690919cc57255be2944a873d",
@@ -107,7 +110,7 @@
         "f3a5508d0160d42195ab7174",
         "cb661d928a0dfa16bc4c4588"
       ],
-      "updated_at": "2026-11-03T02:42:24.530833+00:00"
+      "updated_at": "2026-11-04T02:42:18.087004+00:00"
     },
     "embodied": {
       "ids": [
@@ -222,6 +225,9 @@
     }
   },
   "all_ids": [
+    "791ff198614f0090d5041873",
+    "43cdd1931bd2a8c08bba079e",
+    "019887062877834f71874de7",
     "3120cb53fbc5954ecff0513c",
     "130d10d3c1a4b493d9dfd1ed",
     "2b4786f99076579d8179f1f7",
@@ -384,6 +390,9 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://arxiv.org/abs/2611.04277v1",
+    "https://arxiv.org/abs/2611.04225v1",
+    "https://arxiv.org/abs/2611.04217v1",
     "https://github.blog/changelog/2026-11-03-byok-and-enterprise-custom-models-in-the-copilot-usage-api",
     "https://github.blog/changelog/2026-11-03-dependabot-version-updates-support-agent-package-manager",
     "https://github.blog/changelog/2026-11-03-github-copilot-is-now-available-in-jetbrains-air",
@@ -546,6 +555,9 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "9d999923ff4bdea69ddcd81c",
+    "11d9847255b8808fc2fba691",
+    "5354252167ee996c913bfa43",
     "5583593710eac21aa9a79ad9",
     "2a11aca47301fd79e05b7998",
     "de485144bd1258004bd929f8",
@@ -3019,6 +3031,49 @@
           "published": "2026-11-03T15:11:46+00:00",
           "summary": "You can now delegate coding tasks, guide execution, and review results with GitHub Copilot in JetBrains Air. The integration uses the Agent Client Protocol (ACP) and supports tasks in your… The post GitHub Copilot is now available in JetBrains Air appeared first on The GitHub Blog .",
           "source": "GitHub 官方更新",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261104-model_research.html": {
+      "topic": "model_research",
+      "created_at": "2026-11-04T02:42:18.087004+00:00",
+      "items": [
+        {
+          "uid": "791ff198614f0090d5041873",
+          "title": "Harness-S: Learning from Sibling Harnesses for Generalizable Agent Training",
+          "url": "https://arxiv.org/abs/2611.04277v1",
+          "published": "2026-11-03T04:03:44+00:00",
+          "summary": "Harness evolution from a common base exhibits Locality, Complementarity, and Nonstationarity: variants repair different failures, and their utility changes as the policy learns. Rather than seeking a universally superior harness, we introduce Harness-S to selectively rescue failures of a base execution system through sibling harnesses and transfer the resulting capabilities into a single policy that remains effective under the original harness. Directional Harness Evolution develops specialized sibling harnesses along distinct repair directions, forming a reusable Sibling Harness Pool that remains fixed during policy training. Complementary Harness Rescue Training invokes this pool only when all initial attempts under the base harness fail. The same policy generates fresh rollouts under selected auxiliary harnesses, and these trajectories replace the failed group for reinforcement learning. An Adaptive Harness Router selects the Top-k variants using Harness Behavior Profiles and voting across multiple LLMs. Policy-aware profile re-anchoring refreshes this evidence as the policy learns. Across AppWorld, SWE-Gym, and DBBench, the trained policy substantially outperforms policy-only training when returned to the original base harness. Behavioral analyses and held-out cases support the transfer of harness-elicited behaviors into the policy itself. Reusing the router for Rank-1 infe",
+          "source": "arXiv Model Research",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        },
+        {
+          "uid": "43cdd1931bd2a8c08bba079e",
+          "title": "IntentGEO: Intent-aware Generative Engine Optimization for Recommendation",
+          "url": "https://arxiv.org/abs/2611.04225v1",
+          "published": "2026-11-03T03:04:18+00:00",
+          "summary": "Large language models (LLMs) increasingly shape recommendations across chatbots, e-commerce, and user-generated content (UGC) platforms, creating demand for Generative Engine Optimization (GEO) to improve item visibility in generated responses. Existing GEO studies are mainly content-centric, optimizing visibility under general-purpose queries. However, a shared item description usually serves users with different needs and decision goals, resulting in its visibility gains being dependent on the request. To investigate how changing intent affects visibility, we formulate IntentGEO to evaluate shared rewrites across need specificity and decision progression. We revisit existing GEO methods and find that their visibility gains vary across user intents. More critically, learning-based prompt optimization can underperform its handwritten seed on average. Tracing these updates reveals prompt drift from explicit recommendation instructions toward generic promotional tactics. To address this drift, we propose AMO (Anchored Meta-Optimization), which preserves recommendation instructions in a fixed core while learning appended strategies from citation feedback. Across four domains and ten intent states, AMO improves average citation-rank gain by 35% over the strongest prior learning-based baseline and leads on nine states. Ablations show that learned additions improve on the fixed core ",
+          "source": "arXiv Model Research",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        },
+        {
+          "uid": "019887062877834f71874de7",
+          "title": "LENS: Reliability-Aware Stock Prediction via LLM-Extracted Priors and News-Driven Semantic Graphs",
+          "url": "https://arxiv.org/abs/2611.04217v1",
+          "published": "2026-11-03T03:00:31+00:00",
+          "summary": "Predicting stock returns requires modeling persistent company relations and time-varying market signals. Graph Neural Network (GNN) approaches combine static priors with dynamic relational graphs, but treat every extracted edge as a trustworthy binary fact, ignoring heterogeneous reliability across relational sources. We propose LENS (LLM-Extracted priors and News-driven Semantics), a static--dynamic graph framework for stock return prediction and ranking that models relational reliability as a first-class signal across the pipeline. On the static side, we extract a multi-relational company graph from a Large Language Model and aggregate it over multiple runs with confidence weighting to downweight low-consistency edges. On the dynamic side, we build a news-driven semantic graph with exponential-decay temporal aggregation to capture changing market context under uneven coverage. A context-dependent gated fusion module rebalances the two graphs at the per-stock, per-day level. On S&P 500, LENS improves AR@5 by 16.4% and SR@5 by 22.6% over the strongest baseline, and on NASDAQ 100 it achieves comparable improvements (15.5% and 20.9% respectively). Ablations isolate each component's contribution, and a human-validation study of sampled relations supports that the aggregation is grounded, providing evidence that reliability-aware LLM relations and news-based semantic graphs carry c",
+          "source": "arXiv Model Research",
           "kind": "research",
           "doi": "",
           "date_precision": "day"
