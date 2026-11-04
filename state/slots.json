@@ -37,57 +37,9 @@
       "attempts": 1
     },
     "2026-11-04:applied_ai": {
-      "status": "prepared",
+      "status": "published",
       "updated_at": "2026-11-04T08:42:21.006556+00:00",
-      "attempts": 1,
-      "pending": {
-        "topic": "multimodal",
-        "title": "多模态感知、音视频与人机交互",
-        "url": "https://vorasio.com/posts/20261104-applied_ai.html",
-        "created_at": "2026-11-04T08:42:21.006556+00:00",
-        "items": [
-          {
-            "uid": "6915a246f05aaf4123d57e37",
-            "title": "An Artificial Intelligence Framework to Predict Box Office Performance through Multimodal Analysis of Movie Trailers and Online Audience Responses",
-            "url": "https://doi.org/10.1142/s0218213026500296",
-            "published": "2026-11-04T00:00:00+00:00",
-            "summary": "In the film industry, box office predictions are crucial for making investment decisions, marketing plans, and distribution choices. Current prediction approaches mainly use movie metadata or single-modal information, ignoring trailer video content and audience responses, resulting in low prediction accuracy and robustness. The proposed framework is novel in that it uses a Convolutional Neural Network (CNN)–Bidirectional Long Short-Term Memory (BiLSTM)–Attention (CNN–BiLSTM–Attention) regression and Artificial Rabbits Optimization (ARO)-based feature selection to integrate trailer visual features, trailer audio features, movie metadata, and audience responses into a single multimodal architecture. The proposed framework used the Movies YouTube Trailers and Sentiment dataset, which was preprocessed using mean value imputation, followed by Min–Max normalization and one-hot encoding. Vision Transformer (ViT) was used to extract visual characteristics from the trailer, and Mel-Frequency Cepstral Coefficients (MFCC), chroma, spectral centroid, zero-crossing rate, and Root Mean Square (RMS) energy were used to extract audio features. Audience response features were derived from sentiment scores, favorability, and vote counts. Visual, audio, metadata, and audience response features were fused into a unified multimodal representation. In order to forecast box office revenue, ARO chose ",
-            "source": "Crossref Multimodal",
-            "kind": "research",
-            "doi": "10.1142/s0218213026500296",
-            "date_precision": "day"
-          },
-          {
-            "uid": "88c5bc03bd13ed7a057cbe45",
-            "title": "A multimodal approach to identify atypical face processing in first episode psychosis (early schizophrenia spectrum disorders)",
-            "url": "https://doi.org/10.3389/fnimg.2026.1931240",
-            "published": "2026-11-04T00:00:00+00:00",
-            "summary": "Background While social interaction difficulties are common in schizophrenia, the neural underpinnings for its social symptomatology are under-explored. In this study, we aimed to isolate atypical neural systems associated with live social interaction in first episode psychosis (early schizophrenia spectrum disorder). Methods A two-person live face gaze paradigm was employed as the behavioral proxy for social interaction while electroencephalography (EEG), functional near infrared spectroscopy (fNIRS), eye tracking, and facial movement measures were simultaneously acquired. Findings were compared for 24 first episode psychosis (FEP) patients and 32 typically developed (TD) participants to test the hypothesis that these neural and behavioral measures would isolate atypical social neural systems in the FEP group. Results FNIRS neural data showed atypical hemodynamic activity in the right temporoparietal region, known to be associated with live face-to-face interactions. This atypical activity was significantly correlated with expressive deficit score, a sub score derived from PANSS negative symptom domain and N4, a PANSS negative symptom which measures passive/apathetic social withdrawal. Involuntary behavioral responses associated with spontaneous facial mimicry and gaze fixation were reduced in FEP. Consistent with previous findings, Event Related Potential (ERP) amplitudes and",
-            "source": "Crossref Multimodal",
-            "kind": "research",
-            "doi": "10.3389/fnimg.2026.1931240",
-            "date_precision": "day"
-          },
-          {
-            "uid": "e2d5b6eae785e901567c81ca",
-            "title": "Visibility-Aware Reference Generation for Benchmarking Visual 3D Reconstruction in Vegetation-Rich Environments",
-            "url": "https://arxiv.org/abs/2611.05361v1",
-            "published": "2026-11-03T18:54:52+00:00",
-            "summary": "Reliable evaluation of visual 3D reconstruction and depth estimation in vegetation-rich outdoor environments is limited by the scarcity of geometric ground-truth data and the cost of complete scanner surveys. We present a LiDARbased reference-generation pipeline for evaluating the zero-shot performance of feed-forward visual-geometry models alongside conventional structure-from-motion (SfM) methods. The pipeline reuses camera images, LiDAR scans, and reference poses from existing multi-sensor localization datasets to generate per-view depth maps and visible reference point clouds. To address visibility errors in accumulated LiDAR scans, we introduce the LargeDepth-Gap Visibility Score (LDGVS) for point-wise visibility filtering and automatic scale selection in Hidden Point Removal(HPR). Experiments on TartanAirV2 and TartanGround show that, compared with Poisson surface reconstruction, which is an approach suited to completed scan surveys, the combined HPR and LDGVS filtering retains approximately three times the point density at comparable absolute relative error. We also apply the pipeline to the BotanicGarden dataset to systematically compare depth estimation and 3D reconstruction methods. Feedforward methods produce dense depth predictions efficiently, but their 3D reconstructions can contain duplicated structures. Conventional SfM generally produces more coherent geometry,",
-            "source": "arXiv Perception",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day"
-          }
-        ],
-        "notify": false,
-        "mode": "production",
-        "analysis": {
-          "provider": "Groq",
-          "model": "openai/gpt-oss-20b"
-        },
-        "slot": "applied_ai"
-      }
+      "attempts": 1
     },
     "2026-11-03:prompt_engineering": {
       "status": "no_matching_in_window",
