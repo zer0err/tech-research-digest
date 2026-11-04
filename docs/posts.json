@@ -1,5 +1,44 @@
 [
   {
+    "title": "AI 论文午间速览（2026-11-04）",
+    "date": "2026-11-04T12:42:26.023099+08:00",
+    "count": 2,
+    "url": "posts/20261104-paper_brief.html",
+    "topic": "paper_brief",
+    "status": "published",
+    "summary": "本期要点 - NVIDIA Dynamo 在 Kubernetes 上实现了可验证的推理运行时，支持多租户推理服务并提供统一的资源管理与监控接口 2。 - LLM‑based 软件修复系统可按四大范式（Fine‑Tuning、Prompting、Procedural、Agentic）进行层级化分类，首次公开的可复现层级",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "A Survey of LLM-based Software Repair: Taxonomies, Design Paradigms, and Applications",
+          "url": "https://doi.org/10.1145/3845995",
+          "publisher": "OpenAlex Inference",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-11-02T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.1145/3845995",
+          "kind": "research"
+        },
+        {
+          "title": "Build a Validated Kubernetes Runtime for NVIDIA Dynamo",
+          "url": "https://developer.nvidia.com/blog/build-a-validated-kubernetes-runtime-for-nvidia-dynamo",
+          "publisher": "NVIDIA Technical Blog",
+          "host": "developer.nvidia.com",
+          "family": "博客/公开网页",
+          "published": "2026-10-30T21:35:31+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 开源项目与工具更新（2026-11-04）",
     "date": "2026-11-04T11:42:23.967633+08:00",
     "count": 1,
