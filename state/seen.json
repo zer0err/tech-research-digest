@@ -3,6 +3,7 @@
   "topics": {
     "open_source": {
       "ids": [
+        "03ed8288a8dc0539d63605ab",
         "94a4d27cf01294c2cb6c23bf",
         "f6422fbbd22beb54c40b0451",
         "369212866d51bd4cce52fcbf",
@@ -13,7 +14,7 @@
         "da838ef163b59d2f4118281e",
         "fe0903755f1ec81fb4fd8f3d"
       ],
-      "updated_at": "2026-10-31T03:42:13.516158+00:00"
+      "updated_at": "2026-11-04T03:42:23.967633+00:00"
     },
     "multimodal": {
       "ids": [
@@ -225,6 +226,7 @@
     }
   },
   "all_ids": [
+    "03ed8288a8dc0539d63605ab",
     "791ff198614f0090d5041873",
     "43cdd1931bd2a8c08bba079e",
     "019887062877834f71874de7",
@@ -390,6 +392,7 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://github.com/ollama/ollama/releases/tag/v0.40.14",
     "https://arxiv.org/abs/2611.04277v1",
     "https://arxiv.org/abs/2611.04225v1",
     "https://arxiv.org/abs/2611.04217v1",
@@ -555,6 +558,7 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "edcebc594ad6cfe0430114bf",
     "9d999923ff4bdea69ddcd81c",
     "11d9847255b8808fc2fba691",
     "5354252167ee996c913bfa43",
@@ -3074,6 +3078,27 @@
           "published": "2026-11-03T03:00:31+00:00",
           "summary": "Predicting stock returns requires modeling persistent company relations and time-varying market signals. Graph Neural Network (GNN) approaches combine static priors with dynamic relational graphs, but treat every extracted edge as a trustworthy binary fact, ignoring heterogeneous reliability across relational sources. We propose LENS (LLM-Extracted priors and News-driven Semantics), a static--dynamic graph framework for stock return prediction and ranking that models relational reliability as a first-class signal across the pipeline. On the static side, we extract a multi-relational company graph from a Large Language Model and aggregate it over multiple runs with confidence weighting to downweight low-consistency edges. On the dynamic side, we build a news-driven semantic graph with exponential-decay temporal aggregation to capture changing market context under uneven coverage. A context-dependent gated fusion module rebalances the two graphs at the per-stock, per-day level. On S&P 500, LENS improves AR@5 by 16.4% and SR@5 by 22.6% over the strongest baseline, and on NASDAQ 100 it achieves comparable improvements (15.5% and 20.9% respectively). Ablations isolate each component's contribution, and a human-validation study of sampled relations supports that the aggregation is grounded, providing evidence that reliability-aware LLM relations and news-based semantic graphs carry c",
           "source": "arXiv Model Research",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261104-open_source.html": {
+      "topic": "open_source",
+      "created_at": "2026-11-04T03:42:23.967633+00:00",
+      "items": [
+        {
+          "uid": "03ed8288a8dc0539d63605ab",
+          "title": "ollama/ollama: v0.40.14",
+          "url": "https://github.com/ollama/ollama/releases/tag/v0.40.14",
+          "published": "2026-11-03T01:40:40+00:00",
+          "summary": "## What's Changed * `ollama launch claude` now applies the model's output token limit for Claude Code, so cloud models no longer run into the 128k default cap * Cloud web search responses on `/api/chat` are now decoded correctly, including compressed responses * OpenAI-compatible endpoints no longer override a model's packaged sampler defaults — clients that send no `temperature`/`top_p` get the model's own values instead of 1.0, matching `/api/chat` * `/v1/responses` now preserves readable input content, including prior assistant refusals, instead of flattening it * Ollama's app can now retry ChatGPT disconnect failures instead of leaving the connection in a broken state * `ollama launch codex` verifies ChatGPT routing before configuring, and reports a clear error when routing is unavailable * Faster top-k sampling on MLX for large vocabularies **Full Changelog**: https://github.com/ollama/ollama/compare/v0.40.13...v0.40.14",
+          "source": "Ollama Releases",
           "kind": "research",
           "doi": "",
           "date_precision": "day"
