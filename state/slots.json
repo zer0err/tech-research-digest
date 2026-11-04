@@ -27,46 +27,9 @@
       "attempts": 1
     },
     "2026-11-04:core_research": {
-      "status": "prepared",
+      "status": "published",
       "updated_at": "2026-11-04T06:13:28.599204+00:00",
-      "attempts": 1,
-      "pending": {
-        "topic": "ai_hardware",
-        "title": "AI 芯片、计算架构与硬件平台",
-        "url": "https://vorasio.com/posts/20261104-core_research.html",
-        "created_at": "2026-11-04T06:13:28.599204+00:00",
-        "items": [
-          {
-            "uid": "5cfeef5b9daf14ebcbde7289",
-            "title": "A RISC-V Simulator for the Tenstorrent Tensix Architecture",
-            "url": "https://arxiv.org/abs/2611.04740v1",
-            "published": "2026-11-03T11:57:36+00:00",
-            "summary": "RISC-V based AI accelerators have become popular and not only for AI and ML, but also as vehicles for exploring HPC workloads more generally. Tenstorrent are one example, and whilst they document their Tensix architecture in detail and develop their software stack openly, running code has historically required a physical card, and their recently released simulator targets hardware equivalence rather than introspection. In this paper we present Wolfpine, a community developed RISC-V simulator for the Tensix architecture, supporting both the Wormhole and Blackhole generations and integrating seamlessly with the TT-Metal software stack. Constructed entirely from publicly available documentation, open source software and measurements on physical hardware, Wolfpine is written in pure Python for readability and ease of modification. An opt-in, provenance-tracked cost model adds timing fidelity incrementally, and typed event streams, per-component tracing and timeline export enable programmers to identify and diagnose performance bottlenecks that the hardware itself hides.",
-            "source": "arXiv AI Hardware",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day"
-          },
-          {
-            "uid": "469161b324056d08ad7799a7",
-            "title": "Co-Design of a Low-Power RISC-V Processor and a Reconfigurable Neural Network Accelerator for Edge AI Computing",
-            "url": "https://doi.org/10.70088/z2h7gc12",
-            "published": "2026-11-03T00:00:00+00:00",
-            "summary": "The operational efficiency of the compact edge AI accelerator is susceptible to variations in network structure and data transmission speed. To address this issue, this study proposes a collaborative design scheme for digital integrated circuits. By adjusting the working mode of the computing array and coordinating with storage and power management, the operational efficiency of the accelerator is improved. The research tested three network models trained on the publicly available Digits dataset. The results showed that the average accuracy of integer reasoning ranged from 96.78% to 97.33%, and the average loss was at most 0.11 percentage points compared to floating-point reasoning. In a cost model with 64 processing units and 8 KiB memory, compared to a fixed array, this scheme reduced the inference delay by 14.83% to 18.74%, decreased the single-inference energy consumption by 6.86% to 8.81%, and increased the area by 7.58%. Further experiments demonstrated that reducing the waiting time between data transmission and computation plays a major role in improving operational efficiency. Allowing the computing array to flexibly adjust its working mode can also increase the utilization rate of processing units, but this improvement is still limited by data transmission capabilities. In the hardware resource allocation test, the scheme with 64 computing elements and 1 KB memory fur",
-            "source": "OpenAlex AI Hardware",
-            "kind": "research",
-            "doi": "https://doi.org/10.70088/z2h7gc12",
-            "date_precision": "day"
-          }
-        ],
-        "notify": false,
-        "mode": "production",
-        "analysis": {
-          "provider": "Xiaomi MiMo",
-          "model": "mimo-v2.6-flash"
-        },
-        "slot": "core_research"
-      }
+      "attempts": 1
     },
     "2026-11-03:prompt_engineering": {
       "status": "no_matching_in_window",
