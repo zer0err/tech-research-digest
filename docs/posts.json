@@ -1,5 +1,44 @@
 [
   {
+    "title": "AI 芯片、计算架构与硬件平台（2026-11-04）",
+    "date": "2026-11-04T14:13:28.599204+08:00",
+    "count": 2,
+    "url": "posts/20261104-core_research.html",
+    "topic": "core_research",
+    "status": "published",
+    "summary": "本期结论 - 边缘 AI 加速器的软硬件协同设计（计算阵列工作模式可调 + 存储/功耗管理配合）在成本模型中同时改善了延迟与能效，代价是面积增加，属于有定量数据支撑的方向 2。 - 面向 AI 加速器架构的开源模拟器/仿真工具链正在补齐\"无物理卡即可调试性能瓶颈\"的能力，Wolfpine 是一个具体案例；但目前仅见单篇",
+    "provenance": {
+      "analysis": {
+        "provider": "Xiaomi MiMo",
+        "model": "mimo-v2.6-flash"
+      },
+      "sources": [
+        {
+          "title": "A RISC-V Simulator for the Tenstorrent Tensix Architecture",
+          "url": "https://arxiv.org/abs/2611.04740v1",
+          "publisher": "arXiv AI Hardware",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-11-03T11:57:36+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "Co-Design of a Low-Power RISC-V Processor and a Reconfigurable Neural Network Accelerator for Edge AI Computing",
+          "url": "https://doi.org/10.70088/z2h7gc12",
+          "publisher": "OpenAlex AI Hardware",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-11-03T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.70088/z2h7gc12",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 论文午间速览（2026-11-04）",
     "date": "2026-11-04T12:42:26.023099+08:00",
     "count": 2,

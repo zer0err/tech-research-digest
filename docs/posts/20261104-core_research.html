@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 芯片、计算架构与硬件平台（2026-11-04）</title><meta name="description" content="AI 芯片、计算架构与硬件平台（2026-11-04）：2 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav aria-label="主导航"><a href="../index.html#latest">时间线</a><a href="../knowledge/index.html">AI 知识科普</a><a href="../courses/index.html">AI 学习</a><a href="../tools/index.html">AI 工具</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">智能硬件技术专题</p><dl><dt>发布时间</dt><dd data-published-at="2026-11-04T14:13:28.599204+08:00">2026-11-04 14:13 · UTC+8</dd><dt>研究条目</dt><dd>2 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · 智能硬件技术专题</p><h1>AI 芯片、计算架构与硬件平台（2026-11-04）</h1><!-- provenance:start --><p class="ai-analysis" title="mimo-v2.6-flash">AI 分析：Xiaomi MiMo</p><!-- provenance:end --><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期结论</h2>
+<ul>
+<li>边缘 AI 加速器的软硬件协同设计（计算阵列工作模式可调 + 存储/功耗管理配合）在成本模型中同时改善了延迟与能效，代价是面积增加，属于有定量数据支撑的方向 [2]。</li>
+<li>面向 AI 加速器架构的开源模拟器/仿真工具链正在补齐&quot;无物理卡即可调试性能瓶颈&quot;的能力，Wolfpine 是一个具体案例；但目前仅见单篇工作，尚不足以称为趋势，标记为值得关注的信号 [1]。</li>
+<li>两篇资料共同指向&quot;软硬件协同 + 可观测性/可调性&quot;对 AI 加速器效率的重要性，但一篇是模拟器、一篇是协同设计方案，证据类型不同，不宜合并为单一行业结论 [1][2]。</li>
+</ul>
+<h2>逐项分析</h2>
+<p><strong>[1] Wolfpine：Tensix 架构 RISC-V 模拟器</strong></p>
+<ul>
+<li>核心贡献：面向 Tenstorrent Tensix 架构的社区开发 RISC-V 模拟器，支持 Wormhole 与 Blackhole 两代，集成 TT-Metal 软件栈；纯 Python 实现，含可选的溯源追踪成本模型与类型化事件流、逐组件 tracing、时间线导出，用于识别硬件隐藏的性能瓶颈 [1]。</li>
+<li>方法与数据：完全基于公开文档、开源软件与物理硬件测量构建；摘要未提供模拟器与真实硬件的时序/性能吻合度定量对比数据 [1]。</li>
+<li>性能证据：摘要未提供吞吐、延迟或精度的定量结果，无法从摘要确认其时序保真度水平 [1]。</li>
+<li>局限与证据等级：缺少与硬件等价性验证的定量指标，证据等级 C（主张缺少实验细节）[1]。</li>
+<li>工程意义：为无物理卡的开发者提供性能瓶颈诊断路径，适合在选型/调优阶段做前置探索，但不能替代实机验证 [1]。</li>
+</ul>
+<p><strong>[2] 低功耗 RISC-V 处理器与可重构 NNA 协同设计</strong></p>
+<ul>
+<li>核心贡献：通过调整计算阵列工作模式并协调存储与功耗管理，提升边缘 AI 加速器运行效率的数字 IC 协同设计方案 [2]。</li>
+<li>方法与数据：在 Digits 数据集上测试三个网络模型；64 处理单元 + 8 KiB 存储的成本模型下，相比固定阵列，推理延迟降低 14.83%–18.74%，单次推理能耗降低 6.86%–8.81%，面积增加 7.58%；整数推理平均精度 96.78%–97.33%，相对浮点推理平均损失至多 0.11 个百分点 [2]。</li>
+<li>性能证据：延迟、能耗、面积、精度均有定量区间，且指出减少数据传输与计算间等待时间是效率提升主因，处理单元利用率提升仍受数据传输能力限制 [2]。</li>
+<li>局限与证据等级：基于成本模型而非流片实测，数据集为 Digits（规模较小），证据等级 A（摘要含方法、数据及定量结果），但外推到真实硬件需谨慎 [2]。</li>
+<li>工程意义：为边缘 NPU 设计提供&quot;可重构阵列 + 存储/功耗协同&quot;的量化参考，面积代价 7.58% 需在面积敏感场景评估 [2]。</li>
+</ul>
+<h2>工程行动建议</h2>
+<ul>
+<li>验证实验：对 [2] 的协同方案，在实际 RTL/流片或 FPGA 原型上复测延迟、能耗、面积，核对与成本模型 14.83%–18.74% 延迟降幅的偏差；对 [1]，用 Wolfpine 对同一负载做逐组件 tracing，与实机 profiling 对比瓶颈定位一致性 [1][2]。</li>
+<li>落地评估：边缘场景优先评估 [2] 方案的面积增加 7.58% 是否可接受；无 Tenstorrent 硬件的团队可用 [1] 做前期架构探索，但选型决策需实机数据支撑 [1][2]。</li>
+<li>后续跟踪指标：跟踪 [1] 是否发布与硬件等价性的定量验证数据；跟踪 [2] 是否扩展到更大数据集/真实流片，以及数据传输带宽对处理单元利用率的进一步量化影响 [1][2]。</li>
+</ul>
+<h2>参考资料</h2>
+<p>[1] A RISC-V Simulator for the Tenstorrent Tensix Architecture <a href="https://arxiv.org/abs/2611.04740v1">https://arxiv.org/abs/2611.04740v1</a>
+[2] Co-Design of a Low-Power RISC-V Processor and a Reconfigurable Neural Network Accelerator for Edge AI Computing <a href="https://doi.org/10.70088/z2h7gc12">https://doi.org/10.70088/z2h7gc12</a></p>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>
