@@ -1,5 +1,55 @@
 [
   {
+    "title": "多模态感知、音视频与人机交互（2026-11-04）",
+    "date": "2026-11-04T16:42:21.006556+08:00",
+    "count": 3,
+    "url": "posts/20261104-applied_ai.html",
+    "topic": "applied_ai",
+    "status": "published",
+    "summary": "本期结论 1. 多模态框架能显著提升任务性能，尤其在电影票房预测中，视觉、音频与观众情绪特征的融合比单模态更具预测力1。 2. 在心理学实验中，视觉、听觉与生理信号（EEG、fNIRS、眼动）联合使用可揭示精神分裂症患者的社交神经异常2。 3. 对于视觉3D重建，利用LiDAR生成的可见性加权参考点云可在无完整扫描的情",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "An Artificial Intelligence Framework to Predict Box Office Performance through Multimodal Analysis of Movie Trailers and Online Audience Responses",
+          "url": "https://doi.org/10.1142/s0218213026500296",
+          "publisher": "Crossref Multimodal",
+          "host": "doi.org",
+          "family": "书目索引",
+          "published": "2026-11-04T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "10.1142/s0218213026500296",
+          "kind": "research"
+        },
+        {
+          "title": "A multimodal approach to identify atypical face processing in first episode psychosis (early schizophrenia spectrum disorders)",
+          "url": "https://doi.org/10.3389/fnimg.2026.1931240",
+          "publisher": "Crossref Multimodal",
+          "host": "doi.org",
+          "family": "书目索引",
+          "published": "2026-11-04T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "10.3389/fnimg.2026.1931240",
+          "kind": "research"
+        },
+        {
+          "title": "Visibility-Aware Reference Generation for Benchmarking Visual 3D Reconstruction in Vegetation-Rich Environments",
+          "url": "https://arxiv.org/abs/2611.05361v1",
+          "publisher": "arXiv Perception",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-11-03T18:54:52+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 芯片、计算架构与硬件平台（2026-11-04）",
     "date": "2026-11-04T14:13:28.599204+08:00",
     "count": 2,

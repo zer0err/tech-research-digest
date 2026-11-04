@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>多模态感知、音视频与人机交互（2026-11-04）</title><meta name="description" content="多模态感知、音视频与人机交互（2026-11-04）：3 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav aria-label="主导航"><a href="../index.html#latest">时间线</a><a href="../knowledge/index.html">AI 知识科普</a><a href="../courses/index.html">AI 学习</a><a href="../tools/index.html">AI 工具</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">AI 应用与落地专题</p><dl><dt>发布时间</dt><dd data-published-at="2026-11-04T16:42:21.006556+08:00">2026-11-04 16:42 · UTC+8</dd><dt>研究条目</dt><dd>3 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · AI 应用与落地专题</p><h1>多模态感知、音视频与人机交互（2026-11-04）</h1><!-- provenance:start --><p class="ai-analysis" title="openai/gpt-oss-20b">AI 分析：Groq</p><!-- provenance:end --><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期结论</h2>
+<ol>
+<li>多模态框架能显著提升任务性能，尤其在电影票房预测中，视觉、音频与观众情绪特征的融合比单模态更具预测力[1]。</li>
+<li>在心理学实验中，视觉、听觉与生理信号（EEG、fNIRS、眼动）联合使用可揭示精神分裂症患者的社交神经异常[2]。</li>
+<li>对于视觉3D重建，利用LiDAR生成的可见性加权参考点云可在无完整扫描的情况下提供更高密度、误差更低的基准，表明多模态传感器融合在环境感知中的实用性[3]。</li>
+</ol>
+<h2>逐项分析</h2>
+<table>
+<thead>
+<tr>
+<th>资料</th>
+<th>核心贡献</th>
+<th>方法与数据</th>
+<th>性能证据</th>
+<th>局限与证据等级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[1]</td>
+<td>提出CNN–BiLSTM–Attention回归+ARO特征选择的多模态票房预测框架</td>
+<td>视觉：ViT提取；音频：MFCC、chroma等；元数据与观众情绪；数据集：Movies YouTube Trailers and Sentiment</td>
+<td>通过AUC/MAE等指标（未在摘要给出）表明多模态优于单模态</td>
+<td>仅摘要提供方法与数据，缺乏定量结果，证据等级 B</td>
+</tr>
+<tr>
+<td>[2]</td>
+<td>通过双人实时面部凝视实验联合EEG、fNIRS、眼动、面部运动识别精神分裂症社交神经异常</td>
+<td>24 FEP vs 32 TD；fNIRS右TPJ血流异常与PANSS负症相关；ERP与行为指标</td>
+<td>统计显著相关性与行为差异（未给出具体数值）</td>
+<td>仅摘要含定性结果，证据等级 B</td>
+</tr>
+<tr>
+<td>[3]</td>
+<td>LiDAR‑基准生成管线与LDGVS可见性评分，用于评估视觉3D重建</td>
+<td>结合TartanAirV2、TartanGround、BotanicGarden；对比Poisson、SfM</td>
+<td>通过点密度与绝对相对误差比较，HPR+LDGVS保留约三倍点密度</td>
+<td>仅摘要给出实验对比，缺少完整数值，证据等级 B</td>
+</tr>
+</tbody>
+</table>
+<h2>工程行动建议</h2>
+<ul>
+<li><strong>验证实验</strong>：在本地构建类似的多模态数据集（如电影预告片+观众评论），使用ViT+BiLSTM+Attention模型并对比单模态基线，以验证[1]的优势。</li>
+<li><strong>落地评估</strong>：针对[2]的社交神经评估，可在临床试验中加入EEG+fNIRS+眼动同步采集，评估模型对早期精神分裂症筛查的敏感性与特异性。</li>
+<li><strong>后续跟踪指标</strong>：对[3]的LiDAR参考生成，可持续跟踪点密度、误差分布与重建速度，评估其在无人机或自动驾驶视觉系统中的适用性。</li>
+</ul>
+<h2>参考资料</h2>
+<p>[1] An Artificial Intelligence Framework to Predict Box Office Performance through Multimodal Analysis of Movie Trailers and Online Audience Responses. <a href="https://doi.org/10.1142/s0218213026500296">https://doi.org/10.1142/s0218213026500296</a><br />
+[2] A multimodal approach to identify atypical face processing in first episode psychosis (early schizophrenia spectrum disorders). <a href="https://doi.org/10.3389/fnimg.2026.1931240">https://doi.org/10.3389/fnimg.2026.1931240</a><br />
+[3] Visibility-Aware Reference Generation for Benchmarking Visual 3D Reconstruction in Vegetation-Rich Environments. <a href="https://arxiv.org/abs/2611.05361v1">https://arxiv.org/abs/2611.05361v1</a></p>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>
