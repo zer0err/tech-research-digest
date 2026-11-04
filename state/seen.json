@@ -38,6 +38,9 @@
     },
     "morning_radar": {
       "ids": [
+        "3120cb53fbc5954ecff0513c",
+        "130d10d3c1a4b493d9dfd1ed",
+        "2b4786f99076579d8179f1f7",
         "c45a0b6d7de18ac55a144d19",
         "7ea5e5653a712c312f80ca1d",
         "a8d5896b41e236f8c3b2c9dc",
@@ -57,7 +60,7 @@
         "dea8ba729eb28582daacbbc8",
         "767a7f383549ba646ff22647"
       ],
-      "updated_at": "2026-11-03T01:12:22.750011+00:00"
+      "updated_at": "2026-11-04T01:12:25.315684+00:00"
     },
     "ecosystem": {
       "ids": [
@@ -219,6 +222,9 @@
     }
   },
   "all_ids": [
+    "3120cb53fbc5954ecff0513c",
+    "130d10d3c1a4b493d9dfd1ed",
+    "2b4786f99076579d8179f1f7",
     "3fbc5de6df86c549e06f3558",
     "bc9774fc6010924672951009",
     "b9a83159718694cf881fb1b2",
@@ -378,6 +384,9 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://github.blog/changelog/2026-11-03-byok-and-enterprise-custom-models-in-the-copilot-usage-api",
+    "https://github.blog/changelog/2026-11-03-dependabot-version-updates-support-agent-package-manager",
+    "https://github.blog/changelog/2026-11-03-github-copilot-is-now-available-in-jetbrains-air",
     "https://arxiv.org/abs/2611.03647v1",
     "https://arxiv.org/abs/2611.03648v1",
     "https://arxiv.org/abs/2611.03646v1",
@@ -537,6 +546,9 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "5583593710eac21aa9a79ad9",
+    "2a11aca47301fd79e05b7998",
+    "de485144bd1258004bd929f8",
     "9c78a1269d8b682608031aae",
     "1403f55774c4fca86a3cecac",
     "b087123c337c867c82bc6cb8",
@@ -2964,6 +2976,49 @@
           "published": "2026-11-02T18:59:29+00:00",
           "summary": "Learning from human data offers a scalable path toward embodied intelligence, yet it requires models to accurately understand fine-grained human actions from egocentric observations. However, existing benchmarks remain limited in action atomicity, temporal precision, and hand-action association. We introduce EgoActionBench, a benchmark that represents continuous human manipulation as temporally localized atomic actions associated with the left hand, right hand, or both hands. EgoActionBench contains 1,407 episodes with 41,132 human-refined action annotations. To evaluate such dense predictions, we propose an evaluation protocol that retrieves temporally eligible candidates, selects a prediction by content agreement, and scores semantic fidelity and temporal overlap alongside action precision and recall, jointly capturing what happens, when it happens, and which hand performs it. We benchmark 20 baseline models and systems on EgoActionBench and further adapt two backbones, Qwen3-VL-4B and LLaVA-OneVision-2-8B, through supervised fine-tuning followed by reinforcement learning on automatically annotated training episodes. EgoAction improves EgoActionScore by 15.9 and 23.2 points on the two backbones, and both adapted models outperform all open-source baselines. Our experiments reveal substantial limitations of current models in action atomicity, temporal precision, and hand-action",
           "source": "arXiv Embodied Intelligence",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261104-morning_radar.html": {
+      "topic": "morning_radar",
+      "created_at": "2026-11-04T01:12:25.315684+00:00",
+      "items": [
+        {
+          "uid": "3120cb53fbc5954ecff0513c",
+          "title": "BYOK and enterprise custom models in the Copilot usage API",
+          "url": "https://github.blog/changelog/2026-11-03-byok-and-enterprise-custom-models-in-the-copilot-usage-api",
+          "published": "2026-11-04T00:32:19+00:00",
+          "summary": "The Copilot usage metrics API now shows bring your own key (BYOK) usage across GitHub Copilot, so you can separate it from Copilot-hosted model usage. Reports cover two kinds of… The post BYOK and enterprise custom models in the Copilot usage API appeared first on The GitHub Blog .",
+          "source": "GitHub 官方更新",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        },
+        {
+          "uid": "130d10d3c1a4b493d9dfd1ed",
+          "title": "Dependabot version updates support Agent Package Manager",
+          "url": "https://github.blog/changelog/2026-11-03-dependabot-version-updates-support-agent-package-manager",
+          "published": "2026-11-03T20:24:07+00:00",
+          "summary": "You can now keep your AI agent skills, prompts, and instructions up to date with Dependabot version updates for Agent Package Manager (APM). Dependabot opens pull requests to update supported… The post Dependabot version updates support Agent Package Manager appeared first on The GitHub Blog .",
+          "source": "GitHub 官方更新",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        },
+        {
+          "uid": "2b4786f99076579d8179f1f7",
+          "title": "GitHub Copilot is now available in JetBrains Air",
+          "url": "https://github.blog/changelog/2026-11-03-github-copilot-is-now-available-in-jetbrains-air",
+          "published": "2026-11-03T15:11:46+00:00",
+          "summary": "You can now delegate coding tasks, guide execution, and review results with GitHub Copilot in JetBrains Air. The integration uses the Agent Client Protocol (ACP) and supports tasks in your… The post GitHub Copilot is now available in JetBrains Air appeared first on The GitHub Blog .",
+          "source": "GitHub 官方更新",
           "kind": "research",
           "doi": "",
           "date_precision": "day"

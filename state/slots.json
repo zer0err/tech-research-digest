@@ -2,57 +2,9 @@
   "version": 1,
   "slots": {
     "2026-11-04:morning_radar": {
-      "status": "prepared",
+      "status": "published",
       "updated_at": "2026-11-04T01:12:25.315684+00:00",
-      "attempts": 1,
-      "pending": {
-        "topic": "morning_radar",
-        "title": "AI 晨间雷达与免费资源",
-        "url": "https://vorasio.com/posts/20261104-morning_radar.html",
-        "created_at": "2026-11-04T01:12:25.315684+00:00",
-        "items": [
-          {
-            "uid": "3120cb53fbc5954ecff0513c",
-            "title": "BYOK and enterprise custom models in the Copilot usage API",
-            "url": "https://github.blog/changelog/2026-11-03-byok-and-enterprise-custom-models-in-the-copilot-usage-api",
-            "published": "2026-11-04T00:32:19+00:00",
-            "summary": "The Copilot usage metrics API now shows bring your own key (BYOK) usage across GitHub Copilot, so you can separate it from Copilot-hosted model usage. Reports cover two kinds of… The post BYOK and enterprise custom models in the Copilot usage API appeared first on The GitHub Blog .",
-            "source": "GitHub 官方更新",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day"
-          },
-          {
-            "uid": "130d10d3c1a4b493d9dfd1ed",
-            "title": "Dependabot version updates support Agent Package Manager",
-            "url": "https://github.blog/changelog/2026-11-03-dependabot-version-updates-support-agent-package-manager",
-            "published": "2026-11-03T20:24:07+00:00",
-            "summary": "You can now keep your AI agent skills, prompts, and instructions up to date with Dependabot version updates for Agent Package Manager (APM). Dependabot opens pull requests to update supported… The post Dependabot version updates support Agent Package Manager appeared first on The GitHub Blog .",
-            "source": "GitHub 官方更新",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day"
-          },
-          {
-            "uid": "2b4786f99076579d8179f1f7",
-            "title": "GitHub Copilot is now available in JetBrains Air",
-            "url": "https://github.blog/changelog/2026-11-03-github-copilot-is-now-available-in-jetbrains-air",
-            "published": "2026-11-03T15:11:46+00:00",
-            "summary": "You can now delegate coding tasks, guide execution, and review results with GitHub Copilot in JetBrains Air. The integration uses the Agent Client Protocol (ACP) and supports tasks in your… The post GitHub Copilot is now available in JetBrains Air appeared first on The GitHub Blog .",
-            "source": "GitHub 官方更新",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day"
-          }
-        ],
-        "notify": true,
-        "mode": "production",
-        "analysis": {
-          "provider": "Groq",
-          "model": "openai/gpt-oss-20b"
-        },
-        "slot": "morning_radar"
-      }
+      "attempts": 1
     },
     "2026-11-03:prompt_engineering": {
       "status": "no_matching_in_window",
