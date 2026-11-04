@@ -1,5 +1,55 @@
 [
   {
+    "title": "AI 晨间雷达与免费资源（2026-11-04）",
+    "date": "2026-11-04T09:12:25.315684+08:00",
+    "count": 3,
+    "url": "posts/20261104-morning_radar.html",
+    "topic": "morning_radar",
+    "status": "published",
+    "summary": "本时段要点 1. GitHub Copilot 的使用指标 API 现已支持 BYOK（Bring Your Own Key）使用统计，可将自托管模型与托管模型的使用分离 1。 2. Dependabot 现在支持 Agent Package Manager（APM）的版本更新，能够自动为 AI 代理技能、提示和指令生",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "BYOK and enterprise custom models in the Copilot usage API",
+          "url": "https://github.blog/changelog/2026-11-03-byok-and-enterprise-custom-models-in-the-copilot-usage-api",
+          "publisher": "GitHub 官方更新",
+          "host": "github.blog",
+          "family": "博客/公开网页",
+          "published": "2026-11-04T00:32:19+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "Dependabot version updates support Agent Package Manager",
+          "url": "https://github.blog/changelog/2026-11-03-dependabot-version-updates-support-agent-package-manager",
+          "publisher": "GitHub 官方更新",
+          "host": "github.blog",
+          "family": "博客/公开网页",
+          "published": "2026-11-03T20:24:07+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "GitHub Copilot is now available in JetBrains Air",
+          "url": "https://github.blog/changelog/2026-11-03-github-copilot-is-now-available-in-jetbrains-air",
+          "publisher": "GitHub 官方更新",
+          "host": "github.blog",
+          "family": "博客/公开网页",
+          "published": "2026-11-03T15:11:46+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "VORASIO AI 日报（2026-11-03）",
     "date": "2026-11-03T19:09:35.859666+08:00",
     "count": 5,
