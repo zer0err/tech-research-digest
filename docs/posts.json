@@ -1,5 +1,33 @@
 [
   {
+    "title": "AI 开源项目与工具更新（2026-11-04）",
+    "date": "2026-11-04T11:42:23.967633+08:00",
+    "count": 1,
+    "url": "posts/20261104-open_source.html",
+    "topic": "open_source",
+    "status": "published",
+    "summary": "本期要点 - ollama launch claude 现已将 Claude Code 的输出 token 限制应用到云模型，避免 128k 默认上限导致的截断问题 1。 - /api/chat 的云端网页搜索响应已正确解码（含压缩），提升了 API 的可用性和可靠性 1。 - OpenAI 兼容端点不再覆盖模型自带的",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "ollama/ollama: v0.40.14",
+          "url": "https://github.com/ollama/ollama/releases/tag/v0.40.14",
+          "publisher": "Ollama Releases",
+          "host": "github.com",
+          "family": "代码与版本",
+          "published": "2026-11-03T01:40:40+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 模型、训练与基础研究（2026-11-04）",
     "date": "2026-11-04T10:42:18.087004+08:00",
     "count": 3,

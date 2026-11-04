@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 开源项目与工具更新（2026-11-04）</title><meta name="description" content="AI 开源项目与工具更新（2026-11-04）：1 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav aria-label="主导航"><a href="../index.html#latest">时间线</a><a href="../knowledge/index.html">AI 知识科普</a><a href="../courses/index.html">AI 学习</a><a href="../tools/index.html">AI 工具</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">AI 开源项目与工具更新</p><dl><dt>发布时间</dt><dd data-published-at="2026-11-04T11:42:23.967633+08:00">2026-11-04 11:42 · UTC+8</dd><dt>研究条目</dt><dd>1 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · AI 开源项目与工具更新</p><h1>AI 开源项目与工具更新（2026-11-04）</h1><!-- provenance:start --><p class="ai-analysis" title="openai/gpt-oss-20b">AI 分析：Groq</p><!-- provenance:end --><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期要点</h2>
+<ul>
+<li><code>ollama launch claude</code> 现已将 Claude Code 的输出 token 限制应用到云模型，避免 128k 默认上限导致的截断问题 [1]。</li>
+<li><code>/api/chat</code> 的云端网页搜索响应已正确解码（含压缩），提升了 API 的可用性和可靠性 [1]。</li>
+<li>OpenAI 兼容端点不再覆盖模型自带的采样默认值，未指定 <code>temperature</code>/<code>top_p</code> 时将使用模型自身设置，保持一致性 [1]。</li>
+<li><code>/v1/responses</code> 现在保留可读输入内容（包括先前的助手拒绝），避免信息被扁平化导致的上下文丢失 [1]。</li>
+</ul>
+<h2>逐项速览</h2>
+<table>
+<thead>
+<tr>
+<th>变更</th>
+<th>证据</th>
+<th>局限</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Claude Code token limit</strong></td>
+<td><code>ollama launch claude</code> 现在应用模型的输出 token 限制，云模型不再受 128k 默认上限约束 [1]。</td>
+<td>仅适用于 Claude Code，其他模型仍按默认上限运行。</td>
+</tr>
+<tr>
+<td><strong>云搜索响应解码</strong></td>
+<td><code>/api/chat</code> 的云端网页搜索响应已正确解码，包括压缩响应 [1]。</td>
+<td>仅针对 <code>/api/chat</code>，其他端点未说明是否受影响。</td>
+</tr>
+<tr>
+<td><strong>OpenAI 兼容端点采样默认</strong></td>
+<td>OpenAI 兼容端点不再覆盖模型的采样默认值，未指定时使用模型自身值 [1]。</td>
+<td>仍需手动设置 <code>temperature</code>/<code>top_p</code> 以获得可控输出。</td>
+</tr>
+<tr>
+<td><strong>/v1/responses 可读性</strong></td>
+<td><code>/v1/responses</code> 现在保留可读输入内容，包括先前助手拒绝 [1]。</td>
+<td>仅在 <code>/v1/responses</code> 端点，其他响应格式未提及。</td>
+</tr>
+<tr>
+<td><strong>ChatGPT 断连重试</strong></td>
+<td>Ollama 的 app 可重试 ChatGPT 断连失败，避免连接残留 [1]。</td>
+<td>仅限 app，CLI 或 API 端点未说明。</td>
+</tr>
+<tr>
+<td><strong>codex 路由验证</strong></td>
+<td><code>ollama launch codex</code> 在配置前验证 ChatGPT 路由，并在不可用时报告错误 [1]。</td>
+<td>仅针对 codex，其他模型无此验证。</td>
+</tr>
+<tr>
+<td><strong>MLX top‑k 采样加速</strong></td>
+<td>在 MLX 上对大词表的 top‑k 采样速度提升 [1]。</td>
+<td>仅适用于 MLX，其他后端未提及。</td>
+</tr>
+</tbody>
+</table>
+<h2>值得采取的行动</h2>
+<ul>
+<li>在使用 Claude Code 的云模型时，确认已开启 token 限制功能，避免意外截断。</li>
+<li>对 <code>/api/chat</code> 的搜索功能进行回归测试，确保压缩响应能被正确解码。</li>
+<li>若依赖 OpenAI 兼容端点，请检查模型默认采样设置，必要时显式指定 <code>temperature</code>/<code>top_p</code>。</li>
+<li>在使用 <code>/v1/responses</code> 时，验证助手拒绝信息是否完整保留，以防上下文丢失。</li>
+<li>若使用 Ollama app 与 ChatGPT 集成，开启断连重试功能以提升稳定性。</li>
+</ul>
+<h2>参考资料</h2>
+<p>[1] ollama/ollama: v0.40.14 – <a href="https://github.com/ollama/ollama/releases/tag/v0.40.14">https://github.com/ollama/ollama/releases/tag/v0.40.14</a></p>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>

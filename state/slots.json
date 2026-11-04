@@ -1,6 +1,37 @@
 {
   "version": 1,
   "slots": {
+    "2026-11-04:open_source": {
+      "status": "prepared",
+      "updated_at": "2026-11-04T03:42:23.967633+00:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "open_source",
+        "title": "AI 开源项目与工具更新",
+        "url": "https://vorasio.com/posts/20261104-open_source.html",
+        "created_at": "2026-11-04T03:42:23.967633+00:00",
+        "items": [
+          {
+            "uid": "03ed8288a8dc0539d63605ab",
+            "title": "ollama/ollama: v0.40.14",
+            "url": "https://github.com/ollama/ollama/releases/tag/v0.40.14",
+            "published": "2026-11-03T01:40:40+00:00",
+            "summary": "## What's Changed * `ollama launch claude` now applies the model's output token limit for Claude Code, so cloud models no longer run into the 128k default cap * Cloud web search responses on `/api/chat` are now decoded correctly, including compressed responses * OpenAI-compatible endpoints no longer override a model's packaged sampler defaults — clients that send no `temperature`/`top_p` get the model's own values instead of 1.0, matching `/api/chat` * `/v1/responses` now preserves readable input content, including prior assistant refusals, instead of flattening it * Ollama's app can now retry ChatGPT disconnect failures instead of leaving the connection in a broken state * `ollama launch codex` verifies ChatGPT routing before configuring, and reports a clear error when routing is unavailable * Faster top-k sampling on MLX for large vocabularies **Full Changelog**: https://github.com/ollama/ollama/compare/v0.40.13...v0.40.14",
+            "source": "Ollama Releases",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          }
+        ],
+        "notify": false,
+        "mode": "production",
+        "analysis": {
+          "provider": "Groq",
+          "model": "openai/gpt-oss-20b"
+        },
+        "slot": "open_source"
+      }
+    },
     "2026-11-04:morning_radar": {
       "status": "published",
       "updated_at": "2026-11-04T01:12:25.315684+00:00",
