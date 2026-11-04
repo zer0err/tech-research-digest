@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 模型、训练与基础研究（2026-11-04）</title><meta name="description" content="AI 模型、训练与基础研究（2026-11-04）：3 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav aria-label="主导航"><a href="../index.html#latest">时间线</a><a href="../knowledge/index.html">AI 知识科普</a><a href="../courses/index.html">AI 学习</a><a href="../tools/index.html">AI 工具</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">AI 模型、训练与基础研究</p><dl><dt>发布时间</dt><dd data-published-at="2026-11-04T10:42:18.087004+08:00">2026-11-04 10:42 · UTC+8</dd><dt>研究条目</dt><dd>3 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · AI 模型、训练与基础研究</p><h1>AI 模型、训练与基础研究（2026-11-04）</h1><!-- provenance:start --><p class="ai-analysis" title="openai/gpt-oss-20b">AI 分析：Groq</p><!-- provenance:end --><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期结论</h2>
+<ol>
+<li><strong>多样化训练辅助（Harness‑S）能显著提升通用策略在原始环境中的表现</strong>，在 AppWorld、SWE‑Gym 与 DBBench 上均表现出比单纯策略训练更高的成功率，表明通过兄弟 harness 的选择性救援可迁移到单一策略中。 [1]</li>
+<li><strong>意图感知的生成式引擎优化（IntentGEO）在多意图场景下实现了显著的可见度提升</strong>，AMO 在四个领域、十个意图状态下平均提升 35% 的 citation‑rank gain，且在九个状态上领先最强学习基线。 [2]</li>
+<li><strong>可靠性感知的图神经网络（LENS）在股票回报预测中实现了显著的排名改进</strong>，在 S&amp;P 500 上 AR@5 提升 16.4% 与 SR@5 提升 22.6%，在 NASDAQ 100 上亦实现 15.5% 与 20.9% 的提升，证明将 LLM 先验与新闻语义图结合并对关系可靠性建模能提升金融预测的可靠性。 [3]</li>
+</ol>
+<h2>逐项分析</h2>
+<table>
+<thead>
+<tr>
+<th>资料</th>
+<th>核心贡献</th>
+<th>方法与数据</th>
+<th>性能证据</th>
+<th>局限与证据等级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[1] Harness‑S</td>
+<td>通过兄弟 harness 的选择性救援，将多样化修复行为迁移到单一策略</td>
+<td>设计 Directional Harness Evolution 与 Complementary Harness Rescue Training，构建固定的 Sibling Harness Pool；使用 Adaptive Harness Router 选取 Top‑k 变体；在 AppWorld、SWE‑Gym、DBBench 上训练</td>
+<td>训练后策略在原始 base harness 上显著优于仅用策略训练的基线；行为分析与 hold‑out 案例支持迁移</td>
+<td>仅在三大仿真环境中验证，缺乏真实世界任务；未提供具体数值提升比例，证据等级 B</td>
+</tr>
+<tr>
+<td>[2] IntentGEO</td>
+<td>通过意图感知的生成式引擎优化提升推荐可见度，解决提示漂移问题</td>
+<td>引入 AMO（Anchored Meta‑Optimization）保持固定核心指令，学习附加策略；在四个领域、十个意图状态下评估</td>
+<td>平均 citation‑rank gain 提升 35%，在九个状态上领先最强学习基线；消融实验验证核心与附加策略的贡献</td>
+<td>仅在实验室设置的四个领域内测试，缺乏跨平台验证；未公开完整实验细节，证据等级 B</td>
+</tr>
+<tr>
+<td>[3] LENS</td>
+<td>可靠性感知的静态‑动态图框架提升股票回报预测</td>
+<td>从 LLM 提取多关系公司图并按一致性加权；构建新闻驱动语义图并使用指数衰减；使用 gated fusion 重新平衡两图</td>
+<td>在 S&amp;P 500 上 AR@5 提升 16.4%，SR@5 提升 22.6%；NASDAQ 100 上相似提升；消融实验与人工验证支持可靠性建模</td>
+<td>仅在美国两大指数上评估，未展示对其他市场的适用性；缺少对模型鲁棒性的长期评估，证据等级 A</td>
+</tr>
+</tbody>
+</table>
+<h2>工程行动建议</h2>
+<ul>
+<li><strong>验证实验</strong>
+<ul>
+<li>对 Harness‑S：在自家业务的代码执行或自动化测试环境中构建兄弟 harness 集合，使用 Adaptive Harness Router 进行动态选择，评估策略在原始 harness 上的成功率提升。</li>
+<li>对 IntentGEO：在现有推荐系统中实现 AMO，记录不同意图下的 citation‑rank 或点击率变化，验证 35% 提升是否可复制。</li>
+<li>对 LENS：在自家金融数据集上复现 LLM 先验图与新闻语义图的构建，使用 gated fusion 进行融合，比较 AR@5 与 SR@5 的改进。</li>
+</ul>
+</li>
+<li><strong>落地评估</strong>
+<ul>
+<li>监控模型在生产环境中的失败率、响应时间与资源占用，确保多样化训练辅助不引入显著延迟。</li>
+<li>对 IntentGEO，跟踪不同用户意图下的推荐质量与业务 KPI（如转化率、平均订单价值）。</li>
+<li>对 LENS，评估模型对突发市场事件的敏感度与预测误差分布，确保可靠性提升在实际交易决策中可用。</li>
+</ul>
+</li>
+<li><strong>后续跟踪指标</strong>
+<ul>
+<li>Harness‑S：策略成功率、兄弟 harness 使用频率、路由器 Top‑k 变化。</li>
+<li>IntentGEO：意图覆盖率、提示漂移检测指标、AMO 训练收敛曲线。</li>
+<li>LENS：关系一致性得分、新闻语义图覆盖率、每日融合权重变化。</li>
+</ul>
+</li>
+</ul>
+<h2>参考资料</h2>
+<ol>
+<li>Harness‑S: Learning from Sibling Harnesses for Generalizable Agent Training – <a href="https://arxiv.org/abs/2611.04277v1">https://arxiv.org/abs/2611.04277v1</a></li>
+<li>IntentGEO: Intent-aware Generative Engine Optimization for Recommendation – <a href="https://arxiv.org/abs/2611.04225v1">https://arxiv.org/abs/2611.04225v1</a></li>
+<li>LENS: Reliability-Aware Stock Prediction via LLM-Extracted Priors and News-Driven Semantic Graphs – <a href="https://arxiv.org/abs/2611.04217v1">https://arxiv.org/abs/2611.04217v1</a></li>
+</ol>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>

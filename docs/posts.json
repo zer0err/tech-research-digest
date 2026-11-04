@@ -1,5 +1,55 @@
 [
   {
+    "title": "AI 模型、训练与基础研究（2026-11-04）",
+    "date": "2026-11-04T10:42:18.087004+08:00",
+    "count": 3,
+    "url": "posts/20261104-model_research.html",
+    "topic": "model_research",
+    "status": "published",
+    "summary": "本期结论 1. 多样化训练辅助（Harness‑S）能显著提升通用策略在原始环境中的表现，在 AppWorld、SWE‑Gym 与 DBBench 上均表现出比单纯策略训练更高的成功率，表明通过兄弟 harness 的选择性救援可迁移到单一策略中。 1 2. 意图感知的生成式引擎优化（IntentGEO）在多意图场景下",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "Harness-S: Learning from Sibling Harnesses for Generalizable Agent Training",
+          "url": "https://arxiv.org/abs/2611.04277v1",
+          "publisher": "arXiv Model Research",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-11-03T04:03:44+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "IntentGEO: Intent-aware Generative Engine Optimization for Recommendation",
+          "url": "https://arxiv.org/abs/2611.04225v1",
+          "publisher": "arXiv Model Research",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-11-03T03:04:18+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "LENS: Reliability-Aware Stock Prediction via LLM-Extracted Priors and News-Driven Semantic Graphs",
+          "url": "https://arxiv.org/abs/2611.04217v1",
+          "publisher": "arXiv Model Research",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-11-03T03:00:31+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 晨间雷达与免费资源（2026-11-04）",
     "date": "2026-11-04T09:12:25.315684+08:00",
     "count": 3,
