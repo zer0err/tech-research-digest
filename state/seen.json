@@ -80,6 +80,8 @@
     },
     "model_research": {
       "ids": [
+        "8ba2deb16f018a5bc7d7205a",
+        "a9b500da7568e6c3ad671f64",
         "791ff198614f0090d5041873",
         "43cdd1931bd2a8c08bba079e",
         "019887062877834f71874de7",
@@ -115,7 +117,7 @@
         "f3a5508d0160d42195ab7174",
         "cb661d928a0dfa16bc4c4588"
       ],
-      "updated_at": "2026-11-04T02:42:18.087004+00:00"
+      "updated_at": "2026-11-05T02:29:52.541341+00:00"
     },
     "embodied": {
       "ids": [
@@ -234,6 +236,8 @@
     }
   },
   "all_ids": [
+    "8ba2deb16f018a5bc7d7205a",
+    "a9b500da7568e6c3ad671f64",
     "d53634b505a78ccb6c4a7606",
     "6915a246f05aaf4123d57e37",
     "88c5bc03bd13ed7a057cbe45",
@@ -408,6 +412,8 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://arxiv.org/abs/2611.05953v1",
+    "https://arxiv.org/abs/2611.05942v1",
     "https://github.blog/changelog/2026-11-04-github-copilot-is-now-available-in-xcodes-coding-assistant",
     "https://doi.org/10.1142/s0218213026500296",
     "https://doi.org/10.3389/fnimg.2026.1931240",
@@ -582,6 +588,8 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "e1cecf801e162899ea17ee86",
+    "b3cb5e315880decf7c9764ac",
     "dce533c006ea862f69b2fcd1",
     "74d1e4509cc95d0773e596c7",
     "404fd160008f08fb9af88a64",
@@ -3267,6 +3275,38 @@
       "analysis": {
         "provider": "Groq",
         "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261105-model_research.html": {
+      "topic": "model_research",
+      "created_at": "2026-11-05T02:29:52.541341+00:00",
+      "items": [
+        {
+          "uid": "8ba2deb16f018a5bc7d7205a",
+          "title": "Graph-Mediated Large Language Model Systems in the Agentic Era: Reasoning, Knowledge, Retrieval, Execution, and Coordination",
+          "url": "https://arxiv.org/abs/2611.05953v1",
+          "published": "2026-11-04T04:47:38+00:00",
+          "summary": "Graphs play an increasingly important role in large language model (LLM) systems, supporting structural reasoning, knowledge grounding, retrieval, and memory. As these systems evolve toward the agentic era, graphs also organize execution dependencies and multi-agent communication, linking intermediate observations and retained information to subsequent decisions. However, understanding their contribution requires distinguishing the function of each graph operation, the component responsible for its computation, and the subsequent use of its output. This survey introduces an operation-level role--locus taxonomy for reasoning, knowledge and evidence, retrieval and memory, execution, and coordination. We compare how graph observations and external computations guide decisions, how memory representations and updates support later tasks, and how dependencies constrain execution and information delivery. These comparisons distinguish improvements in local metrics from downstream task performance while retaining the conditions under which results were reported. We then organize benchmarks, comparison designs, process diagnostics, and system costs into an evaluation framework. Finally, we identify open challenges in adaptive computation and stopping, memory maintenance, and dependency-aware recovery. The survey provides a basis for assessing when graph mechanisms are useful and for eva",
+          "source": "arXiv Model Research",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        },
+        {
+          "uid": "a9b500da7568e6c3ad671f64",
+          "title": "Reward Budgeting Reduces Premature Convergence in Reinforcement Learning for LLM Reasoning",
+          "url": "https://arxiv.org/abs/2611.05942v1",
+          "published": "2026-11-04T04:32:08+00:00",
+          "summary": "RL for LLM reasoning often reaches an early performance plateau as the policy distribution becomes increasingly sharp. Recent work has studied policy entropy as both a diagnostic and a control signal for this behavior. In our experiments, however, increasing entropy alone does not reliably change the eventual plateau. We analyze RL through its implicit target policy and derive a sharpness factor $κ$, together with an effective counterpart $κ_{\\mathrm{eff}}$, that describes how strongly reward or advantage gaps are translated into probability-ratio gaps. Motivated by this view, we introduce \\emph{reward budgeting}, a plug-in advantage construction that assigns a fixed total reward budget to each prompt. For binary rewards and independent on-policy rollouts, its unclipped score-function estimator follows the gradient of an exact finite-$G$ concave objective with diminishing returns, while its advantage gap decreases as more rollouts become correct. For general rewards, a shifted log-mean interpretation holds asymptotically under the stated regularity conditions. These results motivate, rather than establish exact objective equivalence for, the clipped implementations. On Qwen3-8B and Llama3.2-3B-Instruct, reward budgeting consistently improves a range of RL baselines, with gains up to +12.50 on AMC23 and +10.00 on AIME24 and AIME25. Overall, our results support an update-dynamics",
+          "source": "arXiv Model Research",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Xiaomi MiMo",
+        "model": "mimo-v2.6-flash"
       }
     }
   }
