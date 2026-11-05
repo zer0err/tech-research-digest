@@ -42,6 +42,7 @@
     },
     "morning_radar": {
       "ids": [
+        "d53634b505a78ccb6c4a7606",
         "3120cb53fbc5954ecff0513c",
         "130d10d3c1a4b493d9dfd1ed",
         "2b4786f99076579d8179f1f7",
@@ -64,7 +65,7 @@
         "dea8ba729eb28582daacbbc8",
         "767a7f383549ba646ff22647"
       ],
-      "updated_at": "2026-11-04T01:12:25.315684+00:00"
+      "updated_at": "2026-11-05T01:12:18.238250+00:00"
     },
     "ecosystem": {
       "ids": [
@@ -233,6 +234,7 @@
     }
   },
   "all_ids": [
+    "d53634b505a78ccb6c4a7606",
     "6915a246f05aaf4123d57e37",
     "88c5bc03bd13ed7a057cbe45",
     "e2d5b6eae785e901567c81ca",
@@ -406,6 +408,7 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://github.blog/changelog/2026-11-04-github-copilot-is-now-available-in-xcodes-coding-assistant",
     "https://doi.org/10.1142/s0218213026500296",
     "https://doi.org/10.3389/fnimg.2026.1931240",
     "https://arxiv.org/abs/2611.05361v1",
@@ -579,6 +582,7 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "dce533c006ea862f69b2fcd1",
     "74d1e4509cc95d0773e596c7",
     "404fd160008f08fb9af88a64",
     "1835c00aa3e131d439b049e7",
@@ -3234,6 +3238,27 @@
           "published": "2026-11-03T18:54:52+00:00",
           "summary": "Reliable evaluation of visual 3D reconstruction and depth estimation in vegetation-rich outdoor environments is limited by the scarcity of geometric ground-truth data and the cost of complete scanner surveys. We present a LiDARbased reference-generation pipeline for evaluating the zero-shot performance of feed-forward visual-geometry models alongside conventional structure-from-motion (SfM) methods. The pipeline reuses camera images, LiDAR scans, and reference poses from existing multi-sensor localization datasets to generate per-view depth maps and visible reference point clouds. To address visibility errors in accumulated LiDAR scans, we introduce the LargeDepth-Gap Visibility Score (LDGVS) for point-wise visibility filtering and automatic scale selection in Hidden Point Removal(HPR). Experiments on TartanAirV2 and TartanGround show that, compared with Poisson surface reconstruction, which is an approach suited to completed scan surveys, the combined HPR and LDGVS filtering retains approximately three times the point density at comparable absolute relative error. We also apply the pipeline to the BotanicGarden dataset to systematically compare depth estimation and 3D reconstruction methods. Feedforward methods produce dense depth predictions efficiently, but their 3D reconstructions can contain duplicated structures. Conventional SfM generally produces more coherent geometry,",
           "source": "arXiv Perception",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261105-morning_radar.html": {
+      "topic": "morning_radar",
+      "created_at": "2026-11-05T01:12:18.238250+00:00",
+      "items": [
+        {
+          "uid": "d53634b505a78ccb6c4a7606",
+          "title": "GitHub Copilot is now available in Xcode’s coding assistant",
+          "url": "https://github.blog/changelog/2026-11-04-github-copilot-is-now-available-in-xcodes-coding-assistant",
+          "published": "2026-11-04T19:10:40+00:00",
+          "summary": "You can now work with GitHub Copilot directly in Xcode’s built-in coding assistant, bringing Copilot into your native Xcode workflow. The integration is now in public preview, available starting with… The post GitHub Copilot is now available in Xcode’s coding assistant appeared first on The GitHub Blog .",
+          "source": "GitHub 官方更新",
           "kind": "research",
           "doi": "",
           "date_precision": "day"
