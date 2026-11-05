@@ -37,57 +37,9 @@
       "attempts": 1
     },
     "2026-11-05:applied_ai": {
-      "status": "prepared",
+      "status": "published",
       "updated_at": "2026-11-05T08:42:19.815775+00:00",
-      "attempts": 1,
-      "pending": {
-        "topic": "inference_systems",
-        "title": "推理引擎、编译器与嵌入式系统",
-        "url": "https://vorasio.com/posts/20261105-applied_ai.html",
-        "created_at": "2026-11-05T08:42:19.815775+00:00",
-        "items": [
-          {
-            "uid": "11a9c683ed4074b991fd1775",
-            "title": "How NVIDIA Uses AI Agents to Streamline AI Factory Operations",
-            "url": "https://developer.nvidia.com/blog/how-nvidia-uses-ai-agents-to-streamline-ai-factory-operations",
-            "published": "2026-11-04T22:00:17+00:00",
-            "summary": "As GPU clusters scale, operations span compute, network, hardware, and scheduling. Site reliability engineers (SREs) often have to examine multiple dashboards...",
-            "source": "NVIDIA Technical Blog",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day"
-          },
-          {
-            "uid": "449a25d51d467e76b3c93903",
-            "title": "Use NVIDIA NeMo to Turn Agent Failures into Tests and Harness Fixes",
-            "url": "https://developer.nvidia.com/blog/use-nvidia-nemo-to-turn-agent-failures-into-tests-and-harness-fixes",
-            "published": "2026-11-04T16:00:00+00:00",
-            "summary": "Turn production evidence into prioritized issues and custom evaluations that help you improve prompts, tools, models, memory, skills, and harness code. When you...",
-            "source": "NVIDIA Technical Blog",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day"
-          },
-          {
-            "uid": "f7ef00b9e6813ba69b0d1b90",
-            "title": "Granular Framework for Construction Material Price Forecasting: Econometric and Machine-Learning Approaches",
-            "url": "https://doi.org/10.1061/jcemd4.coeng-18794",
-            "published": "2026-11-03T00:00:00+00:00",
-            "summary": "Abstract The persistent volatility of construction material prices poses significant risks to cost estimation, budgeting, and project delivery, underscoring the urgent need for granular and scalable forecasting methods. This study develops a forecasting framework that leverages the Construction Specifications Institute (CSI) MasterFormat as the target data structure, enabling predictions at the six-digit Section level and supporting detailed cost projections across a wide spectrum of building materials. To enhance predictive accuracy, the framework integrates explanatory variables such as raw material prices, commodity indexes, and macroeconomic indicators. Five time-series models, long short-term memory (LSTM), autoregressive integrated moving average (ARIMA), vector error correction model (VECM), vanilla Transformer, and Chronos-Bolt, were evaluated under both baseline configurations (using CSI data only) and extended versions with explanatory variables. Results demonstrate that incorporating explanatory variables significantly improves predictive performance across all models. Among the tested approaches, the LSTM model consistently achieved the highest accuracy, with root mean squared error (RMSE) values as low as 4.19 and mean absolute percentage error (MAPE) values of 1.60 based on Division 06 as a representative demonstration, representing improvements of up to 59% over ",
-            "source": "OpenAlex Inference",
-            "kind": "research",
-            "doi": "https://doi.org/10.1061/jcemd4.coeng-18794",
-            "date_precision": "day"
-          }
-        ],
-        "notify": false,
-        "mode": "production",
-        "analysis": {
-          "provider": "Groq",
-          "model": "openai/gpt-oss-20b"
-        },
-        "slot": "applied_ai"
-      }
+      "attempts": 1
     },
     "2026-11-04:prompt_engineering": {
       "status": "no_matching_in_window",
