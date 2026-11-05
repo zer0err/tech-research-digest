@@ -236,9 +236,16 @@
         "4ac4eda1121470f5cf1d1a5b"
       ],
       "updated_at": "2026-11-04T04:42:26.023099+00:00"
+    },
+    "prompt_engineering": {
+      "ids": [
+        "0c2c3aa9924b86d444deffad"
+      ],
+      "updated_at": "2026-11-05T06:12:17.537353+00:00"
     }
   },
   "all_ids": [
+    "0c2c3aa9924b86d444deffad",
     "61978edfddd54182b4b1d6b6",
     "6e4884adc30ea233e9408dd8",
     "294f41cb1ed08d25cf6e0f99",
@@ -418,6 +425,7 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://github.com/openai/openai-cookbook/commit/86c505082d8eb19c36c98cff0c0ea6855583c905",
     "https://doi.org/10.1145/3799682.3840768",
     "https://doi.org/10.1145/3799682.3840095",
     "https://doi.org/10.1016/j.sysarc.2026.104040",
@@ -597,6 +605,7 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "89c7d4728cd65267dd6ca775",
     "3aa8a1eba57bbe274d57b325",
     "7b0617c7a5d7611d062f82f1",
     "d76da51bc0fcb0f2004f80d1",
@@ -3356,6 +3365,27 @@
           "source": "OpenAlex Efficient AI",
           "kind": "research",
           "doi": "https://doi.org/10.1016/j.sysarc.2026.104040",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261105-prompt_engineering.html": {
+      "topic": "prompt_engineering",
+      "created_at": "2026-11-05T06:12:17.537353+00:00",
+      "items": [
+        {
+          "uid": "0c2c3aa9924b86d444deffad",
+          "title": "Move five agent cookbooks published under the OpenAI author (#3285)",
+          "url": "https://github.com/openai/openai-cookbook/commit/86c505082d8eb19c36c98cff0c0ea6855583c905",
+          "published": "2026-11-05T00:35:44+00:00",
+          "summary": "Move five agent cookbooks published under the OpenAI author (#3285)",
+          "source": "OpenAI Cookbook Updates",
+          "kind": "research",
+          "doi": "",
           "date_precision": "day"
         }
       ],
