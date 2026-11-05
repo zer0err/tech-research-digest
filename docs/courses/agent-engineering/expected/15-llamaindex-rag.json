@@ -1,0 +1,11 @@
+{
+  "hits": [
+    {
+      "id": "DEMO-1",
+      "text": "演示设备 售后服务期 30 天",
+      "effective": "2026-01-01",
+      "jurisdiction": "fictional"
+    }
+  ],
+  "framework_used": false
+}

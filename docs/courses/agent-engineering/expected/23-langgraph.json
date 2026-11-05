@@ -1,0 +1,16 @@
+{
+  "path": [
+    {
+      "state": "received",
+      "query": "不存在的资料"
+    },
+    {
+      "state": "retrieved",
+      "ids": []
+    },
+    {
+      "state": "abstained"
+    }
+  ],
+  "framework_used": false
+}

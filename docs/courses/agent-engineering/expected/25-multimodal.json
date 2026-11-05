@@ -1,0 +1,11 @@
+{
+  "segments": [
+    {
+      "start_s": 0,
+      "end_s": 2,
+      "text": "请查找保养说明"
+    }
+  ],
+  "consent": "synthetic",
+  "recognizer_called": false
+}

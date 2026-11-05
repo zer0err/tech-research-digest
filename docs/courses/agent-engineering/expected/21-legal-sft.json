@@ -1,0 +1,7 @@
+{
+  "safe_training_target": {
+    "role": "assistant",
+    "content": "仅依据检索资料回答，资料不足时拒答。"
+  },
+  "facts_stored_in_weights": false
+}

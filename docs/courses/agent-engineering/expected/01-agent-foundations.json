@@ -1,0 +1,21 @@
+{
+  "events": [
+    {
+      "state": "received",
+      "query": "售后服务期"
+    },
+    {
+      "state": "retrieved",
+      "ids": [
+        "DEMO-1"
+      ]
+    },
+    {
+      "state": "answered"
+    }
+  ],
+  "citations": [
+    "DEMO-1"
+  ],
+  "llm_called": false
+}

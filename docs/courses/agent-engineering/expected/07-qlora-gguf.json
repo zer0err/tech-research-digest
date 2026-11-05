@@ -1,0 +1,11 @@
+{
+  "toy_int8": {
+    "integers": [
+      1,
+      -3,
+      6
+    ],
+    "max_error": 0.039999999999999925
+  },
+  "gguf_created": false
+}

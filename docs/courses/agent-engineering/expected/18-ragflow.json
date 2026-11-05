@@ -1,0 +1,15 @@
+{
+  "chunks": [
+    {
+      "id": "p1-row1",
+      "page": 1,
+      "text": "服务期 30天"
+    },
+    {
+      "id": "p1-row2",
+      "page": 1,
+      "text": "电池 不得浸水"
+    }
+  ],
+  "ragflow_started": false
+}

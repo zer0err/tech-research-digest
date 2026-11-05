@@ -13,6 +13,29 @@ from course_system.preview import build_preview, lesson_page, read_manifest, ren
 from course_system.publish import publish_course
 
 
+def test_advanced_course_can_override_beginner_labels():
+    data = metadata()
+    data.update(audience='进阶 · 需Python基础', route_label='AGENT · RAG',
+                practice_scope='GPU实验尚未验证', learning_scope='先完成受控工具调用')
+    page = series_page(data)
+    assert '进阶 · 需Python基础' in page
+    assert 'GPU实验尚未验证' in page
+    assert 'AGENT · RAG' in page
+    assert '先完成受控工具调用' in page
+    assert '零基础' not in lesson_page(data, data['lessons'][0], '## 示例\n内容')
+
+
+def test_additional_series_preserves_existing_hub_cards(tmp_path):
+    from course_system.preview import existing_series_cards
+    hub = tmp_path / 'docs/courses/index.html'
+    hub.parent.mkdir(parents=True)
+    hub.write_text('<article class="series-card"><a href="old/index.html">旧课程</a></article>'
+                   '<article class="series-card"><a href="new/index.html">新课程旧卡</a></article>')
+    cards = existing_series_cards(tmp_path, 'new')
+    assert '旧课程' in cards
+    assert '新课程旧卡' not in cards
+
+
 class Elements(HTMLParser):
     def __init__(self, source: str):
         super().__init__()

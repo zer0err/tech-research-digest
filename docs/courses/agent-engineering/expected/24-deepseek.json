@@ -1,0 +1,12 @@
+{
+  "request_contract": {
+    "model": "<从账户模型列表确认>",
+    "messages": [
+      {
+        "role": "user",
+        "content": "说明引用边界"
+      }
+    ]
+  },
+  "network_called": false
+}

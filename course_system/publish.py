@@ -5,7 +5,7 @@ import argparse
 import shutil
 from pathlib import Path
 
-from .preview import SUPPORT_PAGES, esc, lesson_page, read_manifest, render_markdown, series_page, shell
+from .preview import SUPPORT_PAGES, esc, existing_series_cards, lesson_page, read_manifest, render_markdown, series_page, shell
 
 REPO = Path(__file__).resolve().parents[1]
 
@@ -61,10 +61,10 @@ def publish_course(draft: Path, *, repo: Path = REPO) -> Path:
     hub = (
         '<section class="course-container"><header class="series-heading"><p class="eyebrow">LEARNING</p>'
         '<h1>AI 学习路线</h1><p class="lead">按系列学习，按自己的节奏练习；课程与每日资讯分开。</p></header>'
-        f'<article class="series-card"><p class="eyebrow">零基础 · {len(data["lessons"])} 个单元</p>'
+        f'<article class="series-card"><p class="eyebrow">{esc(data.get("audience", "零基础"))} · {len(data["lessons"])} 个单元</p>'
         f'<h2><a href="{esc(data["series_id"])}/index.html">{esc(data["title"])}</a></h2>'
         f'<p>{esc(data["description"])}</p><a class="primary-link" href="{esc(data["series_id"])}/index.html">查看学习路线 →</a>'
-        '</article></section>'
+        '</article>' + existing_series_cards(repo, data['series_id']) + '</section>'
     )
     (docs / "courses").mkdir(exist_ok=True)
     (docs / "courses/index.html").write_text(shell("AI 学习路线", hub, root="../", script=False, preview=False), encoding="utf-8")

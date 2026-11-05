@@ -1,0 +1,7 @@
+{
+  "holdout": {
+    "accuracy": 0.75,
+    "macro_f1": 0.7333333333333334
+  },
+  "synthetic_predictions": true
+}

@@ -1,0 +1,10 @@
+{
+  "workflow": [
+    "input",
+    "retrieve",
+    "context",
+    "answer"
+  ],
+  "empty_context_action": "abstain",
+  "dify_started": false
+}

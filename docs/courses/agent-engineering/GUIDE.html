@@ -1,0 +1,312 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; script-src &#x27;self&#x27;; style-src &#x27;self&#x27;; img-src &#x27;self&#x27;; font-src &#x27;self&#x27;; connect-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;; form-action &#x27;none&#x27;"><meta name="robots" content="index,follow"><meta name="referrer" content="no-referrer"><title>学习指南 · VORASIO</title><link rel="stylesheet" href="../../assets/course.css"><script defer src="../../assets/course-progress.js"></script><script defer src="../../assets/course-reader.js"></script></head><body><a class="skip-link" href="#main">跳到正文</a><header class="site-header"><a class="brand" href="../../index.html">VORASIO</a><nav aria-label="主导航"><a href="../../index.html#latest">时间线</a><a aria-current="page" href="../../courses/index.html">AI 学习</a><a href="../../knowledge/index.html">AI 知识科普</a></nav></header><main id="main"><article class="support-page"><a href="index.html">← 返回系列</a><div class="lesson-body"><p>这是新增系列的本地草稿，保留既有“说明书助手”入门课程，不改动资讯定时任务，不调用Groq/MiMo创作课程。</p>
+<h2 id="section-1">路线选择</h2>
+<ul>
+<li><strong>先做Agent</strong>：01 → 02 → 05 → 12 → 15 → 16 → 22 → 23 → 26。先跑单Agent、引用与拒答，再考虑多Agent。</li>
+<li><strong>低代码对照</strong>：15、16打底后，在17 Dify与18 RAGFlow中选一条，不要求两套平台同时安装。</li>
+<li><strong>领域项目</strong>：19 → 20 → 21；先完成RAG与评测。法律场景只用虚构条款，不提供法律结论。</li>
+<li><strong>训练支线</strong>：02、12 → 03/04 → 06 → 07 → 11；确有训练和部署证据后再选08、09、10。</li>
+<li><strong>情绪对话项目</strong>：13 → 14，不做心理诊断，不采集真实私人聊天。</li>
+<li><strong>拓展</strong>：24供应商适配、25多模态。DeepSeek是可选供应商而非Agent必修原理。</li>
+</ul>
+<p>原目录共24个模块、对应原第2–29节；本系列按模块合并为24单元，再补先修和结课项目，共26单元。BERT三节、GPT-2两节、Qwen两节在本稿分别为一个模块，不冒称原编号连续的29课。原目录没有第1节，已明确新增。</p>
+<h2 id="section-2">下载与环境</h2>
+<p>本地预览系列目录同级提供<a href="labs.zip">labs.zip</a>，下载解压后进入labs目录。Python3.12标准库即可运行基础实验；不需要API密钥。基础实验演示数据、控制流与数学关系，不替代框架调用、GPU训练或真实模型质量验收。重型实验尚未安装锁定依赖，也未租赁硬件。</p>
+<p>完整26单元目录：</p>
+<table>
+<thead>
+<tr>
+<th>单元</th>
+<th>主题</th>
+<th>原目录映射</th>
+<th>路线</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01</td>
+<td><a href="01-agent-foundations.html">Agent 开发起点：模型、工具与受控循环</a></td>
+<td>新增先修</td>
+<td>Agent 必修</td>
+</tr>
+<tr>
+<td>02</td>
+<td><a href="02-huggingface.html">Hugging Face 核心组件与可复现环境</a></td>
+<td>原02 / 第2节</td>
+<td>模型基础</td>
+</tr>
+<tr>
+<td>03</td>
+<td><a href="03-bert-sentiment.html">BERT 中文评价情感分析：从基线到训练</a></td>
+<td>原03 / 第3–5节</td>
+<td>模型工程选修</td>
+</tr>
+<tr>
+<td>04</td>
+<td><a href="04-gpt2-generation.html">GPT-2 中文生成：理解因果训练与适用边界</a></td>
+<td>原04 / 第6–7节</td>
+<td>模型工程选修</td>
+</tr>
+<tr>
+<td>05</td>
+<td><a href="05-local-serving.html">本地私有化部署：容量、接口与隐私边界</a></td>
+<td>原05 / 第8节</td>
+<td>Agent 必修</td>
+</tr>
+<tr>
+<td>06</td>
+<td><a href="06-qwen-sft.html">LlamaFactory 微调 Qwen 与自定义数据集</a></td>
+<td>原06 / 第9–10节</td>
+<td>模型工程选修</td>
+</tr>
+<tr>
+<td>07</td>
+<td><a href="07-qlora-gguf.html">QLoRA 与 GGUF：训练、合并和导出的边界</a></td>
+<td>原07 / 第11节</td>
+<td>模型工程选修</td>
+</tr>
+<tr>
+<td>08</td>
+<td><a href="08-distributed-training.html">分布式微调：先统一训练语义，再比较框架</a></td>
+<td>原08 / 第12节</td>
+<td>多GPU进阶</td>
+</tr>
+<tr>
+<td>09</td>
+<td><a href="09-distillation.html">知识蒸馏：从教师信号到学生能力</a></td>
+<td>原09 / 第13节</td>
+<td>模型工程选修</td>
+</tr>
+<tr>
+<td>10</td>
+<td><a href="10-inference-quantization.html">推理与量化部署：在相同条件下比较</a></td>
+<td>原10 / 第14节</td>
+<td>部署进阶</td>
+</tr>
+<tr>
+<td>11</td>
+<td><a href="11-serving-parity.html">微调与 vLLM 部署效果不一致：证据化排错</a></td>
+<td>原11 / 第15节</td>
+<td>部署进阶</td>
+</tr>
+<tr>
+<td>12</td>
+<td><a href="12-evaluation.html">OpenCompass 与任务评估：把验证放在训练之前</a></td>
+<td>原12 / 第16节</td>
+<td>Agent 必修</td>
+</tr>
+<tr>
+<td>13</td>
+<td><a href="13-dialogue-data.html">情绪对话数据工程：授权、边界与划分</a></td>
+<td>原13 / 第17节</td>
+<td>项目选修</td>
+</tr>
+<tr>
+<td>14</td>
+<td><a href="14-dialogue-project.html">情绪对话模型：评测先于效果展示</a></td>
+<td>原14 / 第18节</td>
+<td>项目选修</td>
+</tr>
+<tr>
+<td>15</td>
+<td><a href="15-llamaindex-rag.html">LlamaIndex 构建 RAG：先验证检索，再接模型</a></td>
+<td>原15 / 第19节</td>
+<td>Agent 必修</td>
+</tr>
+<tr>
+<td>16</td>
+<td><a href="16-embedding-chroma.html">Embedding 与 Chroma：索引版本也是数据版本</a></td>
+<td>原16 / 第20节</td>
+<td>Agent 必修</td>
+</tr>
+<tr>
+<td>17</td>
+<td><a href="17-dify-rag.html">Dify 实现 RAG：可视化不等于不可测试</a></td>
+<td>原17 / 第21节</td>
+<td>平台选修</td>
+</tr>
+<tr>
+<td>18</td>
+<td><a href="18-ragflow.html">RAGFlow：复杂文档解析与证据位置</a></td>
+<td>原18 / 第22节</td>
+<td>平台选修</td>
+</tr>
+<tr>
+<td>19</td>
+<td><a href="19-legal-design.html">法规资料助手方案：法域、时点与拒答</a></td>
+<td>原19 / 第23节</td>
+<td>领域项目</td>
+</tr>
+<tr>
+<td>20</td>
+<td><a href="20-legal-deployment.html">法规资料助手实现与本地部署</a></td>
+<td>原20 / 第24节</td>
+<td>领域项目</td>
+</tr>
+<tr>
+<td>21</td>
+<td><a href="21-legal-sft.html">法规助手的微调边界：训练行为，不冻结法律</a></td>
+<td>原21 / 第25节</td>
+<td>领域项目选修</td>
+</tr>
+<tr>
+<td>22</td>
+<td><a href="22-dify-agent.html">Dify 构建 Agent：工具合同与人工批准</a></td>
+<td>原22 / 第26节</td>
+<td>Agent 必修</td>
+</tr>
+<tr>
+<td>23</td>
+<td><a href="23-langgraph.html">LangGraph：先做可靠单 Agent，再引入多 Agent</a></td>
+<td>原23 / 第27节</td>
+<td>Agent 必修</td>
+</tr>
+<tr>
+<td>24</td>
+<td><a href="24-deepseek.html">DeepSeek 原理与应用：把论文机制与API行为分开</a></td>
+<td>原24 / 第28节</td>
+<td>供应商选修</td>
+</tr>
+<tr>
+<td>25</td>
+<td><a href="25-multimodal.html">多模态 Agent：从输入证据到受控动作</a></td>
+<td>原25 / 第29节</td>
+<td>Agent 进阶</td>
+</tr>
+<tr>
+<td>26</td>
+<td><a href="26-capstone.html">综合项目：可评测、可拒答的资料查询 Agent</a></td>
+<td>新增结课项目</td>
+<td>Agent 必修</td>
+</tr>
+</tbody>
+</table>
+<p><a href="SOURCES.html">来源</a> · 自查记录保留于本地 · <a href="VALIDATION.html">验证</a></p>
+<h2 id="section-3">已确认的硬件路线：本地 CPU/Mac 优先</h2>
+<ol>
+<li>所有人先使用Python3.12标准库完成离线控制器、数据与评测实验，不下载大权重，不需要GPU。</li>
+<li>Intel Mac以CPU为基线；Apple Silicon可评估Metal/MLX，但MLX不是Intel Mac通用后端。PyTorch的MPS必须检测可用性，不能因为系统叫macOS就自动判为可用。</li>
+<li>本地生成优先评估llama.cpp兼容模型与量化格式。先登记架构、模型许可、实际可用内存、上下文和后端，再选择规模；不承诺某参数量在所有Mac都能运行。量化权重大小不等于运行内存。</li>
+<li>BERT/GPT-2先做极小样本机制验证。CPU训练很慢或模型下载受限时，不让它阻断Agent主线；随机初始化模型跑通不等于预训练中文能力验证。</li>
+<li>CUDA/QLoRA配方不能直接复制到Mac。Apple Silicon上的MLX-LM微调另设选修实现，需单独验证模型支持、数据格式与评测，不冒称等同已执行LlamaFactory CUDA配方。</li>
+<li>LlamaFactory/XTuner多GPU、分布式vLLM与大规模蒸馏保留为选修实验设计。默认不租云GPU、不要求Mac完成CUDA或多卡实训。</li>
+<li>Dify/RAGFlow等平台需独立测资源；低代码不等于轻量。资源不足时沿用标准库与单一轻量框架，不同时启动全部服务。</li>
+<li>基础实验不自动完成框架实训；主线成果与GPU选修成果分开记录。</li>
+</ol>
+<p>加速后端参考待进一步核验：PyTorch MPS文档与MLX-LM维护者仓库。当前未安装或运行这些后端，不宣称实测性能。</p>
+<h2 id="section-4">待验证项目与运行限制</h2>
+<p>核对日期：2026-11-05。以下项目尚未获得你这台 Mac 的完整运行验收；GPU 选修不作为 CPU/Mac 主线完成条件。逐课末尾列出已验证范围，基础实验通过不会自动完成实训。</p>
+<table>
+<thead>
+<tr>
+<th>课程单元</th>
+<th>待验证内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Agent 开发起点：模型、工具与受控循环</td>
+<td>真实模型规划、回答支持度与提示注入防护效果。</td>
+</tr>
+<tr>
+<td>Hugging Face 核心组件与可复现环境</td>
+<td>预训练权重下载、真实数据集与完整训练环境；MPS/MLX 加速。</td>
+</tr>
+<tr>
+<td>BERT 中文评价情感分析：从基线到训练</td>
+<td>真实中文评价数据集训练、独立测试集准确率与 Mac 资源占用。</td>
+</tr>
+<tr>
+<td>GPT-2 中文生成：理解因果训练与适用边界</td>
+<td>中文预训练模型与定制语料训练、生成质量及 Mac 资源占用。</td>
+</tr>
+<tr>
+<td>本地私有化部署：容量、接口与隐私边界</td>
+<td>本地模型服务启动、实际内存/延迟、并发及断线恢复。</td>
+</tr>
+<tr>
+<td>LlamaFactory 微调 Qwen 与自定义数据集</td>
+<td>LlamaFactory/Qwen 完整微调、数据加载与产物部署；Mac 可行路线须独立验证。</td>
+</tr>
+<tr>
+<td>QLoRA 与 GGUF：训练、合并和导出的边界</td>
+<td>真实 QLoRA、适配器合并、GGUF 转换与推理一致性；CUDA 路线为 GPU 选修。</td>
+</tr>
+<tr>
+<td>分布式微调：先统一训练语义，再比较框架</td>
+<td>LlamaFactory/XTuner 多卡启动、通信及断点恢复；GPU 选修，不要求 Mac 完成。</td>
+</tr>
+<tr>
+<td>知识蒸馏：从教师信号到学生能力</td>
+<td>真实语言模型蒸馏、学生模型质量、压缩收益与资源占用。</td>
+</tr>
+<tr>
+<td>推理与量化部署：在相同条件下比较</td>
+<td>真实量化、分布式推理和性能/质量评测；CUDA 多卡部分为选修。</td>
+</tr>
+<tr>
+<td>微调与 vLLM 部署效果不一致：证据化排错</td>
+<td>真实微调产物与 vLLM 部署对照；Mac 本地替代服务需单独测试。</td>
+</tr>
+<tr>
+<td>OpenCompass 与任务评估：把验证放在训练之前</td>
+<td>OpenCompass 安装、真实模型评测及可复现报告。</td>
+</tr>
+<tr>
+<td>情绪对话数据工程：授权、边界与划分</td>
+<td>真实授权语料的脱敏、质量抽检、划分及完整数据管道。</td>
+</tr>
+<tr>
+<td>情绪对话模型：评测先于效果展示</td>
+<td>真实情绪对话训练、部署及独立质量/风险评测。</td>
+</tr>
+<tr>
+<td>LlamaIndex 构建 RAG：先验证检索，再接模型</td>
+<td>真实语义向量、文档规模、模型生成及答案支持度的端到端评测。</td>
+</tr>
+<tr>
+<td>Embedding 与 Chroma：索引版本也是数据版本</td>
+<td>真实 Embedding 模型、跨进程恢复、检索质量及规模压力测试。</td>
+</tr>
+<tr>
+<td>Dify 实现 RAG：可视化不等于不可测试</td>
+<td>Dify 本地安装、Mac 资源需求、文档导入及完整 RAG 应用。</td>
+</tr>
+<tr>
+<td>RAGFlow：复杂文档解析与证据位置</td>
+<td>RAGFlow 本地安装、Mac 资源需求、解析与检索全流程。</td>
+</tr>
+<tr>
+<td>法规资料助手方案：法域、时点与拒答</td>
+<td>真实授权法规的版本、适用范围、检索与拒答验收；现有条款是合成示例。</td>
+</tr>
+<tr>
+<td>法规资料助手实现与本地部署</td>
+<td>法律助手真实数据接入、运行部署与逐条证据评测。</td>
+</tr>
+<tr>
+<td>法规助手的微调边界：训练行为，不冻结法律</td>
+<td>法律助手微调、基础模型对照与部署；GPU 路线为选修。</td>
+</tr>
+<tr>
+<td>Dify 构建 Agent：工具合同与人工批准</td>
+<td>Dify Agent 实际工具配置、权限隔离及端到端故障演练。</td>
+</tr>
+<tr>
+<td>LangGraph：先做可靠单 Agent，再引入多 Agent</td>
+<td>真实模型节点、多智能体协作、持久化恢复及整体回答质量。</td>
+</tr>
+<tr>
+<td>DeepSeek 原理与应用：把论文机制与API行为分开</td>
+<td>真实 DeepSeek API/本地模型接入、当前模型能力与调用成本。</td>
+</tr>
+<tr>
+<td>多模态 Agent：从输入证据到受控动作</td>
+<td>真实视觉/语音模型、设备输入链路、性能与隐私边界。</td>
+</tr>
+<tr>
+<td>综合项目：可评测、可拒答的资料查询 Agent</td>
+<td>真实模型与框架端到端集成、独立质量评测、部署及故障恢复。</td>
+</tr>
+</tbody>
+</table>
+</div></article></main><footer>VORASIO · AI 学习 <span>学习记录仅保存在你的浏览器，不上传。</span></footer></body></html>

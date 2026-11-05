@@ -148,6 +148,15 @@ def progress_root(data: dict) -> str:
     return f'data-course-progress data-series-id="{esc(data["series_id"])}" data-content-version="{esc(data["content_version"])}"'
 
 
+def existing_series_cards(repo: Path, current: str) -> str:
+    """Keep published series discoverable when previewing or adding another series."""
+    hub = repo / 'docs/courses/index.html'
+    if not hub.is_file() or hub.is_symlink():
+        return ''
+    cards = re.findall(r'<article class="series-card">.*?</article>', hub.read_text(encoding='utf-8'), flags=re.S)
+    return ''.join(card for card in cards if f'href="{current}/' not in card)
+
+
 def lesson_attrs(data: dict, lesson: dict) -> str:
     return (
         f'data-course-lesson data-lesson-id="{esc(lesson["id"])}" '
@@ -206,14 +215,16 @@ def metadata(data: dict, *, preview: bool = True) -> str:
 
 def series_page(data: dict, *, preview: bool = True) -> str:
     return shell(data["title"], (
-        f'<div class="course-container" {progress_root(data)}><p class="breadcrumb"><a href="../index.html">AI 学习</a> / 入门系列</p>'
-        '<header class="series-heading"><p class="eyebrow">PYTHON · AI 应用开发 · 从零开始</p>'
+        f'<div class="course-container" {progress_root(data)}><p class="breadcrumb"><a href="../index.html">AI 学习</a> / '
+        f'{esc(data.get("audience", "入门系列"))}</p>'
+        '<header class="series-heading"><p class="eyebrow">' + esc(data.get("route_label", "PYTHON · AI 应用开发 · 从零开始")) + '</p>'
         f'<h1>{esc(data["title"])}</h1><p class="lead">{esc(data["description"])}</p>'
-        f'<p class="small-note">{len(data["lessons"])} 个单元 · 每课约 2 小时（估计） · 绝大多数练习可离线完成</p></header>'
+        f'<p class="small-note">{len(data["lessons"])} 个单元 · 每课约 2 小时（估计） · '
+        f'{esc(data.get("practice_scope", "绝大多数练习可离线完成"))}</p></header>'
         '<div class="series-grid"><section aria-labelledby="route-heading"><h2 id="route-heading">学习路线</h2>'
         + lesson_list(data) + '</section><aside>' + progress_panel(data, controls=True) + '</aside></div>'
         '<section class="source-summary"><h2>环境、来源与验证</h2>' + metadata(data, preview=preview) +
-        '<p class="small-note">路线从 Python 基础延伸到模型 API、检索、引用、评测和本地网页应用。'
+        '<p class="small-note">' + esc(data.get("learning_scope", "路线从 Python 基础延伸到模型 API、检索、引用、评测和本地网页应用。")) +
         '发布前须完成全部代码与页面验证；未实测的平台不会标记为已验证。</p></section></div>'
     ), root="../../", preview=preview)
 
@@ -240,7 +251,7 @@ def lesson_page(data: dict, lesson: dict, source: str, *, preview: bool = True) 
         '<div class="lesson-layout"><aside class="lesson-sidebar"><details class="series-directory">'
         '<summary>系列目录</summary>' + lesson_list(data, current=lesson["id"], compact=True) + '</details>'
         + progress_panel(data) + '</aside><article class="lesson-article"><header><p class="eyebrow">'
-        f'单元 {index + 1:02} / {len(data["lessons"]):02} · 零基础 · 约 {lesson["minutes"]} 分钟</p>'
+        f'单元 {index + 1:02} / {len(data["lessons"]):02} · {esc(data.get("audience", "零基础"))} · 约 {lesson["minutes"]} 分钟</p>'
         f'<h1>{esc(lesson["title"])}</h1>' + metadata(data, preview=preview) + '</header>'
         '<details class="chapter-directory"><summary>本课章节</summary>' + toc + '</details>'
         '<div class="lesson-body">' + body + '</div>'
@@ -293,10 +304,10 @@ def build_preview(draft: Path, output: Path, *, repo: Path = REPO) -> Path:
     hub = (
         '<section class="course-container"><header class="series-heading"><p class="eyebrow">LEARNING</p>'
         '<h1>AI 学习路线</h1><p class="lead">按系列学习，按自己的节奏练习。这里的课程与每日资讯分开。</p></header>'
-        f'<article class="series-card"><p class="eyebrow">零基础 · {len(data["lessons"])} 个单元</p>'
+        f'<article class="series-card"><p class="eyebrow">{esc(data.get("audience", "零基础"))} · {len(data["lessons"])} 个单元</p>'
         f'<h2><a href="{esc(data["series_id"])}/index.html">{esc(data["title"])}</a></h2>'
         f'<p>{esc(data["description"])}</p><a class="primary-link" href="{esc(data["series_id"])}/index.html">查看学习路线 →</a>'
-        '</article></section>'
+        '</article>' + existing_series_cards(repo, data['series_id']) + '</section>'
     )
     (output / "courses/index.html").write_text(shell("AI 学习路线", hub, root="../", script=False), encoding="utf-8")
     home = (output / "index.html").read_text(encoding="utf-8")
@@ -304,8 +315,8 @@ def build_preview(draft: Path, output: Path, *, repo: Path = REPO) -> Path:
     home = home.replace('<nav>', '<nav><a href="courses/index.html">AI 学习</a>', 1)
     home = home.replace('<section id="latest">', (
         '<section class="timeline-card" aria-labelledby="learning-heading"><p class="eyebrow">本地预览 · AI 学习</p>'
-        '<h2 id="learning-heading">从第一行代码开始</h2>'
-        '<p>18 课完整路线：从第一行 Python 代码到可验证的本地 AI 说明书助手。</p>'
+        f'<h2 id="learning-heading">{esc(data["title"])}</h2>'
+        f'<p>{len(data["lessons"])} 单元本地草稿预览；未完成实训不得视为正式课程。</p>'
         '<a class="read-link" href="courses/index.html">进入学习路线 →</a></section><section id="latest">'
     ), 1)
     (output / "index.html").write_text(home, encoding="utf-8")
