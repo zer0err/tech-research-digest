@@ -24,8 +24,13 @@
     "updated_at": "2026-11-05T02:29:52.541341+00:00",
     "attempts": 1
   },
+  "2026-11-05:dev_practice": {
+    "status": "already_published",
+    "updated_at": "2026-11-05T07:42:16.958238+00:00",
+    "attempts": 1
+  },
   "2026-11-05:core_research": {
-    "status": "prepared",
+    "status": "published",
     "updated_at": "2026-11-05T06:12:48.464213+00:00",
     "attempts": 1
   },
