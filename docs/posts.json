@@ -1,5 +1,33 @@
 [
   {
+    "title": "Prompt、上下文工程与评测（2026-11-05）",
+    "date": "2026-11-05T14:12:17.537353+08:00",
+    "count": 1,
+    "url": "posts/20261105-prompt_engineering.html",
+    "topic": "prompt_engineering",
+    "status": "published",
+    "summary": "本期要点 - OpenAI Cookbook 近期将五个与代理相关的cookbook从“OpenAI author”迁移至其他位置，表明对代理实现细节的持续维护与更新需求。1 - 迁移行动未提供具体提示词或上下文管理改进的细节，缺乏可验证的评测方法或RAG工具调用示例。摘要未提供/无法从摘要确认。1 - 该更新提示开发",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "Move five agent cookbooks published under the OpenAI author (#3285)",
+          "url": "https://github.com/openai/openai-cookbook/commit/86c505082d8eb19c36c98cff0c0ea6855583c905",
+          "publisher": "OpenAI Cookbook Updates",
+          "host": "github.com",
+          "family": "代码与版本",
+          "published": "2026-11-05T00:35:44+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 论文午间速览（2026-11-05）",
     "date": "2026-11-05T12:42:17.874804+08:00",
     "count": 3,

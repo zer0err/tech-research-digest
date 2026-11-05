@@ -1,6 +1,11 @@
 {
-  "2026-11-05:paper_brief": {
+  "2026-11-05:prompt_engineering": {
     "status": "prepared",
+    "updated_at": "2026-11-05T06:12:17.537353+00:00",
+    "attempts": 1
+  },
+  "2026-11-05:paper_brief": {
+    "status": "published",
     "updated_at": "2026-11-05T04:42:17.874804+00:00",
     "attempts": 1
   },
