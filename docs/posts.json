@@ -1,5 +1,33 @@
 [
   {
+    "title": "AI 晨间雷达与免费资源（2026-11-05）",
+    "date": "2026-11-05T09:12:18.238250+08:00",
+    "count": 1,
+    "url": "posts/20261105-morning_radar.html",
+    "topic": "morning_radar",
+    "status": "published",
+    "summary": "本时段要点 1. GitHub Copilot 已在 Xcode 的内置编码助手中上线，进入公开预览阶段，支持 macOS 开发者直接在 Xcode 里使用 Copilot 生成代码建议。 1 2. 该功能首次在 GitHub 官方博客发布，说明 GitHub 正在扩展 Copilot 的平台覆盖范围，进一步提升跨平台",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "GitHub Copilot is now available in Xcode’s coding assistant",
+          "url": "https://github.blog/changelog/2026-11-04-github-copilot-is-now-available-in-xcodes-coding-assistant",
+          "publisher": "GitHub 官方更新",
+          "host": "github.blog",
+          "family": "博客/公开网页",
+          "published": "2026-11-04T19:10:40+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "VORASIO AI 日报（2026-11-04）",
     "date": "2026-11-04T19:12:19.489184+08:00",
     "count": 6,
