@@ -149,6 +149,9 @@
     },
     "efficient_ai": {
       "ids": [
+        "ce9f8f3fe2d7cb9347d6cc67",
+        "df855f571dbd659f64fd7fcc",
+        "7fb408e31af4618d63dbc22a",
         "61978edfddd54182b4b1d6b6",
         "6e4884adc30ea233e9408dd8",
         "294f41cb1ed08d25cf6e0f99",
@@ -169,7 +172,7 @@
         "7e518a52776f0779cdbd16e6",
         "d8688b533028f131212f0a3d"
       ],
-      "updated_at": "2026-11-05T04:42:17.874804+00:00"
+      "updated_at": "2026-11-05T06:12:48.464213+00:00"
     },
     "ai_hardware": {
       "ids": [
@@ -245,6 +248,9 @@
     }
   },
   "all_ids": [
+    "ce9f8f3fe2d7cb9347d6cc67",
+    "df855f571dbd659f64fd7fcc",
+    "7fb408e31af4618d63dbc22a",
     "0c2c3aa9924b86d444deffad",
     "61978edfddd54182b4b1d6b6",
     "6e4884adc30ea233e9408dd8",
@@ -425,6 +431,9 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://arxiv.org/abs/2611.06859v1",
+    "https://arxiv.org/abs/2611.06858v1",
+    "https://arxiv.org/abs/2611.06796v1",
     "https://github.com/openai/openai-cookbook/commit/86c505082d8eb19c36c98cff0c0ea6855583c905",
     "https://doi.org/10.1145/3799682.3840768",
     "https://doi.org/10.1145/3799682.3840095",
@@ -605,6 +614,9 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "edde46d453fb50b2aa8e9000",
+    "6c821576efc2d3566c1aac2a",
+    "bba3761ccdfcb6633ac32d0f",
     "89c7d4728cd65267dd6ca775",
     "3aa8a1eba57bbe274d57b325",
     "7b0617c7a5d7611d062f82f1",
@@ -3384,6 +3396,49 @@
           "published": "2026-11-05T00:35:44+00:00",
           "summary": "Move five agent cookbooks published under the OpenAI author (#3285)",
           "source": "OpenAI Cookbook Updates",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261105-core_research.html": {
+      "topic": "efficient_ai",
+      "created_at": "2026-11-05T06:12:48.464213+00:00",
+      "items": [
+        {
+          "uid": "ce9f8f3fe2d7cb9347d6cc67",
+          "title": "Balancing hierarchical representation and quantization: A performance trade-off in text embeddings",
+          "url": "https://arxiv.org/abs/2611.06859v1",
+          "published": "2026-11-04T18:15:08+00:00",
+          "summary": "Hierarchical text embedding models offer variable-length representations, while quantization reduces numerical precision; both aim to improve computational efficiency. This work is an empirical benchmark study of how these two orthogonal, already-established techniques interact. We evaluate 38 tasks from the Massive Text Embedding Benchmark (MTEB) using four transformer-based embedding models, covering 1D and 2D hierarchical representations combined with 32-bit, 8-bit, and binary quantization, for 168 configurations per task. We report each efficiency dimension separately: theoretical per-vector storage and end-to-end evaluation time. Under a Friedman test with Nemenyi post-hoc analysis, int8 quantization is statistically indistinguishable from float32 for pair classification and re-ranking and costs at most 1.5 percentage points overall, whereas binary quantization is significantly worse across every task category. Halving the embedding dimension once is not statistically detectable above $m=16$; two successive halvings always are. Combining an 8x dimensionality reduction with int8 yields a 32x reduction in per-vector storage at 94.4% of baseline effectiveness. Because evaluation times were measured once, we treat them as indicative: we find no evidence that quantization speeds up evaluation, whereas sampling from intermediate layers shortens it substantially. Retrieval degrad",
+          "source": "arXiv Efficient AI",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        },
+        {
+          "uid": "df855f571dbd659f64fd7fcc",
+          "title": "CompressionBench: How can your coding agents compress LLMs?",
+          "url": "https://arxiv.org/abs/2611.06858v1",
+          "published": "2026-11-04T18:14:50+00:00",
+          "summary": "Recursive self-improvement requires AI systems to improve the models and infrastructure used by subsequent systems. LLM compression offers a concrete efficiency objective: retain a pretrained model's behavior within a smaller model storage budget. We study whether coding agents can carry out this step autonomously. We formulate compression as a terminal task in which an agent receives a source checkpoint, storage limit, inference environment, and time budget, then constructs compressed weights and executable inference code. The agent controls its algorithm and experiments; perplexity feedback guides search, and independent verification checks the final model. Across six agents and six model--size settings, 29 of 36 submissions pass verification. Selecting the lowest-perplexity agent design per task yields an average 3.4% perplexity increase over BF16 and 77.33% downstream accuracy, compared with 79.56% for BF16. Recorded experiments reveal how agents achieve these outcomes and where improvement breaks down. Agents lower PPL in 21 of 24 revisions at nearly fixed storage; complete-model feedback reverses 17 of 79 prior local rankings; and generation and inference tests expose failures that likelihood alone misses. The results identify representation design, experimental judgment, and capability validation as central to agent-driven model compression, a measurable component of eff",
+          "source": "arXiv Efficient AI",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        },
+        {
+          "uid": "7fb408e31af4618d63dbc22a",
+          "title": "VA-TDM: A Unified View for Improving Few-Step Diffusion Models by Velocity Adversarial Distillation",
+          "url": "https://arxiv.org/abs/2611.06796v1",
+          "published": "2026-11-04T17:14:20+00:00",
+          "summary": "Few-step distillation offers efficient generation with diffusion and flow models, but preserving quality with only a few sampling steps remains challenging. Distribution-matching methods via score distillation provide a strong foundation, yet they rely on accurately tracking the student's changing distribution. At intermediate generation steps in few-step sampling, student-score estimation can be difficult, and commonly used estimators may describe a different distribution from the one used to update the student. Flow matching allows a more flexible approach to supervision through velocity fields constructed from the student's sampling process. Building on this perspective, we introduce Velocity Adversarial Distillation (VAD), which uses a learned critic to compare student and teacher fields and turn their disagreement into feedback for learning. VAD unifies score distillation, Fisher-based matching, and moment matching, also explaining existing heuristic MMD updates and delivering new training objectives. We further develop VA-TDM, which follows trajectory distribution matching: providing supervision for partial denoising along the student trajectory. Beyond this, VA-TDM combines transition-aware online velocity learning and dual-form VAD supervision across intermediate student transitions. Extensive results show that VA-TDM is powerful for learning few-step generators, achiev",
+          "source": "arXiv Efficient AI",
           "kind": "research",
           "doi": "",
           "date_precision": "day"
