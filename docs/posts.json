@@ -1,5 +1,55 @@
 [
   {
+    "title": "推理引擎、编译器与嵌入式系统（2026-11-05）",
+    "date": "2026-11-05T16:42:19.815775+08:00",
+    "count": 3,
+    "url": "posts/20261105-applied_ai.html",
+    "topic": "applied_ai",
+    "status": "published",
+    "summary": "本期结论 1. AI 代理在 GPU 集群运维中的应用已成为可复现的性能提升手段。两篇 NVIDIA 技术博客均指出，通过 AI 代理监控多维度指标并自动化排查，可显著降低运维成本与错误率12。 2. 将生产故障转化为可测评的测试用例，可系统化提升模型与代码质量。第二篇博客展示了将 Agent 失败记录转化为优先级测试",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "How NVIDIA Uses AI Agents to Streamline AI Factory Operations",
+          "url": "https://developer.nvidia.com/blog/how-nvidia-uses-ai-agents-to-streamline-ai-factory-operations",
+          "publisher": "NVIDIA Technical Blog",
+          "host": "developer.nvidia.com",
+          "family": "博客/公开网页",
+          "published": "2026-11-04T22:00:17+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "Use NVIDIA NeMo to Turn Agent Failures into Tests and Harness Fixes",
+          "url": "https://developer.nvidia.com/blog/use-nvidia-nemo-to-turn-agent-failures-into-tests-and-harness-fixes",
+          "publisher": "NVIDIA Technical Blog",
+          "host": "developer.nvidia.com",
+          "family": "博客/公开网页",
+          "published": "2026-11-04T16:00:00+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "Granular Framework for Construction Material Price Forecasting: Econometric and Machine-Learning Approaches",
+          "url": "https://doi.org/10.1061/jcemd4.coeng-18794",
+          "publisher": "OpenAlex Inference",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-11-03T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.1061/jcemd4.coeng-18794",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "高效 AI、模型压缩与端侧适配（2026-11-05）",
     "date": "2026-11-05T14:12:48.464213+08:00",
     "count": 3,

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>推理引擎、编译器与嵌入式系统（2026-11-05）</title><meta name="description" content="推理引擎、编译器与嵌入式系统（2026-11-05）：3 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav aria-label="主导航"><a href="../index.html#latest">时间线</a><a href="../knowledge/index.html">AI 知识科普</a><a href="../courses/index.html">AI 学习</a><a href="../tools/index.html">AI 工具</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">AI 应用与落地专题</p><dl><dt>发布时间</dt><dd data-published-at="2026-11-05T16:42:19.815775+08:00">2026-11-05 16:42 · UTC+8</dd><dt>研究条目</dt><dd>3 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · AI 应用与落地专题</p><h1>推理引擎、编译器与嵌入式系统（2026-11-05）</h1><!-- provenance:start --><p class="ai-analysis" title="openai/gpt-oss-20b">AI 分析：Groq</p><!-- provenance:end --><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期结论</h2>
+<ol>
+<li><strong>AI 代理在 GPU 集群运维中的应用已成为可复现的性能提升手段</strong>。两篇 NVIDIA 技术博客均指出，通过 AI 代理监控多维度指标并自动化排查，可显著降低运维成本与错误率[1][2]。</li>
+<li><strong>将生产故障转化为可测评的测试用例，可系统化提升模型与代码质量</strong>。第二篇博客展示了将 Agent 失败记录转化为优先级测试与自定义评估的流程，已在实际生产环境中验证其有效性[2]。</li>
+</ol>
+<h2>逐项分析</h2>
+<table>
+<thead>
+<tr>
+<th>资料</th>
+<th>核心贡献</th>
+<th>方法与数据</th>
+<th>性能证据</th>
+<th>局限与证据等级</th>
+<th>工程意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[1]</td>
+<td>通过 AI 代理实现 AI 工厂运维自动化</td>
+<td>监控 GPU 集群的计算、网络、硬件与调度，利用多仪表盘数据进行诊断</td>
+<td>仅描述“需要检查多个仪表盘”，未给出定量结果</td>
+<td>C（缺少实验细节与定量结果）</td>
+<td>为运维团队提供了可行的自动化思路，但缺乏可复现的性能数据</td>
+</tr>
+<tr>
+<td>[2]</td>
+<td>将 Agent 失败转化为测试与修复流程</td>
+<td>记录生产证据，生成优先级问题与自定义评估，改进提示、工具、模型、内存、技能与 harness 代码</td>
+<td>仅说明“帮助改进 prompts、tools、models 等”，无具体数值</td>
+<td>C（缺少实验细节与定量结果）</td>
+<td>提供了完整的故障到测试链路，适用于需要快速迭代的 AI 系统</td>
+</tr>
+<tr>
+<td>[3]</td>
+<td>建筑材料价格预测框架</td>
+<td>结合 CSI MasterFormat 与多种时间序列模型（LSTM、ARIMA、VECM、Transformer、Chronos‑Bolt）</td>
+<td>LSTM 在 Division 06 上 RMSE = 4.19，MAPE = 1.60，提升至 59%[3]</td>
+<td>A（摘要含方法、数据及定量结果）</td>
+<td>对于需要高精度成本预测的嵌入式系统供应链管理具有参考价值</td>
+</tr>
+</tbody>
+</table>
+<h2>工程行动建议</h2>
+<ul>
+<li><strong>验证实验</strong>
+<ul>
+<li>在现有 GPU 集群上部署 AI 代理，记录运维前后平均故障排查时间与错误率，比较两者差异。</li>
+<li>对 Agent 失败日志进行自动化转换，生成测试用例后执行回归测试，测量缺陷覆盖率与修复周期。</li>
+</ul>
+</li>
+<li><strong>落地评估</strong>
+<ul>
+<li>设定 KPI：运维成本降低 ≥ 20%，故障恢复时间缩短 ≥ 30%。</li>
+<li>对建筑材料预测模型，使用历史 CSI 数据验证 LSTM 的 RMSE 与 MAPE，评估其在本地化成本估算中的实用性。</li>
+</ul>
+</li>
+<li><strong>后续跟踪指标</strong>
+<ul>
+<li>监控 AI 代理的误报率与漏报率，持续优化阈值与模型。</li>
+<li>跟踪 Agent 失败到测试用例的闭环率，确保所有关键失败均被覆盖。</li>
+<li>对预测模型，持续更新训练集，监测长期偏差与漂移。</li>
+</ul>
+</li>
+</ul>
+<h2>参考资料</h2>
+<ol>
+<li>How NVIDIA Uses AI Agents to Streamline AI Factory Operations – NVIDIA Technical Blog – <a href="https://developer.nvidia.com/blog/how-nvidia-uses-ai-agents-to-streamline-ai-factory-operations">https://developer.nvidia.com/blog/how-nvidia-uses-ai-agents-to-streamline-ai-factory-operations</a></li>
+<li>Use NVIDIA NeMo to Turn Agent Failures into Tests and Harness Fixes – NVIDIA Technical Blog – <a href="https://developer.nvidia.com/blog/use-nvidia-nemo-to-turn-agent-failures-into-tests-and-harness-fixes">https://developer.nvidia.com/blog/use-nvidia-nemo-to-turn-agent-failures-into-tests-and-harness-fixes</a></li>
+<li>Granular Framework for Construction Material Price Forecasting: Econometric and Machine-Learning Approaches – OpenAlex Inference – <a href="https://doi.org/10.1061/jcemd4.coeng-18794">https://doi.org/10.1061/jcemd4.coeng-18794</a></li>
+</ol>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>
