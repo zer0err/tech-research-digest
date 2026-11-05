@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 模型、训练与基础研究（2026-11-05）</title><meta name="description" content="AI 模型、训练与基础研究（2026-11-05）：2 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav aria-label="主导航"><a href="../index.html#latest">时间线</a><a href="../knowledge/index.html">AI 知识科普</a><a href="../courses/index.html">AI 学习</a><a href="../tools/index.html">AI 工具</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">AI 模型、训练与基础研究</p><dl><dt>发布时间</dt><dd data-published-at="2026-11-05T10:29:52.541341+08:00">2026-11-05 10:29 · UTC+8</dd><dt>研究条目</dt><dd>2 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · AI 模型、训练与基础研究</p><h1>AI 模型、训练与基础研究（2026-11-05）</h1><!-- provenance:start --><p class="ai-analysis" title="mimo-v2.6-flash">AI 分析：Xiaomi MiMo</p><!-- provenance:end --><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期结论</h2>
+<ul>
+<li>两篇资料均指向&quot;推理能力提升需依赖结构性机制&quot;这一方向：图结构组织执行与记忆 [1]，奖励预算调节 RL 更新动态 [2]，可视为趋势。</li>
+<li>图机制的贡献需按操作层级拆解，区分局部指标改善与下游任务表现，摘要未提供具体定量结果，无法从摘要确认其增益幅度 [1]。</li>
+<li>奖励预算在 Qwen3-8B、Llama3.2-3B-Instruct 上报告 AMC23 最高 +12.50、AIME24/AIME25 各 +10.00 的增益，属特定数学推理基准的信号，尚不能推断为通用能力提升 [2]。</li>
+<li>单纯提升策略熵不足以改变 RL 早期平台期，属作者实验主张，仅覆盖两个模型，是否适用于其他规模为值得关注的信号 [2]。</li>
+</ul>
+<h2>逐项分析</h2>
+<p><strong>[1] Graph-Mediated LLM Systems 综述</strong></p>
+<ul>
+<li>核心贡献：提出操作层级的 role–locus 分类法，覆盖推理、知识与证据、检索与记忆、执行、协调五类图操作 [1]。</li>
+<li>方法与数据：综述性工作，整理基准、对比设计、过程诊断与系统成本构成评估框架；摘要未提供具体数据集或实验设置 [1]。</li>
+<li>性能证据：摘要未提供/无法从摘要确认定量结果，仅说明区分局部指标与下游任务表现的方法论主张 [1]。</li>
+<li>局限与证据等级：无实验细节，属分类与框架贡献，证据等级 C（主张缺少实验细节）[1]。</li>
+<li>工程意义：为评估&quot;图机制何时有用&quot;提供分析维度，但具体选型需自行验证 [1]。</li>
+</ul>
+<p><strong>[2] Reward Budgeting</strong></p>
+<ul>
+<li>核心贡献：提出 sharpness factor κ 与 reward budgeting 优势构造，缓解 RL for LLM reasoning 的过早收敛 [2]。</li>
+<li>方法与数据：每 prompt 分配固定奖励预算；二元奖励与独立 on-policy rollout 下，未裁剪估计器对应精确有限-G 凹目标；一般奖励在正则条件下渐近成立；裁剪实现的目标等价性作者明确表述为&quot;motivate, rather than establish&quot; [2]。</li>
+<li>性能证据：Qwen3-8B、Llama3.2-3B-Instruct 上相对多个 RL baseline，AMC23 最高 +12.50，AIME24、AIME25 各 +10.00 [2]。</li>
+<li>局限与证据等级：仅两个模型、数学竞赛基准；裁剪版理论保证未建立；证据等级 A（摘要含方法、数据及定量结果）[2]。</li>
+<li>工程意义：可作为 RL 训练的插件式优势构造候选，需在自有任务上复现 [2]。</li>
+</ul>
+<h2>工程行动建议</h2>
+<ul>
+<li>验证实验：在自有数学/代码任务上以相同 baseline 对比 reward budgeting，记录多 seed 均值与方差，确认 +12.50/+10.00 量级是否可复现 [2]；对图机制按 role–locus 分类逐操作消融，分离局部指标与下游任务差异 [1]。</li>
+<li>落地评估：reward budgeting 仅在二元奖励、独立 rollout 假设下有理论支撑，非二元奖励或相关 rollout 场景需先做小规模试点 [2]；图系统需评估依赖恢复与记忆维护成本，摘要未给出成本数值，无法从摘要确认 [1]。</li>
+<li>后续跟踪指标：跟踪 κ_eff 随训练的变化、plateau 出现步数、下游任务通过率而非仅熵 [2]；跟踪图操作的系统开销与自适应停止策略的后续论文 [1]。</li>
+</ul>
+<h2>参考资料</h2>
+<p>[1] Graph-Mediated Large Language Model Systems in the Agentic Era: Reasoning, Knowledge, Retrieval, Execution, and Coordination <a href="https://arxiv.org/abs/2611.05953v1">https://arxiv.org/abs/2611.05953v1</a>
+[2] Reward Budgeting Reduces Premature Convergence in Reinforcement Learning for LLM Reasoning <a href="https://arxiv.org/abs/2611.05942v1">https://arxiv.org/abs/2611.05942v1</a></p>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>

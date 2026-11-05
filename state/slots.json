@@ -6,6 +6,48 @@
       "updated_at": "2026-11-05T01:12:18.238250+00:00",
       "attempts": 1
     },
+    "2026-11-05:model_research": {
+      "status": "prepared",
+      "updated_at": "2026-11-05T02:29:52.541341+00:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "model_research",
+        "title": "AI 模型、训练与基础研究",
+        "url": "https://vorasio.com/posts/20261105-model_research.html",
+        "created_at": "2026-11-05T02:29:52.541341+00:00",
+        "items": [
+          {
+            "uid": "8ba2deb16f018a5bc7d7205a",
+            "title": "Graph-Mediated Large Language Model Systems in the Agentic Era: Reasoning, Knowledge, Retrieval, Execution, and Coordination",
+            "url": "https://arxiv.org/abs/2611.05953v1",
+            "published": "2026-11-04T04:47:38+00:00",
+            "summary": "Graphs play an increasingly important role in large language model (LLM) systems, supporting structural reasoning, knowledge grounding, retrieval, and memory. As these systems evolve toward the agentic era, graphs also organize execution dependencies and multi-agent communication, linking intermediate observations and retained information to subsequent decisions. However, understanding their contribution requires distinguishing the function of each graph operation, the component responsible for its computation, and the subsequent use of its output. This survey introduces an operation-level role--locus taxonomy for reasoning, knowledge and evidence, retrieval and memory, execution, and coordination. We compare how graph observations and external computations guide decisions, how memory representations and updates support later tasks, and how dependencies constrain execution and information delivery. These comparisons distinguish improvements in local metrics from downstream task performance while retaining the conditions under which results were reported. We then organize benchmarks, comparison designs, process diagnostics, and system costs into an evaluation framework. Finally, we identify open challenges in adaptive computation and stopping, memory maintenance, and dependency-aware recovery. The survey provides a basis for assessing when graph mechanisms are useful and for eva",
+            "source": "arXiv Model Research",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          },
+          {
+            "uid": "a9b500da7568e6c3ad671f64",
+            "title": "Reward Budgeting Reduces Premature Convergence in Reinforcement Learning for LLM Reasoning",
+            "url": "https://arxiv.org/abs/2611.05942v1",
+            "published": "2026-11-04T04:32:08+00:00",
+            "summary": "RL for LLM reasoning often reaches an early performance plateau as the policy distribution becomes increasingly sharp. Recent work has studied policy entropy as both a diagnostic and a control signal for this behavior. In our experiments, however, increasing entropy alone does not reliably change the eventual plateau. We analyze RL through its implicit target policy and derive a sharpness factor $κ$, together with an effective counterpart $κ_{\\mathrm{eff}}$, that describes how strongly reward or advantage gaps are translated into probability-ratio gaps. Motivated by this view, we introduce \\emph{reward budgeting}, a plug-in advantage construction that assigns a fixed total reward budget to each prompt. For binary rewards and independent on-policy rollouts, its unclipped score-function estimator follows the gradient of an exact finite-$G$ concave objective with diminishing returns, while its advantage gap decreases as more rollouts become correct. For general rewards, a shifted log-mean interpretation holds asymptotically under the stated regularity conditions. These results motivate, rather than establish exact objective equivalence for, the clipped implementations. On Qwen3-8B and Llama3.2-3B-Instruct, reward budgeting consistently improves a range of RL baselines, with gains up to +12.50 on AMC23 and +10.00 on AIME24 and AIME25. Overall, our results support an update-dynamics",
+            "source": "arXiv Model Research",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          }
+        ],
+        "notify": false,
+        "mode": "production",
+        "analysis": {
+          "provider": "Xiaomi MiMo",
+          "model": "mimo-v2.6-flash"
+        },
+        "slot": "model_research"
+      }
+    },
     "2026-11-04:prompt_engineering": {
       "status": "no_matching_in_window",
       "updated_at": "2026-11-04T06:12:23.032780+00:00",

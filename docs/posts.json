@@ -1,5 +1,44 @@
 [
   {
+    "title": "AI 模型、训练与基础研究（2026-11-05）",
+    "date": "2026-11-05T10:29:52.541341+08:00",
+    "count": 2,
+    "url": "posts/20261105-model_research.html",
+    "topic": "model_research",
+    "status": "published",
+    "summary": "本期结论 - 两篇资料均指向\"推理能力提升需依赖结构性机制\"这一方向：图结构组织执行与记忆 1，奖励预算调节 RL 更新动态 2，可视为趋势。 - 图机制的贡献需按操作层级拆解，区分局部指标改善与下游任务表现，摘要未提供具体定量结果，无法从摘要确认其增益幅度 1。 - 奖励预算在 Qwen3-8B、Llama3.2-3",
+    "provenance": {
+      "analysis": {
+        "provider": "Xiaomi MiMo",
+        "model": "mimo-v2.6-flash"
+      },
+      "sources": [
+        {
+          "title": "Graph-Mediated Large Language Model Systems in the Agentic Era: Reasoning, Knowledge, Retrieval, Execution, and Coordination",
+          "url": "https://arxiv.org/abs/2611.05953v1",
+          "publisher": "arXiv Model Research",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-11-04T04:47:38+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "Reward Budgeting Reduces Premature Convergence in Reinforcement Learning for LLM Reasoning",
+          "url": "https://arxiv.org/abs/2611.05942v1",
+          "publisher": "arXiv Model Research",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-11-04T04:32:08+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 晨间雷达与免费资源（2026-11-05）",
     "date": "2026-11-05T09:12:18.238250+08:00",
     "count": 1,
