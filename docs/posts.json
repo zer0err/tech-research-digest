@@ -1,5 +1,55 @@
 [
   {
+    "title": "高效 AI、模型压缩与端侧适配（2026-11-05）",
+    "date": "2026-11-05T14:12:48.464213+08:00",
+    "count": 3,
+    "url": "posts/20261105-core_research.html",
+    "topic": "core_research",
+    "status": "published",
+    "summary": "本期结论 1. 8‑bit quantization对文本嵌入的精度影响可忽略：在38项任务中，int8与float32在二分类与重排序任务上统计上无显著差异，整体误差不超过1.5个百分点1。 2. 二进制量化显著降低性能：所有任务类别均表现出显著劣势，精度下降幅度大于统计阈值1。 3. 维度压缩与量化可实现高效存储：",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "Balancing hierarchical representation and quantization: A performance trade-off in text embeddings",
+          "url": "https://arxiv.org/abs/2611.06859v1",
+          "publisher": "arXiv Efficient AI",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-11-04T18:15:08+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "CompressionBench: How can your coding agents compress LLMs?",
+          "url": "https://arxiv.org/abs/2611.06858v1",
+          "publisher": "arXiv Efficient AI",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-11-04T18:14:50+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "VA-TDM: A Unified View for Improving Few-Step Diffusion Models by Velocity Adversarial Distillation",
+          "url": "https://arxiv.org/abs/2611.06796v1",
+          "publisher": "arXiv Efficient AI",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-11-04T17:14:20+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "Prompt、上下文工程与评测（2026-11-05）",
     "date": "2026-11-05T14:12:17.537353+08:00",
     "count": 1,

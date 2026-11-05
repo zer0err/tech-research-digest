@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>高效 AI、模型压缩与端侧适配（2026-11-05）</title><meta name="description" content="高效 AI、模型压缩与端侧适配（2026-11-05）：3 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav aria-label="主导航"><a href="../index.html#latest">时间线</a><a href="../knowledge/index.html">AI 知识科普</a><a href="../courses/index.html">AI 学习</a><a href="../tools/index.html">AI 工具</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">智能硬件技术专题</p><dl><dt>发布时间</dt><dd data-published-at="2026-11-05T14:12:48.464213+08:00">2026-11-05 14:12 · UTC+8</dd><dt>研究条目</dt><dd>3 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · 智能硬件技术专题</p><h1>高效 AI、模型压缩与端侧适配（2026-11-05）</h1><!-- provenance:start --><p class="ai-analysis" title="openai/gpt-oss-20b">AI 分析：Groq</p><!-- provenance:end --><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期结论</h2>
+<ol>
+<li><strong>8‑bit quantization对文本嵌入的精度影响可忽略</strong>：在38项任务中，int8与float32在二分类与重排序任务上统计上无显著差异，整体误差不超过1.5个百分点[1]。</li>
+<li><strong>二进制量化显著降低性能</strong>：所有任务类别均表现出显著劣势，精度下降幅度大于统计阈值[1]。</li>
+<li><strong>维度压缩与量化可实现高效存储</strong>：将嵌入维度减半一次不显著影响性能（m&gt;16），两次减半则显著下降；将8×维度压缩与int8结合，可在保持94.4%基线效果的同时实现32×存储压缩[1]。</li>
+<li><strong>自动化压缩代理能在大多数场景下实现接近手工压缩的效果</strong>：在六个代理与六个模型规模设置中，29/36提交通过验证；平均PPL仅比BF16高3.4%，下游准确率为77.33%[2]。</li>
+<li><strong>自动化压缩仍受限于表示设计与实验判断</strong>：代理在21/24次修订中降低PPL，但在17/79次先前排名中出现逆转，说明单一指标不足以评估压缩质量[2]。</li>
+</ol>
+<h2>逐项分析</h2>
+<table>
+<thead>
+<tr>
+<th>资料</th>
+<th>核心贡献</th>
+<th>方法与数据</th>
+<th>性能证据</th>
+<th>局限与证据等级</th>
+<th>工程意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[1]</td>
+<td>对层次化表示与量化的交互进行系统基准</td>
+<td>38项MTEB任务，4种Transformer嵌入模型，1D/2D层次化，32/8/二进制量化，168配置</td>
+<td>int8与float32在二分类与重排序任务上误差≤1.5%；二进制量化在所有任务显著劣势；8×维度压缩+int8实现32×存储压缩，效果94.4%[1]</td>
+<td>仅报告理论存储与单次评估时间；未测量推理延迟或功耗；实验仅在CPU上进行[1]</td>
+<td>对端侧嵌入压缩提供量化与维度压缩的权衡参考，适用于需要低存储但可接受轻微精度损失的场景</td>
+</tr>
+<tr>
+<td>[2]</td>
+<td>探索编码代理自动压缩LLM的可行性</td>
+<td>6个代理，6个模型规模，压缩目标为存储限制、推理环境与时间预算；使用PPL反馈与独立验证</td>
+<td>29/36提交通过验证；平均PPL仅比BF16高3.4%，下游准确率77.33%[2]</td>
+<td>仅报告PPL与下游准确率；未提供功耗、延迟或内存占用数据；验证过程未公开详细指标[2]</td>
+<td>为自动化压缩提供实验框架，提示代理在表示设计与实验判断上的瓶颈，适合需要快速迭代压缩策略的研发团队</td>
+</tr>
+<tr>
+<td>[3]</td>
+<td>提出Velocity Adversarial Distillation (VAD) 与 VA‑TDM 以提升少步扩散模型质量</td>
+<td>通过学习的critic比较学生与教师速度场，结合轨迹分布匹配与双形式VAD监督</td>
+<td>结果显示VA‑TDM在少步生成任务上性能提升（具体数值未列出）[3]</td>
+<td>仅提供“Extensive results show”而未给出定量指标；缺乏延迟、吞吐与功耗数据[3]</td>
+<td>对端侧生成模型压缩有潜在意义，但需进一步验证其在资源受限设备上的实际收益</td>
+</tr>
+</tbody>
+</table>
+<h2>工程行动建议</h2>
+<ul>
+<li><strong>验证实验</strong>
+<ul>
+<li>对[1]中int8与float32的精度差异，使用本地GPU/CPU在MTEB 38项任务上复现，记录推理延迟与内存占用。</li>
+<li>对[2]中代理压缩结果，复现至少两种代理在同一模型规模下的压缩过程，测量PPL、下游准确率、推理延迟与功耗。</li>
+</ul>
+</li>
+<li><strong>落地评估</strong>
+<ul>
+<li>在目标设备（如Edge TPU、NVIDIA Jetson）上部署int8嵌入模型，比较存储占用、推理时间与功耗。</li>
+<li>对[3]的VA‑TDM模型，评估在少步生成任务中的生成质量、推理延迟与显存占用。</li>
+</ul>
+</li>
+<li><strong>后续跟踪指标</strong>
+<ul>
+<li>记录每次压缩实验的存储压缩率、精度损失、推理延迟与功耗变化。</li>
+<li>对代理压缩过程中的实验判断误差率（如逆转排名次数）进行统计，以指导代理策略改进。</li>
+</ul>
+</li>
+</ul>
+<h2>参考资料</h2>
+<ol>
+<li>Balancing hierarchical representation and quantization: A performance trade-off in text embeddings, arXiv Efficient AI, <a href="https://arxiv.org/abs/2611.06859v1">https://arxiv.org/abs/2611.06859v1</a></li>
+<li>CompressionBench: How can your coding agents compress LLMs?, arXiv Efficient AI, <a href="https://arxiv.org/abs/2611.06858v1">https://arxiv.org/abs/2611.06858v1</a></li>
+<li>VA-TDM: A Unified View for Improving Few-Step Diffusion Models by Velocity Adversarial Distillation, arXiv Efficient AI, <a href="https://arxiv.org/abs/2611.06796v1">https://arxiv.org/abs/2611.06796v1</a></li>
+</ol>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>
