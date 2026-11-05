@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 论文午间速览（2026-11-05）</title><meta name="description" content="AI 论文午间速览（2026-11-05）：3 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav aria-label="主导航"><a href="../index.html#latest">时间线</a><a href="../knowledge/index.html">AI 知识科普</a><a href="../courses/index.html">AI 学习</a><a href="../tools/index.html">AI 工具</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">AI 论文午间速览</p><dl><dt>发布时间</dt><dd data-published-at="2026-11-05T12:42:17.874804+08:00">2026-11-05 12:42 · UTC+8</dd><dt>研究条目</dt><dd>3 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · AI 论文午间速览</p><h1>AI 论文午间速览（2026-11-05）</h1><!-- provenance:start --><p class="ai-analysis" title="openai/gpt-oss-20b">AI 分析：Groq</p><!-- provenance:end --><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期要点</h2>
+<ul>
+<li>InvarExplore 通过离散搜索实现 2‑bit 量化，兼容现有整数量化方法，提升性能但未给出具体延迟/功耗数据[1]。</li>
+<li>OneMall 在多场景电商推荐中采用 Transformer + Sparse MoE，显著提升 GMV，但缺乏硬件资源（内存、吞吐）与功耗指标[2]。</li>
+<li>LLaMA‑3.2‑3B 的 FHE 方案在 32 层多查询注意力上实现加密，保持 84.4% BERTScore‑F1，延迟 825 ms/17 tokens/s，未说明量化位宽或剪枝策略[3]。</li>
+</ul>
+<h2>逐项速览</h2>
+<table>
+<thead>
+<tr>
+<th>论文</th>
+<th>参数量</th>
+<th>精度</th>
+<th>量化位宽</th>
+<th>剪枝/蒸馏</th>
+<th>内存</th>
+<th>延迟</th>
+<th>吞吐</th>
+<th>功耗</th>
+<th>目标设备</th>
+<th>证据</th>
+<th>局限</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>InvarExplore</td>
+<td>未披露</td>
+<td>未披露</td>
+<td>2‑bit 量化</td>
+<td>未披露</td>
+<td>未披露</td>
+<td>未披露</td>
+<td>未披露</td>
+<td>未披露</td>
+<td>未披露</td>
+<td>通过离散搜索提升量化性能[1]</td>
+<td>未提供实验细节，无法评估硬件适配性</td>
+</tr>
+<tr>
+<td>OneMall</td>
+<td>未披露</td>
+<td>未披露</td>
+<td>未披露</td>
+<td>Sparse MoE（可视为稀疏剪枝）</td>
+<td>未披露</td>
+<td>未披露</td>
+<td>未披露</td>
+<td>未披露</td>
+<td>400 M DAU 服务器</td>
+<td>GMV 提升 +14.7% / +10.3% / +4.9%[2]</td>
+<td>缺乏模型大小、内存占用与功耗数据，无法量化资源与收益</td>
+</tr>
+<tr>
+<td>LLaMA‑3.2‑3B FHE</td>
+<td>3B</td>
+<td>BERTScore‑F1 ≈ 84.4%[3]</td>
+<td>未披露</td>
+<td>仅加密注意力层</td>
+<td>未披露</td>
+<td>825 ms/17 tokens/s[3]</td>
+<td>未披露</td>
+<td>未披露</td>
+<td>AMD EPYC CPU</td>
+<td>量化‑FHE 兼容性研究[3]</td>
+<td>仅对注意力层加密，未说明整体模型量化位宽，功耗与吞吐缺失</td>
+</tr>
+</tbody>
+</table>
+<h2>值得采取的行动</h2>
+<ol>
+<li><strong>验证 InvarExplore 的离散搜索实现</strong>：在本地 4‑bit 量化实验中复现其性能提升，记录延迟与功耗。</li>
+<li><strong>评估 OneMall 的 Sparse MoE 资源占用</strong>：使用相同硬件跑一次推理，测量显存占用与推理吞吐，以量化稀疏剪枝带来的收益。</li>
+<li><strong>测试 LLaMA‑3.2‑3B 的 FHE 方案</strong>：在目标 CPU 上跑完整推理，记录实际功耗与内存占用，验证 825 ms 延迟是否可接受。</li>
+</ol>
+<h2>参考资料</h2>
+<ol>
+<li>Exploring Model Invariance with Discrete Search for Ultra‑Low‑Bit Quantization – <a href="https://doi.org/10.1145/3799682.3840768">https://doi.org/10.1145/3799682.3840768</a></li>
+<li>OneMall: One Architecture, More Scenarios — End‑to‑End Generative Recommender Family for E‑commerce – <a href="https://doi.org/10.1145/3799682.3840095">https://doi.org/10.1145/3799682.3840095</a></li>
+<li>Fully homomorphic encryption on LlaMA 3 model for partial privacy preserving LLM inference – <a href="https://doi.org/10.1016/j.sysarc.2026.104040">https://doi.org/10.1016/j.sysarc.2026.104040</a></li>
+</ol>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>

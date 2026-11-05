@@ -1,5 +1,55 @@
 [
   {
+    "title": "AI 论文午间速览（2026-11-05）",
+    "date": "2026-11-05T12:42:17.874804+08:00",
+    "count": 3,
+    "url": "posts/20261105-paper_brief.html",
+    "topic": "paper_brief",
+    "status": "published",
+    "summary": "本期要点 - InvarExplore 通过离散搜索实现 2‑bit 量化，兼容现有整数量化方法，提升性能但未给出具体延迟/功耗数据1。 - OneMall 在多场景电商推荐中采用 Transformer + Sparse MoE，显著提升 GMV，但缺乏硬件资源（内存、吞吐）与功耗指标2。 - LLaMA‑3.2‑3",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "Exploring Model Invariance with Discrete Search for Ultra-Low-Bit Quantization",
+          "url": "https://doi.org/10.1145/3799682.3840768",
+          "publisher": "OpenAlex Efficient AI",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-11-03T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.1145/3799682.3840768",
+          "kind": "research"
+        },
+        {
+          "title": "OneMall: One Architecture, More Scenarios — End-to-End Generative Recommender Family for E-commerce",
+          "url": "https://doi.org/10.1145/3799682.3840095",
+          "publisher": "OpenAlex Efficient AI",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-11-03T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.1145/3799682.3840095",
+          "kind": "research"
+        },
+        {
+          "title": "Fully homomorphic encryption on LlaMA 3 model for partial privacy preserving LLM inference",
+          "url": "https://doi.org/10.1016/j.sysarc.2026.104040",
+          "publisher": "OpenAlex Efficient AI",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-11-03T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.1016/j.sysarc.2026.104040",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 模型、训练与基础研究（2026-11-05）",
     "date": "2026-11-05T10:29:52.541341+08:00",
     "count": 2,
