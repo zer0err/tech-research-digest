@@ -1,5 +1,55 @@
 [
   {
+    "title": "AI 晨间雷达与免费资源（2026-11-06）",
+    "date": "2026-11-06T09:12:17.520745+08:00",
+    "count": 3,
+    "url": "posts/20261106-morning_radar.html",
+    "topic": "morning_radar",
+    "status": "published",
+    "summary": "本时段要点 1. GitHub 公开了 Copilot 使用指标 API 的新字段，能够追踪代码评审反馈的处理情况，帮助企业了解 Copilot 在代码评审流程中的实际贡献度。 1 2. 同一平台进一步补充了用户缺失遥测或使用低版本 IDE/扩展的标识，提升了数据完整性与可操作性。 2 3. Google AI 推出了",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "Usage metrics API adds code review details and addressed rate",
+          "url": "https://github.blog/changelog/2026-11-05-usage-metrics-api-adds-code-review-details-and-addressed-rate",
+          "publisher": "GitHub 官方更新",
+          "host": "github.blog",
+          "family": "博客/公开网页",
+          "published": "2026-11-06T00:19:07+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "Usage metrics API flags telemetry and version gaps",
+          "url": "https://github.blog/changelog/2026-11-05-usage-metrics-api-flags-telemetry-and-version-gaps",
+          "publisher": "GitHub 官方更新",
+          "host": "github.blog",
+          "family": "博客/公开网页",
+          "published": "2026-11-06T00:08:31+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips",
+          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash",
+          "publisher": "Google AI 官方博客",
+          "host": "blog.google",
+          "family": "博客/公开网页",
+          "published": "2026-11-05T17:00:00+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "VORASIO AI 日报（2026-11-05）",
     "date": "2026-11-05T19:12:26.442126+08:00",
     "count": 6,

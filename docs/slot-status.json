@@ -1,4 +1,9 @@
 {
+  "2026-11-06:morning_radar": {
+    "status": "prepared",
+    "updated_at": "2026-11-06T01:12:17.520745+00:00",
+    "attempts": 1
+  },
   "2026-11-05:prompt_engineering": {
     "status": "published",
     "updated_at": "2026-11-05T06:12:17.537353+00:00",
@@ -35,7 +40,7 @@
     "attempts": 1
   },
   "2026-11-05:daily_digest": {
-    "status": "prepared",
+    "status": "published",
     "updated_at": "2026-11-05T11:12:26.442126+00:00",
     "attempts": 1
   },
