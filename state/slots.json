@@ -1,6 +1,59 @@
 {
   "version": 1,
   "slots": {
+    "2026-11-06:paper_brief": {
+      "status": "prepared",
+      "updated_at": "2026-11-06T04:43:16.917889+00:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "multimodal",
+        "title": "AI 论文午间速览",
+        "url": "https://vorasio.com/posts/20261106-paper_brief.html",
+        "created_at": "2026-11-06T04:43:16.917889+00:00",
+        "items": [
+          {
+            "uid": "5b485aecffe68954674f952e",
+            "title": "Do You Miss the Nights We Spent Crafting Figures? Rethinking Teaser and Framework Figures in the Age of Generative AI",
+            "url": "https://arxiv.org/abs/2611.08486v1",
+            "published": "2026-11-05T18:59:33+00:00",
+            "summary": "Scientific figures give research ideas a visual form through choices of abstraction, composition, and emphasis. Generative AI offers new ways to realize these choices, raising questions about explanatory clarity and purposeful visual expression. We examine these questions through a visual retrospective of 371 motivation and framework figures from 200 papers. The corpus comprises a quota-based main sample of 160 papers spanning four temporal periods and a separate purposive style-contrast sample of 40 papers. A single multimodal judge evaluates six dimensions of communication and design, with three repeated judgments per figure. We attempt source-constrained revisions of all 371 figures, of which 369 pass the recorded fidelity checks. Original-figure ratings show no uniform decline across periods. Revisions increase mean clarity ratings by 0.428 points and decrease aesthetic coherence ratings by 0.111 points on a five-point scale. Gains in the six-dimension average are larger for main-sample motivation figures than for frameworks. Case analyses show that added explanation can clarify comparisons while leaving typographic hierarchy and visual economy unresolved. These model-based findings support researcher-led design, with AI assisting exploration and authors retaining responsibility for explanatory purpose, composition, and scientific relationships. The accompanying atlas and e",
+            "source": "arXiv Perception",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          },
+          {
+            "uid": "99204d33e7aa5545eaf3f5c5",
+            "title": "EgoGeneralist: Unifying Egocentric Action-Video Tasks through Video-Native Modeling",
+            "url": "https://arxiv.org/abs/2611.08477v1",
+            "published": "2026-11-05T18:58:13+00:00",
+            "summary": "Modern video models possess strong visual priors, yet do not natively represent human action in metric 3D space. We present EgoGeneralist, which adapts pretrained video generators to unify action-conditioned egocentric video generation, pose estimation, and joint action-video generation. Our role-adaptive action renderer provides video-native representations for multidirectional action-video learning, making metric motion usable as both a spatial control signal and a recoverable generation target. Cross-stream action-video coupling establishes close correspondence between metric motion and visual dynamics through lightweight adaptation while preserving the pretrained visual prior. Together, these designs establish a generalist framework spanning five action-video tasks. Despite adaptation only on controlled laboratory recordings, EgoGeneralist generalizes to diverse unseen scenes and interactions with effective action control and visual quality, bridging pretrained visual knowledge and metric 3D human motion.",
+            "source": "arXiv Perception",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          },
+          {
+            "uid": "3ff4689765b4f17a7d62b786",
+            "title": "USB Gym: A Gymnasium Testbed for Closed-Loop Ultrasound View Matching",
+            "url": "https://arxiv.org/abs/2611.08352v1",
+            "published": "2026-11-05T17:34:53+00:00",
+            "summary": "Background and Objective: Our main goal is ultrasound guidance: moving a probe until its image matches a target view. Published methods for each part of a guide are evaluated in separate simulators. We asked whether these methods, combined into one guide, are good enough. Methods: We built USB Gym, a testbed whose standard engine simulates ultrasound from public patient CT, with a network drawing organ textures from CT labels. Its guide has three replaceable parts (slots), an organ segmenter, a controller and a reward, which received 20 published methods, each run on the same 60 episodes of six held-out patients. In each slot, a published method replaced ours only if detectably better on these patients. The better of this combination and our original guide on 20 new CTs is the benchmark baseline. A pose oracle, reading the exact probe pose available only in simulation, set the reference. The results below are exploratory. Results: On these CTs, the probe started on average 16.0 mm from the target view; the pose oracle brought it to 1.5 mm. Of the results known when the combination was fixed, only an image-similarity reward (SSIM) was slightly but detectably better, so the combination was our guide with that reward. This combination was the benchmark baseline, ending at 13.7 mm (16% of the oracle's progress). Conclusions: Combining untuned published methods with ours did not gui",
+            "source": "arXiv Perception",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          }
+        ],
+        "notify": true,
+        "mode": "production",
+        "analysis": {
+          "provider": "Groq",
+          "model": "openai/gpt-oss-20b"
+        },
+        "slot": "paper_brief"
+      }
+    },
     "2026-11-06:open_source": {
       "status": "analysis_rejected",
       "updated_at": "2026-11-06T04:42:24.407805+00:00",

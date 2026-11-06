@@ -1,5 +1,55 @@
 [
   {
+    "title": "AI 论文午间速览（2026-11-06）",
+    "date": "2026-11-06T12:43:16.917889+08:00",
+    "count": 3,
+    "url": "posts/20261106-paper_brief.html",
+    "topic": "paper_brief",
+    "status": "published",
+    "summary": "本期要点 - 视觉任务中，EgoGeneralist 通过视频‑原生建模统一了五种以视角为中心的动作视频任务，展示了跨任务迁移与实时控制的潜力2。 - 语音、音频、雷达及多模态融合方面的研究在本期资料中未提供具体任务定义或数据集，摘要中未提及相关内容13。 - 传感器融合（如超声与CT）在 USB Gym 框架下实现了",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "Do You Miss the Nights We Spent Crafting Figures? Rethinking Teaser and Framework Figures in the Age of Generative AI",
+          "url": "https://arxiv.org/abs/2611.08486v1",
+          "publisher": "arXiv Perception",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-11-05T18:59:33+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "EgoGeneralist: Unifying Egocentric Action-Video Tasks through Video-Native Modeling",
+          "url": "https://arxiv.org/abs/2611.08477v1",
+          "publisher": "arXiv Perception",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-11-05T18:58:13+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "USB Gym: A Gymnasium Testbed for Closed-Loop Ultrasound View Matching",
+          "url": "https://arxiv.org/abs/2611.08352v1",
+          "publisher": "arXiv Perception",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-11-05T17:34:53+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 模型、训练与基础研究（2026-11-06）",
     "date": "2026-11-06T10:42:25.869537+08:00",
     "count": 3,
