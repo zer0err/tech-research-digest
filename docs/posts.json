@@ -1,5 +1,55 @@
 [
   {
+    "title": "多模态感知、音视频与人机交互（2026-11-06）",
+    "date": "2026-11-06T14:13:54.265315+08:00",
+    "count": 3,
+    "url": "posts/20261106-core_research.html",
+    "topic": "core_research",
+    "status": "published",
+    "summary": "本期结论 1. 视觉结构主题模型（vSTM）能够在政治传播研究中实现多主题图像表示，并通过预训练图像嵌入提升语义捕捉能力，支持多模态分析的可解释性与相关性分析。该结论得到1的实验结果与方法描述支持。 2. 专业视觉编码框架在情感视频分析中提供了可量化的特征维度，但其可靠性受限于低 Krippendorff’s alph",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "An Image Is Worth K Topics: A Visual Structural Topic Model with Pretrained Image Embeddings",
+          "url": "https://doi.org/10.1017/pan.2026.10062",
+          "publisher": "OpenAlex Multimodal",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-11-05T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.1017/pan.2026.10062",
+          "kind": "research"
+        },
+        {
+          "title": "A professionally developed visual coding framework for affective video analysis",
+          "url": "https://doi.org/10.3389/fpsyg.2026.1974971",
+          "publisher": "OpenAlex Multimodal",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-11-04T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.3389/fpsyg.2026.1974971",
+          "kind": "research"
+        },
+        {
+          "title": "ConnectionMind: Leveraging Social Networks and Large Language Models for Personalized Recommendation at Meta",
+          "url": "https://doi.org/10.1145/3799682.3840157",
+          "publisher": "OpenAlex Multimodal",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-11-03T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.1145/3799682.3840157",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 论文午间速览（2026-11-06）",
     "date": "2026-11-06T12:43:16.917889+08:00",
     "count": 3,

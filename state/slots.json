@@ -27,6 +27,59 @@
       "updated_at": "2026-11-06T02:42:25.869537+00:00",
       "attempts": 1
     },
+    "2026-11-06:core_research": {
+      "status": "prepared",
+      "updated_at": "2026-11-06T06:13:54.265315+00:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "multimodal",
+        "title": "多模态感知、音视频与人机交互",
+        "url": "https://vorasio.com/posts/20261106-core_research.html",
+        "created_at": "2026-11-06T06:13:54.265315+00:00",
+        "items": [
+          {
+            "uid": "eeb1a2aae0a416e680a290d9",
+            "title": "An Image Is Worth K Topics: A Visual Structural Topic Model with Pretrained Image Embeddings",
+            "url": "https://doi.org/10.1017/pan.2026.10062",
+            "published": "2026-11-05T00:00:00+00:00",
+            "summary": "Abstract Political scientists are increasingly interested in analyzing visual content at scale. However, the existing computational toolbox is still in need of methods and models attuned to the specific challenges and goals of social and political inquiry. In this article, we introduce a visual structural topic model (vSTM) that combines continuous image embeddings with a structural topic model. This has important advantages compared to existing approaches. First, continuous embeddings allow the model to capture the semantic complexity of images, which is relevant to the study of politics. A consequence of using continuous embeddings is that we can directly use off-the-shelf pretrained deep learning models, offering state-of-the-art performance in image analysis tasks while saving time, cost and resources. Second, the structural topic model provides the ability to analyze how topics and covariates are related, while maintaining a nuanced representation of images as a mixture of multiple topics. In our experiments, we show that the vSTM is able to identify topics that are interpretable, coherent and relevant to the study of online political communication.",
+            "source": "OpenAlex Multimodal",
+            "kind": "research",
+            "doi": "https://doi.org/10.1017/pan.2026.10062",
+            "date_precision": "day"
+          },
+          {
+            "uid": "877e5531253702db77f9d84d",
+            "title": "A professionally developed visual coding framework for affective video analysis",
+            "url": "https://doi.org/10.3389/fpsyg.2026.1974971",
+            "published": "2026-11-04T00:00:00+00:00",
+            "summary": "Introduction Affective responses to videos arise from multidimensional, context-dependent visual features that unfold over time. However, no standardized method exists to characterize these features, limiting research on visual-based immersive interventions and broader computer vision science. We developed an expert-informed visual coding framework to provide a systematic approach to visual coding. Methods A visual coding framework was developed by film professionals to characterize cinematographic features that may be relevant to viewers’ emotional responses. The framework was initially evaluated using selected nature-based landscape clips from a publicly available database of 360° immersive videos. Results The visual coding framework contains 17 items. We evaluated this framework using a set of 48 natural landscape video clips to represent a broad range of environmental characteristics, including forests, mountains, beaches, and deserts. Across a total of 816 unique video-item evaluations, the mean modal agreement was 0.720, indicating 72.0% of the independent film professionals converged on the exact same dominant response category for any given visual feature. Mean exact pairwise agreement across items was 0.584, and item-level Krippendorff’s alpha ranged from 0.043 to 0.463. The differences between raw agreement and alpha reflect prevalent video characteristics and limited",
+            "source": "OpenAlex Multimodal",
+            "kind": "research",
+            "doi": "https://doi.org/10.3389/fpsyg.2026.1974971",
+            "date_precision": "day"
+          },
+          {
+            "uid": "16fc7618b93bc808340abf8a",
+            "title": "ConnectionMind: Leveraging Social Networks and Large Language Models for Personalized Recommendation at Meta",
+            "url": "https://doi.org/10.1145/3799682.3840157",
+            "published": "2026-11-03T00:00:00+00:00",
+            "summary": "Modern recommendation systems on social media platforms such as Meta must model complex social relationships alongside massive and heterogeneous content such as text and video. Traditional recommendation models, however, often omit these signals or treat them independently, limiting their ability to integrate multi-relational context for fine-grained personalization. We present ConnectionMind, a production-ready recommendation framework that tightly integrates social network structure with large language models (LLMs) to enable scalable and reasoning-aware personalization at Meta. ConnectionMind constructs a heterogeneous graph connecting users, items, friends, groups, and creator pages, and formulates recommendation as a graph reasoning problem that discovers personalized paths from users to candidate items. An LLM-based policy reasons over these graph structures to guide recommendation decisions. To train the system at scale, ConnectionMind adopts a two-stage strategy: supervised fine-tuning (SFT) on large-scale user--item interaction trajectories to initialize the reasoning policy, followed by end-to-end reinforcement learning (RL) to further optimize personalized graph reasoning. Extensive experiments on multiple real-world datasets demonstrate consistent improvements over representative baselines. More importantly, ConnectionMind has been deployed in Meta's large-scale rec",
+            "source": "OpenAlex Multimodal",
+            "kind": "research",
+            "doi": "https://doi.org/10.1145/3799682.3840157",
+            "date_precision": "day"
+          }
+        ],
+        "notify": false,
+        "mode": "production",
+        "analysis": {
+          "provider": "Groq",
+          "model": "openai/gpt-oss-20b"
+        },
+        "slot": "core_research"
+      }
+    },
     "2026-11-05:prompt_engineering": {
       "status": "published",
       "updated_at": "2026-11-05T06:12:17.537353+00:00",
