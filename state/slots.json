@@ -7,57 +7,9 @@
       "attempts": 1
     },
     "2026-11-06:model_research": {
-      "status": "prepared",
+      "status": "published",
       "updated_at": "2026-11-06T02:42:25.869537+00:00",
-      "attempts": 1,
-      "pending": {
-        "topic": "model_research",
-        "title": "AI 模型、训练与基础研究",
-        "url": "https://vorasio.com/posts/20261106-model_research.html",
-        "created_at": "2026-11-06T02:42:25.869537+00:00",
-        "items": [
-          {
-            "uid": "bcd171162c2c2b9c555b0aa3",
-            "title": "PSGAgent: Enhancing MLLMs' Dynamic Visual Perception for Panoptic Scene Graph Generation via Agentic Reasoning",
-            "url": "https://arxiv.org/abs/2611.07408v1",
-            "published": "2026-11-05T04:02:16+00:00",
-            "summary": "Panoptic Scene Graph generation (PSG) requires holistic yet fine-grained reasoning over complex relations among objects. However, current Multimodal Large Language Models (MLLMs) applied to PSG suffer from a perception bottleneck: they function as static observers limited by fixed-resolution views. As a result, models often overlook critical relations involving small or peripheral objects and struggle to differentiate ambiguous predicates in complex scenes. To address these limitations, we propose PSGAgent, an agentic framework that enhances visual perception for PSG through a think-act-observe loop. PSGAgent allows MLLMs to dynamically refine their visual perception using two tools: a Region Zoom-In Tool for local exploration of small or boundary relations and a Visual Highlight Tool for relation-focused segmentation that filters out irrelevant contextual noise. To optimize decision-making, we construct a two-stage training pipeline. First, we create a high-quality, error-aware Multimodal Chain-of-Thought (M-CoT) dataset that provides robust supervision for cold-start learning. Then, we design a novel hierarchical reward mechanism integrated with Group Sequence Policy Optimization (GSPO) to enable strategic and adaptive tool usage. Extensive experiments on the PSG benchmark show that PSGAgent achieves SOTA performance, demonstrating strong capability in both holistic and fine-",
-            "source": "arXiv Model Research",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day"
-          },
-          {
-            "uid": "8503020a20ac7f024d219970",
-            "title": "CacheGraft: Enhancing Retrieval-Augmented Generation via Latent-Space Document Enrichment",
-            "url": "https://arxiv.org/abs/2611.07393v1",
-            "published": "2026-11-05T03:43:22+00:00",
-            "summary": "Recent work in machine learning has demonstrated that transformer-based language model agents can communicate state not only through text, but also directly in latent space via key-value (KV) caches. In this paper, we argue that such cache-to-cache translation can provide utility beyond the original motivating application of real-time agent communication and can instead be utilized for retrieval-augmented generation (RAG). Building on the Cache-to-Cache (C2C) fusion framework, our proposed system CacheGraft encodes each corpus passage offline into a fused KV cache representation between a larger sharer model (4B parameters in our experiments) and a smaller receiver model (0.6B parameters) such that this cache can be injected into the receiver at query time with no need for the larger model. Across five QA benchmarks and two independent locally-run judges, CacheGraft improves answer quality over the text-only receiver baseline in 29 out of 30 comparisons, of which 17 of the 30 are statistically significant. Notably, these gains are zero-shot with respect to the fuser, which was never trained on retrieval data. These initial results suggest that latent-space document enrichment may be a promising avenue for enhancing the performance of RAG systems, particularly in compute-constrained settings where it is only feasible to deploy a small model at inference time.",
-            "source": "arXiv Model Research",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day"
-          },
-          {
-            "uid": "11e16a27e821c1cea303881b",
-            "title": "WeLM-Image: A Unified Image Generation Model towards Visual Intelligence",
-            "url": "https://arxiv.org/abs/2611.07392v1",
-            "published": "2026-11-05T03:41:53+00:00",
-            "summary": "We present \\textbf{WeLM-Image}, a unified image foundation model that integrates multimodal understanding into text-to-image generation, instruction-guided editing, and multi-reference synthesis. Designed for single-GPU deployment in WeChat's large-scale consumer applications, the model processes text, reference images, and target latents as one interleaved sequence. A Mixture-of-Transformers (MoT) backbone combines shared attention with independent understanding and generation parameters to limit optimization interference. Equipping each path with Mixture-of-Experts (MoE) modules provides sparse capacity, with 31.7B stored parameters and approximately 5.4B generation parameters activated per target latent token. A generation-oriented data engine combines a knowledge-grounded visual vocabulary with large-scale visual clustering to balance semantic coverage and editing tasks, while training-time evaluation guides iterative data refinement. Bilingual annotations and verified editing supervision support progressive training up to native 1.5K resolution. We optimize generation and editing separately with rubric- and checklist-based rewards, then consolidate the specialized policies through noise-aware on-policy distillation. In the reported overall comparisons, the 1536-resolution model ranks first among the evaluated open-source models on PRISM-Bench, Qwen-Image-Bench, and UnicBen",
-            "source": "arXiv Model Research",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day"
-          }
-        ],
-        "notify": false,
-        "mode": "production",
-        "analysis": {
-          "provider": "Groq",
-          "model": "openai/gpt-oss-20b"
-        },
-        "slot": "model_research"
-      }
+      "attempts": 1
     },
     "2026-11-05:prompt_engineering": {
       "status": "published",
