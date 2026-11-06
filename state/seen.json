@@ -205,6 +205,9 @@
     },
     "product_safety": {
       "ids": [
+        "a8050913f8cc31d0729dd538",
+        "52e5ea5113f1197e05a377b1",
+        "ea0b87cab41e90b3ae69a757",
         "80375502e94c9c6e51d01eca",
         "b0c9e2f183e20812ff364d1f",
         "eb8313318b51373dae953821",
@@ -219,7 +222,7 @@
         "1dd573b9112c2e472f3b1413",
         "5f4fd058fd42810b8ce54c7a"
       ],
-      "updated_at": "2026-11-01T06:12:39.603648+00:00"
+      "updated_at": "2026-11-06T08:42:21.616449+00:00"
     },
     "dev_practice": {
       "ids": [
@@ -263,6 +266,9 @@
     }
   },
   "all_ids": [
+    "a8050913f8cc31d0729dd538",
+    "52e5ea5113f1197e05a377b1",
+    "ea0b87cab41e90b3ae69a757",
     "eeb1a2aae0a416e680a290d9",
     "877e5531253702db77f9d84d",
     "16fc7618b93bc808340abf8a",
@@ -461,6 +467,9 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://arxiv.org/abs/2611.07320v1",
+    "https://arxiv.org/abs/2611.06162v1",
+    "https://doi.org/10.21203/rs.3.rs-11605123/v1",
     "https://doi.org/10.1017/pan.2026.10062",
     "https://doi.org/10.3389/fpsyg.2026.1974971",
     "https://doi.org/10.1145/3799682.3840157",
@@ -659,6 +668,9 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "23d26c8027786cd59f6a1bad",
+    "d485bba6b12cec873165943e",
+    "da19f0c586bd0a77a3a4b707",
     "9b9624654ba4371681248ab4",
     "424439e36c600f68c7446cbe",
     "9d267ad0e615a495e8c958a7",
@@ -3716,6 +3728,49 @@
           "source": "OpenAlex Multimodal",
           "kind": "research",
           "doi": "https://doi.org/10.1145/3799682.3840157",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261106-applied_ai.html": {
+      "topic": "product_safety",
+      "created_at": "2026-11-06T08:42:21.616449+00:00",
+      "items": [
+        {
+          "uid": "a8050913f8cc31d0729dd538",
+          "title": "A Framework for Guaranteed Active Fault Diagnosis with Applications to Aircraft Systems",
+          "url": "https://arxiv.org/abs/2611.07320v1",
+          "published": "2026-11-05T02:06:59+00:00",
+          "summary": "Within the multiple-model framework, active fault diagnosis applies auxiliary control input signals to ex?cite the system such that fault modes are distinguishable. For aircraft systems, it has been pointed out by some rele?vant works that certain faults cannot be effectively detected and isolated in time without actively exciting the aircraft dynamics. However, existing works have not simultane?ously addressed the optimal auxiliary control design with theoretical guarantees and the FDI method with an effective mechanism for triggering the active fault diagnosis. Hence, we are motivated to propose a framework of active FDI for aircraft systems to explicitly address the aforementioned issue. Specifically, we first formulate a receding-horizon FDI scheme for estimating the likelihood of candidate fault modes with proved effectiveness, and then we propose a method for estimating mode probabilities, based on which a mechanism is designed for triggering auxiliary control for active fault diagnosis. The auxiliary control signal design is formulated such that the effectiveness for FDI is theoret?ically guaranteed and the disruption to nominal flight oper?ation is minimized. Numerical test results are presented to demonstrate the effectiveness of the proposed framework.",
+          "source": "arXiv Hardware Reliability",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        },
+        {
+          "uid": "52e5ea5113f1197e05a377b1",
+          "title": "A Layered View of LLM Support in Underwater Robotics",
+          "url": "https://arxiv.org/abs/2611.06162v1",
+          "published": "2026-11-04T08:43:07+00:00",
+          "summary": "This extended abstract discusses a specific and, in our experience, practically relevant role for large language models (LLMs) in underwater robotics. Our main premise is that, in underwater fielding missions, the immediate difficulty is often not the synthesis of new low-level control laws, but the operation of complex robotic systems under limited communications, partial observability, and expensive field time. In particular, a significant fraction of the effort during sea trials is devoted to fault diagnosis, telemetry interpretation, mission adjustment, and coordination across heterogeneous assets and operators. We argue that LLMs may be useful at this higher operational level, especially when grounded in structured vehicle state, alarms, logs, mission context, and existing planning or validation tools. At the same time, current limitations in grounding, consistency, and causal reasoning make these systems lack the predictability required to guarantee direct control, especially in real-world critical applications, although we do not exclude a future evolution in this direction. This viewpoint suggests a layered architecture in which conventional autonomy remains responsible for control, perception, estimation, and validated mission execution, whereas LLM-based modules serve as an additional support layer for debugging, operator interaction, constrained replanning support, o",
+          "source": "arXiv Hardware Reliability",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        },
+        {
+          "uid": "ea0b87cab41e90b3ae69a757",
+          "title": "Role of Artificial Intelligence and the Internet of Things in Education and Cultural Studies",
+          "url": "https://doi.org/10.21203/rs.3.rs-11605123/v1",
+          "published": "2026-11-04T00:00:00+00:00",
+          "summary": "Abstract AI and IoT add most value in education and cultural studies if they expand who is reached and protected, and our simulations suggest that they may narrow that reach almost as easily. This paper (i) synthesizes the literature on AI (Artificial Intelligence) and the Internet of Things (IoT) across teaching and learning, assessment, campus operations, digital humanities, and heritage preservation, and (ii) evaluates two representative applications with reproducible Monte Carlo models. The first is an early-warning system that directs limited tutoring capacity to at-risk students, with an explicit equity metric for a minority group whose data are less informative. The second is IoT microclimate monitoring in a heritage gallery with three alarm strategies. In a simulated cohort of 2,000 students (15% at risk, 300 tutoring slots), random allocation reached 15.2% of at-risk students, LMS analytics reached 37.4% and combining LMS and IoT data reached 50.2%. However, the minority group was reached 21.7 percentage points less often than the majority group. Allocating capacity by group quotas cut that gap to 15.7 points at the same overall reach (50.0%) and only equal data quality removed it. In the gallery simulation, a fixed humidity threshold detected 47.0% of excursions and raised 12.4 false alarms per 30 days, whereas a three-sensor consensus rule detected 98.0% with 0.7 fal",
+          "source": "OpenAlex Device Security",
+          "kind": "research",
+          "doi": "https://doi.org/10.21203/rs.3.rs-11605123/v1",
           "date_precision": "day"
         }
       ],
