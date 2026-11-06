@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 模型、训练与基础研究（2026-11-06）</title><meta name="description" content="AI 模型、训练与基础研究（2026-11-06）：3 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav aria-label="主导航"><a href="../index.html#latest">时间线</a><a href="../knowledge/index.html">AI 知识科普</a><a href="../courses/index.html">AI 学习</a><a href="../tools/index.html">AI 工具</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">AI 模型、训练与基础研究</p><dl><dt>发布时间</dt><dd data-published-at="2026-11-06T10:42:25.869537+08:00">2026-11-06 10:42 · UTC+8</dd><dt>研究条目</dt><dd>3 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · AI 模型、训练与基础研究</p><h1>AI 模型、训练与基础研究（2026-11-06）</h1><!-- provenance:start --><p class="ai-analysis" title="openai/gpt-oss-20b">AI 分析：Groq</p><!-- provenance:end --><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期结论</h2>
+<ol>
+<li><strong>动态视觉感知提升了多模态大模型在复杂场景图生成中的细粒度推理能力</strong>。PSGAgent 通过 Region Zoom‑In 与 Visual Highlight 工具实现动态感知，实验表明在 PSG 基准上实现了 SOTA 性能，显著提升了对小物体与边缘关系的识别能力[1]。</li>
+<li><strong>在检索增强生成（RAG）中，利用潜在空间缓存进行文档增益可在小模型推理时提升答案质量</strong>。CacheGraft 在 5 个 QA 基准上，在 29/30 比较中优于文本仅接收器，其中 17 次具有统计显著性，且增益为零样本[2]。</li>
+<li><strong>统一图像生成模型可在单 GPU 上实现高分辨率文本到图像与编辑任务</strong>。WeLM‑Image 采用 Mixture‑of‑Transformers 与 Mixture‑of‑Experts，训练至 1.5K 分辨率，并在 PRISM‑Bench、Qwen‑Image‑Bench 与 UnicBen 上排名第一[3]。</li>
+</ol>
+<h2>逐项分析</h2>
+<table>
+<thead>
+<tr>
+<th>资料</th>
+<th>核心贡献</th>
+<th>方法与数据</th>
+<th>性能证据</th>
+<th>局限与证据等级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[1] PSGAgent</td>
+<td>通过 agentic 机制动态提升 MLLM 对场景图的视觉感知</td>
+<td>think‑act‑observe 循环；Region Zoom‑In 与 Visual Highlight 两工具；两阶段训练：M‑CoT 数据集 + GSPO 奖励</td>
+<td>在 PSG 基准上实现 SOTA，细粒度关系识别显著提升</td>
+<td>仅在 PSG 基准上评估；缺乏对其他多模态任务的验证；证据等级 A</td>
+</tr>
+<tr>
+<td>[2] CacheGraft</td>
+<td>利用 KV 缓存在潜在空间中进行文档增益，提升 RAG 性能</td>
+<td>C2C 融合框架；4B 大模型与 0.6B 小模型的 KV 缓存编码；零样本增益</td>
+<td>5 个 QA 基准中 29/30 对比优于文本接收器，17 次显著</td>
+<td>仅在 QA 基准上评估；未展示对生成多样性或推理速度的影响；证据等级 A</td>
+</tr>
+<tr>
+<td>[3] WeLM‑Image</td>
+<td>统一图像生成模型兼容文本生成、编辑与多参考合成</td>
+<td>Mixture‑of‑Transformers + MoE；知识驱动视觉词汇与视觉聚类；rubric‑/checklist‑based 奖励与噪声感知 on‑policy distillation</td>
+<td>在 PRISM‑Bench、Qwen‑Image‑Bench 与 UnicBen 上排名第一；单 GPU 可训练至 1.5K 分辨率</td>
+<td>仅在公开基准上评估；缺乏对大规模部署与实时推理的实验；证据等级 A</td>
+</tr>
+</tbody>
+</table>
+<h2>工程行动建议</h2>
+<ul>
+<li><strong>验证实验</strong>
+<ul>
+<li>对 PSGAgent：在自有多模态数据集上复现 think‑act‑observe 循环，评估 Region Zoom‑In 与 Visual Highlight 对小物体关系召回率的影响。</li>
+<li>对 CacheGraft：在本地部署 0.6B 接收器，使用 C2C 缓存注入，比较文本仅接收器与 CacheGraft 在自家 QA 数据集上的 BLEU/ROUGE。</li>
+<li>对 WeLM‑Image：在单 GPU 环境下训练 1536 分辨率模型，使用 PRISM‑Bench 进行对比，验证 MoT 与 MoE 的参数激活比例。</li>
+</ul>
+</li>
+<li><strong>落地评估</strong>
+<ul>
+<li>评估 PSGAgent 在实际场景图生成任务中的推理时延与资源占用，确定是否满足实时需求。</li>
+<li>对 CacheGraft，测量 KV 缓存构建与注入的 CPU/GPU 负载，评估在边缘设备上的可行性。</li>
+<li>对 WeLM‑Image，测试生成速度与内存占用，验证单 GPU 训练与推理的成本。</li>
+</ul>
+</li>
+<li><strong>后续跟踪指标</strong>
+<ul>
+<li><strong>PSGAgent</strong>：小物体关系召回率、推理时延、工具使用频率。</li>
+<li><strong>CacheGraft</strong>：答案质量提升比例、缓存构建时间、模型尺寸对比。</li>
+<li><strong>WeLM‑Image</strong>：生成分辨率、编辑成功率、模型参数激活比例。</li>
+</ul>
+</li>
+</ul>
+<h2>参考资料</h2>
+<ol>
+<li>PSGAgent: Enhancing MLLMs' Dynamic Visual Perception for Panoptic Scene Graph Generation via Agentic Reasoning – <a href="https://arxiv.org/abs/2611.07408v1">https://arxiv.org/abs/2611.07408v1</a></li>
+<li>CacheGraft: Enhancing Retrieval-Augmented Generation via Latent-Space Document Enrichment – <a href="https://arxiv.org/abs/2611.07393v1">https://arxiv.org/abs/2611.07393v1</a></li>
+<li>WeLM-Image: A Unified Image Generation Model towards Visual Intelligence – <a href="https://arxiv.org/abs/2611.07392v1">https://arxiv.org/abs/2611.07392v1</a></li>
+</ol>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>

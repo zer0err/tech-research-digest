@@ -1,5 +1,55 @@
 [
   {
+    "title": "AI 模型、训练与基础研究（2026-11-06）",
+    "date": "2026-11-06T10:42:25.869537+08:00",
+    "count": 3,
+    "url": "posts/20261106-model_research.html",
+    "topic": "model_research",
+    "status": "published",
+    "summary": "本期结论 1. 动态视觉感知提升了多模态大模型在复杂场景图生成中的细粒度推理能力。PSGAgent 通过 Region Zoom‑In 与 Visual Highlight 工具实现动态感知，实验表明在 PSG 基准上实现了 SOTA 性能，显著提升了对小物体与边缘关系的识别能力1。 2. 在检索增强生成（RAG）中，",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "PSGAgent: Enhancing MLLMs' Dynamic Visual Perception for Panoptic Scene Graph Generation via Agentic Reasoning",
+          "url": "https://arxiv.org/abs/2611.07408v1",
+          "publisher": "arXiv Model Research",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-11-05T04:02:16+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "CacheGraft: Enhancing Retrieval-Augmented Generation via Latent-Space Document Enrichment",
+          "url": "https://arxiv.org/abs/2611.07393v1",
+          "publisher": "arXiv Model Research",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-11-05T03:43:22+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "WeLM-Image: A Unified Image Generation Model towards Visual Intelligence",
+          "url": "https://arxiv.org/abs/2611.07392v1",
+          "publisher": "arXiv Model Research",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-11-05T03:41:53+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 晨间雷达与免费资源（2026-11-06）",
     "date": "2026-11-06T09:12:17.520745+08:00",
     "count": 3,
