@@ -1,5 +1,55 @@
 [
   {
+    "title": "智能硬件产品化、可靠性与安全（2026-11-06）",
+    "date": "2026-11-06T16:42:21.616449+08:00",
+    "count": 3,
+    "url": "posts/20261106-applied_ai.html",
+    "topic": "applied_ai",
+    "status": "published",
+    "summary": "本期结论 1. 主动故障诊断可通过理论保证的辅助控制实现：论文1提出的递归窗口 FDI 框架在数值测试中显示了对候选故障模式的概率估计与触发机制的有效性，且辅助控制设计在保持飞行操作最小干扰的同时保证了 FDI 效果1。 2. LLM 在水下机器人高层操作支持中有潜在价值，但缺乏可预测性：摘要2指出 LLM 可用于故障",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "A Framework for Guaranteed Active Fault Diagnosis with Applications to Aircraft Systems",
+          "url": "https://arxiv.org/abs/2611.07320v1",
+          "publisher": "arXiv Hardware Reliability",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-11-05T02:06:59+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "A Layered View of LLM Support in Underwater Robotics",
+          "url": "https://arxiv.org/abs/2611.06162v1",
+          "publisher": "arXiv Hardware Reliability",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-11-04T08:43:07+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "Role of Artificial Intelligence and the Internet of Things in Education and Cultural Studies",
+          "url": "https://doi.org/10.21203/rs.3.rs-11605123/v1",
+          "publisher": "OpenAlex Device Security",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-11-04T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.21203/rs.3.rs-11605123/v1",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "多模态感知、音视频与人机交互（2026-11-06）",
     "date": "2026-11-06T14:13:54.265315+08:00",
     "count": 3,
