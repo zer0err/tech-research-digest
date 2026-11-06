@@ -2,57 +2,9 @@
   "version": 1,
   "slots": {
     "2026-11-06:morning_radar": {
-      "status": "prepared",
+      "status": "published",
       "updated_at": "2026-11-06T01:12:17.520745+00:00",
-      "attempts": 1,
-      "pending": {
-        "topic": "morning_radar",
-        "title": "AI 晨间雷达与免费资源",
-        "url": "https://vorasio.com/posts/20261106-morning_radar.html",
-        "created_at": "2026-11-06T01:12:17.520745+00:00",
-        "items": [
-          {
-            "uid": "525555dfe497cbaa420f0c38",
-            "title": "Usage metrics API adds code review details and addressed rate",
-            "url": "https://github.blog/changelog/2026-11-05-usage-metrics-api-adds-code-review-details-and-addressed-rate",
-            "published": "2026-11-06T00:19:07+00:00",
-            "summary": "The enterprise and organization repository-level Copilot usage metrics reports now show what happens to Copilot code review feedback. A new copilot_code_review object on each repos-1-day row reports how many Copilot-reviewed… The post Usage metrics API adds code review details and addressed rate appeared first on The GitHub Blog .",
-            "source": "GitHub 官方更新",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day"
-          },
-          {
-            "uid": "0778fb85d9153ba6e8af785f",
-            "title": "Usage metrics API flags telemetry and version gaps",
-            "url": "https://github.blog/changelog/2026-11-05-usage-metrics-api-flags-telemetry-and-version-gaps",
-            "published": "2026-11-06T00:08:31+00:00",
-            "summary": "The Copilot usage metrics API now shows which users are missing client telemetry or are running IDE or extension versions below the usage metrics minimums. New per-user fields appear in… The post Usage metrics API flags telemetry and version gaps appeared first on The GitHub Blog .",
-            "source": "GitHub 官方更新",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day"
-          },
-          {
-            "uid": "27b87d65d3f99406683fa7dd",
-            "title": "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips",
-            "url": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash",
-            "published": "2026-11-05T17:00:00+00:00",
-            "summary": "Text \"Gemini Introducing Gemini Omni 1.2 Flash\" surroudned by images of a beehive, animals in conversation, a squid, and a woman walking down a street",
-            "source": "Google AI 官方博客",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day"
-          }
-        ],
-        "notify": true,
-        "mode": "production",
-        "analysis": {
-          "provider": "Groq",
-          "model": "openai/gpt-oss-20b"
-        },
-        "slot": "morning_radar"
-      }
+      "attempts": 1
     },
     "2026-11-05:prompt_engineering": {
       "status": "published",

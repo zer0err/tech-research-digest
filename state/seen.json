@@ -42,6 +42,9 @@
     },
     "morning_radar": {
       "ids": [
+        "525555dfe497cbaa420f0c38",
+        "0778fb85d9153ba6e8af785f",
+        "27b87d65d3f99406683fa7dd",
         "d53634b505a78ccb6c4a7606",
         "3120cb53fbc5954ecff0513c",
         "130d10d3c1a4b493d9dfd1ed",
@@ -65,7 +68,7 @@
         "dea8ba729eb28582daacbbc8",
         "767a7f383549ba646ff22647"
       ],
-      "updated_at": "2026-11-05T01:12:18.238250+00:00"
+      "updated_at": "2026-11-06T01:12:17.520745+00:00"
     },
     "ecosystem": {
       "ids": [
@@ -251,6 +254,9 @@
     }
   },
   "all_ids": [
+    "525555dfe497cbaa420f0c38",
+    "0778fb85d9153ba6e8af785f",
+    "27b87d65d3f99406683fa7dd",
     "11a9c683ed4074b991fd1775",
     "449a25d51d467e76b3c93903",
     "f7ef00b9e6813ba69b0d1b90",
@@ -437,6 +443,9 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://github.blog/changelog/2026-11-05-usage-metrics-api-adds-code-review-details-and-addressed-rate",
+    "https://github.blog/changelog/2026-11-05-usage-metrics-api-flags-telemetry-and-version-gaps",
+    "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash",
     "https://developer.nvidia.com/blog/how-nvidia-uses-ai-agents-to-streamline-ai-factory-operations",
     "https://developer.nvidia.com/blog/use-nvidia-nemo-to-turn-agent-failures-into-tests-and-harness-fixes",
     "https://doi.org/10.1061/jcemd4.coeng-18794",
@@ -623,6 +632,9 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "1d4efaa32861fbdf55ef6b8f",
+    "5fa6a56cd3a8a5c7773ec557",
+    "f74023b8f8fa819239790dbc",
     "eb292e94f5f9171c9d8f1813",
     "82ec2cc8a6a2fb3175038243",
     "ce43bed3fc9645bfbf77cb58",
@@ -3496,6 +3508,49 @@
           "source": "OpenAlex Inference",
           "kind": "research",
           "doi": "https://doi.org/10.1061/jcemd4.coeng-18794",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261106-morning_radar.html": {
+      "topic": "morning_radar",
+      "created_at": "2026-11-06T01:12:17.520745+00:00",
+      "items": [
+        {
+          "uid": "525555dfe497cbaa420f0c38",
+          "title": "Usage metrics API adds code review details and addressed rate",
+          "url": "https://github.blog/changelog/2026-11-05-usage-metrics-api-adds-code-review-details-and-addressed-rate",
+          "published": "2026-11-06T00:19:07+00:00",
+          "summary": "The enterprise and organization repository-level Copilot usage metrics reports now show what happens to Copilot code review feedback. A new copilot_code_review object on each repos-1-day row reports how many Copilot-reviewed… The post Usage metrics API adds code review details and addressed rate appeared first on The GitHub Blog .",
+          "source": "GitHub 官方更新",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        },
+        {
+          "uid": "0778fb85d9153ba6e8af785f",
+          "title": "Usage metrics API flags telemetry and version gaps",
+          "url": "https://github.blog/changelog/2026-11-05-usage-metrics-api-flags-telemetry-and-version-gaps",
+          "published": "2026-11-06T00:08:31+00:00",
+          "summary": "The Copilot usage metrics API now shows which users are missing client telemetry or are running IDE or extension versions below the usage metrics minimums. New per-user fields appear in… The post Usage metrics API flags telemetry and version gaps appeared first on The GitHub Blog .",
+          "source": "GitHub 官方更新",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        },
+        {
+          "uid": "27b87d65d3f99406683fa7dd",
+          "title": "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips",
+          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash",
+          "published": "2026-11-05T17:00:00+00:00",
+          "summary": "Text \"Gemini Introducing Gemini Omni 1.2 Flash\" surroudned by images of a beehive, animals in conversation, a squid, and a woman walking down a street",
+          "source": "Google AI 官方博客",
+          "kind": "research",
+          "doi": "",
           "date_precision": "day"
         }
       ],
