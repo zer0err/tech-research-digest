@@ -48,6 +48,9 @@
     },
     "morning_radar": {
       "ids": [
+        "cc9249299f5d778e839bcc69",
+        "a5fcc1255202f357d721641e",
+        "353c4d26111c8c919ddfe487",
         "525555dfe497cbaa420f0c38",
         "0778fb85d9153ba6e8af785f",
         "27b87d65d3f99406683fa7dd",
@@ -74,7 +77,7 @@
         "dea8ba729eb28582daacbbc8",
         "767a7f383549ba646ff22647"
       ],
-      "updated_at": "2026-11-06T01:12:17.520745+00:00"
+      "updated_at": "2026-11-07T01:12:19.095390+00:00"
     },
     "ecosystem": {
       "ids": [
@@ -266,6 +269,9 @@
     }
   },
   "all_ids": [
+    "cc9249299f5d778e839bcc69",
+    "a5fcc1255202f357d721641e",
+    "353c4d26111c8c919ddfe487",
     "a8050913f8cc31d0729dd538",
     "52e5ea5113f1197e05a377b1",
     "ea0b87cab41e90b3ae69a757",
@@ -467,6 +473,9 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://github.blog/changelog/2026-11-06-copilot-code-review-api-management-and-review-overview-updates",
+    "https://github.blog/changelog/2026-11-06-copilot-impact-dashboard-adds-chat-and-vs-code-agent-usage",
+    "https://github.blog/changelog/2026-11-06-github-copilot-weekly-releases-november-2",
     "https://arxiv.org/abs/2611.07320v1",
     "https://arxiv.org/abs/2611.06162v1",
     "https://doi.org/10.21203/rs.3.rs-11605123/v1",
@@ -668,6 +677,9 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "de110b942898e32ff4bb7b5d",
+    "0e839b4409bc7f3c428e8bf0",
+    "3ee8a42901f9cf83e9155fd6",
     "23d26c8027786cd59f6a1bad",
     "d485bba6b12cec873165943e",
     "da19f0c586bd0a77a3a4b707",
@@ -3771,6 +3783,49 @@
           "source": "OpenAlex Device Security",
           "kind": "research",
           "doi": "https://doi.org/10.21203/rs.3.rs-11605123/v1",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261107-morning_radar.html": {
+      "topic": "morning_radar",
+      "created_at": "2026-11-07T01:12:19.095390+00:00",
+      "items": [
+        {
+          "uid": "cc9249299f5d778e839bcc69",
+          "title": "Copilot code review: API management and review overview updates",
+          "url": "https://github.blog/changelog/2026-11-06-copilot-code-review-api-management-and-review-overview-updates",
+          "published": "2026-11-07T00:27:19+00:00",
+          "summary": "You can now manage GitHub Copilot code review settings through the REST and GraphQL APIs, from enterprise policy down to individual repositories. Copilot’s review overview comment is now more compact,… The post Copilot code review: API management and review overview updates appeared first on The GitHub Blog .",
+          "source": "GitHub 官方更新",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        },
+        {
+          "uid": "a5fcc1255202f357d721641e",
+          "title": "Copilot impact dashboard adds chat and VS Code agent usage",
+          "url": "https://github.blog/changelog/2026-11-06-copilot-impact-dashboard-adds-chat-and-vs-code-agent-usage",
+          "published": "2026-11-06T22:17:28+00:00",
+          "summary": "The Agent adoption chart in the Copilot impact dashboard now includes Copilot Chat and the VS Code Agents window, so you can see engagement across nine Copilot experiences. The adoption… The post Copilot impact dashboard adds chat and VS Code agent usage appeared first on The GitHub Blog .",
+          "source": "GitHub 官方更新",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        },
+        {
+          "uid": "353c4d26111c8c919ddfe487",
+          "title": "GitHub Copilot weekly releases — November 2",
+          "url": "https://github.blog/changelog/2026-11-06-github-copilot-weekly-releases-november-2",
+          "published": "2026-11-06T21:00:26+00:00",
+          "summary": "This week, Copilot comes to JetBrains Air and Xcode’s coding assistant, with updates to help you manage pull requests, settings, and agent sessions. GitHub Copilot app Set up Agent Merge… The post GitHub Copilot weekly releases — November 2 appeared first on The GitHub Blog .",
+          "source": "GitHub 官方更新",
+          "kind": "research",
+          "doi": "",
           "date_precision": "day"
         }
       ],
