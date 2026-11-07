@@ -83,10 +83,11 @@
     },
     "ecosystem": {
       "ids": [
+        "0cfbb20b8b5faebc7f853494",
         "522904cf90083f63c232bca4",
         "ca07548f6acfab72b6a7c670"
       ],
-      "updated_at": "2026-10-23T10:22:06.605937+00:00"
+      "updated_at": "2026-11-07T09:42:15.956985+00:00"
     },
     "daily_digest": {
       "ids": [],
@@ -281,6 +282,7 @@
     }
   },
   "all_ids": [
+    "0cfbb20b8b5faebc7f853494",
     "d37d2e6fa928de105d0e58fb",
     "999bba1c21a9ca3ceecb9334",
     "e5405ddbf5a66c4c476dd509",
@@ -497,6 +499,7 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://github.blog/ai-and-ml/github-copilot/beyond-code-generation-a-developers-guide-to-agentic-engineering",
     "https://arxiv.org/abs/2611.08461v1",
     "https://arxiv.org/abs/2611.08453v1",
     "https://arxiv.org/abs/2611.08413v1",
@@ -713,6 +716,7 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "d55cfdf59dbd8f220aeb49c3",
     "746a069b020f21bd81626941",
     "07b18aa622ac2b641ab24c42",
     "1d36b55cfb2972b23936474f",
@@ -4054,6 +4058,27 @@
           "published": "2026-11-05T18:17:29+00:00",
           "summary": "Vision-Language-Action (VLA) models enable end-to-end robot control, but inference is increasingly expensive. Each decision processes hundreds of visual tokens, often across multiple cameras, leading to substantial computation while allowing irrelevant background content to distract action prediction under distribution shift. We argue that these issues stem from two complementary forms of redundancy: many visual tokens are spatially irrelevant, while attention over the remaining tokens is often misallocated. Based on this observation, we propose T3R, a Training-Free Two-Stage Token Refinement framework. In the first stage, segmentation-guided token pruning removes irrelevant visual patches to reduce computation and eliminate distracting context. In the second stage, saliency-guided attention biasing reallocates attention toward action-critical visual regions and language instructions within the retained tokens. Together, pruning produces a cleaner candidate set, while attention biasing further emphasizes the most decision-relevant evidence, yielding a better accuracy-efficiency frontier than either stage alone. On LIBERO-Spatial, T3R removes 85% of scene-camera visual tokens while essentially matching the unpruned success rate, and improves success by up to 7 percentage points under out-of-distribution object-placement perturbations. The timing comparison attributes 7.8 ms per ",
           "source": "arXiv Efficient AI",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261107-ecosystem.html": {
+      "topic": "ecosystem",
+      "created_at": "2026-11-07T09:42:15.956985+00:00",
+      "items": [
+        {
+          "uid": "0cfbb20b8b5faebc7f853494",
+          "title": "Beyond code generation: A developer’s guide to agentic engineering",
+          "url": "https://github.blog/ai-and-ml/github-copilot/beyond-code-generation-a-developers-guide-to-agentic-engineering",
+          "published": "2026-11-06T22:15:59+00:00",
+          "summary": "Writing code got faster. The work around it didn't. See how you can plan, write code, review changes, and investigate production issues with GitHub Copilot, and what work still needs your judgment. The post Beyond code generation: A developer’s guide to agentic engineering appeared first on The GitHub Blog .",
+          "source": "GitHub 官方博客",
           "kind": "research",
           "doi": "",
           "date_precision": "day"
