@@ -1,5 +1,55 @@
 [
   {
+    "title": "AI 晨间雷达与免费资源（2026-11-07）",
+    "date": "2026-11-07T09:12:19.095390+08:00",
+    "count": 3,
+    "url": "posts/20261107-morning_radar.html",
+    "topic": "morning_radar",
+    "status": "published",
+    "summary": "本时段要点 1. GitHub Copilot 现已支持通过 REST 与 GraphQL API 进行代码评审设置管理，从企业策略到单个仓库均可配置。1 2. Copilot 影响力仪表盘新增了 Chat 与 VS Code Agent 的使用率图表，覆盖九种 Copilot 体验的参与度。2 3. Copilot ",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "Copilot code review: API management and review overview updates",
+          "url": "https://github.blog/changelog/2026-11-06-copilot-code-review-api-management-and-review-overview-updates",
+          "publisher": "GitHub 官方更新",
+          "host": "github.blog",
+          "family": "博客/公开网页",
+          "published": "2026-11-07T00:27:19+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "Copilot impact dashboard adds chat and VS Code agent usage",
+          "url": "https://github.blog/changelog/2026-11-06-copilot-impact-dashboard-adds-chat-and-vs-code-agent-usage",
+          "publisher": "GitHub 官方更新",
+          "host": "github.blog",
+          "family": "博客/公开网页",
+          "published": "2026-11-06T22:17:28+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "GitHub Copilot weekly releases — November 2",
+          "url": "https://github.blog/changelog/2026-11-06-github-copilot-weekly-releases-november-2",
+          "publisher": "GitHub 官方更新",
+          "host": "github.blog",
+          "family": "博客/公开网页",
+          "published": "2026-11-06T21:00:26+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "VORASIO AI 日报（2026-11-06）",
     "date": "2026-11-06T19:12:20.881351+08:00",
     "count": 5,
