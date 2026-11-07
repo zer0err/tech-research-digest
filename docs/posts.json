@@ -1,5 +1,44 @@
 [
   {
+    "title": "AI 开源项目与工具更新（2026-11-07）",
+    "date": "2026-11-07T11:42:19.153941+08:00",
+    "count": 2,
+    "url": "posts/20261107-open_source.html",
+    "topic": "open_source",
+    "status": "published",
+    "summary": "本期要点 - Hugging Face Transformers v5.22.2 主要修复安全与分布式问题，改进 NCCL 设备 ID 处理与 Jinja 沙箱安全性1。 - Ollama v0.40.15 新增对 Xiaomi MiMo V2.6 9B 代码模型与 AutoTrust 决策模型的支持，并开启 Appl",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "huggingface/transformers: Patch release v5.22.2",
+          "url": "https://github.com/huggingface/transformers/releases/tag/v5.22.2",
+          "publisher": "Transformers Releases",
+          "host": "github.com",
+          "family": "代码与版本",
+          "published": "2026-11-06T15:43:27+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "ollama/ollama: v0.40.15",
+          "url": "https://github.com/ollama/ollama/releases/tag/v0.40.15",
+          "publisher": "Ollama Releases",
+          "host": "github.com",
+          "family": "代码与版本",
+          "published": "2026-11-03T22:52:31+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 模型、训练与基础研究（2026-11-07）",
     "date": "2026-11-07T10:42:14.848675+08:00",
     "count": 3,

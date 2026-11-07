@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 开源项目与工具更新（2026-11-07）</title><meta name="description" content="AI 开源项目与工具更新（2026-11-07）：2 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav aria-label="主导航"><a href="../index.html#latest">时间线</a><a href="../knowledge/index.html">AI 知识科普</a><a href="../courses/index.html">AI 学习</a><a href="../tools/index.html">AI 工具</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">AI 开源项目与工具更新</p><dl><dt>发布时间</dt><dd data-published-at="2026-11-07T11:42:19.153941+08:00">2026-11-07 11:42 · UTC+8</dd><dt>研究条目</dt><dd>2 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · AI 开源项目与工具更新</p><h1>AI 开源项目与工具更新（2026-11-07）</h1><!-- provenance:start --><p class="ai-analysis" title="openai/gpt-oss-20b">AI 分析：Groq</p><!-- provenance:end --><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期要点</h2>
+<ul>
+<li>Hugging Face Transformers v5.22.2 主要修复安全与分布式问题，改进 NCCL 设备 ID 处理与 Jinja 沙箱安全性[1]。</li>
+<li>Ollama v0.40.15 新增对 Xiaomi MiMo V2.6 9B 代码模型与 AutoTrust 决策模型的支持，并开启 Apple Silicon 上的 AutoTrust 运行[2]。</li>
+<li>Ollama 0.40.15 对 Kimi Code CLI 迁移、Pi 模型列表自动填充、复用 Recurrent 与 Vision GGUF 模型以及 Qwen3/Qwen3.5 长上下文扩展提供兼容性改进[2]。</li>
+<li>两个项目均未发布重大 API 变更，现有代码库可直接升级，迁移风险低[1][2]。</li>
+</ul>
+<h2>逐项速览</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>关键变化</th>
+<th>证据</th>
+<th>局限</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hugging Face Transformers v5.22.2</td>
+<td>1) NCCL 设备 ID 仅在分布式环境下设置[1]。 2) Jinja 沙箱安全性加强[1]。</td>
+<td>变更列表中包含 <code>#50281</code> 与 <code>#50431</code> 提交记录[1]。</td>
+<td>仅为补丁，未涉及模型性能或 API 变更；安全改进未公开测试报告。</td>
+</tr>
+<tr>
+<td>Ollama v0.40.15</td>
+<td>1) 新增 MiMo V2.6 9B 代码模型支持[2]。 2) AutoTrust 决策模型（9b、35b、27b-vl）可在 Apple Silicon 上运行[2]。 3) Kimi Code CLI 迁移与 Pi 模型列表自动填充[2]。 4) Recurrent 与 Vision GGUF 模型可并发请求，Qwen3/Qwen3.5 长上下文扩展[2]。</td>
+<td>发行说明中列出 <code>MiMo V2.6</code>、<code>AutoTrust</code>、<code>Kimi Code CLI</code>、<code>Pi model list</code> 等功能[2]。</td>
+<td>仅为功能新增，未提供性能基准；Apple Silicon 支持仅针对 AutoTrust，其他模型兼容性未说明。</td>
+</tr>
+</tbody>
+</table>
+<h2>值得采取的行动</h2>
+<ul>
+<li>对使用 Transformers 的分布式训练任务，更新至 v5.22.2 并验证 NCCL 设备 ID 逻辑是否符合预期[1]。</li>
+<li>在 Apple Silicon 环境中尝试运行 AutoTrust 9b/35b/27b-vl 模型，确认其兼容性与性能[2]。</li>
+<li>若使用 Kimi Code CLI 或 Pi 模型列表，评估迁移脚本的兼容性并测试模型选择流程[2]。</li>
+<li>对 Recurrent 与 Vision GGUF 模型进行并发请求测试，确保多请求处理不导致错误或性能下降[2]。</li>
+</ul>
+<h2>参考资料</h2>
+<ol>
+<li>Hugging Face Transformers: Patch release v5.22.2 – <a href="https://github.com/huggingface/transformers/releases/tag/v5.22.2">https://github.com/huggingface/transformers/releases/tag/v5.22.2</a></li>
+<li>Ollama: v0.40.15 – <a href="https://github.com/ollama/ollama/releases/tag/v0.40.15">https://github.com/ollama/ollama/releases/tag/v0.40.15</a></li>
+</ol>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>
