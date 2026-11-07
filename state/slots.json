@@ -26,6 +26,37 @@
       "updated_at": "2026-11-07T02:42:14.848675+00:00",
       "attempts": 1
     },
+    "2026-11-07:ecosystem": {
+      "status": "prepared",
+      "updated_at": "2026-11-07T09:42:15.956985+00:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "ecosystem",
+        "title": "AI 人物、机构与产业生态",
+        "url": "https://vorasio.com/posts/20261107-ecosystem.html",
+        "created_at": "2026-11-07T09:42:15.956985+00:00",
+        "items": [
+          {
+            "uid": "0cfbb20b8b5faebc7f853494",
+            "title": "Beyond code generation: A developer’s guide to agentic engineering",
+            "url": "https://github.blog/ai-and-ml/github-copilot/beyond-code-generation-a-developers-guide-to-agentic-engineering",
+            "published": "2026-11-06T22:15:59+00:00",
+            "summary": "Writing code got faster. The work around it didn't. See how you can plan, write code, review changes, and investigate production issues with GitHub Copilot, and what work still needs your judgment. The post Beyond code generation: A developer’s guide to agentic engineering appeared first on The GitHub Blog .",
+            "source": "GitHub 官方博客",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          }
+        ],
+        "notify": false,
+        "mode": "production",
+        "analysis": {
+          "provider": "Groq",
+          "model": "openai/gpt-oss-20b"
+        },
+        "slot": "ecosystem"
+      }
+    },
     "2026-11-07:dev_practice": {
       "status": "already_published",
       "updated_at": "2026-11-07T07:42:16.710074+00:00",

@@ -1,5 +1,33 @@
 [
   {
+    "title": "AI 人物、机构与产业生态（2026-11-07）",
+    "date": "2026-11-07T17:42:15.956985+08:00",
+    "count": 1,
+    "url": "posts/20261107-ecosystem.html",
+    "topic": "ecosystem",
+    "status": "published",
+    "summary": "本期要点 - GitHub Copilot 已从单纯的代码生成工具演进为支持“代理式工程”的完整工作流，涵盖规划、编码、审查与生产问题调查等环节1。 - 该博客指出，尽管 Copilot 在加速编码方面取得进展，但在工作流程的其他阶段仍需人工判断，提示开发者对自动化结果保持审慎1。 - 文章强调，Copilot 的新功",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "Beyond code generation: A developer’s guide to agentic engineering",
+          "url": "https://github.blog/ai-and-ml/github-copilot/beyond-code-generation-a-developers-guide-to-agentic-engineering",
+          "publisher": "GitHub 官方博客",
+          "host": "github.blog",
+          "family": "博客/公开网页",
+          "published": "2026-11-06T22:15:59+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "高效 AI、模型压缩与端侧适配（2026-11-07）",
     "date": "2026-11-07T16:42:16.604258+08:00",
     "count": 3,

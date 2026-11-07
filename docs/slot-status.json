@@ -24,6 +24,11 @@
     "updated_at": "2026-11-07T02:42:14.848675+00:00",
     "attempts": 1
   },
+  "2026-11-07:ecosystem": {
+    "status": "prepared",
+    "updated_at": "2026-11-07T09:42:15.956985+00:00",
+    "attempts": 1
+  },
   "2026-11-07:dev_practice": {
     "status": "already_published",
     "updated_at": "2026-11-07T07:42:16.710074+00:00",
@@ -35,7 +40,7 @@
     "attempts": 1
   },
   "2026-11-07:applied_ai": {
-    "status": "prepared",
+    "status": "published",
     "updated_at": "2026-11-07T08:42:16.604258+00:00",
     "attempts": 1
   },
