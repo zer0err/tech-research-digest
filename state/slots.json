@@ -7,57 +7,9 @@
       "attempts": 1
     },
     "2026-11-07:model_research": {
-      "status": "prepared",
+      "status": "published",
       "updated_at": "2026-11-07T02:42:14.848675+00:00",
-      "attempts": 1,
-      "pending": {
-        "topic": "model_research",
-        "title": "AI 模型、训练与基础研究",
-        "url": "https://vorasio.com/posts/20261107-model_research.html",
-        "created_at": "2026-11-07T02:42:14.848675+00:00",
-        "items": [
-          {
-            "uid": "fb36acc4a1c892a7a0503c0f",
-            "title": "FASDP: Frequency-Aware Scale-Diverse Purification against Pixel-Space Visual Jailbreaks",
-            "url": "https://doi.org/10.21203/rs.3.rs-11336583/v1",
-            "published": "2026-11-06T00:00:00+00:00",
-            "summary": "Abstract Vision-language models (VLMs) have achieved remarkable success across a wide range of applications.However, as their deployment becomes increasingly widespread, recent studies have revealed that VLMs are vulnerable to visual jailbreak attacks, where adversarially manipulated images induce safety-aligned models to produce harmful responses, posing serious threats to real-world security.Input purification defenses must balance perturbation suppression against content preservation; a fixed transformation strength may be unsuitable for inputs and attacks with different characteristics.We propose FASDP, a Frequency-Aware Scale-Diverse Purification framework that adaptively allocates purification strength per image.It fuses multi-scale candidates from a single frozen denoiser using low-frequency consistency modulated by a self-referenced frequency cue.The framework requires no task-specific training or access to the target model.We evaluate FASDP on LLaVA-1.5-7B, InstructBLIP-7B, and Qwen2.5-VL-7B under three representative pixel-space attacks.FASDP attains strong protection under these attacks while keeping clean-image performance on downstream tasks close to that of the undefended models.",
-            "source": "OpenAlex Model Research",
-            "kind": "research",
-            "doi": "https://doi.org/10.21203/rs.3.rs-11336583/v1",
-            "date_precision": "day"
-          },
-          {
-            "uid": "3e41d87113f020399edba489",
-            "title": "Legal Ethics of Generative Artificial Intelligence Training Data Usage in Large Language Models: Copyright and Personal Data Perspective",
-            "url": "https://doi.org/10.14710/jphi.v8i2.393-425",
-            "published": "2026-11-06T00:00:00+00:00",
-            "summary": "This research originates from security and privacy risks associated with Generative AI Large Language Models (LLMs), especially concerning data used for training in relation to Intellectual Property Rights (IPR) and Personal Data Protection (PDP). The study seeks to examine existing regulatory guidance and develop a national framework that protects user privacy and IPR. The method employs normative legal research using statutory and conceptual approaches, by reviewing the legal frameworks of Indonesia, South Korea, the European Union (EU), and Japan, along with direct testing of LLM prompts. The findings show that LLMs continuously absorb users’ input prompts, data, and corrections to support deeper model training, thereby revealing significant security vulnerabilities under PDP laws. Moreover, in the absence of strong human creative control and predictability, each incoming data item may potentially breach privacy and copyright laws and may also damage original creators. Therefore, legal governance should move toward explicit licensing, fair compensation, and technical verification standards such as provenance labeling. The study concludes that mandatory human-centric supervision, explicit user consent, and freedom of choice are essential legal limits. Ultimately, effective AI governance depends on a shared responsibility model: software engineers must implement technical tran",
-            "source": "OpenAlex Model Research",
-            "kind": "research",
-            "doi": "https://doi.org/10.14710/jphi.v8i2.393-425",
-            "date_precision": "day"
-          },
-          {
-            "uid": "394d1df249c1025da20a2218",
-            "title": "Towards interpreting any residual stream direction by scaling activation inversion",
-            "url": "https://arxiv.org/abs/2611.08465v1",
-            "published": "2026-11-05T18:54:40+00:00",
-            "summary": "To interpret a direction in a language model's residual stream, we can look for text that strongly activates it. But when such text is found by scanning a corpus, it is limited to what that corpus contains. We develop Maximally-Activating Example Metamodels (MAEMs), language models which map residual stream directions from a subject model to text exemplars that strongly activate those directions. Our objective is to maximise the cosine similarity of a supplied residual stream direction with the activations of the text generated by the MAEM. This label-free RL objective helps to scale MAEMs on diverse sources of residual stream directions. Empirically, we find the resultant metamodel produces informative exemplars: a Qwen3.6-27B MAEM inverts held-out activations better than corpus search or a natural-language autoencoder (NLA), beats corpus search (at 10M tokens) on a majority of held-out languages/domains, and activates 89% of held-out SAE features. It also identifies concepts behind steering vectors about as well as NLAs, recovers the payloads of LoRA backdoors more often than corpus search, and can even verbalise some model workspace inner monologue. Unlike explanations produced by other metamodels (e.g. NLAs), MAEM exemplars can be verified with a forward pass on the subject model, making the MAEM objective a grounded alternative for scaling the training of metamodels.",
-            "source": "arXiv Model Research",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day"
-          }
-        ],
-        "notify": false,
-        "mode": "production",
-        "analysis": {
-          "provider": "Groq",
-          "model": "openai/gpt-oss-20b"
-        },
-        "slot": "model_research"
-      }
+      "attempts": 1
     },
     "2026-11-06:prompt_engineering": {
       "status": "already_published",
