@@ -2,46 +2,9 @@
   "version": 1,
   "slots": {
     "2026-11-07:open_source": {
-      "status": "prepared",
+      "status": "published",
       "updated_at": "2026-11-07T03:42:19.153941+00:00",
-      "attempts": 1,
-      "pending": {
-        "topic": "open_source",
-        "title": "AI 开源项目与工具更新",
-        "url": "https://vorasio.com/posts/20261107-open_source.html",
-        "created_at": "2026-11-07T03:42:19.153941+00:00",
-        "items": [
-          {
-            "uid": "a4beec48d253324180fd45a5",
-            "title": "huggingface/transformers: Patch release v5.22.2",
-            "url": "https://github.com/huggingface/transformers/releases/tag/v5.22.2",
-            "published": "2026-11-06T15:43:27+00:00",
-            "summary": "# Patch release v5.22.2 Some in between patch for security and distributed fixes. See the included commits :hugs: - [Distributed] Set device_id only for NCCL (#50281) by @michaelbenayoun and @3outeille - Harden our Jinja sandboxing (#50431) by @Rocketknight1 **Full Changelog**: https://github.com/huggingface/transformers/compare/v5.22.1...v5.22.2",
-            "source": "Transformers Releases",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day"
-          },
-          {
-            "uid": "41454b69506f4d27cfdefe00",
-            "title": "ollama/ollama: v0.40.15",
-            "url": "https://github.com/ollama/ollama/releases/tag/v0.40.15",
-            "published": "2026-11-03T22:52:31+00:00",
-            "summary": "## MiMo V2.6 Xiaomi MiMo's [mimo-v2.6](https://ollama.com/library/mimo-v2.6), a 9B model built for code and agent workflows, is now supported in Ollama. ```sh ollama run mimo-v2.6 ``` ## AutoTrust decision models [AutoTrust](https://ollama.com/library/autotrust-jev) decision models read text and return choices, yes or no probabilities, and ratings for the questions you supply. The family includes 9b, 35b, and 27b-vl sizes — the 35b and 27b-vl sizes can also read images. ```sh ollama run autotrust-jev \"A customer says their card was charged twice.\" --ask \"Is this a billing issue?\" ``` Note: autotrust-jev is supported on Apple silicon in this release. ## What's Changed - ollama launch now supports Kimi Code CLI — the successor to kimi-cli — and offers to migrate existing kimi-cli setups - ollama launch now fills in Pi's model list automatically so models can be picked inside Pi, and Claude Desktop's model picker shows Ollama's actual model names - Recurrent and vision GGUF models can now serve more than one request at a time - Qwen3 and Qwen3.5 models using long-context (YaRN) scaling - Running ollama with no arguments opens the welcome launcher **Full Changelog**: https://github.com/ollama/ollama/compare/v0.40.14...v0.40.15",
-            "source": "Ollama Releases",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day"
-          }
-        ],
-        "notify": false,
-        "mode": "production",
-        "analysis": {
-          "provider": "Groq",
-          "model": "openai/gpt-oss-20b"
-        },
-        "slot": "open_source"
-      }
+      "attempts": 1
     },
     "2026-11-07:morning_radar": {
       "status": "published",
