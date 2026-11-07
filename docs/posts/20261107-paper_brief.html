@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 论文午间速览（2026-11-07）</title><meta name="description" content="AI 论文午间速览（2026-11-07）：1 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav aria-label="主导航"><a href="../index.html#latest">时间线</a><a href="../knowledge/index.html">AI 知识科普</a><a href="../courses/index.html">AI 学习</a><a href="../tools/index.html">AI 工具</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">AI 论文午间速览</p><dl><dt>发布时间</dt><dd data-published-at="2026-11-07T12:42:17.991197+08:00">2026-11-07 12:42 · UTC+8</dd><dt>研究条目</dt><dd>1 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · AI 论文午间速览</p><h1>AI 论文午间速览（2026-11-07）</h1><!-- provenance:start --><p class="ai-analysis" title="mimo-v2.6-flash">AI 分析：Xiaomi MiMo</p><!-- provenance:end --><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期要点</h2>
+<ul>
+<li>SplitKernel 提出让 GPU 通过 TMA 直接访问远端内存而非预取到本地 HBM，摘要称在 NVLink-C2C 上最高获得 7.7× 性能提升、PCIe 系统上 2.3× [1]。</li>
+<li>该工作针对的是 LLM 推理中 GPU 显存容量与带宽受限的问题，属于存储层级与互连层面的系统优化，而非算法改动 [1]。</li>
+<li>摘要未提供具体功耗、面积、制程数据，也未披露测试平台的芯片型号与规模，跨架构泛化程度无法从摘要确认 [1]。</li>
+</ul>
+<h2>逐项速览</h2>
+<ul>
+<li>核心变化：现有内存卸载框架依赖把数据预取到本地 GPU HBM，摘要指出这会造成 HBM 争用、容量浪费与流水线气泡；SplitKernel 改为用 Tensor Memory Accelerator（TMA）异步把卸载的权重与 KV cache 直接从远端内存取入 GPU 共享内存（SMEM）[1]。</li>
+<li>证据：摘要报告在 NVLink-C2C 上相对 SOTA 内存卸载基线最高 7.7× 加速、PCIe 系统上 2.3×，并称达到“近最优带宽聚合”[1]。这是作者主张，摘要未给出基线名称、模型规模、序列长度、批量大小或重复次数，具体实验条件无法从摘要确认 [1]。</li>
+<li>技术手段：为提升远端访问性能，SplitKernel 引入贪心算法求解每个算子的最优卸载比例，并结合主动拥塞控制与 TMA 多播以消除互连瓶颈与读放大 [1]。摘要未说明贪心算法的最优性证明范围或求解开销，无法从摘要确认 [1]。</li>
+<li>局限：摘要未提供功耗、能效、芯片面积、制程节点等硬件指标，也未说明该方法对非 NVIDIA TMA 硬件的可移植性；“diverse architectures”具体涵盖哪些架构无法从摘要确认 [1]。此外，本条为单篇论文结果，不能概括为内存卸载领域的行业共识 [1]。</li>
+</ul>
+<h2>值得采取的行动</h2>
+<ul>
+<li>若你有 NVLink-C2C 或 PCIe 互联的 GPU 集群，可按摘要所述方向搭建对照实验：预取式卸载 vs 直接访问式卸载，测量端到端吞吐与尾延迟，验证 7.7×/2.3× 是否在你的模型与负载下复现 [1]。</li>
+<li>检索该 DOI（10.1145/3845814.3850046）的完整论文，补齐摘要缺失的基线配置、模型规模与硬件平台信息，再决定是否纳入技术选型 [1]。</li>
+<li>若你的场景不依赖 TMA 或远端内存层级，暂不建议据此调整架构；可先确认硬件是否具备等价的异步 DMA 与共享内存直取能力 [1]。</li>
+</ul>
+<h2>参考资料</h2>
+<p>[1] Direct-Access-Enabled GPU Memory Offloading with Optimal Efficiency for LLM Inference <a href="https://doi.org/10.1145/3845814.3850046">https://doi.org/10.1145/3845814.3850046</a></p>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>
