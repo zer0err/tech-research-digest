@@ -1,5 +1,55 @@
 [
   {
+    "title": "高效 AI、模型压缩与端侧适配（2026-11-07）",
+    "date": "2026-11-07T16:42:16.604258+08:00",
+    "count": 3,
+    "url": "posts/20261107-applied_ai.html",
+    "topic": "applied_ai",
+    "status": "published",
+    "summary": "本期结论 1. 量化与剪枝仍是端侧模型压缩的主流路径，多篇研究表明通过减少量化位宽或剪枝不相关视觉/语言特征，可在保持或提升精度的同时显著降低 FLOPs 与内存占用3。 2. 蒸馏的效益高度依赖教师‑学生匹配：当教师为学生自身的高性能检查点时，OPD 能以 50 倍更少的 FLOPs 达到相同精度；但若教师为外部预训",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "Quantum Knowledge Distillation: State-of-the-art, Applications and Open Problems",
+          "url": "https://arxiv.org/abs/2611.08461v1",
+          "publisher": "arXiv Efficient AI",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-11-05T18:53:05+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "Unpacking the Compute Efficiency of Strong-to-Weak OPD against GRPO",
+          "url": "https://arxiv.org/abs/2611.08453v1",
+          "publisher": "arXiv Efficient AI",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-11-05T18:47:05+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "T3R: Training-Free Two-Stage Token Refinement Towards Efficient and Robust VLA Models",
+          "url": "https://arxiv.org/abs/2611.08413v1",
+          "publisher": "arXiv Efficient AI",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-11-05T18:17:29+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "Agent、机器人与具身智能（2026-11-07）",
     "date": "2026-11-07T14:12:54.445163+08:00",
     "count": 3,

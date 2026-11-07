@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>高效 AI、模型压缩与端侧适配（2026-11-07）</title><meta name="description" content="高效 AI、模型压缩与端侧适配（2026-11-07）：3 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav aria-label="主导航"><a href="../index.html#latest">时间线</a><a href="../knowledge/index.html">AI 知识科普</a><a href="../courses/index.html">AI 学习</a><a href="../tools/index.html">AI 工具</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">AI 应用与落地专题</p><dl><dt>发布时间</dt><dd data-published-at="2026-11-07T16:42:16.604258+08:00">2026-11-07 16:42 · UTC+8</dd><dt>研究条目</dt><dd>3 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · AI 应用与落地专题</p><h1>高效 AI、模型压缩与端侧适配（2026-11-07）</h1><!-- provenance:start --><p class="ai-analysis" title="openai/gpt-oss-20b">AI 分析：Groq</p><!-- provenance:end --><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期结论</h2>
+<ol>
+<li><strong>量化与剪枝仍是端侧模型压缩的主流路径</strong>，多篇研究表明通过减少量化位宽或剪枝不相关视觉/语言特征，可在保持或提升精度的同时显著降低 FLOPs 与内存占用[3]。</li>
+<li><strong>蒸馏的效益高度依赖教师‑学生匹配</strong>：当教师为学生自身的高性能检查点时，OPD 能以 50 倍更少的 FLOPs 达到相同精度；但若教师为外部预训练模型，则相对 GRPO 效率更低[2]。</li>
+<li><strong>量子知识蒸馏在实验阶段尚未展现一致优势</strong>：部分研究报告在物理硬件上获得提升，但多数实验显示收益不显著或出现性能下降，且资源报告不完整[1]。</li>
+<li><strong>多任务/多域场景下单一蒸馏模型难以覆盖所有需求</strong>，需要多教师或多域专用模型，进一步增加部署复杂度[2]。</li>
+</ol>
+<h2>逐项分析</h2>
+<table>
+<thead>
+<tr>
+<th>论文</th>
+<th>核心贡献</th>
+<th>方法与数据</th>
+<th>性能证据</th>
+<th>局限与证据等级</th>
+<th>工程意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[1] Quantum Knowledge Distillation</td>
+<td>综述量子与量子启发式蒸馏方法，评估其在不同任务与硬件上的表现</td>
+<td>分类教师‑学生配置与量子资源角色；讨论测量概率、期望值、状态重叠等转移机制</td>
+<td>综述指出“distillation can improve selected quantum students, but benefits are task- and architecture-dependent, and several studies find negligible gains or even performance degradation”[1]</td>
+<td>证据等级 C：缺乏具体实验细节与量化结果</td>
+<td>对量子硬件部署的可行性评估提供框架，但未给出可直接落地的压缩方案</td>
+</tr>
+<tr>
+<td>[2] Unpacking the Compute Efficiency of Strong-to-Weak OPD against GRPO</td>
+<td>系统比较 OPD 与 GRPO 在不同任务、模型规模与域上的 FLOPs‑精度曲线</td>
+<td>对比 vanilla reverse‑KL OPD 与 Group Relative Policy Optimization；使用多教师 OPD 进行跨域蒸馏</td>
+<td>“OPD generally loses to GRPO in accuracy per training FLOPs … yet when the teacher is the student's own GRPO checkpoint, OPD recovers that checkpoint's accuracy on math with 50× fewer distillation FLOPs”[2]</td>
+<td>证据等级 A：摘要中给出定量 FLOPs 与精度对比</td>
+<td>对强化学习蒸馏的计算效率提供实证，可指导在资源受限端侧部署时选择 OPD 或 GRPO</td>
+</tr>
+<tr>
+<td>[3] T3R: Training-Free Two-Stage Token Refinement</td>
+<td>提出无训练的两阶段令牌精炼框架，先分割剪枝后注意力偏置</td>
+<td>第一阶段基于分割的令牌剪枝；第二阶段基于显著性引导的注意力偏置</td>
+<td>“T3R removes 85% of scene-camera visual tokens while essentially matching the unpruned success rate, and improves success by up to 7 percentage points under out-of-distribution object-placement perturbations”[3]</td>
+<td>证据等级 A：摘要中给出 85% 剪枝率与 7% 精度提升</td>
+<td>适用于视觉‑语言‑动作模型，可直接在端侧实现令牌级别的计算削减，降低延迟与功耗</td>
+</tr>
+</tbody>
+</table>
+<h2>工程行动建议</h2>
+<ol>
+<li>
+<p><strong>验证实验</strong></p>
+<ul>
+<li>对目标端侧设备（如 NVIDIA Jetson Xavier NX）实现 T3R 的两阶段剪枝与注意力偏置，测量实际 FLOPs、内存占用与延迟。</li>
+<li>在同一设备上对比 OPD 与 GRPO 的训练 FLOPs 与最终精度，验证 50× FLOPs 节省的可重复性。</li>
+<li>在小型量子模拟器或实际量子硬件上复现 Quantum Knowledge Distillation 的关键实验，记录资源消耗与精度变化。</li>
+</ul>
+</li>
+<li>
+<p><strong>落地评估</strong></p>
+<ul>
+<li>采用标准端侧评测基准（如 ONNX Runtime、TensorRT）评估剪枝后模型的推理吞吐与功耗。</li>
+<li>对多域蒸馏（多教师 OPD）进行部署实验，观察模型大小、加载时间与跨域性能。</li>
+</ul>
+</li>
+<li>
+<p><strong>后续跟踪指标</strong></p>
+<ul>
+<li><strong>压缩率</strong>：模型参数与 FLOPs 的百分比下降。</li>
+<li><strong>精度保持率</strong>：与原始模型相比的 mAP/成功率差异。</li>
+<li><strong>延迟</strong>：单推理时间（ms）。</li>
+<li><strong>功耗</strong>：平均瓦特数。</li>
+<li><strong>可解释性</strong>：剪枝后令牌分布与注意力热图的可视化一致性。</li>
+</ul>
+</li>
+</ol>
+<h2>参考资料</h2>
+<p>[1] Quantum Knowledge Distillation: State-of-the-art, Applications and Open Problems – <a href="https://arxiv.org/abs/2611.08461v1">https://arxiv.org/abs/2611.08461v1</a><br />
+[2] Unpacking the Compute Efficiency of Strong-to-Weak OPD against GRPO – <a href="https://arxiv.org/abs/2611.08453v1">https://arxiv.org/abs/2611.08453v1</a><br />
+[3] T3R: Training-Free Two-Stage Token Refinement Towards Efficient and Robust VLA Models – <a href="https://arxiv.org/abs/2611.08413v1">https://arxiv.org/abs/2611.08413v1</a></p>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>

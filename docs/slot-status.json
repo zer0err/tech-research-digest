@@ -34,6 +34,11 @@
     "updated_at": "2026-11-07T06:12:54.445163+00:00",
     "attempts": 1
   },
+  "2026-11-07:applied_ai": {
+    "status": "prepared",
+    "updated_at": "2026-11-07T08:42:16.604258+00:00",
+    "attempts": 1
+  },
   "2026-11-06:prompt_engineering": {
     "status": "already_published",
     "updated_at": "2026-11-06T06:13:29.869830+00:00",

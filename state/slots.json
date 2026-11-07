@@ -36,6 +36,59 @@
       "updated_at": "2026-11-07T06:12:54.445163+00:00",
       "attempts": 1
     },
+    "2026-11-07:applied_ai": {
+      "status": "prepared",
+      "updated_at": "2026-11-07T08:42:16.604258+00:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "efficient_ai",
+        "title": "高效 AI、模型压缩与端侧适配",
+        "url": "https://vorasio.com/posts/20261107-applied_ai.html",
+        "created_at": "2026-11-07T08:42:16.604258+00:00",
+        "items": [
+          {
+            "uid": "d37d2e6fa928de105d0e58fb",
+            "title": "Quantum Knowledge Distillation: State-of-the-art, Applications and Open Problems",
+            "url": "https://arxiv.org/abs/2611.08461v1",
+            "published": "2026-11-05T18:53:05+00:00",
+            "summary": "Knowledge distillation transfers predictions, representations, or other supervisory information between learning models and is increasingly investigated in quantum machine learning. Its applications extend beyond compression to cross-architecture transfer, circuit approximation, distributed learning, and classical deployment of models trained using quantum-derived supervision. This survey reviews these approaches using two complementary classification axes: teacher-student configuration and the role of quantum resources in the distillation process. Quantum-inspired methods are discussed separately from methods that simulate quantum computations classically or execute them on quantum hardware. We explain how measurement probabilities, expectation values, classical readouts, state overlaps, and circuit-level objectives support different transfer mechanisms. We then critically assess the presented results against baseline design, execution conditions, uncertainty, and resource costs. The evidence shows that distillation can improve selected quantum students, but benefits are task- and architecture-dependent, and several studies find negligible gains or even performance degradation. Evaluations on physical quantum hardware remain limited, with some testing individual quantum components rather than complete learning pipelines. Heterogeneous protocols and incomplete resource reportin",
+            "source": "arXiv Efficient AI",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          },
+          {
+            "uid": "999bba1c21a9ca3ceecb9334",
+            "title": "Unpacking the Compute Efficiency of Strong-to-Weak OPD against GRPO",
+            "url": "https://arxiv.org/abs/2611.08453v1",
+            "published": "2026-11-05T18:47:05+00:00",
+            "summary": "On-policy distillation (OPD) trains a student on its own rollouts under a frozen teacher's per-token supervision. Does this dense signal reduce the training FLOPs needed to reach a target accuracy compared with reinforcement learning? We systematically compare vanilla reverse-KL OPD with Group Relative Policy Optimization (GRPO) across task difficulty, student and teacher size, domain, and optimization choices, measuring held-out accuracy against training FLOPs. With an external post-trained teacher, OPD generally loses to GRPO in accuracy per training FLOP at matched settings, even when the teacher is further trained with GRPO, and often suffers response-length inflation. Yet a different teacher changes the picture: when the teacher is the student's own GRPO checkpoint, OPD recovers that checkpoint's accuracy on math with $50\\times$ fewer distillation FLOPs than GRPO needs to reach the same accuracy. Following the same teacher setting, we consistently observe this high efficiency with a larger student, on code, and in a second model family. On a single domain, however, the GRPO checkpoint is already the desired model, so distilling it adds to total compute. Across domains, separate GRPO checkpoints hold different capabilities, and no single checkpoint serves every domain. Multi-teacher OPD (DeepSeek-AI, 2026) consolidates per-domain GRPO experts into a single student that matc",
+            "source": "arXiv Efficient AI",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          },
+          {
+            "uid": "e5405ddbf5a66c4c476dd509",
+            "title": "T3R: Training-Free Two-Stage Token Refinement Towards Efficient and Robust VLA Models",
+            "url": "https://arxiv.org/abs/2611.08413v1",
+            "published": "2026-11-05T18:17:29+00:00",
+            "summary": "Vision-Language-Action (VLA) models enable end-to-end robot control, but inference is increasingly expensive. Each decision processes hundreds of visual tokens, often across multiple cameras, leading to substantial computation while allowing irrelevant background content to distract action prediction under distribution shift. We argue that these issues stem from two complementary forms of redundancy: many visual tokens are spatially irrelevant, while attention over the remaining tokens is often misallocated. Based on this observation, we propose T3R, a Training-Free Two-Stage Token Refinement framework. In the first stage, segmentation-guided token pruning removes irrelevant visual patches to reduce computation and eliminate distracting context. In the second stage, saliency-guided attention biasing reallocates attention toward action-critical visual regions and language instructions within the retained tokens. Together, pruning produces a cleaner candidate set, while attention biasing further emphasizes the most decision-relevant evidence, yielding a better accuracy-efficiency frontier than either stage alone. On LIBERO-Spatial, T3R removes 85% of scene-camera visual tokens while essentially matching the unpruned success rate, and improves success by up to 7 percentage points under out-of-distribution object-placement perturbations. The timing comparison attributes 7.8 ms per ",
+            "source": "arXiv Efficient AI",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          }
+        ],
+        "notify": false,
+        "mode": "production",
+        "analysis": {
+          "provider": "Groq",
+          "model": "openai/gpt-oss-20b"
+        },
+        "slot": "applied_ai"
+      }
+    },
     "2026-11-06:prompt_engineering": {
       "status": "already_published",
       "updated_at": "2026-11-06T06:13:29.869830+00:00",
