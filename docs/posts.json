@@ -1,5 +1,55 @@
 [
   {
+    "title": "Agent、机器人与具身智能（2026-11-07）",
+    "date": "2026-11-07T14:12:54.445163+08:00",
+    "count": 3,
+    "url": "posts/20261107-core_research.html",
+    "topic": "core_research",
+    "status": "published",
+    "summary": "本期结论 1. 机器人与具身智能在医疗介入领域已实现初步可行性，尤其在肝脏穿刺止血中通过半自动系统实现定位精度≤1.83 mm、姿态误差≤2.67°，并在实验中实现约20 s内止血1。 2. 太阳能系统的 AI 应用正向数字孪生、物理信息学习、边缘 AI、联邦学习与生成式 AI 等技术演进，形成统一的可适应数据驱动能源",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "A Semi‐automatic Puncture System for Liver Rupture Haemostasis: Ex Vivo and In Vivo Study",
+          "url": "https://doi.org/10.1002/rcs.70248",
+          "publisher": "Crossref Embodied",
+          "host": "doi.org",
+          "family": "书目索引",
+          "published": "2026-11-06T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "10.1002/rcs.70248",
+          "kind": "research"
+        },
+        {
+          "title": "AI for Solar Energy Systems",
+          "url": "https://doi.org/10.4018/979-8-2600-4785-9.ch001",
+          "publisher": "Crossref Embodied",
+          "host": "doi.org",
+          "family": "书目索引",
+          "published": "2026-11-06T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "10.4018/979-8-2600-4785-9.ch001",
+          "kind": "research"
+        },
+        {
+          "title": "Natural Language as a User-Facing Representation Language for Robotics",
+          "url": "https://doi.org/10.1609/aaaiss.v10i1.43505",
+          "publisher": "Crossref Embodied",
+          "host": "doi.org",
+          "family": "书目索引",
+          "published": "2026-11-06T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "10.1609/aaaiss.v10i1.43505",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 论文午间速览（2026-11-07）",
     "date": "2026-11-07T12:42:17.991197+08:00",
     "count": 1,

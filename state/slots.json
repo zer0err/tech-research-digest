@@ -26,6 +26,59 @@
       "updated_at": "2026-11-07T02:42:14.848675+00:00",
       "attempts": 1
     },
+    "2026-11-07:core_research": {
+      "status": "prepared",
+      "updated_at": "2026-11-07T06:12:54.445163+00:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "embodied",
+        "title": "Agent、机器人与具身智能",
+        "url": "https://vorasio.com/posts/20261107-core_research.html",
+        "created_at": "2026-11-07T06:12:54.445163+00:00",
+        "items": [
+          {
+            "uid": "19904b411341681204fe8c01",
+            "title": "A Semi‐automatic Puncture System for Liver Rupture Haemostasis: Ex Vivo and In Vivo Study",
+            "url": "https://doi.org/10.1002/rcs.70248",
+            "published": "2026-11-06T00:00:00+00:00",
+            "summary": "ABSTRACT Background Liver rupture caused by blunt trauma can result in severe haemorrhage and death. Percutaneous puncture embolisation is a potential minimally invasive approach for haemostasis, but manual puncture is limited by difficult bleeding‐site localization and hand–eye coordination. Methods We developed a semi‐automatic puncture system integrating a robotic arm and a compact rack‐pinion driven end‐effector. Positioning and posture accuracy were evaluated, followed by ex vivo and in vivo porcine liver embolisation experiments. Results The system can achieve mean positioning and posture accuracies of 0.36 mm and 1.03° under load‐free conditions, and 1.83 mm and 2.67° in the soft‐tissue phantom, respectively. Embolic material was delivered to the target region, and cessation of visible bleeding was observed within approximately 20 s in the ex vivo and in vivo experiments. Conclusions The results support the preliminary feasibility of this approach for percutaneous puncture embolisation of complex hepatic lacerations.",
+            "source": "Crossref Embodied",
+            "kind": "research",
+            "doi": "10.1002/rcs.70248",
+            "date_precision": "day"
+          },
+          {
+            "uid": "ee310edde4230c256e710e29",
+            "title": "AI for Solar Energy Systems",
+            "url": "https://doi.org/10.4018/979-8-2600-4785-9.ch001",
+            "published": "2026-11-06T00:00:00+00:00",
+            "summary": "The rapid expansion of solar energy has accelerated the adoption of Artificial Intelligence (AI) to improve forecasting accuracy, photovoltaic performance, intelligent control, fault diagnosis, energy storage management, and smart grid operation. Recent advances in machine learning, deep learning, Digital Twins, Physics-Informed Machine Learning, Edge AI, Federated Learning, and Generative AI have transformed solar energy systems into more adaptive and data-driven infrastructures. Despite these advances, challenges related to data quality, model generalization, computational efficiency, cybersecurity, and explainability continue to limit large-scale deployment. An integrated perspective is presented by connecting AI applications across photovoltaic systems, solar thermal technologies, energy storage, and intelligent energy networks within a unified renewable energy ecosystem. Emerging research trends and future directions highlight the evolution toward AI-native energy systems that support efficient, resilient, and sustainable intelligent societies.",
+            "source": "Crossref Embodied",
+            "kind": "research",
+            "doi": "10.4018/979-8-2600-4785-9.ch001",
+            "date_precision": "day"
+          },
+          {
+            "uid": "a586ca4174fe6a4afb270da9",
+            "title": "Natural Language as a User-Facing Representation Language for Robotics",
+            "url": "https://doi.org/10.1609/aaaiss.v10i1.43505",
+            "published": "2026-11-06T00:00:00+00:00",
+            "summary": "Robotic systems have traditionally relied on human-designed representations that make tasks and environments both explicit and computationally accessible. Recent advances suggest a different possible approach: natural language can itself serve as a shared, user-facing representation through which people specify and refine task-relevant knowledge. We argue that this role is particularly useful for concepts that are contextual, underspecified, or difficult to capture with fixed definitions or decision boundaries. We illustrate this idea through a disaster-response application in which a vision-language model must distinguish hazardous conditions from situations that are merely anomalous, a distinction whose operational meaning can be refined interactively through language. This process is a form of knowledge engineering: revising natural-language specifications changes how the system interprets the physical world. In this short paper, we suggest characterizing natural language as a representational layer in its own right, and describe language-based representations as a possible alternative to fully specified, human-crafted representations, particularly while task boundaries are being established. This perspective suggests that language can serve not only as an interface to robotic systems, but as part of the shared representational machinery through which both humans and agents ",
+            "source": "Crossref Embodied",
+            "kind": "research",
+            "doi": "10.1609/aaaiss.v10i1.43505",
+            "date_precision": "day"
+          }
+        ],
+        "notify": false,
+        "mode": "production",
+        "analysis": {
+          "provider": "Groq",
+          "model": "openai/gpt-oss-20b"
+        },
+        "slot": "core_research"
+      }
+    },
     "2026-11-06:prompt_engineering": {
       "status": "already_published",
       "updated_at": "2026-11-06T06:13:29.869830+00:00",

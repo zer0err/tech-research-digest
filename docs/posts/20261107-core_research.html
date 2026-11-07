@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Agent、机器人与具身智能（2026-11-07）</title><meta name="description" content="Agent、机器人与具身智能（2026-11-07）：3 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav aria-label="主导航"><a href="../index.html#latest">时间线</a><a href="../knowledge/index.html">AI 知识科普</a><a href="../courses/index.html">AI 学习</a><a href="../tools/index.html">AI 工具</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">智能硬件技术专题</p><dl><dt>发布时间</dt><dd data-published-at="2026-11-07T14:12:54.445163+08:00">2026-11-07 14:12 · UTC+8</dd><dt>研究条目</dt><dd>3 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · 智能硬件技术专题</p><h1>Agent、机器人与具身智能（2026-11-07）</h1><!-- provenance:start --><p class="ai-analysis" title="openai/gpt-oss-20b">AI 分析：Groq</p><!-- provenance:end --><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期结论</h2>
+<ol>
+<li>机器人与具身智能在医疗介入领域已实现初步可行性，尤其在肝脏穿刺止血中通过半自动系统实现定位精度≤1.83 mm、姿态误差≤2.67°，并在实验中实现约20 s内止血[1]。</li>
+<li>太阳能系统的 AI 应用正向数字孪生、物理信息学习、边缘 AI、联邦学习与生成式 AI 等技术演进，形成统一的可适应数据驱动能源生态[2]。</li>
+<li>自然语言可作为机器人共享表征层，支持在灾害响应等情境中通过交互式语言细化“危险”与“异常”之辨识[3]。</li>
+</ol>
+<h2>逐项分析</h2>
+<table>
+<thead>
+<tr>
+<th>资料</th>
+<th>核心贡献</th>
+<th>方法与数据</th>
+<th>性能证据</th>
+<th>局限与证据等级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[1]</td>
+<td>开发半自动肝穿刺止血系统，验证定位与止血效果</td>
+<td>机器人臂+齿轮驱动末端执行器；在无负载、软组织模型及猪肝体内进行定位与注射实验</td>
+<td>平均定位误差0.36 mm/1.03°（无负载），1.83 mm/2.67°（软组织模型）；实验中可见止血≈20 s[1]</td>
+<td>仅为初步可行性实验，未涉及大规模临床验证；证据等级 A</td>
+</tr>
+<tr>
+<td>[2]</td>
+<td>综述 AI 在光伏、热能、储能与智能电网中的应用与挑战</td>
+<td>综述性文献，未提供实验数据</td>
+<td>综述指出 AI 能提升预测、控制、诊断等性能，但受数据质量、模型泛化、计算效率等限制[2]</td>
+<td>综述性主张，缺乏定量实验，证据等级 C</td>
+</tr>
+<tr>
+<td>[3]</td>
+<td>提议自然语言作为机器人共享表征层，支持任务边界细化</td>
+<td>通过灾害响应案例说明视觉‑语言模型与语言交互的知识工程流程</td>
+<td>仅示例性说明，未给出实验量化结果[3]</td>
+<td>仅主张与示例，证据等级 C</td>
+</tr>
+</tbody>
+</table>
+<h2>工程行动建议</h2>
+<table>
+<thead>
+<tr>
+<th>领域</th>
+<th>验证实验</th>
+<th>落地评估</th>
+<th>后续跟踪指标</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>医疗穿刺</td>
+<td>在不同动物模型（猪、羊）中重复定位与止血实验，比较手动与半自动系统的误差与止血时间</td>
+<td>评估系统在临床前阶段的安全性、成本与操作复杂度</td>
+<td>平均定位误差、止血成功率、操作时间</td>
+</tr>
+<tr>
+<td>太阳能 AI</td>
+<td>在实际光伏场部署边缘 AI 预测模型，监测预测误差与能量产出</td>
+<td>评估模型对发电效率提升的贡献与计算资源占用</td>
+<td>预测误差率、能量产出提升幅度、模型推理延迟</td>
+</tr>
+<tr>
+<td>语言表征</td>
+<td>在灾害响应机器人中实现基于语言的危险识别交互，记录交互次数与误判率</td>
+<td>评估语言交互对任务完成率与安全性的影响</td>
+<td>误判率、交互次数、任务完成时间</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>注意</strong>：上述建议基于现有单篇研究，缺乏大规模验证，故需在实验阶段保持谨慎评估。</p>
+</blockquote>
+<h2>参考资料</h2>
+<p>[1] A Semi‐automatic Puncture System for Liver Rupture Haemostasis: Ex Vivo and In Vivo Study – <a href="https://doi.org/10.1002/rcs.70248">https://doi.org/10.1002/rcs.70248</a><br />
+[2] AI for Solar Energy Systems – <a href="https://doi.org/10.4018/979-8-2600-4785-9.ch001">https://doi.org/10.4018/979-8-2600-4785-9.ch001</a><br />
+[3] Natural Language as a User-Facing Representation Language for Robotics – <a href="https://doi.org/10.1609/aaaiss.v10i1.43505">https://doi.org/10.1609/aaaiss.v10i1.43505</a></p>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>
