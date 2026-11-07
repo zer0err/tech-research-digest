@@ -196,6 +196,7 @@
     },
     "ai_hardware": {
       "ids": [
+        "583efbe4b33e4ef6d3f25846",
         "5cfeef5b9daf14ebcbde7289",
         "469161b324056d08ad7799a7",
         "1e2042cf11255cbd1cb69dfa",
@@ -209,7 +210,7 @@
         "1493351af77b0689ca43a1e9",
         "739ced7097d3b092ed674790"
       ],
-      "updated_at": "2026-11-04T06:13:28.599204+00:00"
+      "updated_at": "2026-11-07T04:42:17.991197+00:00"
     },
     "product_safety": {
       "ids": [
@@ -274,6 +275,7 @@
     }
   },
   "all_ids": [
+    "583efbe4b33e4ef6d3f25846",
     "a4beec48d253324180fd45a5",
     "41454b69506f4d27cfdefe00",
     "fb36acc4a1c892a7a0503c0f",
@@ -483,6 +485,7 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://doi.org/10.1145/3845814.3850046",
     "https://github.com/huggingface/transformers/releases/tag/v5.22.2",
     "https://github.com/ollama/ollama/releases/tag/v0.40.15",
     "https://doi.org/10.21203/rs.3.rs-11336583/v1",
@@ -692,6 +695,7 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "2f4a6e54cd75b72713439d98",
     "e567768a081c79a4e0231f18",
     "a186b441060936ad2c7e9bd6",
     "91874729d09c9bddb5e5b1b3",
@@ -3927,6 +3931,27 @@
       "analysis": {
         "provider": "Groq",
         "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261107-paper_brief.html": {
+      "topic": "ai_hardware",
+      "created_at": "2026-11-07T04:42:17.991197+00:00",
+      "items": [
+        {
+          "uid": "583efbe4b33e4ef6d3f25846",
+          "title": "Direct-Access-Enabled GPU Memory Offloading with Optimal Efficiency for LLM Inference",
+          "url": "https://doi.org/10.1145/3845814.3850046",
+          "published": "2026-11-04T00:00:00+00:00",
+          "summary": "LLM inference is constrained by GPU memory capacity and bandwidth. Tiered memory architectures mitigate this by allowing the GPU to offload memory to the remote tier. However, existing memory offloading frameworks rely on prefetching data into local GPU HBM. This approach underutilizes system resources by introducing HBM contention, squandering memory capacity, and creating pipeline bubbles. We show that enabling direct GPU access to remote memory significantly outperforms prefetching, achieving optimal aggregate system bandwidth. We propose SplitKernel, an end-to-end direct-access memory offloading framework that uses the Tensor Memory Accelerator (TMA) to asynchronously fetch offloaded weights and KV caches directly from remote memory into GPU shared memory (SMEM). To maximize remote access performance, SplitKernel introduces a greedy algorithm to determine optimal per-operation offloading ratios, alongside active congestion control and TMA multicast to eliminate interconnect bottlenecks and read amplification. Evaluations across diverse architectures show that SplitKernel achieves near-optimal bandwidth aggregation, with up to 7.7× performance gains on NVLink-C2C and 2.3× on PCIe systems compared to state-of-the-art memory offloading baselines.",
+          "source": "OpenAlex AI Hardware",
+          "kind": "research",
+          "doi": "https://doi.org/10.1145/3845814.3850046",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Xiaomi MiMo",
+        "model": "mimo-v2.6-flash"
       }
     }
   }

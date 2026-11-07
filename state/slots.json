@@ -2,35 +2,9 @@
   "version": 1,
   "slots": {
     "2026-11-07:paper_brief": {
-      "status": "prepared",
+      "status": "published",
       "updated_at": "2026-11-07T04:42:17.991197+00:00",
-      "attempts": 1,
-      "pending": {
-        "topic": "ai_hardware",
-        "title": "AI 论文午间速览",
-        "url": "https://vorasio.com/posts/20261107-paper_brief.html",
-        "created_at": "2026-11-07T04:42:17.991197+00:00",
-        "items": [
-          {
-            "uid": "583efbe4b33e4ef6d3f25846",
-            "title": "Direct-Access-Enabled GPU Memory Offloading with Optimal Efficiency for LLM Inference",
-            "url": "https://doi.org/10.1145/3845814.3850046",
-            "published": "2026-11-04T00:00:00+00:00",
-            "summary": "LLM inference is constrained by GPU memory capacity and bandwidth. Tiered memory architectures mitigate this by allowing the GPU to offload memory to the remote tier. However, existing memory offloading frameworks rely on prefetching data into local GPU HBM. This approach underutilizes system resources by introducing HBM contention, squandering memory capacity, and creating pipeline bubbles. We show that enabling direct GPU access to remote memory significantly outperforms prefetching, achieving optimal aggregate system bandwidth. We propose SplitKernel, an end-to-end direct-access memory offloading framework that uses the Tensor Memory Accelerator (TMA) to asynchronously fetch offloaded weights and KV caches directly from remote memory into GPU shared memory (SMEM). To maximize remote access performance, SplitKernel introduces a greedy algorithm to determine optimal per-operation offloading ratios, alongside active congestion control and TMA multicast to eliminate interconnect bottlenecks and read amplification. Evaluations across diverse architectures show that SplitKernel achieves near-optimal bandwidth aggregation, with up to 7.7× performance gains on NVLink-C2C and 2.3× on PCIe systems compared to state-of-the-art memory offloading baselines.",
-            "source": "OpenAlex AI Hardware",
-            "kind": "research",
-            "doi": "https://doi.org/10.1145/3845814.3850046",
-            "date_precision": "day"
-          }
-        ],
-        "notify": true,
-        "mode": "production",
-        "analysis": {
-          "provider": "Xiaomi MiMo",
-          "model": "mimo-v2.6-flash"
-        },
-        "slot": "paper_brief"
-      }
+      "attempts": 1
     },
     "2026-11-07:open_source": {
       "status": "published",
