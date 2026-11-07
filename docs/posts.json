@@ -1,5 +1,55 @@
 [
   {
+    "title": "AI 模型、训练与基础研究（2026-11-07）",
+    "date": "2026-11-07T10:42:14.848675+08:00",
+    "count": 3,
+    "url": "posts/20261107-model_research.html",
+    "topic": "model_research",
+    "status": "published",
+    "summary": "本期结论 1. 频域自适应净化技术在视觉语言模型中的有效性：FASDP 在 LLaVA‑1.5‑7B、InstructBLIP‑7B 与 Qwen2.5‑VL‑7B 上对三类像素空间攻击均实现了强保护，同时保持了清洁图像下的下游任务性能与未防御模型相近1。 2. LLM 训练数据的法律与隐私风险：研究表明 LLM 在持",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "FASDP: Frequency-Aware Scale-Diverse Purification against Pixel-Space Visual Jailbreaks",
+          "url": "https://doi.org/10.21203/rs.3.rs-11336583/v1",
+          "publisher": "OpenAlex Model Research",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-11-06T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.21203/rs.3.rs-11336583/v1",
+          "kind": "research"
+        },
+        {
+          "title": "Legal Ethics of Generative Artificial Intelligence Training Data Usage in Large Language Models: Copyright and Personal Data Perspective",
+          "url": "https://doi.org/10.14710/jphi.v8i2.393-425",
+          "publisher": "OpenAlex Model Research",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-11-06T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.14710/jphi.v8i2.393-425",
+          "kind": "research"
+        },
+        {
+          "title": "Towards interpreting any residual stream direction by scaling activation inversion",
+          "url": "https://arxiv.org/abs/2611.08465v1",
+          "publisher": "arXiv Model Research",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-11-05T18:54:40+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 晨间雷达与免费资源（2026-11-07）",
     "date": "2026-11-07T09:12:19.095390+08:00",
     "count": 3,

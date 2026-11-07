@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 模型、训练与基础研究（2026-11-07）</title><meta name="description" content="AI 模型、训练与基础研究（2026-11-07）：3 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav aria-label="主导航"><a href="../index.html#latest">时间线</a><a href="../knowledge/index.html">AI 知识科普</a><a href="../courses/index.html">AI 学习</a><a href="../tools/index.html">AI 工具</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">AI 模型、训练与基础研究</p><dl><dt>发布时间</dt><dd data-published-at="2026-11-07T10:42:14.848675+08:00">2026-11-07 10:42 · UTC+8</dd><dt>研究条目</dt><dd>3 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · AI 模型、训练与基础研究</p><h1>AI 模型、训练与基础研究（2026-11-07）</h1><!-- provenance:start --><p class="ai-analysis" title="openai/gpt-oss-20b">AI 分析：Groq</p><!-- provenance:end --><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期结论</h2>
+<ol>
+<li><strong>频域自适应净化技术在视觉语言模型中的有效性</strong>：FASDP 在 LLaVA‑1.5‑7B、InstructBLIP‑7B 与 Qwen2.5‑VL‑7B 上对三类像素空间攻击均实现了强保护，同时保持了清洁图像下的下游任务性能与未防御模型相近[1]。</li>
+<li><strong>LLM 训练数据的法律与隐私风险</strong>：研究表明 LLM 在持续吸收用户输入、提示与修正时，可能违反个人数据保护（PDP）与版权法，建议采用显式许可、可追溯标注与人类监督等技术与治理措施[2]。</li>
+<li><strong>残差流方向解释的新方法</strong>：MAEM 通过最大化余弦相似度的无标签 RL 目标，能够在 89% 的保留 SAE 特征上实现激活，并在多语言/多域上优于语料库搜索[3]。</li>
+</ol>
+<h2>逐项分析</h2>
+<table>
+<thead>
+<tr>
+<th>资料</th>
+<th>核心贡献</th>
+<th>方法与数据</th>
+<th>性能证据</th>
+<th>局限与证据等级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[1]</td>
+<td>提出 Frequency‑Aware Scale‑Diverse Purification (FASDP) 以对抗视觉 jailbreak</td>
+<td>采用单一冻结去噪器生成多尺度候选，利用低频一致性与自参频率信号动态分配净化强度；不需任务特定训练或目标模型访问</td>
+<td>在 LLaVA‑1.5‑7B、InstructBLIP‑7B、Qwen2.5‑VL‑7B 三种 VLM 上对三类像素空间攻击实现强保护，且清洁图像下的下游任务性能接近未防御模型[1]</td>
+<td>仅提供摘要，缺乏实验细节与对比基线；证据等级 A（摘要含方法、数据及定量结果）</td>
+</tr>
+<tr>
+<td>[2]</td>
+<td>分析 LLM 训练数据使用的法律伦理风险，提出治理框架</td>
+<td>规范性法律研究，审查印尼、韩国、欧盟与日本法规，并直接测试 LLM 提示</td>
+<td>发现 LLM 持续吸收用户输入导致 PDP 与 IPR 风险；建议显式许可、可追溯标注与人类监督[2]</td>
+<td>摘要未提供实验细节，结论为作者主张；证据等级 C</td>
+</tr>
+<tr>
+<td>[3]</td>
+<td>开发 Maximally‑Activating Example Metamodels (MAEM) 用于解释残差流方向</td>
+<td>通过无标签 RL 最大化余弦相似度，将残差方向映射为激活文本；在 Qwen3.6‑27B 上训练 MAEM</td>
+<td>MAEM 在 89% 的保留 SAE 特征上激活，优于语料库搜索与 NLA，在多语言/多域上表现更好；能识别 LoRA 后门负载[3]</td>
+<td>摘要提供实验结果但缺乏完整方法细节；证据等级 B</td>
+</tr>
+</tbody>
+</table>
+<h2>工程行动建议</h2>
+<ul>
+<li><strong>验证实验</strong>
+<ul>
+<li>对 FASDP：在本地部署 LLaVA‑1.5‑7B、InstructBLIP‑7B、Qwen2.5‑VL‑7B，复现三类像素空间攻击（如 FGSM、PGD、DeepFool），测量净化前后安全性与下游任务准确率。</li>
+<li>对 MAEM：使用公开的 Qwen3.6‑27B 训练 MAEM，验证其在保留 SAE 特征上的激活率，并对比语料库搜索与 NLA 的效果。</li>
+</ul>
+</li>
+<li><strong>落地评估</strong>
+<ul>
+<li>在生产环境中部署 FASDP，监控其对正常图像推理延迟与质量的影响；评估净化强度动态分配对不同攻击强度的鲁棒性。</li>
+<li>对 LLM 训练数据治理：实现数据来源标注与许可追踪机制，定期审计模型输入日志以检测潜在的 PDP 与 IPR 违规。</li>
+</ul>
+</li>
+<li><strong>后续跟踪指标</strong>
+<ul>
+<li>FASDP：攻击成功率、净化后下游任务 F1/准确率、推理延迟。</li>
+<li>MAEM：激活率、误激活率、对后门检测的提升。</li>
+<li>法律治理：合规审计次数、违规事件数、用户同意率。</li>
+</ul>
+</li>
+</ul>
+<h2>参考资料</h2>
+<ol>
+<li>FASDP: Frequency‑Aware Scale‑Diverse Purification against Pixel‑Space Visual Jailbreaks – <a href="https://doi.org/10.21203/rs.3.rs-11336583/v1">https://doi.org/10.21203/rs.3.rs-11336583/v1</a></li>
+<li>Legal Ethics of Generative Artificial Intelligence Training Data Usage in Large Language Models: Copyright and Personal Data Perspective – <a href="https://doi.org/10.14710/jphi.v8i2.393-425">https://doi.org/10.14710/jphi.v8i2.393-425</a></li>
+<li>Towards interpreting any residual stream direction by scaling activation inversion – <a href="https://arxiv.org/abs/2611.08465v1">https://arxiv.org/abs/2611.08465v1</a></li>
+</ol>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>
