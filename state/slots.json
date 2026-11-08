@@ -7,46 +7,9 @@
       "attempts": 1
     },
     "2026-11-08:model_research": {
-      "status": "prepared",
+      "status": "published",
       "updated_at": "2026-11-08T02:42:26.521489+00:00",
-      "attempts": 1,
-      "pending": {
-        "topic": "model_research",
-        "title": "AI 模型、训练与基础研究",
-        "url": "https://vorasio.com/posts/20261108-model_research.html",
-        "created_at": "2026-11-08T02:42:26.521489+00:00",
-        "items": [
-          {
-            "uid": "819a4dec83eb4b8f9d8f2417",
-            "title": "Wrist photoplethysmography encodes dietary information",
-            "url": "https://doi.org/10.1038/s41746-026-03425-4",
-            "published": "2026-11-07T00:00:00+00:00",
-            "summary": "Whether wearable photoplethysmography (PPG) contains dietary information remains unknown. We trained a language model on 1.1M meals to predict meal descriptions from PPG, aligning PPG to text. PPG nontrivially predicts meal content; predictability decreases for PPGs farther from meals. This transfers to dietary tasks: PPG increases AUC by 11% for intake and satiety across held-out and independent cohorts, with gains robust to text degradation. Wearable PPG may enable passive dietary monitoring.",
-            "source": "OpenAlex Model Research",
-            "kind": "research",
-            "doi": "https://doi.org/10.1038/s41746-026-03425-4",
-            "date_precision": "day"
-          },
-          {
-            "uid": "50eabc3cb621b75b69b7192c",
-            "title": "Adaptive Hard Negative Mining for Fine Grained Vision Language Understanding A Negative Result and Analysis",
-            "url": "https://doi.org/10.21203/rs.3.rs-11030933/v1",
-            "published": "2026-11-07T00:00:00+00:00",
-            "summary": "Abstract Vision-language models perform well on many multimodal tasks but struggle with fine-grained visual-linguistic reasoning. The SPEC benchmark was introduced to evaluate models on four fine-grained concepts: object size, position, existence, and count. Fine-tuning on SPEC with fixed hard negatives improves baseline performance substantially. This paper asks whether adaptive hard-negative mining, which reweights negatives by their current difficulty, can push performance further. We propose a confusion-weighted training objective and evaluate it on SPEC held-out data. The method underperforms fixed hard-negative training by 23 percentage points on average. We trace the cause to SPEC's design: its candidate sets are uniformly hard, so adaptive reweighting has no difficulty signal to exploit and instead destabilizes training. We also introduce SPEC++, a paired-reasoning diagnostic that combines cases from two SPEC subsets. The fine-tuned model's joint accuracy on SPEC + + equals the product of its individual accuracies, indicating that it treats concepts independently rather than composing them. These two findings serve as cautionary notes for the field: uniform hard negatives are difficult to outperform when the data is designed to be uniformly hard, and high benchmark accuracy should not be read as evidence of compositional understanding.",
-            "source": "OpenAlex Model Research",
-            "kind": "research",
-            "doi": "https://doi.org/10.21203/rs.3.rs-11030933/v1",
-            "date_precision": "day"
-          }
-        ],
-        "notify": false,
-        "mode": "production",
-        "analysis": {
-          "provider": "Xiaomi MiMo",
-          "model": "mimo-v2.6-flash"
-        },
-        "slot": "model_research"
-      }
+      "attempts": 1
     },
     "2026-11-07:prompt_engineering": {
       "status": "already_published",

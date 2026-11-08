@@ -95,6 +95,8 @@
     },
     "model_research": {
       "ids": [
+        "819a4dec83eb4b8f9d8f2417",
+        "50eabc3cb621b75b69b7192c",
         "fb36acc4a1c892a7a0503c0f",
         "3e41d87113f020399edba489",
         "394d1df249c1025da20a2218",
@@ -138,7 +140,7 @@
         "f3a5508d0160d42195ab7174",
         "cb661d928a0dfa16bc4c4588"
       ],
-      "updated_at": "2026-11-07T02:42:14.848675+00:00"
+      "updated_at": "2026-11-08T02:42:26.521489+00:00"
     },
     "embodied": {
       "ids": [
@@ -282,6 +284,8 @@
     }
   },
   "all_ids": [
+    "819a4dec83eb4b8f9d8f2417",
+    "50eabc3cb621b75b69b7192c",
     "0cfbb20b8b5faebc7f853494",
     "d37d2e6fa928de105d0e58fb",
     "999bba1c21a9ca3ceecb9334",
@@ -499,6 +503,8 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://doi.org/10.1038/s41746-026-03425-4",
+    "https://doi.org/10.21203/rs.3.rs-11030933/v1",
     "https://github.blog/ai-and-ml/github-copilot/beyond-code-generation-a-developers-guide-to-agentic-engineering",
     "https://arxiv.org/abs/2611.08461v1",
     "https://arxiv.org/abs/2611.08453v1",
@@ -716,6 +722,8 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "ddbafecdec302e1a75e401d8",
+    "edca6be86c03dfb0807f066f",
     "d55cfdf59dbd8f220aeb49c3",
     "746a069b020f21bd81626941",
     "07b18aa622ac2b641ab24c42",
@@ -4087,6 +4095,38 @@
       "analysis": {
         "provider": "Groq",
         "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261108-model_research.html": {
+      "topic": "model_research",
+      "created_at": "2026-11-08T02:42:26.521489+00:00",
+      "items": [
+        {
+          "uid": "819a4dec83eb4b8f9d8f2417",
+          "title": "Wrist photoplethysmography encodes dietary information",
+          "url": "https://doi.org/10.1038/s41746-026-03425-4",
+          "published": "2026-11-07T00:00:00+00:00",
+          "summary": "Whether wearable photoplethysmography (PPG) contains dietary information remains unknown. We trained a language model on 1.1M meals to predict meal descriptions from PPG, aligning PPG to text. PPG nontrivially predicts meal content; predictability decreases for PPGs farther from meals. This transfers to dietary tasks: PPG increases AUC by 11% for intake and satiety across held-out and independent cohorts, with gains robust to text degradation. Wearable PPG may enable passive dietary monitoring.",
+          "source": "OpenAlex Model Research",
+          "kind": "research",
+          "doi": "https://doi.org/10.1038/s41746-026-03425-4",
+          "date_precision": "day"
+        },
+        {
+          "uid": "50eabc3cb621b75b69b7192c",
+          "title": "Adaptive Hard Negative Mining for Fine Grained Vision Language Understanding A Negative Result and Analysis",
+          "url": "https://doi.org/10.21203/rs.3.rs-11030933/v1",
+          "published": "2026-11-07T00:00:00+00:00",
+          "summary": "Abstract Vision-language models perform well on many multimodal tasks but struggle with fine-grained visual-linguistic reasoning. The SPEC benchmark was introduced to evaluate models on four fine-grained concepts: object size, position, existence, and count. Fine-tuning on SPEC with fixed hard negatives improves baseline performance substantially. This paper asks whether adaptive hard-negative mining, which reweights negatives by their current difficulty, can push performance further. We propose a confusion-weighted training objective and evaluate it on SPEC held-out data. The method underperforms fixed hard-negative training by 23 percentage points on average. We trace the cause to SPEC's design: its candidate sets are uniformly hard, so adaptive reweighting has no difficulty signal to exploit and instead destabilizes training. We also introduce SPEC++, a paired-reasoning diagnostic that combines cases from two SPEC subsets. The fine-tuned model's joint accuracy on SPEC + + equals the product of its individual accuracies, indicating that it treats concepts independently rather than composing them. These two findings serve as cautionary notes for the field: uniform hard negatives are difficult to outperform when the data is designed to be uniformly hard, and high benchmark accuracy should not be read as evidence of compositional understanding.",
+          "source": "OpenAlex Model Research",
+          "kind": "research",
+          "doi": "https://doi.org/10.21203/rs.3.rs-11030933/v1",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Xiaomi MiMo",
+        "model": "mimo-v2.6-flash"
       }
     }
   }
