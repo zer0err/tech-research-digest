@@ -2,57 +2,9 @@
   "version": 1,
   "slots": {
     "2026-11-08:paper_brief": {
-      "status": "prepared",
+      "status": "published",
       "updated_at": "2026-11-08T04:42:22.889589+00:00",
-      "attempts": 1,
-      "pending": {
-        "topic": "product_safety",
-        "title": "AI 论文午间速览",
-        "url": "https://vorasio.com/posts/20261108-paper_brief.html",
-        "created_at": "2026-11-08T04:42:22.889589+00:00",
-        "items": [
-          {
-            "uid": "c774404b39d666b871f55156",
-            "title": "A Carbon-Aware IoT Scheduling Framework for Sustainable Smart Homes Using Predictive Energy Models",
-            "url": "https://doi.org/10.47852/bonviewjdsis620210310",
-            "published": "2026-11-06T00:00:00+00:00",
-            "summary": "With the widespread popularization of software engineering-based Internet of Things technology, the smart home field has obtained the basic conditions to realize fine-grained monitoring and intelligent control of household energy consumption. Presently, there are two big issues with our home energy management. First, in this paper, our emphasis is only on conserving energy rather than considering whether the energy we consume from the grid is clean or dirty. Second, we are not making sure that the software we use to schedule our energy use is reliable. To address these issues, this study proposes a carbon-aware home energy management framework that integrates predictive modeling, environmentally conscious scheduling, and software reliability validation. The three major entities of the proposed scheme are predicting the closeness, predicting energy usage, and scheduling to utilize energy to reduce our carbon footprint. In this context, utilizing a special formula that considers both energy consumption and carbon emissions, we can find ways to make our homes better and more efficient for the planet. For this newly proposed system, all simulation experiments were completed on the OMNeT++ platform. After the simulation tests were finished, several types of reliability verification tests were also conducted. The results of these tests are clear: all core performance indicators of th",
-            "source": "OpenAlex Device Security",
-            "kind": "research",
-            "doi": "https://doi.org/10.47852/bonviewjdsis620210310",
-            "date_precision": "day"
-          },
-          {
-            "uid": "46d12857cbb1262048df5161",
-            "title": "An Explainable AI Framework for Real-Time Cyberattack Detection and Risk Assessment",
-            "url": "https://doi.org/10.63180/jjic.thestap.2027.1.5",
-            "published": "2026-11-06T00:00:00+00:00",
-            "summary": "As cyberattacks become more sophisticated and more common, detection systems must be not only accurate but also quick and easy to interpret. Although deep learning models have proven to be very effective in detecting intrusion and malware, their black-box nature has hindered their adoption in security operations centers (SOCs), where analysts need to explain and take action on alerts in short timeframes. To offer real-time cyberattack detection with quantitative risk assessment, this paper presents an Explainable AI (XAI) framework that integrates a lightweight hybrid deep learning detector with post-hoc and intrinsic explainability methods. The framework combines a Convolutional-Bidirectional Gated Recurrent Unit (CNN-BiGRU) architecture for spatio-temporal traffic representation with an attention layer that highlights salient time steps and integrates SHAP (Shapley Additive explanations) and LIME (Local Interpretable Model-agnostic Explanations) to generate human-readable justifications for every prediction. A dynamic risk-scoring engine then translates detection confidence, feature-level severity, and asset criticality to a normalized risk index that enables prioritized incident response. The framework is tested on three benchmark intrusion detection datasets (CICIDS2017, NSL-KDD, and UNSW-NB15) and a real-time traffic stream generated synthetically. Experimental results rev",
-            "source": "OpenAlex Device Security",
-            "kind": "research",
-            "doi": "https://doi.org/10.63180/jjic.thestap.2027.1.5",
-            "date_precision": "day"
-          },
-          {
-            "uid": "52be7cc4270d93655848e55e",
-            "title": "Mapping and prioritizing industry 4.0 technologies: an analysis based on patent and scientific publication networks",
-            "url": "https://doi.org/10.1007/s00170-026-19378-7",
-            "published": "2026-11-05T00:00:00+00:00",
-            "summary": "Abstract Industry 4.0 has rapidly evolved since its introduction in 2011, driving global initiatives and promoting the diffusion of enabling technologies, such as IoT, cyber-physical systems, and artificial intelligence. Despite its well-documented benefits, firms face increasing challenges in selecting and integrating multiple​ technologies, particularly amid expanding technological options and uncertainty in implementation pathways. Knowing about this challenge, this study develops a systematic, data-driven methodology to support the prioritization of Industry 4.0 enabling technologies. Drawing on network theory, it analyzes data from scientific publications and patents​ by constructing proximity matrices. A composite index derived from network metrics, combined with a portfolio distance measure, is used to rank and prioritize technologies. The results are benchmarked against real industrial adoption data, highlighting similarities and differences between the approaches, while providing insights on the methodology’s strengths and limitations. Provided that further empirical validation is achieved, the proposed framework holds considerable potential to support managerial decision-making, as well as to be scaled to other technological fields.",
-            "source": "OpenAlex Device Security",
-            "kind": "research",
-            "doi": "https://doi.org/10.1007/s00170-026-19378-7",
-            "date_precision": "day"
-          }
-        ],
-        "notify": true,
-        "mode": "production",
-        "analysis": {
-          "provider": "Groq",
-          "model": "openai/gpt-oss-20b"
-        },
-        "slot": "paper_brief"
-      }
+      "attempts": 1
     },
     "2026-11-08:open_source": {
       "status": "already_published",
