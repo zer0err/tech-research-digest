@@ -27,57 +27,9 @@
       "attempts": 1
     },
     "2026-11-08:core_research": {
-      "status": "prepared",
+      "status": "published",
       "updated_at": "2026-11-08T06:12:21.978913+00:00",
-      "attempts": 1,
-      "pending": {
-        "topic": "product_safety",
-        "title": "智能硬件产品化、可靠性与安全",
-        "url": "https://vorasio.com/posts/20261108-core_research.html",
-        "created_at": "2026-11-08T06:12:21.978913+00:00",
-        "items": [
-          {
-            "uid": "a84b2a7ba972dc3f9a97f56b",
-            "title": "Variation-Resilient Low-Cost PUF with Trust-Based Authentication Implemented in 16 nm FinFET for IoT Security",
-            "url": "https://doi.org/10.3390/electronics15215143",
-            "published": "2026-11-05T00:00:00+00:00",
-            "summary": "Physical Unclonable Functions (PUFs) generate unique chip identifiers from manufacturing variations, but transmissions over public networks can be exploited through eavesdropping. To improve variation resilience, the proposed SRPFD-PUF employs bit self-test (BST) for stable-CRP selection, while response-bit tolerance is considered in an illustrative authentication flow. By minimizing additional circuit overhead, strong baseline PUF metrics are maintained at low hardware cost, supporting integration in Internet of Things (IoT) devices. An illustrative PUF-based authentication flow is presented to demonstrate a potential IoT application; end-to-end protocol implementation and security validation remain outside the scope of this study. The three-condition BST screen yields a minimum simulated logarithmic reliability score of 98.93% under the evaluated PVT conditions within 0.675–1.05 V and −40–150 °C. With the circuit architecture and LFSR configuration disclosed, the evaluated machine-learning attacks yield prediction accuracies of 47.68–52.46%, indicating resistance to the tested modeling methods. The TSMC 16 nm FinFET physical design occupies 0.0117 mm2, while post-layout simulation estimates 0.3089 mW at 100 MHz; no fabricated-silicon measurements are reported.",
-            "source": "OpenAlex Device Security",
-            "kind": "research",
-            "doi": "https://doi.org/10.3390/electronics15215143",
-            "date_precision": "day"
-          },
-          {
-            "uid": "815023220629db1d2a274fdc",
-            "title": "GridXAI-diffusion an adaptive graph intelligence framework for interpretable data integrity analysis in smart grid cybersecurity systems",
-            "url": "https://doi.org/10.1038/s41598-026-75267-9",
-            "published": "2026-11-05T00:00:00+00:00",
-            "summary": "Smart-grid cybersecurity is increasingly challenged by sophisticated cyberattacks, evolving operational behaviors, and complex cyber-physical dependencies. Existing machine learning, deep learning, and graph-based detection methods remain limited in jointly modeling dynamic attack behaviors, spatio-temporal dependencies, attack-data scarcity, and interpretable security decisions. This study proposes GridXAI-Diffusion, an adaptive and interpretable graph intelligence framework for smart-grid cyberattack detection and data-integrity analysis. Evaluation was conducted using the Kaggle Smart Grid Security Dataset containing 1,000 samples and 24 features representing operational signals, communication behaviors, extracted characteristics, threat indicators, and attack labels. The framework integrates diffusion-based cyberattack scenario generation, dynamic cyber-physical graph construction, spatio-temporal graph transformer learning, contrastive representation learning, and Graph Temporal Causal Attention Explainability (GTCAE). The principal novelty is the coordinated integration of these established techniques into a unified cybersecurity architecture, where each component addresses attack diversity, topology-aware representation, temporal evolution, robustness, or interpretability. Experimental results achieve 96.18% accuracy, 97.04% precision, 95.71% recall, and 96.82% F1-score,",
-            "source": "OpenAlex Device Security",
-            "kind": "research",
-            "doi": "https://doi.org/10.1038/s41598-026-75267-9",
-            "date_precision": "day"
-          },
-          {
-            "uid": "f29a7f017aec053d19f2f018",
-            "title": "Readiness assessment for construction 5.0 using fuzzy logic: a case of construction organisation",
-            "url": "https://doi.org/10.1007/s44290-026-00669-7",
-            "published": "2026-11-05T00:00:00+00:00",
-            "summary": "The construction industry is fast transforming to become more and more empowered by the next phase of the digital evolution, Construction 5.0, which is based on the use of new digital tools alongside human-centric, sustainable, and climate-resilient methods to address sustainability, labour shortage and climate resilience challenges. Organizational readiness for Construction 5.0 is still unclear as more technologies like AI, IoT, BIM and modular construction are being adopted, especially in developing countries such as India. Currently, this study proposes a fuzzy logic-based framework for evaluating the Construction 5.0 readiness in three major enablers, which are decomposed into seven criteria and twenty-six attributes: Resilience, Human Centricity and Environmental Sustainability. The framework is based on expert judgments from a medium-scale construction company in India, which quantifies the readiness of the enterprise using a Fuzzy Construction 5.0 Index and weak attributes by a Fuzzy Performance-Importance Index. In this single-case application, results indicate the case organisation is in the ‘Ready’ to ‘Very Ready’ range, with stronger resilience and basic human-centric practices and weaker advanced sustainability and assistive technologies. The fuzzy logic approach provides a structured, repeatable diagnostic and prioritisation roadmap to guide capability development ",
-            "source": "OpenAlex Device Security",
-            "kind": "research",
-            "doi": "https://doi.org/10.1007/s44290-026-00669-7",
-            "date_precision": "day"
-          }
-        ],
-        "notify": false,
-        "mode": "production",
-        "analysis": {
-          "provider": "Groq",
-          "model": "openai/gpt-oss-20b"
-        },
-        "slot": "core_research"
-      }
+      "attempts": 1
     },
     "2026-11-07:prompt_engineering": {
       "status": "already_published",
