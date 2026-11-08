@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 论文午间速览（2026-11-08）</title><meta name="description" content="AI 论文午间速览（2026-11-08）：3 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav aria-label="主导航"><a href="../index.html#latest">时间线</a><a href="../knowledge/index.html">AI 知识科普</a><a href="../courses/index.html">AI 学习</a><a href="../tools/index.html">AI 工具</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">AI 论文午间速览</p><dl><dt>发布时间</dt><dd data-published-at="2026-11-08T12:42:22.889589+08:00">2026-11-08 12:42 · UTC+8</dd><dt>研究条目</dt><dd>3 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · AI 论文午间速览</p><h1>AI 论文午间速览（2026-11-08）</h1><!-- provenance:start --><p class="ai-analysis" title="openai/gpt-oss-20b">AI 分析：Groq</p><!-- provenance:end --><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期要点</h2>
+<ul>
+<li>论文[1]提出的碳感知家居能源管理框架在OMNeT++仿真中实现了能源与碳排放双重优化，但缺乏真实硬件验证，尚未证明在实际设备功耗与热管理方面的可行性。</li>
+<li>论文[2]的XAI框架通过CNN‑BiGRU与SHAP/LIME实现实时网络攻击检测与风险评估，实验仅在公开数据集与合成流量上完成，未涉及OTA更新、监控或故障诊断的实际部署。</li>
+<li>论文[3]通过专利与学术网络构建的技术优先级指数为工业4.0技术选择提供决策支持，但未给出针对设备安全、隐私或合规性的具体实现细节，属于理论层面的分析。</li>
+</ul>
+<h2>逐项速览</h2>
+<table>
+<thead>
+<tr>
+<th>关注维度</th>
+<th>论文</th>
+<th>关键证据</th>
+<th>局限性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>设备功耗与热管理</td>
+<td>[1]</td>
+<td>采用OMNeT++仿真完成能源与碳排放双重优化实验，报告核心性能指标均满足预期。</td>
+<td>仅为仿真结果，未在真实硬件上测量功耗或热量，缺乏产品化证据。</td>
+</tr>
+<tr>
+<td>隐私</td>
+<td>[1]</td>
+<td>论文未涉及隐私保护机制，仅关注碳排放与能源调度。</td>
+<td>隐私方面无实验或理论支持，无法评估对用户数据的影响。</td>
+</tr>
+<tr>
+<td>安全</td>
+<td>[2]</td>
+<td>在CICIDS2017、NSL‑KDD、UNSW‑NB15三大基准集上测试，展示了检测准确率与风险评分的关联。</td>
+<td>仅限公开数据集与合成流量，未在真实SOC环境中验证，缺乏OTA安全性与监控机制。</td>
+</tr>
+<tr>
+<td>鲁棒性</td>
+<td>[2]</td>
+<td>通过动态风险评分引擎将检测置信度与资产重要性映射为风险指数，提供了鲁棒的决策依据。</td>
+<td>仍需在多样化攻击场景与硬件平台上验证鲁棒性，未涉及模型对抗攻击的抵抗力。</td>
+</tr>
+<tr>
+<td>OTA</td>
+<td>[1],[2]</td>
+<td>两篇论文均未提及OTA更新机制或相关安全验证。</td>
+<td>无OTA相关实验或实现细节，无法评估在固件升级过程中的安全与可靠性。</td>
+</tr>
+<tr>
+<td>监控</td>
+<td>[2]</td>
+<td>通过实时流量监测实现即时检测与风险评估。</td>
+<td>监控系统的可扩展性、资源占用及与现有监控平台的集成未给出。</td>
+</tr>
+<tr>
+<td>故障诊断</td>
+<td>[1]</td>
+<td>论文未讨论设备或系统故障诊断。</td>
+<td>缺乏故障检测与自愈机制的实验或理论支持。</td>
+</tr>
+<tr>
+<td>量产测试与合规</td>
+<td>[3]</td>
+<td>通过专利与文献网络构建技术优先级指数，为技术选型提供参考。</td>
+<td>未涉及量产测试流程、合规认证或安全标准的符合性评估，属于高层决策工具。</td>
+</tr>
+</tbody>
+</table>
+<h2>值得采取的行动</h2>
+<ol>
+<li><strong>验证功耗与热管理</strong>：在目标硬件平台上实现[1]的碳感知调度算法，测量实际功耗与热量变化，评估仿真与实测差异。</li>
+<li><strong>部署XAI安全框架</strong>：在实验室SOC环境中部署[2]的CNN‑BiGRU+XAI模型，结合真实网络流量，验证风险评分与响应流程的可操作性。</li>
+<li><strong>补充OTA与监控</strong>：为上述两套系统设计OTA安全链路与持续监控机制，评估固件更新对模型性能与安全性的影响。</li>
+<li><strong>对比行业优先级</strong>：利用[3]的技术优先级指数，对比本项目所选技术在行业采纳率与合规性方面的匹配度，形成技术路线图。</li>
+</ol>
+<h2>参考资料</h2>
+<ol>
+<li>A Carbon-Aware IoT Scheduling Framework for Sustainable Smart Homes Using Predictive Energy Models. <a href="https://doi.org/10.47852/bonviewjdsis620210310">https://doi.org/10.47852/bonviewjdsis620210310</a></li>
+<li>An Explainable AI Framework for Real-Time Cyberattack Detection and Risk Assessment. <a href="https://doi.org/10.63180/jjic.thestap.2027.1.5">https://doi.org/10.63180/jjic.thestap.2027.1.5</a></li>
+<li>Mapping and prioritizing industry 4.0 technologies: an analysis based on patent and scientific publication networks. <a href="https://doi.org/10.1007/s00170-026-19378-7">https://doi.org/10.1007/s00170-026-19378-7</a></li>
+</ol>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>
