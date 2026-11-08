@@ -1,5 +1,44 @@
 [
   {
+    "title": "AI 模型、训练与基础研究（2026-11-08）",
+    "date": "2026-11-08T10:42:26.521489+08:00",
+    "count": 2,
+    "url": "posts/20261108-model_research.html",
+    "topic": "model_research",
+    "status": "published",
+    "summary": "本期结论 - 腕部 PPG 信号经语言模型对齐后可非平凡预测膳食内容，并在摄入与饱腹任务上带来 AUC 提升，提示可穿戴生理信号与文本模态对齐的可行性 1。 - 自适应困难负样本挖掘在 SPEC 上平均比固定困难负样本低 23 个百分点，说明\"更聪明的负样本策略\"并非普遍有效，属值得关注的信号（仅单篇负结果）2。 - ",
+    "provenance": {
+      "analysis": {
+        "provider": "Xiaomi MiMo",
+        "model": "mimo-v2.6-flash"
+      },
+      "sources": [
+        {
+          "title": "Wrist photoplethysmography encodes dietary information",
+          "url": "https://doi.org/10.1038/s41746-026-03425-4",
+          "publisher": "OpenAlex Model Research",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-11-07T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.1038/s41746-026-03425-4",
+          "kind": "research"
+        },
+        {
+          "title": "Adaptive Hard Negative Mining for Fine Grained Vision Language Understanding A Negative Result and Analysis",
+          "url": "https://doi.org/10.21203/rs.3.rs-11030933/v1",
+          "publisher": "OpenAlex Model Research",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-11-07T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.21203/rs.3.rs-11030933/v1",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "VORASIO AI 日报（2026-11-07）",
     "date": "2026-11-07T19:12:19.492556+08:00",
     "count": 7,

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 模型、训练与基础研究（2026-11-08）</title><meta name="description" content="AI 模型、训练与基础研究（2026-11-08）：2 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav aria-label="主导航"><a href="../index.html#latest">时间线</a><a href="../knowledge/index.html">AI 知识科普</a><a href="../courses/index.html">AI 学习</a><a href="../tools/index.html">AI 工具</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">AI 模型、训练与基础研究</p><dl><dt>发布时间</dt><dd data-published-at="2026-11-08T10:42:26.521489+08:00">2026-11-08 10:42 · UTC+8</dd><dt>研究条目</dt><dd>2 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · AI 模型、训练与基础研究</p><h1>AI 模型、训练与基础研究（2026-11-08）</h1><!-- provenance:start --><p class="ai-analysis" title="mimo-v2.6-flash">AI 分析：Xiaomi MiMo</p><!-- provenance:end --><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期结论</h2>
+<ul>
+<li>腕部 PPG 信号经语言模型对齐后可非平凡预测膳食内容，并在摄入与饱腹任务上带来 AUC 提升，提示可穿戴生理信号与文本模态对齐的可行性 [1]。</li>
+<li>自适应困难负样本挖掘在 SPEC 上平均比固定困难负样本低 23 个百分点，说明&quot;更聪明的负样本策略&quot;并非普遍有效，属值得关注的信号（仅单篇负结果）[2]。</li>
+<li>SPEC++ 联合准确率等于各子集准确率之积，提示高基准分数不等于组合推理能力，评测可靠性需单独检验（单篇发现，尚非行业共识）[2]。</li>
+</ul>
+<h2>逐项分析</h2>
+<p><strong>[1] Wrist photoplethysmography encodes dietary information</strong></p>
+<ul>
+<li>核心贡献：将腕部 PPG 与文本对齐，用语言模型从 PPG 预测餐食描述 [1]。</li>
+<li>方法与数据：在 110 万餐次上训练语言模型，评估跨留出与独立队列 [1]。</li>
+<li>性能证据：PPG 对摄入与饱腹任务 AUC 提升 11%，且对文本退化稳健；距餐食越远的 PPG 可预测性下降 [1]。</li>
+<li>局限与证据等级：摘要未提供模型规模、基线细节与置信区间，等级 A（含方法与定量结果，细节有限）[1]。</li>
+<li>工程意义：为被动膳食监测提供可行性信号，但属特定应用而非通用能力提升 [1]。</li>
+</ul>
+<p><strong>[2] Adaptive Hard Negative Mining for Fine Grained Vision Language Understanding</strong></p>
+<ul>
+<li>核心贡献：提出混淆加权训练目标，检验自适应困难负样本挖掘能否超越固定策略，并给出负结果 [2]。</li>
+<li>方法与数据：在 SPEC 留出数据上评测，引入 SPEC++ 配对推理诊断 [2]。</li>
+<li>性能证据：自适应方法平均低于固定困难负样本 23 个百分点；SPEC++ 联合准确率等于各子集准确率之积 [2]。</li>
+<li>局限与证据等级：归因于 SPEC 候选集均匀困难，属作者对数据设计的解释，等级 A（含方法与定量结果）[2]。</li>
+<li>工程意义：提示评测集设计会左右训练策略结论，高分不应直接读作组合理解 [2]。</li>
+</ul>
+<h2>工程行动建议</h2>
+<ul>
+<li>验证实验：复现 [1] 的 PPG-文本对齐流程，检查 11% AUC 提升在自有队列是否成立；复现 [2] 的固定与自适应负样本对比，确认 23 个百分点差距 [1][2]。</li>
+<li>落地评估：[1] 仅支持膳食监测这一特定应用，未证明通用能力提升，落地前需独立队列验证 [1]；[2] 提示选用评测集时应检查负样本难度分布是否均匀 [2]。</li>
+<li>后续跟踪指标：跟踪 [1] 的跨队列 AUC 稳健性与文本退化鲁棒性 [1]；跟踪 [2] 中 SPEC++ 联合准确率与乘积基线的偏离度，作为组合理解的诊断指标 [2]。</li>
+</ul>
+<h2>参考资料</h2>
+<p>[1] Wrist photoplethysmography encodes dietary information <a href="https://doi.org/10.1038/s41746-026-03425-4">https://doi.org/10.1038/s41746-026-03425-4</a>
+[2] Adaptive Hard Negative Mining for Fine Grained Vision Language Understanding A Negative Result and Analysis <a href="https://doi.org/10.21203/rs.3.rs-11030933/v1">https://doi.org/10.21203/rs.3.rs-11030933/v1</a></p>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>
