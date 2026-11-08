@@ -25,13 +25,18 @@
     "attempts": 1
   },
   "2026-11-08:dev_practice": {
-    "status": "prepared",
+    "status": "published",
     "updated_at": "2026-11-08T07:42:17.771152+00:00",
     "attempts": 1
   },
   "2026-11-08:core_research": {
     "status": "published",
     "updated_at": "2026-11-08T06:12:21.978913+00:00",
+    "attempts": 1
+  },
+  "2026-11-08:applied_ai": {
+    "status": "prepared",
+    "updated_at": "2026-11-08T08:42:18.404162+00:00",
     "attempts": 1
   },
   "2026-11-07:prompt_engineering": {

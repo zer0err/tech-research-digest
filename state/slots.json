@@ -36,6 +36,59 @@
       "updated_at": "2026-11-08T06:12:21.978913+00:00",
       "attempts": 1
     },
+    "2026-11-08:applied_ai": {
+      "status": "prepared",
+      "updated_at": "2026-11-08T08:42:18.404162+00:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "embodied",
+        "title": "Agent、机器人与具身智能",
+        "url": "https://vorasio.com/posts/20261108-applied_ai.html",
+        "created_at": "2026-11-08T08:42:18.404162+00:00",
+        "items": [
+          {
+            "uid": "e48f256a25f9a789a67cb1c7",
+            "title": "AnyNav: Visual neuro-symbolic friction learning for off-road navigation",
+            "url": "https://doi.org/10.1177/02783649261496456",
+            "published": "2026-11-07T00:00:00+00:00",
+            "summary": "Off-road navigation is critical for a wide range of field robotics applications from planetary exploration to disaster response. However, it remains a longstanding challenge due to unstructured environments and the inherently complex terrain–vehicle interactions. Traditional physics-based methods struggle to accurately capture the nonlinear dynamics underlying these interactions, while purely data-driven approaches often overfit to specific motion patterns, vehicle geometries, or platforms, limiting their generalization in diverse, real-world scenarios. To address these limitations, we introduce AnyNav, a vision-based friction estimation and navigation framework grounded in neuro-symbolic principles. Our approach integrates neural networks for visual perception with symbolic physical models for reasoning about terrain-vehicle dynamics. To enable learning in a self-supervised manner for real-world settings, we adopt the imperative learning paradigm, where a bilevel optimization framework leverages physics-based optimization for training the friction network. This explicit incorporation of physical reasoning substantially improves generalization across terrains, vehicle types, and operating conditions. Leveraging the predicted friction coefficients, we further develop a physics-informed navigation system capable of generating physically feasible, time-efficient paths together wit",
+            "source": "Crossref Embodied",
+            "kind": "research",
+            "doi": "10.1177/02783649261496456",
+            "date_precision": "day"
+          },
+          {
+            "uid": "d801e0c9b5d5d28241ffd531",
+            "title": "EmoBench-M: Benchmarking Emotional Intelligence for Multimodal Large Language Models",
+            "url": "https://doi.org/10.1145/3767308.3835627",
+            "published": "2026-11-06T00:00:00+00:00",
+            "summary": "With the integration of multimodal large language models (MLLMs) into robotic systems and AI applications, embedding emotional intelligence (EI) capabilities is essential for enabling these models to perceive, interpret, and respond to human emotions effectively in real-world scenarios. Existing static, text-based, or text-image benchmarks overlook the multimodal complexities of real interactions and fail to capture the dynamic, context-dependent nature of emotional expressions, rendering them inadequate for evaluating MLLMs' EI capabilities. To address these limitations, we introduce EmoBench-M, a systematic benchmark grounded in established psychological theories, designed to evaluate MLLMs across 13 evaluation scenarios spanning three hierarchical dimensions: foundational emotion recognition (FER), conversational emotion understanding (CEU), and socially complex emotion analysis (SCEA). Evaluation was conducted on 27 state-of-the-art MLLMs, using both objective task-specific metrics and LLM-based evaluation, revealing a substantial performance gap relative to human-level competence. Even the best performing models, Gemini-3.0-Pro and GPT-5.2, achieve the highest scores on EmoBench-M, 70.5 and 66.5 points respectively. Specialized models such as AffectGPT exhibit uneven performance across EmoBench-M, demonstrating strengths in certain scenarios but generally lacking comprehen",
+            "source": "OpenAlex Embodied",
+            "kind": "research",
+            "doi": "https://doi.org/10.1145/3767308.3835627",
+            "date_precision": "day"
+          },
+          {
+            "uid": "cf5ea16854361c933932aa26",
+            "title": "CoT4AD: A Vision-Language-Action Model with Explicit Chain-of-Thought Reasoning for Autonomous Driving",
+            "url": "https://doi.org/10.1145/3767308.3835132",
+            "published": "2026-11-06T00:00:00+00:00",
+            "summary": "Vision-Language-Action (VLA) models have recently attracted growing attention in end-to-end autonomous driving for their strong reasoning capabilities and rich world knowledge. However, existing VLAs often suffer from limited numerical reasoning ability and overly simplified input-output mappings, which hinder their performance in complex driving scenarios requiring step-by-step causal reasoning. To address these challenges, we propose CoT4AD, a novel VLA framework that introduces Chain-of-Thought (CoT) reasoning for autonomous driving to enhance both numerical and causal reasoning in Vision-Language Models (VLMs). CoT4AD integrates visual observations and language instructions to perform semantic reasoning, scene understanding, and trajectory planning. During training, it explicitly models a perception-question-prediction-action CoT to align the reasoning space with the action space across multiple driving tasks. During inference, it performs implicit CoT reasoning to enable consistent numerical reasoning and robust decision-making in dynamic environments. Extensive experiments on both real-world and simulated benchmarks, including nuScenes and Bench2Drive, demonstrate that CoT4AD achieves state-of-the-art performance in both open-loop and closed-loop evaluations. Code will be released upon paper acceptance.",
+            "source": "OpenAlex Embodied",
+            "kind": "research",
+            "doi": "https://doi.org/10.1145/3767308.3835132",
+            "date_precision": "day"
+          }
+        ],
+        "notify": false,
+        "mode": "production",
+        "analysis": {
+          "provider": "Groq",
+          "model": "openai/gpt-oss-20b"
+        },
+        "slot": "applied_ai"
+      }
+    },
     "2026-11-07:prompt_engineering": {
       "status": "already_published",
       "updated_at": "2026-11-07T06:12:30.520085+00:00",

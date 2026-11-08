@@ -1,5 +1,55 @@
 [
   {
+    "title": "Agent、机器人与具身智能（2026-11-08）",
+    "date": "2026-11-08T16:42:18.404162+08:00",
+    "count": 3,
+    "url": "posts/20261108-applied_ai.html",
+    "topic": "applied_ai",
+    "status": "published",
+    "summary": "本期结论 1. 视觉‑符号融合可显著提升越野导航的泛化能力，AnyNav 通过神经网络估计摩擦并与符号物理模型耦合，实验表明在不同地形、车辆类型和操作条件下的路径规划性能优于单纯数据驱动方法1。 2. 多模态大语言模型在情感智能方面仍显不足，EmoBench‑M 评测显示即便是 Gemini‑3.0‑Pro 与 GPT",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "AnyNav: Visual neuro-symbolic friction learning for off-road navigation",
+          "url": "https://doi.org/10.1177/02783649261496456",
+          "publisher": "Crossref Embodied",
+          "host": "doi.org",
+          "family": "书目索引",
+          "published": "2026-11-07T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "10.1177/02783649261496456",
+          "kind": "research"
+        },
+        {
+          "title": "EmoBench-M: Benchmarking Emotional Intelligence for Multimodal Large Language Models",
+          "url": "https://doi.org/10.1145/3767308.3835627",
+          "publisher": "OpenAlex Embodied",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-11-06T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.1145/3767308.3835627",
+          "kind": "research"
+        },
+        {
+          "title": "CoT4AD: A Vision-Language-Action Model with Explicit Chain-of-Thought Reasoning for Autonomous Driving",
+          "url": "https://doi.org/10.1145/3767308.3835132",
+          "publisher": "OpenAlex Embodied",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-11-06T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.1145/3767308.3835132",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 开发实践与部署（2026-11-08）",
     "date": "2026-11-08T15:42:17.771152+08:00",
     "count": 2,
