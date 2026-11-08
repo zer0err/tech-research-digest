@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 开发实践与部署（2026-11-08）</title><meta name="description" content="AI 开发实践与部署（2026-11-08）：2 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav aria-label="主导航"><a href="../index.html#latest">时间线</a><a href="../knowledge/index.html">AI 知识科普</a><a href="../courses/index.html">AI 学习</a><a href="../tools/index.html">AI 工具</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">AI 开发实践与部署</p><dl><dt>发布时间</dt><dd data-published-at="2026-11-08T15:42:17.771152+08:00">2026-11-08 15:42 · UTC+8</dd><dt>研究条目</dt><dd>2 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · AI 开发实践与部署</p><h1>AI 开发实践与部署（2026-11-08）</h1><!-- provenance:start --><p class="ai-analysis" title="mimo-v2.6-flash">AI 分析：Xiaomi MiMo</p><!-- provenance:end --><p class="disclosure">实践参考，未经运行验证。</p><div class="article-body"><h2>本期主题</h2>
+<ul>
+<li>本期聚焦 FastAPI 0.162.x 版本说明中与 AI 辅助开发相关的可执行信息：官方 skill 的安装方式、skill 内容更新范围，以及依赖与文档变更 [1][2]。</li>
+<li>能解决的问题：确认当前安装版本对应的官方 skill 获取途径，判断是否需要更新 skill 以获得针对该版本的新特性与推荐模式指引 [1]。</li>
+<li>资料未提供 skill 的具体命令参数、兼容性矩阵与运行输出，相关细节留待核验 [1][2]。</li>
+</ul>
+<h2>实践步骤</h2>
+<ul>
+<li>在项目中使用 <code>uvx library-skills</code> 安装 FastAPI 官方 skill，安装位置为当前项目 [1]。</li>
+<li>参考官方 &quot;Develop with AI&quot; 文档了解 skill 的使用方式（文档链接与具体命令未在摘要中给出，留待核验）[1]。</li>
+<li>升级或确认 FastAPI 版本至 0.162.1 或 0.162.2，以获取对应版本的 skill 内容更新（具体升级命令摘要未提供，留待核验）[1][2]。</li>
+<li>关注 skill 中新增的 FastAPI Cloud 指引与参数模型（parameter model）指引，按 skill 提示在 AI 辅助编码中应用 [1][2]。</li>
+<li>若项目依赖 pillow 或 dnspython，注意 0.162.1 已将 pillow 升至 13.0.0、dnspython 升至 2.9.2，需核对本地依赖版本 [2]。</li>
+</ul>
+<h2>验证清单</h2>
+<ul>
+<li>核验本地 FastAPI 版本是否为 0.162.1 或 0.162.2，与所用 skill 内容版本匹配 [1][2]。</li>
+<li>核验 <code>uvx library-skills</code> 安装是否成功、skill 是否出现在项目可用技能列表中（具体输出格式摘要未提供，留待核验）[1]。</li>
+<li>核验 skill 是否包含 FastAPI Cloud 指引与 parameter model 指引条目 [1][2]。</li>
+<li>核验项目依赖中 pillow 是否为 13.0.0、dnspython 是否为 2.9.2 [2]。</li>
+<li>失败条件：安装命令报错、skill 内容与已装 FastAPI 版本不匹配、依赖版本冲突——具体错误信息与兼容范围摘要未提供，留待核验 [1][2]。</li>
+</ul>
+<h2>限制与风险</h2>
+<ul>
+<li>摘要未提供 skill 的完整命令参数、离线安装方式、支持的 Python/uv 版本要求，均无法从摘要确认 [1]。</li>
+<li>摘要未提供 0.162.1 与 0.162.2 之间的破坏性变更说明或兼容性矩阵，升级风险无法从摘要确认 [1][2]。</li>
+<li>依赖升级（pillow 13.0.0、dnspython 2.9.2）可能影响下游兼容性，摘要未披露迁移注意事项，留待核验 [2]。</li>
+<li>本简报仅依据两条 FastAPI 官方 release 摘要，不构成对 FastAPI 生态或 AI 辅助开发工具的行业性结论 [1][2]。</li>
+<li>翻译与文档类变更（zh-hant、uk、de 等多语言更新）不影响核心运行逻辑，但可能造成文档与实际行为的短暂不同步 [2]。</li>
+</ul>
+<h2>参考资料</h2>
+<p>[1] 0.162.2 <a href="https://github.com/fastapi/fastapi/releases/tag/0.162.2">https://github.com/fastapi/fastapi/releases/tag/0.162.2</a>
+[2] 0.162.1 <a href="https://github.com/fastapi/fastapi/releases/tag/0.162.1">https://github.com/fastapi/fastapi/releases/tag/0.162.1</a></p>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>
