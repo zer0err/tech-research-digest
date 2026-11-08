@@ -1,5 +1,55 @@
 [
   {
+    "title": "智能硬件产品化、可靠性与安全（2026-11-08）",
+    "date": "2026-11-08T14:12:21.978913+08:00",
+    "count": 3,
+    "url": "posts/20261108-core_research.html",
+    "topic": "core_research",
+    "status": "published",
+    "summary": "本期结论 1. 低成本 PUF 在 IoT 设备中的可行性：SRPFD‑PUF 在 16 nm FinFET 上实现，面积 0.0117 mm²、功耗 0.3089 mW，且在 0.675–1.05 V、−40–150 °C 范围内的可靠性评分 ≥ 98.93%1。 2. 智能电网安全检测的高准确率：GridXAI‑D",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "Variation-Resilient Low-Cost PUF with Trust-Based Authentication Implemented in 16 nm FinFET for IoT Security",
+          "url": "https://doi.org/10.3390/electronics15215143",
+          "publisher": "OpenAlex Device Security",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-11-05T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.3390/electronics15215143",
+          "kind": "research"
+        },
+        {
+          "title": "GridXAI-diffusion an adaptive graph intelligence framework for interpretable data integrity analysis in smart grid cybersecurity systems",
+          "url": "https://doi.org/10.1038/s41598-026-75267-9",
+          "publisher": "OpenAlex Device Security",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-11-05T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.1038/s41598-026-75267-9",
+          "kind": "research"
+        },
+        {
+          "title": "Readiness assessment for construction 5.0 using fuzzy logic: a case of construction organisation",
+          "url": "https://doi.org/10.1007/s44290-026-00669-7",
+          "publisher": "OpenAlex Device Security",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-11-05T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.1007/s44290-026-00669-7",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 论文午间速览（2026-11-08）",
     "date": "2026-11-08T12:42:22.889589+08:00",
     "count": 3,
