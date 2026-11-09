@@ -2,7 +2,7 @@
 
 这是实际运行的第二个 Codex 进程，通过官方 A2A Python SDK 提供 A2A 1.0 HTTP+JSON 服务。主控通过 HTTP 发现 Agent Card、提交 Task、轮询状态并读取 review.json Artifact。不是用固定回复模拟另一个模型。
 
-## 已部署位置
+## 默认本地接口
 
 - 仅本机地址：`http://127.0.0.1:8787`
 - Agent Card：`/.well-known/agent-card.json`
@@ -70,16 +70,16 @@ uv pip install --python .venv-a2a/bin/python pytest==8.4.2
 .venv/bin/python -m pytest -q
 ```
 
-协议单测显式使用 fixture backend，不冒充实际 AI。真实模型对话结果另存于 `outputs/a2a/round-1.json` 与 `round-2.json`。普通网站环境没有安装 SDK 时会跳过 A2A 单测，不会改变部署依赖。
+协议单测显式使用 fixture backend，不冒充实际 AI。真实模型对话需要单独验证并在本地保存结果，不随源码公开。普通网站环境没有安装 SDK 时会跳过 A2A 单测，不会改变部署依赖。
 
 官方参考：
 - https://a2a-protocol.org/latest/specification/
 - https://github.com/a2aproject/a2a-python
 - https://learn.chatgpt.com/docs/non-interactive-mode
 
-## 已安装的全局技能
+## 可选审查技能
 
-当前账户 `$CODEX_HOME/skills` 已安装 `jakubkrehel/skills` 的 `better-interface` 和六个配套 `better-*` 技能，以及 `blader/humanizer` 的 `humanizer`；`~/.agents/skills` 提供共享入口。新会话可发现这些技能，是否自动使用取决于任务和客户端的技能加载规则，不会把整套技能强行注入每一句对话。
+审查环境需在 `$CODEX_HOME/skills` 安装 `jakubkrehel/skills` 的 `better-interface` 和六个配套 `better-*` 技能，以及 `blader/humanizer` 的 `humanizer`；可由环境配置共享入口。新会话可发现这些技能，是否自动使用取决于任务和客户端的技能加载规则，不会把整套技能强行注入每一句对话。
 
 A2A 审查 Agent 支持显式配置任务包：
 
@@ -92,3 +92,5 @@ A2A 审查 Agent 支持显式配置任务包：
 ```
 
 `design` 会加载全局 `better-interface`、六个配套技能和它们的本地 Markdown 参考。`writing` 会加载全局 Humanizer。截图仅允许项目 `outputs/a2a` 下的已有图片，不接受任意系统文件。把任务包保存为 JSON 后，仍使用相同 `agent_bridge.client --input` 命令提交。Agent 只审查，主控负责应用和验证修改。
+
+本机部署状态、角色配置与原始任务记录在仓库外维护。outputs/a2a 是本地运行接口；完成任务后可归档至受控日志目录，迁移图片时需保持运行时路径校验一致。

@@ -58,30 +58,33 @@ README 中标记区间是编辑章程的唯一来源，生成提示直接读取�
 
 Actions 的 `decision-*.json` 分别记录来源失败、无窗口内匹配资料、摘要不足、已经正式发布、分析接口失败、分析校验不通过及准备发布，附候选数量；不能把这些原因统称为“今日没有新内容”。自动校验只是一道门禁，不是事实正确性的保证。
 
+## 研发协作
+
+本仓库公开，贡献与交付按 [研发流程](planning/DEVELOPMENT_WORKFLOW.md) 执行。使用任务分支和隔离 worktree；内部角色配置、任务包、草稿与原始日志保存在仓库外。新任务可使用 [任务模板](planning/TASK_TEMPLATE.md)，代理入口为 [AGENTS.md](AGENTS.md)。
+
 ## 仓库结构
 
 ```text
 .
-├── .github/
-│   ├── dependabot.yml
-│   └── workflows/
-│       ├── _editorial.yml       # 小时内容位共用执行器
-│       ├── editorial-day.yml    # 每天 10 个时间位的唯一计划入口
-│       ├── _research.yml        # 旧研究任务的手动兼容执行器
-│       ├── model-research.yml   # 七条研究主线，仅保留手动入口
-│       └── run-all.yml          # 仅手动触发的一次性顺序全量运行
-├── config/editorial.yml         # 十个内容位与星期轮换规则
-├── config/sources.yml           # 主题、时间窗、关键词与来源
-├── docs/                        # GitHub Pages 首页、文章与样式
-├── research_bot/
-│   ├── core.py                  # 采集、过滤、Groq、Telegram、状态
-│   └── main.py                  # CLI 编排
-├── state/seen.json              # 已成功投递项目的跨天状态
-├── reports/                     # 每次报告（仅作为短期 artifact）
-├── tests/test_core.py
-├── requirements.txt
-└── requirements-dev.txt
+├── .github/          # CI、定时编辑、发布与公开贡献模板
+├── .agents/          # 可公开的项目技能
+├── research_bot/     # 采集、编辑、生成、状态与通知
+├── course_system/    # 课程校验、预览与发布
+├── agent_bridge/     # 本地 A2A 审查服务实现
+├── infrastructure/   # 基础设施配置
+├── config/           # 不含凭据的运行配置
+├── content/          # 可公开内容源
+├── docs/             # GitHub Pages 发布页面与资源
+├── state/            # 正式去重及发布状态
+├── tests/            # 测试与合成资料
+├── planning/         # 公开需求、架构与贡献规范
+├── reports/          # 本地报告输出，正文不随源码或 CI artifact 公开
+├── AGENTS.md         # 代理协作入口
+├── pyproject.toml
+└── requirements*.txt
 ```
+
+内部角色配置、任务与原始日志放在仓库外；具体本地目录由开发环境维护。CI 审计附件仅导出决策标识与计数，不打包原始报告。
 
 ## 来源与筛选
 
