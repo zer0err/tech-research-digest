@@ -95,6 +95,7 @@
     },
     "model_research": {
       "ids": [
+        "8a6a3d58962591ab06faf250",
         "93dcbe413a9a8f0190dc37a5",
         "451452da8d4aa23ba0585bed",
         "a24e874d8d2acb10944d080f",
@@ -143,7 +144,7 @@
         "f3a5508d0160d42195ab7174",
         "cb661d928a0dfa16bc4c4588"
       ],
-      "updated_at": "2026-11-09T02:42:23.038330+00:00"
+      "updated_at": "2026-11-09T04:42:18.498526+00:00"
     },
     "embodied": {
       "ids": [
@@ -298,6 +299,7 @@
     }
   },
   "all_ids": [
+    "8a6a3d58962591ab06faf250",
     "93dcbe413a9a8f0190dc37a5",
     "451452da8d4aa23ba0585bed",
     "a24e874d8d2acb10944d080f",
@@ -531,6 +533,7 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://doi.org/10.1145/3841458.3841545",
     "https://hal.science/hal-05831316",
     "https://doi.org/10.1145/3862591",
     "https://doi.org/10.1145/3859926",
@@ -764,6 +767,7 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "ff35b63d7f81597a19fb411f",
     "0c18f88b9b691d7d4505a8a6",
     "135406591dbc73b2d8073fdf",
     "68e233af4d1684a1a6e2de51",
@@ -4381,6 +4385,27 @@
           "source": "OpenAlex Model Research",
           "kind": "research",
           "doi": "https://doi.org/10.1145/3859926",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261109-paper_brief.html": {
+      "topic": "model_research",
+      "created_at": "2026-11-09T04:42:18.498526+00:00",
+      "items": [
+        {
+          "uid": "8a6a3d58962591ab06faf250",
+          "title": "Mechanistic Interpretability of Structure-Aware Numerical Reasoning in LLaMA 3.1–8B",
+          "url": "https://doi.org/10.1145/3841458.3841545",
+          "published": "2026-11-07T00:00:00+00:00",
+          "summary": "Recent work has shown that large language models (LLMs) exhibit strong numerical sequence modeling capabilities and show promise in time-series prediction. While LLMs display in-context learning capabilities, the mechanisms with which they accomplish time-series prediction remain unclear. Specifically, whether they truly understand the underlying structure, which at a minimum requires reasoning over first differences in the sequence of numbers. To study this, we investigate Llama 3.1-8B from a mechanistic interpretability point of view. Mechanistic interpretability is an emerging field concerned with the reverse engineering of the algorithms learned by neural networks such as LLMs. To assess Llamas’ numerical sequence modeling capabilities and to facilitate our mechanistic interpretability analysis, we create a sequence modeling task that cannot be solved without picking up structural cues. Specifically, we sample n random numbers and repeat them with an offset. We find that Llama displays strong performance on our tasks suggesting that it can pick up on the underlying structure. To understand the mechanisms that allow it to do so, we perform probing experiments and activation patching based counterfactual analysis. Probing reveals that the model computes and stores first differences in its internal representations without explicit supervision, indicating that it tracks structu",
+          "source": "OpenAlex Model Research",
+          "kind": "research",
+          "doi": "https://doi.org/10.1145/3841458.3841545",
           "date_precision": "day"
         }
       ],
