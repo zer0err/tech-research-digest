@@ -37,57 +37,9 @@
       "attempts": 1
     },
     "2026-11-09:applied_ai": {
-      "status": "prepared",
+      "status": "published",
       "updated_at": "2026-11-09T08:42:18.088293+00:00",
-      "attempts": 1,
-      "pending": {
-        "topic": "ai_hardware",
-        "title": "AI 芯片、计算架构与硬件平台",
-        "url": "https://vorasio.com/posts/20261109-applied_ai.html",
-        "created_at": "2026-11-09T08:42:18.088293+00:00",
-        "items": [
-          {
-            "uid": "e1cef0c0f19d334351b9e25b",
-            "title": "Adaptive error management for fault-tolerant quantum computing across hardware-level suppression, system-level diagnosis, and real-time decoding",
-            "url": "https://doi.org/10.1007/s44464-026-00050-8",
-            "published": "2026-11-07T00:00:00+00:00",
-            "summary": "Abstract Fault-tolerant quantum computing reached a milestone in December 2024 when Google’s Willow processor demonstrated below-threshold error correction on a superconducting chip, a result since reproduced on neutral-atom and alternative superconducting platforms. Yet the classical decoders needed to sustain this performance face a scaling challenge: noise becomes increasingly structured and correlated as systems grow, while decoders must respond within microsecond coherence windows. This survey asks whether error suppression, noise diagnosis, and decoding are better treated as one adaptive control problem than as three separate research programs. Drawing on a scoping review of 146 records, it organizes the field into a three-layer taxonomy. Layer 1 (Hardware-Level Suppression) integrates protection into the physical substrate; bosonic cat qubits exponentially suppress bit-flip errors, projecting up to 90% overhead reduction versus surface codes. Layer 2 (Diagnosis) employs probabilistic models and computational intelligence to characterize error sources; neuro-fuzzy architectures and the Bias–Entropy decomposition separate hardware drift from logical faults, subject to an identifiability limit that we characterize. Layer 3 (Real-time Decoding) targets the integration of machine learning within strict latency constraints. Hardware acceleration now approaches superconducting ",
-            "source": "OpenAlex AI Hardware",
-            "kind": "research",
-            "doi": "https://doi.org/10.1007/s44464-026-00050-8",
-            "date_precision": "day"
-          },
-          {
-            "uid": "6e0a49407506e1fc8fb9479b",
-            "title": "Circuit Theory-Informed AI for Condition Monitoring in Power Electronics",
-            "url": "https://arxiv.org/abs/2611.09141v1",
-            "published": "2026-11-06T08:16:23+00:00",
-            "summary": "Artificial intelligence for power electronics is evolving toward a deeper comprehension of system intrinsic behaviors and dynamics. As a novel integration of neural computation and electric circuits, spike-based neuromorphic computing offers promising potential in high energy efficiency and adaptability for data-driven applications. Building on the latency-coding principles, this article proposes a framework for data-light condition monitoring that relies solely on three-phase AC current measurements. The AC current signals are encoded as membrane potentials of RC-based spiking neurons, which are inherently compatible with spiking neural networks that can effectively facilitate the estimation of device parameters. Case studies are presented to validate the performances, while constraints and further optimizations are also evaluated and discussed, and future extensions of the methodology are provided.",
-            "source": "arXiv AI Hardware",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day"
-          },
-          {
-            "uid": "8c2a6a109dd3f6d302afefb1",
-            "title": "Neuromorphic Computing and Neuromorphic Hardware for AutoML in Zero-touch Networks: Applications and Challenges",
-            "url": "https://doi.org/10.1201/9788743810568-10",
-            "published": "2026-11-06T00:00:00+00:00",
-            "summary": "Owing to the fact that future communication systems are increasing in size and complexity, Zero Touch Networks (ZTN) is going toward pervasive networks that self-configure, self-optimize, and even self-heal with minimal human action. AutoML plays a crucial role in ZTN for adaptive model selection, hyperparameter tuning and real-time decision-making under dynamic network conditions. However, the latency and energy consumption of traditional cloud-based AutoML systems at edge devices are usually not acceptable. Recently, neuromorphic computing and hardware which are based on the human brain structure and function has become a promising alternative for large scale VLSI implementation because it possesses event driven processing, extremely large scale parallelism, ultra-low power consumption. We study in this paper the integration of neuromorphic computing paradigms for ZTN in AutoML. We explore how Spiking Neural Networks (SNNs) and neuromorphic accelerators can enable real-time learning, adaptive control and anomaly detection in ZTNs. Core use cases such as self-heal network, 240 intelligent traffic optimization, predictive maintenance and edge driven autonomous orchestration are also considered. Moreover, it also reports some critical technical challenges where there are no suitable training platforms for the given specific SNN-based AutoML, and hardware–software co-design restr",
-            "source": "OpenAlex AI Hardware",
-            "kind": "research",
-            "doi": "https://doi.org/10.1201/9788743810568-10",
-            "date_precision": "day"
-          }
-        ],
-        "notify": false,
-        "mode": "production",
-        "analysis": {
-          "provider": "Groq",
-          "model": "openai/gpt-oss-20b"
-        },
-        "slot": "applied_ai"
-      }
+      "attempts": 1
     },
     "2026-11-08:prompt_engineering": {
       "status": "already_published",
