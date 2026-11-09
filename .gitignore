@@ -14,3 +14,4 @@ reports/*.json
 !reports/.gitkeep
 
 
+.venv-a2a/
