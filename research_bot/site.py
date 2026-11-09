@@ -28,7 +28,7 @@ TOPICS = {
     "dev_practice": ("AI 开发实践与部署", "每日 15:17"),
     "applied_ai": ("AI 应用与落地专题", "每日 16:27"),
     "ecosystem": ("AI 人物、机构与产业生态", "每日 17:37"),
-    "daily_digest": ("VORASIO AI 日报", "每日 18:47"),
+    "daily_digest": ("VORASIO AI 日报", "每日 19:00"),
     "efficient_ai": ("高效 AI、模型压缩与端侧适配", "周一、周四 14:00"),
     "inference_systems": ("推理引擎、编译器与嵌入式系统", "周二 14:00"),
     "ai_hardware": ("AI 芯片、计算架构与硬件平台", "周三 14:00"),

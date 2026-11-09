@@ -50,15 +50,17 @@ def test_rejected_analysis_never_becomes_public_fallback(setup_run, monkeypatch)
     assert len(list(Path("reports").glob("rejected-*.md"))) == 2
 
 
-def test_empty_or_failed_posts_do_not_make_digest(setup_run):
+def test_empty_or_failed_posts_make_daily_status_digest(setup_run, monkeypatch):
     _, now = setup_run
     Path("docs").mkdir()
     Path("docs/posts.json").write_text(json.dumps([
         {"date": now.isoformat(), "topic": "test", "count": 0, "status": "empty"},
         {"date": now.isoformat(), "topic": "test", "count": 3, "status": "fallback"},
     ]))
-    assert not prepare_daily_digest(now)
-    assert not Path("work/pending.json").exists()
+    monkeypatch.setattr("research_bot.editorial.publish_post", lambda *args: "https://example.com/daily")
+    assert prepare_daily_digest(now)
+    pending = json.loads(Path("work/pending.json").read_text())
+    assert pending["published_count"] == 0
 
 
 def test_valid_analysis_publishes(setup_run, monkeypatch):

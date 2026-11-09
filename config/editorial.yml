@@ -74,7 +74,7 @@ slots:
     publish_key: ecosystem
     allow_empty: true
   daily_digest:
-    hour: 18
+    hour: 19
     special: daily_digest
     publish_key: daily_digest
 

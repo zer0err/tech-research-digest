@@ -17,7 +17,7 @@ SLOTS = [
     ("dev_practice", "15:17", "开发实践与部署", "开发"),
     ("applied_ai", "16:27", "AI 应用与落地专题", "研究"),
     ("ecosystem", "17:37", "人物、机构与产业生态", "生态"),
-    ("daily_digest", "18:47", "VORASIO AI 日报", "快讯"),
+    ("daily_digest", "19:00", "VORASIO AI 日报", "快讯"),
 ]
 
 

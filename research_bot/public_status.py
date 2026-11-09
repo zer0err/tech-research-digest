@@ -8,7 +8,7 @@ from .schedule import BEIJING, TIMES, load, save
 
 
 def notify_maintenance() -> None:
-    from .core import send_telegram
+    import logging
     ledger = load()
     now = datetime.now(UTC)
     today = now.astimezone(BEIJING).date().isoformat()
@@ -21,7 +21,7 @@ def notify_maintenance() -> None:
         planned = datetime.fromisoformat(today + 'T' + TIMES[key.split(':', 1)[1]]).replace(tzinfo=BEIJING)
         delayed = (updated - planned).total_seconds() > 3600
         if failed or delayed:
-            send_telegram(f"【维护提醒，非内容推送】{key}：" + ("多次处理未通过，需检查。" if failed else "任务执行较计划延迟超过一小时。"))
+            logging.warning("Editorial maintenance needed for %s: %s", key, "retries exhausted" if failed else "delayed")
             record["maintenance_notified"] = True
     save(ledger)
 

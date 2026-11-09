@@ -361,8 +361,7 @@ def groq_analyse(title: str, focus: str, items: list[Item], content_type: str = 
                 )
             finally:
                 if mimo:
-                    send_telegram(f"【备用 AI 使用通知】{title}：本次已尝试调用小米 MiMo（mimo-v2.6-flash）。"
-                                  "原因：Groq 调用异常或前次分析未通过检查。此通知不代表文章已发布，结果仍须通过质量校验。")
+                    LOG.warning("MiMo fallback attempted for %s; result still requires validation", title)
             if response.status_code == 200:
                 data = response.json()
                 LOG.info("%s token usage: %s", provider, data.get("usage", {}))

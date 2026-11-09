@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import logging
 from datetime import UTC, datetime
 from pathlib import Path
 
@@ -19,19 +20,38 @@ def main() -> int:
         raise ValueError("Test output cannot be published or added to production state")
     items = [Item(**raw) for raw in pending["items"]]
     count = len(items) if pending["topic"] != "daily_digest" else int(pending.get("published_count", 0))
-    if count <= 0:
+    if count <= 0 and pending["topic"] != "daily_digest":
         raise ValueError("Refusing to notify or finalize empty content")
-    if pending.get("notify", True):
-        label = "篇有效简报" if pending["topic"] == "daily_digest" else "项新内容"
-        message = f"{pending['title']}｜{count} {label}\n完整内容：{pending['url']}"
+    state_path = Path(args.state)
+    state = load_state(state_path)
+    now = datetime.now(UTC)
+    edition = datetime.fromisoformat(pending["created_at"])
+    today = now.astimezone(schedule.BEIJING).date().isoformat()
+    receipts = state.setdefault("daily_notifications", {})
+    notify = (
+        pending["topic"] == "daily_digest"
+        and pending.get("notify", True)
+        and not pending.get("replay_date")
+        and edition.astimezone(schedule.BEIJING).date().isoformat() == today
+        and schedule.is_due("daily_digest", now)
+        and today not in receipts
+    )
+    if pending["topic"] == "daily_digest" and pending.get("notify", True) and not pending.get("replay_date"):
+        if edition.astimezone(schedule.BEIJING).date().isoformat() == today and not schedule.is_due("daily_digest", now):
+            raise ValueError("Daily notification cannot be delivered before 19:00 Asia/Shanghai")
+    if notify:
+        message = (f"{pending['title']}｜{count} 篇有效简报\n完整内容：{pending['url']}" if count
+                   else f"{pending['title']}｜今日暂无有效新内容\n每日状态：{pending['url']}")
         send_telegram(message)
+        # Save Telegram success before optional delivery so its failure cannot repeat Telegram.
+        receipts[today] = {"sent_at": now.isoformat(), "url": pending["url"]}
+        state["daily_notifications"] = dict(sorted(receipts.items(), reverse=True)[:400])
+        state_path.parent.mkdir(parents=True, exist_ok=True)
+        state_path.write_text(json.dumps(state, ensure_ascii=False, indent=2) + "\n")
         try:
             send_ntfy(message, title=str(pending["title"]), click_url=str(pending["url"]))
         except Exception:
-            # Telegram remains the maintenance channel if the optional ntfy delivery fails.
-            send_telegram(f"【维护提醒，非内容推送】{pending['title']} 的 ntfy 推送失败，请检查 GitHub Actions。")
-    state_path = Path(args.state)
-    state = load_state(state_path)
+            logging.exception("Optional ntfy delivery failed; see Actions logs")
     update_state(state, pending["topic"], items, datetime.fromisoformat(pending["created_at"]))
     if items:
         state.setdefault("publications", {})[pending["url"]] = {

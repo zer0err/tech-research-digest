@@ -29,6 +29,7 @@ def resolve_slot(slot_name: str, now: datetime, editorial: dict[str, object], to
     for key in ("title", "content_type", "max_items", "notify"):
         if key in slot:
             config[key] = slot[key]
+    config["notify"] = False  # Daytime articles only update the website.
     return str(topic_name), config
 
 
@@ -42,10 +43,6 @@ def prepare_daily_digest(now: datetime, notify: bool = True) -> bool:
     local_date = now.astimezone(BEIJING).date().isoformat()
     todays = [entry for entry in entries if str(entry.get("execution_date", entry.get("date", "")))[:10] == local_date
               and entry.get("topic") != "daily_digest" and entry.get("status") == "published" and int(entry.get("count", 0)) > 0]
-    if not todays:
-        logging.info("No valid published articles today; skipping daily digest")
-        decision("daily_digest", "empty_digest")
-        return False
     if todays:
         links = "\n".join(
             f"- [{entry['title']}]({base_url()}/{entry['url']})" for entry in reversed(todays)

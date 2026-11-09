@@ -13,7 +13,7 @@ def test_mimo_disabled_without_explicit_flag(monkeypatch):
 
 
 @pytest.mark.parametrize('status', [200, 429])
-def test_mimo_uses_fixed_model_and_always_notifies(monkeypatch, status):
+def test_mimo_uses_fixed_model_without_extra_notifications(monkeypatch, status):
     monkeypatch.setenv('MIMO_API_KEY', 'not-a-real-key')
     monkeypatch.setenv('MIMO_FALLBACK_ENABLED', 'true')
     notifications = []
@@ -31,14 +31,14 @@ def test_mimo_uses_fixed_model_and_always_notifies(monkeypatch, status):
     else:
         with pytest.raises(RuntimeError):
             core.mimo_analyse('title', 'focus', [])
-    assert len(requests) == len(notifications) == 1
+    assert len(requests) == 1
+    assert notifications == []
     assert requests[0][0] == 'https://api.xiaomimimo.com/v1/chat/completions'
     assert requests[0][1]['model'] == 'mimo-v2.6-flash'
     assert requests[0][1]['thinking'] == {'type': 'disabled'}
-    assert 'mimo-v2.6-flash' in notifications[0]
 
 
-def test_mimo_timeout_still_sends_usage_notice(monkeypatch):
+def test_mimo_timeout_does_not_send_extra_message(monkeypatch):
     monkeypatch.setenv('MIMO_API_KEY', 'not-a-real-key')
     monkeypatch.setenv('MIMO_FALLBACK_ENABLED', 'true')
     notifications = []
@@ -50,4 +50,4 @@ def test_mimo_timeout_still_sends_usage_notice(monkeypatch):
     monkeypatch.setattr(httpx.Client, 'post', post)
     with pytest.raises(httpx.ReadTimeout):
         core.mimo_analyse('title', 'focus', [])
-    assert len(notifications) == 1
+    assert notifications == []

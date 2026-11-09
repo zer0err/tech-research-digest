@@ -11,7 +11,7 @@ LEDGER = Path("state/slots.json")
 TIMES = {
     "morning_radar": "09:07", "model_research": "10:17", "open_source": "11:27", "paper_brief": "12:37",
     "prompt_engineering": "13:47", "core_research": "14:07", "dev_practice": "15:17", "applied_ai": "16:27",
-    "ecosystem": "17:37", "daily_digest": "18:47",
+    "ecosystem": "17:37", "daily_digest": "19:00",
 }
 
 

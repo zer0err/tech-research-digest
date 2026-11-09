@@ -1,4 +1,4 @@
-name: Hourly AI editorial day 09:00-18:00 CST
+name: AI editorial day with one daily notification at 19:00 Beijing
 
 on:
   schedule:
@@ -11,7 +11,7 @@ on:
     - cron: "17 7 * * *"
     - cron: "27 8 * * *"
     - cron: "37 9 * * *"
-    - cron: "47 10 * * *"
+    - cron: "0 11 * * *"
   workflow_dispatch:
     inputs:
       slot:
@@ -47,30 +47,11 @@ jobs:
       - id: slot
         env:
           MANUAL_SLOT: ${{ inputs.slot }}
-          SCHEDULE: ${{ github.event.schedule }}
         run: |
-          if [ -n "$MANUAL_SLOT" ]; then
-            value="$MANUAL_SLOT"
-          else
-            case "$SCHEDULE" in
-              "7 9 * * *") value="morning_radar" ;;
-              "17 10 * * *") value="model_research" ;;
-              "27 11 * * *") value="open_source" ;;
-              "37 12 * * *") value="paper_brief" ;;
-              "47 13 * * *") value="prompt_engineering" ;;
-              "7 14 * * *") value="core_research" ;;
-              "17 15 * * *") value="dev_practice" ;;
-              "27 16 * * *") value="applied_ai" ;;
-              "37 17 * * *") value="ecosystem" ;;
-              "47 18 * * *") value="daily_digest" ;;
-              *) echo "Unknown schedule: $SCHEDULE" >&2; exit 1 ;;
-            esac
-          fi
-          echo "value=$value" >> "$GITHUB_OUTPUT"
+          echo "value=$MANUAL_SLOT" >> "$GITHUB_OUTPUT"
   run:
     needs: resolve
     uses: ./.github/workflows/_editorial.yml
     with:
       slot: ${{ needs.resolve.outputs.slot }}
     secrets: inherit
-
