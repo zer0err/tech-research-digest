@@ -46,7 +46,7 @@ def render_featured(entries: list[dict], config_path: Path = DEFAULT_CONFIG,
             f'选入日期 {esc(selection["selection_date"])}</p>'
             f'<h3><a href="{esc(url, quote=True)}">{esc(post["title"])}</a></h3>'
             f'<p>{esc(selection["reason"])}</p>'
-            f'<p><strong>开发前要问：</strong>{esc(selection["development_question"])}</p>'
+            f'<p><strong>用于项目前，先确认：</strong>{esc(selection["development_question"])}</p>'
             f'<a href="{esc(url, quote=True)}">阅读与回查来源 →</a></article>'
         )
         if len(cards) == 3:
@@ -55,8 +55,8 @@ def render_featured(entries: list[dict], config_path: Path = DEFAULT_CONFIG,
         return ''
     return (
         '<section class="featured-section" aria-labelledby="featured-title">'
-        '<h2 id="featured-title">编辑精选 · 开发决策阅读</h2>'
-        '<p>按阅读价值选取，包含历史资料；不代表事实已核实或实践已验证。'
+        '<h2 id="featured-title">编辑精选</h2>'
+        '<p>这里也会选入值得重读的历史文章。入选不代表事实已全部核实，也不代表我们已实测。'
         '采用前请回查来源并在自己的环境验证。</p>'
         '<div class="growth-grid">' + ''.join(cards) + '</div></section>'
     )

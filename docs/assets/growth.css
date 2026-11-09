@@ -23,3 +23,14 @@
 @media(min-width:801px){.growth-grid .featured-card:first-child{grid-column:span 2}.growth-grid .featured-card:first-child h3{font-size:2rem}}
 @media(max-width:700px){.growth-actions{display:grid;grid-template-columns:1fr 1fr}.growth-primary{grid-column:1 / -1;justify-content:center}}
 .site-header nav a{font-size:.82rem}
+/* Keep every navigation destination visible; do not rely on a hidden scroll edge. */
+@media(max-width:700px){
+  .site-header{overflow:visible;height:auto;align-items:flex-start}
+  .site-header nav{display:flex;flex-wrap:wrap!important;overflow:visible;white-space:normal;gap:0 12px;max-width:100%}
+  .site-header nav a{display:inline-flex;align-items:center;min-height:44px;padding:2px 0;font-size:.875rem}
+}
+.growth-card{background:var(--surface);border-color:var(--line)}
+.featured-card{background:transparent;border-top-color:var(--green)}
+.growth-notice{background:var(--soft);border-left-color:var(--gold)}
+.growth-page textarea,.growth-page input,.growth-page select{background:var(--surface);color:var(--ink);border-color:var(--muted)}
+.growth-page input::placeholder,.growth-page textarea::placeholder{color:var(--muted);opacity:1}

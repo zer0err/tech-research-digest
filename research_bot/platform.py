@@ -39,9 +39,13 @@ def build_platform() -> None:
             content = content.replace('</nav></header>', f'<a href="{root}domains/index.html">领域导航</a>'
                                       f'<a href="{root}subscribe.html">订阅精选</a>'
                                       f'<a href="{root}services.html">开发咨询</a></nav></header>', 1)
-        if page.parent.name == 'posts' and 'data-growth-cta' not in content:
+        if page.parent.name == 'posts':
             cta = article_callout(root, '/posts/' + page.name)
-            content = content.replace('</main>', cta + '</main>', 1)
+            if 'data-growth-cta' in content:
+                content = re.sub(r'<section class="growth-card" data-growth-cta>.*?</section>', lambda _, replacement=cta: replacement,
+                                 content, count=1, flags=re.S)
+            else:
+                content = content.replace('</main>', cta + '</main>', 1)
         if release:
             content = re.sub(r' data-platform-release="[^"]*"', '', content)
             content = content.replace('<body', f'<body data-platform-release="{release}"', 1)

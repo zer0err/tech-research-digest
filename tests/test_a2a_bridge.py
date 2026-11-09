@@ -92,3 +92,22 @@ def test_async_task_can_be_cancelled_without_model_retry():
             assert state == 'TASK_STATE_CANCELED'
             assert cancelled == [True]
     asyncio.run(run())
+
+
+def test_explicit_skill_profile_loads_installed_instructions(tmp_path, monkeypatch):
+    import json
+
+    from agent_bridge.backend import review_material
+
+    monkeypatch.setenv('CODEX_HOME', str(tmp_path))
+    folder = tmp_path / 'skills/humanizer'
+    folder.mkdir(parents=True)
+    (folder / 'SKILL.md').write_text('Preserve claims while editing prose.')
+    text, images = review_material(json.dumps({'profile': 'writing', 'instruction': 'Review copy'}))
+    assert 'Preserve claims' in text
+    assert 'Review copy' in text
+    assert images == []
+    with pytest.raises(ValueError):
+        review_material(json.dumps({'profile': 'writing', 'instruction': 'Review', 'images': ['/etc/passwd']}))
+    with pytest.raises(ValueError):
+        review_material(json.dumps({'profile': '../secret', 'instruction': 'Review'}))

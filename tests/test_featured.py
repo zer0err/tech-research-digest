@@ -24,7 +24,7 @@ def test_explicit_selection_escapes_text_and_links(tmp_path):
     assert '&lt;script&gt;title' in page
     assert '&lt;b&gt;reason' in page
     assert '&lt;x&gt;' in page
-    assert '不代表事实已核实' in page
+    assert '不代表事实已全部核实' in page
     assert 'href="posts/a.html"' in page
 
 

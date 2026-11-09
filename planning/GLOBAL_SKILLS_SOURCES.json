@@ -1,0 +1,10 @@
+{
+  "interface-design": {
+    "repository": "https://github.com/jakubkrehel/skills",
+    "commit": "659cc4e5b6df90cfe1f306f5ae1c83fa549e075c"
+  },
+  "humanizer": {
+    "repository": "https://github.com/blader/humanizer",
+    "commit": "0ef9fe5bc3572734fd3ae6c448fe00a30cd5dcf0"
+  }
+}

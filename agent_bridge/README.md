@@ -76,3 +76,19 @@ uv pip install --python .venv-a2a/bin/python pytest==8.4.2
 - https://a2a-protocol.org/latest/specification/
 - https://github.com/a2aproject/a2a-python
 - https://learn.chatgpt.com/docs/non-interactive-mode
+
+## 已安装的全局技能
+
+当前账户 `$CODEX_HOME/skills` 已安装 `jakubkrehel/skills` 的 `better-interface` 和六个配套 `better-*` 技能，以及 `blader/humanizer` 的 `humanizer`；`~/.agents/skills` 提供共享入口。新会话可发现这些技能，是否自动使用取决于任务和客户端的技能加载规则，不会把整套技能强行注入每一句对话。
+
+A2A 审查 Agent 支持显式配置任务包：
+
+```json
+{
+  "profile": "design",
+  "instruction": "审查首页与咨询流程；此处附本次源码和浏览器证据",
+  "images": ["/absolute/project/outputs/a2a/design/screenshot.png"]
+}
+```
+
+`design` 会加载全局 `better-interface`、六个配套技能和它们的本地 Markdown 参考。`writing` 会加载全局 Humanizer。截图仅允许项目 `outputs/a2a` 下的已有图片，不接受任意系统文件。把任务包保存为 JSON 后，仍使用相同 `agent_bridge.client --input` 命令提交。Agent 只审查，主控负责应用和验证修改。
