@@ -6,6 +6,59 @@
       "updated_at": "2026-11-09T01:12:17.673895+00:00",
       "attempts": 1
     },
+    "2026-11-09:model_research": {
+      "status": "prepared",
+      "updated_at": "2026-11-09T02:42:23.038330+00:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "model_research",
+        "title": "AI 模型、训练与基础研究",
+        "url": "https://vorasio.com/posts/20261109-model_research.html",
+        "created_at": "2026-11-09T02:42:23.038330+00:00",
+        "items": [
+          {
+            "uid": "93dcbe413a9a8f0190dc37a5",
+            "title": "Gender Bias Beyond Stereotypes: Towards Linguistically Gender-Fair Conversational LLMs",
+            "url": "https://hal.science/hal-05831316",
+            "published": "2026-11-09T00:00:00+00:00",
+            "summary": "Gender bias in NLP has mostly been studied through the lens of stereotypes, i.e. associations between gender and occupations or personality traits. In this position paper, we argue that the rise of conversational large language models (LLMs) and open-ended generation stressed another important problem that remains largely unaddressed: masculine generics bias. In many languages, including German, French or Spanish, masculine forms are used to refer to mixed-gender groups or to people whose gender is unknown or non-binary (masculine generics, or MG for short). Decades of psycholinguistic research show that these forms are not interpreted as truly generic and instead lead people to have more male-centric mental representations. As LLMs are adopted by an ever-growing number of users worldwide for a wide range of tasks, this bias can now be perpetuated in everyday interactions, all the more since preliminary studies already show that LLMs lean heavily on MG and are reluctant to use gender-fair language spontaneously. We review the evidence for why it matters, explain why existing mitigation approaches are not enough for conversational LLMs, show that GFL in German, French and Spanish is lacking in LLM pre-training corpora, and outline 6 research directions towards building multilingual, linguistically gender-fair conversational LLMs.",
+            "source": "OpenAlex Model Research",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          },
+          {
+            "uid": "451452da8d4aa23ba0585bed",
+            "title": "Knowledge Graph-based Retrieval-Augmented Generation for Schema Matching",
+            "url": "https://doi.org/10.1145/3862591",
+            "published": "2026-11-07T00:00:00+00:00",
+            "summary": "Traditional similarity-based schema matching methods fail to resolve semantic ambiguities and conflicts in complex, domain-specific mappings due to a lack of commonsense and domain-specific knowledge. In parallel, large language models (LLMs) without sufficient background knowledge tend to hallucinate, further complicating schema matching. To overcome these limitations, we introduce KG-RAG4SM, a Knowledge Graph-based Retrieval-Augmented Generation for Schema Matching. This method integrates novel retrieval mechanisms, including LLM-based, vector-based, graph traversal-based, and hybrid techniques with advanced reranking schemes to extract the most relevant subgraphs from large external KGs. Our approach achieves superior results without requiring re-training, as evidenced by improvements of 39.79% in precision and 30.56% in F1 score over LLM-based state-of-the-art (SOTA) methods (e.g., Jellyfish-8B) on the MIMIC dataset, and enhancements of 69.20% in precision and 21.99% in F1 score over pre-trained language model (PLM)-based SOTA methods (e.g., SMAT) on the Synthea dataset. Additionally, KG-RAG4SM scales effectively across KGs from commonsense KGs to domain-specific ones, while its instruction-tuning knowledge exclusion component ensures truthful performance in end-to-end schema matching tasks despite the suboptimal relevance of KG context. Our empirical analysis and case stud",
+            "source": "OpenAlex Model Research",
+            "kind": "research",
+            "doi": "https://doi.org/10.1145/3862591",
+            "date_precision": "day"
+          },
+          {
+            "uid": "a24e874d8d2acb10944d080f",
+            "title": "Enhancing Neural Code Representation With Additional Context",
+            "url": "https://doi.org/10.1145/3859926",
+            "published": "2026-11-07T00:00:00+00:00",
+            "summary": "Automated program comprehension underpins many software engineering tasks, from code summarisation to clone detection. While recent deep learning models have achieved strong results, they typically rely on source code alone and overlook other information that developers routinely use to understand programs, such as version history or structural relationships. This gap limits the ability of current models to capture the broader context in which code evolves and operates. To address this, we conduct an empirical study of how enriching code representations with these additional contextual signals affects the performance of neural models on key program comprehension tasks. We evaluate four downstream software engineering tasks, code clone detection, code classification, code summarisation, and vulnerability detection, using SeSaMe (1,679 semantically similar Java methods from 11 open-source projects), CodeSearchNet (2,117 projects; 63,259 methods paired with natural-language documentation), and Vul4J (178 vulnerability-inducing methods). To ensure a robust comparison, we fine-tune five foundational code models (tree-based and pre-trained Transformer architectures), namely CodeBERT, GraphCodeBERT, CodeT5, PLBART, and ASTNN, under both code-only and context-augmented settings. We further expand the evaluation to seven code-specialised large language models (CodeLlama 7B/13B/34B, Qwen",
+            "source": "OpenAlex Model Research",
+            "kind": "research",
+            "doi": "https://doi.org/10.1145/3859926",
+            "date_precision": "day"
+          }
+        ],
+        "notify": false,
+        "mode": "production",
+        "analysis": {
+          "provider": "Groq",
+          "model": "openai/gpt-oss-20b"
+        },
+        "slot": "model_research"
+      }
+    },
     "2026-11-08:prompt_engineering": {
       "status": "already_published",
       "updated_at": "2026-11-08T06:04:18.154533+00:00",

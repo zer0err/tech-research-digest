@@ -1,5 +1,55 @@
 [
   {
+    "title": "AI 模型、训练与基础研究（2026-11-09）",
+    "date": "2026-11-09T10:42:23.038330+08:00",
+    "count": 3,
+    "url": "posts/20261109-model_research.html",
+    "topic": "model_research",
+    "status": "published",
+    "summary": "本期结论 1. 对话式 LLM 仍普遍存在“男性泛指”偏差，在德语、法语和西班牙语中，预训练语料缺乏性别公平语言，导致模型倾向使用男性泛指形式，且难以自发采用性别公平表达。该结论得到1的多语言实证与方法论分析支持。 2. 检索增强生成（RAG）可显著提升领域特定的模式匹配精度。KG‑RAG4SM 在 MIMIC 与 S",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "Gender Bias Beyond Stereotypes: Towards Linguistically Gender-Fair Conversational LLMs",
+          "url": "https://hal.science/hal-05831316",
+          "publisher": "OpenAlex Model Research",
+          "host": "hal.science",
+          "family": "博客/公开网页",
+          "published": "2026-11-09T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "Knowledge Graph-based Retrieval-Augmented Generation for Schema Matching",
+          "url": "https://doi.org/10.1145/3862591",
+          "publisher": "OpenAlex Model Research",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-11-07T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.1145/3862591",
+          "kind": "research"
+        },
+        {
+          "title": "Enhancing Neural Code Representation With Additional Context",
+          "url": "https://doi.org/10.1145/3859926",
+          "publisher": "OpenAlex Model Research",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-11-07T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.1145/3859926",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "VORASIO AI 日报（2026-11-08）",
     "date": "2026-11-08T19:12:18.269321+08:00",
     "count": 5,
