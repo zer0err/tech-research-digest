@@ -1,6 +1,37 @@
 {
   "version": 1,
   "slots": {
+    "2026-11-09:paper_brief": {
+      "status": "prepared",
+      "updated_at": "2026-11-09T04:42:18.498526+00:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "model_research",
+        "title": "AI 论文午间速览",
+        "url": "https://vorasio.com/posts/20261109-paper_brief.html",
+        "created_at": "2026-11-09T04:42:18.498526+00:00",
+        "items": [
+          {
+            "uid": "8a6a3d58962591ab06faf250",
+            "title": "Mechanistic Interpretability of Structure-Aware Numerical Reasoning in LLaMA 3.1–8B",
+            "url": "https://doi.org/10.1145/3841458.3841545",
+            "published": "2026-11-07T00:00:00+00:00",
+            "summary": "Recent work has shown that large language models (LLMs) exhibit strong numerical sequence modeling capabilities and show promise in time-series prediction. While LLMs display in-context learning capabilities, the mechanisms with which they accomplish time-series prediction remain unclear. Specifically, whether they truly understand the underlying structure, which at a minimum requires reasoning over first differences in the sequence of numbers. To study this, we investigate Llama 3.1-8B from a mechanistic interpretability point of view. Mechanistic interpretability is an emerging field concerned with the reverse engineering of the algorithms learned by neural networks such as LLMs. To assess Llamas’ numerical sequence modeling capabilities and to facilitate our mechanistic interpretability analysis, we create a sequence modeling task that cannot be solved without picking up structural cues. Specifically, we sample n random numbers and repeat them with an offset. We find that Llama displays strong performance on our tasks suggesting that it can pick up on the underlying structure. To understand the mechanisms that allow it to do so, we perform probing experiments and activation patching based counterfactual analysis. Probing reveals that the model computes and stores first differences in its internal representations without explicit supervision, indicating that it tracks structu",
+            "source": "OpenAlex Model Research",
+            "kind": "research",
+            "doi": "https://doi.org/10.1145/3841458.3841545",
+            "date_precision": "day"
+          }
+        ],
+        "notify": true,
+        "mode": "production",
+        "analysis": {
+          "provider": "Groq",
+          "model": "openai/gpt-oss-20b"
+        },
+        "slot": "paper_brief"
+      }
+    },
     "2026-11-09:open_source": {
       "status": "already_published",
       "updated_at": "2026-11-09T03:42:19.683272+00:00",

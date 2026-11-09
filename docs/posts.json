@@ -1,5 +1,33 @@
 [
   {
+    "title": "AI 论文午间速览（2026-11-09）",
+    "date": "2026-11-09T12:42:18.498526+08:00",
+    "count": 1,
+    "url": "posts/20261109-paper_brief.html",
+    "topic": "paper_brief",
+    "status": "published",
+    "summary": "本期要点 - LLaMA 3.1‑8B 能在无显式监督的情况下在内部表示中计算并存储数列的一阶差分，表明其对数值序列结构有一定的把握1。 - 通过激活补丁与反事实分析，研究者揭示了模型在推理过程中利用结构线索的具体机制，首次将结构感知与数值推理结合起来1。 - 该工作聚焦于时间序列预测的数值序列建模，未涉及多模态或跨领",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "Mechanistic Interpretability of Structure-Aware Numerical Reasoning in LLaMA 3.1–8B",
+          "url": "https://doi.org/10.1145/3841458.3841545",
+          "publisher": "OpenAlex Model Research",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-11-07T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.1145/3841458.3841545",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 模型、训练与基础研究（2026-11-09）",
     "date": "2026-11-09T10:42:23.038330+08:00",
     "count": 3,
