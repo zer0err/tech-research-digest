@@ -69,6 +69,7 @@ def shell(title: str, description: str, body: str, relative_root: str = "") -> s
     return f"""<!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{html.escape(title)}</title><meta name="description" content="{html.escape(description, quote=True)}">
+<link rel="alternate" type="application/rss+xml" title="VORASIO" href="{relative_root}feed.xml">
 <link rel="stylesheet" href="{relative_root}assets/style.css">
 <link rel="stylesheet" href="{relative_root}assets/growth.css">
 <link rel="stylesheet" href="{relative_root}assets/editorial.css?v=timeline-2">
@@ -92,6 +93,7 @@ def linkify_bare_urls(markdown: str) -> str:
 
 
 def publish_post(topic: str, title: str, now: datetime, report: str, items: list[Item], *, analysis: dict | None = None) -> str:
+    from .growth import article_callout
     from .provenance import metadata, render
     default_analysis = {"provider": "程序汇总（未调用 AI）", "model": "不适用"} if topic == 'daily_digest' else None
     provenance = metadata(items, analysis or default_analysis)
@@ -125,7 +127,8 @@ def publish_post(topic: str, title: str, now: datetime, report: str, items: list
         '<a class="back-link" href="../index.html">← 返回全部简报</a></aside>'
         f'<article><p class="kicker">RESEARCH BRIEF · {html.escape(topic_name)}</p>'
         f'<h1>{html.escape(display_title)}</h1>{render(provenance)}<p class="disclosure">{disclosure}</p>'
-        f'<div class="article-body">{md.render(report_body)}</div></article></div>'
+        f'<div class="article-body">{md.render(report_body)}</div>'
+        f'{article_callout("../", "/posts/" + slug)}</article></div>'
     )
     (POSTS_DIR / slug).write_text(shell(display_title, f"{display_title}：{len(items)} 项最新研究", article, "../"))
     entries = json.loads(INDEX_DATA.read_text()) if INDEX_DATA.exists() else []

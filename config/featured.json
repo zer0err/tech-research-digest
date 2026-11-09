@@ -1,0 +1,25 @@
+{
+  "selections": [
+    {
+      "selection_date": "2026-11-09",
+      "url": "posts/20261108-dev_practice.html",
+      "reason": "围绕同一服务框架整理 AI 辅助开发资料，适合在团队引入 Skills 前梳理版本、依赖和使用边界。",
+      "development_question": "项目中的技能内容是否匹配实际依赖版本，安装与使用能否在隔离环境复现？",
+      "audience": "AI 软件开发"
+    },
+    {
+      "selection_date": "2026-11-09",
+      "url": "posts/20261029-open_source.html",
+      "reason": "聚焦本地模型运行工具的跨平台部署线索，可用于准备软件与设备协同项目的兼容性验证清单。",
+      "development_question": "目标设备的操作系统、内存、延迟和音频链路能否满足项目要求？",
+      "audience": "端侧 AI 与智能硬件"
+    },
+    {
+      "selection_date": "2026-11-09",
+      "url": "posts/20261025-dev_practice.html",
+      "reason": "围绕表单接口升级整理检查点，适合已有 AI 服务在迁移框架前建立回归测试范围。",
+      "development_question": "省略字段、默认值和接口文档是否仍符合业务预期，升级前后如何对照验收？",
+      "audience": "AI 软件开发"
+    }
+  ]
+}

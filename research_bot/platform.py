@@ -7,6 +7,7 @@ import os
 import re
 from pathlib import Path
 
+from .growth import article_callout
 from .site import render_index
 
 
@@ -39,10 +40,7 @@ def build_platform() -> None:
                                       f'<a href="{root}subscribe.html">订阅精选</a>'
                                       f'<a href="{root}services.html">开发咨询</a></nav></header>', 1)
         if page.parent.name == 'posts' and 'data-growth-cta' not in content:
-            cta = (f'<section class="growth-card" data-growth-cta><h2>把阅读变成下一步行动</h2>'
-                   f'<p>订阅后续 AI 更新，或整理你的 AI 软件与智能硬件开发需求。</p>'
-                   f'<a href="{root}subscribe.html">订阅 AI 精选</a> · '
-                   f'<a href="{root}services.html?source=/posts/{html.escape(page.name, quote=True)}">整理开发需求</a></section>')
+            cta = article_callout(root, '/posts/' + page.name)
             content = content.replace('</main>', cta + '</main>', 1)
         if release:
             content = re.sub(r' data-platform-release="[^"]*"', '', content)

@@ -20,6 +20,19 @@ def whatsapp_url(config: dict) -> str:
     return f'https://wa.me/{number}' if re.fullmatch(r'[1-9][0-9]{6,14}', number) else ''
 
 
+def article_callout(relative_root: str, source_path: str) -> str:
+    """Keep the reading-to-enquiry path on both scheduled and rebuilt articles."""
+    if not re.fullmatch(r'/posts/[A-Za-z0-9][A-Za-z0-9_-]*\.html', source_path):
+        raise ValueError('Expected a local article path')
+    return (
+        '<section class="growth-card" data-growth-cta><h2>把阅读变成下一步行动</h2>'
+        '<p>订阅后续 AI 更新，或整理你的 AI 软件与智能硬件开发需求。</p>'
+        f'<a href="{html.escape(relative_root, quote=True)}subscribe.html">订阅 AI 精选</a> · '
+        f'<a href="{html.escape(relative_root, quote=True)}services.html?source={source_path}">'
+        '整理开发需求</a></section>'
+    )
+
+
 def render_growth_pages(config: dict | None = None, site_dir: Path = Path('docs')) -> None:
     from .site import shell
 
