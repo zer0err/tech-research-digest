@@ -77,7 +77,10 @@ def create_app(*, backend=review, token: str | None = None) -> Starlette:
         capabilities=AgentCapabilities(streaming=False, push_notifications=False),
         default_input_modes=['text/plain'], default_output_modes=['application/json'],
         skills=[AgentSkill(id='platform-review', name='Platform implementation review',
-                          description='Review evidence, report grounded defects and verification gaps.', tags=['review', 'ai-platform'])],
+                          description='Review evidence, report grounded defects and verification gaps.', tags=['review', 'ai-platform']),
+                 AgentSkill(id='web-experience-audit', name='Web experience and visual audit',
+                          description='Audit navigation, hierarchy, touch targets, forms, and motion from page evidence.',
+                          tags=['design', 'ux'])],
         security_schemes={'localBearer': SecurityScheme(http_auth_security_scheme=HTTPAuthSecurityScheme(scheme='bearer'))},
         security_requirements=[SecurityRequirement(schemes={'localBearer': {'list': []}})],
     )

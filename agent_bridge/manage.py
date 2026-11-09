@@ -15,14 +15,12 @@ def install() -> None:
     unit = Path.home() / '.config/systemd/user' / SERVICE
     unit.parent.mkdir(parents=True, exist_ok=True)
     # All values are local paths, not credentials; authentication stays in Codex's existing store.
-    def quoted(value: str) -> str:
-        return '"' + value.replace('\\', '\\\\').replace('"', '\\"').replace('%', '%%') + '"'
     home = os.environ.get('CODEX_HOME', str(Path.home() / '.codex'))
     unit.write_text(
         '[Unit]\nDescription=VORASIO local A2A reviewer\nAfter=network.target\n\n[Service]\nType=simple\n'
-        f'WorkingDirectory={quoted(str(ROOT))}\n'
-        f'ExecStart={quoted(str(ROOT / ".venv-a2a/bin/python"))} -m agent_bridge.server\n'
-        f'Environment={quoted("CODEX_HOME=" + home)}\nEnvironment=PYTHONUNBUFFERED=1\n'
+        f'WorkingDirectory={ROOT}\n'
+        f'ExecStart={ROOT / ".venv-a2a/bin/python"} -m agent_bridge.server\n'
+        f'Environment=CODEX_HOME={home}\nEnvironment=PYTHONUNBUFFERED=1\n'
         'Restart=on-failure\nRestartSec=3\nTimeoutStopSec=10\n\n[Install]\nWantedBy=default.target\n'
     )
     keys = [key for key in ['SSL_CERT_FILE', 'SSL_CERT_DIR', 'HTTPS_PROXY', 'HTTP_PROXY', 'ALL_PROXY', 'NO_PROXY']
