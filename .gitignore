@@ -6,8 +6,7 @@ work/
 course_work/
 outputs/
 firebase-debug.log
-reports/*.md
-reports/*.json
+reports/**
 .wrangler/
 .dev.vars
 .dev.vars.*
@@ -15,3 +14,11 @@ reports/*.json
 
 
 .venv-a2a/
+
+# Local credentials and accidental internal material
+.env
+.env.*
+!.env.example
+agents/
+tasks/
+logs/
