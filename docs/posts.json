@@ -1,5 +1,55 @@
 [
   {
+    "title": "高效 AI、模型压缩与端侧适配（2026-11-09）",
+    "date": "2026-11-09T14:13:29.287993+08:00",
+    "count": 3,
+    "url": "posts/20261109-core_research.html",
+    "topic": "core_research",
+    "status": "published",
+    "summary": "本期结论 1. Edge AI 体系结构与模型压缩：综述表明，深度可分离网络、早期退出推理以及剪枝、量化、蒸馏等压缩技术在边缘设备上实现低延迟、低功耗的关键手段1。 2. 低精度量化对推理性能的影响：CodeQuant2 通过聚类 LUT 量化、激活异常抑制与自适应码本，显著提升大型推理模型在低精度下的准确率，并实现最",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "EDGE AI: Intelligent Computing At The Edge for Real-Time Applications — A Review of Architectures, Model Optimization and Deployment",
+          "url": "https://doi.org/10.5281/zenodo.24034624",
+          "publisher": "OpenAlex Efficient AI",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-11-07T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.5281/zenodo.24034624",
+          "kind": "research"
+        },
+        {
+          "title": "CodeQuant2: Enhanced Outlier Mitigation and Adaptive Clustering for Low-Precision LRMs",
+          "url": "https://arxiv.org/abs/2611.09868v1",
+          "publisher": "arXiv Efficient AI",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-11-06T18:48:04+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "Grasp-TAGS: Task-Aware Grasp Selection via Critic Distillation for Prehensile Loco-Manipulation",
+          "url": "https://arxiv.org/abs/2611.09864v1",
+          "publisher": "arXiv Efficient AI",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-11-06T18:44:33+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 论文午间速览（2026-11-09）",
     "date": "2026-11-09T12:42:18.498526+08:00",
     "count": 1,

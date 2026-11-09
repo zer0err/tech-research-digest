@@ -26,6 +26,59 @@
       "updated_at": "2026-11-09T02:42:23.038330+00:00",
       "attempts": 1
     },
+    "2026-11-09:core_research": {
+      "status": "prepared",
+      "updated_at": "2026-11-09T06:13:29.287993+00:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "efficient_ai",
+        "title": "高效 AI、模型压缩与端侧适配",
+        "url": "https://vorasio.com/posts/20261109-core_research.html",
+        "created_at": "2026-11-09T06:13:29.287993+00:00",
+        "items": [
+          {
+            "uid": "7605927199e825c04c75118f",
+            "title": "EDGE AI: Intelligent Computing At The Edge for Real-Time Applications — A Review of Architectures, Model Optimization and Deployment",
+            "url": "https://doi.org/10.5281/zenodo.24034624",
+            "published": "2026-11-07T00:00:00+00:00",
+            "summary": "Edge Artificial Intelligence (Edge AI) combines machine learning with edge computing so that data are processed on or near the devices that produce them, such as sensors, cameras, smartphones, IoT nodes and embedded systems, rather than entirely in remote cloud servers. This brings decisions closer to the data source, reducing latency, bandwidth use and dependence on connectivity while improving privacy. This paper reviews the foundations and practice of Edge AI for real-time applications. It examines the edge computing paradigm and edge intelligence levels, the partitioning of neural networks between device, edge server and cloud, efficient architectures such as depthwise-separable networks, early-exit inference, and compression by pruning, quantization and knowledge distillation. Tiny machine learning on microcontrollers and standard benchmarks for measuring edge inference are discussed. Applications in smart surveillance, industrial monitoring, healthcare wearables, autonomous robots and smart cities are summarized. A layered device–edge–cloud architecture is proposed, together with research gaps, objectives, a comparison of deployment tiers and an analysis of challenges including limited resources, heterogeneity, security and model updates. The review concludes that Edge AI is essential for low-latency, private and reliable intelligent systems.",
+            "source": "OpenAlex Efficient AI",
+            "kind": "research",
+            "doi": "https://doi.org/10.5281/zenodo.24034624",
+            "date_precision": "day"
+          },
+          {
+            "uid": "dfc85b5eafee962b01259ca7",
+            "title": "CodeQuant2: Enhanced Outlier Mitigation and Adaptive Clustering for Low-Precision LRMs",
+            "url": "https://arxiv.org/abs/2611.09868v1",
+            "published": "2026-11-06T18:48:04+00:00",
+            "summary": "Large reasoning models (LRMs) improve task performance by generating longer intermediate reasoning traces, but this substantially increases inference costs and makes low-precision quantization increasingly important. However, aggressively quantized models often perform poorly on reasoning tasks. We observe larger activation fluctuations during the first decoding steps of reasoning. Calibration that omits these early states may miss their activation fluctuations. To address these reasoning-specific quantization challenges, we propose \\textbf{CodeQuant2}, a clustering-based LUT quantization framework for low-precision large reasoning models. CodeQuant2 mitigates activation outliers with rotation and scaling, uses clustering to represent non-uniform weight distributions, and adapts codebook sizes to the quantization difficulty of each layer. Guided by our observation of reasoning-time activation behavior, CodeQuant2 further improves calibration sample selection to better match actual decoding statistics. Combined with our customized LUT CUDA kernel, CodeQuant2 delivers substantial accuracy improvements on reasoning benchmarks while achieving up to $2.85\\times$ speedup over BF16.",
+            "source": "arXiv Efficient AI",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          },
+          {
+            "uid": "25d9f5d9586732f11e4e0714",
+            "title": "Grasp-TAGS: Task-Aware Grasp Selection via Critic Distillation for Prehensile Loco-Manipulation",
+            "url": "https://arxiv.org/abs/2611.09864v1",
+            "published": "2026-11-06T18:44:33+00:00",
+            "summary": "Loco-manipulation, which requires mobile manipulators to coordinate locomotion and manipulation over long horizons, is a key capability for large-object rearrangement in applications such as service robotics and warehouse automation. Despite recent progress, reliably executing these tasks remains challenging because performance depends on complex robot-object and object-environment interaction dynamics. Existing approaches address this challenge either through model-based methods, which often require accurate dynamics models, or through learning-based methods, which reduce this requirement but typically assume a fixed or predefined initial grasp. However, different geometrically stable grasps can lead to substantially different downstream manipulation performance. Therefore, we propose Grasp-TAGS, a task-aware grasp selection framework for goal-conditioned large-object rearrangement. We train a unified PPO-based reinforcement learning policy across multiple initial grasp configurations and distill the learned critic into a lightweight grasp utility network that ranks candidate grasps using only the candidate grasp configuration and goal information. At inference time, we select the grasp with the highest predicted downstream utility for the downstream policy to complete the task, before even making a contact. Experiments demonstrate that Grasp-TAGS improves rearrangement succes",
+            "source": "arXiv Efficient AI",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          }
+        ],
+        "notify": false,
+        "mode": "production",
+        "analysis": {
+          "provider": "Groq",
+          "model": "openai/gpt-oss-20b"
+        },
+        "slot": "core_research"
+      }
+    },
     "2026-11-08:prompt_engineering": {
       "status": "already_published",
       "updated_at": "2026-11-08T06:04:18.154533+00:00",

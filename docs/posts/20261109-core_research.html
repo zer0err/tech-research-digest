@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>高效 AI、模型压缩与端侧适配（2026-11-09）</title><meta name="description" content="高效 AI、模型压缩与端侧适配（2026-11-09）：3 项最新研究">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav aria-label="主导航"><a href="../index.html#latest">时间线</a><a href="../knowledge/index.html">AI 知识科普</a><a href="../courses/index.html">AI 学习</a><a href="../tools/index.html">AI 工具</a><a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">智能硬件技术专题</p><dl><dt>发布时间</dt><dd data-published-at="2026-11-09T14:13:29.287993+08:00">2026-11-09 14:13 · UTC+8</dd><dt>研究条目</dt><dd>3 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · 智能硬件技术专题</p><h1>高效 AI、模型压缩与端侧适配（2026-11-09）</h1><!-- provenance:start --><p class="ai-analysis" title="openai/gpt-oss-20b">AI 分析：Groq</p><!-- provenance:end --><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期结论</h2>
+<ol>
+<li><strong>Edge AI 体系结构与模型压缩</strong>：综述表明，深度可分离网络、早期退出推理以及剪枝、量化、蒸馏等压缩技术在边缘设备上实现低延迟、低功耗的关键手段[1]。</li>
+<li><strong>低精度量化对推理性能的影响</strong>：CodeQuant2 通过聚类 LUT 量化、激活异常抑制与自适应码本，显著提升大型推理模型在低精度下的准确率，并实现最高 2.85× 的速度提升[2]。</li>
+<li><strong>任务感知抓取与模型轻量化</strong>：Grasp‑TAGS 通过将强化学习的 critic 蒸馏为轻量抓取评估网络，能够在不接触物体前预测抓取的下游效用，从而提升大物体重排任务的成功率[3]。</li>
+</ol>
+<h2>逐项分析</h2>
+<table>
+<thead>
+<tr>
+<th>资料</th>
+<th>核心贡献</th>
+<th>方法与数据</th>
+<th>性能证据</th>
+<th>局限与证据等级</th>
+<th>工程意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[1]</td>
+<td>综述 Edge AI 关键技术与架构</td>
+<td>评述深度可分离网络、早期退出、剪枝、量化、蒸馏等；提出分层 device–edge–cloud 架构</td>
+<td>仅为综述，未给出实验数据</td>
+<td>C（缺少实验细节）</td>
+<td>为工程师提供技术选型框架，提示需关注资源限制与模型更新</td>
+</tr>
+<tr>
+<td>[2]</td>
+<td>CodeQuant2：低精度量化框架</td>
+<td>LUT 量化、旋转缩放异常抑制、聚类码本、自适应码本、校准样本选择</td>
+<td>在 reasoning benchmark 上相较 BF16 提升准确率，速度提升至 2.85×</td>
+<td>A（含方法、数据及定量结果）</td>
+<td>可直接用于大模型推理加速，尤其在推理时间敏感的边缘场景</td>
+</tr>
+<tr>
+<td>[3]</td>
+<td>Grasp‑TAGS：任务感知抓取</td>
+<td>PPO 多抓取训练、critic 蒸馏为抓取评估网络</td>
+<td>在大物体重排实验中提升成功率（具体数值未给出）</td>
+<td>B（含方法及定性结果）</td>
+<td>适用于机器人抓取任务的轻量化评估，可减少在线计算负担</td>
+</tr>
+</tbody>
+</table>
+<h2>工程行动建议</h2>
+<ol>
+<li>
+<p><strong>验证实验</strong></p>
+<ul>
+<li>在目标边缘设备（如 NVIDIA Jetson Nano、Raspberry Pi 4 或 STM32 MCU）上实现 CodeQuant2 的 LUT 量化，测量模型精度、延迟与功耗。</li>
+<li>对比深度可分离网络与标准卷积网络在同一设备上的推理吞吐与内存占用。</li>
+<li>在机器人抓取平台上部署 Grasp‑TAGS 的评估网络，记录抓取成功率与推理时间。</li>
+</ul>
+</li>
+<li>
+<p><strong>落地评估</strong></p>
+<ul>
+<li>设定基准任务（如实时视频监控、工业检测或移动机器人抓取），评估不同压缩策略在实际部署中的延迟、功耗与准确率。</li>
+<li>采用标准边缘推理基准（如 Edge Impulse、TinyML Benchmarks）进行跨平台比较。</li>
+</ul>
+</li>
+<li>
+<p><strong>后续跟踪指标</strong></p>
+<ul>
+<li><strong>模型压缩率</strong>：参数量与存储占用的比例。</li>
+<li><strong>推理延迟</strong>：单帧/单推理的毫秒级延迟。</li>
+<li><strong>吞吐量</strong>：每秒可处理的帧数或推理次数。</li>
+<li><strong>功耗</strong>：平均瓦特数或能耗（J/推理）。</li>
+<li><strong>准确率</strong>：任务特定指标（如 mAP、成功率）。</li>
+</ul>
+</li>
+</ol>
+<h2>参考资料</h2>
+<p>[1] EDGE AI: Intelligent Computing At The Edge for Real-Time Applications — A Review of Architectures, Model Optimization and Deployment, 2026-11-07, <a href="https://doi.org/10.5281/zenodo.24034624">https://doi.org/10.5281/zenodo.24034624</a><br />
+[2] CodeQuant2: Enhanced Outlier Mitigation and Adaptive Clustering for Low-Precision LRMs, 2026-11-06, <a href="https://arxiv.org/abs/2611.09868v1">https://arxiv.org/abs/2611.09868v1</a><br />
+[3] Grasp‑TAGS: Task‑Aware Grasp Selection via Critic Distillation for Prehensile Loco‑Manipulation, 2026-11-06, <a href="https://arxiv.org/abs/2611.09864v1">https://arxiv.org/abs/2611.09864v1</a></p>
+</div></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>
