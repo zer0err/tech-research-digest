@@ -1,5 +1,55 @@
 [
   {
+    "title": "AI 芯片、计算架构与硬件平台（2026-11-09）",
+    "date": "2026-11-09T16:42:18.088293+08:00",
+    "count": 3,
+    "url": "posts/20261109-applied_ai.html",
+    "topic": "applied_ai",
+    "status": "published",
+    "summary": "本期结论 1. 事件驱动神经形态加速器在边缘 AI 领域展现出显著的低功耗与实时性优势，两篇研究均指出其在自适应网络与功率电子监测中的可行性与性能提升 32。 2. 基于脉冲编码的电路感知方法可实现仅用三相 AC 电流测量的条件监测，该方案在实验中验证了对设备参数估计的有效性，且对硬件资源需求低 2。 3. 量子错误管",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "Adaptive error management for fault-tolerant quantum computing across hardware-level suppression, system-level diagnosis, and real-time decoding",
+          "url": "https://doi.org/10.1007/s44464-026-00050-8",
+          "publisher": "OpenAlex AI Hardware",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-11-07T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.1007/s44464-026-00050-8",
+          "kind": "research"
+        },
+        {
+          "title": "Circuit Theory-Informed AI for Condition Monitoring in Power Electronics",
+          "url": "https://arxiv.org/abs/2611.09141v1",
+          "publisher": "arXiv AI Hardware",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-11-06T08:16:23+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "Neuromorphic Computing and Neuromorphic Hardware for AutoML in Zero-touch Networks: Applications and Challenges",
+          "url": "https://doi.org/10.1201/9788743810568-10",
+          "publisher": "OpenAlex AI Hardware",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-11-06T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.1201/9788743810568-10",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "高效 AI、模型压缩与端侧适配（2026-11-09）",
     "date": "2026-11-09T14:13:29.287993+08:00",
     "count": 3,
