@@ -16,6 +16,9 @@ def load_config(path: Path = Path('config/growth.json')) -> dict:
 
 
 def whatsapp_url(config: dict) -> str:
+    link = config.get('whatsapp_link', '')
+    if link:
+        return link if isinstance(link, str) and re.fullmatch(r'https://wa\.me/message/[A-Za-z0-9]+', link) else ''
     number = str(config.get('whatsapp_number', '')).strip().removeprefix('+')
     return f'https://wa.me/{number}' if re.fullmatch(r'[1-9][0-9]{6,14}', number) else ''
 

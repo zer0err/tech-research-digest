@@ -16,6 +16,20 @@ def test_whatsapp_only_valid_configured_number():
     assert whatsapp_url({'whatsapp_number': '+12345678901'}) == 'https://wa.me/12345678901'
 
 
+def test_official_business_link_is_preserved_without_number(tmp_path):
+    link = 'https://wa.me/message/RX4QLFUUD5UCL1'
+    config = {'whatsapp_link': link}
+    assert whatsapp_url(config) == link
+    render_growth_pages(config, tmp_path)
+    page = (tmp_path / 'services.html').read_text()
+    assert f'data-whatsapp href="{link}"' in page
+    assert 'WhatsApp 联系入口待配置' not in page
+    assert '?text=' not in page
+    for bad in ('javascript:alert(1)', link + '?text=private', link + '#fragment',
+                'https://wa.me.evil.test/message/code', 'https://wa.me/message/', 'https://wa.me/1234'):
+        assert whatsapp_url({'whatsapp_link': bad}) == ''
+
+
 def test_pages_without_contact_do_not_fake_submission(tmp_path):
     render_growth_pages({}, tmp_path)
     consult = (tmp_path / 'consult.html').read_text()
