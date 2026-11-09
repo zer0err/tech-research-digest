@@ -3,3 +3,23 @@
 .featured-section{margin:2rem 0 3rem}.growth-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}.featured-card{margin:0}.featured-card h3{line-height:1.5}.featured-card .eyebrow{font-size:.75rem}@media(max-width:800px){.growth-grid{grid-template-columns:1fr}}
 
 .growth-actions{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center;margin:1.5rem 0}.growth-actions a{padding:.75rem 1rem;border:1px solid #214f3c;border-radius:6px;text-decoration:none}.growth-primary{background:#214f3c;color:#fff!important}.site-header nav{flex-wrap:wrap}.growth-card a{display:inline-block;margin:.3rem .5rem .3rem 0}body[data-platform-release] .site-header{gap:1rem}@media(max-width:600px){.site-header{align-items:flex-start}.site-header nav{gap:.55rem;font-size:.9rem}.growth-actions a{font-size:.95rem}}
+
+.editorial-hero h1{font-family:var(--serif)!important;font-weight:650!important;letter-spacing:0!important;font-size:clamp(3rem,7vw,5.2rem)!important;line-height:.95!important}
+.editorial-hero .hero-note{color:var(--green);letter-spacing:.08em;text-transform:none;font-size:.95rem}
+.editorial-hero p{max-width:38rem;font-size:1.125rem}
+.growth-actions a{border-radius:2px;min-height:48px;display:inline-flex;align-items:center}
+.featured-section{padding-top:1.5rem;border-top:1px solid var(--line)}
+.featured-card{border:0;border-top:2px solid var(--green);border-radius:0;background:transparent;padding:1.25rem 0}
+.featured-card h3{font-family:var(--serif);font-size:1.45rem;font-weight:650}
+.site-header nav a{color:var(--muted);font-size:.92rem}
+.site-header nav a:hover{color:var(--ink)}
+@media(max-width:700px){.site-header nav{flex-wrap:nowrap!important;overflow-x:auto;white-space:nowrap;max-width:100%;padding-bottom:4px}.editorial-hero h1{font-size:3.1rem!important}}
+.featured-card h3{line-height:1.35;font-size:1.32rem}
+.featured-card h3 a{text-decoration:none}
+.featured-card h3 a:hover{text-decoration:underline}
+.site-header{min-width:0}
+.site-header nav{min-width:0;scrollbar-width:none}
+@media(max-width:700px){.site-header{overflow:hidden}.site-header nav{max-width:100%}}
+@media(min-width:801px){.growth-grid .featured-card:first-child{grid-column:span 2}.growth-grid .featured-card:first-child h3{font-size:2rem}}
+@media(max-width:700px){.growth-actions{display:grid;grid-template-columns:1fr 1fr}.growth-primary{grid-column:1 / -1;justify-content:center}}
+.site-header nav a{font-size:.82rem}
