@@ -51,7 +51,7 @@ def page_shell(title: str, description: str, body: str) -> str:
         '<a aria-current="page" href="../knowledge/index.html">AI 知识科普</a>',
     )
     page = page.replace(
-        '由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。',
+        '由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原始来源。',
         'AI 辅助整理的科普内容，参考来源见正文；产品能力与名称以官方最新说明为准。',
     )
     return page

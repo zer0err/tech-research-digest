@@ -70,12 +70,21 @@ def shell(title: str, description: str, body: str, relative_root: str = "") -> s
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{html.escape(title)}</title><meta name="description" content="{html.escape(description, quote=True)}">
 <link rel="stylesheet" href="{relative_root}assets/style.css">
+<link rel="stylesheet" href="{relative_root}assets/growth.css">
 <link rel="stylesheet" href="{relative_root}assets/editorial.css?v=timeline-2">
 <script type="module" src="{relative_root}assets/article.js?v=replay-6"></script></head>
 <body><header class="site-header"><a class="brand" href="{relative_root}index.html"><span>VORASIO</span> 研究简报</a>
-<nav aria-label="主导航"><a href="{relative_root}index.html#latest">时间线</a><a href="{relative_root}knowledge/index.html">AI 知识科普</a><a href="{relative_root}courses/index.html">AI 学习</a><a href="{relative_root}tools/index.html">AI 工具</a><a href="{relative_root}about.html">关于</a></nav></header>
+<nav aria-label="主导航">
+<a href="{relative_root}domains/index.html">领域导航</a>
+<a href="{relative_root}index.html#latest">全部更新</a>
+<a href="{relative_root}knowledge/index.html">AI 知识科普</a>
+<a href="{relative_root}courses/index.html">AI 学习</a>
+<a href="{relative_root}tools/index.html">AI 工具</a>
+<a href="{relative_root}subscribe.html">订阅精选</a>
+<a href="{relative_root}services.html">开发咨询</a>
+<a href="{relative_root}about.html">关于</a></nav></header>
 <main>{body}</main><footer><strong>VORASIO 研究简报</strong>
-<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原论文。</span></footer></body></html>"""
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原始来源。</span></footer></body></html>"""
 
 
 def linkify_bare_urls(markdown: str) -> str:
@@ -144,3 +153,8 @@ def render_index(entries: list[dict[str, object]]) -> None:
     from .timeline import render_timeline
 
     render_timeline(entries)
+    from .domain_hub import render_domain_hub
+    from .growth import render_growth_pages
+
+    render_domain_hub()
+    render_growth_pages()

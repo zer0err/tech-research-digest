@@ -211,6 +211,7 @@ def source_packet(items: list[Item]) -> str:
 
 
 REPORT_HEADINGS = {
+    "domain": ("## 核心判断", "## 问题与技术路线", "## 证据与比较", "## 应用与局限", "## 验证行动", "## 参考资料"),
     "research": ("## 本期结论", "## 逐项分析", "## 工程行动建议", "## 参考资料"),
     "radar": ("## 本时段要点", "## 逐项速览", "## 今日免费 VPS 与 AI 资源", "## 参考资料"),
     "brief": ("## 本期要点", "## 逐项速览", "## 值得采取的行动", "## 参考资料"),
@@ -247,6 +248,7 @@ def report_validation_errors(report: str, items: list[Item], content_type: str) 
     checks = {
         "missing_headline_evidence": bool(re.search(r"\[\d+\]", first_section)),
         "missing_sections": all(heading in report for heading in headings),
+        "invalid_source_numbers": all(1 <= int(n) <= len(items) for n in re.findall(r"\[(\d+)\]", report)),
         "missing_source_numbers": all(f"[{index}]" in report for index in range(1, len(items) + 1)),
         "uncited_headline_claims": cited_claims,
         "unsupported_commands": grounded_code,
@@ -331,6 +333,14 @@ def groq_analyse(title: str, focus: str, items: list[Item], content_type: str = 
             "## 参考资料\n列出编号、标题和原始 URL。"
         ),
     }
+    format_instructions["domain"] = (
+        "## 核心判断\n提炼有证据支持的判断，不能以单一来源代表行业共识。\n"
+        "## 问题与技术路线\n按知识问题整合不同资料，不要逐篇复述；区分概念背景和本期资料中的进展。\n"
+        "## 证据与比较\n说明方法、条件、证据类型及可比性；不具备直接对比条件时明确说明。\n"
+        "## 应用与局限\n说明适用场景、前提及资料缺口，未提供的知识不强行补齐。\n"
+        "## 验证行动\n提出能据来源执行的核验步骤，禁止虚构已实测经历。\n"
+        "## 参考资料\n逐项列出 [n] 标题与原始 URL。"
+    )
     structure = format_instructions.get(content_type, format_instructions["brief"])
     prompt = (
         f"为“{title}”生成中文简报。栏目分析重点：{focus}\n\n"

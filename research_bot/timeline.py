@@ -68,7 +68,10 @@ def render_timeline(entries: list[dict[str, object]]) -> None:
     options = "".join(f'<option value="{day}">{day}{" · 今天" if day == today else ""}</option>' for day in days)
     body = (
         '<section class="editorial-hero"><h1>VORASIO</h1>'
-        '<p class="hero-note">AI 技术简报 · 研究、开发与智能硬件</p></section>'
+        '<p class="hero-note">精选 AI 进展，连接软件与智能硬件开发决策。</p>'
+        '<p>按领域理解技术，回查来源证据，从资讯走向项目验证。</p>'
+        '<div class="growth-actions"><a class="growth-primary" href="subscribe.html">订阅 AI 精选</a>'
+        '<a href="domains/index.html">按领域阅读</a><a href="services.html">讨论开发需求</a></div></section>'
         '<section class="section-gateways" aria-label="专题入口">'
         '<article><p class="eyebrow">系统学习</p><h2>AI 学习路线</h2>'
         '<p>从第一行 Python 代码开始，完成一套可验证的 AI 应用。</p>'
