@@ -6,6 +6,59 @@
       "updated_at": "2026-11-10T01:12:21.595371+00:00",
       "attempts": 1
     },
+    "2026-11-10:model_research": {
+      "status": "prepared",
+      "updated_at": "2026-11-10T02:42:26.589347+00:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "model_research",
+        "title": "AI 模型、训练与基础研究",
+        "url": "https://vorasio.com/posts/20261110-model_research.html",
+        "created_at": "2026-11-10T02:42:26.589347+00:00",
+        "items": [
+          {
+            "uid": "475bd9c87bf12c9740a336de",
+            "title": "Innateness is (still) an orienting principle for language development",
+            "url": "https://doi.org/10.31234/osf.io/ykz8j_v3",
+            "published": "2026-11-10T00:00:00+00:00",
+            "summary": "How humans come to acquire language has been a persistent object of philosophical and scientific inquiry, in part because it bears on fundamental questions about the nature of human cognition.Classically, this field of inquiry has centered innateness as a critical component of language acquisition, traditionally characterizing innate capability in terms of richly specified, biologically endowed linguistic structure, such as Universal Grammar. Contemporary theories have evolved considerably from these earlier formulations and now present several differing candidates for innateness in language. Throughout this evolution, though, questions of innateness have remained central to theories of language acquisition, even as the nature of those questions has shifted in response to new sources of evidence. In this Perspective, we consider evidence from three complementary sources of evidence—linguistic diversity, human social interaction, and language models (LMs)—that together inform the question of what children must bring to the task of language learning. We conclude by identifying desiderata for theories of language acquisition that seek to specify the nature, scope, and explanatory role of innate contributions to language development.",
+            "source": "Crossref Model Research",
+            "kind": "research",
+            "doi": "10.31234/osf.io/ykz8j_v3",
+            "date_precision": "day"
+          },
+          {
+            "uid": "68f428123a66e5e6bd627de2",
+            "title": "Evaluating LLMs on Italian through multi-prompt: the Evalita-LLM benchmark",
+            "url": "https://doi.org/10.1007/s10579-026-09955-3",
+            "published": "2026-11-09T00:00:00+00:00",
+            "summary": "Abstract We present Evalita-LLM, a novel benchmark designed to evaluate Large Language Models (LLMs) on Italian tasks. The key innovation of Evalita-LLM is the use of multiple prompts for each task, which mitigates the model’s sensitivity to specific prompt formulations and ensures a robust and objective performance assessment. We propose an iterative methodology for selecting and validating multiple prompts, and metrics that capture both high performance and stability of a prompt given a set of LLMs. The resulting Evalita-LLM multi-prompt benchmark is based on ten native Italian tasks, eliminating translation issues and potential cultural biases. It includes a mix of multiple-choice and generative tasks, enabling more natural interactions with LLMs. We report experimental results from the benchmark’s development phase, along with performance statistics for several state-of-the-art LLMs. Evalita-LLM is publicly available with a leaderboard hosted on Hugging Face to support transparent evaluation and comparison of LLMs.",
+            "source": "OpenAlex Model Research",
+            "kind": "research",
+            "doi": "https://doi.org/10.1007/s10579-026-09955-3",
+            "date_precision": "day"
+          },
+          {
+            "uid": "20df69152666adefb39bcaf7",
+            "title": "Translation uniformity and evolutionary conservation are associated with microprotein mass spectrometry detectability",
+            "url": "https://doi.org/10.1186/s12915-026-02777-3",
+            "published": "2026-11-09T00:00:00+00:00",
+            "summary": "Abstract Background Non-canonical open reading frames (ncORFs) encode a substantial, largely unexplored layer of the human proteome. The short microproteins they produce frequently escape detection by standard mass spectrometry (MS) workflows, creating a “dark proteome” that hampers gene annotation and functional characterisation. To address this, sequence-derived attributes were used to identify factors associated with MS repository detectability and to build an interpretable predictive framework that enables rational prioritisation of ncORFs for proteomic discovery. Results 7,097 ncORF sequences (99% <150 residues) were curated from the TransCODE Consortium, and labelled by PeptideAtlas peptide-level evidence as MS-detected ( n = 1,725) or undetected ( n = 5,372). An ensemble combining ESM-2 protein language model embeddings with logistic regression and nineteen biological features (ESM2-LR) achieved a mean ROC-AUC of 0.721 (SD 0.018, coefficient of variation 2.5% across ten independent runs). Model-agnostic SHAP and permutation importance analyses concordantly ranked cumulative in-frame ribosome footprint uniformity (CIF-HBP) as the strongest associated factor, followed by mammalian ORF-level evolutionary conservation (ORBLv_mammal) and genomic biotype. Predicted HLA class I-binding peptide density, which captures physicochemical properties overlapping with optimal LC-MS/MS ",
+            "source": "OpenAlex Model Research",
+            "kind": "research",
+            "doi": "https://doi.org/10.1186/s12915-026-02777-3",
+            "date_precision": "day"
+          }
+        ],
+        "notify": false,
+        "mode": "production",
+        "analysis": {
+          "provider": "Groq",
+          "model": "openai/gpt-oss-20b"
+        },
+        "slot": "model_research"
+      }
+    },
     "2026-11-09:prompt_engineering": {
       "status": "no_matching_in_window",
       "updated_at": "2026-11-09T06:12:21.148657+00:00",

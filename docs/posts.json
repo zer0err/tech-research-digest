@@ -1,5 +1,55 @@
 [
   {
+    "title": "AI 模型、训练与基础研究（2026-11-10）",
+    "date": "2026-11-10T10:42:26.589347+08:00",
+    "count": 3,
+    "url": "posts/20261110-model_research.html",
+    "topic": "model_research",
+    "status": "published",
+    "summary": "本期结论 1. 多提示评测提升模型鲁棒性：Evalita‑LLM 通过为每个任务设计多种提示，显著降低了模型对单一提示的敏感性，提供更稳定的性能评估2。 2. 语言模型可用于探究语言习得的先天性：将 LLM 作为实验工具，结合语言多样性与社会交互数据，可为语言习得理论提供新的实证依据1。 3. 微蛋白检测的预测框架可迁",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "Innateness is (still) an orienting principle for language development",
+          "url": "https://doi.org/10.31234/osf.io/ykz8j_v3",
+          "publisher": "Crossref Model Research",
+          "host": "doi.org",
+          "family": "书目索引",
+          "published": "2026-11-10T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "10.31234/osf.io/ykz8j_v3",
+          "kind": "research"
+        },
+        {
+          "title": "Evaluating LLMs on Italian through multi-prompt: the Evalita-LLM benchmark",
+          "url": "https://doi.org/10.1007/s10579-026-09955-3",
+          "publisher": "OpenAlex Model Research",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-11-09T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.1007/s10579-026-09955-3",
+          "kind": "research"
+        },
+        {
+          "title": "Translation uniformity and evolutionary conservation are associated with microprotein mass spectrometry detectability",
+          "url": "https://doi.org/10.1186/s12915-026-02777-3",
+          "publisher": "OpenAlex Model Research",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-11-09T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.1186/s12915-026-02777-3",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 晨间雷达与免费资源（2026-11-10）",
     "date": "2026-11-10T09:12:21.595371+08:00",
     "count": 1,
