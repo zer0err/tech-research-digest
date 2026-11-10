@@ -1,5 +1,33 @@
 [
   {
+    "title": "AI 晨间雷达与免费资源（2026-11-10）",
+    "date": "2026-11-10T09:12:21.595371+08:00",
+    "count": 1,
+    "url": "posts/20261110-morning_radar.html",
+    "topic": "morning_radar",
+    "status": "published",
+    "summary": "本时段要点 - GitHub Copilot 现已正式支持 Anthropic 最新的 Claude Fable 5.2 模型，能够处理更复杂、跨大代码库的多步编码任务。1 - 该更新标志着 GitHub 与 Anthropic 在 AI 辅助编程领域的进一步合作，可能提升开发者在大型项目中的效率。1 - 早期测试表明",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "Claude Fable 5.2 in GitHub Copilot",
+          "url": "https://github.blog/changelog/2026-11-09-claude-fable-5-2-in-github-copilot",
+          "publisher": "GitHub 官方更新",
+          "host": "github.blog",
+          "family": "博客/公开网页",
+          "published": "2026-11-09T16:46:43+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "VORASIO AI 日报（2026-11-09）",
     "date": "2026-11-09T19:12:18.062275+08:00",
     "count": 4,

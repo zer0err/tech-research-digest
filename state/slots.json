@@ -1,6 +1,37 @@
 {
   "version": 1,
   "slots": {
+    "2026-11-10:morning_radar": {
+      "status": "prepared",
+      "updated_at": "2026-11-10T01:12:21.595371+00:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "morning_radar",
+        "title": "AI 晨间雷达与免费资源",
+        "url": "https://vorasio.com/posts/20261110-morning_radar.html",
+        "created_at": "2026-11-10T01:12:21.595371+00:00",
+        "items": [
+          {
+            "uid": "f0623286d1ea9bbc2502f3f8",
+            "title": "Claude Fable 5.2 in GitHub Copilot",
+            "url": "https://github.blog/changelog/2026-11-09-claude-fable-5-2-in-github-copilot",
+            "published": "2026-11-09T16:46:43+00:00",
+            "summary": "Claude Fable 5.2, Anthropic’s newest Fable model, is now generally available in GitHub Copilot. You can use it for complex, multistep coding tasks across large codebases. In early testing, Fable… The post Claude Fable 5.2 in GitHub Copilot appeared first on The GitHub Blog .",
+            "source": "GitHub 官方更新",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          }
+        ],
+        "notify": false,
+        "mode": "production",
+        "analysis": {
+          "provider": "Groq",
+          "model": "openai/gpt-oss-20b"
+        },
+        "slot": "morning_radar"
+      }
+    },
     "2026-11-09:prompt_engineering": {
       "status": "no_matching_in_window",
       "updated_at": "2026-11-09T06:12:21.148657+00:00",
