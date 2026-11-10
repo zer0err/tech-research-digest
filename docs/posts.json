@@ -1,5 +1,33 @@
 [
   {
+    "title": "AI 开源项目与工具更新（2026-11-10）",
+    "date": "2026-11-10T11:42:17.313984+08:00",
+    "count": 1,
+    "url": "posts/20261110-open_source.html",
+    "topic": "open_source",
+    "status": "published",
+    "summary": "本期要点 - Ollama 发布 v0.40.16，新增 Ripple Preview 65B 模型并改进 Qwen3.8 Flash 内存占用 1。 - ollama launch 现支持自动路由 Claude Code 与云模型退役提示，提升迁移安全性 1。 - API /v1/responses 与 /v1/mo",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "ollama/ollama: v0.40.16",
+          "url": "https://github.com/ollama/ollama/releases/tag/v0.40.16",
+          "publisher": "Ollama Releases",
+          "host": "github.com",
+          "family": "代码与版本",
+          "published": "2026-11-09T18:21:19+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 模型、训练与基础研究（2026-11-10）",
     "date": "2026-11-10T10:42:26.589347+08:00",
     "count": 3,

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 开源项目与工具更新（2026-11-10）</title><meta name="description" content="AI 开源项目与工具更新（2026-11-10）：1 项最新研究">
+<link rel="alternate" type="application/rss+xml" title="VORASIO" href="../feed.xml">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/growth.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav aria-label="主导航">
+<a href="../domains/index.html">领域导航</a>
+<a href="../index.html#latest">全部更新</a>
+<a href="../knowledge/index.html">AI 知识科普</a>
+<a href="../courses/index.html">AI 学习</a>
+<a href="../tools/index.html">AI 工具</a>
+<a href="../subscribe.html">订阅精选</a>
+<a href="../services.html">开发咨询</a>
+<a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">AI 开源项目与工具更新</p><dl><dt>发布时间</dt><dd data-published-at="2026-11-10T11:42:17.313984+08:00">2026-11-10 11:42 · UTC+8</dd><dt>研究条目</dt><dd>1 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · AI 开源项目与工具更新</p><h1>AI 开源项目与工具更新（2026-11-10）</h1><!-- provenance:start --><p class="ai-analysis" title="openai/gpt-oss-20b">AI 分析：Groq</p><!-- provenance:end --><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期要点</h2>
+<ul>
+<li>Ollama 发布 v0.40.16，新增 Ripple Preview 65B 模型并改进 Qwen3.8 Flash 内存占用 [1]。</li>
+<li><code>ollama launch</code> 现支持自动路由 Claude Code 与云模型退役提示，提升迁移安全性 [1]。</li>
+<li>API <code>/v1/responses</code> 与 <code>/v1/models</code> 的行为已修正，避免默认截断与空值返回，增强兼容性 [1]。</li>
+<li>Windows ARM 上 CUDA 13.5 支持正式上线，扩展硬件兼容范围 [1]。</li>
+</ul>
+<h2>逐项速览</h2>
+<table>
+<thead>
+<tr>
+<th>变更</th>
+<th>证据</th>
+<th>局限</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ripple Preview 65B</strong></td>
+<td>通过 <code>ollama run ripple-preview</code> 可直接调用，说明已正式集成 [1]。</td>
+<td>仅在 Ollama 运行时可用，未提供离线下载或多平台支持细节。</td>
+</tr>
+<tr>
+<td><strong>Qwen3.8 Flash 内存优化</strong></td>
+<td>说明“uses about 27 GiB less memory on Apple silicon”表明显著节省 [1]。</td>
+<td>仅针对 Apple silicon，其他平台未说明是否同样优化。</td>
+</tr>
+<tr>
+<td><strong>Claude Code 路由</strong></td>
+<td><code>ollama launch claude</code> “always routes Claude Code to the selected model” [1]。</td>
+<td>未说明对非 Claude 模型的影响，迁移时需确认目标模型兼容性。</td>
+</tr>
+<tr>
+<td><strong>云模型退役提示</strong></td>
+<td><code>ollama launch</code> “explains when a cloud model has been retired” [1]。</td>
+<td>仅在命令行提示，未提供自动迁移脚本或回退策略。</td>
+</tr>
+<tr>
+<td><strong>/v1/responses truncation</strong></td>
+<td>“respects <code>truncation</code> and no longer silently truncates by default” [1]。</td>
+<td>仍需手动设置 <code>truncation</code> 参数，默认行为已改为显式。</td>
+</tr>
+<tr>
+<td><strong>/v1/models 空列表</strong></td>
+<td>“returns an empty list instead of <code>null</code> when no models are installed” [1]。</td>
+<td>对旧版客户端兼容性未说明，可能导致解析错误。</td>
+</tr>
+<tr>
+<td><strong>CUDA 13.5 Windows ARM</strong></td>
+<td>“CUDA 13.5 support for Windows on ARM” [1]。</td>
+<td>仅提及支持，未给出驱动或性能基准，用户需自行验证。</td>
+</tr>
+<tr>
+<td><strong>llama.cpp 更新</strong></td>
+<td>链接至完整变更日志，暗示底层改动已完成 [1]。</td>
+<td>具体改动细节未列出，需查看日志确认对自定义模型的影响。</td>
+</tr>
+</tbody>
+</table>
+<h2>值得采取的行动</h2>
+<ul>
+<li>在 Apple silicon 环境下测试 Qwen3.8 Flash 的内存占用，验证 27 GiB 的节省是否符合预期。</li>
+<li>对现有 Claude Code 工作流执行 <code>ollama launch claude</code>，确认路由逻辑与退役提示是否满足迁移需求。</li>
+<li>更新 API 调用脚本，显式设置 <code>truncation</code> 参数并处理 <code>/v1/models</code> 返回的空列表。</li>
+<li>在 Windows ARM 系统上安装 CUDA 13.5，运行 Ollama 并验证新驱动下的性能与稳定性。</li>
+<li>参考完整变更日志，评估 llama.cpp 更新对自研模型的兼容性与性能影响。</li>
+</ul>
+<h2>参考资料</h2>
+<p>[1] ollama/ollama: v0.40.16 – <a href="https://github.com/ollama/ollama/releases/tag/v0.40.16">https://github.com/ollama/ollama/releases/tag/v0.40.16</a></p>
+</div><section class="growth-card" data-growth-cta><h2>有项目想法？</h2><p>可以订阅后续更新，也可以整理你的 AI 软件或智能硬件需求，发来聊聊。</p><a href="../subscribe.html">订阅 AI 精选</a> · <a href="../services.html?source=/posts/20261110-open_source.html">整理开发需求</a></section></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原始来源。</span></footer></body></html>

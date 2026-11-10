@@ -1,11 +1,16 @@
 {
+  "2026-11-10:open_source": {
+    "status": "prepared",
+    "updated_at": "2026-11-10T03:42:17.313984+00:00",
+    "attempts": 1
+  },
   "2026-11-10:morning_radar": {
     "status": "published",
     "updated_at": "2026-11-10T01:12:21.595371+00:00",
     "attempts": 1
   },
   "2026-11-10:model_research": {
-    "status": "prepared",
+    "status": "published",
     "updated_at": "2026-11-10T02:42:26.589347+00:00",
     "attempts": 1
   },
