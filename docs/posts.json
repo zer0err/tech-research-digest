@@ -1,5 +1,44 @@
 [
   {
+    "title": "推理引擎、编译器与嵌入式系统（2026-11-10）",
+    "date": "2026-11-10T14:12:44.491171+08:00",
+    "count": 2,
+    "url": "posts/20261110-core_research.html",
+    "topic": "core_research",
+    "status": "published",
+    "summary": "本期结论 - 嵌入式加速性能报告普遍缺乏统一测量条件，跨平台对比需谨慎解读，这是多篇方法学讨论共同指向的问题 2。 - 现有资料中仅 2 提供了可核查的定量性能数据与方法学框架；1 为架构主张白皮书，缺少实验细节，二者不构成共同趋势，1 的确定性架构主张属\"值得关注的信号\" 12。 - 可复现性依赖于公开任务、平台、测",
+    "provenance": {
+      "analysis": {
+        "provider": "Xiaomi MiMo",
+        "model": "mimo-v2.6-flash"
+      },
+      "sources": [
+        {
+          "title": "[RTO × Human-in-Command] Research White Paper on Absolute Control and Quantum Deterministic Optimization Architecture in Autonomous Systems (【RTO × Human-in-Command】自律システムにおける絶対的統制と量子決定論的最適化アーキテクチャの研究白書)",
+          "url": "https://doi.org/10.5281/zenodo.24046679",
+          "publisher": "OpenAlex Inference",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-11-08T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.5281/zenodo.24046679",
+          "kind": "research"
+        },
+        {
+          "title": "Comparative Evaluation Methodologies for Algorithm Acceleration on Embedded Platforms: A Structured Review and Reproducible Assessment Framework",
+          "url": "https://doi.org/10.59992/ijci.2026.v5n11p3",
+          "publisher": "OpenAlex Inference",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-11-07T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.59992/ijci.2026.v5n11p3",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 论文午间速览（2026-11-10）",
     "date": "2026-11-10T12:42:30.741418+08:00",
     "count": 3,
