@@ -153,6 +153,9 @@
     },
     "embodied": {
       "ids": [
+        "ce204e45f6795cec70d29316",
+        "b3a7cc7482ba651194dae900",
+        "b495bc9c304111ff26f8180e",
         "e48f256a25f9a789a67cb1c7",
         "d801e0c9b5d5d28241ffd531",
         "cf5ea16854361c933932aa26",
@@ -183,7 +186,7 @@
         "b6efb31dd4318138b7a990c1",
         "3784b5af97676cfa17afdceb"
       ],
-      "updated_at": "2026-11-08T08:42:18.404162+00:00"
+      "updated_at": "2026-11-10T04:42:30.741418+00:00"
     },
     "efficient_ai": {
       "ids": [
@@ -310,6 +313,9 @@
     }
   },
   "all_ids": [
+    "ce204e45f6795cec70d29316",
+    "b3a7cc7482ba651194dae900",
+    "b495bc9c304111ff26f8180e",
     "5ffa95a7f5d6eca75c17c1bd",
     "475bd9c87bf12c9740a336de",
     "68f428123a66e5e6bd627de2",
@@ -555,6 +561,9 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://doi.org/10.54254/2754-1169/2026.ab38745",
+    "https://developer.nvidia.com/blog/make-a-robot-arm-feel-weightless-with-nvidia-holoscan-5",
+    "https://doi.org/10.1007/s44336-026-00044-1",
     "https://github.com/ollama/ollama/releases/tag/v0.40.16",
     "https://doi.org/10.31234/osf.io/ykz8j_v3",
     "https://doi.org/10.1007/s10579-026-09955-3",
@@ -800,6 +809,9 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "b1ad603049f2ab1d68e0a4f5",
+    "070667d741672b2c48f4eb14",
+    "b8d7059fa9b5edd5b6dd84ce",
     "ca4235c03eb9d163f72e9d0d",
     "2f89f57747341fdfc5e12ade",
     "16265b53013808225e0c7102",
@@ -4621,6 +4633,49 @@
           "source": "Ollama Releases",
           "kind": "research",
           "doi": "",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261110-paper_brief.html": {
+      "topic": "embodied",
+      "created_at": "2026-11-10T04:42:30.741418+00:00",
+      "items": [
+        {
+          "uid": "ce204e45f6795cec70d29316",
+          "title": "Market Size Forecasting for Embodied Intelligent Robots Using a Transformer–Random Forest Ensemble",
+          "url": "https://doi.org/10.54254/2754-1169/2026.ab38745",
+          "published": "2026-11-10T00:00:00+00:00",
+          "summary": "Accurate forecasting of the embodied intelligent robot (EIR) market is valuable yet difficult, because its time series are nonlinear, multi-regime, and noisy, driven by fluctuating policy support, uneven regional adoption rates, and rapid iteration of underlying robotics technologies. This paper proposes a hybrid forecasting framework that couples a Transformer encoder with a Random Forest (RF) regressor and fuses their predictions through a weighted ensemble whose combination coefficient is selected by grid search. A comprehensive market dataset spanning 2018–2026 across six regions, eight application scenarios, and six robot categories is analyzed. Lag, rolling statistic, difference, and momentum features are engineered from region-level time series to capture temporal trends and market oscillations. On a held-out 2025–2026 test period, the proposed ensemble attains the lowest MAE (7.76) and MAPE (13.63%), while the standalone Transformer attains the highest R² (0.55). The study demonstrates the complementary strengths of deep sequence modeling and tree-based regression, while documenting the key limitations that need to be addressed before deploying this prediction pipeline in real-world market planning and investment decision-making.",
+          "source": "Crossref Embodied",
+          "kind": "research",
+          "doi": "10.54254/2754-1169/2026.ab38745",
+          "date_precision": "day"
+        },
+        {
+          "uid": "b3a7cc7482ba651194dae900",
+          "title": "Make a Robot Arm Feel Weightless with NVIDIA Holoscan 5",
+          "url": "https://developer.nvidia.com/blog/make-a-robot-arm-feel-weightless-with-nvidia-holoscan-5",
+          "published": "2026-11-09T19:09:32+00:00",
+          "summary": "Picture guiding a robot arm by hand while its motors supply just enough torque to support its weight and keep the robot upright. This simple interaction, a...",
+          "source": "NVIDIA Technical Blog",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        },
+        {
+          "uid": "b495bc9c304111ff26f8180e",
+          "title": "Learning to remember: advances in memory mechanisms for large language models",
+          "url": "https://doi.org/10.1007/s44336-026-00044-1",
+          "published": "2026-11-09T00:00:00+00:00",
+          "summary": "Abstract Memory has become a central mechanism for extending large language models (LLMs) beyond fixed context windows, stateless interaction, and static parametric knowledge. This survey organizes the literature around three complementary dimensions: the life cycle of memory, the storage substrate, and the system role that memory plays in LLM-based agents, while using cognitive-science-inspired memory concepts as a lightweight conceptual motivation rather than as a separate technical contribution or implementation family. On this basis, we distinguish three mechanism families: nonparametric memory, where information is stored outside model parameters in text, graph, multimodal, or database-like structures; parametric memory, where information is stored or accessed through activations, key-value caches, learned modules, adapter-based parameterizations, or model weights; and memory for agent evolution, where stored experiences support reinforcement learning, continual learning, procedural reuse, context engineering, and agent harness design. Evaluation is treated as a separate cross-cutting component rather than as a memory mechanism. Unlike surveys that focus primarily on retrieval-augmented generation or long-context modeling, this paper emphasizes the full memory life cycle: construction, maintenance, retrieval, consolidation, forgetting, governance, and evaluation. By aligni",
+          "source": "OpenAlex Embodied",
+          "kind": "research",
+          "doi": "https://doi.org/10.1007/s44336-026-00044-1",
           "date_precision": "day"
         }
       ],
