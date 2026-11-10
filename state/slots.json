@@ -1,6 +1,59 @@
 {
   "version": 1,
   "slots": {
+    "2026-11-10:paper_brief": {
+      "status": "prepared",
+      "updated_at": "2026-11-10T04:42:30.741418+00:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "embodied",
+        "title": "AI 论文午间速览",
+        "url": "https://vorasio.com/posts/20261110-paper_brief.html",
+        "created_at": "2026-11-10T04:42:30.741418+00:00",
+        "items": [
+          {
+            "uid": "ce204e45f6795cec70d29316",
+            "title": "Market Size Forecasting for Embodied Intelligent Robots Using a Transformer–Random Forest Ensemble",
+            "url": "https://doi.org/10.54254/2754-1169/2026.ab38745",
+            "published": "2026-11-10T00:00:00+00:00",
+            "summary": "Accurate forecasting of the embodied intelligent robot (EIR) market is valuable yet difficult, because its time series are nonlinear, multi-regime, and noisy, driven by fluctuating policy support, uneven regional adoption rates, and rapid iteration of underlying robotics technologies. This paper proposes a hybrid forecasting framework that couples a Transformer encoder with a Random Forest (RF) regressor and fuses their predictions through a weighted ensemble whose combination coefficient is selected by grid search. A comprehensive market dataset spanning 2018–2026 across six regions, eight application scenarios, and six robot categories is analyzed. Lag, rolling statistic, difference, and momentum features are engineered from region-level time series to capture temporal trends and market oscillations. On a held-out 2025–2026 test period, the proposed ensemble attains the lowest MAE (7.76) and MAPE (13.63%), while the standalone Transformer attains the highest R² (0.55). The study demonstrates the complementary strengths of deep sequence modeling and tree-based regression, while documenting the key limitations that need to be addressed before deploying this prediction pipeline in real-world market planning and investment decision-making.",
+            "source": "Crossref Embodied",
+            "kind": "research",
+            "doi": "10.54254/2754-1169/2026.ab38745",
+            "date_precision": "day"
+          },
+          {
+            "uid": "b3a7cc7482ba651194dae900",
+            "title": "Make a Robot Arm Feel Weightless with NVIDIA Holoscan 5",
+            "url": "https://developer.nvidia.com/blog/make-a-robot-arm-feel-weightless-with-nvidia-holoscan-5",
+            "published": "2026-11-09T19:09:32+00:00",
+            "summary": "Picture guiding a robot arm by hand while its motors supply just enough torque to support its weight and keep the robot upright. This simple interaction, a...",
+            "source": "NVIDIA Technical Blog",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          },
+          {
+            "uid": "b495bc9c304111ff26f8180e",
+            "title": "Learning to remember: advances in memory mechanisms for large language models",
+            "url": "https://doi.org/10.1007/s44336-026-00044-1",
+            "published": "2026-11-09T00:00:00+00:00",
+            "summary": "Abstract Memory has become a central mechanism for extending large language models (LLMs) beyond fixed context windows, stateless interaction, and static parametric knowledge. This survey organizes the literature around three complementary dimensions: the life cycle of memory, the storage substrate, and the system role that memory plays in LLM-based agents, while using cognitive-science-inspired memory concepts as a lightweight conceptual motivation rather than as a separate technical contribution or implementation family. On this basis, we distinguish three mechanism families: nonparametric memory, where information is stored outside model parameters in text, graph, multimodal, or database-like structures; parametric memory, where information is stored or accessed through activations, key-value caches, learned modules, adapter-based parameterizations, or model weights; and memory for agent evolution, where stored experiences support reinforcement learning, continual learning, procedural reuse, context engineering, and agent harness design. Evaluation is treated as a separate cross-cutting component rather than as a memory mechanism. Unlike surveys that focus primarily on retrieval-augmented generation or long-context modeling, this paper emphasizes the full memory life cycle: construction, maintenance, retrieval, consolidation, forgetting, governance, and evaluation. By aligni",
+            "source": "OpenAlex Embodied",
+            "kind": "research",
+            "doi": "https://doi.org/10.1007/s44336-026-00044-1",
+            "date_precision": "day"
+          }
+        ],
+        "notify": false,
+        "mode": "production",
+        "analysis": {
+          "provider": "Groq",
+          "model": "openai/gpt-oss-20b"
+        },
+        "slot": "paper_brief"
+      }
+    },
     "2026-11-10:open_source": {
       "status": "published",
       "updated_at": "2026-11-10T03:42:17.313984+00:00",
