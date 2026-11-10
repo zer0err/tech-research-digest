@@ -27,46 +27,9 @@
       "attempts": 1
     },
     "2026-11-10:core_research": {
-      "status": "prepared",
+      "status": "published",
       "updated_at": "2026-11-10T06:12:44.491171+00:00",
-      "attempts": 1,
-      "pending": {
-        "topic": "inference_systems",
-        "title": "推理引擎、编译器与嵌入式系统",
-        "url": "https://vorasio.com/posts/20261110-core_research.html",
-        "created_at": "2026-11-10T06:12:44.491171+00:00",
-        "items": [
-          {
-            "uid": "87d5ea6aecd661863cb35f31",
-            "title": "[RTO × Human-in-Command] Research White Paper on Absolute Control and Quantum Deterministic Optimization Architecture in Autonomous Systems (【RTO × Human-in-Command】自律システムにおける絶対的統制と量子決定論的最適化アーキテクチャの研究白書)",
-            "url": "https://doi.org/10.5281/zenodo.24046679",
-            "published": "2026-11-08T00:00:00+00:00",
-            "summary": "【RTO × Human-in-Command】自律システムにおける絶対的統制と量子決定論的最適化アーキテクチャの研究白書 Based on the proprietary theoretical framework of the \"Yoko Hasebe Comprehensive Research & Strategic System Integrated White Paper (Master),\" this monograph defines a next-generation deterministic architecture designed to transcend the fundamental limitations of existing information engineering paradigms. Addressing the critical vulnerabilities of probabilistic inference uncertainty in current AI systems (deep learning and reinforcement learning) and the cognitive subjugation (rubber-stamping) of human operators under conventional Human-in-the-Loop (HITL) frameworks, this white paper establishes a rigorous engineering, cryptographic, and legal specification for: 1. Human-in-Command (HIC) & Zero-Latency Real-Time Optimization (RTO): Replacing stochastic gradient approximations with physical ground-state convergence via Ising Machine Hamiltonians H(s) = -\\sum J_{ij} s_i s_j - \\sum h_i s_i for Quadratic Unconstrained Binary Optimization (QUBO) and Model Predictive Control (MPC), enforcing the absolute separation principle: \"Intent belongs to humans; computation belongs to the system.\" 2. Three-Tier Deterministic Defense Architecture (SBC × OCL × QSAFA): Formalizing outer-hull System Boundary Control (SBC) compiled via mathematical Object Constraint Language (OCL) invariants, coupled with a Quantum Secure Automated Fore",
-            "source": "OpenAlex Inference",
-            "kind": "research",
-            "doi": "https://doi.org/10.5281/zenodo.24046679",
-            "date_precision": "day"
-          },
-          {
-            "uid": "1d0fcf2c1486aa902a320a7c",
-            "title": "Comparative Evaluation Methodologies for Algorithm Acceleration on Embedded Platforms: A Structured Review and Reproducible Assessment Framework",
-            "url": "https://doi.org/10.59992/ijci.2026.v5n11p3",
-            "published": "2026-11-07T00:00:00+00:00",
-            "summary": "Background: Performance results for algorithms accelerated on microcontrollers, field-programmable gate arrays (FPGAs), multiprocessor systems-on-chip (MPSoCs), embedded GPUs, and application-specific accelerators are often reported under different workloads, accuracy requirements, and measurement conditions. Objective: This review examines how published studies measure execution time, throughput, energy, memory use, and hardware resources, and proposes a consistent approach to interpreting comparisons across platforms. Methods: A targeted review of publisher records, research repositories, and benchmarking standards identified 15 representative implementations published between 2015 and 2026. The analysis draws on 52 references, including primary studies, surveys, and methodological sources. Study outcomes were recorded with their associated tasks, platforms, measurement conditions, and level of source verification. Because the search was not an exhaustive database-level systematic search, the article is presented as a structured review rather than a PRISMA-compliant systematic review. Results: Reported outcomes vary substantially in both units and experimental scope. One FPGA CNN implementation reported 61.62 GFLOPS at 100 MHz; FINN reported 21,906 image classifications per second under a stated system power of less than 25 W; and a 2026 microcontroller study reported 38 ms e",
-            "source": "OpenAlex Inference",
-            "kind": "research",
-            "doi": "https://doi.org/10.59992/ijci.2026.v5n11p3",
-            "date_precision": "day"
-          }
-        ],
-        "notify": false,
-        "mode": "production",
-        "analysis": {
-          "provider": "Xiaomi MiMo",
-          "model": "mimo-v2.6-flash"
-        },
-        "slot": "core_research"
-      }
+      "attempts": 1
     },
     "2026-11-09:prompt_engineering": {
       "status": "no_matching_in_window",
