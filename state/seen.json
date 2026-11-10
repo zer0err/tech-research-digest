@@ -153,6 +153,8 @@
     },
     "embodied": {
       "ids": [
+        "484548ee2b99c5817e1a665d",
+        "dd755c6dc7e6247b7bf0dc3a",
         "ce204e45f6795cec70d29316",
         "b3a7cc7482ba651194dae900",
         "b495bc9c304111ff26f8180e",
@@ -186,7 +188,7 @@
         "b6efb31dd4318138b7a990c1",
         "3784b5af97676cfa17afdceb"
       ],
-      "updated_at": "2026-11-10T04:42:30.741418+00:00"
+      "updated_at": "2026-11-10T08:42:19.099765+00:00"
     },
     "efficient_ai": {
       "ids": [
@@ -315,6 +317,8 @@
     }
   },
   "all_ids": [
+    "484548ee2b99c5817e1a665d",
+    "dd755c6dc7e6247b7bf0dc3a",
     "87d5ea6aecd661863cb35f31",
     "1d0fcf2c1486aa902a320a7c",
     "ce204e45f6795cec70d29316",
@@ -565,6 +569,8 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://arxiv.org/abs/2611.12885v1",
+    "https://arxiv.org/abs/2611.12870v1",
     "https://doi.org/10.5281/zenodo.24046679",
     "https://doi.org/10.59992/ijci.2026.v5n11p3",
     "https://doi.org/10.54254/2754-1169/2026.ab38745",
@@ -815,6 +821,8 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "36972c063827f4dfa84e9bbf",
+    "cfc64035d261b87adf2724dc",
     "419d65453343107a53d4718d",
     "cc469ee38e1ef18b1e8376eb",
     "b1ad603049f2ab1d68e0a4f5",
@@ -4716,6 +4724,38 @@
           "source": "OpenAlex Inference",
           "kind": "research",
           "doi": "https://doi.org/10.59992/ijci.2026.v5n11p3",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Xiaomi MiMo",
+        "model": "mimo-v2.6-flash"
+      }
+    },
+    "https://vorasio.com/posts/20261110-applied_ai.html": {
+      "topic": "embodied",
+      "created_at": "2026-11-10T08:42:19.099765+00:00",
+      "items": [
+        {
+          "uid": "484548ee2b99c5817e1a665d",
+          "title": "World In-Context Learning for Agentic Robot Manipulation",
+          "url": "https://arxiv.org/abs/2611.12885v1",
+          "published": "2026-11-09T18:59:45+00:00",
+          "summary": "Trained action policies write manipulation skill into network weights, tying what is learned to the distribution it is learned from. In-context learning (ICL) avoids this coupling but has not matched trained policies, because a demonstration recorded in another scene carries no feedback from the world the robot currently faces. We observe that what an agent learns in context is semantic, recording task steps and object roles rather than visual appearance, so experience gathered in one world transfers to another. Based on this insight, we propose World In-Context Learning (WICL), a paradigm in which a frozen model starts from a demonstration, rehearses the task in a world such as a simulator, and writes the feedback into its context rather than its weights. We build RoboScript, a modular infrastructure that implements WICL for agentic manipulation. From a single demonstration, RoboScript learns each task through rehearsal in simulation, freezes the learned knowledge as a Task Memory, and deploys the frozen memory on new scenes with data isolation that ensures every deployment input is available on a real robot. On all 50 tasks of RoboTwin 2.0, RoboScript reaches 83.4% mean success across clean and randomized settings with one demonstration per task and no gradient updates, exceeding the strongest trained action policy by over 20 points. The method generalizes across visual distr",
+          "source": "arXiv Embodied Intelligence",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        },
+        {
+          "uid": "dd755c6dc7e6247b7bf0dc3a",
+          "title": "SWAM: Scaling World Action Models with Cross-Modal Alignment",
+          "url": "https://arxiv.org/abs/2611.12870v1",
+          "published": "2026-11-09T18:55:04+00:00",
+          "summary": "World action models jointly predict video and actions conditioned on language. Existing studies focus primarily on architectures and training mechanisms, typically treating language-video alignment acquired through video pretraining as an established foundation. However, introducing action learning may impair this alignment. Principled guidance on data and supervision design for maintaining language-video alignment during action learning remains limited. To investigate this, we curate a pool of approximately 47,000 hours of general videos, egocentric videos, UMI demonstrations, and robot demonstrations. Building on this, we systematically study how language-video supervision, language-video-action supervision, and the joint use of these two forms affect WAM performance. In particular, we examine how language annotation quality affects pretrained language-video capabilities, and how action supervision from UMI and robot demonstrations extends these capabilities to language-video-action modeling. To better scale the model, we further conduct detailed studies on joint training recipe and model architecture. Under a fixed training budget, mixing egocentric videos and UMI demonstrations improves control generalization. Model architecture affects how effectively these experiences are used, while scaling pretraining under the selected configuration brings further gains. The resulting ",
+          "source": "arXiv Embodied Intelligence",
+          "kind": "research",
+          "doi": "",
           "date_precision": "day"
         }
       ],

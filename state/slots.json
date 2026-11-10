@@ -37,46 +37,9 @@
       "attempts": 1
     },
     "2026-11-10:applied_ai": {
-      "status": "prepared",
+      "status": "published",
       "updated_at": "2026-11-10T08:42:19.099765+00:00",
-      "attempts": 1,
-      "pending": {
-        "topic": "embodied",
-        "title": "Agent、机器人与具身智能",
-        "url": "https://vorasio.com/posts/20261110-applied_ai.html",
-        "created_at": "2026-11-10T08:42:19.099765+00:00",
-        "items": [
-          {
-            "uid": "484548ee2b99c5817e1a665d",
-            "title": "World In-Context Learning for Agentic Robot Manipulation",
-            "url": "https://arxiv.org/abs/2611.12885v1",
-            "published": "2026-11-09T18:59:45+00:00",
-            "summary": "Trained action policies write manipulation skill into network weights, tying what is learned to the distribution it is learned from. In-context learning (ICL) avoids this coupling but has not matched trained policies, because a demonstration recorded in another scene carries no feedback from the world the robot currently faces. We observe that what an agent learns in context is semantic, recording task steps and object roles rather than visual appearance, so experience gathered in one world transfers to another. Based on this insight, we propose World In-Context Learning (WICL), a paradigm in which a frozen model starts from a demonstration, rehearses the task in a world such as a simulator, and writes the feedback into its context rather than its weights. We build RoboScript, a modular infrastructure that implements WICL for agentic manipulation. From a single demonstration, RoboScript learns each task through rehearsal in simulation, freezes the learned knowledge as a Task Memory, and deploys the frozen memory on new scenes with data isolation that ensures every deployment input is available on a real robot. On all 50 tasks of RoboTwin 2.0, RoboScript reaches 83.4% mean success across clean and randomized settings with one demonstration per task and no gradient updates, exceeding the strongest trained action policy by over 20 points. The method generalizes across visual distr",
-            "source": "arXiv Embodied Intelligence",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day"
-          },
-          {
-            "uid": "dd755c6dc7e6247b7bf0dc3a",
-            "title": "SWAM: Scaling World Action Models with Cross-Modal Alignment",
-            "url": "https://arxiv.org/abs/2611.12870v1",
-            "published": "2026-11-09T18:55:04+00:00",
-            "summary": "World action models jointly predict video and actions conditioned on language. Existing studies focus primarily on architectures and training mechanisms, typically treating language-video alignment acquired through video pretraining as an established foundation. However, introducing action learning may impair this alignment. Principled guidance on data and supervision design for maintaining language-video alignment during action learning remains limited. To investigate this, we curate a pool of approximately 47,000 hours of general videos, egocentric videos, UMI demonstrations, and robot demonstrations. Building on this, we systematically study how language-video supervision, language-video-action supervision, and the joint use of these two forms affect WAM performance. In particular, we examine how language annotation quality affects pretrained language-video capabilities, and how action supervision from UMI and robot demonstrations extends these capabilities to language-video-action modeling. To better scale the model, we further conduct detailed studies on joint training recipe and model architecture. Under a fixed training budget, mixing egocentric videos and UMI demonstrations improves control generalization. Model architecture affects how effectively these experiences are used, while scaling pretraining under the selected configuration brings further gains. The resulting ",
-            "source": "arXiv Embodied Intelligence",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day"
-          }
-        ],
-        "notify": false,
-        "mode": "production",
-        "analysis": {
-          "provider": "Xiaomi MiMo",
-          "model": "mimo-v2.6-flash"
-        },
-        "slot": "applied_ai"
-      }
+      "attempts": 1
     },
     "2026-11-09:prompt_engineering": {
       "status": "no_matching_in_window",
