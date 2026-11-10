@@ -3,6 +3,7 @@
   "topics": {
     "open_source": {
       "ids": [
+        "5ffa95a7f5d6eca75c17c1bd",
         "a4beec48d253324180fd45a5",
         "41454b69506f4d27cfdefe00",
         "03ed8288a8dc0539d63605ab",
@@ -16,7 +17,7 @@
         "da838ef163b59d2f4118281e",
         "fe0903755f1ec81fb4fd8f3d"
       ],
-      "updated_at": "2026-11-07T03:42:19.153941+00:00"
+      "updated_at": "2026-11-10T03:42:17.313984+00:00"
     },
     "multimodal": {
       "ids": [
@@ -309,6 +310,7 @@
     }
   },
   "all_ids": [
+    "5ffa95a7f5d6eca75c17c1bd",
     "475bd9c87bf12c9740a336de",
     "68f428123a66e5e6bd627de2",
     "20df69152666adefb39bcaf7",
@@ -553,6 +555,7 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://github.com/ollama/ollama/releases/tag/v0.40.16",
     "https://doi.org/10.31234/osf.io/ykz8j_v3",
     "https://doi.org/10.1007/s10579-026-09955-3",
     "https://doi.org/10.1186/s12915-026-02777-3",
@@ -797,6 +800,7 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "ca4235c03eb9d163f72e9d0d",
     "2f89f57747341fdfc5e12ade",
     "16265b53013808225e0c7102",
     "66a632a96bcf8cfe497d50a7",
@@ -4596,6 +4600,27 @@
           "source": "OpenAlex Model Research",
           "kind": "research",
           "doi": "https://doi.org/10.1186/s12915-026-02777-3",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261110-open_source.html": {
+      "topic": "open_source",
+      "created_at": "2026-11-10T03:42:17.313984+00:00",
+      "items": [
+        {
+          "uid": "5ffa95a7f5d6eca75c17c1bd",
+          "title": "ollama/ollama: v0.40.16",
+          "url": "https://github.com/ollama/ollama/releases/tag/v0.40.16",
+          "published": "2026-11-09T18:21:19+00:00",
+          "summary": "## Ripple Preview [Ripple Preview](https://ollama.com/library/ripple-preview) from Ricursive Intelligence is a 65B dense model built for agentic coding. ```sh ollama run ripple-preview ``` ## What's Changed - Qwen3.8 Flash Next uses about 27 GiB less memory on Apple silicon - `ollama launch claude` always routes Claude Code to the selected model - `ollama launch` explains when a cloud model has been retired - `/v1/responses` respects `truncation` and no longer silently truncates by default - `/v1/models` returns an empty list instead of `null` when no models are installed - CUDA 13.5 support for Windows on ARM - Updated llama.cpp **Full Changelog**: https://github.com/ollama/ollama/compare/v0.40.15...v0.40.16",
+          "source": "Ollama Releases",
+          "kind": "research",
+          "doi": "",
           "date_precision": "day"
         }
       ],

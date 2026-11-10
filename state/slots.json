@@ -2,35 +2,9 @@
   "version": 1,
   "slots": {
     "2026-11-10:open_source": {
-      "status": "prepared",
+      "status": "published",
       "updated_at": "2026-11-10T03:42:17.313984+00:00",
-      "attempts": 1,
-      "pending": {
-        "topic": "open_source",
-        "title": "AI 开源项目与工具更新",
-        "url": "https://vorasio.com/posts/20261110-open_source.html",
-        "created_at": "2026-11-10T03:42:17.313984+00:00",
-        "items": [
-          {
-            "uid": "5ffa95a7f5d6eca75c17c1bd",
-            "title": "ollama/ollama: v0.40.16",
-            "url": "https://github.com/ollama/ollama/releases/tag/v0.40.16",
-            "published": "2026-11-09T18:21:19+00:00",
-            "summary": "## Ripple Preview [Ripple Preview](https://ollama.com/library/ripple-preview) from Ricursive Intelligence is a 65B dense model built for agentic coding. ```sh ollama run ripple-preview ``` ## What's Changed - Qwen3.8 Flash Next uses about 27 GiB less memory on Apple silicon - `ollama launch claude` always routes Claude Code to the selected model - `ollama launch` explains when a cloud model has been retired - `/v1/responses` respects `truncation` and no longer silently truncates by default - `/v1/models` returns an empty list instead of `null` when no models are installed - CUDA 13.5 support for Windows on ARM - Updated llama.cpp **Full Changelog**: https://github.com/ollama/ollama/compare/v0.40.15...v0.40.16",
-            "source": "Ollama Releases",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day"
-          }
-        ],
-        "notify": false,
-        "mode": "production",
-        "analysis": {
-          "provider": "Groq",
-          "model": "openai/gpt-oss-20b"
-        },
-        "slot": "open_source"
-      }
+      "attempts": 1
     },
     "2026-11-10:morning_radar": {
       "status": "published",
