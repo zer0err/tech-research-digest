@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Agent、机器人与具身智能（2026-11-10）</title><meta name="description" content="Agent、机器人与具身智能（2026-11-10）：2 项最新研究">
+<link rel="alternate" type="application/rss+xml" title="VORASIO" href="../feed.xml">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/growth.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav aria-label="主导航">
+<a href="../domains/index.html">领域导航</a>
+<a href="../index.html#latest">全部更新</a>
+<a href="../knowledge/index.html">AI 知识科普</a>
+<a href="../courses/index.html">AI 学习</a>
+<a href="../tools/index.html">AI 工具</a>
+<a href="../subscribe.html">订阅精选</a>
+<a href="../services.html">开发咨询</a>
+<a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">AI 应用与落地专题</p><dl><dt>发布时间</dt><dd data-published-at="2026-11-10T16:42:19.099765+08:00">2026-11-10 16:42 · UTC+8</dd><dt>研究条目</dt><dd>2 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · AI 应用与落地专题</p><h1>Agent、机器人与具身智能（2026-11-10）</h1><!-- provenance:start --><p class="ai-analysis" title="mimo-v2.6-flash">AI 分析：Xiaomi MiMo</p><!-- provenance:end --><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期结论</h2>
+<ul>
+<li>单演示、无梯度更新的上下文学习范式在仿真操作任务上取得高成功率，提示&quot;记忆写入上下文而非权重&quot;是值得关注的信号（仅 [1] 单篇支持，尚不构成趋势）[1]。</li>
+<li>世界动作模型（WAM）中语言-视频对齐可能被动作学习损害，数据与监督设计成为关键变量；跨模态数据混合（第一人称视频+UMI）在固定预算下改善控制泛化，属值得关注的信号（仅 [2] 单篇）[2]。</li>
+<li>两篇均以仿真/数据集为主要验证场（RoboTwin 2.0、约 47,000 小时视频池），真实机器人部署与 sim-to-real 迁移的证据在摘要中未提供/无法从摘要确认 [1][2]。</li>
+</ul>
+<h2>逐项分析</h2>
+<p><strong>[1] World In-Context Learning for Agentic Robot Manipulation</strong></p>
+<ul>
+<li>核心贡献：提出 WICL 范式与 RoboScript 模块化基础设施，冻结模型从单演示出发在仿真中排练任务，将反馈写入上下文（Task Memory）而非权重 [1]。</li>
+<li>方法与数据：单演示/任务，无梯度更新；RoboTwin 2.0 全部 50 个任务，含 clean 与 randomized 设置；部署时数据隔离确保输入可映射到真实机器人 [1]。</li>
+<li>性能证据：50 任务平均成功率 83.4%，超最强训练策略 20+ 个百分点；摘要提及跨视觉干扰泛化（句子被截断，细节未提供）[1]。</li>
+<li>局限与证据等级：A（含方法、数据与定量结果）；但真实机器人结果、干扰实验细节、与策略的对比条件在摘要中未提供/无法从摘要确认 [1]。</li>
+<li>工程意义：适合多任务、少演示的原型验证；Task Memory 冻结机制利于部署侧隔离与复用 [1]。</li>
+</ul>
+<p><strong>[2] SWAM: Scaling World Action Models with Cross-Modal Alignment</strong></p>
+<ul>
+<li>核心贡献：系统研究动作学习对语言-视频对齐的影响，给出数据与监督设计的实证比较 [2]。</li>
+<li>方法与数据：约 47,000 小时混合视频池（通用、第一人称、UMI、机器人演示）；对比语言-视频监督、语言-视频-动作监督及二者联合；研究标注质量、联合训练配方与架构 [2]。</li>
+<li>性能证据：固定预算下混合第一人称视频与 UMI 演示改善控制泛化；架构影响经验利用效率；选定配置下扩大预训练带来进一步增益——具体数值摘要未提供/无法从摘要确认 [2]。</li>
+<li>局限与证据等级：B（含方法与定性结果，缺定量指标）；&quot;进一步增益&quot;等表述为作者主张，缺少数字支撑 [2]。</li>
+<li>工程意义：提示在动作微调阶段需监控语言-视频对齐退化，数据配比与标注质量是可调杠杆 [2]。</li>
+</ul>
+<h2>工程行动建议</h2>
+<ul>
+<li>验证实验：在自有仿真环境复现 [1] 的单演示+Task Memory 流程，记录 clean/randomized 分项成功率与真实机器人迁移成功率（[1] 未提供真实部署数字，需自行测量）[1]。</li>
+<li>落地评估：对 [2] 的数据配比结论，在固定训练预算下做第一人称视频+UMI 混合的消融，同时评测控制任务与语言-视频对齐指标（如检索/描述基准），确认是否存在权衡 [2]。</li>
+<li>后续跟踪指标：真实场景成功率、跨场景泛化幅度、动作学习前后对齐指标变化、演示数量-成功率曲线；两篇均未披露 sim-to-real 差距，需持续跟踪后续版本 [1][2]。</li>
+</ul>
+<h2>参考资料</h2>
+<p>[1] World In-Context Learning for Agentic Robot Manipulation <a href="https://arxiv.org/abs/2611.12885v1">https://arxiv.org/abs/2611.12885v1</a>
+[2] SWAM: Scaling World Action Models with Cross-Modal Alignment <a href="https://arxiv.org/abs/2611.12870v1">https://arxiv.org/abs/2611.12870v1</a></p>
+</div><section class="growth-card" data-growth-cta><h2>有项目想法？</h2><p>可以订阅后续更新，也可以整理你的 AI 软件或智能硬件需求，发来聊聊。</p><a href="../subscribe.html">订阅 AI 精选</a> · <a href="../services.html?source=/posts/20261110-applied_ai.html">整理开发需求</a></section></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原始来源。</span></footer></body></html>

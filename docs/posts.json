@@ -1,5 +1,44 @@
 [
   {
+    "title": "Agent、机器人与具身智能（2026-11-10）",
+    "date": "2026-11-10T16:42:19.099765+08:00",
+    "count": 2,
+    "url": "posts/20261110-applied_ai.html",
+    "topic": "applied_ai",
+    "status": "published",
+    "summary": "本期结论 - 单演示、无梯度更新的上下文学习范式在仿真操作任务上取得高成功率，提示\"记忆写入上下文而非权重\"是值得关注的信号（仅 1 单篇支持，尚不构成趋势）1。 - 世界动作模型（WAM）中语言-视频对齐可能被动作学习损害，数据与监督设计成为关键变量；跨模态数据混合（第一人称视频+UMI）在固定预算下改善控制泛化，属",
+    "provenance": {
+      "analysis": {
+        "provider": "Xiaomi MiMo",
+        "model": "mimo-v2.6-flash"
+      },
+      "sources": [
+        {
+          "title": "World In-Context Learning for Agentic Robot Manipulation",
+          "url": "https://arxiv.org/abs/2611.12885v1",
+          "publisher": "arXiv Embodied Intelligence",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-11-09T18:59:45+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "SWAM: Scaling World Action Models with Cross-Modal Alignment",
+          "url": "https://arxiv.org/abs/2611.12870v1",
+          "publisher": "arXiv Embodied Intelligence",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-11-09T18:55:04+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "推理引擎、编译器与嵌入式系统（2026-11-10）",
     "date": "2026-11-10T14:12:44.491171+08:00",
     "count": 2,
