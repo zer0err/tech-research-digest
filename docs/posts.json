@@ -1,5 +1,44 @@
 [
   {
+    "title": "AI 论文午间速览（2026-11-11）",
+    "date": "2026-11-11T12:42:23.472073+08:00",
+    "count": 2,
+    "url": "posts/20261111-paper_brief.html",
+    "topic": "paper_brief",
+    "status": "published",
+    "summary": "本期要点 - NVIDIA Snapshot 作为 NVIDIA DSX AI Factory Platform 的新开源组件，使已初始化的 GPU 工作负载可跨推理场景复用，摘要称其可在数秒内启动与恢复 GPU 工作负载 1。 - 该条目属于 GPU 运行时/工作负载管理方向，但摘要未提供启动/恢复的具体耗时数字、对",
+    "provenance": {
+      "analysis": {
+        "provider": "Xiaomi MiMo",
+        "model": "mimo-v2.6-flash"
+      },
+      "sources": [
+        {
+          "title": "Start and Restore GPU Workloads in Seconds with NVIDIA Snapshot",
+          "url": "https://developer.nvidia.com/blog/start-and-restore-gpu-workloads-in-seconds-with-nvidia-snapshot",
+          "publisher": "NVIDIA Technical Blog",
+          "host": "developer.nvidia.com",
+          "family": "博客/公开网页",
+          "published": "2026-11-10T15:00:00+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "Detection of Red Crown Rot of Soybean in Illinois Fields Using High-Resolution Satellite Imagery and Machine Learning",
+          "url": "https://doi.org/10.3390/rs18213839",
+          "publisher": "OpenAlex Inference",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-11-08T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "https://doi.org/10.3390/rs18213839",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 模型、训练与基础研究（2026-11-11）",
     "date": "2026-11-11T10:42:21.167716+08:00",
     "count": 3,
