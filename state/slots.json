@@ -1,6 +1,11 @@
 {
   "version": 1,
   "slots": {
+    "2026-11-11:open_source": {
+      "status": "already_published",
+      "updated_at": "2026-11-11T03:42:23.605087+00:00",
+      "attempts": 1
+    },
     "2026-11-11:morning_radar": {
       "status": "published",
       "updated_at": "2026-11-11T01:12:24.326607+00:00",
