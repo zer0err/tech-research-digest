@@ -295,6 +295,8 @@
     },
     "inference_systems": {
       "ids": [
+        "43eeb7b8505802c03bbda957",
+        "1d1af5accdeb2651235f4e8f",
         "87d5ea6aecd661863cb35f31",
         "1d0fcf2c1486aa902a320a7c",
         "11a9c683ed4074b991fd1775",
@@ -313,7 +315,7 @@
         "b018c3901f5052e513d7f7de",
         "4ac4eda1121470f5cf1d1a5b"
       ],
-      "updated_at": "2026-11-10T06:12:44.491171+00:00"
+      "updated_at": "2026-11-11T04:42:23.472073+00:00"
     },
     "prompt_engineering": {
       "ids": [
@@ -323,6 +325,8 @@
     }
   },
   "all_ids": [
+    "43eeb7b8505802c03bbda957",
+    "1d1af5accdeb2651235f4e8f",
     "b984e2dfcff4a1d9c797a95f",
     "9fc1f9afbb8336e7349c0c0b",
     "7c2db02a47e05a926222e846",
@@ -581,6 +585,8 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://developer.nvidia.com/blog/start-and-restore-gpu-workloads-in-seconds-with-nvidia-snapshot",
+    "https://doi.org/10.3390/rs18213839",
     "https://doi.org/10.1108/978-1-83708-152-320261019",
     "https://arxiv.org/abs/2611.13512v1",
     "https://arxiv.org/abs/2611.13496v1",
@@ -839,6 +845,8 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "b76569035b03ef21af315631",
+    "4bf81fe8ea1f0acf2f22f6d7",
     "c64ff50fc683189e1f9a6a7a",
     "1f4f0830e9f00172b7403d63",
     "8bdee846e75a2882737bf0e6",
@@ -4872,6 +4880,38 @@
       "analysis": {
         "provider": "Groq",
         "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261111-paper_brief.html": {
+      "topic": "inference_systems",
+      "created_at": "2026-11-11T04:42:23.472073+00:00",
+      "items": [
+        {
+          "uid": "43eeb7b8505802c03bbda957",
+          "title": "Start and Restore GPU Workloads in Seconds with NVIDIA Snapshot",
+          "url": "https://developer.nvidia.com/blog/start-and-restore-gpu-workloads-in-seconds-with-nvidia-snapshot",
+          "published": "2026-11-10T15:00:00+00:00",
+          "summary": "NVIDIA Snapshot, a new open-source component of the NVIDIA DSX AI Factory Platform, makes initialized GPU workloads reusable across inference...",
+          "source": "NVIDIA Technical Blog",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        },
+        {
+          "uid": "1d1af5accdeb2651235f4e8f",
+          "title": "Detection of Red Crown Rot of Soybean in Illinois Fields Using High-Resolution Satellite Imagery and Machine Learning",
+          "url": "https://doi.org/10.3390/rs18213839",
+          "published": "2026-11-08T00:00:00+00:00",
+          "summary": "Abstract Red crown rot (RCR), caused by Calonectria ilicicola , is an emerging soybean disease in the U.S. Midwest for which scalable approaches to characterize within-field disease distribution are lacking. This study evaluated high-resolution PlanetScope satellite imagery for mapping RCR-affected soybean canopies across 15 commercial fields in Illinois surveyed during the 2024 and 2025 growing seasons. A total of 2,921 georeferenced canopy plots were classified as asymptomatic or RCR-affected and paired with six multispectral bands and seven vegetation indices. Spectral differences between classes were evaluated using linear mixed-effects models, and seven machine-learning classifiers representing linear, tree-based, neural-network, kernel, and probabilistic approaches were compared using spatially independent leave-one-field-out cross-validation. RCR-affected canopies exhibited increased reflectance in the visible and red-edge regions, reduced near-infrared reflectance, and lower vegetation-index values relative to asymptomatic canopies. All classifiers showed strong discrimination, with ROC-AUC values ranging from 0.963 to 0.982. Regularized logistic regression achieved the highest overall performance, with an accuracy of 0.945, balanced accuracy of 0.945, F1-score of 0.948, and ROC-AUC of 0.982 at the optimized decision threshold. Permutation analysis identified EVI, NDVI,",
+          "source": "OpenAlex Inference",
+          "kind": "research",
+          "doi": "https://doi.org/10.3390/rs18213839",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Xiaomi MiMo",
+        "model": "mimo-v2.6-flash"
       }
     }
   },

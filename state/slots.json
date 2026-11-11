@@ -2,46 +2,9 @@
   "version": 1,
   "slots": {
     "2026-11-11:paper_brief": {
-      "status": "prepared",
+      "status": "published",
       "updated_at": "2026-11-11T04:42:23.472073+00:00",
-      "attempts": 1,
-      "pending": {
-        "topic": "inference_systems",
-        "title": "AI 论文午间速览",
-        "url": "https://vorasio.com/posts/20261111-paper_brief.html",
-        "created_at": "2026-11-11T04:42:23.472073+00:00",
-        "items": [
-          {
-            "uid": "43eeb7b8505802c03bbda957",
-            "title": "Start and Restore GPU Workloads in Seconds with NVIDIA Snapshot",
-            "url": "https://developer.nvidia.com/blog/start-and-restore-gpu-workloads-in-seconds-with-nvidia-snapshot",
-            "published": "2026-11-10T15:00:00+00:00",
-            "summary": "NVIDIA Snapshot, a new open-source component of the NVIDIA DSX AI Factory Platform, makes initialized GPU workloads reusable across inference...",
-            "source": "NVIDIA Technical Blog",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day"
-          },
-          {
-            "uid": "1d1af5accdeb2651235f4e8f",
-            "title": "Detection of Red Crown Rot of Soybean in Illinois Fields Using High-Resolution Satellite Imagery and Machine Learning",
-            "url": "https://doi.org/10.3390/rs18213839",
-            "published": "2026-11-08T00:00:00+00:00",
-            "summary": "Abstract Red crown rot (RCR), caused by Calonectria ilicicola , is an emerging soybean disease in the U.S. Midwest for which scalable approaches to characterize within-field disease distribution are lacking. This study evaluated high-resolution PlanetScope satellite imagery for mapping RCR-affected soybean canopies across 15 commercial fields in Illinois surveyed during the 2024 and 2025 growing seasons. A total of 2,921 georeferenced canopy plots were classified as asymptomatic or RCR-affected and paired with six multispectral bands and seven vegetation indices. Spectral differences between classes were evaluated using linear mixed-effects models, and seven machine-learning classifiers representing linear, tree-based, neural-network, kernel, and probabilistic approaches were compared using spatially independent leave-one-field-out cross-validation. RCR-affected canopies exhibited increased reflectance in the visible and red-edge regions, reduced near-infrared reflectance, and lower vegetation-index values relative to asymptomatic canopies. All classifiers showed strong discrimination, with ROC-AUC values ranging from 0.963 to 0.982. Regularized logistic regression achieved the highest overall performance, with an accuracy of 0.945, balanced accuracy of 0.945, F1-score of 0.948, and ROC-AUC of 0.982 at the optimized decision threshold. Permutation analysis identified EVI, NDVI,",
-            "source": "OpenAlex Inference",
-            "kind": "research",
-            "doi": "https://doi.org/10.3390/rs18213839",
-            "date_precision": "day"
-          }
-        ],
-        "notify": false,
-        "mode": "production",
-        "analysis": {
-          "provider": "Xiaomi MiMo",
-          "model": "mimo-v2.6-flash"
-        },
-        "slot": "paper_brief"
-      }
+      "attempts": 1
     },
     "2026-11-11:open_source": {
       "status": "already_published",
