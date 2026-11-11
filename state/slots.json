@@ -43,70 +43,9 @@
       "attempts": 1
     },
     "2026-11-11:applied_ai": {
-      "status": "prepared",
+      "status": "published",
       "updated_at": "2026-11-11T10:12:20.999280+00:00",
       "attempts": 2,
-      "pending": {
-        "topic": "embodied",
-        "title": "Agent、机器人与具身智能",
-        "url": "https://vorasio.com/posts/20261111-applied_ai.html",
-        "created_at": "2026-11-11T10:12:20.999280+00:00",
-        "items": [
-          {
-            "uid": "43c0f6fc2334626b19937213",
-            "title": "Kinematic Modeling and Nonsingular Terminal Sliding Mode Control Method for a 2-DOF Parallel Robot Actuated by IPMC",
-            "url": "https://doi.org/10.1177/21695172261499043",
-            "published": "2026-11-11T00:00:00+00:00",
-            "summary": "Ionic polymer–metal composites (IPMCs) exhibit substantial application potential in underwater biomimetic robotics, attributed to their low driving voltage, rapid response, and superior flexibility. Nevertheless, the intrinsic bending deformation behavior of IPMCs typically results in arc-shaped trajectories at the actuator tip, precluding precise linear translational motion and thereby restricting their operational scope. To address this issue, this paper proposes a 2-degree-of-freedom (2-DOF) parallel robot structure actuated by IPMCs. First, an equivalent rigid-body kinematic model of the robot is established. By decoupling the motion of the end of the flexible active arm into the serial motion of the revolute pair and the prismatic pair, the 2-DOF linear translational motion of the end reference point is achieved, and the forward and inverse position solutions are derived to establish the mapping relationship between the end coordinates and the actuating voltage of the IPMC. Then, a nonsingular terminal sliding mode control (NTSMC) law based on the feedback of the end translational distance is proposed. This control law can calculate the driving voltage of the IPMC using the end-displacement information measured by the laser distance sensor and eliminate the singularity by introducing an integral sliding surface to make the tracking error converge to zero within a finite ti",
-            "source": "Crossref Embodied",
-            "kind": "research",
-            "doi": "10.1177/21695172261499043",
-            "date_precision": "day",
-            "aliases": [
-              "doi:10.1177/21695172261499043",
-              "url:https://doi.org/10.1177/21695172261499043"
-            ]
-          },
-          {
-            "uid": "3ef52860cfa77e98f57e9f29",
-            "title": "Simulation-based evaluation of a modified RRT algorithm for ground-robot navigation in 3D environments",
-            "url": "https://doi.org/10.3389/frobt.2026.1981973",
-            "published": "2026-11-11T00:00:00+00:00",
-            "summary": "Autonomous robot navigation requires path-planning algorithms that maintain reliable performance in environments involving dynamic obstacles, changing goals, and complex terrain. This study extends the evaluation of a previously proposed Modified Rapidly-Exploring Random Tree (Modified RRT) algorithm from two-dimensional benchmark maps to robotic navigation scenarios in three-dimensional simulated environments. A simulation-based robotic navigation framework was developed using ROS 2 and Gazebo. Five scenarios were investigated: reconstruction of selected benchmark maps in 3D simulation, dynamic obstacle avoidance, dynamic goal adaptation, warehouse/campus navigation, and slope traversal. The framework incorporates synchronized RGB and depth sensing with point-cloud generation to characterize simulated environmental observations and support the analysis of perception and navigation performance. The global path planner operates in the horizontal x-y plane, while the robot, obstacles, and terrain are represented in the three-dimensional simulation environment. All four planners were evaluated under a common protocol using a shared costmap, collision checker, stopping budget, and parameter-tuning procedure. Modified RRT achieved success rates of up to 98%, reduced navigation completion time by up to 17.6%, and generated paths 10–15% shorter than standard RRT and 2–10% shorter than",
-            "source": "Crossref Embodied",
-            "kind": "research",
-            "doi": "10.3389/frobt.2026.1981973",
-            "date_precision": "day",
-            "aliases": [
-              "doi:10.3389/frobt.2026.1981973",
-              "url:https://doi.org/10.3389/frobt.2026.1981973"
-            ]
-          },
-          {
-            "uid": "2582e161c3696f7bb76be7f7",
-            "title": "Clinical-priority task orchestration and verified safety supervision for a physician-directed ward-rounding robot: a simulation-based feasibility study",
-            "url": "https://doi.org/10.3389/frobt.2026.1996839",
-            "published": "2026-11-11T00:00:00+00:00",
-            "summary": "Introduction A ward-rounding robot that accepts orders at the level of clinical intent becomes a shared clinical resource: several clinicians may hold outstanding requests of differing urgency, and execution is punctuated by confirmation gates at which the robot waits on a human and by engagement steps that cannot safely be interrupted. This paper formalizes the resulting scheduling problem together with the safety layer that it necessitates. Methods We present (i) a task model in which an intent-level order expands into primitives carrying resource locks, physician confirmation gates, and an explicit interruptibility partition; (ii) the Clinical-Priority Scheduler (CP-Sched), which combines urgency weighting, aging, travel awareness, and class-relative escalation and preempts only at safe interruption points; and (iii) a safety supervisor specified as a network of timed automata and verified exhaustively for a single robot serving one order at a time, with independent reproduction in the TLA+ model checker TLC. All task timings in the 1,590 discrete-event simulation runs are modeling assumptions, not hardware measurements. Results Across 1,080 runs spanning two ward sizes and three utilization levels, CP-Sched reduced the 95th-percentile time for urgent orders to bedside from 347 s to 215 s at moderate utilization, a 38% reduction relative to the strongest of four baselines; a",
-            "source": "Crossref Embodied",
-            "kind": "research",
-            "doi": "10.3389/frobt.2026.1996839",
-            "date_precision": "day",
-            "aliases": [
-              "doi:10.3389/frobt.2026.1996839",
-              "url:https://doi.org/10.3389/frobt.2026.1996839"
-            ]
-          }
-        ],
-        "source_topic": "embodied",
-        "notify": false,
-        "mode": "production",
-        "analysis": {
-          "provider": "Groq",
-          "model": "openai/gpt-oss-20b"
-        },
-        "slot": "applied_ai"
-      },
       "maintenance_notified": true
     },
     "2026-11-10:prompt_engineering": {

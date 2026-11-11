@@ -161,6 +161,15 @@
     },
     "embodied": {
       "ids": [
+        "43c0f6fc2334626b19937213",
+        "doi:10.1177/21695172261499043",
+        "url:https://doi.org/10.1177/21695172261499043",
+        "3ef52860cfa77e98f57e9f29",
+        "doi:10.3389/frobt.2026.1981973",
+        "url:https://doi.org/10.3389/frobt.2026.1981973",
+        "2582e161c3696f7bb76be7f7",
+        "doi:10.3389/frobt.2026.1996839",
+        "url:https://doi.org/10.3389/frobt.2026.1996839",
         "484548ee2b99c5817e1a665d",
         "dd755c6dc7e6247b7bf0dc3a",
         "ce204e45f6795cec70d29316",
@@ -196,7 +205,7 @@
         "b6efb31dd4318138b7a990c1",
         "3784b5af97676cfa17afdceb"
       ],
-      "updated_at": "2026-11-10T08:42:19.099765+00:00"
+      "updated_at": "2026-11-11T10:12:20.999280+00:00"
     },
     "efficient_ai": {
       "ids": [
@@ -332,6 +341,15 @@
     }
   },
   "all_ids": [
+    "43c0f6fc2334626b19937213",
+    "doi:10.1177/21695172261499043",
+    "url:https://doi.org/10.1177/21695172261499043",
+    "3ef52860cfa77e98f57e9f29",
+    "doi:10.3389/frobt.2026.1981973",
+    "url:https://doi.org/10.3389/frobt.2026.1981973",
+    "2582e161c3696f7bb76be7f7",
+    "doi:10.3389/frobt.2026.1996839",
+    "url:https://doi.org/10.3389/frobt.2026.1996839",
     "59a8a5dd3afc5312ddaeaf7c",
     "url:https://blog.google/company-news/inside-google/company-announcements/adobe-google-partnership-integration",
     "79d5092fcf6ccbd4d13aaf63",
@@ -599,6 +617,9 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://doi.org/10.1177/21695172261499043",
+    "https://doi.org/10.3389/frobt.2026.1981973",
+    "https://doi.org/10.3389/frobt.2026.1996839",
     "https://blog.google/company-news/inside-google/company-announcements/adobe-google-partnership-integration",
     "https://github.com/fastapi/fastapi/releases/tag/0.162.4",
     "https://github.com/fastapi/fastapi/releases/tag/0.162.3",
@@ -5036,6 +5057,47 @@
           "published": "2026-11-10T14:00:00+00:00",
           "source": "Google AI 官方博客",
           "doi": "",
+          "kind": "research",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261111-applied_ai.html": {
+      "topic": "embodied",
+      "source_topic": "embodied",
+      "created_at": "2026-11-11T10:12:20.999280+00:00",
+      "items": [
+        {
+          "uid": "43c0f6fc2334626b19937213",
+          "title": "Kinematic Modeling and Nonsingular Terminal Sliding Mode Control Method for a 2-DOF Parallel Robot Actuated by IPMC",
+          "url": "https://doi.org/10.1177/21695172261499043",
+          "published": "2026-11-11T00:00:00+00:00",
+          "source": "Crossref Embodied",
+          "doi": "10.1177/21695172261499043",
+          "kind": "research",
+          "date_precision": "day"
+        },
+        {
+          "uid": "3ef52860cfa77e98f57e9f29",
+          "title": "Simulation-based evaluation of a modified RRT algorithm for ground-robot navigation in 3D environments",
+          "url": "https://doi.org/10.3389/frobt.2026.1981973",
+          "published": "2026-11-11T00:00:00+00:00",
+          "source": "Crossref Embodied",
+          "doi": "10.3389/frobt.2026.1981973",
+          "kind": "research",
+          "date_precision": "day"
+        },
+        {
+          "uid": "2582e161c3696f7bb76be7f7",
+          "title": "Clinical-priority task orchestration and verified safety supervision for a physician-directed ward-rounding robot: a simulation-based feasibility study",
+          "url": "https://doi.org/10.3389/frobt.2026.1996839",
+          "published": "2026-11-11T00:00:00+00:00",
+          "source": "Crossref Embodied",
+          "doi": "10.3389/frobt.2026.1996839",
           "kind": "research",
           "date_precision": "day"
         }
