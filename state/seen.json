@@ -100,6 +100,9 @@
     },
     "model_research": {
       "ids": [
+        "b984e2dfcff4a1d9c797a95f",
+        "9fc1f9afbb8336e7349c0c0b",
+        "7c2db02a47e05a926222e846",
         "475bd9c87bf12c9740a336de",
         "68f428123a66e5e6bd627de2",
         "20df69152666adefb39bcaf7",
@@ -152,7 +155,7 @@
         "f3a5508d0160d42195ab7174",
         "cb661d928a0dfa16bc4c4588"
       ],
-      "updated_at": "2026-11-10T02:42:26.589347+00:00"
+      "updated_at": "2026-11-11T02:42:21.167716+00:00"
     },
     "embodied": {
       "ids": [
@@ -320,6 +323,9 @@
     }
   },
   "all_ids": [
+    "b984e2dfcff4a1d9c797a95f",
+    "9fc1f9afbb8336e7349c0c0b",
+    "7c2db02a47e05a926222e846",
     "0da2a3ce8ca2ed1bece890ee",
     "e09c77a9ac2bb834f395b89d",
     "c0101f36ad82bf9132fd32eb",
@@ -575,6 +581,9 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://doi.org/10.1108/978-1-83708-152-320261019",
+    "https://arxiv.org/abs/2611.13512v1",
+    "https://arxiv.org/abs/2611.13496v1",
     "https://github.blog/changelog/2026-11-10-github-app-support-for-enterprise-copilot-seat-management",
     "https://github.blog/changelog/2026-11-10-gemini-4-carbon-in-github-copilot",
     "https://blog.google/products-and-platforms/platforms/android/gemini-intelligence-november-features-devices",
@@ -830,6 +839,9 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "c64ff50fc683189e1f9a6a7a",
+    "1f4f0830e9f00172b7403d63",
+    "8bdee846e75a2882737bf0e6",
     "6464a9206827a09ce366b677",
     "79efb57b13f1b8e7feec5205",
     "25dec17dcef6ec0768965ca7",
@@ -4809,6 +4821,49 @@
           "published": "2026-11-10T19:00:00+00:00",
           "summary": "A man speaks into a phone. Text on the screen reads 'Gemini Intelligence'",
           "source": "Google AI 官方博客",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261111-model_research.html": {
+      "topic": "model_research",
+      "created_at": "2026-11-11T02:42:21.167716+00:00",
+      "items": [
+        {
+          "uid": "b984e2dfcff4a1d9c797a95f",
+          "title": "Generative AI Powered by Large Language Models for Leadership Development: Between Epistemic Responsibility and the Future of Innovation",
+          "url": "https://doi.org/10.1108/978-1-83708-152-320261019",
+          "published": "2026-11-11T00:00:00+00:00",
+          "summary": "This chapter examines language-based generative AI, particularly large language models (LLMs), as active epistemic agents in leadership development. Moving beyond their perceived neutrality, the authors argue that LLMs serve as mirrors of dominant assumptions, co-constructors of leadership meaning, and framing devices of legitimate knowledge. The sources highlight how these systems reinforce prevailing Euro-American managerial ideals, often marginalizing diverse leadership paradigms such as Indigenous, collectivist, or spiritual frameworks, thereby amplifying structural and cultural biases. Through epistemic feedback loops and personalization, LLMs can subtly shape leadership identity and constrain developmental horizons, leading to adaptive standardization or performative conformity. The chapter emphasizes the critical need for epistemic responsibility in innovation leadership, advocating for leaders to interrogate system framings, reflect on their influence, and cultivate design awareness. This involves fostering inclusive data practices, participatory design methodologies, and culturally responsive AI governance to ensure AI-mediated innovation ecosystems are just, inclusive, and reflect pluralistic worldviews. Ultimately, the chapter calls for leaders to reclaim framing power and engage AI dialogically to foster an innovation leadership that is reflexive, ethically grounded",
+          "source": "Crossref Model Research",
+          "kind": "research",
+          "doi": "10.1108/978-1-83708-152-320261019",
+          "date_precision": "day"
+        },
+        {
+          "uid": "9fc1f9afbb8336e7349c0c0b",
+          "title": "Nepali-English Code-Mixed Speech Recognition: Data Preparation and Adaptation of a Speech Foundation Model",
+          "url": "https://arxiv.org/abs/2611.13512v1",
+          "published": "2026-11-10T03:39:19+00:00",
+          "summary": "Nepali speakers regularly mix English words into conversation, but multilingual speech recognisers often struggle with language switches and the writing script used for English words. We study how to adapt SraVaani, a 449M-parameter hybrid TDT-CTC model, using a 172.8-hour corpus covering six Nepali speech domains. Its pretrained tokenizer does not support digits and several common symbols. Rather than replace it or discard these recordings, we generate Nepali and English readings for numbers and use zero-shot ASR output to select a plausible form. Full fine-tuning reduces test word error rate (WER) from 48.6% to 17.1%; a 12-epoch run reaches 16.3%, compared with 16.4% for fine-tuned Whisper large-v3-turbo. Freezing the encoder increases WER to 25.5%, while excluding numeric clips raises WER on numeric test speech from 14.3% to 21.3%. We also evaluate on FLEURS using both its original references and mixed-script alternatives. The comparison shows that transcription conventions explain part, but not all, of the out-of-domain performance loss.",
+          "source": "arXiv Model Research",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        },
+        {
+          "uid": "7c2db02a47e05a926222e846",
+          "title": "Reasoning-Aware Relational Representation Learning for Open-Vocabulary Scene Graph Generation",
+          "url": "https://arxiv.org/abs/2611.13496v1",
+          "published": "2026-11-10T03:08:22+00:00",
+          "summary": "Open-Vocabulary Scene Graph Generation (OV-SGG) requires models to recognize visual relationships beyond the training vocabulary, yet existing methods often rely on dataset-specific object--predicate co-occurrence patterns. Under long-tailed distributions and noisy object localization, such reliance leads to biased, entangled relation representations, limiting both rare-relation recognition and generalization to unseen predicates. To address these challenges, we propose RaRe, a reasoning-aware relational representation learning framework that transforms MLLM-generated chain-of-thought (CoT) rationales into structured relation embeddings. Rather than using CoT only as an intermediate reasoning trace for final prediction, RaRe directly optimizes the rationale-derived representation space to improve inter-relation discriminability. Specifically, RaRe first aligns rationale embeddings with textualized relation descriptions through self-supervised contrastive learning, and then refines rationale generation with a specificity-oriented reinforcement learning objective that encourages semantically object-pair-specific relational evidence. Experiments on VG150 and PSG demonstrate improved category-balanced recognition over existing baselines, while the additional gains from learning vary across datasets and proposal settings. Code available at: https://artanic30.github.io/project_pages/",
+          "source": "arXiv Model Research",
           "kind": "research",
           "doi": "",
           "date_precision": "day"
