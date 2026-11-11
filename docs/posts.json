@@ -1,5 +1,55 @@
 [
   {
+    "title": "AI 晨间雷达与免费资源（2026-11-11）",
+    "date": "2026-11-11T09:12:24.326607+08:00",
+    "count": 3,
+    "url": "posts/20261111-morning_radar.html",
+    "topic": "morning_radar",
+    "status": "published",
+    "summary": "本时段要点 1. GitHub 现已支持通过 GitHub Apps 调用企业级 Copilot 座席管理 API，允许管理员在企业层面控制哪些用户或团队拥有 Copilot 访问权限。1 2. Google 最新模型 Gemini 4 Carbon 已正式上线 GitHub Copilot，主打复杂编码、代理式与推理",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "GitHub App support for Enterprise Copilot seat management",
+          "url": "https://github.blog/changelog/2026-11-10-github-app-support-for-enterprise-copilot-seat-management",
+          "publisher": "GitHub 官方更新",
+          "host": "github.blog",
+          "family": "博客/公开网页",
+          "published": "2026-11-11T00:10:31+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "Gemini 4 Carbon in GitHub Copilot",
+          "url": "https://github.blog/changelog/2026-11-10-gemini-4-carbon-in-github-copilot",
+          "publisher": "GitHub 官方更新",
+          "host": "github.blog",
+          "family": "博客/公开网页",
+          "published": "2026-11-10T19:26:51+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "Gemini Intelligence: New features, on more devices",
+          "url": "https://blog.google/products-and-platforms/platforms/android/gemini-intelligence-november-features-devices",
+          "publisher": "Google AI 官方博客",
+          "host": "blog.google",
+          "family": "博客/公开网页",
+          "published": "2026-11-10T19:00:00+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "VORASIO AI 日报（2026-11-10）",
     "date": "2026-11-10T19:12:17.671848+08:00",
     "count": 6,
