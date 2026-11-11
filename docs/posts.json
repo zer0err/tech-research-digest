@@ -1,5 +1,33 @@
 [
   {
+    "title": "Prompt、上下文工程与评测（2026-11-11）",
+    "date": "2026-11-11T14:12:21.156058+08:00",
+    "count": 1,
+    "url": "posts/20261111-prompt_engineering.html",
+    "topic": "prompt_engineering",
+    "status": "published",
+    "summary": "本期要点 - 该更新提供了构建遵循标准操作程序（SOP）的语音代理的完整示例，展示了如何在提示词中嵌入 SOP 说明并通过上下文管理保持对话连贯性。1 - 示例中使用了工具调用（如 openai.ChatCompletion.create）来执行外部 API 请求，体现了工具调用在实现 SOP 逻辑中的可验证实现方式。",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "Build a voice agent that follows an SOP (#3276)",
+          "url": "https://github.com/openai/openai-cookbook/commit/2658c92cd4cd562504571b9d7491fc51524a7dc9",
+          "publisher": "OpenAI Cookbook Updates",
+          "host": "github.com",
+          "family": "代码与版本",
+          "published": "2026-11-10T16:50:39+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 论文午间速览（2026-11-11）",
     "date": "2026-11-11T12:42:23.472073+08:00",
     "count": 2,

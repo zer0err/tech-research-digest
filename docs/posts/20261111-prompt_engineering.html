@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Prompt、上下文工程与评测（2026-11-11）</title><meta name="description" content="Prompt、上下文工程与评测（2026-11-11）：1 项最新研究">
+<link rel="alternate" type="application/rss+xml" title="VORASIO" href="../feed.xml">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/growth.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav aria-label="主导航">
+<a href="../domains/index.html">领域导航</a>
+<a href="../index.html#latest">全部更新</a>
+<a href="../knowledge/index.html">AI 知识科普</a>
+<a href="../courses/index.html">AI 学习</a>
+<a href="../tools/index.html">AI 工具</a>
+<a href="../subscribe.html">订阅精选</a>
+<a href="../services.html">开发咨询</a>
+<a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">Prompt、上下文工程与评测</p><dl><dt>发布时间</dt><dd data-published-at="2026-11-11T14:12:21.156058+08:00">2026-11-11 14:12 · UTC+8</dd><dt>研究条目</dt><dd>1 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · Prompt、上下文工程与评测</p><h1>Prompt、上下文工程与评测（2026-11-11）</h1><!-- provenance:start --><p class="ai-analysis" title="openai/gpt-oss-20b">AI 分析：Groq</p><!-- provenance:end --><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期要点</h2>
+<ul>
+<li>该更新提供了构建遵循标准操作程序（SOP）的语音代理的完整示例，展示了如何在提示词中嵌入 SOP 说明并通过上下文管理保持对话连贯性。[1]</li>
+<li>示例中使用了工具调用（如 <code>openai.ChatCompletion.create</code>）来执行外部 API 请求，体现了工具调用在实现 SOP 逻辑中的可验证实现方式。[1]</li>
+<li>代码示例中未包含正式的评测方法或指标，仅提供了实现细节，缺乏可复现的评测结果或实验数据。[1]</li>
+<li>该更新未涉及 Retrieval-Augmented Generation（RAG）或专门的评测框架，说明当前实现侧重于流程控制而非检索增强或系统性能评估。[1]</li>
+</ul>
+<h2>逐项速览</h2>
+<table>
+<thead>
+<tr>
+<th>栏目</th>
+<th>关键变化</th>
+<th>证据</th>
+<th>局限</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>提示词</td>
+<td>在提示中直接嵌入 SOP 文本，指导模型行为</td>
+<td>代码片段中 <code>system_prompt</code> 包含 SOP 说明 [1]</td>
+<td>未提供不同提示词设计的对比实验，无法评估最佳实践</td>
+</tr>
+<tr>
+<td>上下文管理</td>
+<td>通过持续更新 <code>messages</code> 列表保持对话状态，确保 SOP 步骤按顺序执行</td>
+<td><code>messages.append(...)</code> 逻辑展示上下文累积 [1]</td>
+<td>缺乏对上下文长度限制或衰减策略的讨论</td>
+</tr>
+<tr>
+<td>RAG</td>
+<td>本更新未实现检索增强，仅使用固定 SOP 文本</td>
+<td>代码中无检索相关调用 [1]</td>
+<td>无法评估 RAG 对 SOP 遵循的影响</td>
+</tr>
+<tr>
+<td>工具调用</td>
+<td>使用 <code>openai.ChatCompletion.create</code> 作为工具执行外部 API，示例中演示如何调用外部服务完成 SOP 步骤</td>
+<td>代码中 <code>response = openai.ChatCompletion.create(...)</code> [1]</td>
+<td>未提供工具调用错误处理或重试机制的评测</td>
+</tr>
+<tr>
+<td>评测方法</td>
+<td>仅提供实现示例，无正式评测框架或指标</td>
+<td>摘要中无评测说明 [1]</td>
+<td>无法验证实现的准确性或效率</td>
+</tr>
+</tbody>
+</table>
+<h2>值得采取的行动</h2>
+<ul>
+<li><strong>验证实现</strong>：在本地环境中运行该示例，确认 SOP 步骤按预期执行，并记录实际对话日志以评估上下文管理效果。</li>
+<li><strong>扩展评测</strong>：设计简单的评测脚本，记录每个 SOP 步骤的完成时间、错误率和用户满意度，以形成可复现的评测数据。</li>
+<li><strong>引入 RAG</strong>：尝试在 SOP 说明中加入检索模块，使用向量数据库检索相关文档后再生成响应，比较无 RAG 与有 RAG 的执行差异。</li>
+<li><strong>提示词实验</strong>：改写提示词结构（如使用多轮提示或分块提示），评估对模型遵循 SOP 的影响，形成经验建议。</li>
+</ul>
+<h2>参考资料</h2>
+<ol>
+<li>Build a voice agent that follows an SOP (#3276) – OpenAI Cookbook Updates – <a href="https://github.com/openai/openai-cookbook/commit/2658c92cd4cd562504571b9d7491fc51524a7dc9">https://github.com/openai/openai-cookbook/commit/2658c92cd4cd562504571b9d7491fc51524a7dc9</a></li>
+</ol>
+</div><section class="growth-card" data-growth-cta><h2>有项目想法？</h2><p>可以订阅后续更新，也可以整理你的 AI 软件或智能硬件需求，发来聊聊。</p><a href="../subscribe.html">订阅 AI 精选</a> · <a href="../services.html?source=/posts/20261111-prompt_engineering.html">整理开发需求</a></section></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原始来源。</span></footer></body></html>
