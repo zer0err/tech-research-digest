@@ -231,6 +231,8 @@
     },
     "ai_hardware": {
       "ids": [
+        "c4a35e75b732ef4a331bd370",
+        "8ac4548c47418b4831e567e8",
         "e1cef0c0f19d334351b9e25b",
         "6e0a49407506e1fc8fb9479b",
         "8c2a6a109dd3f6d302afefb1",
@@ -248,7 +250,7 @@
         "1493351af77b0689ca43a1e9",
         "739ced7097d3b092ed674790"
       ],
-      "updated_at": "2026-11-09T08:42:18.088293+00:00"
+      "updated_at": "2026-11-11T06:13:00.012665+00:00"
     },
     "product_safety": {
       "ids": [
@@ -326,6 +328,8 @@
     }
   },
   "all_ids": [
+    "c4a35e75b732ef4a331bd370",
+    "8ac4548c47418b4831e567e8",
     "f68f19a11d2ffbcc0b0714d3",
     "43eeb7b8505802c03bbda957",
     "1d1af5accdeb2651235f4e8f",
@@ -587,6 +591,8 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://arxiv.org/abs/2611.14285v1",
+    "https://arxiv.org/abs/2611.13437v1",
     "https://github.com/openai/openai-cookbook/commit/2658c92cd4cd562504571b9d7491fc51524a7dc9",
     "https://developer.nvidia.com/blog/start-and-restore-gpu-workloads-in-seconds-with-nvidia-snapshot",
     "https://doi.org/10.3390/rs18213839",
@@ -848,6 +854,8 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "8b41a91cfc078a8f3af3e7c0",
+    "89019a90635a60949f2eb601",
     "d4fe6b082f514b27198f2017",
     "b76569035b03ef21af315631",
     "4bf81fe8ea1f0acf2f22f6d7",
@@ -4937,6 +4945,38 @@
       "analysis": {
         "provider": "Groq",
         "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261111-core_research.html": {
+      "topic": "ai_hardware",
+      "created_at": "2026-11-11T06:13:00.012665+00:00",
+      "items": [
+        {
+          "uid": "c4a35e75b732ef4a331bd370",
+          "title": "LM-SimBench: A Unified Framework, Dataset, and Benchmark for Large Language Model Training Simulation",
+          "url": "https://arxiv.org/abs/2611.14285v1",
+          "published": "2026-11-10T16:26:19+00:00",
+          "summary": "Evaluating candidate parallelization strategies through distributed training runs makes strategy selection prohibitively expensive at scale. Performance simulation offers a lower cost alternative, yet controlled comparisons among existing simulators remain difficult because they differ in the training stages they model and the workloads on which they are evaluated. We introduce LM-SimBench, a unified framework, profiling dataset, and benchmark for evaluating LLM training simulators. The framework decomposes simulation into functional stages from model compilation to schedule level aggregation, connecting execution representations and cost estimators to measurable evaluation targets. Following this framework, we profile 23 model settings from 10 dense and Mixture-of-Experts (MoE) LLM families on an Ascend Neural Processing Unit (NPU) cluster. The resulting dataset contains 348 feasible configurations that jointly vary five parallelism dimensions and activation recomputation, with six views spanning configuration, rank, operator, event, and kernel granularity. Evaluations of representative training simulators demonstrate how LM-SimBench supports comparisons of prediction accuracy, assessment of configuration selection, and diagnosis of prediction errors. Matched GPU-NPU experiments validate the cross-platform applicability of the collection and evaluation protocol and demonstrate",
+          "source": "arXiv AI Hardware",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        },
+        {
+          "uid": "8ac4548c47418b4831e567e8",
+          "title": "5G CATS: 5G-Based Cryptographic Authorization Against Trafficking of Semiconductor Devices",
+          "url": "https://arxiv.org/abs/2611.13437v1",
+          "published": "2026-11-10T01:20:18+00:00",
+          "summary": "Enforcing export controls on AI accelerators requires verifying where a chip operates after deployment. Round-trip time measurements can bound a chip's distance from a trusted landmark, but any jitter in honest replies forces the verifier to loosen its timeout, giving an attacker slack to relay traffic over fiber from a restricted region. Prior approaches either cross the untrusted host stack or rely on noisy power-line channels that inflate this slack. We present 5G CATS, a location certification system that pairs a co-packaged 5G radio, cryptographic engine, and hardware interlock on the GPU package with 5G Ultra-Reliable Low-Latency Communication (URLLC) base stations. Terminating the radio link inside the package removes the host software, PCIe fabric, and baseboard management controller from the verification path. We map an authenticated challenge-response protocol onto 5G's slot structure, replace permanent key erasure with short-lived execution leases, and specify a cross-check of the chip's reported serving cell against the carrier's own attachment records. In ns-3 and 5G-LENA simulations of an unloaded cell, our URLLC-based radio profile narrows the 99.9th percentile round-trip spread to 2.60 ms, more than ten times narrower than default 5G. A tracer rejects every round of a fiber relay from 300 km, against 2,000 km for default 5G. Against a 3,000 km attacker, a tracer",
+          "source": "arXiv AI Hardware",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Xiaomi MiMo",
+        "model": "mimo-v2.6-flash"
       }
     }
   },
