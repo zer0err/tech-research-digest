@@ -51,6 +51,9 @@
     },
     "morning_radar": {
       "ids": [
+        "0da2a3ce8ca2ed1bece890ee",
+        "e09c77a9ac2bb834f395b89d",
+        "c0101f36ad82bf9132fd32eb",
         "f0623286d1ea9bbc2502f3f8",
         "cc9249299f5d778e839bcc69",
         "a5fcc1255202f357d721641e",
@@ -81,7 +84,7 @@
         "dea8ba729eb28582daacbbc8",
         "767a7f383549ba646ff22647"
       ],
-      "updated_at": "2026-11-10T01:12:21.595371+00:00"
+      "updated_at": "2026-11-11T01:12:24.326607+00:00"
     },
     "ecosystem": {
       "ids": [
@@ -317,6 +320,9 @@
     }
   },
   "all_ids": [
+    "0da2a3ce8ca2ed1bece890ee",
+    "e09c77a9ac2bb834f395b89d",
+    "c0101f36ad82bf9132fd32eb",
     "484548ee2b99c5817e1a665d",
     "dd755c6dc7e6247b7bf0dc3a",
     "87d5ea6aecd661863cb35f31",
@@ -569,6 +575,9 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://github.blog/changelog/2026-11-10-github-app-support-for-enterprise-copilot-seat-management",
+    "https://github.blog/changelog/2026-11-10-gemini-4-carbon-in-github-copilot",
+    "https://blog.google/products-and-platforms/platforms/android/gemini-intelligence-november-features-devices",
     "https://arxiv.org/abs/2611.12885v1",
     "https://arxiv.org/abs/2611.12870v1",
     "https://doi.org/10.5281/zenodo.24046679",
@@ -821,6 +830,9 @@
     "https://github.com/huggingface/transformers/releases/tag/v5.20.2"
   ],
   "all_titles": [
+    "6464a9206827a09ce366b677",
+    "79efb57b13f1b8e7feec5205",
+    "25dec17dcef6ec0768965ca7",
     "36972c063827f4dfa84e9bbf",
     "cfc64035d261b87adf2724dc",
     "419d65453343107a53d4718d",
@@ -4762,6 +4774,49 @@
       "analysis": {
         "provider": "Xiaomi MiMo",
         "model": "mimo-v2.6-flash"
+      }
+    },
+    "https://vorasio.com/posts/20261111-morning_radar.html": {
+      "topic": "morning_radar",
+      "created_at": "2026-11-11T01:12:24.326607+00:00",
+      "items": [
+        {
+          "uid": "0da2a3ce8ca2ed1bece890ee",
+          "title": "GitHub App support for Enterprise Copilot seat management",
+          "url": "https://github.blog/changelog/2026-11-10-github-app-support-for-enterprise-copilot-seat-management",
+          "published": "2026-11-11T00:10:31+00:00",
+          "summary": "Enterprise GitHub Apps can now call the enterprise-level Copilot seat management APIs to control which users and enterprise teams are assigned Copilot seats. The Copilot seat management APIs are accessible… The post GitHub App support for Enterprise Copilot seat management appeared first on The GitHub Blog .",
+          "source": "GitHub 官方更新",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        },
+        {
+          "uid": "e09c77a9ac2bb834f395b89d",
+          "title": "Gemini 4 Carbon in GitHub Copilot",
+          "url": "https://github.blog/changelog/2026-11-10-gemini-4-carbon-in-github-copilot",
+          "published": "2026-11-10T19:26:51+00:00",
+          "summary": "Gemini 4 Carbon, Google’s latest model, is now generally available in GitHub Copilot. It is designed for complex coding, agentic, and reasoning tasks, with a focus on secure code generation… The post Gemini 4 Carbon in GitHub Copilot appeared first on The GitHub Blog .",
+          "source": "GitHub 官方更新",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        },
+        {
+          "uid": "c0101f36ad82bf9132fd32eb",
+          "title": "Gemini Intelligence: New features, on more devices",
+          "url": "https://blog.google/products-and-platforms/platforms/android/gemini-intelligence-november-features-devices",
+          "published": "2026-11-10T19:00:00+00:00",
+          "summary": "A man speaks into a phone. Text on the screen reads 'Gemini Intelligence'",
+          "source": "Google AI 官方博客",
+          "kind": "research",
+          "doi": "",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
       }
     }
   },

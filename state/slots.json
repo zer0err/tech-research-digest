@@ -2,57 +2,9 @@
   "version": 1,
   "slots": {
     "2026-11-11:morning_radar": {
-      "status": "prepared",
+      "status": "published",
       "updated_at": "2026-11-11T01:12:24.326607+00:00",
-      "attempts": 1,
-      "pending": {
-        "topic": "morning_radar",
-        "title": "AI 晨间雷达与免费资源",
-        "url": "https://vorasio.com/posts/20261111-morning_radar.html",
-        "created_at": "2026-11-11T01:12:24.326607+00:00",
-        "items": [
-          {
-            "uid": "0da2a3ce8ca2ed1bece890ee",
-            "title": "GitHub App support for Enterprise Copilot seat management",
-            "url": "https://github.blog/changelog/2026-11-10-github-app-support-for-enterprise-copilot-seat-management",
-            "published": "2026-11-11T00:10:31+00:00",
-            "summary": "Enterprise GitHub Apps can now call the enterprise-level Copilot seat management APIs to control which users and enterprise teams are assigned Copilot seats. The Copilot seat management APIs are accessible… The post GitHub App support for Enterprise Copilot seat management appeared first on The GitHub Blog .",
-            "source": "GitHub 官方更新",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day"
-          },
-          {
-            "uid": "e09c77a9ac2bb834f395b89d",
-            "title": "Gemini 4 Carbon in GitHub Copilot",
-            "url": "https://github.blog/changelog/2026-11-10-gemini-4-carbon-in-github-copilot",
-            "published": "2026-11-10T19:26:51+00:00",
-            "summary": "Gemini 4 Carbon, Google’s latest model, is now generally available in GitHub Copilot. It is designed for complex coding, agentic, and reasoning tasks, with a focus on secure code generation… The post Gemini 4 Carbon in GitHub Copilot appeared first on The GitHub Blog .",
-            "source": "GitHub 官方更新",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day"
-          },
-          {
-            "uid": "c0101f36ad82bf9132fd32eb",
-            "title": "Gemini Intelligence: New features, on more devices",
-            "url": "https://blog.google/products-and-platforms/platforms/android/gemini-intelligence-november-features-devices",
-            "published": "2026-11-10T19:00:00+00:00",
-            "summary": "A man speaks into a phone. Text on the screen reads 'Gemini Intelligence'",
-            "source": "Google AI 官方博客",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day"
-          }
-        ],
-        "notify": false,
-        "mode": "production",
-        "analysis": {
-          "provider": "Groq",
-          "model": "openai/gpt-oss-20b"
-        },
-        "slot": "morning_radar"
-      }
+      "attempts": 1
     },
     "2026-11-10:prompt_engineering": {
       "status": "already_published",
