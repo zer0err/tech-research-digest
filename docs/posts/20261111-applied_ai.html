@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Agent、机器人与具身智能（2026-11-11）</title><meta name="description" content="Agent、机器人与具身智能（2026-11-11）：3 项最新研究">
+<link rel="alternate" type="application/rss+xml" title="VORASIO" href="../feed.xml">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/growth.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=presentation-1">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav aria-label="主导航">
+<a href="../domains/index.html">领域导航</a>
+<a href="../index.html#latest">全部更新</a>
+<a href="../knowledge/index.html">AI 知识科普</a>
+<a href="../courses/index.html">AI 学习</a>
+<a href="../tools/index.html">AI 工具</a>
+<a href="../subscribe.html">订阅精选</a>
+<a href="../services.html">开发咨询</a>
+<a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">AI 应用与落地专题</p><dl><dt>发布时间</dt><dd data-published-at="2026-11-11T18:12:20.999280+08:00">2026-11-11 18:12 · UTC+8</dd><dt>研究条目</dt><dd>3 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · AI 应用与落地专题</p><h1>Agent、机器人与具身智能（2026-11-11）</h1><!-- provenance:start --><p class="ai-analysis" title="openai/gpt-oss-20b">AI 分析：Groq</p><!-- provenance:end --><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期结论</h2>
+<ol>
+<li>通过将IPMC驱动的柔性臂分解为旋转与平移对，2‑DOF并联机器人能够实现线性平移运动，并在实验中通过非奇异终端滑模控制实现误差在有限时间内收敛至零[1]。</li>
+<li>在三维仿真环境中，Modified RRT算法在动态障碍、动态目标、坡道等多种情境下的成功率可达98%，并比标准RRT缩短10–15%的路径长度[2]。</li>
+<li>对于临床导向的病房巡检机器人，基于意图级任务模型与临床优先级调度器（CP‑Sched）的仿真显示，急诊订单到床侧的95百分位时间可从347 s降至215 s，提升约38%[3]。</li>
+</ol>
+<h2>逐项分析</h2>
+<table>
+<thead>
+<tr>
+<th>资料</th>
+<th>核心贡献</th>
+<th>方法与数据</th>
+<th>性能证据</th>
+<th>局限与证据等级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[1]</td>
+<td>设计2‑DOF并联机器人并提出非奇异终端滑模控制</td>
+<td>等效刚体运动学模型；将柔性臂运动解耦为旋转+平移；使用激光距离传感器反馈实现NTSMC控制</td>
+<td>误差在有限时间内收敛至零；未给出具体数值，但摘要表明成功实现线性平移[1]</td>
+<td>仅在仿真/实验室环境下验证；未报告多关节或复杂负载情况；证据等级A</td>
+</tr>
+<tr>
+<td>[2]</td>
+<td>将Modified RRT扩展至三维仿真环境并评估多场景性能</td>
+<td>ROS 2 + Gazebo；同步RGB+深度感知；共享代价图、碰撞检查器；对比四种规划器</td>
+<td>成功率最高98%；完成时间比标准RRT低17.6%；路径长度比标准RRT短10–15%[2]</td>
+<td>仅在仿真中测试；未涉及真实机器人硬件或动态障碍物的物理交互；证据等级A</td>
+</tr>
+<tr>
+<td>[3]</td>
+<td>以意图级任务模型和临床优先级调度器实现病房巡检机器人安全调度</td>
+<td>任务模型包含资源锁、确认门、可中断划分；CP‑Sched结合紧急度、老化、行程意识；安全监督器使用时序自动机并在TLA+中验证[3]</td>
+<td>95百分位急诊到床侧时间从347 s降至215 s，提升38%[3]</td>
+<td>仅仿真；未在真实病房环境中测试；任务时间为建模假设；证据等级A</td>
+</tr>
+</tbody>
+</table>
+<h2>工程行动建议</h2>
+<ul>
+<li><strong>验证实验</strong>
+<ul>
+<li>对[1]的IPMC并联机器人，在水下或湿润环境中进行多次线性平移实验，记录误差收敛时间与电压输入曲线。</li>
+<li>对[2]的Modified RRT，在真实机器人平台（如四足或轮式）上搭建三维障碍地图，测量成功率、路径长度与耗时。</li>
+<li>对[3]的CP‑Sched，在医院模拟环境中部署真实机器人，记录急诊订单到床侧的实际时间与中断事件。</li>
+</ul>
+</li>
+<li><strong>落地评估</strong>
+<ul>
+<li>评估IPMC驱动的柔性臂在不同负载、温度与湿度下的性能稳定性。</li>
+<li>对Modified RRT的参数（树扩展步长、采样策略）进行敏感性分析，以确定在不同地形坡度下的最优设置。</li>
+<li>在临床环境中，监测CP‑Sched对医护工作流的影响，包括任务等待时间、错误率与安全事件。</li>
+</ul>
+</li>
+<li><strong>后续跟踪指标</strong>
+<ul>
+<li>IPMC机器人：误差均方根、能耗、响应时间。</li>
+<li>Modified RRT：成功率、平均路径长度、规划时间。</li>
+<li>CP‑Sched：急诊订单到床侧时间分布、任务中断次数、系统安全违规率。</li>
+</ul>
+</li>
+</ul>
+<h2>参考资料</h2>
+<ol>
+<li>Kinematic Modeling and Nonsingular Terminal Sliding Mode Control Method for a 2-DOF Parallel Robot Actuated by IPMC – <a href="https://doi.org/10.1177/21695172261499043">https://doi.org/10.1177/21695172261499043</a></li>
+<li>Simulation-based evaluation of a modified RRT algorithm for ground-robot navigation in 3D environments – <a href="https://doi.org/10.3389/frobt.2026.1981973">https://doi.org/10.3389/frobt.2026.1981973</a></li>
+<li>Clinical-priority task orchestration and verified safety supervision for a physician-directed ward-rounding robot: a simulation-based feasibility study – <a href="https://doi.org/10.3389/frobt.2026.1996839">https://doi.org/10.3389/frobt.2026.1996839</a></li>
+</ol>
+</div><section class="growth-card" data-growth-cta><h2>有项目想法？</h2><p>可以订阅后续更新，也可以整理你的 AI 软件或智能硬件需求，发来聊聊。</p><a href="../subscribe.html">订阅 AI 精选</a> · <a href="../services.html?source=/posts/20261111-applied_ai.html">整理开发需求</a></section></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原始来源。</span></footer></body></html>

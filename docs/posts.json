@@ -1,5 +1,56 @@
 [
   {
+    "title": "Agent、机器人与具身智能（2026-11-11）",
+    "date": "2026-11-11T18:12:20.999280+08:00",
+    "count": 3,
+    "url": "posts/20261111-applied_ai.html",
+    "topic": "applied_ai",
+    "source_topic": "embodied",
+    "status": "published",
+    "summary": "本期结论 1. 通过将IPMC驱动的柔性臂分解为旋转与平移对，2‑DOF并联机器人能够实现线性平移运动，并在实验中通过非奇异终端滑模控制实现误差在有限时间内收敛至零1。 2. 在三维仿真环境中，Modified RRT算法在动态障碍、动态目标、坡道等多种情境下的成功率可达98%，并比标准RRT缩短10–15%的路径长度",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "Kinematic Modeling and Nonsingular Terminal Sliding Mode Control Method for a 2-DOF Parallel Robot Actuated by IPMC",
+          "url": "https://doi.org/10.1177/21695172261499043",
+          "publisher": "Crossref Embodied",
+          "host": "doi.org",
+          "family": "书目索引",
+          "published": "2026-11-11T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "10.1177/21695172261499043",
+          "kind": "research"
+        },
+        {
+          "title": "Simulation-based evaluation of a modified RRT algorithm for ground-robot navigation in 3D environments",
+          "url": "https://doi.org/10.3389/frobt.2026.1981973",
+          "publisher": "Crossref Embodied",
+          "host": "doi.org",
+          "family": "书目索引",
+          "published": "2026-11-11T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "10.3389/frobt.2026.1981973",
+          "kind": "research"
+        },
+        {
+          "title": "Clinical-priority task orchestration and verified safety supervision for a physician-directed ward-rounding robot: a simulation-based feasibility study",
+          "url": "https://doi.org/10.3389/frobt.2026.1996839",
+          "publisher": "Crossref Embodied",
+          "host": "doi.org",
+          "family": "书目索引",
+          "published": "2026-11-11T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "10.3389/frobt.2026.1996839",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 人物、机构与产业生态（2026-11-11）",
     "date": "2026-11-11T17:42:21.655854+08:00",
     "count": 1,
