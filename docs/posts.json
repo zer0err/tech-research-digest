@@ -1,5 +1,44 @@
 [
   {
+    "title": "AI 开发实践与部署（2026-11-11）",
+    "date": "2026-11-11T15:42:17.473644+08:00",
+    "count": 2,
+    "url": "posts/20261111-dev_practice.html",
+    "topic": "dev_practice",
+    "status": "published",
+    "summary": "本期主题 - 依据 FastAPI 0.162.3 与 0.162.4 官方发布说明，梳理可执行的版本升级与 AI 辅助开发实践 12。 - 明确 0.162.4 修复了运行时对 AnyIO 4.1.0 或更新版本的依赖要求（PR 16730）1。 - 0.162.3 新增 Python 3.15 支持，并将锁定的 P",
+    "provenance": {
+      "analysis": {
+        "provider": "Xiaomi MiMo",
+        "model": "mimo-v2.6-flash"
+      },
+      "sources": [
+        {
+          "title": "0.162.4",
+          "url": "https://github.com/fastapi/fastapi/releases/tag/0.162.4",
+          "publisher": "FastAPI Releases",
+          "host": "github.com",
+          "family": "代码与版本",
+          "published": "2026-11-10T17:50:03+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "0.162.3",
+          "url": "https://github.com/fastapi/fastapi/releases/tag/0.162.3",
+          "publisher": "FastAPI Releases",
+          "host": "github.com",
+          "family": "代码与版本",
+          "published": "2026-11-10T14:21:32+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 芯片、计算架构与硬件平台（2026-11-11）",
     "date": "2026-11-11T14:13:00.012665+08:00",
     "count": 2,

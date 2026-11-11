@@ -26,6 +26,48 @@
       "updated_at": "2026-11-11T02:42:21.167716+00:00",
       "attempts": 1
     },
+    "2026-11-11:dev_practice": {
+      "status": "prepared",
+      "updated_at": "2026-11-11T07:42:17.473644+00:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "dev_practice",
+        "title": "AI 开发实践与部署",
+        "url": "https://vorasio.com/posts/20261111-dev_practice.html",
+        "created_at": "2026-11-11T07:42:17.473644+00:00",
+        "items": [
+          {
+            "uid": "79d5092fcf6ccbd4d13aaf63",
+            "title": "0.162.4",
+            "url": "https://github.com/fastapi/fastapi/releases/tag/0.162.4",
+            "published": "2026-11-10T17:50:03+00:00",
+            "summary": "FastAPI includes an official skill that helps coding agents use new features and recommended patterns for your installed version. Install it with uvx library-skills in your project. See Develop with AI . Fixes 🐛 Require AnyIO 4.1.0 or newer at runtime. PR #16730 by @tiangolo .",
+            "source": "FastAPI Releases",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          },
+          {
+            "uid": "0a2d75f33d814a2e8e5c1251",
+            "title": "0.162.3",
+            "url": "https://github.com/fastapi/fastapi/releases/tag/0.162.3",
+            "published": "2026-11-10T14:21:32+00:00",
+            "summary": "FastAPI includes an official skill that helps coding agents use new features and recommended patterns for your installed version. Install it with uvx library-skills in your project. See Develop with AI . Upgrades ⬆️ Add support for Python 3.15. PR #16727 by @tiangolo . ⬆️ Update locked Pydantic to 2.14.3. PR #16728 by @tiangolo . ⬆️ Upgrade markdown-include-variants to 0.0.10. PR #16705 by @tiangolo . Docs 📝 Adopt unversioned snippets and _non_an variants. PR #16707 by @tiangolo . 🎨 Use the Zensical modern theme for docs. PR #16701 by @tiangolo . 🐛 Fix AI coding agent notice links in previews. PR #16700 by @tiangolo . 📝 Add an AI coding agent notice to the docs. PR #16699 by @tiangolo . Translations 🌐 Update Traditional Chinese translations. PR #16719 by @tiangolo . 🌐 Update Chinese translations. PR #16718 by @tiangolo . 🌐 Update Ukrainian translations. PR #16717 by @tiangolo . 🌐 Update Turkish translations. PR #16716 by @tiangolo . 🌐 Update Russian translations. PR #16715 by @tiangolo . 🌐 Update Portuguese translations. PR #16714 by @tiangolo . 🌐 Update Korean translations. PR #16713 by @tiangolo . 🌐 Update Japanese translations. PR #16712 by @tiangolo . 🌐 Update Hindi translations. PR #16711 by @tiangolo . 🌐 Update French translations. PR #16710 by @tiangolo . 🌐 Update Spanish translations. PR #16709 by @tiangolo . 🌐 Update German translations. PR #16708 by @tiangolo . 🌐 Upda",
+            "source": "FastAPI Releases",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          }
+        ],
+        "notify": false,
+        "mode": "production",
+        "analysis": {
+          "provider": "Xiaomi MiMo",
+          "model": "mimo-v2.6-flash"
+        },
+        "slot": "dev_practice"
+      }
+    },
     "2026-11-11:core_research": {
       "status": "published",
       "updated_at": "2026-11-11T06:13:00.012665+00:00",
