@@ -17,7 +17,7 @@
 | OpenAlex | 主题检索 API | 发现与交叉核对书目信息 | 不是另一份独立实验证据；摘要可能缺失 | 已配置 Key |
 | Crossref | 主题检索 API | DOI、出版时间、元数据 | 摘要可能缺失；注册/更新时间不是发表时间 | 已配置 |
 | ACL Anthology | 论文索引与页面 | NLP 正式论文入口 | 固定抓取少量新条目不保证覆盖；更新集中 | 已配置 |
-| CVF Open Access | CVPR 2026 固定入口 | 视觉会议论文 | 当前配置是固定会议日期，通常不在“最新”时间窗 | 已配置但非持续日更源 |
+| CVF Open Access | CVPR 2026 固定入口 | 视觉会议论文 | 档案日不在每日滚动窗口内 | 连接器保留；已退出每日采集，只参与来源检查 |
 | GitHub Releases | Ollama、Transformers、vLLM、PyTorch、FastAPI、Gradio 等 | 正式版本、迁移与兼容性 | 不应直接从 release 推导完整已验证教程 | 已配置；API 与 Atom 混用 |
 | GitHub commits | OpenAI Cookbook、Prompt Engineering Guide | 教程/提示词变更线索 | 当前多为提交标题，常缺足够正文；不能等同正式更新 | 已配置，建议改为读取有效 diff |
 | 官方博客 | Google AI、Hugging Face、GitHub、NVIDIA | 官方发布与工程资料 | 多栏目重复订阅；厂商宣传不是独立评测 | 已配置 |

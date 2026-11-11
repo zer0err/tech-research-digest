@@ -99,8 +99,20 @@ def test_ledger_persists_publish_and_clears_pending(tmp_path, monkeypatch):
     assert "pending" not in record
 
 
-def test_no_new_receipt_is_terminal_but_not_next_day():
+def test_no_new_receipt_waits_for_rescan_and_does_not_block_next_day():
     ledger = empty()
     ledger["slots"][schedule.key("morning_radar", now())] = {"status": "no_matching_in_window"}
     assert not schedule.eligible("morning_radar", now(), ledger, [])
     assert schedule.eligible("morning_radar", now() + timedelta(days=1), ledger, [])
+
+
+def test_empty_day_can_be_rescanned_after_the_long_cooldown():
+    ledger = empty()
+    moment = now()
+    ledger["slots"][schedule.key("open_source", moment)] = {
+        "status": "already_published", "attempts": 1, "updated_at": moment.isoformat(),
+    }
+    assert not schedule.eligible("open_source", moment + timedelta(minutes=179), ledger, [])
+    assert schedule.eligible("open_source", moment + timedelta(minutes=181), ledger, [])
+    ledger["slots"][schedule.key("open_source", moment)]["attempts"] = 3
+    assert not schedule.eligible("open_source", moment + timedelta(hours=6), ledger, [])

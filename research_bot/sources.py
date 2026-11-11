@@ -14,6 +14,16 @@ import feedparser
 import httpx
 
 LOG = logging.getLogger(__name__)
+# Stable tags: v1.2, v1.2.3, v1.2.3.4, v1.2.3.post1. Pre-releases stay out.
+RELEASE_TAG = re.compile(r"v?\d+(?:\.\d+){1,3}(?:\.post\d+)?\Z", re.I)
+PRERELEASE_TAG = re.compile(r"(?:^|[^A-Za-z])(?:rc|alpha|beta|dev|preview)(?:[^A-Za-z]|$)", re.I)
+
+
+def stable_release_tag(tag: str) -> bool:
+    tag = tag.strip()
+    if not tag or PRERELEASE_TAG.search(tag):
+        return False
+    return RELEASE_TAG.fullmatch(tag) is not None
 
 
 class SourceNotConfigured(RuntimeError):
@@ -61,7 +71,7 @@ def openalex_entries(data: dict) -> list[dict]:
         location = work.get("primary_location") or {}
         doi = work.get("doi") or ids.get("doi") or ""
         entries.append({
-            "id": work.get("id"), "doi": doi, "title": work.get("title", ""),
+            "id": work.get("id"), "doi": doi, "arxiv": ids.get("arxiv") or "", "title": work.get("title", ""),
             "link": doi or location.get("landing_page_url") or work.get("id", ""),
             "published": work.get("publication_date"), "summary": inverse_abstract(work.get("abstract_inverted_index")),
         })
@@ -171,7 +181,7 @@ def fetch_entries(source: dict[str, Any], client: httpx.Client, now: datetime, c
             {"id": str(record["id"]), "title": f"{repository}: {record.get('name') or record.get('tag_name', '')}",
              "link": record["html_url"], "published": record.get("published_at"), "summary": record.get("body", "")}
             for record in records if not record.get("draft") and not record.get("prerelease")
-            and re.fullmatch(r"v?\d+\.\d+(?:\.\d+)?", record.get("tag_name", ""))
+            and stable_release_tag(str(record.get("tag_name", "")))
         ]
     parsed = feedparser.parse(get(client, url).content)
     if parsed.bozo and not parsed.entries:

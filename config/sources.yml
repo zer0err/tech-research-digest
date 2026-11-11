@@ -1,12 +1,13 @@
+# max_items 是栏目希望送给模型的条数，还会被 config/editorial.yml 的 analysis_item_limit 再限制一次。
+# 当前两者都是 3。只有调高 analysis_item_limit，大于 3 的 max_items 才会生效。
 topics:
   morning_radar:
     title: "AI 晨间雷达与免费资源"
     analysis_focus: "筛选最近的重要 AI 动态，并单独检查免费 VPS 与免费 AI 服务线索。免费必须说明是永久免费层、限时试用、赠送额度还是尚待核验；不得把营销标题当成已确认事实。"
     content_type: radar
-    notify: true
     require_summary: true
     lookback_hours: 96
-    max_items: 6
+    max_items: 3
     sources:
       - name: Google AI 官方博客
         url: "https://blog.google/technology/ai/rss/"
@@ -29,9 +30,8 @@ topics:
     title: "AI 开源项目与工具更新"
     analysis_focus: "关注正式版本、兼容性、性能变化、迁移风险和可复现入口；普通提交和没有发布说明的变化不作为重大更新。"
     content_type: brief
-    notify: false
     lookback_hours: 120
-    max_items: 5
+    max_items: 3
     max_per_source: 1
     sources:
       - {name: Ollama Releases, type: github, limit: 8, url: "https://api.github.com/repos/ollama/ollama/releases"}
@@ -41,9 +41,8 @@ topics:
     title: "Prompt、上下文工程与评测"
     analysis_focus: "关注提示词、上下文管理、RAG、工具调用和评测方法的可验证更新；区分经验建议、正式文档和实证结果。"
     content_type: brief
-    notify: false
     lookback_hours: 240
-    max_items: 5
+    max_items: 3
     keywords: [prompt, context, eval, evaluation, rag, retrieval, tool, agent]
     sources:
       - {name: OpenAI Cookbook Updates, url: "https://github.com/openai/openai-cookbook/commits/main.atom"}
@@ -53,9 +52,8 @@ topics:
     title: "AI 开发实践与部署"
     analysis_focus: "从官方版本说明和项目文档中提炼可执行实践；不能从资料确认的命令、参数和兼容性必须明确留待核验。"
     content_type: practice
-    notify: false
     lookback_hours: 168
-    max_items: 4
+    max_items: 3
     sources:
       - name: PyTorch Releases
         url: "https://github.com/pytorch/pytorch/releases.atom"
@@ -67,10 +65,9 @@ topics:
     title: "AI 人物、机构与产业生态"
     analysis_focus: "追踪机构、实验室、开发者生态和正式发布；只总结公开资料中的可核验事实，不推断个人动机、立场或未公开关系。"
     content_type: brief
-    notify: false
     require_summary: true
     lookback_hours: 120
-    max_items: 5
+    max_items: 3
     keywords: [ai, artificial intelligence, model, agent, machine learning, research, developer]
     sources:
       - {name: Google AI 官方博客, url: "https://blog.google/technology/ai/rss/"}
@@ -80,7 +77,7 @@ topics:
     title: "AI 模型、训练与基础研究"
     analysis_focus: "模型架构、预训练与后训练、推理能力、数据方法、评测可靠性；重点区分通用能力提升与特定应用。"
     lookback_hours: 72
-    max_items: 6
+    max_items: 3
     keywords: [model, pretrain, post-train, reasoning, alignment, reinforcement learning, multimodal, transformer, language model]
     required_any: [language model, transformer, pretrain, pre-training, post-training, reinforcement learning, foundation model]
     exclude_any: [quantization, pruning, model compression, tinyml, on-device, ai accelerator, npu, fpga, asic, robot, embodied, vision-language-action]
@@ -94,7 +91,7 @@ topics:
     title: "高效 AI、模型压缩与端侧适配"
     analysis_focus: "参数量、精度、量化位宽、剪枝或蒸馏方法、内存、延迟、吞吐、功耗和目标设备；明确质量与资源之间的权衡。"
     lookback_hours: 216
-    max_items: 7
+    max_items: 3
     keywords: [quantization, pruning, distillation, compression, low-rank, sparse, tinyml, on-device, small model]
     sources:
       - name: arXiv Efficient AI
@@ -106,7 +103,7 @@ topics:
     title: "推理引擎、编译器与嵌入式系统"
     analysis_focus: "编译器、运行时、算子与内存优化、异构调度、CPU/GPU/NPU 协同、实时性及边云协同；优先报告可复现的系统性能。"
     lookback_hours: 240
-    max_items: 7
+    max_items: 3
     keywords: [inference, compiler, runtime, kernel, operator, scheduling, serving, embedded, memory]
     sources:
       - name: arXiv Inference Systems
@@ -118,7 +115,7 @@ topics:
     title: "AI 芯片、计算架构与硬件平台"
     analysis_focus: "NPU/GPU/DSP/FPGA/ASIC 架构、存储与互连、吞吐、延迟、功耗、面积、制程和软硬件协同；不要把纯算法论文当作芯片进展。"
     lookback_hours: 264
-    max_items: 7
+    max_items: 3
     keywords: [accelerator, npu, fpga, asic, risc-v, chip, compute-in-memory, neuromorphic]
     required_any: [ai, artificial intelligence, machine learning, neural network, deep learning, llm]
     sources:
@@ -131,20 +128,19 @@ topics:
     title: "多模态感知、音视频与人机交互"
     analysis_focus: "视觉、语音、音频、雷达及传感器融合的任务定义、数据集、质量指标、实时性与交互条件；指出单模态和多模态贡献。"
     lookback_hours: 264
-    max_items: 8
+    max_items: 3
     keywords: [vision, image, video, audio, speech, acoustic, sensor, multimodal, radar, lidar, interaction]
     exclude_any: [robot, robotic, embodied, vision-language-action, manipulation, autonomous navigation]
     sources:
       - name: arXiv Perception
         url: "https://export.arxiv.org/api/query?search_query=cat:cs.CV+OR+cat:cs.SD+OR+cat:eess.AS&sortBy=submittedDate&sortOrder=descending&max_results=100"
       - {name: OpenAlex Multimodal, type: openalex, query: "multimodal audio vision", limit: 20, url: "https://api.openalex.org/works"}
-      - {name: CVF CVPR 2026, type: cvf, published: "2026-05-23", limit: 3, url: "https://openaccess.thecvf.com/CVPR2026?day=all"}
       - {name: Crossref Multimodal, type: crossref, query: "multimodal speech vision", limit: 15, url: "https://api.crossref.org/works"}
   embodied:
     title: "Agent、机器人与具身智能"
     analysis_focus: "规划、记忆、工具或设备调用、VLA、世界模型、导航、操作与控制、仿真到现实及失败模式；弱化与真实环境无关的纯浏览器 Agent。"
     lookback_hours: 264
-    max_items: 8
+    max_items: 3
     keywords: [robot, robotic, embodied, agent, vision-language-action, manipulation, navigation, world model, control, sim-to-real]
     sources:
       - name: arXiv Embodied Intelligence
@@ -156,7 +152,7 @@ topics:
     title: "智能硬件产品化、可靠性与安全"
     analysis_focus: "设备功耗与热管理、隐私、安全、鲁棒性、OTA、监控、故障诊断、量产测试与合规；区分实验原型和具备产品化证据的方案。"
     lookback_hours: 336
-    max_items: 7
+    max_items: 3
     keywords: [iot, device, hardware, privacy, security, robust, reliability, fault, thermal, power, firmware, ota]
     sources:
       - name: arXiv Hardware Reliability

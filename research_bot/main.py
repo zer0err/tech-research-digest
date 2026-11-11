@@ -34,7 +34,6 @@ def prepare_topic(
     now: datetime,
     dry_run: bool = False,
     publish_key: str | None = None,
-    allow_empty: bool = False,
 ) -> bool:
     # A skipped run must never reuse a previous run's publish/notification request.
     Path("work/pending.json").unlink(missing_ok=True)
@@ -51,13 +50,15 @@ def prepare_topic(
         logging.exception("Sources unavailable for %s", topic)
         decision(key, "source_failure", mode=mode)
         return False
+    stats = getattr(candidates, "stats", {}) if isinstance(getattr(candidates, "stats", {}), dict) else {}
     collected = len(candidates)
     candidates = [item for item in candidates if len(item.summary.strip()) >= 40 and item.title.strip()
                   and item.url.startswith("https://")]
     fresh = unseen(candidates, state, topic)
     counts = {"collected": collected, "usable": len(candidates), "already_published": len(candidates) - len(fresh),
-              "unpublished": len(fresh), "mode": mode}
-    limit = min(3, int(config["max_items"]))
+              "unpublished": len(fresh), "sources_failed": int(stats.get("failed", 0)), "mode": mode}
+    cap = int(config.get("analysis_item_limit", 3))
+    limit = min(cap, int(config["max_items"]))
     if config.get("content_type") == "radar":
         resources = [item for item in fresh if item.kind == "resource"][:2]
         regular = [item for item in fresh if item.kind != "resource"][: limit - len(resources)]
@@ -66,28 +67,36 @@ def prepare_topic(
         selected = fresh[:limit]
     if not selected:
         logging.info("No unseen in-window items for %s", topic)
-        reason = "already_published" if candidates else ("insufficient_abstract" if collected else "no_matching_in_window")
-        decision(key, reason, **counts)
+        if counts["sources_failed"] and not candidates:
+            reason = "source_failure"
+        elif candidates:
+            reason = "already_published"
+        elif int(stats.get("short_summary", 0)) and not collected:
+            reason = "insufficient_abstract"
+        else:
+            reason = "no_matching_in_window"
+        decision(key, reason, sources=stats.get("sources", []), **counts)
         return False
     if dry_run:
         print(json.dumps(dump_items(selected), ensure_ascii=False, indent=2))
         return bool(selected)
     content_type = str(config.get("content_type", "research"))
+    analyse = groq_analyse
     for attempt in range(2):
         try:
-            analyse = mimo_analyse if attempt == 1 and mimo_enabled() else groq_analyse
             try:
-                report = analyse(str(config["title"]), str(config["analysis_focus"]), selected, content_type)
+                report = groq_analyse(str(config["title"]), str(config["analysis_focus"]), selected, content_type)
+                analyse = groq_analyse
             except Exception:
-                if analyse is not groq_analyse or not mimo_enabled():
+                if not mimo_enabled():
                     raise
-                analyse = mimo_analyse
                 report = mimo_analyse(str(config["title"]), str(config["analysis_focus"]), selected, content_type)
+                analyse = mimo_analyse
         except Exception as exc:
             logging.warning("Analysis unavailable for %s (%s); skipping publication", topic, type(exc).__name__)
             decision(key, "analysis_api_failure", error=type(exc).__name__, **counts)
             return False
-        report = normalize_report(report, content_type)
+        report = normalize_report(report, content_type, selected)
         issues = report_validation_errors(report, selected, content_type)
         if "降级为" in report:
             issues.append("model_truncated_or_fallback")
@@ -123,7 +132,7 @@ def prepare_topic(
         return False
     analysis = {"provider": "Xiaomi MiMo" if analyse is mimo_analyse else "Groq",
                 "model": "mimo-v2.6-flash" if analyse is mimo_analyse else os.getenv("GROQ_MODEL", "openai/gpt-oss-20b")}
-    public_url = publish_post(key, str(config["title"]), now, report, selected, analysis=analysis)
+    public_url = publish_post(key, str(config["title"]), now, report, selected, analysis=analysis, source_topic=topic)
     Path("reports").mkdir(exist_ok=True)
     Path(f"reports/{key}-{now:%Y%m%dT%H%M%SZ}.md").write_text(header + report)
     Path("work").mkdir(exist_ok=True)
@@ -135,6 +144,7 @@ def prepare_topic(
                 "url": public_url,
                 "created_at": now.isoformat(),
                 "items": dump_items(selected),
+                "source_topic": topic,
                 "notify": config.get("notify", True),
                 "mode": mode,
                 "analysis": analysis,

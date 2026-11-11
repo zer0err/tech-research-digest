@@ -128,4 +128,4 @@ def test_workflow_daily_trigger_matches_due_time():
     assert '0 11 * * *' in crons
     assert '47 10 * * *' not in crons
     editorial = yaml.safe_load((project / 'config/editorial.yml').read_text())
-    assert editorial['slots']['daily_digest']['hour'] == 19
+    assert editorial['slots']['daily_digest']['time'] == '19:00'

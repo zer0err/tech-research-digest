@@ -17,10 +17,10 @@ def setup_run(tmp_path, monkeypatch):
     return {"title": "Test", "analysis_focus": "Test", "max_items": 6}, datetime(2026, 10, 23, tzinfo=UTC)
 
 
-def test_no_items_even_allow_empty_does_not_publish(setup_run, monkeypatch):
+def test_no_items_does_not_publish(setup_run, monkeypatch):
     config, now = setup_run
     monkeypatch.setattr(runner, "collect", lambda *args: [])
-    assert not runner.prepare_topic("test", config, Path("state.json"), now, allow_empty=True)
+    assert not runner.prepare_topic("test", config, Path("state.json"), now)
     assert not Path("work/pending.json").exists()
     assert not Path("docs").exists()
 

@@ -10,6 +10,18 @@ import yaml
 
 from .sources import fetch_entries
 
+# CVPR 2026's archive day is outside every daily lookback, so it is not a production
+# source. The connector stays available for a future conference week and for this check.
+DIAGNOSTIC_SOURCES = [
+    {
+        "name": "CVF CVPR 2026",
+        "type": "cvf",
+        "published": "2026-05-23",
+        "limit": 2,
+        "url": "https://openaccess.thecvf.com/CVPR2026?day=all",
+    },
+]
+
 
 def main() -> None:
     topics = yaml.safe_load(Path("config/sources.yml").read_text())["topics"]
@@ -19,6 +31,8 @@ def main() -> None:
             kind = source.get("type", "rss")
             if kind != "rss" or source["name"] == "NVIDIA Technical Blog":
                 selected.setdefault(kind if kind != "rss" else "nvidia", source)
+    for source in DIAGNOSTIC_SOURCES:
+        selected.setdefault(source["type"], source)
     now = datetime.now(UTC)
     results = []
     with httpx.Client(timeout=40, follow_redirects=True, headers={"User-Agent": "Vorasio-Source-Check/1.0"}) as client:

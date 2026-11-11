@@ -11,7 +11,7 @@ from .domain_report import MODULES
 from .site import shell
 
 # Explicit editorial mapping, not inferred from titles or model-generated summaries.
-# Rotating slots (paper_brief/core_research/applied_ai) have no fixed domain.
+# Rotating slots record the underlying topic in source_topic. The slot name alone is not a domain.
 TOPIC_MODULES = {
     'model_research': ('models',),
     'training': ('training',),
@@ -57,7 +57,8 @@ def render_domain_hub(site_dir: Path = Path('docs')) -> Path:
         if not eligible_post(post, site_dir) or post['url'] in seen:
             continue
         seen.add(post['url'])
-        for key in TOPIC_MODULES.get(post.get('topic', ''), ()):
+        mapped = post.get('source_topic') or post.get('topic', '')
+        for key in TOPIC_MODULES.get(mapped, ()):
             groups[key].append(post)
     sections = []
     links = []

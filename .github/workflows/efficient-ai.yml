@@ -1,4 +1,4 @@
-name: Efficient AI Monday Thursday 14:00 CST
+name: Preview efficient AI sources (no publication)
 on: workflow_dispatch
 permissions: {contents: write, pages: write, id-token: write, actions: read}
 jobs:

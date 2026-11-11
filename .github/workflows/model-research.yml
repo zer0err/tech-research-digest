@@ -1,4 +1,4 @@
-name: Model research daily 10:00 CST
+name: Preview model research sources (no publication)
 on: workflow_dispatch
 permissions: {contents: write, pages: write, id-token: write, actions: read}
 jobs:
