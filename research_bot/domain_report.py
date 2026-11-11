@@ -51,7 +51,7 @@ def build(evidence: dict, output: Path, *, generate: bool = False, provider: str
             elif generate and (not selected or key in selected):
                 try:
                     report = normalize_report(groq_analyse(title, '围绕本模块的问题综合证据，明确资料边界。',
-                                                          items, 'domain', provider=provider), 'domain')
+                                                          items, 'domain', provider=provider), 'domain', items)
                     issues = report_validation_errors(report, items, 'domain')
                     if len(report) < 300 or '降级为' in report:
                         issues.append('insufficient_or_truncated')

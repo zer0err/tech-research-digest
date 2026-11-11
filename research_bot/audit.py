@@ -29,7 +29,7 @@ def public_summaries(source: Path = Path("reports"), output: Path = Path("work/p
             value = record.get(key)
             if isinstance(value, str) and re.fullmatch(r"[a-z0-9_-]{1,80}", value):
                 summary[key] = value
-        for key in ("collected", "usable", "already_published", "unpublished", "selected"):
+        for key in ("collected", "usable", "already_published", "unpublished", "selected", "sources_failed"):
             value = record.get(key)
             if type(value) is int and value >= 0:
                 summary[key] = value

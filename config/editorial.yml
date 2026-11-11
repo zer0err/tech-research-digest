@@ -1,80 +1,113 @@
+# 每日出版时刻、模型条数和失败重试的唯一配置。
+# .github/workflows/editorial-day.yml 的 UTC cron 必须等于这里的北京时间减 8 小时。
+# 首页时刻和分类也读这一份。测试会在三者不一致时失败。
+timezone: Asia/Shanghai
+analysis_item_limit: 3
+empty_rescan_minutes: 180
+failure_retry_minutes: 60
+max_attempts: 3
+publication_history_limit: 400
 slots:
   morning_radar:
-    hour: 9
+    time: "09:07"
+    label: "晨间雷达与免费资源"
+    category: "快讯"
+    page_title: "AI 晨间雷达与免费资源"
+    cadence: "每日 09:07"
     topic: morning_radar
     publish_key: morning_radar
-    allow_empty: true
   model_research:
-    hour: 10
+    time: "10:17"
+    label: "模型、训练与基础研究"
+    category: "研究"
+    page_title: "AI 模型、训练与基础研究"
+    cadence: "每日 10:17"
     topic: model_research
     publish_key: model_research
-    notify: false
-    allow_empty: true
   open_source:
-    hour: 11
+    time: "11:27"
+    label: "开源项目与工具更新"
+    category: "开发"
+    page_title: "AI 开源项目与工具更新"
+    cadence: "每日 11:27"
     topic: open_source
     publish_key: open_source
-    allow_empty: true
   paper_brief:
-    hour: 12
+    time: "12:37"
+    label: "论文午间速览"
+    category: "研究"
+    page_title: "AI 论文午间速览"
+    cadence: "每日 12:37"
     publish_key: paper_brief
     title: "AI 论文午间速览"
     content_type: brief
-    max_items: 4
-    allow_empty: true
     topic_by_weekday:
-      "1": model_research
+      "1": efficient_ai
       "2": embodied
       "3": inference_systems
       "4": efficient_ai
-      "5": multimodal
-      "6": ai_hardware
+      "5": ai_hardware
+      "6": multimodal
       "7": product_safety
   prompt_engineering:
-    hour: 13
+    time: "13:47"
+    label: "Prompt、上下文与评测"
+    category: "开发"
+    page_title: "Prompt、上下文工程与评测"
+    cadence: "每日 13:47"
     topic: prompt_engineering
     publish_key: prompt_engineering
-    allow_empty: true
   core_research:
-    hour: 14
+    time: "14:07"
+    label: "智能硬件技术专题"
+    category: "研究"
+    page_title: "智能硬件技术专题"
+    cadence: "每日 14:07"
     publish_key: core_research
-    notify: false
-    max_items: 4
-    allow_empty: true
     topic_by_weekday:
-      "1": efficient_ai
-      "2": inference_systems
+      "1": inference_systems
+      "2": multimodal
       "3": ai_hardware
-      "4": efficient_ai
-      "5": multimodal
-      "6": embodied
-      "7": product_safety
+      "4": multimodal
+      "5": embodied
+      "6": product_safety
+      "7": inference_systems
   dev_practice:
-    hour: 15
+    time: "15:17"
+    label: "开发实践与部署"
+    category: "开发"
+    page_title: "AI 开发实践与部署"
+    cadence: "每日 15:17"
     topic: dev_practice
     publish_key: dev_practice
-    allow_empty: true
   applied_ai:
-    hour: 16
+    time: "16:27"
+    label: "AI 应用与落地专题"
+    category: "研究"
+    page_title: "AI 应用与落地专题"
+    cadence: "每日 16:27"
     publish_key: applied_ai
-    notify: false
-    max_items: 4
-    allow_empty: true
     topic_by_weekday:
       "1": ai_hardware
-      "2": embodied
-      "3": multimodal
-      "4": inference_systems
-      "5": product_safety
-      "6": efficient_ai
-      "7": embodied
+      "2": product_safety
+      "3": embodied
+      "4": product_safety
+      "5": efficient_ai
+      "6": inference_systems
+      "7": multimodal
   ecosystem:
-    hour: 17
+    time: "17:37"
+    label: "人物、机构与产业生态"
+    category: "生态"
+    page_title: "AI 人物、机构与产业生态"
+    cadence: "每日 17:37"
     topic: ecosystem
     publish_key: ecosystem
-    allow_empty: true
   daily_digest:
-    hour: 19
+    time: "19:00"
+    label: "VORASIO AI 日报"
+    category: "快讯"
+    page_title: "VORASIO AI 日报"
+    cadence: "每日 19:00"
     special: daily_digest
     publish_key: daily_digest
-

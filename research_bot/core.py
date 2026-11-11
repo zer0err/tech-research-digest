@@ -13,13 +13,13 @@ from dataclasses import asdict, dataclass
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from typing import Any
-from urllib.parse import unquote, urlsplit, urlunsplit
+from urllib.parse import parse_qsl, unquote, urlencode, urlsplit, urlunsplit
 
 import httpx
 from dateutil import parser as dateparser
 
 from .charter import charter_text
-from .sources import fetch_entries
+from .sources import fetch_entries, stable_release_tag
 
 LOG = logging.getLogger(__name__)
 USER_AGENT = "tech-research-digest/1.0 (+GitHub Actions; contact repository owner)"
@@ -40,20 +40,92 @@ class Item:
     kind: str = "research"
     doi: str = ""
     date_precision: str = "day"
+    aliases: tuple[str, ...] = ()
+
+
+TRACKING_QUERY_KEYS = {
+    "fbclid", "gclid", "gclsrc", "dclid", "gad_source", "mc_cid", "mc_eid", "igshid", "mkt_tok",
+    "yclid", "twclid", "ttclid", "msclkid", "_hsenc", "_hsmi", "hsa_cam", "hsa_grp", "hsa_mt",
+    "hsa_src", "hsa_ad", "hsa_acc", "hsa_net", "hsa_ver", "hsa_kw", "hsa_tgt",
+}
+ARXIV_ID = re.compile(r"(?:arxiv\.org/(?:abs|pdf)/|arxiv:)(\d{4}\.\d{4,5})(?:v\d+)?", re.I)
+GENERIC_BIBLIOGRAPHIC = {"multimodal", "model"}
+MEDICAL_BIBLIOGRAPHIC = (
+    "patient", "diagnosis", "disease", "tuberculosis", "hospital", "pulmonary", "hiv", "clinical trial",
+)
+MONTH_NAMES = (
+    "january", "february", "march", "april", "may", "june", "july", "august",
+    "september", "october", "november", "december",
+)
+RETRYABLE_STATUS = {429, 498, 500, 502, 503, 504}
+MAX_RETRY_WAIT = 45.0
+
+
+class Collected(list):
+    """Items plus per-source counters. Equality with a plain list still works."""
+
+    def __init__(self, items: list[Item], stats: dict[str, Any]) -> None:
+        super().__init__(items)
+        self.stats = stats
 
 
 def canonical_url(url: str) -> str:
-    parts = urlsplit(url.strip())
-    return urlunsplit((parts.scheme.lower(), parts.netloc.lower(), parts.path.rstrip("/"), "", ""))
+    raw = (url or "").strip()
+    if not raw:
+        return ""
+    parts = urlsplit(raw)
+    scheme = parts.scheme.lower()
+    if scheme == "http":
+        scheme = "https"
+    host = parts.netloc.lower()
+    path = parts.path.rstrip("/")
+    if host.endswith("arxiv.org"):
+        path = re.sub(r"(/abs/\d{4}\.\d{4,5})v\d+$", r"\1", path, flags=re.I)
+        path = re.sub(r"(/pdf/\d{4}\.\d{4,5})v\d+(?:\.pdf)?$", r"\1", path, flags=re.I)
+    kept = []
+    for key, value in parse_qsl(parts.query, keep_blank_values=False):
+        lowered = key.lower()
+        if lowered.startswith("utm_") or lowered in TRACKING_QUERY_KEYS:
+            continue
+        kept.append((key, value))
+    return urlunsplit((scheme, host, path, urlencode(sorted(kept)), ""))
+
+
+def normalize_doi(value: str) -> str:
+    doi = (value or "").strip().lower()
+    return re.sub(r"^(?:https?://(?:dx\.)?doi\.org/|doi:\s*)", "", doi)
+
+
+def arxiv_base(*values: str) -> str:
+    for value in values:
+        match = ARXIV_ID.search(value or "")
+        if match:
+            return match.group(1).lower()
+    return ""
+
+
+def identity_aliases(entry: Any) -> tuple[str, ...]:
+    aliases: list[str] = []
+    doi = normalize_doi(str(entry.get("doi", "")))
+    if doi:
+        aliases.append("doi:" + doi)
+    arxiv = arxiv_base(str(entry.get("arxiv", "")), str(entry.get("id", "")), str(entry.get("guid", "")),
+                       str(entry.get("link", "")), str(entry.get("url", "")))
+    if arxiv:
+        aliases.append("arxiv:" + arxiv)
+    url = canonical_url(str(entry.get("link", "") or entry.get("url", "")))
+    if url:
+        aliases.append("url:" + url)
+    return tuple(dict.fromkeys(aliases))
 
 
 def item_id(entry: Any) -> str:
-    doi = str(entry.get("doi", "")).strip().lower()
-    doi = re.sub(r"^(?:https?://(?:dx\.)?doi\.org/|doi:\s*)", "", doi)
+    # Keep this hash stable: seen.json already stores ids produced by feed id / DOI / URL.
+    doi = normalize_doi(str(entry.get("doi", "")))
     raw = "doi:" + doi if doi else (
         entry.get("id") or entry.get("guid") or canonical_url(entry.get("link", "")) or entry.get("title", "")
     )
-    return hashlib.sha256(raw.strip().lower().encode()).hexdigest()[:24]
+    return hashlib.sha256(str(raw).strip().lower().encode()).hexdigest()[:24]
 
 
 def title_key(title: str) -> str:
@@ -78,19 +150,76 @@ def clean_text(value: str, limit: int = 1400) -> str:
 
 
 def contains_term(text: str, term: str) -> bool:
-    escaped = re.escape(term.lower())
-    if re.fullmatch(r"[a-z0-9_-]+", term.lower()):
-        return re.search(rf"(?<![a-z0-9_-]){escaped}(?![a-z0-9_-])", text) is not None
-    return term.lower() in text
+    term = term.lower()
+    words = term.split()
+    if words and all(re.fullmatch(r"[a-z0-9_-]+", word) for word in words):
+        parts = [re.escape(word) for word in words[:-1]]
+        parts.append(re.escape(words[-1]) + r"(?:es|s)?")
+        pattern = r"(?<![a-z0-9_-])" + r"\s+".join(parts) + r"(?![a-z0-9_-])"
+        return re.search(pattern, text) is not None
+    return term in text
 
 
-def collect(topic: dict[str, Any], now: datetime) -> list[Item]:
+def _clock_in_raw(value: str) -> bool:
+    return "T" in value or ":" in value
+
+
+def _period_end(start: datetime, precision: str) -> datetime:
+    if precision == "year":
+        return start.replace(year=start.year + 1)
+    next_month = start.month + 1
+    year = start.year + (next_month > 12)
+    month = 1 if next_month > 12 else next_month
+    return start.replace(year=year, month=month)
+
+
+def in_lookback(published: datetime, precision: str, cutoff: datetime, now: datetime) -> bool:
+    """Day-only dates use the whole calendar day. Month/year dates must lie entirely inside the window."""
+    future = now + timedelta(hours=2)
+    if precision in {"month", "year"}:
+        start = published.replace(day=1, hour=0, minute=0, second=0, microsecond=0)
+        if precision == "year":
+            start = start.replace(month=1)
+        end = _period_end(start, precision)
+        return start >= cutoff and end <= future
+    if precision in {"day", "archive"}:
+        start = published.replace(hour=0, minute=0, second=0, microsecond=0)
+        end = start + timedelta(days=1)
+        return start < future and end > cutoff
+    return cutoff <= published <= future
+
+
+def link_keys(item: Item) -> tuple[str, ...]:
+    strong = [alias for alias in item.aliases if alias.startswith(("doi:", "arxiv:", "url:"))]
+    if strong:
+        return tuple(strong)
+    url = canonical_url(item.url)
+    return (("url:" + url),) if url else ("uid:" + item.uid,)
+
+
+def prefer_item(current: Item, incoming: Item) -> Item:
+    aliases = tuple(dict.fromkeys((*current.aliases, *incoming.aliases)))
+    if len(incoming.summary) > len(current.summary) or (
+        len(incoming.summary) == len(current.summary) and incoming.published > current.published
+    ):
+        chosen = incoming
+    else:
+        chosen = current
+    return replace_aliases(chosen, aliases)
+
+
+def replace_aliases(item: Item, aliases: tuple[str, ...]) -> Item:
+    return Item(item.uid, item.title, item.url, item.published, item.summary, item.source, item.kind,
+                item.doi, item.date_precision, aliases)
+
+
+def collect(topic: dict[str, Any], now: datetime) -> Collected:
     cutoff = now - timedelta(hours=int(topic["lookback_hours"]))
     keywords = [k.lower() for k in topic.get("keywords", [])]
     required_any = [k.lower() for k in topic.get("required_any", [])]
     exclude_any = [k.lower() for k in topic.get("exclude_any", [])]
-    found: dict[str, Item] = {}
-    successful_sources = 0
+    stats: dict[str, Any] = {"failed": 0, "succeeded": 0, "short_summary": 0, "sources": []}
+    pooled: list[Item] = []
     with httpx.Client(timeout=25, follow_redirects=True, headers={"User-Agent": USER_AGENT}) as client:
         for source in topic["sources"]:
             try:
@@ -98,76 +227,117 @@ def collect(topic: dict[str, Any], now: datetime) -> list[Item]:
             except Exception as exc:
                 code = exc.response.status_code if isinstance(exc, httpx.HTTPStatusError) else type(exc).__name__
                 LOG.warning("source failed: %s (%s)", source["name"], code)
+                stats["failed"] += 1
+                failure = {"name": source["name"], "ok": False, "error": type(exc).__name__}
+                if isinstance(exc, httpx.HTTPStatusError):
+                    failure["status"] = exc.response.status_code
+                stats["sources"].append(failure)
                 continue
-            successful_sources += 1
+            stats["succeeded"] += 1
+            kept = filtered_time = filtered_keyword = filtered_short = filtered_link = 0
             for entry in entries:
                 if "github.com/" in source["url"] and "/releases.atom" in source["url"]:
-                    tag = unquote(entry.get("link", "").split("/releases/tag/")[-1])
-                    if not re.fullmatch(r"v?\d+\.\d+(?:\.\d+)?", tag):
+                    tag = unquote(str(entry.get("link", "")).split("/releases/tag/")[-1])
+                    if not stable_release_tag(tag):
+                        filtered_keyword += 1
                         continue
+                raw_time = str(entry.get("published") or entry.get("updated") or "")
+                precision = str(entry.get("date_precision") or ("instant" if _clock_in_raw(raw_time) else "day"))
                 published = parse_time(entry)
-                if not published or published < cutoff or published > now + timedelta(hours=2):
+                if not published or precision == "unknown" or not in_lookback(published, precision, cutoff, now):
+                    filtered_time += 1
                     continue
                 title = clean_text(entry.get("title", ""), 500)
                 summary = clean_text(entry.get("summary", entry.get("description", "")))
-                if topic.get("require_summary") and not summary:
+                if len(summary.strip()) < 40 or not title.strip():
+                    filtered_short += 1
+                    continue
+                url = canonical_url(str(entry.get("link", "")))
+                if not url.startswith("https://"):
+                    filtered_link += 1
                     continue
                 haystack = f"{title} {summary}".lower()
-                if source.get("type") in {"openalex", "crossref"} and not any(
+                bibliographic = source.get("type") in {"openalex", "crossref"}
+                if bibliographic and not any(
                     contains_term(haystack, term) for term in (
                         "artificial intelligence", "machine learning", "deep learning", "neural", "transformer",
                         "language model", "reinforcement learning", "computer vision", "speech recognition",
                         "robot", "robotic", "robotics", "llm", "npu", "fpga", "iot", "tinyml",
                     )
                 ):
+                    filtered_keyword += 1
                     continue
                 excluded_prefixes = [prefix.lower() for prefix in source.get("exclude_title_prefixes", [])]
                 if excluded_prefixes and any(title.lower().startswith(prefix) for prefix in excluded_prefixes):
+                    filtered_keyword += 1
                     continue
                 source_required_all = [word.lower() for word in source.get("required_all", [])]
                 source_required_any = [word.lower() for word in source.get("required_any", [])]
                 source_exclude_any = [word.lower() for word in source.get("exclude_any", [])]
                 if source_required_all and not all(contains_term(haystack, word) for word in source_required_all):
+                    filtered_keyword += 1
                     continue
                 if source_required_any and not any(contains_term(haystack, word) for word in source_required_any):
+                    filtered_keyword += 1
                     continue
                 if source_exclude_any and any(contains_term(haystack, word) for word in source_exclude_any):
+                    filtered_keyword += 1
                     continue
                 if keywords and not any(contains_term(haystack, word) for word in keywords):
+                    filtered_keyword += 1
                     continue
                 if required_any and not any(contains_term(haystack, word) for word in required_any):
+                    filtered_keyword += 1
                     continue
                 if exclude_any and any(contains_term(haystack, word) for word in exclude_any):
+                    filtered_keyword += 1
                     continue
-                uid = item_id(entry)
-                if uid in found and len(found[uid].summary) >= len(summary):
+                if bibliographic and any(contains_term(haystack, term) for term in MEDICAL_BIBLIOGRAPHIC):
+                    filtered_keyword += 1
                     continue
-                found[uid] = Item(
-                    uid,
-                    title,
-                    canonical_url(entry.get("link", "")),
-                    published.isoformat(),
-                    summary,
-                    source["name"],
-                    source.get("kind", "research"),
-                    entry.get("doi", ""),
-                    entry.get("date_precision", "day"),
-                )
-    if topic["sources"] and not successful_sources:
+                if bibliographic:
+                    matched = [word for word in [*keywords, *required_any] if contains_term(haystack, word)]
+                    specific = [word for word in matched if word not in GENERIC_BIBLIOGRAPHIC]
+                    if (keywords or required_any) and not specific:
+                        filtered_keyword += 1
+                        continue
+                display_precision = precision if precision in {"month", "year", "archive"} else "day"
+                pooled.append(Item(
+                    item_id(entry), title, url, published.isoformat(), summary, source["name"],
+                    source.get("kind", "research"), normalize_doi(str(entry.get("doi", ""))),
+                    display_precision, identity_aliases(entry),
+                ))
+                kept += 1
+            stats["short_summary"] += filtered_short
+            stats["sources"].append({
+                "name": source["name"], "ok": True, "received": len(entries), "kept": kept,
+                "filtered_time": filtered_time, "filtered_keyword": filtered_keyword,
+                "filtered_short": filtered_short, "filtered_link": filtered_link,
+            })
+    if topic["sources"] and not stats["succeeded"]:
         raise SourceUnavailable("All configured sources failed; cannot claim there are no new items")
-    ordered = sorted(found.values(), key=lambda x: x.published, reverse=True)
+    merged: list[Item] = []
+    owners: dict[str, int] = {}
+    for item in pooled:
+        keys = link_keys(item)
+        hits = [owners[alias] for alias in keys if alias in owners]
+        if not hits:
+            owners.update({alias: len(merged) for alias in keys})
+            merged.append(item)
+            continue
+        index = hits[0]
+        merged[index] = prefer_item(merged[index], item)
+        for alias in keys:
+            owners[alias] = index
+    ordered = sorted(merged, key=lambda item: item.published, reverse=True)
     per_source = int(topic.get("max_per_source", len(ordered) or 1))
     counts: dict[str, int] = {}
     diversified = []
-    titles: set[str] = set()
     for item in ordered:
-        if title_key(item.title) in titles:
-            continue
         counts[item.source] = counts.get(item.source, 0) + 1
         if counts[item.source] <= per_source:
             diversified.append(item)
-            titles.add(title_key(item.title))
-    return diversified
+    return Collected(diversified, stats)
 
 
 def load_state(path: Path) -> dict[str, Any]:
@@ -180,24 +350,39 @@ def load_state(path: Path) -> dict[str, Any]:
         return {"version": 1, "topics": {}}
 
 
-def unseen(items: list[Item], state: dict[str, Any], topic: str) -> list[Item]:
+def seen_identities(state: dict[str, Any]) -> set[str]:
     seen = set(state.get("all_ids", []))
-    for topic_state in state["topics"].values():
+    for topic_state in state.get("topics", {}).values():
         seen.update(topic_state.get("ids", []))
-    seen_urls = set(state.get("all_urls", []))
-    seen_titles = set(state.get("all_titles", []))
+    for url in state.get("all_urls", []):
+        canon = canonical_url(str(url))
+        if canon:
+            seen.add("url:" + canon)
+        arxiv = arxiv_base(str(url))
+        if arxiv:
+            seen.add("arxiv:" + arxiv)
+        if "doi.org/" in str(url):
+            seen.add("doi:" + normalize_doi(str(url)))
+    return seen
+
+
+def unseen(items: list[Item], state: dict[str, Any], topic: str) -> list[Item]:
+    # Title is not an identity. Different papers may share a title; the same paper is linked by DOI, arXiv or URL.
+    del topic
+    seen = seen_identities(state)
+    seen_urls = {canonical_url(str(url)) for url in state.get("all_urls", [])}
     return [item for item in items if item.uid not in seen and canonical_url(item.url) not in seen_urls
-            and title_key(item.title) not in seen_titles]
+            and not any(alias in seen for alias in item.aliases)]
 
 
 def update_state(state: dict[str, Any], topic: str, items: list[Item], now: datetime) -> None:
+    fresh = list(dict.fromkeys(ident for item in items for ident in (item.uid, *item.aliases)))
     previous = state["topics"].get(topic, {}).get("ids", [])
-    ids = list(dict.fromkeys([item.uid for item in items] + previous))[:2000]
-    state["topics"][topic] = {"ids": ids, "updated_at": now.isoformat()}
-    global_ids = state.get("all_ids", [])
-    state["all_ids"] = list(dict.fromkeys([item.uid for item in items] + global_ids))[:10000]
-    state["all_urls"] = list(dict.fromkeys([canonical_url(item.url) for item in items] + state.get("all_urls", [])))[:10000]
-    state["all_titles"] = list(dict.fromkeys([title_key(item.title) for item in items] + state.get("all_titles", [])))[:10000]
+    state["topics"][topic] = {"ids": list(dict.fromkeys(fresh + previous))[:2000], "updated_at": now.isoformat()}
+    state["all_ids"] = list(dict.fromkeys(fresh + state.get("all_ids", [])))[:10000]
+    state["all_urls"] = list(dict.fromkeys(
+        [canonical_url(item.url) for item in items] + state.get("all_urls", [])
+    ))[:10000]
 
 
 def source_packet(items: list[Item]) -> str:
@@ -219,6 +404,52 @@ REPORT_HEADINGS = {
 }
 
 
+def _month_numbers(text: str) -> str:
+    for month, name in enumerate(MONTH_NAMES, 1):
+        text = re.sub(rf"\b{name}\b", str(month), text, flags=re.I)
+    return text
+
+
+def numeric_tokens(text: str) -> set[str]:
+    text = re.sub(r"https?://\S+", " ", text)
+    text = re.sub(r"\[\d+\]", "", text)
+    text = _month_numbers(unicodedata.normalize("NFKC", text).replace(",", ""))
+    text = re.sub(r"^\d+\.\s", "", text, flags=re.M)
+    text = re.sub(r"(?<=\d)\s+(?=%)", "", text)
+    return set(re.findall(r"\d+(?:\.\d+)?%?", text))
+
+
+def source_numbers(items: list[Item]) -> set[str]:
+    evidence = " ".join(f"{item.title} {item.published} {item.summary}" for item in items)
+    return numeric_tokens(evidence)
+
+
+COMMAND_LINE = re.compile(r"`((?:pip|python|git|npm|docker|ollama|uv)\s+[^`]+)`")
+
+
+def command_grounded(command: str, source_text: str) -> bool:
+    return re.sub(r"\s+", " ", command).strip() in source_text
+
+
+def strip_ungrounded_commands(report: str, items: list[Item]) -> str:
+    """Drop commands the sources do not contain, instead of rejecting the whole article."""
+    source_text = re.sub(r"\s+", " ", " ".join(item.summary for item in items))
+    note = "资料未给出可逐字核对的命令，此处已省略。"
+
+    def replace_block(match: re.Match[str]) -> str:
+        lines = [line.strip() for line in match.group(1).splitlines() if line.strip()]
+        if lines and all(command_grounded(line, source_text) for line in lines):
+            return match.group(0)
+        return note
+
+    report = re.sub(r"```[^\n]*\n(.*?)```", replace_block, report, flags=re.S)
+
+    def replace_inline(match: re.Match[str]) -> str:
+        return match.group(0) if command_grounded(match.group(1), source_text) else note
+
+    return COMMAND_LINE.sub(replace_inline, report)
+
+
 def report_validation_errors(report: str, items: list[Item], content_type: str) -> list[str]:
     headings = REPORT_HEADINGS.get(content_type, REPORT_HEADINGS["brief"])
     first_section = report.split(headings[1], 1)[0]
@@ -227,24 +458,14 @@ def report_validation_errors(report: str, items: list[Item], content_type: str) 
     # A model must not turn a short release note into invented installation instructions.
     source_text = re.sub(r"\s+", " ", " ".join(item.summary for item in items))
     code_blocks = re.findall(r"```[^\n]*\n(.*?)```", report, flags=re.S)
-    commands = re.findall(r"`((?:pip|python|git|npm|docker|ollama|uv)\s+[^`]+)`", report)
+    commands = COMMAND_LINE.findall(report)
     grounded_code = all(
-        re.sub(r"\s+", " ", line).strip() in source_text
+        command_grounded(line, source_text)
         for block in [*code_blocks, *commands] for line in block.splitlines() if line.strip()
     )
-    # Conservative numeric guard for top-line claims; unsupported figures must not become headlines.
-    evidence = unicodedata.normalize("NFKC", " ".join(
-        f"{item.title} {item.published} {item.summary}" for item in items
-    )).replace(",", "")
-    for month, name in enumerate(("january", "february", "march", "april", "may", "june", "july", "august",
-                                  "september", "october", "november", "december"), 1):
-        evidence = re.sub(rf"\b{name}\b", str(month), evidence, flags=re.I)
-    evidence = re.sub(r"(?<=\d)\s+(?=%)", "", evidence)
-    evidence_numbers = set(re.findall(r"\d+(?:\.\d+)?%?", evidence))
-    headline = re.sub(r"\[\d+\]", "", unicodedata.normalize("NFKC", first_section)).replace(",", "")
-    headline = re.sub(r"^\d+\.\s", "", headline, flags=re.M)
-    headline = re.sub(r"(?<=\d)\s+(?=%)", "", headline)
-    grounded_numbers = set(re.findall(r"\d+(?:\.\d+)?%?", headline)) <= evidence_numbers
+    # Numbers are checked through the analysis, not only the opening section. References are excluded.
+    analysed = report.split(headings[-1], 1)[0]
+    grounded_numbers = numeric_tokens(analysed) <= source_numbers(items)
     checks = {
         "missing_headline_evidence": bool(re.search(r"\[\d+\]", first_section)),
         "missing_sections": all(heading in report for heading in headings),
@@ -257,9 +478,11 @@ def report_validation_errors(report: str, items: list[Item], content_type: str) 
     return [reason for reason, passed in checks.items() if not passed]
 
 
-def normalize_report(report: str, content_type: str) -> str:
-    """Fix citation glyphs; omit uncited headline bullets rather than invent attribution."""
+def normalize_report(report: str, content_type: str, items: list[Item] | None = None) -> str:
+    """Fix citation glyphs; omit uncited headline bullets and ungrounded commands."""
     report = re.sub(r"【(\d+)】", r"[\1]", report)
+    if items:
+        report = strip_ungrounded_commands(report, items)
     headings = REPORT_HEADINGS.get(content_type, REPORT_HEADINGS["brief"])
     first, separator, rest = report.partition(headings[1])
     first = "\n".join(line for line in first.splitlines()
@@ -312,8 +535,8 @@ def groq_analyse(title: str, focus: str, items: list[Item], content_type: str = 
         "radar": (
             "## 本时段要点\n给出3-5条最值得关注的信息。\n"
             "## 逐项速览\n逐项说明发生了什么、为什么值得关注、证据边界。\n"
-            "## 今日免费 VPS 与 AI 资源\n只列 kind=resource 的资料。必须区分永久免费层、限时试用、赠送额度和待核验线索；"
-            "不得仅凭标题宣称免费。若没有 resource 资料，原样写‘今日未发现新的、可由公开来源确认的免费资源。’\n"
+            "## 今日免费 VPS 与 AI 资源\n这一节只写下面这一句，不要判断免费条件："
+            "今日资源线索由程序按未核验模板填写。\n"
             "## 参考资料\n列出编号、标题和原始 URL。"
         ),
         "brief": (
@@ -361,31 +584,41 @@ def groq_analyse(title: str, focus: str, items: list[Item], content_type: str = 
     if mimo:
         payload["max_completion_tokens"] = min(4000, int(os.getenv("GROQ_MAX_TOKENS", "2800")))
         payload["thinking"] = {"type": "disabled"}
+    attempts = 3 if mimo else 6
     with httpx.Client(timeout=90) as client:
-        for attempt in range(1 if mimo else 6):
+        for attempt in range(attempts):
+            if mimo:
+                LOG.warning("MiMo fallback attempted for %s; result still requires validation", title)
             try:
                 response = client.post(
                     "https://api.xiaomimimo.com/v1/chat/completions" if mimo else "https://api.groq.com/openai/v1/chat/completions",
                     headers={"Authorization": f"Bearer {api_key}"},
                     json=payload,
                 )
-            finally:
-                if mimo:
-                    LOG.warning("MiMo fallback attempted for %s; result still requires validation", title)
+            except httpx.TransportError:
+                if attempt + 1 == attempts:
+                    raise
+                time.sleep(min(MAX_RETRY_WAIT, float(2**attempt)) + random.random())
+                continue
             if response.status_code == 200:
                 data = response.json()
                 LOG.info("%s token usage: %s", provider, data.get("usage", {}))
                 choice = data["choices"][0]
                 if choice.get("finish_reason") not in {None, "stop"}:
-                    LOG.warning("Groq output did not finish normally; using source-only fallback")
+                    LOG.warning("Model output did not finish normally; validation will reject the fallback draft")
                     return fallback_report(items, content_type)
                 return choice["message"]["content"].strip()
-            if response.status_code not in {429, 498, 500, 502, 503, 504}:
+            if response.status_code not in RETRYABLE_STATUS or attempt + 1 == attempts:
+                if mimo:
+                    raise RuntimeError(f"MiMo request failed: HTTP {response.status_code}")
                 response.raise_for_status()
-            if mimo:
-                raise RuntimeError(f"MiMo request failed: HTTP {response.status_code}")
-            wait = float(response.headers.get("retry-after", min(60, 2**attempt))) + random.random()
-            LOG.warning("Groq %s; retry in %.1fs", response.status_code, wait)
+            header = response.headers.get("retry-after", "")
+            try:
+                suggested = float(header) if header else min(60, 2**attempt)
+            except ValueError:
+                suggested = min(60, 2**attempt)
+            wait = min(MAX_RETRY_WAIT, suggested) + random.random()
+            LOG.warning("%s %s; retry in %.1fs", provider, response.status_code, wait)
             time.sleep(wait)
     raise RuntimeError("Groq failed after retries")
 

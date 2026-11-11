@@ -11,6 +11,8 @@ from zoneinfo import ZoneInfo
 
 from markdown_it import MarkdownIt
 
+from .schedule import EDITORIAL
+
 if TYPE_CHECKING:
     from .core import Item
 
@@ -19,16 +21,10 @@ POSTS_DIR = SITE_DIR / "posts"
 INDEX_DATA = SITE_DIR / "posts.json"
 
 TOPICS = {
-    "morning_radar": ("AI 晨间雷达与免费资源", "每日 09:07"),
-    "model_research": ("AI 模型、训练与基础研究", "每日 10:17"),
-    "open_source": ("AI 开源项目与工具更新", "每日 11:27"),
-    "paper_brief": ("AI 论文午间速览", "每日 12:37"),
-    "prompt_engineering": ("Prompt、上下文工程与评测", "每日 13:47"),
-    "core_research": ("智能硬件技术专题", "每日 14:07"),
-    "dev_practice": ("AI 开发实践与部署", "每日 15:17"),
-    "applied_ai": ("AI 应用与落地专题", "每日 16:27"),
-    "ecosystem": ("AI 人物、机构与产业生态", "每日 17:37"),
-    "daily_digest": ("VORASIO AI 日报", "每日 19:00"),
+    name: (str(slot["page_title"]), str(slot["cadence"]))
+    for name, slot in EDITORIAL["slots"].items()
+}
+TOPICS.update({
     "efficient_ai": ("高效 AI、模型压缩与端侧适配", "周一、周四 14:00"),
     "inference_systems": ("推理引擎、编译器与嵌入式系统", "周二 14:00"),
     "ai_hardware": ("AI 芯片、计算架构与硬件平台", "周三 14:00"),
@@ -37,23 +33,9 @@ TOPICS = {
     "product_safety": ("智能硬件产品化、可靠性与安全", "周日 14:00"),
     "ai_papers": ("AI 最新论文（历史）", "已归档"),
     "audio": ("音频技术研究（历史）", "已归档"),
-}
+})
 
-EDITORIAL_SLOTS = [
-    TOPICS[key]
-    for key in (
-        "morning_radar",
-        "model_research",
-        "open_source",
-        "paper_brief",
-        "prompt_engineering",
-        "core_research",
-        "dev_practice",
-        "applied_ai",
-        "ecosystem",
-        "daily_digest",
-    )
-]
+EDITORIAL_SLOTS = [TOPICS[name] for name in EDITORIAL["slots"]]
 
 
 def base_url() -> str:
@@ -92,7 +74,8 @@ def linkify_bare_urls(markdown: str) -> str:
     return re.sub(r"(?<![\(<])(?P<url>https?://[^\s<>)，。；,;]+)", r"<\g<url>>", markdown)
 
 
-def publish_post(topic: str, title: str, now: datetime, report: str, items: list[Item], *, analysis: dict | None = None) -> str:
+def publish_post(topic: str, title: str, now: datetime, report: str, items: list[Item], *,
+                 analysis: dict | None = None, source_topic: str | None = None) -> str:
     from .growth import article_callout
     from .provenance import metadata, render
     default_analysis = {"provider": "程序汇总（未调用 AI）", "model": "不适用"} if topic == 'daily_digest' else None
@@ -110,9 +93,7 @@ def publish_post(topic: str, title: str, now: datetime, report: str, items: list
     report_body = report[title_match.end() :].lstrip() if title_match else report
     report_body = linkify_bare_urls(report_body)
     topic_name = TOPICS.get(topic, (title, "定期更新"))[0]
-    status = "empty" if not items else ("fallback" if "降级为" in report else "published")
-    if "## 来源访问异常" in report:
-        status = "source_error"
+    status = "empty" if not items else "published"
     summary = re.sub(r"\s+", " ", re.sub(r"[#*\[\]`]+", "", report)).strip()[:160]
     disclosure = "实践参考，未经运行验证。" if topic == "dev_practice" else "依据公开来源自动整理，请核对证据边界。"
     edition_date = os.getenv("REPLAY_EDITION_DATE")
@@ -142,6 +123,7 @@ def publish_post(topic: str, title: str, now: datetime, report: str, items: list
             "count": len(items),
             "url": f"posts/{slug}",
             "topic": topic,
+            **({"source_topic": source_topic} if source_topic else {}),
             "status": status,
             "summary": summary,
             "provenance": provenance,

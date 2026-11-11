@@ -26,10 +26,11 @@ def resolve_slot(slot_name: str, now: datetime, editorial: dict[str, object], to
     if not topic_name:
         raise ValueError(f"No topic configured for slot {slot_name} on weekday {weekday}")
     config = deepcopy(topics[topic_name])
-    for key in ("title", "content_type", "max_items", "notify"):
+    for key in ("title", "content_type", "max_items"):
         if key in slot:
             config[key] = slot[key]
-    config["notify"] = False  # Daytime articles only update the website.
+    config["analysis_item_limit"] = int(slot.get("analysis_item_limit", editorial.get("analysis_item_limit", 3)))
+    config["notify"] = False  # Daytime articles only update the website. Telegram is the 19:00 digest.
     return str(topic_name), config
 
 
@@ -153,7 +154,6 @@ def main() -> int:
         now,
         dry_run=args.dry_run,
         publish_key=str(slot.get("publish_key", args.slot)),
-        allow_empty=bool(slot.get("allow_empty", False)),
     )
     persist_result()
     return 0

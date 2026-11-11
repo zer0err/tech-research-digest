@@ -6,13 +6,32 @@ from datetime import datetime, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
+import yaml
+
 BEIJING = ZoneInfo("Asia/Shanghai")
 LEDGER = Path("state/slots.json")
-TIMES = {
-    "morning_radar": "09:07", "model_research": "10:17", "open_source": "11:27", "paper_brief": "12:37",
-    "prompt_engineering": "13:47", "core_research": "14:07", "dev_practice": "15:17", "applied_ai": "16:27",
-    "ecosystem": "17:37", "daily_digest": "19:00",
-}
+EDITORIAL_PATH = Path(__file__).resolve().parent.parent / "config" / "editorial.yml"
+# Statuses that mean "nothing was published, but a later pass the same day may find new items".
+SOFT_EMPTY = {"already_published", "no_matching_in_window"}
+# Statuses that close the slot for the rest of the Beijing day.
+TERMINAL = {"published", "insufficient_abstract", "empty_digest"}
+
+
+def load_editorial(path: Path = EDITORIAL_PATH) -> dict:
+    data = yaml.safe_load(path.read_text())
+    if not isinstance(data, dict) or not isinstance(data.get("slots"), dict) or not data["slots"]:
+        raise ValueError("Invalid editorial schedule")
+    for name, slot in data["slots"].items():
+        if not isinstance(slot, dict) or not isinstance(slot.get("time"), str):
+            raise ValueError(f"Editorial slot {name} needs a Beijing time")
+    return data
+
+
+EDITORIAL = load_editorial()
+TIMES = {name: str(slot["time"]) for name, slot in EDITORIAL["slots"].items()}
+EMPTY_RESCAN = timedelta(minutes=int(EDITORIAL.get("empty_rescan_minutes", 180)))
+FAILURE_RETRY = timedelta(minutes=int(EDITORIAL.get("failure_retry_minutes", 60)))
+MAX_ATTEMPTS = int(EDITORIAL.get("max_attempts", 3))
 
 
 def key(slot: str, now: datetime) -> str:
@@ -39,7 +58,7 @@ def completed(slot: str, now: datetime, ledger: dict, entries: list[dict]) -> bo
     record = ledger["slots"].get(key(slot, now), {})
     if record.get("status") == "prepared":
         return False  # Resume deploy/notification instead of generating again.
-    if record.get("status") in {"published", "no_matching_in_window", "insufficient_abstract", "already_published", "empty_digest"}:
+    if record.get("status") in TERMINAL:
         return True
     return any(entry.get("topic") == slot
                and str(entry.get("execution_date", entry.get("date", "")))[:10] == f"{now.astimezone(BEIJING):%Y-%m-%d}"
@@ -52,9 +71,15 @@ def eligible(slot: str, now: datetime, ledger: dict, entries: list[dict]) -> boo
     record = ledger["slots"].get(key(slot, now), {})
     if record.get("status") == "prepared":
         return True
-    if int(record.get("attempts", 0)) >= 3:
+    if int(record.get("attempts", 0)) >= MAX_ATTEMPTS:
         return False
-    if record.get("updated_at") and now - datetime.fromisoformat(record["updated_at"]) < timedelta(minutes=60):
+    status = record.get("status")
+    updated = record.get("updated_at")
+    # A same-day empty receipt without a timestamp must not spin on every catch-up.
+    if status in SOFT_EMPTY and not updated:
+        return False
+    cooldown = EMPTY_RESCAN if status in SOFT_EMPTY else FAILURE_RETRY
+    if updated and now - datetime.fromisoformat(updated) < cooldown:
         return False
     return True
 
