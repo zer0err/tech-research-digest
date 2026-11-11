@@ -72,7 +72,7 @@ def shell(title: str, description: str, body: str, relative_root: str = "") -> s
 <link rel="alternate" type="application/rss+xml" title="VORASIO" href="{relative_root}feed.xml">
 <link rel="stylesheet" href="{relative_root}assets/style.css">
 <link rel="stylesheet" href="{relative_root}assets/growth.css">
-<link rel="stylesheet" href="{relative_root}assets/editorial.css?v=timeline-2">
+<link rel="stylesheet" href="{relative_root}assets/editorial.css?v=presentation-1">
 <script type="module" src="{relative_root}assets/article.js?v=replay-6"></script></head>
 <body><header class="site-header"><a class="brand" href="{relative_root}index.html"><span>VORASIO</span> 研究简报</a>
 <nav aria-label="主导航">
