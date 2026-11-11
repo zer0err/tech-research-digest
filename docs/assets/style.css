@@ -6,7 +6,7 @@
   --ink: #0d0d0d;
   --muted: #5c5c5c;
   --line: #e6e6e6;
-  --line-strong: #cfcfcf;
+  --line-strong: #8c8c8c;
   --soft: #f5f5f5;
   --accent: #0d0d0d;
   --accent-hover: #2c2c2c;
@@ -27,7 +27,7 @@
     --ink: #f5f5f5;
     --muted: #b5b5b5;
     --line: #2a2a2a;
-    --line-strong: #3a3a3a;
+    --line-strong: #676767;
     --soft: #1a1a1a;
     --accent: #f5f5f5;
     --accent-hover: #e0e0e0;
@@ -48,6 +48,7 @@ body {
   text-rendering: auto;
 }
 a { color: inherit; }
+::placeholder { color: var(--muted); opacity: 1; }
 ::selection { background: var(--ink); color: var(--paper); }
 :focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
 
@@ -194,7 +195,7 @@ footer {
   text-decoration: none;
 }
 .card-topic { color: var(--muted); font-size: 0.75rem; font-weight: 600; }
-.featured .card-topic { color: #cfcfcf; }
+.featured .card-topic { color: color-mix(in srgb, var(--paper) 78%, var(--ink)); }
 .post-card h2 {
   max-width: 40rem;
   margin: 12px 0;
@@ -202,7 +203,7 @@ footer {
 }
 .featured h2 { font-size: clamp(2rem, 4vw, 3.2rem); }
 .card-summary { max-width: 40rem; color: var(--muted); }
-.featured .card-summary { color: #d4d4d4; }
+.featured .card-summary { color: color-mix(in srgb, var(--paper) 78%, var(--ink)); }
 .card-meta {
   display: flex;
   justify-content: space-between;
@@ -211,7 +212,7 @@ footer {
   border-top: 1px solid var(--line);
   font-size: 0.82rem;
 }
-.featured .card-meta { border-color: #ffffff33; }
+.featured .card-meta { border-color: color-mix(in srgb, var(--paper) 50%, var(--ink)); }
 
 .article-layout {
   display: grid;
