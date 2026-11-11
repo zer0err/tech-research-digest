@@ -247,7 +247,7 @@
 .progress-track {
   height: 2px;
   margin: 12px 0 28px;
-  background: var(--line);
+  background: var(--line-strong);
 }
 .progress-track span { display: block; height: 100%; background: var(--ink); }
 

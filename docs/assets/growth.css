@@ -59,7 +59,19 @@
   cursor: pointer;
 }
 .growth-button:hover,
-.growth-primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
+.growth-primary:hover,
+.growth-button:active,
+.growth-primary:active {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+  color: var(--on-accent);
+}
+.growth-button:focus-visible,
+.growth-primary:focus-visible,
+.growth-button:visited,
+.growth-primary:visited {
+  color: var(--on-accent);
+}
 .growth-notice {
   padding: 1rem;
   border-left: 2px solid var(--ink);
@@ -90,6 +102,8 @@
   align-items: center;
   min-height: 44px;
   margin: 0.2rem 0.75rem 0.2rem 0;
+}
+.growth-card a:not(.growth-button):not(.growth-primary) {
   color: var(--ink);
 }
 .growth-card[data-growth-cta] {
@@ -128,12 +142,23 @@
 }
 .growth-actions a:hover { border-color: var(--ink); background: var(--soft); }
 .growth-actions a.growth-primary,
-.growth-actions a.growth-primary:hover {
+.growth-actions a.growth-button,
+.growth-actions a.growth-primary:hover,
+.growth-actions a.growth-button:hover,
+.growth-actions a.growth-primary:visited,
+.growth-actions a.growth-button:visited,
+.growth-actions a.growth-primary:focus-visible,
+.growth-actions a.growth-button:focus-visible {
   background: var(--accent);
   border-color: var(--accent);
   color: var(--on-accent);
 }
-.growth-actions a.growth-primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
+.growth-actions a.growth-primary:hover,
+.growth-actions a.growth-button:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+  color: var(--on-accent);
+}
 
 .featured-section {
   margin: 0;
