@@ -88,11 +88,13 @@
     },
     "ecosystem": {
       "ids": [
+        "59a8a5dd3afc5312ddaeaf7c",
+        "url:https://blog.google/company-news/inside-google/company-announcements/adobe-google-partnership-integration",
         "0cfbb20b8b5faebc7f853494",
         "522904cf90083f63c232bca4",
         "ca07548f6acfab72b6a7c670"
       ],
-      "updated_at": "2026-11-07T09:42:15.956985+00:00"
+      "updated_at": "2026-11-11T09:42:21.655854+00:00"
     },
     "daily_digest": {
       "ids": [],
@@ -330,6 +332,8 @@
     }
   },
   "all_ids": [
+    "59a8a5dd3afc5312ddaeaf7c",
+    "url:https://blog.google/company-news/inside-google/company-announcements/adobe-google-partnership-integration",
     "79d5092fcf6ccbd4d13aaf63",
     "0a2d75f33d814a2e8e5c1251",
     "c4a35e75b732ef4a331bd370",
@@ -595,6 +599,7 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://blog.google/company-news/inside-google/company-announcements/adobe-google-partnership-integration",
     "https://github.com/fastapi/fastapi/releases/tag/0.162.4",
     "https://github.com/fastapi/fastapi/releases/tag/0.162.3",
     "https://arxiv.org/abs/2611.14285v1",
@@ -5017,6 +5022,27 @@
       "analysis": {
         "provider": "Xiaomi MiMo",
         "model": "mimo-v2.6-flash"
+      }
+    },
+    "https://vorasio.com/posts/20261111-ecosystem.html": {
+      "topic": "ecosystem",
+      "source_topic": "ecosystem",
+      "created_at": "2026-11-11T09:42:21.655854+00:00",
+      "items": [
+        {
+          "uid": "59a8a5dd3afc5312ddaeaf7c",
+          "title": "We’re bringing Adobe’s creative and productivity tools closer to your everyday Google apps.",
+          "url": "https://blog.google/company-news/inside-google/company-announcements/adobe-google-partnership-integration",
+          "published": "2026-11-10T14:00:00+00:00",
+          "source": "Google AI 官方博客",
+          "doi": "",
+          "kind": "research",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
       }
     }
   },
