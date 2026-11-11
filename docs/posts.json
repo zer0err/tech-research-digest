@@ -1,5 +1,34 @@
 [
   {
+    "title": "AI 人物、机构与产业生态（2026-11-11）",
+    "date": "2026-11-11T17:42:21.655854+08:00",
+    "count": 1,
+    "url": "posts/20261111-ecosystem.html",
+    "topic": "ecosystem",
+    "source_topic": "ecosystem",
+    "status": "published",
+    "summary": "本期要点 - Google 与 Adobe 正式宣布将 Adobe 的创意与生产力工具与 Google Workspace 深度集成，允许用户在 Drive 中直接编辑 PDF 并在 Gemini 中使用 Adobe AI 功能。 1 - 该合作将 Adobe AI 与 Google 的 Gemini 语言模型结合，意",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "We’re bringing Adobe’s creative and productivity tools closer to your everyday Google apps.",
+          "url": "https://blog.google/company-news/inside-google/company-announcements/adobe-google-partnership-integration",
+          "publisher": "Google AI 官方博客",
+          "host": "blog.google",
+          "family": "博客/公开网页",
+          "published": "2026-11-10T14:00:00+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 开发实践与部署（2026-11-11）",
     "date": "2026-11-11T15:42:17.473644+08:00",
     "count": 2,
