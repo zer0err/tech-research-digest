@@ -11,8 +11,8 @@
   },
   "2026-11-11:open_source": {
     "status": "already_published",
-    "updated_at": "2026-11-11T08:12:22.458935+00:00",
-    "attempts": 2
+    "updated_at": "2026-11-11T11:17:13.243861+00:00",
+    "attempts": 3
   },
   "2026-11-11:morning_radar": {
     "status": "published",
@@ -35,7 +35,7 @@
     "attempts": 1
   },
   "2026-11-11:daily_digest": {
-    "status": "prepared",
+    "status": "published",
     "updated_at": "2026-11-11T11:00:31.882891+00:00",
     "attempts": 1
   },
