@@ -1,5 +1,55 @@
 [
   {
+    "title": "AI 模型、训练与基础研究（2026-11-11）",
+    "date": "2026-11-11T10:42:21.167716+08:00",
+    "count": 3,
+    "url": "posts/20261111-model_research.html",
+    "topic": "model_research",
+    "status": "published",
+    "summary": "本期结论 1. 预训练模型在多语言语音识别中的适配性显著提升：在 Nepali‑English code‑mixed 语音识别任务中，完整微调 SraVaani 模型将 WER 从 48.6% 降至 17.1% 2，与 Whisper large‑v3‑turbo 的 16.4% 结果相近，表明大规模预训练模型在跨语言",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "Generative AI Powered by Large Language Models for Leadership Development: Between Epistemic Responsibility and the Future of Innovation",
+          "url": "https://doi.org/10.1108/978-1-83708-152-320261019",
+          "publisher": "Crossref Model Research",
+          "host": "doi.org",
+          "family": "书目索引",
+          "published": "2026-11-11T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "10.1108/978-1-83708-152-320261019",
+          "kind": "research"
+        },
+        {
+          "title": "Nepali-English Code-Mixed Speech Recognition: Data Preparation and Adaptation of a Speech Foundation Model",
+          "url": "https://arxiv.org/abs/2611.13512v1",
+          "publisher": "arXiv Model Research",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-11-10T03:39:19+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "Reasoning-Aware Relational Representation Learning for Open-Vocabulary Scene Graph Generation",
+          "url": "https://arxiv.org/abs/2611.13496v1",
+          "publisher": "arXiv Model Research",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-11-10T03:08:22+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 晨间雷达与免费资源（2026-11-11）",
     "date": "2026-11-11T09:12:24.326607+08:00",
     "count": 3,
