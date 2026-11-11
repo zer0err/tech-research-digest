@@ -1,5 +1,44 @@
 [
   {
+    "title": "AI 芯片、计算架构与硬件平台（2026-11-11）",
+    "date": "2026-11-11T14:13:00.012665+08:00",
+    "count": 2,
+    "url": "posts/20261111-core_research.html",
+    "topic": "core_research",
+    "status": "published",
+    "summary": "本期结论 - LLM 训练仿真器的跨平台评估正在形成统一基准方法：LM-SimBench 在 Ascend NPU 集群上采集 23 个模型设置、348 个可行配置，并用 GPU-NPU 配对实验验证协议的跨平台适用性 1。 - 5G URLLC 与封装内无线电结合可显著收紧位置认证的时间抖动：99.9 分位往返时延离",
+    "provenance": {
+      "analysis": {
+        "provider": "Xiaomi MiMo",
+        "model": "mimo-v2.6-flash"
+      },
+      "sources": [
+        {
+          "title": "LM-SimBench: A Unified Framework, Dataset, and Benchmark for Large Language Model Training Simulation",
+          "url": "https://arxiv.org/abs/2611.14285v1",
+          "publisher": "arXiv AI Hardware",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-11-10T16:26:19+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "5G CATS: 5G-Based Cryptographic Authorization Against Trafficking of Semiconductor Devices",
+          "url": "https://arxiv.org/abs/2611.13437v1",
+          "publisher": "arXiv AI Hardware",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-11-10T01:20:18+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "Prompt、上下文工程与评测（2026-11-11）",
     "date": "2026-11-11T14:12:21.156058+08:00",
     "count": 1,

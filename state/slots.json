@@ -26,6 +26,48 @@
       "updated_at": "2026-11-11T02:42:21.167716+00:00",
       "attempts": 1
     },
+    "2026-11-11:core_research": {
+      "status": "prepared",
+      "updated_at": "2026-11-11T06:13:00.012665+00:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "ai_hardware",
+        "title": "AI 芯片、计算架构与硬件平台",
+        "url": "https://vorasio.com/posts/20261111-core_research.html",
+        "created_at": "2026-11-11T06:13:00.012665+00:00",
+        "items": [
+          {
+            "uid": "c4a35e75b732ef4a331bd370",
+            "title": "LM-SimBench: A Unified Framework, Dataset, and Benchmark for Large Language Model Training Simulation",
+            "url": "https://arxiv.org/abs/2611.14285v1",
+            "published": "2026-11-10T16:26:19+00:00",
+            "summary": "Evaluating candidate parallelization strategies through distributed training runs makes strategy selection prohibitively expensive at scale. Performance simulation offers a lower cost alternative, yet controlled comparisons among existing simulators remain difficult because they differ in the training stages they model and the workloads on which they are evaluated. We introduce LM-SimBench, a unified framework, profiling dataset, and benchmark for evaluating LLM training simulators. The framework decomposes simulation into functional stages from model compilation to schedule level aggregation, connecting execution representations and cost estimators to measurable evaluation targets. Following this framework, we profile 23 model settings from 10 dense and Mixture-of-Experts (MoE) LLM families on an Ascend Neural Processing Unit (NPU) cluster. The resulting dataset contains 348 feasible configurations that jointly vary five parallelism dimensions and activation recomputation, with six views spanning configuration, rank, operator, event, and kernel granularity. Evaluations of representative training simulators demonstrate how LM-SimBench supports comparisons of prediction accuracy, assessment of configuration selection, and diagnosis of prediction errors. Matched GPU-NPU experiments validate the cross-platform applicability of the collection and evaluation protocol and demonstrate",
+            "source": "arXiv AI Hardware",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          },
+          {
+            "uid": "8ac4548c47418b4831e567e8",
+            "title": "5G CATS: 5G-Based Cryptographic Authorization Against Trafficking of Semiconductor Devices",
+            "url": "https://arxiv.org/abs/2611.13437v1",
+            "published": "2026-11-10T01:20:18+00:00",
+            "summary": "Enforcing export controls on AI accelerators requires verifying where a chip operates after deployment. Round-trip time measurements can bound a chip's distance from a trusted landmark, but any jitter in honest replies forces the verifier to loosen its timeout, giving an attacker slack to relay traffic over fiber from a restricted region. Prior approaches either cross the untrusted host stack or rely on noisy power-line channels that inflate this slack. We present 5G CATS, a location certification system that pairs a co-packaged 5G radio, cryptographic engine, and hardware interlock on the GPU package with 5G Ultra-Reliable Low-Latency Communication (URLLC) base stations. Terminating the radio link inside the package removes the host software, PCIe fabric, and baseboard management controller from the verification path. We map an authenticated challenge-response protocol onto 5G's slot structure, replace permanent key erasure with short-lived execution leases, and specify a cross-check of the chip's reported serving cell against the carrier's own attachment records. In ns-3 and 5G-LENA simulations of an unloaded cell, our URLLC-based radio profile narrows the 99.9th percentile round-trip spread to 2.60 ms, more than ten times narrower than default 5G. A tracer rejects every round of a fiber relay from 300 km, against 2,000 km for default 5G. Against a 3,000 km attacker, a tracer",
+            "source": "arXiv AI Hardware",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day"
+          }
+        ],
+        "notify": false,
+        "mode": "production",
+        "analysis": {
+          "provider": "Xiaomi MiMo",
+          "model": "mimo-v2.6-flash"
+        },
+        "slot": "core_research"
+      }
+    },
     "2026-11-10:prompt_engineering": {
       "status": "already_published",
       "updated_at": "2026-11-10T06:12:17.869165+00:00",

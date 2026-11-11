@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 芯片、计算架构与硬件平台（2026-11-11）</title><meta name="description" content="AI 芯片、计算架构与硬件平台（2026-11-11）：2 项最新研究">
+<link rel="alternate" type="application/rss+xml" title="VORASIO" href="../feed.xml">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/growth.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=timeline-2">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav aria-label="主导航">
+<a href="../domains/index.html">领域导航</a>
+<a href="../index.html#latest">全部更新</a>
+<a href="../knowledge/index.html">AI 知识科普</a>
+<a href="../courses/index.html">AI 学习</a>
+<a href="../tools/index.html">AI 工具</a>
+<a href="../subscribe.html">订阅精选</a>
+<a href="../services.html">开发咨询</a>
+<a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">智能硬件技术专题</p><dl><dt>发布时间</dt><dd data-published-at="2026-11-11T14:13:00.012665+08:00">2026-11-11 14:13 · UTC+8</dd><dt>研究条目</dt><dd>2 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · 智能硬件技术专题</p><h1>AI 芯片、计算架构与硬件平台（2026-11-11）</h1><!-- provenance:start --><p class="ai-analysis" title="mimo-v2.6-flash">AI 分析：Xiaomi MiMo</p><!-- provenance:end --><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期结论</h2>
+<ul>
+<li>LLM 训练仿真器的跨平台评估正在形成统一基准方法：LM-SimBench 在 Ascend NPU 集群上采集 23 个模型设置、348 个可行配置，并用 GPU-NPU 配对实验验证协议的跨平台适用性 [1]。</li>
+<li>5G URLLC 与封装内无线电结合可显著收紧位置认证的时间抖动：99.9 分位往返时延离散度收窄至 2.60 ms，比默认 5G 窄十倍以上 [2]。此为单篇研究的仿真结果，尚不构成行业共识，属值得关注的信号 [2]。</li>
+<li>两项工作共同指向&quot;硬件在环/封装内测量&quot;作为可信数据来源的趋势：[1] 用真实 NPU 集群 profile 数据校准仿真，[2] 把无线电链路终止在 GPU 封装内以移除主机软件与 PCIe 路径 [1][2]。</li>
+</ul>
+<h2>逐项分析</h2>
+<p><strong>[1] LM-SimBench</strong></p>
+<ul>
+<li>核心贡献：提出统一的 LLM 训练仿真器评估框架、profile 数据集与基准，将仿真分解为从模型编译到调度级聚合的功能阶段，把执行表示与代价估计器连接到可测评估目标 [1]。</li>
+<li>方法与数据：在 Ascend NPU 集群上 profile 10 个稠密与 MoE LLM 家族的 23 个模型设置，产出 348 个联合变化五个并行维度与激活重计算的可行配置，含配置、rank、算子、事件、内核六个粒度视图 [1]。</li>
+<li>性能证据：对代表性训练仿真器的评估展示了预测精度比较、配置选择评估与预测误差诊断能力；GPU-NPU 配对实验验证跨平台适用性 [1]。摘要未提供具体误差数值，无法从摘要确认 [1]。</li>
+<li>局限与证据等级：摘要未披露各仿真器的定量精度对比数字，也未说明 NPU 集群规模与制程细节，证据等级 B（含方法与定性结果）[1]。</li>
+<li>工程意义：为并行策略选型提供低成本替代方案，但其结论依赖 Ascend 平台 profile 数据的代表性 [1]。</li>
+</ul>
+<p><strong>[2] 5G CATS</strong></p>
+<ul>
+<li>核心贡献：在 GPU 封装中共封装 5G 无线电、密码引擎与硬件互锁，与 5G URLLC 基站配合做位置认证，把无线电链路终止在封装内以移除主机软件、PCIe 与 BMC [2]。</li>
+<li>方法与数据：将认证挑战-响应协议映射到 5G 时隙结构，用短期执行租约替代永久密钥擦除，并交叉核对芯片上报的服务小区与运营商附着记录 [2]。</li>
+<li>性能证据：ns-3 与 5G-LENA 在空载小区仿真中，URLLC 无线电 profile 将 99.9 分位往返离散度收窄至 2.60 ms，比默认 5G 窄十倍以上；对 300 km 光纤中继的每一轮均被拒绝，而默认 5G 为 2,000 km [2]。</li>
+<li>局限与证据等级：结果来自空载小区仿真，摘要未提供 3,000 km 攻击场景的完整结论，也未给出实测部署数据，证据等级 B（含方法与定性/定量仿真结果）[2]。</li>
+<li>工程意义：为出口管制场景下的芯片位置核验提供硬件路径，但依赖运营商 URLLC 覆盖与共封装集成 [2]。</li>
+</ul>
+<h2>工程行动建议</h2>
+<ul>
+<li>验证实验：复现 [1] 的六粒度 profile 流程，在自有 NPU/GPU 集群上采集配置并对比仿真器预测误差；复现 [2] 的 ns-3/5G-LENA URLLC 时隙映射，测量空载与负载下的 99.9 分位往返离散度 [1][2]。</li>
+<li>落地评估：评估 [1] 数据集对自身模型家族的覆盖度与迁移性；评估 [2] 所需共封装无线电与运营商 URLLC 小区在目标地区的可用性，摘要未提供相关部署条件，无法从摘要确认 [1][2]。</li>
+<li>后续跟踪指标：跟踪 [1] 后续版本是否公布各仿真器的定量精度对比与集群规模；跟踪 [2] 是否从仿真走向实测部署及 3,000 km 场景的完整数据 [1][2]。</li>
+</ul>
+<h2>参考资料</h2>
+<p>[1] LM-SimBench: A Unified Framework, Dataset, and Benchmark for Large Language Model Training Simulation <a href="https://arxiv.org/abs/2611.14285v1">https://arxiv.org/abs/2611.14285v1</a>
+[2] 5G CATS: 5G-Based Cryptographic Authorization Against Trafficking of Semiconductor Devices <a href="https://arxiv.org/abs/2611.13437v1">https://arxiv.org/abs/2611.13437v1</a></p>
+</div><section class="growth-card" data-growth-cta><h2>有项目想法？</h2><p>可以订阅后续更新，也可以整理你的 AI 软件或智能硬件需求，发来聊聊。</p><a href="../subscribe.html">订阅 AI 精选</a> · <a href="../services.html?source=/posts/20261111-core_research.html">整理开发需求</a></section></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原始来源。</span></footer></body></html>
