@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 模型、训练与基础研究（2026-11-12）</title><meta name="description" content="AI 模型、训练与基础研究（2026-11-12）：3 项最新研究">
+<link rel="alternate" type="application/rss+xml" title="VORASIO" href="../feed.xml">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/growth.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=presentation-1">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav aria-label="主导航">
+<a href="../domains/index.html">领域导航</a>
+<a href="../index.html#latest">全部更新</a>
+<a href="../knowledge/index.html">AI 知识科普</a>
+<a href="../courses/index.html">AI 学习</a>
+<a href="../tools/index.html">AI 工具</a>
+<a href="../subscribe.html">订阅精选</a>
+<a href="../services.html">开发咨询</a>
+<a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">AI 模型、训练与基础研究</p><dl><dt>发布时间</dt><dd data-published-at="2026-11-12T10:42:15.356735+08:00">2026-11-12 10:42 · UTC+8</dd><dt>研究条目</dt><dd>3 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · AI 模型、训练与基础研究</p><h1>AI 模型、训练与基础研究（2026-11-12）</h1><!-- provenance:start --><p class="ai-analysis" title="openai/gpt-oss-20b">AI 分析：Groq</p><!-- provenance:end --><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期结论</h2>
+<ol>
+<li><strong>多域基础模型在医学影像检测中能显著提升跨机构泛化能力</strong>，如 EM‑DETR 在胸片与乳腺影像上分别比单域模型提升 2‑3% mAP50 [3]。</li>
+<li><strong>在医学分割任务中，基础模型仅需对少量参数进行微调即可在外部数据集上优于从零训练的 U‑Net 系列</strong>，但在训练分布内仍需大量数据以获得更精细边界 [2]。</li>
+<li><strong>大型语言模型在社会生态系统概念映射任务中可通过“guardrail”机制实现高质量、可审计的因果图构建</strong>，将 64 个主题压缩为 43 个并验证 243 条关系，支持后续情景推演 [1]。</li>
+</ol>
+<h2>逐项分析</h2>
+<table>
+<thead>
+<tr>
+<th>资料</th>
+<th>核心贡献</th>
+<th>方法与数据</th>
+<th>性能证据</th>
+<th>局限与证据等级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[1]</td>
+<td>提出四步“guardrailed LLM”工作流，实现可审计的概念映射</td>
+<td>1) 证据锚定抽取节点与方向；2) 合并工作坊图；3) 识别恶性循环与焦点；4) 场景追踪；使用两场可持续渔业工作坊</td>
+<td>64 初始主题 → 43 主题；242 链 → 243 验证关系；生成 10 个定性情景</td>
+<td>仅在两场工作坊验证，缺乏跨领域泛化评估；证据等级 A</td>
+</tr>
+<tr>
+<td>[2]</td>
+<td>对比基础模型 DINOv2 与任务特定 U‑Net 在多医学影像分割任务中的适配性</td>
+<td>采用从仅调 bias 到全微调的多种策略；在结肠镜、乳腺超声、皮肤镜三任务上测试；外部机构独立数据集</td>
+<td>在每个外部数据集上，基础模型泛化更好；在训练分布内，任务特定模型在数据充足时更精细；小病灶漏检更常见</td>
+<td>仅使用公开数据集，未说明数据量与分布差异；证据等级 A</td>
+</tr>
+<tr>
+<td>[3]</td>
+<td>通过学生‑教师策略与 EM‑DETR 框架构建多域医学检测基础模型</td>
+<td>结合多域标注（解剖结构与异常）；使用示例驱动检测；在胸片、乳腺影像上评估</td>
+<td>图像级 AUC 超过前沿 1%；mAP50 在胸片与乳腺影像上分别提升 2‑3%</td>
+<td>仅在四个关键发现上评估，缺乏对小病灶检测的细节；证据等级 A</td>
+</tr>
+</tbody>
+</table>
+<h2>工程行动建议</h2>
+<ol>
+<li><strong>验证实验</strong>
+<ul>
+<li>对医学分割任务，先在本机构内部数据集上进行“bias‑only”微调实验，评估小病灶漏检率；随后逐步扩展到全微调，比较与 U‑Net 的边界精度。</li>
+<li>对医学检测任务，使用 EM‑DETR 的学生‑教师训练流程，加入本机构的多模态数据，验证 mAP50 的提升是否保持。</li>
+</ul>
+</li>
+<li><strong>落地评估</strong>
+<ul>
+<li>在临床工作流中部署基础模型与任务特定模型的混合推理，记录推理时间、内存占用与误检率，评估是否满足实时诊断需求。</li>
+<li>对概念映射工作流，邀请多方利益相关者对生成的因果图进行审计，验证“no‑invention”与“quotation‑level evidence”规则的执行情况。</li>
+</ul>
+</li>
+<li><strong>后续跟踪指标</strong>
+<ul>
+<li><strong>医学分割</strong>：小病灶漏检率、Dice 系数、边界精度（Hausdorff 距离）。</li>
+<li><strong>医学检测</strong>：mAP50、AUC、召回率在不同病灶大小区间。</li>
+<li><strong>概念映射</strong>：节点与关系的验证比例、审计通过率、情景推演覆盖度。</li>
+</ul>
+</li>
+</ol>
+<h2>参考资料</h2>
+<ol>
+<li>Participatory conceptual mapping with guardrailed large language models: An audit-ready DAPSI(W)R(M) workflow from workshop transcripts to scenario testing – <a href="https://doi.org/10.18174/sesmo.19051">https://doi.org/10.18174/sesmo.19051</a></li>
+<li>Medical Image Segmentation: Foundation Model Adaptation versus Task-Specific Training – <a href="https://arxiv.org/abs/2611.14519">https://arxiv.org/abs/2611.14519</a></li>
+<li>Toward Foundation Detection Models via Example-Based Grounding in EM-DETR – <a href="https://arxiv.org/abs/2611.14518">https://arxiv.org/abs/2611.14518</a></li>
+</ol>
+</div><section class="growth-card" data-growth-cta><h2>有项目想法？</h2><p>可以订阅后续更新，也可以整理你的 AI 软件或智能硬件需求，发来聊聊。</p><a href="../subscribe.html">订阅 AI 精选</a> · <a href="../services.html?source=/posts/20261112-model_research.html">整理开发需求</a></section></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原始来源。</span></footer></body></html>

@@ -1,5 +1,56 @@
 [
   {
+    "title": "AI 模型、训练与基础研究（2026-11-12）",
+    "date": "2026-11-12T10:42:15.356735+08:00",
+    "count": 3,
+    "url": "posts/20261112-model_research.html",
+    "topic": "model_research",
+    "source_topic": "model_research",
+    "status": "published",
+    "summary": "本期结论 1. 多域基础模型在医学影像检测中能显著提升跨机构泛化能力，如 EM‑DETR 在胸片与乳腺影像上分别比单域模型提升 2‑3% mAP50 3。 2. 在医学分割任务中，基础模型仅需对少量参数进行微调即可在外部数据集上优于从零训练的 U‑Net 系列，但在训练分布内仍需大量数据以获得更精细边界 2。 3. 大",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "Participatory conceptual mapping with guardrailed large language models: An audit-ready DAPSI(W)R(M) workflow from workshop transcripts to scenario testing",
+          "url": "https://doi.org/10.18174/sesmo.19051",
+          "publisher": "Crossref Model Research",
+          "host": "doi.org",
+          "family": "书目索引",
+          "published": "2026-11-12T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "10.18174/sesmo.19051",
+          "kind": "research"
+        },
+        {
+          "title": "Medical Image Segmentation: Foundation Model Adaptation versus Task-Specific Training",
+          "url": "https://arxiv.org/abs/2611.14519",
+          "publisher": "arXiv Model Research",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-11-10T18:59:54+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "Toward Foundation Detection Models via Example-Based Grounding in EM-DETR",
+          "url": "https://arxiv.org/abs/2611.14518",
+          "publisher": "arXiv Model Research",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-11-10T18:59:17+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 晨间雷达与免费资源（2026-11-12）",
     "date": "2026-11-12T09:12:28.908105+08:00",
     "count": 3,

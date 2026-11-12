@@ -6,6 +6,72 @@
       "updated_at": "2026-11-12T01:12:28.908105+00:00",
       "attempts": 1
     },
+    "2026-11-12:model_research": {
+      "status": "prepared",
+      "updated_at": "2026-11-12T02:42:15.356735+00:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "model_research",
+        "title": "AI 模型、训练与基础研究",
+        "url": "https://vorasio.com/posts/20261112-model_research.html",
+        "created_at": "2026-11-12T02:42:15.356735+00:00",
+        "items": [
+          {
+            "uid": "bbc111b940e2ec5858914d3d",
+            "title": "Participatory conceptual mapping with guardrailed large language models: An audit-ready DAPSI(W)R(M) workflow from workshop transcripts to scenario testing",
+            "url": "https://doi.org/10.18174/sesmo.19051",
+            "published": "2026-11-12T00:00:00+00:00",
+            "summary": "Participatory conceptual mapping is widely used in sustainability research to represent stakeholders’ knowledge, concerns, and perceptions of causal relationships within complex social-ecological systems. Yet translating workshop dialogue into reliable, auditable causal maps is labor-intensive and prone to interpretive drift. We present a four-step workflow combining guardrailed large language model (LLM) assistance with human oversight to transform workshop transcripts into DAPSI(W)R(M)-consistent conceptual maps, feedback structures, and qualitative scenarios. The workflow comprises (1) evidence-anchored extraction of nodes and directional links; (2) controlled merging of workshop maps into an identifier-stable representation; (3) identification of vicious cycles, focal points, and virtuous cycles using only the verified combined structure; and (4) scenario tracing through validated pathways. Guardrails include a no-invention rule, quotation-level evidence anchoring, alias tracking, stable identifiers, clean-slate re-entry, and human verification. Applied to two workshops on sustainable fisheries in Catalonia, Spain, the workflow consolidated 64 initial themes and 242 links into 43 themes and 243 verified relations. Three major vicious-cycle systems, several focal points, and twelve virtuous loops and chains informed ten stakeholder-style qualitative scenarios. The case study",
+            "source": "Crossref Model Research",
+            "kind": "research",
+            "doi": "10.18174/sesmo.19051",
+            "date_precision": "day",
+            "aliases": [
+              "doi:10.18174/sesmo.19051",
+              "url:https://doi.org/10.18174/sesmo.19051"
+            ]
+          },
+          {
+            "uid": "515e0e99a5a4b6e414052e3e",
+            "title": "Medical Image Segmentation: Foundation Model Adaptation versus Task-Specific Training",
+            "url": "https://arxiv.org/abs/2611.14519",
+            "published": "2026-11-10T18:59:54+00:00",
+            "summary": "Foundation models pretrained on large natural-image collections are increasingly adapted for medical image segmentation, in the expectation that they will replace models trained for each task. Most comparisons, however, use data from the training distribution and a single task-specific baseline whose configuration is rarely justified, and therefore provide limited evidence of performance at new clinical sites. It also remains unclear how much of a foundation model must be adapted, and what determines this. We adapted a foundation model, DINOv2, with strategies ranging from tuning only its bias terms to full fine-tuning, and compared it with U-Nets and ResU-Nets trained from scratch. Experiments covered colonoscopy, breast ultrasound and dermoscopy, with testing on held-out data from the training source and on independent datasets from other institutions. The adapted foundation model generalised better on every external dataset. Within the training distribution, the task-specific models remained competitive when training data were abundant, and delineated boundaries more precisely, while the foundation model more often missed small lesions. Only a small fraction of the foundation model required adaptation, and the capacity needed was determined by the imaging domain rather than by the adaptation method. A widely used polyp test set was also found to duplicate images from another",
+            "source": "arXiv Model Research",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day",
+            "aliases": [
+              "arxiv:2611.14519",
+              "url:https://arxiv.org/abs/2611.14519"
+            ]
+          },
+          {
+            "uid": "16dfbee56de33db2dfda3d59",
+            "title": "Toward Foundation Detection Models via Example-Based Grounding in EM-DETR",
+            "url": "https://arxiv.org/abs/2611.14518",
+            "published": "2026-11-10T18:59:17+00:00",
+            "summary": "DeepLearning (DL)-based Computer-Aided Diagnostic (CAD) systems have shown great promise in supporting clinicians, but their performance heavily depends on the availability of large, well-annotated datasets. In medical lesion detection, the scarcity of comprehensive, stan dardized annotations and the heterogeneity of existing datasets limit the development of robust foundation models. In this work, we introduce a novel approach to building a multi-domain foundation model for le sion detection by integrating diverse medical image datasets annotated for both anatomical structures and abnormalities. We first propose a student-teacher training strategy to effectively combine datasets with heterogeneous label spaces, mitigating catastrophic forgetting, and im proving feature learning. In addition, building on our previously pro posed example-based EM-DETR framework, we adapt it to jointly learn from multiple domain-specific datasets, enabling fine-grained, example driven detection across modalities. Our model achieves state-of-the-art (SOTA) results, with image-level AUC scores exceeding previous SOTA by 1% point on four key findings in CXRs. We achieve a leading mAP50 in CXRs and mammography, surpassing EM-DETR trained on a single dataset by 2-3% points. This approach paves the way for scalable foundation models in medical imaging that leverage heterogeneous data while maintaining ",
+            "source": "arXiv Model Research",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day",
+            "aliases": [
+              "arxiv:2611.14518",
+              "url:https://arxiv.org/abs/2611.14518"
+            ]
+          }
+        ],
+        "source_topic": "model_research",
+        "notify": false,
+        "mode": "production",
+        "analysis": {
+          "provider": "Groq",
+          "model": "openai/gpt-oss-20b"
+        },
+        "slot": "model_research"
+      }
+    },
     "2026-11-11:prompt_engineering": {
       "status": "published",
       "updated_at": "2026-11-11T06:12:21.156058+00:00",
