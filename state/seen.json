@@ -108,6 +108,15 @@
     },
     "model_research": {
       "ids": [
+        "bbc111b940e2ec5858914d3d",
+        "doi:10.18174/sesmo.19051",
+        "url:https://doi.org/10.18174/sesmo.19051",
+        "515e0e99a5a4b6e414052e3e",
+        "arxiv:2611.14519",
+        "url:https://arxiv.org/abs/2611.14519",
+        "16dfbee56de33db2dfda3d59",
+        "arxiv:2611.14518",
+        "url:https://arxiv.org/abs/2611.14518",
         "b984e2dfcff4a1d9c797a95f",
         "9fc1f9afbb8336e7349c0c0b",
         "7c2db02a47e05a926222e846",
@@ -163,7 +172,7 @@
         "f3a5508d0160d42195ab7174",
         "cb661d928a0dfa16bc4c4588"
       ],
-      "updated_at": "2026-11-11T02:42:21.167716+00:00"
+      "updated_at": "2026-11-12T02:42:15.356735+00:00"
     },
     "embodied": {
       "ids": [
@@ -347,6 +356,15 @@
     }
   },
   "all_ids": [
+    "bbc111b940e2ec5858914d3d",
+    "doi:10.18174/sesmo.19051",
+    "url:https://doi.org/10.18174/sesmo.19051",
+    "515e0e99a5a4b6e414052e3e",
+    "arxiv:2611.14519",
+    "url:https://arxiv.org/abs/2611.14519",
+    "16dfbee56de33db2dfda3d59",
+    "arxiv:2611.14518",
+    "url:https://arxiv.org/abs/2611.14518",
     "c06fca3b9549fb95708df0f2",
     "url:https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api",
     "eac4d84ef949975e755c40f9",
@@ -629,6 +647,9 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://doi.org/10.18174/sesmo.19051",
+    "https://arxiv.org/abs/2611.14519",
+    "https://arxiv.org/abs/2611.14518",
     "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api",
     "https://blog.google/innovation-and-ai/models-and-research/google-labs/tabletop",
     "https://blog.google/company-news/outreach-and-initiatives/arts-culture/esther-mahlangu",
@@ -5153,6 +5174,47 @@
           "url": "https://blog.google/company-news/outreach-and-initiatives/arts-culture/esther-mahlangu",
           "published": "2026-11-11T09:00:00+00:00",
           "source": "Google AI 官方博客",
+          "doi": "",
+          "kind": "research",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261112-model_research.html": {
+      "topic": "model_research",
+      "source_topic": "model_research",
+      "created_at": "2026-11-12T02:42:15.356735+00:00",
+      "items": [
+        {
+          "uid": "bbc111b940e2ec5858914d3d",
+          "title": "Participatory conceptual mapping with guardrailed large language models: An audit-ready DAPSI(W)R(M) workflow from workshop transcripts to scenario testing",
+          "url": "https://doi.org/10.18174/sesmo.19051",
+          "published": "2026-11-12T00:00:00+00:00",
+          "source": "Crossref Model Research",
+          "doi": "10.18174/sesmo.19051",
+          "kind": "research",
+          "date_precision": "day"
+        },
+        {
+          "uid": "515e0e99a5a4b6e414052e3e",
+          "title": "Medical Image Segmentation: Foundation Model Adaptation versus Task-Specific Training",
+          "url": "https://arxiv.org/abs/2611.14519",
+          "published": "2026-11-10T18:59:54+00:00",
+          "source": "arXiv Model Research",
+          "doi": "",
+          "kind": "research",
+          "date_precision": "day"
+        },
+        {
+          "uid": "16dfbee56de33db2dfda3d59",
+          "title": "Toward Foundation Detection Models via Example-Based Grounding in EM-DETR",
+          "url": "https://arxiv.org/abs/2611.14518",
+          "published": "2026-11-10T18:59:17+00:00",
+          "source": "arXiv Model Research",
           "doi": "",
           "kind": "research",
           "date_precision": "day"
