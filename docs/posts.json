@@ -1,5 +1,45 @@
 [
   {
+    "title": "智能硬件产品化、可靠性与安全（2026-11-12）",
+    "date": "2026-11-12T16:42:17.500129+08:00",
+    "count": 2,
+    "url": "posts/20261112-applied_ai.html",
+    "topic": "applied_ai",
+    "source_topic": "product_safety",
+    "status": "published",
+    "summary": "本期结论 1. 可重复的轨道式定位与边缘计算可实现长期稳定的图像采集，在小规模柑橘种植场景中已验证低成本硬件实现自主、持续的叶面监测，且云同步可靠性高1。 2. IRS‑辅助 NOMA‑ISAC 在远端用户可靠性与感知性能上有显著提升，但近端用户在多用户干扰下性能可能下降，表明需在功率与反射面设计上做权衡2。 逐项分析",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "Rail-Guided IoT Imaging System for Leaf-Level Monitoring in Small-Scale Citrus Plots",
+          "url": "https://doi.org/10.14445/23488549/ijece-v13i10p101",
+          "publisher": "Crossref Device Security",
+          "host": "doi.org",
+          "family": "书目索引",
+          "published": "2026-11-12T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "10.14445/23488549/ijece-v13i10p101",
+          "kind": "research"
+        },
+        {
+          "title": "Reliability and Sensing Analysis of IRS-Assisted NOMA ISAC for IoT Networks",
+          "url": "https://doi.org/10.21203/rs.3.rs-11477727/v1",
+          "publisher": "Crossref Device Security",
+          "host": "doi.org",
+          "family": "书目索引",
+          "published": "2026-11-12T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "10.21203/rs.3.rs-11477727/v1",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "多模态感知、音视频与人机交互（2026-11-12）",
     "date": "2026-11-12T14:13:57.011788+08:00",
     "count": 2,
