@@ -21,6 +21,12 @@
     },
     "multimodal": {
       "ids": [
+        "fe9025f540e2e67731d8c34c",
+        "doi:10.1038/s41598-026-78831-5",
+        "url:https://doi.org/10.1038/s41598-026-78831-5",
+        "c8887c7dfcfb12099a4193ce",
+        "arxiv:2611.14498",
+        "url:https://arxiv.org/abs/2611.14498",
         "eeb1a2aae0a416e680a290d9",
         "877e5531253702db77f9d84d",
         "16fc7618b93bc808340abf8a",
@@ -47,7 +53,7 @@
         "808780f3283440c8b29d022b",
         "361f7c9a0f57a189ca4c36ad"
       ],
-      "updated_at": "2026-11-06T06:13:54.265315+00:00"
+      "updated_at": "2026-11-12T06:13:57.011788+00:00"
     },
     "morning_radar": {
       "ids": [
@@ -364,6 +370,12 @@
     }
   },
   "all_ids": [
+    "fe9025f540e2e67731d8c34c",
+    "doi:10.1038/s41598-026-78831-5",
+    "url:https://doi.org/10.1038/s41598-026-78831-5",
+    "c8887c7dfcfb12099a4193ce",
+    "arxiv:2611.14498",
+    "url:https://arxiv.org/abs/2611.14498",
     "b39244ea2bef4bbfc3d50ed5",
     "url:https://github.com/openai/openai-cookbook/commit/2d5b1a9b6e706a732b03048d701c7086fda5f010",
     "b713fc7d1cc6e7054d0e8576",
@@ -663,6 +675,8 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://doi.org/10.1038/s41598-026-78831-5",
+    "https://arxiv.org/abs/2611.14498",
     "https://github.com/openai/openai-cookbook/commit/2d5b1a9b6e706a732b03048d701c7086fda5f010",
     "https://doi.org/10.14445/22315381/ijett-v74i10p118",
     "https://doi.org/10.5281/zenodo.24099169",
@@ -5286,6 +5300,37 @@
           "url": "https://github.com/openai/openai-cookbook/commit/2d5b1a9b6e706a732b03048d701c7086fda5f010",
           "published": "2026-11-06T18:39:48+00:00",
           "source": "OpenAI Cookbook Updates",
+          "doi": "",
+          "kind": "research",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261112-core_research.html": {
+      "topic": "multimodal",
+      "source_topic": "multimodal",
+      "created_at": "2026-11-12T06:13:57.011788+00:00",
+      "items": [
+        {
+          "uid": "fe9025f540e2e67731d8c34c",
+          "title": "Multi-criteria ranking of open automatic speech recognition models under alternative deployment priorities",
+          "url": "https://doi.org/10.1038/s41598-026-78831-5",
+          "published": "2026-11-12T00:00:00+00:00",
+          "source": "Crossref Multimodal",
+          "doi": "10.1038/s41598-026-78831-5",
+          "kind": "research",
+          "date_precision": "day"
+        },
+        {
+          "uid": "c8887c7dfcfb12099a4193ce",
+          "title": "Measuring Robustness and Efficiency in a Connectome-Constrained Fly Visual System Model: Linking an Adversarial and a Perceptual Illusion",
+          "url": "https://arxiv.org/abs/2611.14498",
+          "published": "2026-11-10T18:51:31+00:00",
+          "source": "arXiv Perception",
           "doi": "",
           "kind": "research",
           "date_precision": "day"
