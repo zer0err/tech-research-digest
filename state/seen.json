@@ -292,6 +292,12 @@
     },
     "product_safety": {
       "ids": [
+        "d4c8cbe5ba5bd98dd747e070",
+        "doi:10.14445/23488549/ijece-v13i10p101",
+        "url:https://doi.org/10.14445/23488549/ijece-v13i10p101",
+        "683edfde6d1754563c548bb8",
+        "doi:10.21203/rs.3.rs-11477727/v1",
+        "url:https://doi.org/10.21203/rs.3.rs-11477727/v1",
         "a84b2a7ba972dc3f9a97f56b",
         "815023220629db1d2a274fdc",
         "f29a7f017aec053d19f2f018",
@@ -315,7 +321,7 @@
         "1dd573b9112c2e472f3b1413",
         "5f4fd058fd42810b8ce54c7a"
       ],
-      "updated_at": "2026-11-08T06:12:21.978913+00:00"
+      "updated_at": "2026-11-12T08:42:17.500129+00:00"
     },
     "dev_practice": {
       "ids": [
@@ -370,6 +376,12 @@
     }
   },
   "all_ids": [
+    "d4c8cbe5ba5bd98dd747e070",
+    "doi:10.14445/23488549/ijece-v13i10p101",
+    "url:https://doi.org/10.14445/23488549/ijece-v13i10p101",
+    "683edfde6d1754563c548bb8",
+    "doi:10.21203/rs.3.rs-11477727/v1",
+    "url:https://doi.org/10.21203/rs.3.rs-11477727/v1",
     "fe9025f540e2e67731d8c34c",
     "doi:10.1038/s41598-026-78831-5",
     "url:https://doi.org/10.1038/s41598-026-78831-5",
@@ -675,6 +687,8 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://doi.org/10.14445/23488549/ijece-v13i10p101",
+    "https://doi.org/10.21203/rs.3.rs-11477727/v1",
     "https://doi.org/10.1038/s41598-026-78831-5",
     "https://arxiv.org/abs/2611.14498",
     "https://github.com/openai/openai-cookbook/commit/2d5b1a9b6e706a732b03048d701c7086fda5f010",
@@ -5332,6 +5346,37 @@
           "published": "2026-11-10T18:51:31+00:00",
           "source": "arXiv Perception",
           "doi": "",
+          "kind": "research",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261112-applied_ai.html": {
+      "topic": "product_safety",
+      "source_topic": "product_safety",
+      "created_at": "2026-11-12T08:42:17.500129+00:00",
+      "items": [
+        {
+          "uid": "d4c8cbe5ba5bd98dd747e070",
+          "title": "Rail-Guided IoT Imaging System for Leaf-Level Monitoring in Small-Scale Citrus Plots",
+          "url": "https://doi.org/10.14445/23488549/ijece-v13i10p101",
+          "published": "2026-11-12T00:00:00+00:00",
+          "source": "Crossref Device Security",
+          "doi": "10.14445/23488549/ijece-v13i10p101",
+          "kind": "research",
+          "date_precision": "day"
+        },
+        {
+          "uid": "683edfde6d1754563c548bb8",
+          "title": "Reliability and Sensing Analysis of IRS-Assisted NOMA ISAC for IoT Networks",
+          "url": "https://doi.org/10.21203/rs.3.rs-11477727/v1",
+          "published": "2026-11-12T00:00:00+00:00",
+          "source": "Crossref Device Security",
+          "doi": "10.21203/rs.3.rs-11477727/v1",
           "kind": "research",
           "date_precision": "day"
         }
