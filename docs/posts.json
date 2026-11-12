@@ -1,5 +1,34 @@
 [
   {
+    "title": "Prompt、上下文工程与评测（2026-11-12）",
+    "date": "2026-11-12T14:13:17.458779+08:00",
+    "count": 1,
+    "url": "posts/20261112-prompt_engineering.html",
+    "topic": "prompt_engineering",
+    "source_topic": "prompt_engineering",
+    "status": "published",
+    "summary": "本期要点 - 本期资料仅包含一份关于 OpenAI Cookbook 文档更新的提交记录，未涉及 Prompt、上下文工程、RAG、工具调用或评测方法的任何新信息或实证结果。 1 - 因此，无法从现有摘要中提取任何可验证的更新、经验建议或正式文档。摘要未提供/无法从摘要确认。 1 逐项速览 | 主题 | 现有证据 | ",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "docs: update sales meeting prep for current workspace agents (#3195)",
+          "url": "https://github.com/openai/openai-cookbook/commit/2d5b1a9b6e706a732b03048d701c7086fda5f010",
+          "publisher": "OpenAI Cookbook Updates",
+          "host": "github.com",
+          "family": "代码与版本",
+          "published": "2026-11-06T18:39:48+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 论文午间速览（2026-11-12）",
     "date": "2026-11-12T14:12:16.466018+08:00",
     "count": 2,

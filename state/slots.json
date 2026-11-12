@@ -1,6 +1,41 @@
 {
   "version": 1,
   "slots": {
+    "2026-11-12:prompt_engineering": {
+      "status": "prepared",
+      "updated_at": "2026-11-12T06:13:17.458779+00:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "prompt_engineering",
+        "title": "Prompt、上下文工程与评测",
+        "url": "https://vorasio.com/posts/20261112-prompt_engineering.html",
+        "created_at": "2026-11-12T06:13:17.458779+00:00",
+        "items": [
+          {
+            "uid": "b39244ea2bef4bbfc3d50ed5",
+            "title": "docs: update sales meeting prep for current workspace agents (#3195)",
+            "url": "https://github.com/openai/openai-cookbook/commit/2d5b1a9b6e706a732b03048d701c7086fda5f010",
+            "published": "2026-11-06T18:39:48+00:00",
+            "summary": "docs: update sales meeting prep for current workspace agents (#3195) Co-authored-by: ssetty-oai <ssetty@openai.com>",
+            "source": "OpenAI Cookbook Updates",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day",
+            "aliases": [
+              "url:https://github.com/openai/openai-cookbook/commit/2d5b1a9b6e706a732b03048d701c7086fda5f010"
+            ]
+          }
+        ],
+        "source_topic": "prompt_engineering",
+        "notify": false,
+        "mode": "production",
+        "analysis": {
+          "provider": "Groq",
+          "model": "openai/gpt-oss-20b"
+        },
+        "slot": "prompt_engineering"
+      }
+    },
     "2026-11-12:paper_brief": {
       "status": "published",
       "updated_at": "2026-11-12T06:12:16.466018+00:00",
