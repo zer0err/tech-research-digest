@@ -1,5 +1,56 @@
 [
   {
+    "title": "AI 晨间雷达与免费资源（2026-11-12）",
+    "date": "2026-11-12T09:12:28.908105+08:00",
+    "count": 3,
+    "url": "posts/20261112-morning_radar.html",
+    "topic": "morning_radar",
+    "source_topic": "morning_radar",
+    "status": "published",
+    "summary": "本时段要点 1. Google AI 推出 Gemini Decisions API，基于 Gemini Decision 模型实现快速、校准的多模态决策功能。 1 2. Google Labs 新实验 Tabletop 允许团队创建可定制的协作空间，用于行程规划、投票和比赛结构，并已开放候补名单。 2 3. Goog",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "Gemini Decisions API: Fast, calibrated multimodal decisions",
+          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api",
+          "publisher": "Google AI 官方博客",
+          "host": "blog.google",
+          "family": "博客/公开网页",
+          "published": "2026-11-11T18:00:00+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "Try Tabletop: Customizable, collaborative spaces for groups to plan, play and do more together.",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/tabletop",
+          "publisher": "Google AI 官方博客",
+          "host": "blog.google",
+          "family": "博客/公开网页",
+          "published": "2026-11-11T16:00:00+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "Experience the art and legacy of Dr. Esther Mahlangu",
+          "url": "https://blog.google/company-news/outreach-and-initiatives/arts-culture/esther-mahlangu",
+          "publisher": "Google AI 官方博客",
+          "host": "blog.google",
+          "family": "博客/公开网页",
+          "published": "2026-11-11T09:00:00+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "VORASIO AI 日报（2026-11-11）",
     "date": "2026-11-11T19:00:31.882891+08:00",
     "count": 8,
