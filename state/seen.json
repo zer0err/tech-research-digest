@@ -224,6 +224,12 @@
     },
     "efficient_ai": {
       "ids": [
+        "b713fc7d1cc6e7054d0e8576",
+        "doi:10.14445/22315381/ijett-v74i10p118",
+        "url:https://doi.org/10.14445/22315381/ijett-v74i10p118",
+        "f5539a30dbc27be5bf0f5377",
+        "doi:10.5281/zenodo.24099169",
+        "url:https://doi.org/10.5281/zenodo.24099169",
         "7605927199e825c04c75118f",
         "dfc85b5eafee962b01259ca7",
         "25d9f5d9586732f11e4e0714",
@@ -253,7 +259,7 @@
         "7e518a52776f0779cdbd16e6",
         "d8688b533028f131212f0a3d"
       ],
-      "updated_at": "2026-11-09T06:13:29.287993+00:00"
+      "updated_at": "2026-11-12T06:12:16.466018+00:00"
     },
     "ai_hardware": {
       "ids": [
@@ -356,6 +362,12 @@
     }
   },
   "all_ids": [
+    "b713fc7d1cc6e7054d0e8576",
+    "doi:10.14445/22315381/ijett-v74i10p118",
+    "url:https://doi.org/10.14445/22315381/ijett-v74i10p118",
+    "f5539a30dbc27be5bf0f5377",
+    "doi:10.5281/zenodo.24099169",
+    "url:https://doi.org/10.5281/zenodo.24099169",
     "bbc111b940e2ec5858914d3d",
     "doi:10.18174/sesmo.19051",
     "url:https://doi.org/10.18174/sesmo.19051",
@@ -647,6 +659,8 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://doi.org/10.14445/22315381/ijett-v74i10p118",
+    "https://doi.org/10.5281/zenodo.24099169",
     "https://doi.org/10.18174/sesmo.19051",
     "https://arxiv.org/abs/2611.14519",
     "https://arxiv.org/abs/2611.14518",
@@ -5216,6 +5230,37 @@
           "published": "2026-11-10T18:59:17+00:00",
           "source": "arXiv Model Research",
           "doi": "",
+          "kind": "research",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261112-paper_brief.html": {
+      "topic": "efficient_ai",
+      "source_topic": "efficient_ai",
+      "created_at": "2026-11-12T06:12:16.466018+00:00",
+      "items": [
+        {
+          "uid": "b713fc7d1cc6e7054d0e8576",
+          "title": "Robust Cross-Lingual Legal Question Pair Similarity Analysis for English-Marathi",
+          "url": "https://doi.org/10.14445/22315381/ijett-v74i10p118",
+          "published": "2026-11-10T00:00:00+00:00",
+          "source": "OpenAlex Efficient AI",
+          "doi": "10.14445/22315381/ijett-v74i10p118",
+          "kind": "research",
+          "date_precision": "day"
+        },
+        {
+          "uid": "f5539a30dbc27be5bf0f5377",
+          "title": "Phi-Quantized Cognitive Bandwidth via E8 Root Vector Entanglement — E8 Intelligence Research",
+          "url": "https://doi.org/10.5281/zenodo.24099169",
+          "published": "2026-11-10T00:00:00+00:00",
+          "source": "OpenAlex Efficient AI",
+          "doi": "10.5281/zenodo.24099169",
           "kind": "research",
           "date_precision": "day"
         }
