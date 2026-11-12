@@ -27,6 +27,57 @@
       "updated_at": "2026-11-12T02:42:15.356735+00:00",
       "attempts": 1
     },
+    "2026-11-12:core_research": {
+      "status": "prepared",
+      "updated_at": "2026-11-12T06:13:57.011788+00:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "multimodal",
+        "title": "多模态感知、音视频与人机交互",
+        "url": "https://vorasio.com/posts/20261112-core_research.html",
+        "created_at": "2026-11-12T06:13:57.011788+00:00",
+        "items": [
+          {
+            "uid": "fe9025f540e2e67731d8c34c",
+            "title": "Multi-criteria ranking of open automatic speech recognition models under alternative deployment priorities",
+            "url": "https://doi.org/10.1038/s41598-026-78831-5",
+            "published": "2026-11-12T00:00:00+00:00",
+            "summary": "Abstract Automatic speech recognition (ASR) models differ in accuracy, throughput, and parameter count, so choosing a model involves trade-offs. This study ranks 69 license-eligible open ASR model configurations from the July 2026 open ASR leaderboard, which covers eight short-form English test sets. Criterion weights were derived with the fuzzy analytic hierarchy process (fuzzy AHP) under three illustrative scenarios, each prioritizing one criterion: word error rate (WER), inverse real-time factor (RTFx), or parameter count. The models were then ranked with the technique for order preference by similarity to ideal solution (TOPSIS). NVIDIA Parakeet-TDT-CTC-110M ranked first in the WER-prioritized scenario, and NVIDIA FastConformer-CTC-large ranked first in the other two. The sensitivity analysis tested three further ranking methods (VIKOR, MABAC, and ARAS), classical AHP and entropy weights, stronger dominance ratings, min–max normalization, 171 weight combinations, and alternative WER measures. Across the four ranking methods and three scenarios, the top rank was always held by one of three NVIDIA models: Parakeet-TDT-CTC-110M, FastConformer-CTC-Large, or Conformer-CTC-Small. Classical AHP weights produced nearly identical rankings (Spearman rank correlation of at least 0.998), and Parakeet-TDT-CTC-110M or FastConformer-CTC-Large ranked first in 163 of the 171 TOPSIS weight c",
+            "source": "Crossref Multimodal",
+            "kind": "research",
+            "doi": "10.1038/s41598-026-78831-5",
+            "date_precision": "day",
+            "aliases": [
+              "doi:10.1038/s41598-026-78831-5",
+              "url:https://doi.org/10.1038/s41598-026-78831-5"
+            ]
+          },
+          {
+            "uid": "c8887c7dfcfb12099a4193ce",
+            "title": "Measuring Robustness and Efficiency in a Connectome-Constrained Fly Visual System Model: Linking an Adversarial and a Perceptual Illusion",
+            "url": "https://arxiv.org/abs/2611.14498",
+            "published": "2026-11-10T18:51:31+00:00",
+            "summary": "Biological visual systems compute reliably under tight metabolic and wiring constraints, whereas artificial vision systems consume far more energy and can be sensitive to adversarial perturbations. Whether networks with brain-like wiring are more robust at lower computational cost is unclear. We address this by benchmarking a task-optimized, continuous-time recurrent neural network of the fly visual system constrained by its synaptic connectome (FlyNet) against artificial neural networks. We compare it against CNNs, RAFT, and continuous-time recurrent neural networks without detailed connectome constraints (sCTRNN, CTRNN) on a collision-detection task within a differentiable 3D rendering pipeline. FlyNet is adversarially vulnerable but, relative to its compute, more robust to common video corruptions than RAFT, while using up to five orders of magnitude fewer FLOPs. The CTRNNs remain more robust than FlyNet across almost all tested perturbations, suggesting that connectome constraints benefit efficiency, through their low edge count, over robustness. Recurrence improves robustness to white-box attacks in RAFT and temporal context improves robustness to common corruptions. FlyNet's position and velocity representations degrade under adversarial textures but recover under counterfactual textures that restore correct classification while staying equally far from training, ruling o",
+            "source": "arXiv Perception",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day",
+            "aliases": [
+              "arxiv:2611.14498",
+              "url:https://arxiv.org/abs/2611.14498"
+            ]
+          }
+        ],
+        "source_topic": "multimodal",
+        "notify": false,
+        "mode": "production",
+        "analysis": {
+          "provider": "Groq",
+          "model": "openai/gpt-oss-20b"
+        },
+        "slot": "core_research"
+      }
+    },
     "2026-11-11:prompt_engineering": {
       "status": "published",
       "updated_at": "2026-11-11T06:12:21.156058+00:00",

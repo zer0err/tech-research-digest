@@ -1,6 +1,6 @@
 {
   "2026-11-12:prompt_engineering": {
-    "status": "prepared",
+    "status": "published",
     "updated_at": "2026-11-12T06:13:17.458779+00:00",
     "attempts": 1
   },
@@ -22,6 +22,11 @@
   "2026-11-12:model_research": {
     "status": "published",
     "updated_at": "2026-11-12T02:42:15.356735+00:00",
+    "attempts": 1
+  },
+  "2026-11-12:core_research": {
+    "status": "prepared",
+    "updated_at": "2026-11-12T06:13:57.011788+00:00",
     "attempts": 1
   },
   "2026-11-11:prompt_engineering": {

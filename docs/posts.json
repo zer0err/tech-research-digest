@@ -1,5 +1,45 @@
 [
   {
+    "title": "多模态感知、音视频与人机交互（2026-11-12）",
+    "date": "2026-11-12T14:13:57.011788+08:00",
+    "count": 2,
+    "url": "posts/20261112-core_research.html",
+    "topic": "core_research",
+    "source_topic": "multimodal",
+    "status": "published",
+    "summary": "本期结论 1. 多模态融合在实时性与交互条件上仍面临显著挑战。在视觉与语音的融合研究中，FlyNet模型显示出在计算效率上优于传统CNN，但在对抗鲁棒性方面仍不及无约束的CTRNN模型2。 2. 单模态模型在特定部署优先级下可实现最优性能。在ASR领域，NVIDIA的Parakeet‑TDT‑CTC‑110M在词错误率",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "Multi-criteria ranking of open automatic speech recognition models under alternative deployment priorities",
+          "url": "https://doi.org/10.1038/s41598-026-78831-5",
+          "publisher": "Crossref Multimodal",
+          "host": "doi.org",
+          "family": "书目索引",
+          "published": "2026-11-12T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "10.1038/s41598-026-78831-5",
+          "kind": "research"
+        },
+        {
+          "title": "Measuring Robustness and Efficiency in a Connectome-Constrained Fly Visual System Model: Linking an Adversarial and a Perceptual Illusion",
+          "url": "https://arxiv.org/abs/2611.14498",
+          "publisher": "arXiv Perception",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-11-10T18:51:31+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "Prompt、上下文工程与评测（2026-11-12）",
     "date": "2026-11-12T14:13:17.458779+08:00",
     "count": 1,
