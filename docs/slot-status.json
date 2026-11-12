@@ -26,8 +26,8 @@
   },
   "2026-11-12:dev_practice": {
     "status": "analysis_rejected",
-    "updated_at": "2026-11-12T07:42:25.237109+00:00",
-    "attempts": 1
+    "updated_at": "2026-11-12T09:12:19.271201+00:00",
+    "attempts": 2
   },
   "2026-11-12:core_research": {
     "status": "published",
@@ -35,7 +35,7 @@
     "attempts": 1
   },
   "2026-11-12:applied_ai": {
-    "status": "prepared",
+    "status": "published",
     "updated_at": "2026-11-12T08:42:17.500129+00:00",
     "attempts": 1
   },
