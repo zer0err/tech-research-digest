@@ -26,8 +26,8 @@
   },
   "2026-11-12:ecosystem": {
     "status": "already_published",
-    "updated_at": "2026-11-12T09:42:34.116163+00:00",
-    "attempts": 1
+    "updated_at": "2026-11-12T13:09:35.691847+00:00",
+    "attempts": 2
   },
   "2026-11-12:dev_practice": {
     "status": "analysis_rejected",
@@ -35,7 +35,7 @@
     "attempts": 3
   },
   "2026-11-12:daily_digest": {
-    "status": "prepared",
+    "status": "published",
     "updated_at": "2026-11-12T11:12:22.456313+00:00",
     "attempts": 1
   },

@@ -30,8 +30,9 @@
     },
     "2026-11-12:ecosystem": {
       "status": "already_published",
-      "updated_at": "2026-11-12T09:42:34.116163+00:00",
-      "attempts": 1
+      "updated_at": "2026-11-12T13:09:35.691847+00:00",
+      "attempts": 2,
+      "maintenance_notified": true
     },
     "2026-11-12:dev_practice": {
       "status": "analysis_rejected",
