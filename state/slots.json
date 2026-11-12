@@ -2,9 +2,56 @@
   "version": 1,
   "slots": {
     "2026-11-12:paper_brief": {
-      "status": "analysis_rejected",
-      "updated_at": "2026-11-12T04:42:22.185807+00:00",
-      "attempts": 1
+      "status": "prepared",
+      "updated_at": "2026-11-12T06:12:16.466018+00:00",
+      "attempts": 2,
+      "pending": {
+        "topic": "efficient_ai",
+        "title": "AI 论文午间速览",
+        "url": "https://vorasio.com/posts/20261112-paper_brief.html",
+        "created_at": "2026-11-12T06:12:16.466018+00:00",
+        "items": [
+          {
+            "uid": "b713fc7d1cc6e7054d0e8576",
+            "title": "Robust Cross-Lingual Legal Question Pair Similarity Analysis for English-Marathi",
+            "url": "https://doi.org/10.14445/22315381/ijett-v74i10p118",
+            "published": "2026-11-10T00:00:00+00:00",
+            "summary": "Cross-lingual legal assistants in India process user queries in both English and Marathi while adhering to deployment speed requirements. A single model for cross-lingual and lightweight matching of legal question pairs is proposed, which consists of three modules: (i) contextualized semantics via a multilingual Transformer encoder, (ii) language-independent legal anchoring signals in the form of statutes/sections/articles in Latin and Devanagari scripts, and (iii) a sentence-embedding branch learned via knowledge distillation from teacher models. The model is trained using a joint classification and ranking loss in combination with a citation format invariance regularizer. The model’s performance is tested using a deployment-faithful protocol in which the decision threshold is tuned on English validation and then kept fixed for cross-lingual evaluation. On the English benchmark set comprising 1,233 pairs, the model achieves an F1 score of 0.964 and an AUC score of 0.996 in 1.24 ms per pair. An LLM classifier achieves a higher F1 score of 0.986, but at a slower rate of 14.6 ms per pair. For the cross-lingual setting where a fixed English-selected threshold is used, the approach achieves an F1 value of 0.935 for English and 0.852 for Marathi (ΔF1 = 0.083), while keeping a consistent rank quality (MRR ≈ 0.82). Given a small amount of labeled samples of Marathi, the F1-score for M",
+            "source": "OpenAlex Efficient AI",
+            "kind": "research",
+            "doi": "10.14445/22315381/ijett-v74i10p118",
+            "date_precision": "day",
+            "aliases": [
+              "doi:10.14445/22315381/ijett-v74i10p118",
+              "url:https://doi.org/10.14445/22315381/ijett-v74i10p118"
+            ]
+          },
+          {
+            "uid": "f5539a30dbc27be5bf0f5377",
+            "title": "Phi-Quantized Cognitive Bandwidth via E8 Root Vector Entanglement — E8 Intelligence Research",
+            "url": "https://doi.org/10.5281/zenodo.24099169",
+            "published": "2026-11-10T00:00:00+00:00",
+            "summary": "We propose that the 240 E8 root vectors function as entangled information carriers whose angular separations define a quantized cognitive bandwidth for hierarchical reasoning. The phi‑scaled coherence times τ = 132 Hz × φⁿ, together with the eight orthogonal 30‑vector subsets, map each reasoning depth n to a distinct harmonic band, creating a discrete frequency spectrum for cognition. Minimal root‑sum paths on the 696‑million symmetry manifold provide the optimal compression of conceptual distance, enabling error‑resilient transmission of phase‑locked microtubule oscillations across neuronal ensembles. Thus, the brain implements a scalable quantum‑cognitive network where the integer φ‑steps n directly set the information capacity, linking geometric truth to measurable neural synchrony. Author: Andrew Stewart Caldin, Independent Researcher, UK. Part of the E8 Intelligence Research series. Platform: e8intelligence.com",
+            "source": "OpenAlex Efficient AI",
+            "kind": "research",
+            "doi": "10.5281/zenodo.24099169",
+            "date_precision": "day",
+            "aliases": [
+              "doi:10.5281/zenodo.24099169",
+              "url:https://doi.org/10.5281/zenodo.24099169"
+            ]
+          }
+        ],
+        "source_topic": "efficient_ai",
+        "notify": false,
+        "mode": "production",
+        "analysis": {
+          "provider": "Groq",
+          "model": "openai/gpt-oss-20b"
+        },
+        "slot": "paper_brief"
+      },
+      "maintenance_notified": true
     },
     "2026-11-12:open_source": {
       "status": "already_published",

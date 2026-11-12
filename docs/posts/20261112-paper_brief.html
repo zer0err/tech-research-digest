@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 论文午间速览（2026-11-12）</title><meta name="description" content="AI 论文午间速览（2026-11-12）：2 项最新研究">
+<link rel="alternate" type="application/rss+xml" title="VORASIO" href="../feed.xml">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/growth.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=presentation-1">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav aria-label="主导航">
+<a href="../domains/index.html">领域导航</a>
+<a href="../index.html#latest">全部更新</a>
+<a href="../knowledge/index.html">AI 知识科普</a>
+<a href="../courses/index.html">AI 学习</a>
+<a href="../tools/index.html">AI 工具</a>
+<a href="../subscribe.html">订阅精选</a>
+<a href="../services.html">开发咨询</a>
+<a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">AI 论文午间速览</p><dl><dt>发布时间</dt><dd data-published-at="2026-11-12T14:12:16.466018+08:00">2026-11-12 14:12 · UTC+8</dd><dt>研究条目</dt><dd>2 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · AI 论文午间速览</p><h1>AI 论文午间速览（2026-11-12）</h1><!-- provenance:start --><p class="ai-analysis" title="openai/gpt-oss-20b">AI 分析：Groq</p><!-- provenance:end --><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期要点</h2>
+<ul>
+<li>论文[1]提出的跨语言法律问答匹配模型在英马双语环境下实现了 <strong>1.24 ms/对</strong> 的推理速度，F1 = 0.964，AUC = 0.996，显示出在轻量化与高精度之间的良好权衡。</li>
+<li>论文[2]提出的 <strong>E8 根向量量子编码</strong> 方案未给出具体参数量、位宽或硬件实现细节，因而无法评估其在实际设备上的内存、延迟或功耗表现。</li>
+</ul>
+<h2>逐项速览</h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>论文[1]</th>
+<th>论文[2]</th>
+<th>证据</th>
+<th>局限</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>参数量</strong></td>
+<td>未披露</td>
+<td>未披露</td>
+<td>摘要未提供</td>
+<td>无法量化模型规模</td>
+</tr>
+<tr>
+<td><strong>精度</strong></td>
+<td>F1 = 0.964（英）/0.935（英跨）/0.852（马）</td>
+<td>未披露</td>
+<td>摘要中给出</td>
+<td>仅针对法律问答对</td>
+</tr>
+<tr>
+<td><strong>量化位宽</strong></td>
+<td>未披露</td>
+<td>未披露</td>
+<td>摘要未提及</td>
+<td>不能评估压缩效果</td>
+</tr>
+<tr>
+<td><strong>剪枝/蒸馏</strong></td>
+<td>采用知识蒸馏训练句子嵌入分支</td>
+<td>未披露</td>
+<td>摘要中说明</td>
+<td>仅蒸馏，未提剪枝</td>
+</tr>
+<tr>
+<td><strong>内存</strong></td>
+<td>未披露</td>
+<td>未披露</td>
+<td>摘要未提及</td>
+<td>不能评估模型占用</td>
+</tr>
+<tr>
+<td><strong>延迟</strong></td>
+<td>1.24 ms/对</td>
+<td>未披露</td>
+<td>摘要中给出</td>
+<td>仅单对延迟，未给吞吐</td>
+</tr>
+<tr>
+<td><strong>吞吐</strong></td>
+<td>未披露</td>
+<td>未披露</td>
+<td>摘要未提及</td>
+<td>不能评估并行推理</td>
+</tr>
+<tr>
+<td><strong>功耗</strong></td>
+<td>未披露</td>
+<td>未披露</td>
+<td>摘要未提及</td>
+<td>不能评估能耗</td>
+</tr>
+<tr>
+<td><strong>目标设备</strong></td>
+<td>适用于需要快速响应的印度法律助手</td>
+<td>未披露</td>
+<td>摘要中提到“deployment‑faithful protocol”</td>
+<td>具体硬件未说明</td>
+</tr>
+</tbody>
+</table>
+<h2>值得采取的行动</h2>
+<ul>
+<li>对论文[1]的模型进行 <strong>实测验证</strong>：在目标设备（如边缘服务器或移动终端）上部署，测量实际内存占用、功耗与吞吐率，以补全缺失的资源指标。</li>
+<li>进一步 <strong>对比蒸馏与剪枝</strong>：在相同模型架构下尝试剪枝技术，评估对延迟与精度的影响，验证蒸馏是否已达到最优权衡。</li>
+<li>对论文[2]的理论方案进行 <strong>可行性评估</strong>：尝试在模拟环境中实现根向量量子编码，测定所需硬件资源与实际信息容量，判断其是否可落地。</li>
+</ul>
+<h2>参考资料</h2>
+<p>[1] Robust Cross‑Lingual Legal Question Pair Similarity Analysis for English‑Marathi. 2026-11-10. <a href="https://doi.org/10.14445/22315381/ijett-v74i10p118">https://doi.org/10.14445/22315381/ijett-v74i10p118</a><br />
+[2] Phi‑Quantized Cognitive Bandwidth via E8 Root Vector Entanglement — E8 Intelligence Research. 2026-11-10. <a href="https://doi.org/10.5281/zenodo.24099169">https://doi.org/10.5281/zenodo.24099169</a></p>
+</div><section class="growth-card" data-growth-cta><h2>有项目想法？</h2><p>可以订阅后续更新，也可以整理你的 AI 软件或智能硬件需求，发来聊聊。</p><a href="../subscribe.html">订阅 AI 精选</a> · <a href="../services.html?source=/posts/20261112-paper_brief.html">整理开发需求</a></section></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原始来源。</span></footer></body></html>

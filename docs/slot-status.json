@@ -1,8 +1,8 @@
 {
   "2026-11-12:paper_brief": {
-    "status": "analysis_rejected",
-    "updated_at": "2026-11-12T04:42:22.185807+00:00",
-    "attempts": 1
+    "status": "prepared",
+    "updated_at": "2026-11-12T06:12:16.466018+00:00",
+    "attempts": 2
   },
   "2026-11-12:open_source": {
     "status": "already_published",

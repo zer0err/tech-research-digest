@@ -1,5 +1,45 @@
 [
   {
+    "title": "AI 论文午间速览（2026-11-12）",
+    "date": "2026-11-12T14:12:16.466018+08:00",
+    "count": 2,
+    "url": "posts/20261112-paper_brief.html",
+    "topic": "paper_brief",
+    "source_topic": "efficient_ai",
+    "status": "published",
+    "summary": "本期要点 - 论文1提出的跨语言法律问答匹配模型在英马双语环境下实现了 1.24 ms/对 的推理速度，F1 = 0.964，AUC = 0.996，显示出在轻量化与高精度之间的良好权衡。 - 论文2提出的 E8 根向量量子编码 方案未给出具体参数量、位宽或硬件实现细节，因而无法评估其在实际设备上的内存、延迟或功耗表现",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "Robust Cross-Lingual Legal Question Pair Similarity Analysis for English-Marathi",
+          "url": "https://doi.org/10.14445/22315381/ijett-v74i10p118",
+          "publisher": "OpenAlex Efficient AI",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-11-10T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "10.14445/22315381/ijett-v74i10p118",
+          "kind": "research"
+        },
+        {
+          "title": "Phi-Quantized Cognitive Bandwidth via E8 Root Vector Entanglement — E8 Intelligence Research",
+          "url": "https://doi.org/10.5281/zenodo.24099169",
+          "publisher": "OpenAlex Efficient AI",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-11-10T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "10.5281/zenodo.24099169",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 模型、训练与基础研究（2026-11-12）",
     "date": "2026-11-12T10:42:15.356735+08:00",
     "count": 3,
