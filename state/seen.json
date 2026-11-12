@@ -51,6 +51,12 @@
     },
     "morning_radar": {
       "ids": [
+        "c06fca3b9549fb95708df0f2",
+        "url:https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api",
+        "eac4d84ef949975e755c40f9",
+        "url:https://blog.google/innovation-and-ai/models-and-research/google-labs/tabletop",
+        "8e8e851f9ac38a1986e4da16",
+        "url:https://blog.google/company-news/outreach-and-initiatives/arts-culture/esther-mahlangu",
         "0da2a3ce8ca2ed1bece890ee",
         "e09c77a9ac2bb834f395b89d",
         "c0101f36ad82bf9132fd32eb",
@@ -84,7 +90,7 @@
         "dea8ba729eb28582daacbbc8",
         "767a7f383549ba646ff22647"
       ],
-      "updated_at": "2026-11-11T01:12:24.326607+00:00"
+      "updated_at": "2026-11-12T01:12:28.908105+00:00"
     },
     "ecosystem": {
       "ids": [
@@ -341,6 +347,12 @@
     }
   },
   "all_ids": [
+    "c06fca3b9549fb95708df0f2",
+    "url:https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api",
+    "eac4d84ef949975e755c40f9",
+    "url:https://blog.google/innovation-and-ai/models-and-research/google-labs/tabletop",
+    "8e8e851f9ac38a1986e4da16",
+    "url:https://blog.google/company-news/outreach-and-initiatives/arts-culture/esther-mahlangu",
     "43c0f6fc2334626b19937213",
     "doi:10.1177/21695172261499043",
     "url:https://doi.org/10.1177/21695172261499043",
@@ -617,6 +629,9 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api",
+    "https://blog.google/innovation-and-ai/models-and-research/google-labs/tabletop",
+    "https://blog.google/company-news/outreach-and-initiatives/arts-culture/esther-mahlangu",
     "https://doi.org/10.1177/21695172261499043",
     "https://doi.org/10.3389/frobt.2026.1981973",
     "https://doi.org/10.3389/frobt.2026.1996839",
@@ -5098,6 +5113,47 @@
           "published": "2026-11-11T00:00:00+00:00",
           "source": "Crossref Embodied",
           "doi": "10.3389/frobt.2026.1996839",
+          "kind": "research",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261112-morning_radar.html": {
+      "topic": "morning_radar",
+      "source_topic": "morning_radar",
+      "created_at": "2026-11-12T01:12:28.908105+00:00",
+      "items": [
+        {
+          "uid": "c06fca3b9549fb95708df0f2",
+          "title": "Gemini Decisions API: Fast, calibrated multimodal decisions",
+          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api",
+          "published": "2026-11-11T18:00:00+00:00",
+          "source": "Google AI 官方博客",
+          "doi": "",
+          "kind": "research",
+          "date_precision": "day"
+        },
+        {
+          "uid": "eac4d84ef949975e755c40f9",
+          "title": "Try Tabletop: Customizable, collaborative spaces for groups to plan, play and do more together.",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/tabletop",
+          "published": "2026-11-11T16:00:00+00:00",
+          "source": "Google AI 官方博客",
+          "doi": "",
+          "kind": "research",
+          "date_precision": "day"
+        },
+        {
+          "uid": "8e8e851f9ac38a1986e4da16",
+          "title": "Experience the art and legacy of Dr. Esther Mahlangu",
+          "url": "https://blog.google/company-news/outreach-and-initiatives/arts-culture/esther-mahlangu",
+          "published": "2026-11-11T09:00:00+00:00",
+          "source": "Google AI 官方博客",
+          "doi": "",
           "kind": "research",
           "date_precision": "day"
         }

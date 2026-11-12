@@ -2,67 +2,9 @@
   "version": 1,
   "slots": {
     "2026-11-12:morning_radar": {
-      "status": "prepared",
+      "status": "published",
       "updated_at": "2026-11-12T01:12:28.908105+00:00",
-      "attempts": 1,
-      "pending": {
-        "topic": "morning_radar",
-        "title": "AI 晨间雷达与免费资源",
-        "url": "https://vorasio.com/posts/20261112-morning_radar.html",
-        "created_at": "2026-11-12T01:12:28.908105+00:00",
-        "items": [
-          {
-            "uid": "c06fca3b9549fb95708df0f2",
-            "title": "Gemini Decisions API: Fast, calibrated multimodal decisions",
-            "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api",
-            "published": "2026-11-11T18:00:00+00:00",
-            "summary": "Meet the Gemini Decisions API, powered by our state-of-the-art model Gemini Decision for fast, calibrated multimodal decisions.",
-            "source": "Google AI 官方博客",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day",
-            "aliases": [
-              "url:https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api"
-            ]
-          },
-          {
-            "uid": "eac4d84ef949975e755c40f9",
-            "title": "Try Tabletop: Customizable, collaborative spaces for groups to plan, play and do more together.",
-            "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/tabletop",
-            "published": "2026-11-11T16:00:00+00:00",
-            "summary": "Tabletop is a new Google Labs experiment for group collaboration. Build interactive itineraries, polls, and brackets with your team. Join the waitlist.",
-            "source": "Google AI 官方博客",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day",
-            "aliases": [
-              "url:https://blog.google/innovation-and-ai/models-and-research/google-labs/tabletop"
-            ]
-          },
-          {
-            "uid": "8e8e851f9ac38a1986e4da16",
-            "title": "Experience the art and legacy of Dr. Esther Mahlangu",
-            "url": "https://blog.google/company-news/outreach-and-initiatives/arts-culture/esther-mahlangu",
-            "published": "2026-11-11T09:00:00+00:00",
-            "summary": "A portrait of Dr Nontobeko Ntombela, Senior Lecturer, Department of Curatorial, Public and Visual Cultures, Wits School of Arts, University of the Witwatersrand",
-            "source": "Google AI 官方博客",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day",
-            "aliases": [
-              "url:https://blog.google/company-news/outreach-and-initiatives/arts-culture/esther-mahlangu"
-            ]
-          }
-        ],
-        "source_topic": "morning_radar",
-        "notify": false,
-        "mode": "production",
-        "analysis": {
-          "provider": "Groq",
-          "model": "openai/gpt-oss-20b"
-        },
-        "slot": "morning_radar"
-      }
+      "attempts": 1
     },
     "2026-11-11:prompt_engineering": {
       "status": "published",
