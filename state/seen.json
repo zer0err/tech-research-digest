@@ -110,7 +110,7 @@
     },
     "daily_digest": {
       "ids": [],
-      "updated_at": "2026-11-11T11:00:31.882891+00:00"
+      "updated_at": "2026-11-12T11:12:22.456313+00:00"
     },
     "model_research": {
       "ids": [
@@ -5388,6 +5388,10 @@
     }
   },
   "daily_notifications": {
+    "2026-11-12": {
+      "sent_at": "2026-11-12T11:12:32.457675+00:00",
+      "url": "https://vorasio.com/posts/20261112-daily_digest.html"
+    },
     "2026-11-11": {
       "sent_at": "2026-11-11T11:00:44.452875+00:00",
       "url": "https://vorasio.com/posts/20261111-daily_digest.html"
