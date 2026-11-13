@@ -1,5 +1,34 @@
 [
   {
+    "title": "AI 人物、机构与产业生态（2026-11-13）",
+    "date": "2026-11-13T17:39:20.804518+08:00",
+    "count": 1,
+    "url": "posts/20261113-ecosystem.html",
+    "topic": "ecosystem",
+    "source_topic": "ecosystem",
+    "status": "published",
+    "summary": "本期要点 - GitHub 在 2026‑11‑12 发布了《Build once, run on any agent: A practical guide to agent skills》一文，阐述了 Agent skills 的概念与实践方法。 1 - 文章指出，Agent skills 通过将可重复的工程工作封装",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "Build once, run on any agent: A practical guide to agent skills",
+          "url": "https://github.blog/ai-and-ml/github-copilot/build-once-run-on-any-agent-a-practical-guide-to-agent-skills",
+          "publisher": "GitHub 官方博客",
+          "host": "github.blog",
+          "family": "博客/公开网页",
+          "published": "2026-11-12T22:54:52+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "Agent、机器人与具身智能（2026-11-13）",
     "date": "2026-11-13T14:13:31.051456+08:00",
     "count": 3,
