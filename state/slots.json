@@ -37,8 +37,8 @@
     },
     "2026-11-13:dev_practice": {
       "status": "analysis_rejected",
-      "updated_at": "2026-11-13T09:12:19.112285+00:00",
-      "attempts": 2,
+      "updated_at": "2026-11-13T10:42:53.925948+00:00",
+      "attempts": 3,
       "maintenance_notified": true
     },
     "2026-11-13:core_research": {
