@@ -31,39 +31,9 @@
       "maintenance_notified": true
     },
     "2026-11-13:ecosystem": {
-      "status": "prepared",
+      "status": "published",
       "updated_at": "2026-11-13T09:39:20.804518+00:00",
-      "attempts": 1,
-      "pending": {
-        "topic": "ecosystem",
-        "title": "AI 人物、机构与产业生态",
-        "url": "https://vorasio.com/posts/20261113-ecosystem.html",
-        "created_at": "2026-11-13T09:39:20.804518+00:00",
-        "items": [
-          {
-            "uid": "648bb7e0f000d2bb51b04e0f",
-            "title": "Build once, run on any agent: A practical guide to agent skills",
-            "url": "https://github.blog/ai-and-ml/github-copilot/build-once-run-on-any-agent-a-practical-guide-to-agent-skills",
-            "published": "2026-11-12T22:54:52+00:00",
-            "summary": "Agent skills capture repeatable engineering work in files teams can review and reuse, while tools, project context, and permissions remain specific to the host that runs them. The post Build once, run on any agent: A practical guide to agent skills appeared first on The GitHub Blog .",
-            "source": "GitHub 官方博客",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day",
-            "aliases": [
-              "url:https://github.blog/ai-and-ml/github-copilot/build-once-run-on-any-agent-a-practical-guide-to-agent-skills"
-            ]
-          }
-        ],
-        "source_topic": "ecosystem",
-        "notify": false,
-        "mode": "production",
-        "analysis": {
-          "provider": "Groq",
-          "model": "openai/gpt-oss-20b"
-        },
-        "slot": "ecosystem"
-      }
+      "attempts": 1
     },
     "2026-11-13:dev_practice": {
       "status": "analysis_rejected",
