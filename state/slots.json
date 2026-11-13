@@ -13,8 +13,9 @@
     },
     "2026-11-13:model_research": {
       "status": "analysis_rejected",
-      "updated_at": "2026-11-13T02:42:17.959115+00:00",
-      "attempts": 1
+      "updated_at": "2026-11-13T04:12:19.068193+00:00",
+      "attempts": 2,
+      "maintenance_notified": true
     },
     "2026-11-12:prompt_engineering": {
       "status": "published",
