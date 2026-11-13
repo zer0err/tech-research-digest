@@ -1,6 +1,69 @@
 {
   "version": 1,
   "slots": {
+    "2026-11-13:morning_radar": {
+      "status": "prepared",
+      "updated_at": "2026-11-13T01:12:21.140693+00:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "morning_radar",
+        "title": "AI 晨间雷达与免费资源",
+        "url": "https://vorasio.com/posts/20261113-morning_radar.html",
+        "created_at": "2026-11-13T01:12:21.140693+00:00",
+        "items": [
+          {
+            "uid": "f19cddd04797ae7d9ed5d0a1",
+            "title": "Google Search gets a major upgrade with Gemini 4 Hydrogen",
+            "url": "https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade",
+            "published": "2026-11-12T18:00:00+00:00",
+            "summary": "Rotating carousel of cards with text \"Gemini 4 Hydrogen\" \"Now in Google Search\" and examples from the Google Search UI",
+            "source": "Google AI 官方博客",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day",
+            "aliases": [
+              "url:https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade"
+            ]
+          },
+          {
+            "uid": "ce169ea5d1f169f19da4cc3e",
+            "title": "C++ language server now auto-configures MSBuild builds",
+            "url": "https://github.blog/changelog/2026-11-10-c-language-server-now-auto-configures-msbuild-builds",
+            "published": "2026-11-10T17:04:10+00:00",
+            "summary": "The Microsoft C++ Language Server for GitHub Copilot CLI now bundles its MSBuild compile commands extractor and invokes it automatically. An agent no longer needs to discover and run a… The post C++ language server now auto-configures MSBuild builds appeared first on The GitHub Blog .",
+            "source": "GitHub 官方更新",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day",
+            "aliases": [
+              "url:https://github.blog/changelog/2026-11-10-c-language-server-now-auto-configures-msbuild-builds"
+            ]
+          },
+          {
+            "uid": "ef83b8dc18b1604dec2efe92",
+            "title": "Google Cloud launches Gemini for healthcare.",
+            "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/gemini-for-healthcare",
+            "published": "2026-11-10T13:00:00+00:00",
+            "summary": "Google Cloud launches Gemini for healthcare to unify clinical data and automate workflows. Reduce administrative burnout. See how it works.",
+            "source": "Google AI 官方博客",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day",
+            "aliases": [
+              "url:https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/gemini-for-healthcare"
+            ]
+          }
+        ],
+        "source_topic": "morning_radar",
+        "notify": false,
+        "mode": "production",
+        "analysis": {
+          "provider": "Groq",
+          "model": "openai/gpt-oss-20b"
+        },
+        "slot": "morning_radar"
+      }
+    },
     "2026-11-12:prompt_engineering": {
       "status": "published",
       "updated_at": "2026-11-12T06:13:17.458779+00:00",

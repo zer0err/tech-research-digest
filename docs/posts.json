@@ -1,5 +1,56 @@
 [
   {
+    "title": "AI 晨间雷达与免费资源（2026-11-13）",
+    "date": "2026-11-13T09:12:21.140693+08:00",
+    "count": 3,
+    "url": "posts/20261113-morning_radar.html",
+    "topic": "morning_radar",
+    "source_topic": "morning_radar",
+    "status": "published",
+    "summary": "本时段要点 1. Google Search 在 2026‑11‑12 推出 Gemini 4 Hydrogen 版本，标志着搜索引擎与大语言模型深度融合的进一步升级。 1 2. GitHub Copilot CLI 的 C++ 语言服务器在 2026‑11‑10 自动化配置 MSBuild 构建，提升 C++ 开发者",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "Google Search gets a major upgrade with Gemini 4 Hydrogen",
+          "url": "https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade",
+          "publisher": "Google AI 官方博客",
+          "host": "blog.google",
+          "family": "博客/公开网页",
+          "published": "2026-11-12T18:00:00+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "C++ language server now auto-configures MSBuild builds",
+          "url": "https://github.blog/changelog/2026-11-10-c-language-server-now-auto-configures-msbuild-builds",
+          "publisher": "GitHub 官方更新",
+          "host": "github.blog",
+          "family": "博客/公开网页",
+          "published": "2026-11-10T17:04:10+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "Google Cloud launches Gemini for healthcare.",
+          "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/gemini-for-healthcare",
+          "publisher": "Google AI 官方博客",
+          "host": "blog.google",
+          "family": "博客/公开网页",
+          "published": "2026-11-10T13:00:00+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "VORASIO AI 日报（2026-11-12）",
     "date": "2026-11-12T19:12:22.456313+08:00",
     "count": 6,
