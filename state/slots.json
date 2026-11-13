@@ -28,6 +28,72 @@
       "attempts": 3,
       "maintenance_notified": true
     },
+    "2026-11-13:core_research": {
+      "status": "prepared",
+      "updated_at": "2026-11-13T06:13:31.051456+00:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "embodied",
+        "title": "Agent、机器人与具身智能",
+        "url": "https://vorasio.com/posts/20261113-core_research.html",
+        "created_at": "2026-11-13T06:13:31.051456+00:00",
+        "items": [
+          {
+            "uid": "cd0a0cd06b72feef31aaf7cb",
+            "title": "Electric Vehicle Smart Charging Systems",
+            "url": "https://doi.org/10.4018/979-8-2600-4947-1.ch007",
+            "published": "2026-11-13T00:00:00+00:00",
+            "summary": "The rapid growth of Electric Vehicles is transforming modern transportation while creating major challenges for power grid stability, including peak load demand, energy imbalance, and renewable energy integration. To address these issues, smart EV charging systems have emerged as intelligent solutions capable of optimizing charging operations according to grid conditions, electricity pricing, and user needs. This chapter presents a comprehensive review of Artificial Intelligence and optimization techniques applied to EV smart charging systems. It analyzes machine learning, deep learning, deterministic, stochastic, and heuristic optimization methods, as well as hybrid AI–optimization frameworks. The study highlights their benefits in improving charging efficiency, reducing operational costs, enhancing load balancing, and supporting grid stability. Furthermore, current limitations such as scalability, computational complexity, and data dependency are discussed, alongside research gaps related to renewable energy integration, decentralized control, and real-time adaptive management.",
+            "source": "Crossref Embodied",
+            "kind": "research",
+            "doi": "10.4018/979-8-2600-4947-1.ch007",
+            "date_precision": "day",
+            "aliases": [
+              "doi:10.4018/979-8-2600-4947-1.ch007",
+              "url:https://doi.org/10.4018/979-8-2600-4947-1.ch007"
+            ]
+          },
+          {
+            "uid": "a65b1f9a69338f3c00f60915",
+            "title": "From Digital Safety to Digital Flourishing",
+            "url": "https://doi.org/10.4018/979-8-2600-4926-6.ch004",
+            "published": "2026-11-13T00:00:00+00:00",
+            "summary": "Artificial intelligence (AI) is rapidly transforming children's digital environments, reshaping how they learn, interact, and participate as consumers. While existing scholarship and regulation largely emphasize digital safety—focusing on privacy protection and risk mitigation—there is limited attention to how AI can actively promote children's developmental well-being. This case study–based chapter advances a shift from digital safety to digital flourishing by examining how child-centered AI systems can support cognitive growth, social-emotional development, and ethical agency. Drawing on interdisciplinary literature and empirical case analyses of socially assistive robots, adaptive learning platforms, and conversational AI systems, the chapter develops a Developmental Flourishing Framework integrating developmental psychology, children's rights principles, and ethical marketing considerations. The analysis highlights both opportunities and structural risks, including algorithmic bias, surveillance practices, and persuasive design.",
+            "source": "Crossref Embodied",
+            "kind": "research",
+            "doi": "10.4018/979-8-2600-4926-6.ch004",
+            "date_precision": "day",
+            "aliases": [
+              "doi:10.4018/979-8-2600-4926-6.ch004",
+              "url:https://doi.org/10.4018/979-8-2600-4926-6.ch004"
+            ]
+          },
+          {
+            "uid": "546d3bf35822bc6ab7246cd3",
+            "title": "AI-Powered Personalization in Travel Marketing",
+            "url": "https://doi.org/10.4018/979-8-2600-4967-9.ch004",
+            "published": "2026-11-13T00:00:00+00:00",
+            "summary": "The world travel and tourism sector is undergoing a radical change based on the rapid developments in digital technologies especially artificial intelligence (AI) big data analytics and networked digital ecosystems. Out of all these advances one of the most significant agents of change that have been altering the design and supply of travel services is the use of AI to personalize the services. With the help of smart algorithms and scale capabilities to process data organizations can deliver extremely personalized experiences that are closely in line with the preferences activities and situational demands of contemporary travellers (Valeri, 2023; Gaur et al. 2021).",
+            "source": "Crossref Embodied",
+            "kind": "research",
+            "doi": "10.4018/979-8-2600-4967-9.ch004",
+            "date_precision": "day",
+            "aliases": [
+              "doi:10.4018/979-8-2600-4967-9.ch004",
+              "url:https://doi.org/10.4018/979-8-2600-4967-9.ch004"
+            ]
+          }
+        ],
+        "source_topic": "embodied",
+        "notify": false,
+        "mode": "production",
+        "analysis": {
+          "provider": "Groq",
+          "model": "openai/gpt-oss-20b"
+        },
+        "slot": "core_research"
+      }
+    },
     "2026-11-12:prompt_engineering": {
       "status": "published",
       "updated_at": "2026-11-12T06:13:17.458779+00:00",
