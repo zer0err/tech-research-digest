@@ -11,8 +11,8 @@
   },
   "2026-11-13:open_source": {
     "status": "already_published",
-    "updated_at": "2026-11-13T03:42:22.455637+00:00",
-    "attempts": 1
+    "updated_at": "2026-11-13T07:12:16.657769+00:00",
+    "attempts": 2
   },
   "2026-11-13:morning_radar": {
     "status": "published",
@@ -25,7 +25,7 @@
     "attempts": 3
   },
   "2026-11-13:core_research": {
-    "status": "prepared",
+    "status": "published",
     "updated_at": "2026-11-13T06:13:31.051456+00:00",
     "attempts": 1
   },
