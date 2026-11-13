@@ -1,5 +1,45 @@
 [
   {
+    "title": "高效 AI、模型压缩与端侧适配（2026-11-13）",
+    "date": "2026-11-13T18:12:20.267089+08:00",
+    "count": 2,
+    "url": "posts/20261113-applied_ai.html",
+    "topic": "applied_ai",
+    "source_topic": "efficient_ai",
+    "status": "published",
+    "summary": "本期结论 1. 知识蒸馏主要提升优化速度而非模型泛化。两篇论文均指出蒸馏的优势来自于更易优化的损失景观，而非得到更优的最终模型2。 2. Metal Sandbox 能显著提升 GPU 任务调度效率。实验报告显示在四台 Mac mini M4 节点上，命令吞吐量提升 1.68–2.05 倍，平均工具等待时间下降 18.",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "Metal Sandbox: Isolated Execution and Command Scheduling for GPU Coding Agents on Apple Silicon",
+          "url": "https://arxiv.org/abs/2611.17294",
+          "publisher": "arXiv Efficient AI",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-11-12T18:54:42+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "Two mathematical models of knowledge distillation",
+          "url": "https://arxiv.org/abs/2611.17230",
+          "publisher": "arXiv Efficient AI",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-11-12T18:21:37+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 人物、机构与产业生态（2026-11-13）",
     "date": "2026-11-13T17:39:20.804518+08:00",
     "count": 1,
