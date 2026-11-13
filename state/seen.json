@@ -188,6 +188,15 @@
     },
     "embodied": {
       "ids": [
+        "cd0a0cd06b72feef31aaf7cb",
+        "doi:10.4018/979-8-2600-4947-1.ch007",
+        "url:https://doi.org/10.4018/979-8-2600-4947-1.ch007",
+        "a65b1f9a69338f3c00f60915",
+        "doi:10.4018/979-8-2600-4926-6.ch004",
+        "url:https://doi.org/10.4018/979-8-2600-4926-6.ch004",
+        "546d3bf35822bc6ab7246cd3",
+        "doi:10.4018/979-8-2600-4967-9.ch004",
+        "url:https://doi.org/10.4018/979-8-2600-4967-9.ch004",
         "43c0f6fc2334626b19937213",
         "doi:10.1177/21695172261499043",
         "url:https://doi.org/10.1177/21695172261499043",
@@ -232,7 +241,7 @@
         "b6efb31dd4318138b7a990c1",
         "3784b5af97676cfa17afdceb"
       ],
-      "updated_at": "2026-11-11T10:12:20.999280+00:00"
+      "updated_at": "2026-11-13T06:13:31.051456+00:00"
     },
     "efficient_ai": {
       "ids": [
@@ -382,6 +391,15 @@
     }
   },
   "all_ids": [
+    "cd0a0cd06b72feef31aaf7cb",
+    "doi:10.4018/979-8-2600-4947-1.ch007",
+    "url:https://doi.org/10.4018/979-8-2600-4947-1.ch007",
+    "a65b1f9a69338f3c00f60915",
+    "doi:10.4018/979-8-2600-4926-6.ch004",
+    "url:https://doi.org/10.4018/979-8-2600-4926-6.ch004",
+    "546d3bf35822bc6ab7246cd3",
+    "doi:10.4018/979-8-2600-4967-9.ch004",
+    "url:https://doi.org/10.4018/979-8-2600-4967-9.ch004",
     "f19cddd04797ae7d9ed5d0a1",
     "url:https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade",
     "ce169ea5d1f169f19da4cc3e",
@@ -699,6 +717,9 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://doi.org/10.4018/979-8-2600-4947-1.ch007",
+    "https://doi.org/10.4018/979-8-2600-4926-6.ch004",
+    "https://doi.org/10.4018/979-8-2600-4967-9.ch004",
     "https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade",
     "https://github.blog/changelog/2026-11-10-c-language-server-now-auto-configures-msbuild-builds",
     "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/gemini-for-healthcare",
@@ -5433,6 +5454,47 @@
           "published": "2026-11-10T13:00:00+00:00",
           "source": "Google AI 官方博客",
           "doi": "",
+          "kind": "research",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261113-core_research.html": {
+      "topic": "embodied",
+      "source_topic": "embodied",
+      "created_at": "2026-11-13T06:13:31.051456+00:00",
+      "items": [
+        {
+          "uid": "cd0a0cd06b72feef31aaf7cb",
+          "title": "Electric Vehicle Smart Charging Systems",
+          "url": "https://doi.org/10.4018/979-8-2600-4947-1.ch007",
+          "published": "2026-11-13T00:00:00+00:00",
+          "source": "Crossref Embodied",
+          "doi": "10.4018/979-8-2600-4947-1.ch007",
+          "kind": "research",
+          "date_precision": "day"
+        },
+        {
+          "uid": "a65b1f9a69338f3c00f60915",
+          "title": "From Digital Safety to Digital Flourishing",
+          "url": "https://doi.org/10.4018/979-8-2600-4926-6.ch004",
+          "published": "2026-11-13T00:00:00+00:00",
+          "source": "Crossref Embodied",
+          "doi": "10.4018/979-8-2600-4926-6.ch004",
+          "kind": "research",
+          "date_precision": "day"
+        },
+        {
+          "uid": "546d3bf35822bc6ab7246cd3",
+          "title": "AI-Powered Personalization in Travel Marketing",
+          "url": "https://doi.org/10.4018/979-8-2600-4967-9.ch004",
+          "published": "2026-11-13T00:00:00+00:00",
+          "source": "Crossref Embodied",
+          "doi": "10.4018/979-8-2600-4967-9.ch004",
           "kind": "research",
           "date_precision": "day"
         }
