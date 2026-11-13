@@ -247,6 +247,12 @@
     },
     "efficient_ai": {
       "ids": [
+        "8f189522e06dbd8def66f6fa",
+        "arxiv:2611.17294",
+        "url:https://arxiv.org/abs/2611.17294",
+        "f447dffbacdbe43271397f5c",
+        "arxiv:2611.17230",
+        "url:https://arxiv.org/abs/2611.17230",
         "b713fc7d1cc6e7054d0e8576",
         "doi:10.14445/22315381/ijett-v74i10p118",
         "url:https://doi.org/10.14445/22315381/ijett-v74i10p118",
@@ -282,7 +288,7 @@
         "7e518a52776f0779cdbd16e6",
         "d8688b533028f131212f0a3d"
       ],
-      "updated_at": "2026-11-12T06:12:16.466018+00:00"
+      "updated_at": "2026-11-13T10:12:20.267089+00:00"
     },
     "ai_hardware": {
       "ids": [
@@ -393,6 +399,12 @@
     }
   },
   "all_ids": [
+    "8f189522e06dbd8def66f6fa",
+    "arxiv:2611.17294",
+    "url:https://arxiv.org/abs/2611.17294",
+    "f447dffbacdbe43271397f5c",
+    "arxiv:2611.17230",
+    "url:https://arxiv.org/abs/2611.17230",
     "648bb7e0f000d2bb51b04e0f",
     "url:https://github.blog/ai-and-ml/github-copilot/build-once-run-on-any-agent-a-practical-guide-to-agent-skills",
     "cd0a0cd06b72feef31aaf7cb",
@@ -721,6 +733,8 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://arxiv.org/abs/2611.17294",
+    "https://arxiv.org/abs/2611.17230",
     "https://github.blog/ai-and-ml/github-copilot/build-once-run-on-any-agent-a-practical-guide-to-agent-skills",
     "https://doi.org/10.4018/979-8-2600-4947-1.ch007",
     "https://doi.org/10.4018/979-8-2600-4926-6.ch004",
@@ -5520,6 +5534,37 @@
           "url": "https://github.blog/ai-and-ml/github-copilot/build-once-run-on-any-agent-a-practical-guide-to-agent-skills",
           "published": "2026-11-12T22:54:52+00:00",
           "source": "GitHub 官方博客",
+          "doi": "",
+          "kind": "research",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261113-applied_ai.html": {
+      "topic": "efficient_ai",
+      "source_topic": "efficient_ai",
+      "created_at": "2026-11-13T10:12:20.267089+00:00",
+      "items": [
+        {
+          "uid": "8f189522e06dbd8def66f6fa",
+          "title": "Metal Sandbox: Isolated Execution and Command Scheduling for GPU Coding Agents on Apple Silicon",
+          "url": "https://arxiv.org/abs/2611.17294",
+          "published": "2026-11-12T18:54:42+00:00",
+          "source": "arXiv Efficient AI",
+          "doi": "",
+          "kind": "research",
+          "date_precision": "day"
+        },
+        {
+          "uid": "f447dffbacdbe43271397f5c",
+          "title": "Two mathematical models of knowledge distillation",
+          "url": "https://arxiv.org/abs/2611.17230",
+          "published": "2026-11-12T18:21:37+00:00",
+          "source": "arXiv Efficient AI",
           "doi": "",
           "kind": "research",
           "date_precision": "day"

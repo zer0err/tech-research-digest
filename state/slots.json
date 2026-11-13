@@ -47,55 +47,9 @@
       "attempts": 1
     },
     "2026-11-13:applied_ai": {
-      "status": "prepared",
+      "status": "published",
       "updated_at": "2026-11-13T10:12:20.267089+00:00",
       "attempts": 2,
-      "pending": {
-        "topic": "efficient_ai",
-        "title": "高效 AI、模型压缩与端侧适配",
-        "url": "https://vorasio.com/posts/20261113-applied_ai.html",
-        "created_at": "2026-11-13T10:12:20.267089+00:00",
-        "items": [
-          {
-            "uid": "8f189522e06dbd8def66f6fa",
-            "title": "Metal Sandbox: Isolated Execution and Command Scheduling for GPU Coding Agents on Apple Silicon",
-            "url": "https://arxiv.org/abs/2611.17294",
-            "published": "2026-11-12T18:54:42+00:00",
-            "summary": "On-device inference requires kernels that make effective use of local accelerators. Efficient training and evaluation of models that generate Apple Metal kernels benefit from native macOS tools and concurrent agent sessions. These sessions alternate between model requests, development commands, and GPU execution, leaving GPU capacity idle for much of a rollout. We present Metal Sandbox, infrastructure that combines restricted per-instance file access, native command execution, and command-level scheduling across interconnected Macs. Each agent retains its workspace and private development environment. Parallel commands can run concurrently, while serial commands share one execution slot per node; eligible waiting commands can migrate to available Macs and return results to the original agent. Integration with Harbor supports task execution, automatic verification, and rollout collection through a common workflow. Controlled experiments on four Mac mini M4 nodes achieve $1.68\\times$--$2.05\\times$ gains in command throughput under concentrated demand. Sixteen static agent traces give an estimated $2.14\\times$ sustained-throughput gain for four sessions per node versus one, assuming continuously replenished sessions and unchanged mean durations. Replaying these measured traces under dynamic scheduling reduces mean tool waiting by 18.8% and batch elapsed time by 22.3%, assuming unc",
-            "source": "arXiv Efficient AI",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day",
-            "aliases": [
-              "arxiv:2611.17294",
-              "url:https://arxiv.org/abs/2611.17294"
-            ]
-          },
-          {
-            "uid": "f447dffbacdbe43271397f5c",
-            "title": "Two mathematical models of knowledge distillation",
-            "url": "https://arxiv.org/abs/2611.17230",
-            "published": "2026-11-12T18:21:37+00:00",
-            "summary": "Many hypotheses compete to explain the successes of knowledge distillation. To help address this, we propose and analyze a mathematical model of distillation, which suggests that distillation's performance comes not from obtaining better models but from easier to optimize landscapes. For generalized linear models trained with stochastic gradient descent, we prove that distillation fits performant student models asymptotically more quickly than non-distilled models. In rank-1 matrix approximation, we characterize conditions on the target matrix under which gradient descent with distillation converges strictly faster than training on the supervised objective. The theory helps delineate the ways distillation provides benefits (i.e., in optimization speed, not in generalization), and experiments on real datasets corroborate the theoretical predictions.",
-            "source": "arXiv Efficient AI",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day",
-            "aliases": [
-              "arxiv:2611.17230",
-              "url:https://arxiv.org/abs/2611.17230"
-            ]
-          }
-        ],
-        "source_topic": "efficient_ai",
-        "notify": false,
-        "mode": "production",
-        "analysis": {
-          "provider": "Groq",
-          "model": "openai/gpt-oss-20b"
-        },
-        "slot": "applied_ai"
-      },
       "maintenance_notified": true
     },
     "2026-11-12:prompt_engineering": {
