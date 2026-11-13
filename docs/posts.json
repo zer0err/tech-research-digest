@@ -1,5 +1,21 @@
 [
   {
+    "title": "VORASIO AI 日报（2026-11-13）",
+    "date": "2026-11-13T19:00:55.591037+08:00",
+    "count": 4,
+    "url": "posts/20261113-daily_digest.html",
+    "topic": "daily_digest",
+    "status": "published",
+    "summary": "今日概览 今天共发布 4 个内容更新。以下列表仅汇总站内已经通过发布流程的内容，不额外生成未经来源支持的结论。 今日内容 - AI 晨间雷达与免费资源（2026-11-13）(https://vorasio.com/posts/20261113-morning_radar.html) - Agent、机器人与具身智能（",
+    "provenance": {
+      "analysis": {
+        "provider": "程序汇总（未调用 AI）",
+        "model": "不适用"
+      },
+      "sources": []
+    }
+  },
+  {
     "title": "高效 AI、模型压缩与端侧适配（2026-11-13）",
     "date": "2026-11-13T18:12:20.267089+08:00",
     "count": 2,

@@ -41,6 +41,21 @@
       "attempts": 3,
       "maintenance_notified": true
     },
+    "2026-11-13:daily_digest": {
+      "status": "prepared",
+      "updated_at": "2026-11-13T11:00:55.591037+00:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "daily_digest",
+        "title": "VORASIO AI 日报（2026-11-13）",
+        "url": "https://vorasio.com/posts/20261113-daily_digest.html",
+        "created_at": "2026-11-13T11:00:55.591037+00:00",
+        "items": [],
+        "published_count": 4,
+        "notify": true,
+        "slot": "daily_digest"
+      }
+    },
     "2026-11-13:core_research": {
       "status": "published",
       "updated_at": "2026-11-13T06:13:31.051456+00:00",
