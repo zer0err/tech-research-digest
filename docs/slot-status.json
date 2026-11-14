@@ -35,7 +35,7 @@
     "attempts": 3
   },
   "2026-11-14:daily_digest": {
-    "status": "prepared",
+    "status": "published",
     "updated_at": "2026-11-14T11:12:21.071319+00:00",
     "attempts": 1
   },
@@ -46,8 +46,8 @@
   },
   "2026-11-14:applied_ai": {
     "status": "analysis_rejected",
-    "updated_at": "2026-11-14T10:12:57.595038+00:00",
-    "attempts": 2
+    "updated_at": "2026-11-14T11:42:25.534822+00:00",
+    "attempts": 3
   },
   "2026-11-13:prompt_engineering": {
     "status": "already_published",
