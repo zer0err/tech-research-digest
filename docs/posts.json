@@ -1,5 +1,56 @@
 [
   {
+    "title": "AI 论文午间速览（2026-11-14）",
+    "date": "2026-11-14T12:42:22.314272+08:00",
+    "count": 3,
+    "url": "posts/20261114-paper_brief.html",
+    "topic": "paper_brief",
+    "source_topic": "multimodal",
+    "status": "published",
+    "summary": "本期要点 1. 视觉与音频融合在深度伪造检测中已被证明能提升对微观像素纹理与时间过渡的辨识能力，但仍缺乏公开统一的多模态数据集与实时评估指标。 3 2. 目前针对雷达与其他传感器的多模态研究主要集中在自动驾驶与安全监控领域，公开数据集多为单模态或少量多模态组合，质量评估仍以帧级准确率为主，缺乏交互式实时性测度。 3 3",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "A Survey on LLMs from a Human-Centric Perspective",
+          "url": "https://doi.org/10.1145/3859364",
+          "publisher": "OpenAlex Multimodal",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-11-12T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "10.1145/3859364",
+          "kind": "research"
+        },
+        {
+          "title": "Hyperbolic Large Language Models",
+          "url": "https://doi.org/10.1137/25m1795248",
+          "publisher": "OpenAlex Multimodal",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-11-12T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "10.1137/25m1795248",
+          "kind": "research"
+        },
+        {
+          "title": "VeriMedia: A Spatial-Temporal Deep Learning Platform for Video Deepfake Detection and Forensic Verification",
+          "url": "https://doi.org/10.17148/ijarcce.2026.1511115",
+          "publisher": "OpenAlex Multimodal",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-11-12T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "10.17148/ijarcce.2026.1511115",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 开源项目与工具更新（2026-11-14）",
     "date": "2026-11-14T11:42:18.021020+08:00",
     "count": 1,
