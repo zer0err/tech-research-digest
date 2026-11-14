@@ -3,8 +3,9 @@
   "slots": {
     "2026-11-14:prompt_engineering": {
       "status": "already_published",
-      "updated_at": "2026-11-14T06:12:22.468836+00:00",
-      "attempts": 1
+      "updated_at": "2026-11-14T09:42:18.440889+00:00",
+      "attempts": 2,
+      "maintenance_notified": true
     },
     "2026-11-14:paper_brief": {
       "status": "published",
