@@ -26,6 +26,11 @@
       "updated_at": "2026-11-14T02:42:22.744731+00:00",
       "attempts": 1
     },
+    "2026-11-14:core_research": {
+      "status": "analysis_rejected",
+      "updated_at": "2026-11-14T06:13:10.344122+00:00",
+      "attempts": 1
+    },
     "2026-11-13:prompt_engineering": {
       "status": "already_published",
       "updated_at": "2026-11-13T12:42:25.563529+00:00",
