@@ -34,6 +34,11 @@
     "updated_at": "2026-11-14T10:12:14.088727+00:00",
     "attempts": 3
   },
+  "2026-11-14:daily_digest": {
+    "status": "prepared",
+    "updated_at": "2026-11-14T11:12:21.071319+00:00",
+    "attempts": 1
+  },
   "2026-11-14:core_research": {
     "status": "analysis_rejected",
     "updated_at": "2026-11-14T08:42:21.517012+00:00",
