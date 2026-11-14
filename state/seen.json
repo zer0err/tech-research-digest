@@ -128,6 +128,15 @@
     },
     "model_research": {
       "ids": [
+        "bea30f58872aa34dbe3a3202",
+        "doi:10.21203/rs.3.rs-11288339/v1",
+        "url:https://doi.org/10.21203/rs.3.rs-11288339/v1",
+        "06df3bfcf603a86312afa9f8",
+        "doi:10.66977/xsci.2611.001w",
+        "url:https://doi.org/10.66977/xsci.2611.001w",
+        "361a4aafbd7dbc4dfe2547b0",
+        "doi:10.5281/zenodo.24179468",
+        "url:https://doi.org/10.5281/zenodo.24179468",
         "bbc111b940e2ec5858914d3d",
         "doi:10.18174/sesmo.19051",
         "url:https://doi.org/10.18174/sesmo.19051",
@@ -192,7 +201,7 @@
         "f3a5508d0160d42195ab7174",
         "cb661d928a0dfa16bc4c4588"
       ],
-      "updated_at": "2026-11-12T02:42:15.356735+00:00"
+      "updated_at": "2026-11-14T02:42:22.744731+00:00"
     },
     "embodied": {
       "ids": [
@@ -405,6 +414,15 @@
     }
   },
   "all_ids": [
+    "bea30f58872aa34dbe3a3202",
+    "doi:10.21203/rs.3.rs-11288339/v1",
+    "url:https://doi.org/10.21203/rs.3.rs-11288339/v1",
+    "06df3bfcf603a86312afa9f8",
+    "doi:10.66977/xsci.2611.001w",
+    "url:https://doi.org/10.66977/xsci.2611.001w",
+    "361a4aafbd7dbc4dfe2547b0",
+    "doi:10.5281/zenodo.24179468",
+    "url:https://doi.org/10.5281/zenodo.24179468",
     "862b82cce5532207ebbb4672",
     "url:https://github.blog/changelog/2026-11-13-upcoming-deprecation-of-selected-github-copilot-models-in-december",
     "a82a582d254d179cb311f0cd",
@@ -745,6 +763,9 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://doi.org/10.21203/rs.3.rs-11288339/v1",
+    "https://doi.org/10.66977/xsci.2611.001w",
+    "https://doi.org/10.5281/zenodo.24179468",
     "https://github.blog/changelog/2026-11-13-upcoming-deprecation-of-selected-github-copilot-models-in-december",
     "https://github.blog/changelog/2026-11-13-github-enterprise-server-support-in-the-github-copilot-app",
     "https://github.blog/changelog/2026-11-13-gemini-4-hydrogen-in-github-copilot",
@@ -5622,6 +5643,47 @@
           "published": "2026-11-13T18:23:48+00:00",
           "source": "GitHub 官方更新",
           "doi": "",
+          "kind": "research",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261114-model_research.html": {
+      "topic": "model_research",
+      "source_topic": "model_research",
+      "created_at": "2026-11-14T02:42:22.744731+00:00",
+      "items": [
+        {
+          "uid": "bea30f58872aa34dbe3a3202",
+          "title": "SafeLLM: Extraction as a Hallucination-Resistant Alternative to Rewriting in Safety-Critical Settings",
+          "url": "https://doi.org/10.21203/rs.3.rs-11288339/v1",
+          "published": "2026-11-13T00:00:00+00:00",
+          "source": "OpenAlex Model Research",
+          "doi": "10.21203/rs.3.rs-11288339/v1",
+          "kind": "research",
+          "date_precision": "day"
+        },
+        {
+          "uid": "06df3bfcf603a86312afa9f8",
+          "title": "Beyond Truncation? Entailment-Licensed Elision and the Limits of Semantic Preservation in LLM Decoding",
+          "url": "https://doi.org/10.66977/xsci.2611.001w",
+          "published": "2026-11-13T00:00:00+00:00",
+          "source": "OpenAlex Model Research",
+          "doi": "10.66977/xsci.2611.001w",
+          "kind": "research",
+          "date_precision": "day"
+        },
+        {
+          "uid": "361a4aafbd7dbc4dfe2547b0",
+          "title": "Written, Not Trained: LLM-Written Stack Machines Proven Correct at Every Length",
+          "url": "https://doi.org/10.5281/zenodo.24179468",
+          "published": "2026-11-13T00:00:00+00:00",
+          "source": "OpenAlex Model Research",
+          "doi": "10.5281/zenodo.24179468",
           "kind": "research",
           "date_precision": "day"
         }
