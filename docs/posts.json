@@ -1,5 +1,56 @@
 [
   {
+    "title": "AI 晨间雷达与免费资源（2026-11-14）",
+    "date": "2026-11-14T09:12:20.019932+08:00",
+    "count": 3,
+    "url": "posts/20261114-morning_radar.html",
+    "topic": "morning_radar",
+    "source_topic": "morning_radar",
+    "status": "published",
+    "summary": "本时段要点 1. GitHub Copilot 将在 2026‑12‑14 停止支持若干模型，影响 Copilot Chat、inline edits、ask、agent 以及代码补全等功能。 1 2. GitHub Copilot 现已支持 GitHub Enterprise Server（GHES），可在 Copi",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "Upcoming deprecation of selected GitHub Copilot models in December",
+          "url": "https://github.blog/changelog/2026-11-13-upcoming-deprecation-of-selected-github-copilot-models-in-december",
+          "publisher": "GitHub 官方更新",
+          "host": "github.blog",
+          "family": "博客/公开网页",
+          "published": "2026-11-13T20:40:05+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "GitHub Enterprise Server support in the GitHub Copilot app",
+          "url": "https://github.blog/changelog/2026-11-13-github-enterprise-server-support-in-the-github-copilot-app",
+          "publisher": "GitHub 官方更新",
+          "host": "github.blog",
+          "family": "博客/公开网页",
+          "published": "2026-11-13T18:27:13+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "Gemini 4 Hydrogen in GitHub Copilot",
+          "url": "https://github.blog/changelog/2026-11-13-gemini-4-hydrogen-in-github-copilot",
+          "publisher": "GitHub 官方更新",
+          "host": "github.blog",
+          "family": "博客/公开网页",
+          "published": "2026-11-13T18:23:48+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "VORASIO AI 日报（2026-11-13）",
     "date": "2026-11-13T19:00:55.591037+08:00",
     "count": 4,
