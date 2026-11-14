@@ -1,5 +1,56 @@
 [
   {
+    "title": "AI 模型、训练与基础研究（2026-11-14）",
+    "date": "2026-11-14T10:42:22.744731+08:00",
+    "count": 3,
+    "url": "posts/20261114-model_research.html",
+    "topic": "model_research",
+    "source_topic": "model_research",
+    "status": "published",
+    "summary": "本期结论 1. 提取式 RAG 在安全关键场景中能显著降低幻觉风险，并在不同文档长度与模型规模下保持较高的精确度与召回平衡。该结论由 SafeLLM 研究的多种提示策略与实验结果共同支持 1。 2. 训练‑free 解码控制器（如 Entailment‑Licensed ELIDE）在保持答案长度与内容一致性的同时，仍",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "SafeLLM: Extraction as a Hallucination-Resistant Alternative to Rewriting in Safety-Critical Settings",
+          "url": "https://doi.org/10.21203/rs.3.rs-11288339/v1",
+          "publisher": "OpenAlex Model Research",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-11-13T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "10.21203/rs.3.rs-11288339/v1",
+          "kind": "research"
+        },
+        {
+          "title": "Beyond Truncation? Entailment-Licensed Elision and the Limits of Semantic Preservation in LLM Decoding",
+          "url": "https://doi.org/10.66977/xsci.2611.001w",
+          "publisher": "OpenAlex Model Research",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-11-13T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "10.66977/xsci.2611.001w",
+          "kind": "research"
+        },
+        {
+          "title": "Written, Not Trained: LLM-Written Stack Machines Proven Correct at Every Length",
+          "url": "https://doi.org/10.5281/zenodo.24179468",
+          "publisher": "OpenAlex Model Research",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-11-13T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "10.5281/zenodo.24179468",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 晨间雷达与免费资源（2026-11-14）",
     "date": "2026-11-14T09:12:20.019932+08:00",
     "count": 3,

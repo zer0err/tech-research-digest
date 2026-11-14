@@ -6,6 +6,72 @@
       "updated_at": "2026-11-14T01:12:20.019932+00:00",
       "attempts": 1
     },
+    "2026-11-14:model_research": {
+      "status": "prepared",
+      "updated_at": "2026-11-14T02:42:22.744731+00:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "model_research",
+        "title": "AI 模型、训练与基础研究",
+        "url": "https://vorasio.com/posts/20261114-model_research.html",
+        "created_at": "2026-11-14T02:42:22.744731+00:00",
+        "items": [
+          {
+            "uid": "bea30f58872aa34dbe3a3202",
+            "title": "SafeLLM: Extraction as a Hallucination-Resistant Alternative to Rewriting in Safety-Critical Settings",
+            "url": "https://doi.org/10.21203/rs.3.rs-11288339/v1",
+            "published": "2026-11-13T00:00:00+00:00",
+            "summary": "Abstract Background: Large language models (LLMs) are increasingly used to access organisational documentation, including standard operating procedures (SOPs), HR policies and institutional guidelines. However, retrieval-augmented generation (RAG) approaches that rely on free-form rewriting can introduce hallucinations and unstable trade-offs between completeness and conciseness, particularly in safety-and compliance-critical settings. Objectives: To evaluate extraction as a hallucination-resistant alternative to rewriting-based RAG, and to compare strategies that balance precision, recall and safety across document types and model scales. Methods: We compare multiple prompting strategies, including line-number-based source selection, extraction of relevant guideline sentences with explicit annotation of safety-related content, and a multi-stage pipeline that refines draft answers using supporting evidence from the source guideline. Constrained extraction strategies enable more reliable selection of clinically relevant source content, while direct verbatim copying provides a strong precision-oriented baseline. Experiments are conducted on documents of varying length (local NHS guidelines in acute care and oncology, as well as UK-wide NICE guidelines) and structures, using both frontier-scale and smaller locally deployable models. Performance is assessed using automatic metrics ",
+            "source": "OpenAlex Model Research",
+            "kind": "research",
+            "doi": "10.21203/rs.3.rs-11288339/v1",
+            "date_precision": "day",
+            "aliases": [
+              "doi:10.21203/rs.3.rs-11288339/v1",
+              "url:https://doi.org/10.21203/rs.3.rs-11288339/v1"
+            ]
+          },
+          {
+            "uid": "06df3bfcf603a86312afa9f8",
+            "title": "Beyond Truncation? Entailment-Licensed Elision and the Limits of Semantic Preservation in LLM Decoding",
+            "url": "https://doi.org/10.66977/xsci.2611.001w",
+            "published": "2026-11-13T00:00:00+00:00",
+            "summary": "Instruction-tuned large language models (LLMs) answer at greater length than a request needs. We ask whether a training-free controller inside the decoding loop can remove that surplus while preserving content, judged against the simplest possible baseline: truncating the model's own answer to the same length. An entropy-gated logits processor removes 25.5-34.9% of tokens on MT-Bench development questions and 19.9-34.2% on a sealed test split within pre-registered BERTScore non-inferiority margins, yet we prove and confirm by audit that its output is always a prefix of the unmodified answer: the saving is truncation. A survey of 23 training-free mechanism families finds none that selects content better than truncation without oracle labels. We therefore introduce Entailment-Licensed In-Decoding Elision (ELIDE), which, at each sentence boundary, withholds a span from the reader only when a natural-language inference model judges it entailed by the text already shown, while leaving the model's generation unchanged. ELIDE beats matched-length truncation on three model families, but reading 936 of its elisions on 670 public prompts shows that 59% harm the answer, a failure that no automatic measure detects. Scoping the licence to its discourse unit reduces the harmful share to about one elision in ten on two fresh tests.",
+            "source": "OpenAlex Model Research",
+            "kind": "research",
+            "doi": "10.66977/xsci.2611.001w",
+            "date_precision": "day",
+            "aliases": [
+              "doi:10.66977/xsci.2611.001w",
+              "url:https://doi.org/10.66977/xsci.2611.001w"
+            ]
+          },
+          {
+            "uid": "361a4aafbd7dbc4dfe2547b0",
+            "title": "Written, Not Trained: LLM-Written Stack Machines Proven Correct at Every Length",
+            "url": "https://doi.org/10.5281/zenodo.24179468",
+            "published": "2026-11-13T00:00:00+00:00",
+            "summary": "Stack- and tape-augmented recurrent networks were made differentiable so that they could be trained, yet on the Chomsky-hierarchy benchmark of Delétang et al. they rarely extrapolate exactly beyond the training lengths. We hand the hard version of the machine to a large language model (LLM). R0S is a recurrent controller with Heaviside units, ternary weights and integer biases that drives an unbounded discrete stack through argmax push, pop and no-op actions. From a plain-language specification and without running the network, Claude Opus wrote R0S networks for five benchmark tasks and Dyck-2; all 30 attempts pass our scorer. Two mechanical methods, a grammar-summary fixpoint and a lockstep product with a reference pushdown automaton, prove all 25 networks on five tasks correct on every input the task generator produces, at every length; the 5 bucket-sort networks pass the scorer but are wrong, because they count with bounded counters. On modular arithmetic and equation solving the proven networks have 185–591 non-zero parameters.Learning from input-output examples finds no exact network there: straight-through training of R0S itself (20,000 steps, 4 learning-rate and initialisation arms) is exact in 0 of 120 runs and Delétang's four differentiable models in 0 of 120 runs; in a near-full version of their training setting on modular arithmetic, 0 of 180 runs are exact, although ",
+            "source": "OpenAlex Model Research",
+            "kind": "research",
+            "doi": "10.5281/zenodo.24179468",
+            "date_precision": "day",
+            "aliases": [
+              "doi:10.5281/zenodo.24179468",
+              "url:https://doi.org/10.5281/zenodo.24179468"
+            ]
+          }
+        ],
+        "source_topic": "model_research",
+        "notify": false,
+        "mode": "production",
+        "analysis": {
+          "provider": "Groq",
+          "model": "openai/gpt-oss-20b"
+        },
+        "slot": "model_research"
+      }
+    },
     "2026-11-13:prompt_engineering": {
       "status": "already_published",
       "updated_at": "2026-11-13T12:42:25.563529+00:00",

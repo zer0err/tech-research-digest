@@ -1,7 +1,12 @@
 {
   "2026-11-14:morning_radar": {
-    "status": "prepared",
+    "status": "published",
     "updated_at": "2026-11-14T01:12:20.019932+00:00",
+    "attempts": 1
+  },
+  "2026-11-14:model_research": {
+    "status": "prepared",
+    "updated_at": "2026-11-14T02:42:22.744731+00:00",
     "attempts": 1
   },
   "2026-11-13:prompt_engineering": {

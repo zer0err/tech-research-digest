@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 模型、训练与基础研究（2026-11-14）</title><meta name="description" content="AI 模型、训练与基础研究（2026-11-14）：3 项最新研究">
+<link rel="alternate" type="application/rss+xml" title="VORASIO" href="../feed.xml">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/growth.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=presentation-1">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav aria-label="主导航">
+<a href="../domains/index.html">领域导航</a>
+<a href="../index.html#latest">全部更新</a>
+<a href="../knowledge/index.html">AI 知识科普</a>
+<a href="../courses/index.html">AI 学习</a>
+<a href="../tools/index.html">AI 工具</a>
+<a href="../subscribe.html">订阅精选</a>
+<a href="../services.html">开发咨询</a>
+<a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">AI 模型、训练与基础研究</p><dl><dt>发布时间</dt><dd data-published-at="2026-11-14T10:42:22.744731+08:00">2026-11-14 10:42 · UTC+8</dd><dt>研究条目</dt><dd>3 项</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部简报</a></aside><article><p class="kicker">RESEARCH BRIEF · AI 模型、训练与基础研究</p><h1>AI 模型、训练与基础研究（2026-11-14）</h1><!-- provenance:start --><p class="ai-analysis" title="openai/gpt-oss-20b">AI 分析：Groq</p><!-- provenance:end --><p class="disclosure">依据公开来源自动整理，请核对证据边界。</p><div class="article-body"><h2>本期结论</h2>
+<ol>
+<li><strong>提取式 RAG 在安全关键场景中能显著降低幻觉风险</strong>，并在不同文档长度与模型规模下保持较高的精确度与召回平衡。该结论由 SafeLLM 研究的多种提示策略与实验结果共同支持 [1]。</li>
+<li><strong>训练‑free 解码控制器（如 Entailment‑Licensed ELIDE）在保持答案长度与内容一致性的同时，仍存在较高比例的答案损伤</strong>，表明仅靠推理模型判断的内容剔除并非可靠的通用方法。该结论基于 ELIDE 的实验与 59% 损伤率的统计数据 [2]。</li>
+<li><strong>LLM 能够根据自然语言规范生成完全可证明的递归网络（R0S）</strong>，并在所有测试长度上保持正确性，但传统的基于梯度的训练方法在相同任务上几乎无法实现精确学习。该结论来源于 LLM‑Written Stack Machines 的实验与证明结果 [3]。</li>
+</ol>
+<h2>逐项分析</h2>
+<table>
+<thead>
+<tr>
+<th>论文</th>
+<th>核心贡献</th>
+<th>方法与数据</th>
+<th>性能证据</th>
+<th>局限与证据等级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SafeLLM</td>
+<td>评估提取式 RAG 作为对抗幻觉的替代方案</td>
+<td>对比多种提示策略（行号选择、句子提取、三阶段管道），使用 NHS 与 NICE 指南，前沿与本地模型</td>
+<td>自动指标显示提取策略在精度、召回与安全性上优于自由重写；直接逐字复制提供高精度基线</td>
+<td>仅提供自动指标，缺乏人工评估；实验范围限于医疗指南，未覆盖其他领域 [1]（B）</td>
+</tr>
+<tr>
+<td>ELIDE</td>
+<td>训练‑free 解码控制器，基于自然语言推理判定可省略内容</td>
+<td>采用熵门控 logits 处理器与 ELIDE（句子边界处基于 NLI 模型的剔除）</td>
+<td>在 MT‑Bench 开发集上可节省 25.5‑34.9% tokens，BERTScore 非劣势；ELIDE 在三种模型族上优于匹配长度截断</td>
+<td>59% 削减导致答案损伤，且自动指标无法检测；仅在公开提示上评估，未验证对新任务的泛化 [2]（B）</td>
+</tr>
+<tr>
+<td>LLM‑Written Stack Machines</td>
+<td>证明 LLM 能写出在所有长度上正确的递归网络</td>
+<td>通过 Claude Opus 生成 R0S 网络，使用两种机械证明方法（语法总结与参考 PDA 对齐）</td>
+<td>30 次尝试全部通过评分器；5 个桶排序网络通过评分器但在实际测试中错误；证明显示 25 个网络在所有输入上正确</td>
+<td>仅在 Delétang 的 Chomsky‑hierarchy 基准上验证；未展示在更复杂任务或大规模数据上的表现；训练方法几乎无效，表明当前梯度训练难以复制 LLM 生成的网络 [3]（A）</td>
+</tr>
+</tbody>
+</table>
+<h2>工程行动建议</h2>
+<table>
+<thead>
+<tr>
+<th>方向</th>
+<th>验证实验</th>
+<th>落地评估</th>
+<th>后续跟踪指标</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>提取式 RAG</td>
+<td>在自家 SOP、HR 政策文档上实施行号提取与句子提取，使用自动指标与人工审核对比</td>
+<td>监控幻觉率、完整度与响应时间；对比自由重写的 SLA</td>
+<td>幻觉率下降比例、召回率、用户满意度</td>
+</tr>
+<tr>
+<td>ELIDE 控制器</td>
+<td>在内部问答系统中集成 ELIDE，记录被剔除的句子与后续答案质量</td>
+<td>通过 A/B 测试评估用户理解度与错误率</td>
+<td>削减率、答案损伤比例、NLI 误判率</td>
+</tr>
+<tr>
+<td>LLM‑Generated 递归网络</td>
+<td>利用 LLM 生成自定义 R0S 网络，针对业务规则验证其正确性</td>
+<td>在生产环境中部署并监控推理准确率与资源占用</td>
+<td>正确率、推理延迟、模型参数规模</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>注意</strong>：上述建议基于现有实验结果，若缺乏足够数据或指标，建议先进行小规模试点，避免直接大规模部署。</p>
+</blockquote>
+<h2>参考资料</h2>
+<p>[1] SafeLLM: Extraction as a Hallucination-Resistant Alternative to Rewriting in Safety-Critical Settings – <a href="https://doi.org/10.21203/rs.3.rs-11288339/v1">https://doi.org/10.21203/rs.3.rs-11288339/v1</a><br />
+[2] Beyond Truncation? Entailment-Licensed Elision and the Limits of Semantic Preservation in LLM Decoding – <a href="https://doi.org/10.66977/xsci.2611.001w">https://doi.org/10.66977/xsci.2611.001w</a><br />
+[3] Written, Not Trained: LLM-Written Stack Machines Proven Correct at Every Length – <a href="https://doi.org/10.5281/zenodo.24179468">https://doi.org/10.5281/zenodo.24179468</a></p>
+</div><section class="growth-card" data-growth-cta><h2>有项目想法？</h2><p>可以订阅后续更新，也可以整理你的 AI 软件或智能硬件需求，发来聊聊。</p><a href="../subscribe.html">订阅 AI 精选</a> · <a href="../services.html?source=/posts/20261114-model_research.html">整理开发需求</a></section></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原始来源。</span></footer></body></html>
