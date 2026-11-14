@@ -1,5 +1,34 @@
 [
   {
+    "title": "AI 开源项目与工具更新（2026-11-14）",
+    "date": "2026-11-14T11:42:18.021020+08:00",
+    "count": 1,
+    "url": "posts/20261114-open_source.html",
+    "topic": "open_source",
+    "source_topic": "open_source",
+    "status": "published",
+    "summary": "本期要点 - Transformers 5.23.0 正式发布，新增 Inkling2 multimodal 模型，支持文本与图像输入，参数规模达 594 B，总活跃 17 B 1。 - Inkling2 采用 48 层 Mixture‑of‑Experts 解码器，每层路由至 8/384 个专家，加入块注意力残差、门",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "huggingface/transformers: Release v5.23.0",
+          "url": "https://github.com/huggingface/transformers/releases/tag/v5.23.0",
+          "publisher": "Transformers Releases",
+          "host": "github.com",
+          "family": "代码与版本",
+          "published": "2026-11-13T14:10:57+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 模型、训练与基础研究（2026-11-14）",
     "date": "2026-11-14T10:42:22.744731+08:00",
     "count": 3,
