@@ -2,70 +2,9 @@
   "version": 1,
   "slots": {
     "2026-11-14:paper_brief": {
-      "status": "prepared",
+      "status": "published",
       "updated_at": "2026-11-14T04:42:22.314272+00:00",
-      "attempts": 1,
-      "pending": {
-        "topic": "multimodal",
-        "title": "AI 论文午间速览",
-        "url": "https://vorasio.com/posts/20261114-paper_brief.html",
-        "created_at": "2026-11-14T04:42:22.314272+00:00",
-        "items": [
-          {
-            "uid": "b964dbb714974f42b731b3e7",
-            "title": "A Survey on LLMs from a Human-Centric Perspective",
-            "url": "https://doi.org/10.1145/3859364",
-            "published": "2026-11-12T00:00:00+00:00",
-            "summary": "The rapid evolution of large language models (LLMs) has positioned them as powerful computational instruments for human-centered research and applications, spanning tasks involving cognition, decision-making, and social interaction. This survey examines LLMs from a human-centric perspective organized around individual and collective levels. We first review LLM competencies across perception, analysis, integration, execution, and social interaction, highlighting both their demonstrated capabilities and the evaluation conditions under which these capabilities are observed. We then explore how LLMs are used across behavioral science, psychology, linguistics, political science, economics, and sociology as research tools, behavioral simulators, and objects of inquiry, covering both individual behavior and collective social processes. Finally, we identify challenges and future research directions, such as improving LLM adaptability, affective-to-behavior evaluation, and cultural sensitivity, while addressing inherent biases and enhancing frameworks for human-AI collaboration. This survey aims to provide a foundational understanding of LLMs from a human-centric perspective, offering insights into their current capabilities and potential for future development.",
-            "source": "OpenAlex Multimodal",
-            "kind": "research",
-            "doi": "10.1145/3859364",
-            "date_precision": "day",
-            "aliases": [
-              "doi:10.1145/3859364",
-              "url:https://doi.org/10.1145/3859364"
-            ]
-          },
-          {
-            "uid": "40666a37264443b3ecd7bc7d",
-            "title": "Hyperbolic Large Language Models",
-            "url": "https://doi.org/10.1137/25m1795248",
-            "published": "2026-11-12T00:00:00+00:00",
-            "summary": "Abstract. Large language models (LLMs) have achieved remarkable success and demonstrated superior performance across various tasks, including natural language processing (NLP), weather forecasting, biological protein folding, text generation, and solving mathematical problems. However, many real-world data exhibit highly non-Euclidean latent hierarchical anatomy, such as protein networks, transportation networks, financial networks, brain networks, and linguistic structures or syntactic trees in natural languages. Effectively learning intrinsic semantic entailment and hierarchical relationships from these raw, unstructured input data using LLMs remains an underexplored area. Due to its effectiveness in modeling tree-like hierarchical structures, hyperbolic geometry—a non-Euclidean space—has rapidly gained popularity as an expressive latent representation space for complex data modeling across domains such as graphs, images, languages, and multimodal data. Here, we provide a comprehensive and contextual exposition of recent advancements in LLMs that leverage hyperbolic geometry as a representation space to enhance semantic representation learning and multiscale reasoning. Specifically, the paper presents a taxonomy of the principal techniques of hyperbolic LLMs (HypLLMs) in terms of four main categories: (1) hyperbolic LLMs through exp/log maps; (2) hyperbolic fine-tuned models;",
-            "source": "OpenAlex Multimodal",
-            "kind": "research",
-            "doi": "10.1137/25m1795248",
-            "date_precision": "day",
-            "aliases": [
-              "doi:10.1137/25m1795248",
-              "url:https://doi.org/10.1137/25m1795248"
-            ]
-          },
-          {
-            "uid": "9cfef1cc2e96b28d357482ac",
-            "title": "VeriMedia: A Spatial-Temporal Deep Learning Platform for Video Deepfake Detection and Forensic Verification",
-            "url": "https://doi.org/10.17148/ijarcce.2026.1511115",
-            "published": "2026-11-12T00:00:00+00:00",
-            "summary": "The increase of hyper-realistic generative models, deepfakes, face-swapping algorithms, and neural rendering has severely compromised public trust in digital video media, helping centered political disinformation, financial fraud, executive impersonation, and non-consensual synthetic defamation, in many respects; synthetic artifacts are clearing heterogeneously across the microscopic pixel textures and inter-frame temporal transitions, when the facial video undergoes generative forgery, in real-world scenarios.Standard digital forensic workflows rely on static two-dimensional Convolutional Neural Networks (2D-CNNs) that are inspecting isolated frames; in fact, yet, frame-by-frame classifiers are fundamentally blind to temporal boundary flickers, physiological inconsistencies (such as irregular eye blinking flow and micro-expression dynamics), and motion discontinuities.Along these dimensions, suffering from acute vulnerability to lossy social media compression (such as H.264/H.265 codecs at high quantization parameters c23 and c40); in fact, also black-box deep models output uninterpretable scalar scores without spatial or temporal attribution, restricting their evidentiary admissibility in judicial and regulatory environments.Current methods across the digital media forensics, deep spatial representation learning, temporal sequence modeling, and explainable artificial intellig",
-            "source": "OpenAlex Multimodal",
-            "kind": "research",
-            "doi": "10.17148/ijarcce.2026.1511115",
-            "date_precision": "day",
-            "aliases": [
-              "doi:10.17148/ijarcce.2026.1511115",
-              "url:https://doi.org/10.17148/ijarcce.2026.1511115"
-            ]
-          }
-        ],
-        "source_topic": "multimodal",
-        "notify": false,
-        "mode": "production",
-        "analysis": {
-          "provider": "Groq",
-          "model": "openai/gpt-oss-20b"
-        },
-        "slot": "paper_brief"
-      }
+      "attempts": 1
     },
     "2026-11-14:open_source": {
       "status": "published",

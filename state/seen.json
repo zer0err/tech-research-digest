@@ -23,6 +23,15 @@
     },
     "multimodal": {
       "ids": [
+        "b964dbb714974f42b731b3e7",
+        "doi:10.1145/3859364",
+        "url:https://doi.org/10.1145/3859364",
+        "40666a37264443b3ecd7bc7d",
+        "doi:10.1137/25m1795248",
+        "url:https://doi.org/10.1137/25m1795248",
+        "9cfef1cc2e96b28d357482ac",
+        "doi:10.17148/ijarcce.2026.1511115",
+        "url:https://doi.org/10.17148/ijarcce.2026.1511115",
         "fe9025f540e2e67731d8c34c",
         "doi:10.1038/s41598-026-78831-5",
         "url:https://doi.org/10.1038/s41598-026-78831-5",
@@ -55,7 +64,7 @@
         "808780f3283440c8b29d022b",
         "361f7c9a0f57a189ca4c36ad"
       ],
-      "updated_at": "2026-11-12T06:13:57.011788+00:00"
+      "updated_at": "2026-11-14T04:42:22.314272+00:00"
     },
     "morning_radar": {
       "ids": [
@@ -416,6 +425,15 @@
     }
   },
   "all_ids": [
+    "b964dbb714974f42b731b3e7",
+    "doi:10.1145/3859364",
+    "url:https://doi.org/10.1145/3859364",
+    "40666a37264443b3ecd7bc7d",
+    "doi:10.1137/25m1795248",
+    "url:https://doi.org/10.1137/25m1795248",
+    "9cfef1cc2e96b28d357482ac",
+    "doi:10.17148/ijarcce.2026.1511115",
+    "url:https://doi.org/10.17148/ijarcce.2026.1511115",
     "df322729e66e4f5c1406e205",
     "url:https://github.com/huggingface/transformers/releases/tag/v5.23.0",
     "bea30f58872aa34dbe3a3202",
@@ -767,6 +785,9 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://doi.org/10.1145/3859364",
+    "https://doi.org/10.1137/25m1795248",
+    "https://doi.org/10.17148/ijarcce.2026.1511115",
     "https://github.com/huggingface/transformers/releases/tag/v5.23.0",
     "https://doi.org/10.21203/rs.3.rs-11288339/v1",
     "https://doi.org/10.66977/xsci.2611.001w",
@@ -5710,6 +5731,47 @@
           "published": "2026-11-13T14:10:57+00:00",
           "source": "Transformers Releases",
           "doi": "",
+          "kind": "research",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261114-paper_brief.html": {
+      "topic": "multimodal",
+      "source_topic": "multimodal",
+      "created_at": "2026-11-14T04:42:22.314272+00:00",
+      "items": [
+        {
+          "uid": "b964dbb714974f42b731b3e7",
+          "title": "A Survey on LLMs from a Human-Centric Perspective",
+          "url": "https://doi.org/10.1145/3859364",
+          "published": "2026-11-12T00:00:00+00:00",
+          "source": "OpenAlex Multimodal",
+          "doi": "10.1145/3859364",
+          "kind": "research",
+          "date_precision": "day"
+        },
+        {
+          "uid": "40666a37264443b3ecd7bc7d",
+          "title": "Hyperbolic Large Language Models",
+          "url": "https://doi.org/10.1137/25m1795248",
+          "published": "2026-11-12T00:00:00+00:00",
+          "source": "OpenAlex Multimodal",
+          "doi": "10.1137/25m1795248",
+          "kind": "research",
+          "date_precision": "day"
+        },
+        {
+          "uid": "9cfef1cc2e96b28d357482ac",
+          "title": "VeriMedia: A Spatial-Temporal Deep Learning Platform for Video Deepfake Detection and Forensic Verification",
+          "url": "https://doi.org/10.17148/ijarcce.2026.1511115",
+          "published": "2026-11-12T00:00:00+00:00",
+          "source": "OpenAlex Multimodal",
+          "doi": "10.17148/ijarcce.2026.1511115",
           "kind": "research",
           "date_precision": "day"
         }
