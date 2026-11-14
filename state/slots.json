@@ -2,67 +2,9 @@
   "version": 1,
   "slots": {
     "2026-11-14:morning_radar": {
-      "status": "prepared",
+      "status": "published",
       "updated_at": "2026-11-14T01:12:20.019932+00:00",
-      "attempts": 1,
-      "pending": {
-        "topic": "morning_radar",
-        "title": "AI 晨间雷达与免费资源",
-        "url": "https://vorasio.com/posts/20261114-morning_radar.html",
-        "created_at": "2026-11-14T01:12:20.019932+00:00",
-        "items": [
-          {
-            "uid": "862b82cce5532207ebbb4672",
-            "title": "Upcoming deprecation of selected GitHub Copilot models in December",
-            "url": "https://github.blog/changelog/2026-11-13-upcoming-deprecation-of-selected-github-copilot-models-in-december",
-            "published": "2026-11-13T20:40:05+00:00",
-            "summary": "We will deprecate the following models across all GitHub Copilot experiences (including Copilot Chat, inline edits, ask and agent modes, and code completions) on December 14, 2026: Model Deprecation date… The post Upcoming deprecation of selected GitHub Copilot models in December appeared first on The GitHub Blog .",
-            "source": "GitHub 官方更新",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day",
-            "aliases": [
-              "url:https://github.blog/changelog/2026-11-13-upcoming-deprecation-of-selected-github-copilot-models-in-december"
-            ]
-          },
-          {
-            "uid": "a82a582d254d179cb311f0cd",
-            "title": "GitHub Enterprise Server support in the GitHub Copilot app",
-            "url": "https://github.blog/changelog/2026-11-13-github-enterprise-server-support-in-the-github-copilot-app",
-            "published": "2026-11-13T18:27:13+00:00",
-            "summary": "You can now bring your work on GitHub Enterprise Server (GHES) into the GitHub Copilot app. Add your GHES account to work with remote repositories, issues, and pull requests. This… The post GitHub Enterprise Server support in the GitHub Copilot app appeared first on The GitHub Blog .",
-            "source": "GitHub 官方更新",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day",
-            "aliases": [
-              "url:https://github.blog/changelog/2026-11-13-github-enterprise-server-support-in-the-github-copilot-app"
-            ]
-          },
-          {
-            "uid": "dde13a6350f0c89d7a8f6d59",
-            "title": "Gemini 4 Hydrogen in GitHub Copilot",
-            "url": "https://github.blog/changelog/2026-11-13-gemini-4-hydrogen-in-github-copilot",
-            "published": "2026-11-13T18:23:48+00:00",
-            "summary": "Gemini 4 Hydrogen, Google’s latest Flash model, is now generally available in GitHub Copilot. It is designed for fast, efficient agentic coding, tool use, and multistep workflows, with improved instruction… The post Gemini 4 Hydrogen in GitHub Copilot appeared first on The GitHub Blog .",
-            "source": "GitHub 官方更新",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day",
-            "aliases": [
-              "url:https://github.blog/changelog/2026-11-13-gemini-4-hydrogen-in-github-copilot"
-            ]
-          }
-        ],
-        "source_topic": "morning_radar",
-        "notify": false,
-        "mode": "production",
-        "analysis": {
-          "provider": "Groq",
-          "model": "openai/gpt-oss-20b"
-        },
-        "slot": "morning_radar"
-      }
+      "attempts": 1
     },
     "2026-11-13:prompt_engineering": {
       "status": "already_published",

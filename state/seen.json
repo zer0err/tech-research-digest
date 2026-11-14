@@ -57,6 +57,12 @@
     },
     "morning_radar": {
       "ids": [
+        "862b82cce5532207ebbb4672",
+        "url:https://github.blog/changelog/2026-11-13-upcoming-deprecation-of-selected-github-copilot-models-in-december",
+        "a82a582d254d179cb311f0cd",
+        "url:https://github.blog/changelog/2026-11-13-github-enterprise-server-support-in-the-github-copilot-app",
+        "dde13a6350f0c89d7a8f6d59",
+        "url:https://github.blog/changelog/2026-11-13-gemini-4-hydrogen-in-github-copilot",
         "f19cddd04797ae7d9ed5d0a1",
         "url:https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade",
         "ce169ea5d1f169f19da4cc3e",
@@ -102,7 +108,7 @@
         "dea8ba729eb28582daacbbc8",
         "767a7f383549ba646ff22647"
       ],
-      "updated_at": "2026-11-13T01:12:21.140693+00:00"
+      "updated_at": "2026-11-14T01:12:20.019932+00:00"
     },
     "ecosystem": {
       "ids": [
@@ -399,6 +405,12 @@
     }
   },
   "all_ids": [
+    "862b82cce5532207ebbb4672",
+    "url:https://github.blog/changelog/2026-11-13-upcoming-deprecation-of-selected-github-copilot-models-in-december",
+    "a82a582d254d179cb311f0cd",
+    "url:https://github.blog/changelog/2026-11-13-github-enterprise-server-support-in-the-github-copilot-app",
+    "dde13a6350f0c89d7a8f6d59",
+    "url:https://github.blog/changelog/2026-11-13-gemini-4-hydrogen-in-github-copilot",
     "8f189522e06dbd8def66f6fa",
     "arxiv:2611.17294",
     "url:https://arxiv.org/abs/2611.17294",
@@ -733,6 +745,9 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://github.blog/changelog/2026-11-13-upcoming-deprecation-of-selected-github-copilot-models-in-december",
+    "https://github.blog/changelog/2026-11-13-github-enterprise-server-support-in-the-github-copilot-app",
+    "https://github.blog/changelog/2026-11-13-gemini-4-hydrogen-in-github-copilot",
     "https://arxiv.org/abs/2611.17294",
     "https://arxiv.org/abs/2611.17230",
     "https://github.blog/ai-and-ml/github-copilot/build-once-run-on-any-agent-a-practical-guide-to-agent-skills",
@@ -5565,6 +5580,47 @@
           "url": "https://arxiv.org/abs/2611.17230",
           "published": "2026-11-12T18:21:37+00:00",
           "source": "arXiv Efficient AI",
+          "doi": "",
+          "kind": "research",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261114-morning_radar.html": {
+      "topic": "morning_radar",
+      "source_topic": "morning_radar",
+      "created_at": "2026-11-14T01:12:20.019932+00:00",
+      "items": [
+        {
+          "uid": "862b82cce5532207ebbb4672",
+          "title": "Upcoming deprecation of selected GitHub Copilot models in December",
+          "url": "https://github.blog/changelog/2026-11-13-upcoming-deprecation-of-selected-github-copilot-models-in-december",
+          "published": "2026-11-13T20:40:05+00:00",
+          "source": "GitHub 官方更新",
+          "doi": "",
+          "kind": "research",
+          "date_precision": "day"
+        },
+        {
+          "uid": "a82a582d254d179cb311f0cd",
+          "title": "GitHub Enterprise Server support in the GitHub Copilot app",
+          "url": "https://github.blog/changelog/2026-11-13-github-enterprise-server-support-in-the-github-copilot-app",
+          "published": "2026-11-13T18:27:13+00:00",
+          "source": "GitHub 官方更新",
+          "doi": "",
+          "kind": "research",
+          "date_precision": "day"
+        },
+        {
+          "uid": "dde13a6350f0c89d7a8f6d59",
+          "title": "Gemini 4 Hydrogen in GitHub Copilot",
+          "url": "https://github.blog/changelog/2026-11-13-gemini-4-hydrogen-in-github-copilot",
+          "published": "2026-11-13T18:23:48+00:00",
+          "source": "GitHub 官方更新",
           "doi": "",
           "kind": "research",
           "date_precision": "day"
