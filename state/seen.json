@@ -402,6 +402,14 @@
     },
     "inference_systems": {
       "ids": [
+        "f55febd0238ec8ccfed864d7",
+        "doi:10.32628/ijsrst2613620",
+        "url:https://doi.org/10.32628/ijsrst2613620",
+        "75ec3361be4baf3a7a9efbc7",
+        "url:https://developer.nvidia.com/blog/when-one-gpu-isnt-enough-serving-glm-5-3-across-two-nvidia-dgx-stations-with-vllm",
+        "ef1217f9f56bf05fb225871d",
+        "doi:10.21203/rs.3.rs-10762752/v1",
+        "url:https://doi.org/10.21203/rs.3.rs-10762752/v1",
         "43eeb7b8505802c03bbda957",
         "1d1af5accdeb2651235f4e8f",
         "87d5ea6aecd661863cb35f31",
@@ -422,7 +430,7 @@
         "b018c3901f5052e513d7f7de",
         "4ac4eda1121470f5cf1d1a5b"
       ],
-      "updated_at": "2026-11-11T04:42:23.472073+00:00"
+      "updated_at": "2026-11-15T07:42:22.942627+00:00"
     },
     "prompt_engineering": {
       "ids": [
@@ -435,6 +443,14 @@
     }
   },
   "all_ids": [
+    "f55febd0238ec8ccfed864d7",
+    "doi:10.32628/ijsrst2613620",
+    "url:https://doi.org/10.32628/ijsrst2613620",
+    "75ec3361be4baf3a7a9efbc7",
+    "url:https://developer.nvidia.com/blog/when-one-gpu-isnt-enough-serving-glm-5-3-across-two-nvidia-dgx-stations-with-vllm",
+    "ef1217f9f56bf05fb225871d",
+    "doi:10.21203/rs.3.rs-10762752/v1",
+    "url:https://doi.org/10.21203/rs.3.rs-10762752/v1",
     "98cc8cbce26186f823fee579",
     "doi:10.55670/fpll.futech.5.4.21",
     "url:https://doi.org/10.55670/fpll.futech.5.4.21",
@@ -805,6 +821,9 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://doi.org/10.32628/ijsrst2613620",
+    "https://developer.nvidia.com/blog/when-one-gpu-isnt-enough-serving-glm-5-3-across-two-nvidia-dgx-stations-with-vllm",
+    "https://doi.org/10.21203/rs.3.rs-10762752/v1",
     "https://doi.org/10.55670/fpll.futech.5.4.21",
     "https://doi.org/10.64823/ijter.2611001",
     "https://developer.nvidia.com/blog/run-native-dla-inference-in-python-on-nvidia-jetson-agx-orin-using-cudla",
@@ -5858,6 +5877,47 @@
           "published": "2026-11-13T18:57:10+00:00",
           "source": "NVIDIA Technical Blog",
           "doi": "",
+          "kind": "research",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261115-core_research.html": {
+      "topic": "inference_systems",
+      "source_topic": "inference_systems",
+      "created_at": "2026-11-15T07:42:22.942627+00:00",
+      "items": [
+        {
+          "uid": "f55febd0238ec8ccfed864d7",
+          "title": "Securing Autonomous Multi-Agent AI Systems: A Zero-Trust Framework for Threat Detection, Behavioral Monitoring, and Resilience in Enterprise Environments",
+          "url": "https://doi.org/10.32628/ijsrst2613620",
+          "published": "2026-11-15T00:00:00+00:00",
+          "source": "Crossref Inference",
+          "doi": "10.32628/ijsrst2613620",
+          "kind": "research",
+          "date_precision": "day"
+        },
+        {
+          "uid": "75ec3361be4baf3a7a9efbc7",
+          "title": "When One GPU Isn’t Enough: Serving GLM-5.3 Across Two NVIDIA DGX Stations with vLLM",
+          "url": "https://developer.nvidia.com/blog/when-one-gpu-isnt-enough-serving-glm-5-3-across-two-nvidia-dgx-stations-with-vllm",
+          "published": "2026-11-13T17:00:00+00:00",
+          "source": "NVIDIA Technical Blog",
+          "doi": "",
+          "kind": "research",
+          "date_precision": "day"
+        },
+        {
+          "uid": "ef1217f9f56bf05fb225871d",
+          "title": "An Agentic AI Framework for Autonomous Cross-View Kernel Rootkit Detection and Response in Cloud Environments",
+          "url": "https://doi.org/10.21203/rs.3.rs-10762752/v1",
+          "published": "2026-11-13T00:00:00+00:00",
+          "source": "OpenAlex Inference",
+          "doi": "10.21203/rs.3.rs-10762752/v1",
           "kind": "research",
           "date_precision": "day"
         }
