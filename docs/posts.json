@@ -1,5 +1,45 @@
 [
   {
+    "title": "多模态感知、音视频与人机交互（2026-11-15）",
+    "date": "2026-11-15T16:42:14.543404+08:00",
+    "count": 2,
+    "url": "posts/20261115-applied_ai.html",
+    "topic": "applied_ai",
+    "source_topic": "multimodal",
+    "status": "published",
+    "summary": "本期结论 1. Pixel‑space diffusion（PixVid）实现了更高分辨率与更快交互：在保持与原始潜在模型相近的训练成本下，PixVid 在像素空间生成视频可实现 2 倍分辨率提升，并能在每帧完成响应，满足实时交互需求1。 2. 视觉编码可从零开始训练而不损失性能：在统一数据与计算条件下，联合从零训练的",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "Back to Pixels: Lifting Latent Video Diffusion into Pixel Space",
+          "url": "https://arxiv.org/abs/2611.17336",
+          "publisher": "arXiv Perception",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-11-12T18:59:55+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "Unbundling Multimodal Vision Encoding",
+          "url": "https://arxiv.org/abs/2611.17334",
+          "publisher": "arXiv Perception",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-11-12T18:59:54+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "推理引擎、编译器与嵌入式系统（2026-11-15）",
     "date": "2026-11-15T15:42:22.942627+08:00",
     "count": 3,
