@@ -40,55 +40,9 @@
       "maintenance_notified": true
     },
     "2026-11-15:applied_ai": {
-      "status": "prepared",
+      "status": "published",
       "updated_at": "2026-11-15T08:42:14.543404+00:00",
-      "attempts": 1,
-      "pending": {
-        "topic": "multimodal",
-        "title": "多模态感知、音视频与人机交互",
-        "url": "https://vorasio.com/posts/20261115-applied_ai.html",
-        "created_at": "2026-11-15T08:42:14.543404+00:00",
-        "items": [
-          {
-            "uid": "a39de232d8045dfd1e2a8592",
-            "title": "Back to Pixels: Lifting Latent Video Diffusion into Pixel Space",
-            "url": "https://arxiv.org/abs/2611.17336",
-            "published": "2026-11-12T18:59:55+00:00",
-            "summary": "Frontier video generation models work in a VAE latent space that compresses video in both space and time. This compression made training tractable, but now limits high-resolution, controllable, and interactive generation -- doubling resolution quadruples token count, conditions apply to groups of frames rather than individual ones, and each response must wait for the rest of its multi-frame block. We present PixVid, a simple yet effective method that lifts a pretrained latent video model to directly generate every frame in pixel space. PixVid keeps the diffusion transformer and replaces the VAE decoder with a convolutional head that renders its outputs into pixels. We find that predicting clean video rather than velocity, together with a larger noise shift, is key to quality. Finetuned from Wan2.1-14B, PixVid is competitive with the latent baseline within $\\sim 1.3$M training clips. Working framewise in pixels, it generates at $2\\times$ higher resolution with the same per-frame token count, keeps depth-conditioned video editing aligned under fast motion, and responds to each action at the next frame. Project page: https://chenshuo20.github.io/PixVid/",
-            "source": "arXiv Perception",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day",
-            "aliases": [
-              "arxiv:2611.17336",
-              "url:https://arxiv.org/abs/2611.17336"
-            ]
-          },
-          {
-            "uid": "b87d6d714a5b03b88d1f9c54",
-            "title": "Unbundling Multimodal Vision Encoding",
-            "url": "https://arxiv.org/abs/2611.17334",
-            "published": "2026-11-12T18:59:54+00:00",
-            "summary": "How multimodal language models should encode visual input remains up for debate. Most models use a pretrained vision encoder, while some recent recipes train the encoder from scratch with the language model or remove it entirely. Vision encoders bundle together three design choices: a visual prior from upstream pretraining, dedicated vision capacity, and pre-fusion placement of that capacity (i.e., before the multimodal backbone). Because published models also differ in data, architecture, and compute, comparing them cannot isolate the effect of each choice. We disentangle these choices via a controlled framework where we pretrain all models from scratch on common data and compare them on visual question answering and language benchmarks at matched lifetime compute. We find that the visual prior is not necessary; an encoder trained jointly from scratch is on par with a pretrained one, without a separate training stage. What matters instead is dedicated vision capacity: an encoder-free model trails on visual understanding even when its backbone is enlarged by the encoder's parameter count. Yet that capacity need not precede multimodal fusion, as vision-only modules added in-fusion to early backbone layers perform comparably to a pre-fusion encoder and can lower time to first token. These results also hold across backbone sizes, when encoder pretraining is treated as free, and wh",
-            "source": "arXiv Perception",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day",
-            "aliases": [
-              "arxiv:2611.17334",
-              "url:https://arxiv.org/abs/2611.17334"
-            ]
-          }
-        ],
-        "source_topic": "multimodal",
-        "notify": false,
-        "mode": "production",
-        "analysis": {
-          "provider": "Groq",
-          "model": "openai/gpt-oss-20b"
-        },
-        "slot": "applied_ai"
-      }
+      "attempts": 1
     },
     "2026-11-14:prompt_engineering": {
       "status": "already_published",
