@@ -29,9 +29,70 @@
       "maintenance_notified": true
     },
     "2026-11-15:core_research": {
-      "status": "analysis_rejected",
-      "updated_at": "2026-11-15T06:12:45.278419+00:00",
-      "attempts": 1
+      "status": "prepared",
+      "updated_at": "2026-11-15T07:42:22.942627+00:00",
+      "attempts": 2,
+      "pending": {
+        "topic": "inference_systems",
+        "title": "推理引擎、编译器与嵌入式系统",
+        "url": "https://vorasio.com/posts/20261115-core_research.html",
+        "created_at": "2026-11-15T07:42:22.942627+00:00",
+        "items": [
+          {
+            "uid": "f55febd0238ec8ccfed864d7",
+            "title": "Securing Autonomous Multi-Agent AI Systems: A Zero-Trust Framework for Threat Detection, Behavioral Monitoring, and Resilience in Enterprise Environments",
+            "url": "https://doi.org/10.32628/ijsrst2613620",
+            "published": "2026-11-15T00:00:00+00:00",
+            "summary": "This is an important issue in developing multi-agent systems in the context of distributed, autonomous, large-language models. Large-language model (LLM) agents delegate tasks, call tools and act on real-world agents. Generally, the most dangerous inputs arrived as natural-language messages from trusted peers, and one compromised agent could pass along its nefarious instructions to others. This paper proposes ZT-MAS, which brings together cryptographic agent identity and attestation, intent-bound capability tokens on every request, provenance tagging for taint propagation, a behavioural trust score that combines policy, sequence, provenance and drifting with taint propagation, a graduated response layer with step-up approval, restriction, quarantine and rollback, and a graduate response layer with step-down approval, restriction, quarantine and rollback. The framework is based on NIST SP 800-207, OWASP Top 10 for Agentic Applications, and MAESTRO threat model. We simulate an eight-agent enterprise workflow and sampled simulated a simulated a seeded simulation of a small company to determine the level of trust associated with goal hijacking, confused-deputy privilege escalation, prompt infection, memory poisoning, memory poisoning, and data exfiltration (500 episodes per cell). The perimeter zero-trust failed in all but behavioural tracking alone stopped every episode of a confu",
+            "source": "Crossref Inference",
+            "kind": "research",
+            "doi": "10.32628/ijsrst2613620",
+            "date_precision": "day",
+            "aliases": [
+              "doi:10.32628/ijsrst2613620",
+              "url:https://doi.org/10.32628/ijsrst2613620"
+            ]
+          },
+          {
+            "uid": "75ec3361be4baf3a7a9efbc7",
+            "title": "When One GPU Isn’t Enough: Serving GLM-5.3 Across Two NVIDIA DGX Stations with vLLM",
+            "url": "https://developer.nvidia.com/blog/when-one-gpu-isnt-enough-serving-glm-5-3-across-two-nvidia-dgx-stations-with-vllm",
+            "published": "2026-11-13T17:00:00+00:00",
+            "summary": "Running a frontier-scale model locally means keeping all its weights in GPU memory; the largest models no longer fit on one machine. Two NVIDIA DGX Stations...",
+            "source": "NVIDIA Technical Blog",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day",
+            "aliases": [
+              "url:https://developer.nvidia.com/blog/when-one-gpu-isnt-enough-serving-glm-5-3-across-two-nvidia-dgx-stations-with-vllm"
+            ]
+          },
+          {
+            "uid": "ef1217f9f56bf05fb225871d",
+            "title": "An Agentic AI Framework for Autonomous Cross-View Kernel Rootkit Detection and Response in Cloud Environments",
+            "url": "https://doi.org/10.21203/rs.3.rs-10762752/v1",
+            "published": "2026-11-13T00:00:00+00:00",
+            "summary": "Abstract Kernel-level rootkits subvert the operating system to conceal the network ports through which they maintain covert channels, and cloud tenants who cannot access the hypervisor have few reliable defences. Existing detectors stop at a verdict, leaving investigation and response to human analysts and admitting a window during which an active rootkit persists. This paper presents an agentic AI framework that both detects and autonomously responds to kernel rootkits through port-level behavioural analysis. On cloud guests hosted on Google Cloud Platform, a kernel-mode Port Enumerator and a user-mode Port Monitor produce cross-view port lists whose discrepancy, formalized here as a temporal behavioural signal, is classified by a deep ensemble of CNN-LSTM, Bi-LSTM, Autoencoder and GAN. The resulting Rootkit/Benign verdict is handed to an LLM Agent Orchestrator that executes an autonomous perceive-plan-act-reflect loop, invoking security tools under human-in-the-loop oversight for high-impact actions. A second evidence channel is released with the paper as a labelled concealment matrix of 87 kernel rootkit samples described by a binary vector over a 968-entry dictionary of concealed objects, each carrying the technique it uses to hide. We give a mathematical model of the cross-view signal, the fused decision, and the agent’s utility-driven action selection. Evaluated on a Wind",
+            "source": "OpenAlex Inference",
+            "kind": "research",
+            "doi": "10.21203/rs.3.rs-10762752/v1",
+            "date_precision": "day",
+            "aliases": [
+              "doi:10.21203/rs.3.rs-10762752/v1",
+              "url:https://doi.org/10.21203/rs.3.rs-10762752/v1"
+            ]
+          }
+        ],
+        "source_topic": "inference_systems",
+        "notify": false,
+        "mode": "production",
+        "analysis": {
+          "provider": "Groq",
+          "model": "openai/gpt-oss-20b"
+        },
+        "slot": "core_research"
+      },
+      "maintenance_notified": true
     },
     "2026-11-14:prompt_engineering": {
       "status": "already_published",
