@@ -343,6 +343,14 @@
     },
     "product_safety": {
       "ids": [
+        "98cc8cbce26186f823fee579",
+        "doi:10.55670/fpll.futech.5.4.21",
+        "url:https://doi.org/10.55670/fpll.futech.5.4.21",
+        "c401583fb18104e1f9b785a0",
+        "doi:10.64823/ijter.2611001",
+        "url:https://doi.org/10.64823/ijter.2611001",
+        "275224abf495b9e1132e9fb7",
+        "url:https://developer.nvidia.com/blog/run-native-dla-inference-in-python-on-nvidia-jetson-agx-orin-using-cudla",
         "d4c8cbe5ba5bd98dd747e070",
         "doi:10.14445/23488549/ijece-v13i10p101",
         "url:https://doi.org/10.14445/23488549/ijece-v13i10p101",
@@ -372,7 +380,7 @@
         "1dd573b9112c2e472f3b1413",
         "5f4fd058fd42810b8ce54c7a"
       ],
-      "updated_at": "2026-11-12T08:42:17.500129+00:00"
+      "updated_at": "2026-11-15T04:42:14.803880+00:00"
     },
     "dev_practice": {
       "ids": [
@@ -427,6 +435,14 @@
     }
   },
   "all_ids": [
+    "98cc8cbce26186f823fee579",
+    "doi:10.55670/fpll.futech.5.4.21",
+    "url:https://doi.org/10.55670/fpll.futech.5.4.21",
+    "c401583fb18104e1f9b785a0",
+    "doi:10.64823/ijter.2611001",
+    "url:https://doi.org/10.64823/ijter.2611001",
+    "275224abf495b9e1132e9fb7",
+    "url:https://developer.nvidia.com/blog/run-native-dla-inference-in-python-on-nvidia-jetson-agx-orin-using-cudla",
     "30f5ce152acc8d522a2e6dda",
     "url:https://github.blog/changelog/2026-11-13-manage-ai-scan-for-repositories-using-the-rest-api",
     "b964dbb714974f42b731b3e7",
@@ -789,6 +805,9 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://doi.org/10.55670/fpll.futech.5.4.21",
+    "https://doi.org/10.64823/ijter.2611001",
+    "https://developer.nvidia.com/blog/run-native-dla-inference-in-python-on-nvidia-jetson-agx-orin-using-cudla",
     "https://github.blog/changelog/2026-11-13-manage-ai-scan-for-repositories-using-the-rest-api",
     "https://doi.org/10.1145/3859364",
     "https://doi.org/10.1137/25m1795248",
@@ -5797,6 +5816,47 @@
           "url": "https://github.blog/changelog/2026-11-13-manage-ai-scan-for-repositories-using-the-rest-api",
           "published": "2026-11-13T12:22:41+00:00",
           "source": "GitHub 官方更新",
+          "doi": "",
+          "kind": "research",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261115-paper_brief.html": {
+      "topic": "product_safety",
+      "source_topic": "product_safety",
+      "created_at": "2026-11-15T04:42:14.803880+00:00",
+      "items": [
+        {
+          "uid": "98cc8cbce26186f823fee579",
+          "title": "Probabilistic-temporal modeling of network security monitoring subprocesses for multi-stage attacks in IoT networks",
+          "url": "https://doi.org/10.55670/fpll.futech.5.4.21",
+          "published": "2026-11-15T00:00:00+00:00",
+          "source": "Crossref Device Security",
+          "doi": "10.55670/fpll.futech.5.4.21",
+          "kind": "research",
+          "date_precision": "day"
+        },
+        {
+          "uid": "c401583fb18104e1f9b785a0",
+          "title": "AI-Augmented Quantum Key Distribution for Cloud Data Security: A Simulation Study of Aggregate Versus Block-Wise Eavesdropping Detection",
+          "url": "https://doi.org/10.64823/ijter.2611001",
+          "published": "2026-11-15T00:00:00+00:00",
+          "source": "Crossref Device Security",
+          "doi": "10.64823/ijter.2611001",
+          "kind": "research",
+          "date_precision": "day"
+        },
+        {
+          "uid": "275224abf495b9e1132e9fb7",
+          "title": "Run Native DLA Inference in Python on NVIDIA Jetson AGX Orin Using cuDLA",
+          "url": "https://developer.nvidia.com/blog/run-native-dla-inference-in-python-on-nvidia-jetson-agx-orin-using-cudla",
+          "published": "2026-11-13T18:57:10+00:00",
+          "source": "NVIDIA Technical Blog",
           "doi": "",
           "kind": "research",
           "date_precision": "day"

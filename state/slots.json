@@ -2,69 +2,9 @@
   "version": 1,
   "slots": {
     "2026-11-15:paper_brief": {
-      "status": "prepared",
+      "status": "published",
       "updated_at": "2026-11-15T04:42:14.803880+00:00",
-      "attempts": 1,
-      "pending": {
-        "topic": "product_safety",
-        "title": "AI 论文午间速览",
-        "url": "https://vorasio.com/posts/20261115-paper_brief.html",
-        "created_at": "2026-11-15T04:42:14.803880+00:00",
-        "items": [
-          {
-            "uid": "98cc8cbce26186f823fee579",
-            "title": "Probabilistic-temporal modeling of network security monitoring subprocesses for multi-stage attacks in IoT networks",
-            "url": "https://doi.org/10.55670/fpll.futech.5.4.21",
-            "published": "2026-11-15T00:00:00+00:00",
-            "summary": "Timely detection of a multistage cyberattack in an IoT network depends on the chosen monitoring architecture, execution time, and the transition behavior of subprocesses within that architecture. This paper introduces a probabilistic temporal model to evaluate an NSMS for both known and unknown multi-stage attacks. First, we introduce a conceptual monitoring architecture that organizes streaming-data processing, temporal analysis, attack classification, attack prediction, and response selection. The recurrent neural networks in the architecture form the basis of the implementation framework and are neither trained nor empirically analyzed. The evaluated contribution represents the NSMS subprocesses as a continuous-time Markov chain, where each state corresponds to a monitoring task and each transition rate is estimated from the respective mean processing time. We develop state-probability equations and use a specialized software tool to estimate the stationary probabilities and successful anomaly-detection probabilities. Numerical evaluations examine how delays in preprocessing, syntactic construction, encoding, classification, and prediction affect monitoring effectiveness. The analysis shows that the estimated probability of successful anomaly detection decreases as preprocessing and encoding time increases, underscoring the need to account for computational delay in time-cri",
-            "source": "Crossref Device Security",
-            "kind": "research",
-            "doi": "10.55670/fpll.futech.5.4.21",
-            "date_precision": "day",
-            "aliases": [
-              "doi:10.55670/fpll.futech.5.4.21",
-              "url:https://doi.org/10.55670/fpll.futech.5.4.21"
-            ]
-          },
-          {
-            "uid": "c401583fb18104e1f9b785a0",
-            "title": "AI-Augmented Quantum Key Distribution for Cloud Data Security: A Simulation Study of Aggregate Versus Block-Wise Eavesdropping Detection",
-            "url": "https://doi.org/10.64823/ijter.2611001",
-            "published": "2026-11-15T00:00:00+00:00",
-            "summary": "Cloud infrastructures face a long-horizon threat from cryptographically relevant quantum computers, motivating both post-quantum cryptography (PQC) and quantum key distribution (QKD) as complementary defenses. QKD additionally offers a physical, information-theoretic signal of eavesdropping through the quantum bit error rate (QBER) of the sifted key. Prior work has applied machine learning across the QKD pipeline, chiefly for parameter optimization and physical-layer stabilization, but has given less systematic attention to whether learned, distribution-aware statistics improve on a simple aggregate-QBER threshold for detecting partial intercept-resend eavesdropping in a cloud key-rotation setting. We simulate BB84 key exchange under uniform and time-concentrated (“bursty”) partial interception across two monitoring-window lengths, and compare a static aggregate-QBER threshold against a logistic-regression detector that additionally uses block-wise QBER variance and maxima, at a matched false-positive rate. Across all four tested conditions, the aggregate threshold matched or exceeded the block-wise detector, while monitoring-window length had a substantially larger, quantifiable effect on detection sensitivity than the choice of detector. For this attack model, cloud QKD key-management pipelines therefore gain more from shortening or adaptively sizing the QBER monitoring windo",
-            "source": "Crossref Device Security",
-            "kind": "research",
-            "doi": "10.64823/ijter.2611001",
-            "date_precision": "day",
-            "aliases": [
-              "doi:10.64823/ijter.2611001",
-              "url:https://doi.org/10.64823/ijter.2611001"
-            ]
-          },
-          {
-            "uid": "275224abf495b9e1132e9fb7",
-            "title": "Run Native DLA Inference in Python on NVIDIA Jetson AGX Orin Using cuDLA",
-            "url": "https://developer.nvidia.com/blog/run-native-dla-inference-in-python-on-nvidia-jetson-agx-orin-using-cudla",
-            "published": "2026-11-13T18:57:10+00:00",
-            "summary": "AI applications at the edge often need to run multiple neural networks within limited compute and power budgets. NVIDIA Deep Learning Accelerator (DLA)...",
-            "source": "NVIDIA Technical Blog",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day",
-            "aliases": [
-              "url:https://developer.nvidia.com/blog/run-native-dla-inference-in-python-on-nvidia-jetson-agx-orin-using-cudla"
-            ]
-          }
-        ],
-        "source_topic": "product_safety",
-        "notify": false,
-        "mode": "production",
-        "analysis": {
-          "provider": "Groq",
-          "model": "openai/gpt-oss-20b"
-        },
-        "slot": "paper_brief"
-      }
+      "attempts": 1
     },
     "2026-11-15:open_source": {
       "status": "already_published",
