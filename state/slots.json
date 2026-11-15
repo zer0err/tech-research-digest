@@ -28,6 +28,11 @@
       "attempts": 3,
       "maintenance_notified": true
     },
+    "2026-11-15:dev_practice": {
+      "status": "analysis_rejected",
+      "updated_at": "2026-11-15T07:42:55.354871+00:00",
+      "attempts": 1
+    },
     "2026-11-15:core_research": {
       "status": "published",
       "updated_at": "2026-11-15T07:42:22.942627+00:00",
