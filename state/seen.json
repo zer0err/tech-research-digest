@@ -68,6 +68,8 @@
     },
     "morning_radar": {
       "ids": [
+        "30f5ce152acc8d522a2e6dda",
+        "url:https://github.blog/changelog/2026-11-13-manage-ai-scan-for-repositories-using-the-rest-api",
         "862b82cce5532207ebbb4672",
         "url:https://github.blog/changelog/2026-11-13-upcoming-deprecation-of-selected-github-copilot-models-in-december",
         "a82a582d254d179cb311f0cd",
@@ -119,7 +121,7 @@
         "dea8ba729eb28582daacbbc8",
         "767a7f383549ba646ff22647"
       ],
-      "updated_at": "2026-11-14T01:12:20.019932+00:00"
+      "updated_at": "2026-11-15T01:12:21.140380+00:00"
     },
     "ecosystem": {
       "ids": [
@@ -425,6 +427,8 @@
     }
   },
   "all_ids": [
+    "30f5ce152acc8d522a2e6dda",
+    "url:https://github.blog/changelog/2026-11-13-manage-ai-scan-for-repositories-using-the-rest-api",
     "b964dbb714974f42b731b3e7",
     "doi:10.1145/3859364",
     "url:https://doi.org/10.1145/3859364",
@@ -785,6 +789,7 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://github.blog/changelog/2026-11-13-manage-ai-scan-for-repositories-using-the-rest-api",
     "https://doi.org/10.1145/3859364",
     "https://doi.org/10.1137/25m1795248",
     "https://doi.org/10.17148/ijarcce.2026.1511115",
@@ -5772,6 +5777,27 @@
           "published": "2026-11-12T00:00:00+00:00",
           "source": "OpenAlex Multimodal",
           "doi": "10.17148/ijarcce.2026.1511115",
+          "kind": "research",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261115-morning_radar.html": {
+      "topic": "morning_radar",
+      "source_topic": "morning_radar",
+      "created_at": "2026-11-15T01:12:21.140380+00:00",
+      "items": [
+        {
+          "uid": "30f5ce152acc8d522a2e6dda",
+          "title": "Manage AI Scan for repositories using the REST API",
+          "url": "https://github.blog/changelog/2026-11-13-manage-ai-scan-for-repositories-using-the-rest-api",
+          "published": "2026-11-13T12:22:41+00:00",
+          "source": "GitHub 官方更新",
+          "doi": "",
           "kind": "research",
           "date_precision": "day"
         }

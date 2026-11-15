@@ -2,39 +2,9 @@
   "version": 1,
   "slots": {
     "2026-11-15:morning_radar": {
-      "status": "prepared",
+      "status": "published",
       "updated_at": "2026-11-15T01:12:21.140380+00:00",
-      "attempts": 1,
-      "pending": {
-        "topic": "morning_radar",
-        "title": "AI 晨间雷达与免费资源",
-        "url": "https://vorasio.com/posts/20261115-morning_radar.html",
-        "created_at": "2026-11-15T01:12:21.140380+00:00",
-        "items": [
-          {
-            "uid": "30f5ce152acc8d522a2e6dda",
-            "title": "Manage AI Scan for repositories using the REST API",
-            "url": "https://github.blog/changelog/2026-11-13-manage-ai-scan-for-repositories-using-the-rest-api",
-            "published": "2026-11-13T12:22:41+00:00",
-            "summary": "You can now turn GitHub code scanning’s AI Scan for repositories on or off with the REST API at the organization and repository levels. This public preview adds a repository_scan… The post Manage AI Scan for repositories using the REST API appeared first on The GitHub Blog .",
-            "source": "GitHub 官方更新",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day",
-            "aliases": [
-              "url:https://github.blog/changelog/2026-11-13-manage-ai-scan-for-repositories-using-the-rest-api"
-            ]
-          }
-        ],
-        "source_topic": "morning_radar",
-        "notify": false,
-        "mode": "production",
-        "analysis": {
-          "provider": "Groq",
-          "model": "openai/gpt-oss-20b"
-        },
-        "slot": "morning_radar"
-      }
+      "attempts": 1
     },
     "2026-11-14:prompt_engineering": {
       "status": "already_published",
