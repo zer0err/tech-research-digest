@@ -1,5 +1,34 @@
 [
   {
+    "title": "AI 晨间雷达与免费资源（2026-11-15）",
+    "date": "2026-11-15T09:12:21.140380+08:00",
+    "count": 1,
+    "url": "posts/20261115-morning_radar.html",
+    "topic": "morning_radar",
+    "source_topic": "morning_radar",
+    "status": "published",
+    "summary": "本时段要点 - GitHub 公开预览新增 REST API，可在组织和仓库层面开启或关闭 AI 代码扫描功能。 1 - 新 API 通过 repository_scan… 端点实现，允许更细粒度的权限控制。 1 - 该功能首次在 2026‑11‑13 发布，意味着开发者可在 CI/CD 流程中动态管理 AI 检测。 ",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "Manage AI Scan for repositories using the REST API",
+          "url": "https://github.blog/changelog/2026-11-13-manage-ai-scan-for-repositories-using-the-rest-api",
+          "publisher": "GitHub 官方更新",
+          "host": "github.blog",
+          "family": "博客/公开网页",
+          "published": "2026-11-13T12:22:41+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "VORASIO AI 日报（2026-11-14）",
     "date": "2026-11-14T19:12:21.071319+08:00",
     "count": 4,
