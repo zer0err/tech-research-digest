@@ -1,5 +1,56 @@
 [
   {
+    "title": "AI 论文午间速览（2026-11-15）",
+    "date": "2026-11-15T12:42:14.803880+08:00",
+    "count": 3,
+    "url": "posts/20261115-paper_brief.html",
+    "topic": "paper_brief",
+    "source_topic": "product_safety",
+    "status": "published",
+    "summary": "本期要点 - 采用概率时序模型评估 IoT 网络安全监测子流程，可量化预处理与编码延迟对异常检测成功率的影响，提示需在监测架构中显式考虑计算延迟1。 - 在云 QKD 关键管理中，单一聚合 QBER 阈值在多种截取模式下与基于块方差的逻辑回归检测器表现相当，且监测窗口长度对检测灵敏度的影响更显著2。 - NVIDIA ",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "Probabilistic-temporal modeling of network security monitoring subprocesses for multi-stage attacks in IoT networks",
+          "url": "https://doi.org/10.55670/fpll.futech.5.4.21",
+          "publisher": "Crossref Device Security",
+          "host": "doi.org",
+          "family": "书目索引",
+          "published": "2026-11-15T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "10.55670/fpll.futech.5.4.21",
+          "kind": "research"
+        },
+        {
+          "title": "AI-Augmented Quantum Key Distribution for Cloud Data Security: A Simulation Study of Aggregate Versus Block-Wise Eavesdropping Detection",
+          "url": "https://doi.org/10.64823/ijter.2611001",
+          "publisher": "Crossref Device Security",
+          "host": "doi.org",
+          "family": "书目索引",
+          "published": "2026-11-15T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "10.64823/ijter.2611001",
+          "kind": "research"
+        },
+        {
+          "title": "Run Native DLA Inference in Python on NVIDIA Jetson AGX Orin Using cuDLA",
+          "url": "https://developer.nvidia.com/blog/run-native-dla-inference-in-python-on-nvidia-jetson-agx-orin-using-cudla",
+          "publisher": "NVIDIA Technical Blog",
+          "host": "developer.nvidia.com",
+          "family": "博客/公开网页",
+          "published": "2026-11-13T18:57:10+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "AI 晨间雷达与免费资源（2026-11-15）",
     "date": "2026-11-15T09:12:21.140380+08:00",
     "count": 1,
