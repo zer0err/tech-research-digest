@@ -326,6 +326,15 @@
     },
     "ai_hardware": {
       "ids": [
+        "01d5db60c43feb06129501a1",
+        "doi:10.1145/3860528",
+        "url:https://doi.org/10.1145/3860528",
+        "43f4dc59084af34d4283f440",
+        "arxiv:2611.18527",
+        "url:https://arxiv.org/abs/2611.18527",
+        "efbef0042abed1942945232a",
+        "arxiv:2611.18523",
+        "url:https://arxiv.org/abs/2611.18523",
         "c4a35e75b732ef4a331bd370",
         "8ac4548c47418b4831e567e8",
         "e1cef0c0f19d334351b9e25b",
@@ -345,7 +354,7 @@
         "1493351af77b0689ca43a1e9",
         "739ced7097d3b092ed674790"
       ],
-      "updated_at": "2026-11-11T06:13:00.012665+00:00"
+      "updated_at": "2026-11-16T09:47:09.163572+00:00"
     },
     "product_safety": {
       "ids": [
@@ -449,6 +458,15 @@
     }
   },
   "all_ids": [
+    "01d5db60c43feb06129501a1",
+    "doi:10.1145/3860528",
+    "url:https://doi.org/10.1145/3860528",
+    "43f4dc59084af34d4283f440",
+    "arxiv:2611.18527",
+    "url:https://arxiv.org/abs/2611.18527",
+    "efbef0042abed1942945232a",
+    "arxiv:2611.18523",
+    "url:https://arxiv.org/abs/2611.18523",
     "a39de232d8045dfd1e2a8592",
     "arxiv:2611.17336",
     "url:https://arxiv.org/abs/2611.17336",
@@ -833,6 +851,9 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://doi.org/10.1145/3860528",
+    "https://arxiv.org/abs/2611.18527",
+    "https://arxiv.org/abs/2611.18523",
     "https://arxiv.org/abs/2611.17336",
     "https://arxiv.org/abs/2611.17334",
     "https://doi.org/10.32628/ijsrst2613620",
@@ -5962,6 +5983,47 @@
           "url": "https://arxiv.org/abs/2611.17334",
           "published": "2026-11-12T18:59:54+00:00",
           "source": "arXiv Perception",
+          "doi": "",
+          "kind": "research",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      }
+    },
+    "https://vorasio.com/posts/20261116-applied_ai.html": {
+      "topic": "ai_hardware",
+      "source_topic": "ai_hardware",
+      "created_at": "2026-11-16T09:47:09.163572+00:00",
+      "items": [
+        {
+          "uid": "01d5db60c43feb06129501a1",
+          "title": "PQuant: Point Cloud Neural Network Acceleration via a Versatile Quantization Framework",
+          "url": "https://doi.org/10.1145/3860528",
+          "published": "2026-11-14T00:00:00+00:00",
+          "source": "OpenAlex AI Hardware",
+          "doi": "10.1145/3860528",
+          "kind": "research",
+          "date_precision": "day"
+        },
+        {
+          "uid": "43f4dc59084af34d4283f440",
+          "title": "WaferTetris: Efficient Freeform Mapping on Wafer-Scale Accelerators",
+          "url": "https://arxiv.org/abs/2611.18527",
+          "published": "2026-11-13T18:41:44+00:00",
+          "source": "arXiv AI Hardware",
+          "doi": "",
+          "kind": "research",
+          "date_precision": "day"
+        },
+        {
+          "uid": "efbef0042abed1942945232a",
+          "title": "Mutable Inference: Architecting LLM Accelerators for Inference-Time Learning",
+          "url": "https://arxiv.org/abs/2611.18523",
+          "published": "2026-11-13T18:37:52+00:00",
+          "source": "arXiv AI Hardware",
           "doi": "",
           "kind": "research",
           "date_precision": "day"
