@@ -14,8 +14,9 @@
     },
     "2026-11-16:open_source": {
       "status": "already_published",
-      "updated_at": "2026-11-16T04:13:38.661850+00:00",
-      "attempts": 1
+      "updated_at": "2026-11-16T07:42:21.759852+00:00",
+      "attempts": 2,
+      "maintenance_notified": true
     },
     "2026-11-16:morning_radar": {
       "status": "already_published",
