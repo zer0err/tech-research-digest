@@ -103,14 +103,14 @@ def render_domain_hub(site_dir: Path = Path('docs')) -> Path:
         '一份日报可以按其中各节原来源栏目出现在多个领域，链接仍指向同一篇日报。</p>'
         '<nav aria-label="领域导航">' + ' · '.join(links) + '</nav>'
         + ''.join(sections)
-        + '<p><a href="../index.html#latest">浏览全部时间线</a> · '
+        + '<p><a href="../index.html#latest">浏览日报</a> · '
         '<a href="../feed.xml">订阅 RSS</a></p></article>'
     )
     output = site_dir / 'domains' / 'index.html'
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(shell('AI 十领域阅读导航 · VORASIO',
                             '按十个 AI 领域组织的站内已发布资料导航；基于栏目映射。',
-                            body, relative_root='../'), encoding='utf-8')
+                            body, relative_root='../', current='domains'), encoding='utf-8')
     return output
 
 

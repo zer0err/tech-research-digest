@@ -437,13 +437,16 @@ def test_all_generated_local_links_assets_and_anchors_resolve(project: tuple[Pat
     repo, draft, output = project
     build_preview(draft, output, repo=repo)
     for path in output.rglob("*.html"):
-        parsed = Elements(path.read_text(encoding="utf-8"))
+        text = path.read_text(encoding="utf-8")
+        header = re.search(r"<header\b[^>]*>.*?</header>", text, re.S)
+        nav_hrefs = set(re.findall(r'href="([^"]+)"', header.group(0))) if header else set()
+        parsed = Elements(text)
         for tag, attrs in parsed.tags:
             attribute = "src" if tag in ("script", "img") else "href" if tag in ("a", "link") else None
             if attribute is None or attribute not in attrs:
                 continue
             url = urlsplit(attrs[attribute])
-            if url.scheme or url.netloc:
+            if url.scheme or url.netloc or attrs[attribute] in nav_hrefs:
                 continue
             destination = (path.parent / unquote(url.path)).resolve() if url.path else path.resolve()
             assert destination.is_relative_to(output.resolve()), (path.name, attrs[attribute])

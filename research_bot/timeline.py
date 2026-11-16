@@ -93,7 +93,7 @@ def render_timeline(entries: list[dict[str, object]]) -> None:
         '<script type="module" src="assets/timeline.js?v=daily-1"></script>'
     )
     Path("docs").mkdir(exist_ok=True)
-    Path("docs/index.html").write_text(shell("VORASIO · 每日日报", "每个 Asia/Taipei 日期一篇 AI 日报，发布于当天 09:00", body))
+    Path("docs/index.html").write_text(shell("VORASIO · 每日日报", "每个 Asia/Taipei 日期一篇 AI 日报，发布于当天 09:00", body, current="daily"))
     about = (
         '<article class="about-page article-body"><h1>关于 VORASIO</h1>'
         '<p>本站整理 AI 研究、开发工具和智能硬件相关资料。每个 Asia/Taipei 日期发布一篇日报，时刻为当天 09:00（UTC+8）。</p>'
@@ -103,7 +103,7 @@ def render_timeline(entries: list[dict[str, object]]) -> None:
         '开发实践未经实际运行时会明确标注。免费资源线索未经官方页面核验。</p>'
         '<p><a href="index.html">返回日报</a> · <a href="feed.xml">订阅 RSS</a></p></article>'
     )
-    Path("docs/about.html").write_text(shell("关于 VORASIO", "站点与内容说明", about))
+    Path("docs/about.html").write_text(shell("关于 VORASIO", "站点与内容说明", about, current="about"))
     Path("docs/posts.json").write_text(json.dumps(reports, ensure_ascii=False, indent=2) + "\n")
     origin = base_url()
     rss = Element("rss", {"version": "2.0"})

@@ -132,7 +132,7 @@ def render_tools_page(
     )
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(
-        shell("AI 生态工具目录 · VORASIO", "经官方来源核验的 AI 工具目录", body, "../"),
+        shell("AI 生态工具目录 · VORASIO", "经官方来源核验的 AI 工具目录", body, "../", current="tools"),
         encoding="utf-8",
     )
     return output_path

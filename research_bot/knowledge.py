@@ -39,17 +39,13 @@ DIAGRAM_HEIGHTS = {
 
 
 def page_shell(title: str, description: str, body: str) -> str:
-    page = shell(title, description, body, "../")
+    page = shell(title, description, body, "../", current="knowledge")
     page = page.replace(
         '<script type="module" src="../assets/article.js?v=replay-6"></script>',
-        '<link rel="stylesheet" href="../assets/knowledge.css?v=2">',
+        '<link rel="stylesheet" href="../assets/knowledge.css?v=nav-1">',
     )
     page = page.replace('<body>', '<body class="knowledge-page"><a class="knowledge-skip" href="#main">跳到正文</a>')
     page = page.replace('<main>', '<main id="main">')
-    page = page.replace(
-        '<a href="../knowledge/index.html">AI 知识科普</a>',
-        '<a aria-current="page" href="../knowledge/index.html">AI 知识科普</a>',
-    )
     page = page.replace(
         '由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原始来源。',
         'AI 辅助整理的科普内容，参考来源见正文；产品能力与名称以官方最新说明为准。',
