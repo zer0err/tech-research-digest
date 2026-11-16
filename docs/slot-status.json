@@ -1,8 +1,8 @@
 {
   "2026-11-16:prompt_engineering": {
     "status": "already_published",
-    "updated_at": "2026-11-16T09:42:28.862735+00:00",
-    "attempts": 2
+    "updated_at": "2026-11-16T13:05:05.862940+00:00",
+    "attempts": 3
   },
   "2026-11-16:paper_brief": {
     "status": "analysis_rejected",
@@ -35,7 +35,7 @@
     "attempts": 3
   },
   "2026-11-16:daily_digest": {
-    "status": "prepared",
+    "status": "published",
     "updated_at": "2026-11-16T11:37:45.952918+00:00",
     "attempts": 1
   },
