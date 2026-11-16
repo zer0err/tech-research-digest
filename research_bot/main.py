@@ -17,6 +17,7 @@ from .core import (
     collect,
     dump_items,
     groq_analyse,
+    link_keys,
     load_state,
     mimo_analyse,
     mimo_enabled,
@@ -34,27 +35,47 @@ def prepare_topic(
     now: datetime,
     dry_run: bool = False,
     publish_key: str | None = None,
+    *,
+    capture: list | None = None,
+    clock: datetime | None = None,
+    blocked: set[str] | None = None,
 ) -> bool:
     # A skipped run must never reuse a previous run's publish/notification request.
-    Path("work/pending.json").unlink(missing_ok=True)
+    # Capture mode is the daily report: it keeps the section and does not publish a fragment.
+    if capture is None:
+        Path("work/pending.json").unlink(missing_ok=True)
+    moment = clock or now
     mode = os.getenv("PUBLICATION_MODE", "production")
     if mode not in {"production", "test"}:
         raise ValueError("Unknown publication mode")
+    outcome: dict[str, object] = {
+        "ok": False, "reason": "not_run", "topic": topic, "title": str(config.get("title", topic)),
+        "report": "", "items": [], "analysis": None,
+    }
+
+    def finish(ok: bool, reason: str, **extra: object) -> bool:
+        outcome.update({"ok": ok, "reason": reason, **extra})
+        if capture is not None:
+            capture.append(dict(outcome))
+        return ok
+
     state = load_state(state_path) if mode == "production" else {"version": 1, "topics": {}}
     key = publish_key or topic
     try:
-        candidates = collect(config, now)
+        candidates = collect(config, moment)
     except SourceUnavailable:
         if dry_run:
             raise
         logging.exception("Sources unavailable for %s", topic)
         decision(key, "source_failure", mode=mode)
-        return False
+        return finish(False, "source_failure")
     stats = getattr(candidates, "stats", {}) if isinstance(getattr(candidates, "stats", {}), dict) else {}
     collected = len(candidates)
     candidates = [item for item in candidates if len(item.summary.strip()) >= 40 and item.title.strip()
                   and item.url.startswith("https://")]
     fresh = unseen(candidates, state, topic)
+    if blocked is not None:
+        fresh = [item for item in fresh if not set(link_keys(item)) & blocked]
     counts = {"collected": collected, "usable": len(candidates), "already_published": len(candidates) - len(fresh),
               "unpublished": len(fresh), "sources_failed": int(stats.get("failed", 0)), "mode": mode}
     cap = int(config.get("analysis_item_limit", 3))
@@ -76,10 +97,13 @@ def prepare_topic(
         else:
             reason = "no_matching_in_window"
         decision(key, reason, sources=stats.get("sources", []), **counts)
-        return False
+        return finish(False, reason, counts=counts)
+    if blocked is not None:
+        for item in selected:
+            blocked.update(link_keys(item))
     if dry_run:
         print(json.dumps(dump_items(selected), ensure_ascii=False, indent=2))
-        return bool(selected)
+        return finish(bool(selected), "dry_run", items=selected, counts=counts)
     content_type = str(config.get("content_type", "research"))
     analyse = groq_analyse
     for attempt in range(2):
@@ -95,7 +119,7 @@ def prepare_topic(
         except Exception as exc:
             logging.warning("Analysis unavailable for %s (%s); skipping publication", topic, type(exc).__name__)
             decision(key, "analysis_api_failure", error=type(exc).__name__, **counts)
-            return False
+            return finish(False, "analysis_api_failure", counts=counts)
         report = normalize_report(report, content_type, selected)
         issues = report_validation_errors(report, selected, content_type)
         if "降级为" in report:
@@ -106,10 +130,10 @@ def prepare_topic(
             break
         logging.warning("Analysis for %s rejected (%s); attempt %s", topic, ",".join(issues), attempt + 1)
         Path("reports").mkdir(exist_ok=True)
-        Path(f"reports/rejected-{topic}-{now:%Y%m%dT%H%M%SZ}-{attempt}.md").write_text(report)
+        Path(f"reports/rejected-{topic}-{moment:%Y%m%dT%H%M%SZ}-{attempt}.md").write_text(report)
         if attempt == 1:
             decision(key, "analysis_rejected", issues=issues, **counts)
-            return False
+            return finish(False, "analysis_rejected", counts=counts)
         selected = selected[:2]
     if config.get("content_type") == "radar":
         marker = "## 今日免费 VPS 与 AI 资源"
@@ -124,15 +148,19 @@ def prepare_topic(
             report = re.sub(r"## 今日免费 VPS 与 AI 资源.*?(?=\n## |\Z)", replacement, report, flags=re.S)
         else:
             report += f"\n\n{replacement}"
-    header = f"{config['title']}｜{now.astimezone(ZoneInfo('Asia/Shanghai')).strftime('%Y-%m-%d')}｜{len(selected)} 项\n\n"
+    header = f"{config['title']}｜{moment.astimezone(ZoneInfo('Asia/Taipei')).strftime('%Y-%m-%d')}｜{len(selected)} 项\n\n"
     if mode == "test":
         Path("reports").mkdir(exist_ok=True)
         Path(f"reports/test-{key}.md").write_text(header + report)
         decision(key, "test_only", selected=len(selected), **counts)
-        return False
+        return finish(False, "test_only", report=report, items=selected, counts=counts)
     analysis = {"provider": "Xiaomi MiMo" if analyse is mimo_analyse else "Groq",
                 "model": "mimo-v2.6-flash" if analyse is mimo_analyse else os.getenv("GROQ_MODEL", "openai/gpt-oss-20b")}
-    public_url = publish_post(key, str(config["title"]), now, report, selected, analysis=analysis, source_topic=topic)
+    if capture is not None:
+        decision(key, "prepared", selected=len(selected), **counts)
+        return finish(True, "prepared", report=report, items=selected, analysis=analysis,
+                      title=str(config["title"]), counts=counts)
+    public_url = publish_post(key, str(config["title"]), moment, report, selected, analysis=analysis, source_topic=topic)
     Path("reports").mkdir(exist_ok=True)
     Path(f"reports/{key}-{now:%Y%m%dT%H%M%SZ}.md").write_text(header + report)
     Path("work").mkdir(exist_ok=True)
@@ -142,7 +170,7 @@ def prepare_topic(
                 "topic": topic,
                 "title": config["title"],
                 "url": public_url,
-                "created_at": now.isoformat(),
+                "created_at": moment.isoformat(),
                 "items": dump_items(selected),
                 "source_topic": topic,
                 "notify": config.get("notify", True),
@@ -155,7 +183,7 @@ def prepare_topic(
         + "\n"
     )
     decision(key, "prepared", selected=len(selected), **counts)
-    return True
+    return finish(True, "prepared", report=report, items=selected, analysis=analysis, counts=counts)
 
 
 def main() -> int:
@@ -167,6 +195,10 @@ def main() -> int:
     args = parser.parse_args()
     logging.basicConfig(level=os.getenv("LOG_LEVEL", "INFO"), format="%(levelname)s %(message)s")
     now = datetime.now(UTC)
+    if not args.dry_run and os.getenv("PUBLICATION_MODE", "production") == "production":
+        decision(args.topic, "retired_fragment")
+        print("Fragment publication is disabled. The daily report is the only public edition.")
+        return 0
     config = yaml.safe_load(Path(args.config).read_text())["topics"][args.topic]
     prepare_topic(args.topic, config, Path(args.state), now, args.dry_run)
     return 0

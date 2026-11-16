@@ -15,10 +15,13 @@ def notify_maintenance() -> None:
     for key, record in ledger["slots"].items():
         if not key.startswith(today + ':') or record.get("maintenance_notified"):
             continue
+        slot_name = key.split(":", 1)[1]
+        if slot_name not in TIMES:
+            continue
         status = record.get("status")
         failed = status in {"analysis_rejected", "source_failure", "analysis_api_failure"} and record.get("attempts", 0) >= 3
         updated = datetime.fromisoformat(record["updated_at"]).astimezone(BEIJING)
-        planned = datetime.fromisoformat(today + 'T' + TIMES[key.split(':', 1)[1]]).replace(tzinfo=BEIJING)
+        planned = datetime.fromisoformat(today + "T" + TIMES[slot_name]).replace(tzinfo=BEIJING)
         delayed = (updated - planned).total_seconds() > 3600
         if failed or delayed:
             logging.warning("Editorial maintenance needed for %s: %s", key, "retries exhausted" if failed else "delayed")

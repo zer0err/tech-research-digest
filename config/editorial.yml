@@ -1,113 +1,19 @@
 # 每日出版时刻、模型条数和失败重试的唯一配置。
-# .github/workflows/editorial-day.yml 的 UTC cron 必须等于这里的北京时间减 8 小时。
-# 首页时刻和分类也读这一份。测试会在三者不一致时失败。
-timezone: Asia/Shanghai
+# 只发布一份日报：Asia/Taipei 09:00。UTC cron 是这个时刻减 8 小时。
+# 采集截止也是当天 09:00，不用补跑时的墙钟，避免把上午之后的新条目写进当期。
+# GitHub Actions 的 cron 可能晚启动；到点之后的 catchup 仍只补这一期，不保证准点送达。
+timezone: Asia/Taipei
 analysis_item_limit: 3
 empty_rescan_minutes: 180
 failure_retry_minutes: 60
 max_attempts: 3
 publication_history_limit: 400
 slots:
-  morning_radar:
-    time: "09:07"
-    label: "晨间雷达与免费资源"
-    category: "快讯"
-    page_title: "AI 晨间雷达与免费资源"
-    cadence: "每日 09:07"
-    topic: morning_radar
-    publish_key: morning_radar
-  model_research:
-    time: "10:17"
-    label: "模型、训练与基础研究"
-    category: "研究"
-    page_title: "AI 模型、训练与基础研究"
-    cadence: "每日 10:17"
-    topic: model_research
-    publish_key: model_research
-  open_source:
-    time: "11:27"
-    label: "开源项目与工具更新"
-    category: "开发"
-    page_title: "AI 开源项目与工具更新"
-    cadence: "每日 11:27"
-    topic: open_source
-    publish_key: open_source
-  paper_brief:
-    time: "12:37"
-    label: "论文午间速览"
-    category: "研究"
-    page_title: "AI 论文午间速览"
-    cadence: "每日 12:37"
-    publish_key: paper_brief
-    title: "AI 论文午间速览"
-    content_type: brief
-    topic_by_weekday:
-      "1": efficient_ai
-      "2": embodied
-      "3": inference_systems
-      "4": efficient_ai
-      "5": ai_hardware
-      "6": multimodal
-      "7": product_safety
-  prompt_engineering:
-    time: "13:47"
-    label: "Prompt、上下文与评测"
-    category: "开发"
-    page_title: "Prompt、上下文工程与评测"
-    cadence: "每日 13:47"
-    topic: prompt_engineering
-    publish_key: prompt_engineering
-  core_research:
-    time: "14:07"
-    label: "智能硬件技术专题"
-    category: "研究"
-    page_title: "智能硬件技术专题"
-    cadence: "每日 14:07"
-    publish_key: core_research
-    topic_by_weekday:
-      "1": inference_systems
-      "2": multimodal
-      "3": ai_hardware
-      "4": multimodal
-      "5": embodied
-      "6": product_safety
-      "7": inference_systems
-  dev_practice:
-    time: "15:17"
-    label: "开发实践与部署"
-    category: "开发"
-    page_title: "AI 开发实践与部署"
-    cadence: "每日 15:17"
-    topic: dev_practice
-    publish_key: dev_practice
-  applied_ai:
-    time: "16:27"
-    label: "AI 应用与落地专题"
-    category: "研究"
-    page_title: "AI 应用与落地专题"
-    cadence: "每日 16:27"
-    publish_key: applied_ai
-    topic_by_weekday:
-      "1": ai_hardware
-      "2": product_safety
-      "3": embodied
-      "4": product_safety
-      "5": efficient_ai
-      "6": inference_systems
-      "7": multimodal
-  ecosystem:
-    time: "17:37"
-    label: "人物、机构与产业生态"
-    category: "生态"
-    page_title: "AI 人物、机构与产业生态"
-    cadence: "每日 17:37"
-    topic: ecosystem
-    publish_key: ecosystem
-  daily_digest:
-    time: "19:00"
+  daily_report:
+    time: "09:00"
     label: "VORASIO AI 日报"
-    category: "快讯"
+    category: "日报"
     page_title: "VORASIO AI 日报"
-    cadence: "每日 19:00"
-    special: daily_digest
-    publish_key: daily_digest
+    cadence: "每日 09:00"
+    special: daily_report
+    publish_key: daily_report

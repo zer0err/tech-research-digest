@@ -1,4 +1,9 @@
-"""Same-day catch-up planning and persistent per-slot publication receipts."""
+"""Same-day catch-up planning and persistent publication receipts.
+
+The publication zone is Asia/Taipei (UTC+8, no daylight saving). Historical
+records used the label Asia/Shanghai; the offset is the same, so calendar
+dates do not move.
+"""
 from __future__ import annotations
 
 import json
@@ -8,7 +13,6 @@ from zoneinfo import ZoneInfo
 
 import yaml
 
-BEIJING = ZoneInfo("Asia/Shanghai")
 LEDGER = Path("state/slots.json")
 EDITORIAL_PATH = Path(__file__).resolve().parent.parent / "config" / "editorial.yml"
 # Statuses that mean "nothing was published, but a later pass the same day may find new items".
@@ -23,11 +27,18 @@ def load_editorial(path: Path = EDITORIAL_PATH) -> dict:
         raise ValueError("Invalid editorial schedule")
     for name, slot in data["slots"].items():
         if not isinstance(slot, dict) or not isinstance(slot.get("time"), str):
-            raise ValueError(f"Editorial slot {name} needs a Beijing time")
+            raise ValueError(f"Editorial slot {name} needs a publication time")
     return data
 
 
+def publication_zone(data: dict | None = None) -> ZoneInfo:
+    name = str((data or {}).get("timezone") or "Asia/Taipei")
+    return ZoneInfo(name)
+
+
 EDITORIAL = load_editorial()
+ZONE = publication_zone(EDITORIAL)
+BEIJING = ZONE
 TIMES = {name: str(slot["time"]) for name, slot in EDITORIAL["slots"].items()}
 EMPTY_RESCAN = timedelta(minutes=int(EDITORIAL.get("empty_rescan_minutes", 180)))
 FAILURE_RETRY = timedelta(minutes=int(EDITORIAL.get("failure_retry_minutes", 60)))
@@ -35,7 +46,7 @@ MAX_ATTEMPTS = int(EDITORIAL.get("max_attempts", 3))
 
 
 def key(slot: str, now: datetime) -> str:
-    return f"{now.astimezone(BEIJING):%Y-%m-%d}:{slot}"
+    return f"{now.astimezone(ZONE):%Y-%m-%d}:{slot}"
 
 
 def load() -> dict:
@@ -61,7 +72,7 @@ def completed(slot: str, now: datetime, ledger: dict, entries: list[dict]) -> bo
     if record.get("status") in TERMINAL:
         return True
     return any(entry.get("topic") == slot
-               and str(entry.get("execution_date", entry.get("date", "")))[:10] == f"{now.astimezone(BEIJING):%Y-%m-%d}"
+               and str(entry.get("execution_date", entry.get("date", "")))[:10] == f"{now.astimezone(ZONE):%Y-%m-%d}"
                and entry.get("status") == "published" and int(entry.get("count", 0)) > 0 for entry in entries)
 
 
@@ -85,7 +96,7 @@ def eligible(slot: str, now: datetime, ledger: dict, entries: list[dict]) -> boo
 
 
 def is_due(slot: str, now: datetime) -> bool:
-    return now.astimezone(BEIJING).strftime("%H:%M") >= TIMES[slot]
+    return now.astimezone(ZONE).strftime("%H:%M") >= TIMES[slot]
 
 
 def due_slots(now: datetime, ledger: dict, entries: list[dict]) -> list[str]:

@@ -43,7 +43,9 @@ def eligible_post(post: object, site_dir: Path) -> bool:
     if not isinstance(url, str) or not re.fullmatch(r'posts/[A-Za-z0-9][A-Za-z0-9_-]*\.html', url):
         return False
     path = site_dir / url
-    return path.is_file() and path.resolve().parent == (site_dir / 'posts').resolve()
+    if not path.is_file() or path.resolve().parent != (site_dir / 'posts').resolve():
+        return False
+    return 'data-legacy-redirect="daily"' not in path.read_text(encoding='utf-8')[:800]
 
 
 def render_domain_hub(site_dir: Path = Path('docs')) -> Path:
@@ -52,14 +54,33 @@ def render_domain_hub(site_dir: Path = Path('docs')) -> Path:
     if not isinstance(posts, list):
         raise ValueError('posts.json must contain a list')
     groups: dict[str, list[dict]] = {key: [] for key in MODULES}
-    seen: set[str] = set()
+    seen_urls: set[str] = set()
     for post in posts:
-        if not eligible_post(post, site_dir) or post['url'] in seen:
+        if not eligible_post(post, site_dir) or post['url'] in seen_urls:
             continue
-        seen.add(post['url'])
-        mapped = post.get('source_topic') or post.get('topic', '')
-        for key in TOPIC_MODULES.get(mapped, ()):
-            groups[key].append(post)
+        seen_urls.add(post['url'])
+        targets = []
+        sections = post.get('sections')
+        if isinstance(sections, list) and sections:
+            for section in sections:
+                if isinstance(section, dict):
+                    targets.append(section.get('source_topic') or section.get('topic') or '')
+        else:
+            targets.append(post.get('source_topic') or post.get('topic', ''))
+        filed: set[str] = set()
+        for mapped in targets:
+            for key in TOPIC_MODULES.get(mapped, ()):
+                if key in filed:
+                    continue
+                filed.add(key)
+                anchor = ''
+                if isinstance(sections, list):
+                    match = next((section for section in sections if isinstance(section, dict)
+                                  and (section.get('source_topic') or section.get('topic')) == mapped
+                                  and key in TOPIC_MODULES.get(section.get('source_topic') or section.get('topic'), ())), None)
+                    if match and match.get('anchor'):
+                        anchor = '#' + str(match['anchor'])
+                groups[key].append({**post, 'url': post['url'] + anchor})
     sections = []
     links = []
     for key, title in MODULES.items():
@@ -79,7 +100,7 @@ def render_domain_hub(site_dir: Path = Path('docs')) -> Path:
         '<p>从基础模型到软件应用与智能硬件，按领域查找站内资料。</p>'
         '<p>本页基于明确的栏目映射整理，不是全文语义核实，也不代表已完整覆盖各领域。'
         '关联文章可能涉及其他方向；具体证据和适用条件请查看正文及原始来源。'
-        '轮换栏目、综合快讯和日报不自动归入单一领域。</p>'
+        '一份日报可以按其中各节原来源栏目出现在多个领域，链接仍指向同一篇日报。</p>'
         '<nav aria-label="领域导航">' + ' · '.join(links) + '</nav>'
         + ''.join(sections)
         + '<p><a href="../index.html#latest">浏览全部时间线</a> · '

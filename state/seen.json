@@ -6038,31 +6038,153 @@
   "daily_notifications": {
     "2026-11-16": {
       "sent_at": "2026-11-16T11:37:56.887471+00:00",
-      "url": "https://vorasio.com/posts/20261116-daily_digest.html"
+      "url": "https://vorasio.com/posts/20261116-daily_digest.html",
+      "canonical_url": "https://vorasio.com/posts/20261116-daily.html",
+      "migrated": true
     },
     "2026-11-15": {
       "sent_at": "2026-11-15T11:12:33.204124+00:00",
-      "url": "https://vorasio.com/posts/20261115-daily_digest.html"
+      "url": "https://vorasio.com/posts/20261115-daily_digest.html",
+      "canonical_url": "https://vorasio.com/posts/20261115-daily.html",
+      "migrated": true
     },
     "2026-11-14": {
       "sent_at": "2026-11-14T11:12:32.219753+00:00",
-      "url": "https://vorasio.com/posts/20261114-daily_digest.html"
+      "url": "https://vorasio.com/posts/20261114-daily_digest.html",
+      "canonical_url": "https://vorasio.com/posts/20261114-daily.html",
+      "migrated": true
     },
     "2026-11-13": {
       "sent_at": "2026-11-13T11:01:10.825777+00:00",
-      "url": "https://vorasio.com/posts/20261113-daily_digest.html"
+      "url": "https://vorasio.com/posts/20261113-daily_digest.html",
+      "canonical_url": "https://vorasio.com/posts/20261113-daily.html",
+      "migrated": true
     },
     "2026-11-12": {
       "sent_at": "2026-11-12T11:12:32.457675+00:00",
-      "url": "https://vorasio.com/posts/20261112-daily_digest.html"
+      "url": "https://vorasio.com/posts/20261112-daily_digest.html",
+      "canonical_url": "https://vorasio.com/posts/20261112-daily.html",
+      "migrated": true
     },
     "2026-11-11": {
       "sent_at": "2026-11-11T11:00:44.452875+00:00",
-      "url": "https://vorasio.com/posts/20261111-daily_digest.html"
+      "url": "https://vorasio.com/posts/20261111-daily_digest.html",
+      "canonical_url": "https://vorasio.com/posts/20261111-daily.html",
+      "migrated": true
     },
     "2026-11-10": {
       "sent_at": "2026-11-10T11:12:36.043325+00:00",
-      "url": "https://vorasio.com/posts/20261110-daily_digest.html"
+      "url": "https://vorasio.com/posts/20261110-daily_digest.html",
+      "canonical_url": "https://vorasio.com/posts/20261110-daily.html",
+      "migrated": true
+    },
+    "2026-11-09": {
+      "migrated": true,
+      "url": "https://vorasio.com/posts/20261109-daily.html",
+      "sent_at": null,
+      "telegram": "not_sent"
+    },
+    "2026-11-08": {
+      "migrated": true,
+      "url": "https://vorasio.com/posts/20261108-daily.html",
+      "sent_at": null,
+      "telegram": "not_sent"
+    },
+    "2026-11-07": {
+      "migrated": true,
+      "url": "https://vorasio.com/posts/20261107-daily.html",
+      "sent_at": null,
+      "telegram": "not_sent"
+    },
+    "2026-11-06": {
+      "migrated": true,
+      "url": "https://vorasio.com/posts/20261106-daily.html",
+      "sent_at": null,
+      "telegram": "not_sent"
+    },
+    "2026-11-05": {
+      "migrated": true,
+      "url": "https://vorasio.com/posts/20261105-daily.html",
+      "sent_at": null,
+      "telegram": "not_sent"
+    },
+    "2026-11-04": {
+      "migrated": true,
+      "url": "https://vorasio.com/posts/20261104-daily.html",
+      "sent_at": null,
+      "telegram": "not_sent"
+    },
+    "2026-11-03": {
+      "migrated": true,
+      "url": "https://vorasio.com/posts/20261103-daily.html",
+      "sent_at": null,
+      "telegram": "not_sent"
+    },
+    "2026-11-02": {
+      "migrated": true,
+      "url": "https://vorasio.com/posts/20261102-daily.html",
+      "sent_at": null,
+      "telegram": "not_sent"
+    },
+    "2026-11-01": {
+      "migrated": true,
+      "url": "https://vorasio.com/posts/20261101-daily.html",
+      "sent_at": null,
+      "telegram": "not_sent"
+    },
+    "2026-10-31": {
+      "migrated": true,
+      "url": "https://vorasio.com/posts/20261031-daily.html",
+      "sent_at": null,
+      "telegram": "not_sent"
+    },
+    "2026-10-30": {
+      "migrated": true,
+      "url": "https://vorasio.com/posts/20261030-daily.html",
+      "sent_at": null,
+      "telegram": "not_sent"
+    },
+    "2026-10-29": {
+      "migrated": true,
+      "url": "https://vorasio.com/posts/20261029-daily.html",
+      "sent_at": null,
+      "telegram": "not_sent"
+    },
+    "2026-10-28": {
+      "migrated": true,
+      "url": "https://vorasio.com/posts/20261028-daily.html",
+      "sent_at": null,
+      "telegram": "not_sent"
+    },
+    "2026-10-27": {
+      "migrated": true,
+      "url": "https://vorasio.com/posts/20261027-daily.html",
+      "sent_at": null,
+      "telegram": "not_sent"
+    },
+    "2026-10-26": {
+      "migrated": true,
+      "url": "https://vorasio.com/posts/20261026-daily.html",
+      "sent_at": null,
+      "telegram": "not_sent"
+    },
+    "2026-10-25": {
+      "migrated": true,
+      "url": "https://vorasio.com/posts/20261025-daily.html",
+      "sent_at": null,
+      "telegram": "not_sent"
+    },
+    "2026-10-24": {
+      "migrated": true,
+      "url": "https://vorasio.com/posts/20261024-daily.html",
+      "sent_at": null,
+      "telegram": "not_sent"
+    },
+    "2026-10-23": {
+      "migrated": true,
+      "url": "https://vorasio.com/posts/20261023-daily.html",
+      "sent_at": null,
+      "telegram": "not_sent"
     }
   }
 }

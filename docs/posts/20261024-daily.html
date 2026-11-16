@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VORASIO AI 日报（2026-10-24）</title><meta name="description" content="VORASIO AI 日报（2026-10-24）：14 条来源，发布于 2026-10-24 09:00（Asia/Taipei）。">
+<link rel="alternate" type="application/rss+xml" title="VORASIO" href="../feed.xml"><link rel="canonical" href="https://vorasio.com/posts/20261024-daily.html"><meta property="article:published_time" content="2026-10-24T09:00:00+08:00"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "VORASIO AI 日报（2026-10-24）", "datePublished": "2026-10-24T09:00:00+08:00", "dateModified": "2026-10-24T09:00:00+08:00", "inLanguage": "zh-CN", "mainEntityOfPage": "https://vorasio.com/posts/20261024-daily.html", "publisher": {"@type": "Organization", "name": "VORASIO"}}</script>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/growth.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=presentation-1">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav aria-label="主导航">
+<a href="../domains/index.html">领域导航</a>
+<a href="../index.html#latest">全部更新</a>
+<a href="../knowledge/index.html">AI 知识科普</a>
+<a href="../courses/index.html">AI 学习</a>
+<a href="../tools/index.html">AI 工具</a>
+<a href="../subscribe.html">订阅精选</a>
+<a href="../services.html">开发咨询</a>
+<a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">VORASIO AI 日报</p><dl><dt>发布时间</dt><dd data-published-at="2026-10-24T09:00:00+08:00">2026-10-24 09:00 · Asia/Taipei（UTC+8）</dd><dt>来源</dt><dd>14 条</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部日报</a></aside><article><p class="kicker">DAILY REPORT · VORASIO AI 日报</p><h1>VORASIO AI 日报（2026-10-24）</h1><!-- provenance:start --><p class="ai-analysis">历史简报整合 · 未重新调用 AI</p><!-- provenance:end --><p class="disclosure">本页由当日已发布简报原文合并而成，保留原有表述和来源链接，没有重新调用模型，也没有补写当时没有的内容。开发实践部分若出现，仍是实践参考，未经运行验证。</p><div class="article-body"><section id="edition-1"><p class="kicker">morning_radar</p><h2>AI 晨间雷达与免费资源（2026-10-24）</h2><h2>本时段要点</h2>
+<ol>
+<li>GitHub Copilot 的使用量 API 现已支持从 OpenCode 等工具收集模型使用数据，扩展了开发者使用情况的可视化范围。 [1]</li>
+<li>GitHub 在 Teams 上推出新应用，将通知与 Copilot 结合，支持在聊天中直接将问题转化为代码修复，提升团队协作效率。 [2]</li>
+</ol>
+<h2>逐项速览</h2>
+<ul>
+<li>
+<p><strong>Copilot 使用量 API 扩展</strong><br />
+GitHub 官方博客宣布，Copilot 使用量 API 现在能够捕获更多工具（如 OpenCode）的模型使用情况。此举使得开发者能够更全面地追踪其 AI 辅助工具的使用频率和成本。该更新仅在 API 侧实现，未涉及任何新的计费或免费层政策。 [1]</p>
+</li>
+<li>
+<p><strong>Teams 上的 Copilot 应用</strong><br />
+新增的 GitHub Copilot Teams 应用将通知与代码生成结合，允许团队成员在 Teams 频道中直接将问题转化为代码修复。该功能旨在减少在不同工具间切换的时间，提升代码交付速度。该更新同样仅为功能层面，未涉及免费资源或试用条款。 [2]</p>
+</li>
+</ul>
+<h2>今日免费 VPS 与 AI 资源</h2>
+<p>今日未发现新的、可由公开来源确认的免费资源。</p>
+<h2>参考资料</h2>
+<ol>
+<li>GitHub Blog – “Usage metrics API adds usage from tools like OpenCode” – <a href="https://github.blog/changelog/2026-10-23-usage-metrics-api-adds-usage-from-tools-like-opencode">https://github.blog/changelog/2026-10-23-usage-metrics-api-adds-usage-from-tools-like-opencode</a></li>
+<li>GitHub Blog – “Turn notifications into code with GitHub Copilot in Teams” – <a href="https://github.blog/changelog/2026-10-23-turn-notifications-into-code-with-github-copilot-in-teams">https://github.blog/changelog/2026-10-23-turn-notifications-into-code-with-github-copilot-in-teams</a></li>
+</ol>
+</div></article></section><section id="edition-2"><p class="kicker">model_research</p><h2>AI 模型、训练与基础研究（2026-10-24）</h2><h2>本期结论</h2>
+<ol>
+<li><strong>可控审计机制能显著降低人工干预</strong>：在对大型语言模型（LLM）产生的决策进行在线监控时，采用基于置信度的选择性审计方法可在保证错误率低于阈值的前提下，将人工审核频率降低至最优水平[1]。</li>
+<li><strong>成本感知的拒绝策略在特定应用中有效</strong>：针对IT工单分类任务，利用成本感知的拒绝（abstention）策略在公开数据集上将错误路由率从15.3%降至3.5%，并将整体成本降低38.1%[2]。</li>
+<li><strong>通用模型与特定任务的性能差距仍显著</strong>：在同一IT工单数据集上，零/少量提示的LLM（如GPT‑4o‑mini）在准确率上远低于微调的DistilBERT模型，表明在特定应用场景下，专门训练的模型仍具优势[2]。</li>
+<li><strong>值得关注的信号</strong>：LLM在少量提示下的置信度分布与校准误差表现不一，提示在不同任务中需要针对性调优[2]。</li>
+</ol>
+<h2>逐项分析</h2>
+<table>
+<thead>
+<tr>
+<th>论文</th>
+<th>核心贡献</th>
+<th>方法与数据</th>
+<th>性能证据</th>
+<th>局限与证据等级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[1]</td>
+<td>提出在线选择性审计框架，给出无假设的误差控制算法</td>
+<td>采用置信度评分与专家审计决策，构建约束优化问题；在多种数据流（对抗性与i.i.d.）下证明最优审计率</td>
+<td>在“有害请求筛查”“文本标注”“数据标记”三类实验中，方法在保持错误率阈值的同时，显著降低了人工审计比例[1]</td>
+<td>A：摘要中包含方法、数据与定量结果；实验细节未公开，无法复现</td>
+</tr>
+<tr>
+<td>[2]</td>
+<td>评估成本感知拒绝策略在IT工单分类中的效果</td>
+<td>在47,837条公开工单数据集上，比较四种非LLM分类器与四种LLM（零/少量提示）；使用成本模型(c_ok,c_triage,c_wrong)=(0,1,5)进行策略校准</td>
+<td>TF‑IDF+LR在校准后将测试成本从0.763降至0.472，错误路由率从15.3%降至3.5%[2]；DistilBERT在同一子集上达到0.879准确率，LLM仅0.477[2]</td>
+<td>B：摘要给出定性结果与部分定量指标；缺乏完整实验细节与代码，无法独立验证</td>
+</tr>
+</tbody>
+</table>
+<h2>工程行动建议</h2>
+<ul>
+<li><strong>验证实验</strong>
+<ul>
+<li>对[1]的审计算法，在本组织的业务流程中实现置信度评分与专家审计接口，记录审计率与错误率，验证是否达到阈值。</li>
+<li>对[2]的成本感知拒绝策略，使用本组织的工单数据集，先行校准阈值，再评估成本与错误率变化。</li>
+</ul>
+</li>
+<li><strong>落地评估</strong>
+<ul>
+<li>监控审计系统上线后，持续收集人工审核次数与错误率，评估是否保持在预期范围。</li>
+<li>对IT工单分类系统，跟踪错误路由率与实际成本，比较LLM与微调模型的业务价值。</li>
+</ul>
+</li>
+<li><strong>后续跟踪指标</strong>
+<ul>
+<li>审计系统：平均审计率、未审计错误比例、系统延迟。</li>
+<li>工单分类：成本降低比例、错误路由率、模型准确率、用户满意度。</li>
+</ul>
+</li>
+</ul>
+<h2>参考资料</h2>
+<ol>
+<li>Reliable AI‑Assisted Decisions via Selective Auditing – <a href="https://arxiv.org/abs/2610.31662v1">https://arxiv.org/abs/2610.31662v1</a></li>
+<li>Cost‑Aware Abstention for LLM‑Based IT Ticket Classification – <a href="https://arxiv.org/abs/2610.31657v1">https://arxiv.org/abs/2610.31657v1</a></li>
+</ol>
+</div></article></section><section id="edition-3"><p class="kicker">open_source</p><h2>AI 开源项目与工具更新（2026-10-24）</h2><h2>本期要点</h2>
+<ul>
+<li>Ollama 发布了 v0.40.10 版本，新增 NVIDIA Nemotron 3.5 Bolt E4B 模型，该模型基于 Gemma 4，支持 128K‑token 上下文窗口并加入 DFlash 预估解码功能。[1]</li>
+<li>新模型定位为“小型视觉‑语言模型”，旨在实现快速本地对话、图像理解与工具调用，但官方未提供性能基准或兼容性测试结果。[1]</li>
+<li>发行说明仅列出模型新增与变更的“完整变更日志”，未包含对现有模型或 API 的迁移风险评估。[1]</li>
+<li>该版本的发布未伴随正式的发布说明或兼容性声明，用户需自行验证与现有工作流的兼容性与性能差异。[1]</li>
+</ul>
+<h2>逐项速览</h2>
+<table>
+<thead>
+<tr>
+<th>变更</th>
+<th>证据</th>
+<th>局限</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>新增 Nemotron 3.5 Bolt E4B 模型</td>
+<td>发行说明中列出模型名称、功能与上下文窗口大小；提供模型下载链接与完整变更日志链接。[1]</td>
+<td>未公开模型权重、训练数据或精度指标；缺乏基准测试与对比结果。</td>
+</tr>
+<tr>
+<td>支持 128K‑token 上下文窗口</td>
+<td>摘要中明确指出上下文窗口大小。[1]</td>
+<td>未说明是否需要额外硬件资源或对现有模型的影响。</td>
+</tr>
+<tr>
+<td>引入 DFlash 预估解码</td>
+<td>摘要提到“DFlash draft for speculative decoding”。[1]</td>
+<td>具体实现细节、性能收益与兼容性未披露。</td>
+</tr>
+<tr>
+<td>发行说明缺乏迁移风险</td>
+<td>发行说明仅包含“Full Changelog”链接，未提供兼容性或迁移指南。[1]</td>
+<td>用户需自行评估对现有部署的影响。</td>
+</tr>
+</tbody>
+</table>
+<h2>值得采取的行动</h2>
+<ul>
+<li><strong>验证模型兼容性</strong>：在现有 Ollama 环境中尝试 <code>ollama run nemotron-3.5-bolt:e4b</code>，观察是否与之前模型共存或产生冲突。</li>
+<li><strong>性能基准测试</strong>：使用标准视觉‑语言任务（如 VQA 或 BLIP）对比新模型与旧模型的推理速度与准确率，记录 128K‑token 上下文窗口的实际内存占用。</li>
+<li><strong>监测资源需求</strong>：评估在不同 GPU/CPU 配置下的显存/CPU 占用，确认是否满足部署需求。</li>
+<li><strong>关注后续更新</strong>：关注 Ollama 官方仓库的后续发布说明，获取可能的兼容性修复或性能优化信息。</li>
+</ul>
+<h2>参考资料</h2>
+<p>[1] ollama/ollama: v0.40.10 – <a href="https://github.com/ollama/ollama/releases/tag/v0.40.10">https://github.com/ollama/ollama/releases/tag/v0.40.10</a></p>
+</div></article></section><section id="edition-4"><p class="kicker">paper_brief</p><h2>AI 论文午间速览（2026-10-24）</h2><h2>本期要点</h2>
+<ul>
+<li>Neuromorphic 方案在边缘 IoT 设备中显著降低功耗与延迟，典型平台如 Intel Loihi、IBM TrueNorth 与 BrainScaleS 在能耗与吞吐上各有优势[1]。</li>
+<li>传统 FPGA 通过 hls4ml 可实现时钟驱动的 SNN 推理，单次推理延迟约 34 µs，验证了 HLS 与 Vivado 合成的可行性[2]。</li>
+<li>光学 neuromorphic 架构 SEPhIA 采用多波长激光与微环调制器，单脉冲神经元比率 &lt; 1，且在四分类任务上达 90 %+ 准确率，展示了光学实现的可扩展性与能效潜力[3]。</li>
+</ul>
+<h2>逐项速览</h2>
+<ol>
+<li>
+<p><strong>Neuromorphic Edge 推理</strong></p>
+<ul>
+<li>论文对 Loihi、TrueNorth 与 BrainScaleS 的学习架构、能耗、吞吐及边缘适用性进行了整体比较[1]。</li>
+<li>通过 Google Speech Commands 与 DVS Gesture 数据集的关键词识别与手势识别案例，验证了 SNN 在实时推理中的低功耗与低延迟特性。</li>
+<li>局限：摘要未给出具体功耗数值、吞吐率或面积/制程信息，无法量化不同平台的硬件成本。</li>
+</ul>
+</li>
+<li>
+<p><strong>FPGA 上的 SNN 推理</strong></p>
+<ul>
+<li>hls4ml 扩展支持将 PyTorch 训练的量化 SNN 部署至 FPGA，示例为 Heidelberg Spiking Digits 数据集的密集量化 SNN[2]。</li>
+<li>推理延迟约 34 µs，已通过软件参考、HLS C 模拟、HLS 合成及 Vivado 合成报告验证。</li>
+<li>该工作未讨论功耗、面积或制程细节，亦未说明在更大规模网络上的可扩展性。</li>
+</ul>
+</li>
+<li>
+<p><strong>光学 SNN 架构 SEPhIA</strong></p>
+<ul>
+<li>采用微环调制器与多波长激光实现单激光/神经元 &lt; 1 的比率，强调实现可行性与真实规模化[3]。</li>
+<li>通过时间域共模拟与物理感知的可训练光电 SNN 模型，四分类任务准确率 &gt; 90 %，与软件模型相近。</li>
+<li>设计空间研究量化了光学器件参数对 SNN 性能的影响，但摘要未给出具体功耗、延迟或面积数据，且未说明与传统 CMOS 或 FPGA 的直接对比。</li>
+</ul>
+</li>
+</ol>
+<h2>值得采取的行动</h2>
+<ul>
+<li><strong>对比实验</strong>：在同一边缘任务（如关键词识别）上，分别使用 Loihi、TrueNorth 与 SEPhIA 进行功耗与延迟测量，填补摘要缺失的定量数据。</li>
+<li><strong>FPGA 规模化验证</strong>：在更大规模的 SNN（多层、更多神经元）上使用 hls4ml 进行合成与功耗评估，验证 34 µs 延迟是否可保持。</li>
+<li><strong>光学与电子协同</strong>：探索 SEPhIA 与传统 FPGA 结合的混合架构，评估光学前端对整体功耗与面积的影响。</li>
+</ul>
+<h2>参考资料</h2>
+<p>[1] Neuromorphic Computing Architectures for Low-Power Edge Inference in IoT Applications – <a href="https://doi.org/10.31838/ece/03.02.08">https://doi.org/10.31838/ece/03.02.08</a><br />
+[2] Spiking neural network inference on FPGAs with hls4ml – <a href="https://doi.org/10.1088/2634-4386/aeb8ba">https://doi.org/10.1088/2634-4386/aeb8ba</a><br />
+[3] SEPhIA: spiking electro-photonic integrated tiled architecture leveraging multi-wavelength lasers for scalable optical neuromorphic computing – <a href="https://doi.org/10.1038/s44335-026-00102-3">https://doi.org/10.1038/s44335-026-00102-3</a></p>
+</div></article></section><section id="edition-5"><p class="kicker">core_research</p><h2>Agent、机器人与具身智能（2026-10-24）</h2><h2>本期结论</h2>
+<ol>
+<li><strong>感知与运动对齐指标（$S^2$）可作为低成本离线评估工具</strong>，其与机器人任务成功率正相关，能够在闭环评估前筛选有潜力的模型。[2]</li>
+<li><strong>可定制化3D触觉皮肤（OpenTac）在多种机器人平台上实现了可扩展的触觉感知</strong>，并通过仿真与实测验证了其在接触反馈控制与操纵策略学习中的有效性。[3]</li>
+<li><strong>基于AI Agent的仿真训练（Microduck）展示了从感知到动作的闭环学习流程</strong>，但缺乏跨环境迁移的实证，提示仿真到现实的失败模式仍需进一步研究。[1]</li>
+</ol>
+<h2>逐项分析</h2>
+<table>
+<thead>
+<tr>
+<th>资料</th>
+<th>核心贡献</th>
+<th>方法与数据</th>
+<th>性能证据</th>
+<th>局限与证据等级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[1]</td>
+<td>通过AI Agent在仿真中训练Microduck机器人实现障碍课程导航</td>
+<td>结合视觉感知、平衡控制与动作调整的闭环策略；使用NVIDIA Isaac Sim进行仿真</td>
+<td>机器人成功通过障碍课程，展示了完整的感知‑决策‑执行链条</td>
+<td>仅在仿真环境中验证，缺乏真实世界迁移实验；证据等级 B</td>
+</tr>
+<tr>
+<td>[2]</td>
+<td>提出Sensorimotor Alignment ($S^2$) 作为离线评估指标</td>
+<td>训练无关的离线度量，比较不同模型的感知表示与物理运动几何的对齐程度</td>
+<td>$S^2$ 与下游机器人任务成功率正相关，能识别潜在VLM骨干</td>
+<td>仅基于统计相关性，未提供因果验证；证据等级 A</td>
+</tr>
+<tr>
+<td>[3]</td>
+<td>开发可定制化3D触觉皮肤OpenTac及其完整生态</td>
+<td>设计可扩展的电阻式触觉皮肤、CAD自动化生成、仿真与实测对比</td>
+<td>在30+机器人平台上实现触觉感知，验证了在接触反馈控制与操纵学习中的效果</td>
+<td>仅在实验室环境中测试，未评估长期耐久性与大规模部署成本；证据等级 A</td>
+</tr>
+</tbody>
+</table>
+<h2>工程行动建议</h2>
+<ul>
+<li><strong>验证实验</strong>
+<ul>
+<li>对[1]中的Microduck模型进行真实世界障碍课程测试，记录通过率与仿真差异。</li>
+<li>在不同机器人平台上使用$S^2$评估多种VLM骨干，随后进行闭环任务验证，以检验$S^2$的预测准确性。</li>
+<li>在工业机器人上部署OpenTac触觉皮肤，比较其在抓取与精细操作任务中的性能提升。</li>
+</ul>
+</li>
+<li><strong>落地评估</strong>
+<ul>
+<li>评估$S^2$在模型筛选流程中的时间与成本节约。</li>
+<li>对OpenTac的制造成本、耐久性与维护周期进行生命周期成本分析。</li>
+<li>对Microduck仿真训练的迁移学习策略进行成本效益比评估。</li>
+</ul>
+</li>
+<li><strong>后续跟踪指标</strong>
+<ul>
+<li>$S^2$与任务成功率的相关系数随模型规模变化的趋势。</li>
+<li>OpenTac触觉皮肤在不同材质与形状机器人上的感知误差分布。</li>
+<li>Microduck在真实环境中的失败模式分类（如感知误差、动力学不匹配等）。</li>
+</ul>
+</li>
+</ul>
+<h2>参考资料</h2>
+<ol>
+<li>Using AI Agents to Teach Robots Like Microduck to Walk in Simulation – NVIDIA Technical Blog – <a href="https://developer.nvidia.com/blog/using-ai-agents-to-teach-robots-like-microduck-to-walk-in-simulation">https://developer.nvidia.com/blog/using-ai-agents-to-teach-robots-like-microduck-to-walk-in-simulation</a></li>
+<li>Sensorimotor Alignment: A Platonic Proxy for Embodied Policy Success – arXiv Embodied Intelligence – <a href="https://arxiv.org/abs/2610.31670v1">https://arxiv.org/abs/2610.31670v1</a></li>
+<li>OpenTac: An Open Ecosystem for Customizable, Scalable, and Transferable 3D Tactile Sensing – arXiv Embodied Intelligence – <a href="https://arxiv.org/abs/2610.31661v1">https://arxiv.org/abs/2610.31661v1</a></li>
+</ol>
+</div></article></section><section id="edition-6"><p class="kicker">applied_ai</p><h2>高效 AI、模型压缩与端侧适配（2026-10-24）</h2><h2>本期结论</h2>
+<ol>
+<li><strong>低位宽量化可显著降低嵌入表内存</strong>，四位量化在多种模型中实现约 75 % 的内存节省，同时保持 99 % 以上的验证损失提升[2]。</li>
+<li><strong>在推理时动态剪枝可在保持准确率的同时减少计算量</strong>，Direct Pass@$k$ 优化通过同时考虑质量与多样性，提升至少一条候选路径成功率[1]。</li>
+<li><strong>软最大化与交叉熵实现的数值修正可提升蒸馏与训练稳定性</strong>，修正后消除了“Slingshot”现象并抑制了学生网络漂移[3]。</li>
+<li><strong>量化与剪枝的组合仍缺乏统一评估框架</strong>，现有研究多聚焦单一技术，缺乏跨设备、跨指标的系统对比[1][2][3]。</li>
+</ol>
+<h2>逐项分析</h2>
+<table>
+<thead>
+<tr>
+<th>资料</th>
+<th>核心贡献</th>
+<th>方法与数据</th>
+<th>性能证据</th>
+<th>局限与证据等级</th>
+<th>工程意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[1]</td>
+<td>直接优化 pass@$k$ 的剪枝策略，平衡质量与多样性</td>
+<td>通过在生成短前缀后对候选池进行评分，最大化至少一条路径成功概率</td>
+<td>仅摘要给出目标函数，未提供实验数值</td>
+<td>C（缺少实验细节）</td>
+<td>可用于推理时动态裁剪，需验证在端侧设备上的延迟与功耗提升</td>
+</tr>
+<tr>
+<td>[2]</td>
+<td>低位宽 n‑gram 嵌入表，四位量化保持性能</td>
+<td>系统评估不同量化方法与位宽，四位量化在 nanochat、Llama、GPT‑2 训练模型中</td>
+<td>4‑bit 表节省约 75 % 内存，验证损失提升 &gt; 99 %[2]</td>
+<td>A（摘要含方法、数据及定量结果）</td>
+<td>适合内存受限的移动/边缘设备，可在保持精度的前提下减小模型尺寸</td>
+</tr>
+<tr>
+<td>[3]</td>
+<td>修正 softmax 与交叉熵的数值错误</td>
+<td>提供修正实现，分析对蒸馏与训练的影响</td>
+<td>通过实验消除 Slingshot，提升权重衰减下的学习速度[3]</td>
+<td>A（摘要含方法、数据及定量结果）</td>
+<td>对蒸馏训练稳定性有直接影响，可在端侧模型压缩中使用</td>
+</tr>
+</tbody>
+</table>
+<h2>工程行动建议</h2>
+<ol>
+<li>
+<p><strong>验证实验</strong></p>
+<ul>
+<li>在目标端侧设备（如 NVIDIA Jetson Xavier NX）上实现四位量化 n‑gram 表，测量内存占用、推理延迟与功耗。</li>
+<li>对 Direct Pass@$k$ 进行小规模实验，记录剪枝前后候选数、准确率与推理时间。</li>
+<li>在蒸馏任务中替换标准 softmax/交叉熵为修正实现，比较学生模型的收敛速度与最终精度。</li>
+</ul>
+</li>
+<li>
+<p><strong>落地评估</strong></p>
+<ul>
+<li>结合上述实验，构建端侧部署流水线，评估整体模型大小、延迟、吞吐与功耗。</li>
+<li>对比未量化、未剪枝、未修正三种基线，量化每项技术对资源与质量的具体影响。</li>
+</ul>
+</li>
+<li>
+<p><strong>后续跟踪指标</strong></p>
+<ul>
+<li><strong>内存占用</strong>：量化后表大小、整体模型占用。</li>
+<li><strong>延迟</strong>：单推理时间（ms），含量化与剪枝。</li>
+<li><strong>吞吐</strong>：每秒处理样本数。</li>
+<li><strong>功耗</strong>：平均瓦特。</li>
+<li><strong>精度</strong>：验证集准确率或损失。</li>
+</ul>
+</li>
+</ol>
+<h2>参考资料</h2>
+<ol>
+<li>Direct Pass@$k$ Optimization for Thought Pruning: Balancing Quality and Diversity in Test-Time Reasoning – <a href="https://arxiv.org/abs/2610.31667v1">https://arxiv.org/abs/2610.31667v1</a></li>
+<li>Low-Bit N-Gram Embeddings for Language Models – <a href="https://arxiv.org/abs/2610.31646v1">https://arxiv.org/abs/2610.31646v1</a></li>
+<li>A Fix for Softmax and Cross-Entropy – <a href="https://arxiv.org/abs/2610.31642v1">https://arxiv.org/abs/2610.31642v1</a></li>
+</ol>
+</div></article></section></div><section class="growth-card" data-growth-cta><h2>有项目想法？</h2><p>可以订阅后续更新，也可以整理你的 AI 软件或智能硬件需求，发来聊聊。</p><a href="../subscribe.html">订阅 AI 精选</a> · <a href="../services.html?source=/posts/20261024-daily.html">整理开发需求</a></section></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原始来源。</span></footer></body></html>

@@ -1,5 +1,5 @@
 // Absolute instants are stored with offsets. Only presentation uses the visitor's browser time zone.
-export const executionZone = 'Asia/Shanghai';
+export const executionZone = 'Asia/Taipei';
 export function visitorZone() {
   return Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
 }

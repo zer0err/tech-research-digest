@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VORASIO AI 日报（2026-11-08）</title><meta name="description" content="VORASIO AI 日报（2026-11-08）：13 条来源，发布于 2026-11-08 09:00（Asia/Taipei）。">
+<link rel="alternate" type="application/rss+xml" title="VORASIO" href="../feed.xml"><link rel="canonical" href="https://vorasio.com/posts/20261108-daily.html"><meta property="article:published_time" content="2026-11-08T09:00:00+08:00"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "VORASIO AI 日报（2026-11-08）", "datePublished": "2026-11-08T09:00:00+08:00", "dateModified": "2026-11-08T09:00:00+08:00", "inLanguage": "zh-CN", "mainEntityOfPage": "https://vorasio.com/posts/20261108-daily.html", "publisher": {"@type": "Organization", "name": "VORASIO"}}</script>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/growth.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=presentation-1">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav aria-label="主导航">
+<a href="../domains/index.html">领域导航</a>
+<a href="../index.html#latest">全部更新</a>
+<a href="../knowledge/index.html">AI 知识科普</a>
+<a href="../courses/index.html">AI 学习</a>
+<a href="../tools/index.html">AI 工具</a>
+<a href="../subscribe.html">订阅精选</a>
+<a href="../services.html">开发咨询</a>
+<a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">VORASIO AI 日报</p><dl><dt>发布时间</dt><dd data-published-at="2026-11-08T09:00:00+08:00">2026-11-08 09:00 · Asia/Taipei（UTC+8）</dd><dt>来源</dt><dd>13 条</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部日报</a></aside><article><p class="kicker">DAILY REPORT · VORASIO AI 日报</p><h1>VORASIO AI 日报（2026-11-08）</h1><!-- provenance:start --><p class="ai-analysis">历史简报整合 · 未重新调用 AI</p><!-- provenance:end --><p class="disclosure">本页由当日已发布简报原文合并而成，保留原有表述和来源链接，没有重新调用模型，也没有补写当时没有的内容。开发实践部分若出现，仍是实践参考，未经运行验证。</p><div class="article-body"><section id="edition-1"><p class="kicker">model_research</p><h2>AI 模型、训练与基础研究（2026-11-08）</h2><h2>本期结论</h2>
+<ul>
+<li>腕部 PPG 信号经语言模型对齐后可非平凡预测膳食内容，并在摄入与饱腹任务上带来 AUC 提升，提示可穿戴生理信号与文本模态对齐的可行性 [1]。</li>
+<li>自适应困难负样本挖掘在 SPEC 上平均比固定困难负样本低 23 个百分点，说明&quot;更聪明的负样本策略&quot;并非普遍有效，属值得关注的信号（仅单篇负结果）[2]。</li>
+<li>SPEC++ 联合准确率等于各子集准确率之积，提示高基准分数不等于组合推理能力，评测可靠性需单独检验（单篇发现，尚非行业共识）[2]。</li>
+</ul>
+<h2>逐项分析</h2>
+<p><strong>[1] Wrist photoplethysmography encodes dietary information</strong></p>
+<ul>
+<li>核心贡献：将腕部 PPG 与文本对齐，用语言模型从 PPG 预测餐食描述 [1]。</li>
+<li>方法与数据：在 110 万餐次上训练语言模型，评估跨留出与独立队列 [1]。</li>
+<li>性能证据：PPG 对摄入与饱腹任务 AUC 提升 11%，且对文本退化稳健；距餐食越远的 PPG 可预测性下降 [1]。</li>
+<li>局限与证据等级：摘要未提供模型规模、基线细节与置信区间，等级 A（含方法与定量结果，细节有限）[1]。</li>
+<li>工程意义：为被动膳食监测提供可行性信号，但属特定应用而非通用能力提升 [1]。</li>
+</ul>
+<p><strong>[2] Adaptive Hard Negative Mining for Fine Grained Vision Language Understanding</strong></p>
+<ul>
+<li>核心贡献：提出混淆加权训练目标，检验自适应困难负样本挖掘能否超越固定策略，并给出负结果 [2]。</li>
+<li>方法与数据：在 SPEC 留出数据上评测，引入 SPEC++ 配对推理诊断 [2]。</li>
+<li>性能证据：自适应方法平均低于固定困难负样本 23 个百分点；SPEC++ 联合准确率等于各子集准确率之积 [2]。</li>
+<li>局限与证据等级：归因于 SPEC 候选集均匀困难，属作者对数据设计的解释，等级 A（含方法与定量结果）[2]。</li>
+<li>工程意义：提示评测集设计会左右训练策略结论，高分不应直接读作组合理解 [2]。</li>
+</ul>
+<h2>工程行动建议</h2>
+<ul>
+<li>验证实验：复现 [1] 的 PPG-文本对齐流程，检查 11% AUC 提升在自有队列是否成立；复现 [2] 的固定与自适应负样本对比，确认 23 个百分点差距 [1][2]。</li>
+<li>落地评估：[1] 仅支持膳食监测这一特定应用，未证明通用能力提升，落地前需独立队列验证 [1]；[2] 提示选用评测集时应检查负样本难度分布是否均匀 [2]。</li>
+<li>后续跟踪指标：跟踪 [1] 的跨队列 AUC 稳健性与文本退化鲁棒性 [1]；跟踪 [2] 中 SPEC++ 联合准确率与乘积基线的偏离度，作为组合理解的诊断指标 [2]。</li>
+</ul>
+<h2>参考资料</h2>
+<p>[1] Wrist photoplethysmography encodes dietary information <a href="https://doi.org/10.1038/s41746-026-03425-4">https://doi.org/10.1038/s41746-026-03425-4</a>
+[2] Adaptive Hard Negative Mining for Fine Grained Vision Language Understanding A Negative Result and Analysis <a href="https://doi.org/10.21203/rs.3.rs-11030933/v1">https://doi.org/10.21203/rs.3.rs-11030933/v1</a></p>
+</div></article></section><section id="edition-2"><p class="kicker">paper_brief</p><h2>AI 论文午间速览（2026-11-08）</h2><h2>本期要点</h2>
+<ul>
+<li>论文[1]提出的碳感知家居能源管理框架在OMNeT++仿真中实现了能源与碳排放双重优化，但缺乏真实硬件验证，尚未证明在实际设备功耗与热管理方面的可行性。</li>
+<li>论文[2]的XAI框架通过CNN‑BiGRU与SHAP/LIME实现实时网络攻击检测与风险评估，实验仅在公开数据集与合成流量上完成，未涉及OTA更新、监控或故障诊断的实际部署。</li>
+<li>论文[3]通过专利与学术网络构建的技术优先级指数为工业4.0技术选择提供决策支持，但未给出针对设备安全、隐私或合规性的具体实现细节，属于理论层面的分析。</li>
+</ul>
+<h2>逐项速览</h2>
+<table>
+<thead>
+<tr>
+<th>关注维度</th>
+<th>论文</th>
+<th>关键证据</th>
+<th>局限性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>设备功耗与热管理</td>
+<td>[1]</td>
+<td>采用OMNeT++仿真完成能源与碳排放双重优化实验，报告核心性能指标均满足预期。</td>
+<td>仅为仿真结果，未在真实硬件上测量功耗或热量，缺乏产品化证据。</td>
+</tr>
+<tr>
+<td>隐私</td>
+<td>[1]</td>
+<td>论文未涉及隐私保护机制，仅关注碳排放与能源调度。</td>
+<td>隐私方面无实验或理论支持，无法评估对用户数据的影响。</td>
+</tr>
+<tr>
+<td>安全</td>
+<td>[2]</td>
+<td>在CICIDS2017、NSL‑KDD、UNSW‑NB15三大基准集上测试，展示了检测准确率与风险评分的关联。</td>
+<td>仅限公开数据集与合成流量，未在真实SOC环境中验证，缺乏OTA安全性与监控机制。</td>
+</tr>
+<tr>
+<td>鲁棒性</td>
+<td>[2]</td>
+<td>通过动态风险评分引擎将检测置信度与资产重要性映射为风险指数，提供了鲁棒的决策依据。</td>
+<td>仍需在多样化攻击场景与硬件平台上验证鲁棒性，未涉及模型对抗攻击的抵抗力。</td>
+</tr>
+<tr>
+<td>OTA</td>
+<td>[1],[2]</td>
+<td>两篇论文均未提及OTA更新机制或相关安全验证。</td>
+<td>无OTA相关实验或实现细节，无法评估在固件升级过程中的安全与可靠性。</td>
+</tr>
+<tr>
+<td>监控</td>
+<td>[2]</td>
+<td>通过实时流量监测实现即时检测与风险评估。</td>
+<td>监控系统的可扩展性、资源占用及与现有监控平台的集成未给出。</td>
+</tr>
+<tr>
+<td>故障诊断</td>
+<td>[1]</td>
+<td>论文未讨论设备或系统故障诊断。</td>
+<td>缺乏故障检测与自愈机制的实验或理论支持。</td>
+</tr>
+<tr>
+<td>量产测试与合规</td>
+<td>[3]</td>
+<td>通过专利与文献网络构建技术优先级指数，为技术选型提供参考。</td>
+<td>未涉及量产测试流程、合规认证或安全标准的符合性评估，属于高层决策工具。</td>
+</tr>
+</tbody>
+</table>
+<h2>值得采取的行动</h2>
+<ol>
+<li><strong>验证功耗与热管理</strong>：在目标硬件平台上实现[1]的碳感知调度算法，测量实际功耗与热量变化，评估仿真与实测差异。</li>
+<li><strong>部署XAI安全框架</strong>：在实验室SOC环境中部署[2]的CNN‑BiGRU+XAI模型，结合真实网络流量，验证风险评分与响应流程的可操作性。</li>
+<li><strong>补充OTA与监控</strong>：为上述两套系统设计OTA安全链路与持续监控机制，评估固件更新对模型性能与安全性的影响。</li>
+<li><strong>对比行业优先级</strong>：利用[3]的技术优先级指数，对比本项目所选技术在行业采纳率与合规性方面的匹配度，形成技术路线图。</li>
+</ol>
+<h2>参考资料</h2>
+<ol>
+<li>A Carbon-Aware IoT Scheduling Framework for Sustainable Smart Homes Using Predictive Energy Models. <a href="https://doi.org/10.47852/bonviewjdsis620210310">https://doi.org/10.47852/bonviewjdsis620210310</a></li>
+<li>An Explainable AI Framework for Real-Time Cyberattack Detection and Risk Assessment. <a href="https://doi.org/10.63180/jjic.thestap.2027.1.5">https://doi.org/10.63180/jjic.thestap.2027.1.5</a></li>
+<li>Mapping and prioritizing industry 4.0 technologies: an analysis based on patent and scientific publication networks. <a href="https://doi.org/10.1007/s00170-026-19378-7">https://doi.org/10.1007/s00170-026-19378-7</a></li>
+</ol>
+</div></article></section><section id="edition-3"><p class="kicker">core_research</p><h2>智能硬件产品化、可靠性与安全（2026-11-08）</h2><h2>本期结论</h2>
+<ol>
+<li><strong>低成本 PUF 在 IoT 设备中的可行性</strong>：SRPFD‑PUF 在 16 nm FinFET 上实现，面积 0.0117 mm²、功耗 0.3089 mW，且在 0.675–1.05 V、−40–150 °C 范围内的可靠性评分 ≥ 98.93%[1]。</li>
+<li><strong>智能电网安全检测的高准确率</strong>：GridXAI‑Diffusion 在 Kaggle Smart Grid Security Dataset 上实现 96.18 % 准确率、97.04 % 精确率、95.71 % 召回率、96.82 % F1‑score[2]。</li>
+<li><strong>Construction 5.0 组织准备度评估</strong>：基于模糊逻辑的框架将单一案例企业定位于“Ready”至“Very Ready”区间，显示出在弹性与人本实践方面的优势，但在先进可持续性与辅助技术方面仍有提升空间[3]。</li>
+</ol>
+<h2>逐项分析</h2>
+<table>
+<thead>
+<tr>
+<th>资料</th>
+<th>核心贡献</th>
+<th>方法与数据</th>
+<th>性能证据</th>
+<th>局限与证据等级</th>
+<th>工程意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[1]</td>
+<td>低成本、变异鲁棒的 PUF 与基于信任的认证流程</td>
+<td>采用位自检（BST）筛选稳定 CRP，考虑响应位容差；在 16 nm FinFET 上实现；使用机器学习攻击评估</td>
+<td>可靠性评分 98.93%；机器学习预测准确率 47.68–52.46%[1]</td>
+<td>未提供实测硅片数据；仅有后仿真功耗与面积；未实现完整端到端协议验证[1]</td>
+<td>适用于资源受限 IoT 设备，可在硬件层面提供身份验证与防重放功能；但需进一步验证在真实网络环境中的安全性</td>
+</tr>
+<tr>
+<td>[2]</td>
+<td>统一的图智能框架 GridXAI‑Diffusion，用于智能电网攻击检测与数据完整性分析</td>
+<td>结合扩散式攻击场景生成、动态网络图构建、时空图变压器学习、对比表示学习与 GTCAE 解释性模块；使用 Kaggle Smart Grid Security Dataset（1,000 样本、24 特征）[2]</td>
+<td>96.18% 准确率、97.04% 精确率、95.71% 召回率、96.82% F1‑score[2]</td>
+<td>仅在公开数据集上评估；缺乏真实电网环境的验证；未说明模型对攻击稀缺性与概念漂移的鲁棒性[2]</td>
+<td>对电网安全运营商提供可解释的攻击检测方案，可在现有监控系统中集成；需进一步测试在多源数据与实时流中的性能</td>
+</tr>
+<tr>
+<td>[3]</td>
+<td>基于模糊逻辑的 Construction 5.0 准备度评估框架</td>
+<td>通过专家判断构建 7 个标准、26 个属性的模糊评估模型；计算 Fuzzy Construction 5.0 Index 与 Fuzzy Performance‑Importance Index[3]</td>
+<td>单案例企业评估结果显示“Ready”至“Very Ready”区间，弹性与人本实践强，先进可持续性弱[3]</td>
+<td>仅单一案例，缺乏跨行业对比；模糊逻辑参数与专家选择可能导致结果偏差[3]</td>
+<td>为建筑企业提供结构化诊断与优先级规划工具，可用于内部能力建设与技术选型；需在更多企业中验证模型泛化性</td>
+</tr>
+</tbody>
+</table>
+<h2>工程行动建议</h2>
+<ul>
+<li><strong>验证实验</strong>
+<ul>
+<li>对 SRPFD‑PUF 进行硅片级测量，验证 0.675–1.05 V、−40–150 °C 下的可靠性与功耗；开展端到端认证协议实现与安全验证。</li>
+<li>在真实智能电网监控平台部署 GridXAI‑Diffusion，评估在多源实时数据流中的检测延迟、误报率与对新型攻击的泛化能力。</li>
+<li>在多家建筑企业实施模糊评估框架，收集专家意见与实际指标，验证模型的可重复性与可解释性。</li>
+</ul>
+</li>
+<li><strong>落地评估</strong>
+<ul>
+<li>评估 SRPFD‑PUF 与现有身份认证方案（如 TPM、HSM）在成本、面积、功耗与安全性上的综合优势。</li>
+<li>对 GridXAI‑Diffusion 的解释模块（GTCAE）进行可视化评估，确认安全运营人员对模型决策的可理解性。</li>
+<li>对模糊评估结果进行行动计划制定，跟踪关键指标（如可持续技术投入、辅助技术部署率）的改进。</li>
+</ul>
+</li>
+<li><strong>后续跟踪指标</strong>
+<ul>
+<li>SRPFD‑PUF：可靠性评分、功耗、面积、机器学习攻击成功率。</li>
+<li>GridXAI‑Diffusion：检测准确率、误报率、解释可用性、模型更新频率。</li>
+<li>Construction 5.0 评估：Fuzzy Construction 5.0 Index、各子指标得分、技术投入与产出比。</li>
+</ul>
+</li>
+</ul>
+<h2>参考资料</h2>
+<ol>
+<li>Variation‑Resilient Low‑Cost PUF with Trust‑Based Authentication Implemented in 16 nm FinFET for IoT Security. <a href="https://doi.org/10.3390/electronics15215143">https://doi.org/10.3390/electronics15215143</a></li>
+<li>GridXAI‑diffusion an adaptive graph intelligence framework for interpretable data integrity analysis in smart grid cybersecurity systems. <a href="https://doi.org/10.1038/s41598-026-75267-9">https://doi.org/10.1038/s41598-026-75267-9</a></li>
+<li>Readiness assessment for construction 5.0 using fuzzy logic: a case of construction organisation. <a href="https://doi.org/10.1007/s44290-026-00669-7">https://doi.org/10.1007/s44290-026-00669-7</a></li>
+</ol>
+</div></article></section><section id="edition-4"><p class="kicker">dev_practice</p><h2>AI 开发实践与部署（2026-11-08）</h2><h2>本期主题</h2>
+<ul>
+<li>本期聚焦 FastAPI 0.162.x 版本说明中与 AI 辅助开发相关的可执行信息：官方 skill 的安装方式、skill 内容更新范围，以及依赖与文档变更 [1][2]。</li>
+<li>能解决的问题：确认当前安装版本对应的官方 skill 获取途径，判断是否需要更新 skill 以获得针对该版本的新特性与推荐模式指引 [1]。</li>
+<li>资料未提供 skill 的具体命令参数、兼容性矩阵与运行输出，相关细节留待核验 [1][2]。</li>
+</ul>
+<h2>实践步骤</h2>
+<ul>
+<li>在项目中使用 <code>uvx library-skills</code> 安装 FastAPI 官方 skill，安装位置为当前项目 [1]。</li>
+<li>参考官方 &quot;Develop with AI&quot; 文档了解 skill 的使用方式（文档链接与具体命令未在摘要中给出，留待核验）[1]。</li>
+<li>升级或确认 FastAPI 版本至 0.162.1 或 0.162.2，以获取对应版本的 skill 内容更新（具体升级命令摘要未提供，留待核验）[1][2]。</li>
+<li>关注 skill 中新增的 FastAPI Cloud 指引与参数模型（parameter model）指引，按 skill 提示在 AI 辅助编码中应用 [1][2]。</li>
+<li>若项目依赖 pillow 或 dnspython，注意 0.162.1 已将 pillow 升至 13.0.0、dnspython 升至 2.9.2，需核对本地依赖版本 [2]。</li>
+</ul>
+<h2>验证清单</h2>
+<ul>
+<li>核验本地 FastAPI 版本是否为 0.162.1 或 0.162.2，与所用 skill 内容版本匹配 [1][2]。</li>
+<li>核验 <code>uvx library-skills</code> 安装是否成功、skill 是否出现在项目可用技能列表中（具体输出格式摘要未提供，留待核验）[1]。</li>
+<li>核验 skill 是否包含 FastAPI Cloud 指引与 parameter model 指引条目 [1][2]。</li>
+<li>核验项目依赖中 pillow 是否为 13.0.0、dnspython 是否为 2.9.2 [2]。</li>
+<li>失败条件：安装命令报错、skill 内容与已装 FastAPI 版本不匹配、依赖版本冲突——具体错误信息与兼容范围摘要未提供，留待核验 [1][2]。</li>
+</ul>
+<h2>限制与风险</h2>
+<ul>
+<li>摘要未提供 skill 的完整命令参数、离线安装方式、支持的 Python/uv 版本要求，均无法从摘要确认 [1]。</li>
+<li>摘要未提供 0.162.1 与 0.162.2 之间的破坏性变更说明或兼容性矩阵，升级风险无法从摘要确认 [1][2]。</li>
+<li>依赖升级（pillow 13.0.0、dnspython 2.9.2）可能影响下游兼容性，摘要未披露迁移注意事项，留待核验 [2]。</li>
+<li>本简报仅依据两条 FastAPI 官方 release 摘要，不构成对 FastAPI 生态或 AI 辅助开发工具的行业性结论 [1][2]。</li>
+<li>翻译与文档类变更（zh-hant、uk、de 等多语言更新）不影响核心运行逻辑，但可能造成文档与实际行为的短暂不同步 [2]。</li>
+</ul>
+<h2>参考资料</h2>
+<p>[1] 0.162.2 <a href="https://github.com/fastapi/fastapi/releases/tag/0.162.2">https://github.com/fastapi/fastapi/releases/tag/0.162.2</a>
+[2] 0.162.1 <a href="https://github.com/fastapi/fastapi/releases/tag/0.162.1">https://github.com/fastapi/fastapi/releases/tag/0.162.1</a></p>
+</div></article></section><section id="edition-5"><p class="kicker">applied_ai</p><h2>Agent、机器人与具身智能（2026-11-08）</h2><h2>本期结论</h2>
+<ol>
+<li><strong>视觉‑符号融合可显著提升越野导航的泛化能力</strong>，AnyNav 通过神经网络估计摩擦并与符号物理模型耦合，实验表明在不同地形、车辆类型和操作条件下的路径规划性能优于单纯数据驱动方法[1]。</li>
+<li><strong>多模态大语言模型在情感智能方面仍显不足</strong>，EmoBench‑M 评测显示即便是 Gemini‑3.0‑Pro 与 GPT‑5.2 也只能达到 70.5 与 66.5 分，远低于人类基准，且表现不均衡[2]。</li>
+<li><strong>链式推理（CoT）能提升 VLA 在自动驾驶中的数值与因果推理</strong>，CoT4AD 在 nuScenes 与 Bench2Drive 上实现了开环与闭环评测的最优结果，证明显式 CoT 对复杂驾驶决策有实质性帮助[3]。</li>
+</ol>
+<h2>逐项分析</h2>
+<table>
+<thead>
+<tr>
+<th>论文</th>
+<th>核心贡献</th>
+<th>方法与数据</th>
+<th>性能证据</th>
+<th>局限与证据等级</th>
+<th>工程意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AnyNav</td>
+<td>视觉‑符号摩擦学习框架</td>
+<td>视觉感知网络 + 物理符号模型 + 双层自监督优化</td>
+<td>通过摩擦系数预测实现物理可行、时间高效路径；实验显示跨地形、车辆类型泛化优于传统方法[1]</td>
+<td>仅提供摘要，缺乏实验细节与对比基线，证据等级 <strong>C</strong></td>
+<td>适用于需要在未知地形快速规划的机器人；需进一步公开代码与数据以验证可复现性</td>
+</tr>
+<tr>
+<td>EmoBench‑M</td>
+<td>多模态情感智能基准</td>
+<td>13 场景、3 层次评估；对 27 大模型进行客观与 LLM 评估</td>
+<td>最佳模型得分 70.5/66.5，显示与人类差距显著[2]</td>
+<td>仅摘要，未给出具体指标与对比，证据等级 <strong>C</strong></td>
+<td>为情感智能研究提供统一评测框架，推动模型在机器人交互中的情绪理解</td>
+</tr>
+<tr>
+<td>CoT4AD</td>
+<td>视觉‑语言‑动作模型引入链式推理</td>
+<td>视觉观测 + 语言指令 → 感知‑问答‑预测‑动作 CoT；训练与推理均使用 CoT</td>
+<td>在 nuScenes 与 Bench2Drive 上实现开环/闭环最优，说明数值与因果推理提升[3]</td>
+<td>摘要中提及实验，但未给出具体数值与对比，证据等级 <strong>B</strong></td>
+<td>可直接用于端到端自动驾驶系统，需验证在真实车辆上的鲁棒性</td>
+</tr>
+</tbody>
+</table>
+<h2>工程行动建议</h2>
+<table>
+<thead>
+<tr>
+<th>目标</th>
+<th>验证实验</th>
+<th>落地评估</th>
+<th>后续跟踪指标</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>AnyNav</strong></td>
+<td>在公开越野数据集（如 KITTI‑Urban‑Offroad）上复现摩擦估计与路径规划；对比传统物理模型与纯数据驱动方法</td>
+<td>评估路径时间、能耗与碰撞率；在不同车辆平台（无人车、机器人）上测试</td>
+<td>摩擦预测误差、路径可行性率、跨平台泛化度</td>
+</tr>
+<tr>
+<td><strong>EmoBench‑M</strong></td>
+<td>采用公开情感数据集（如 MELD‑Multimodal）对现有 MLLM 进行情感识别与对话测试</td>
+<td>量化模型在情感识别、对话理解与社会情感分析三维度的得分；与人类评测对比</td>
+<td>情感识别准确率、对话情感一致性、模型鲁棒性</td>
+</tr>
+<tr>
+<td><strong>CoT4AD</strong></td>
+<td>在 nuScenes 与 Bench2Drive 上复现 CoT4AD；对比无 CoT 的 VLA 模型</td>
+<td>评估开环/闭环误差、决策延迟与安全指标</td>
+<td>误差率、决策一致性、推理时间</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>注意</strong>：上述实验均需在公开数据与代码可用的前提下进行；若缺乏公开资源，建议先进行小规模仿真验证，再逐步扩展到真实环境。</p>
+</blockquote>
+<h2>参考资料</h2>
+<p>[1] AnyNav: Visual neuro-symbolic friction learning for off-road navigation, Crossref Embodied, <a href="https://doi.org/10.1177/02783649261496456">https://doi.org/10.1177/02783649261496456</a><br />
+[2] EmoBench-M: Benchmarking Emotional Intelligence for Multimodal Large Language Models, OpenAlex Embodied, <a href="https://doi.org/10.1145/3767308.3835627">https://doi.org/10.1145/3767308.3835627</a><br />
+[3] CoT4AD: A Vision-Language-Action Model with Explicit Chain-of-Thought Reasoning for Autonomous Driving, OpenAlex Embodied, <a href="https://doi.org/10.1145/3767308.3835132">https://doi.org/10.1145/3767308.3835132</a></p>
+</div></article></section></div><section class="growth-card" data-growth-cta><h2>有项目想法？</h2><p>可以订阅后续更新，也可以整理你的 AI 软件或智能硬件需求，发来聊聊。</p><a href="../subscribe.html">订阅 AI 精选</a> · <a href="../services.html?source=/posts/20261108-daily.html">整理开发需求</a></section></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原始来源。</span></footer></body></html>

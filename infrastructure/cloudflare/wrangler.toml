@@ -8,7 +8,8 @@ preview_urls = false
 required = ["GITHUB_DISPATCH_TOKEN"]
 
 [triggers]
-# UTC 01:11-15:41 = Beijing 09:11-23:41, 30 invocations/day.
+# UTC 01:11-15:41 = Asia/Taipei 09:11-23:41. Catch-up only; the edition itself is 09:00.
+# Redeploy is not required for the single daily report: this worker only dispatches catchup.yml.
 crons = ["11,41 1-15 * * *"]
 
 [observability]
