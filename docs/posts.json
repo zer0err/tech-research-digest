@@ -1,5 +1,56 @@
 [
   {
+    "title": "AI 芯片、计算架构与硬件平台（2026-11-16）",
+    "date": "2026-11-16T17:47:09.163572+08:00",
+    "count": 3,
+    "url": "posts/20261116-applied_ai.html",
+    "topic": "applied_ai",
+    "source_topic": "ai_hardware",
+    "status": "published",
+    "summary": "本期结论 1. 混合精度阵列在点云网络加速中能显著提升吞吐与能效。PQuant 通过 Morton‑code 细粒度量化与可重构混合精度 systolic array，实现点基网络 3.7×、体素网络 3.5× 的速度提升，并分别获得 5.2× 与 6.0× 的能耗下降1。 2. 自由形态映射可突破传统模板限制，提升 ",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "PQuant: Point Cloud Neural Network Acceleration via a Versatile Quantization Framework",
+          "url": "https://doi.org/10.1145/3860528",
+          "publisher": "OpenAlex AI Hardware",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-11-14T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "10.1145/3860528",
+          "kind": "research"
+        },
+        {
+          "title": "WaferTetris: Efficient Freeform Mapping on Wafer-Scale Accelerators",
+          "url": "https://arxiv.org/abs/2611.18527",
+          "publisher": "arXiv AI Hardware",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-11-13T18:41:44+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "Mutable Inference: Architecting LLM Accelerators for Inference-Time Learning",
+          "url": "https://arxiv.org/abs/2611.18523",
+          "publisher": "arXiv AI Hardware",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-11-13T18:37:52+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    }
+  },
+  {
     "title": "VORASIO AI 日报（2026-11-15）",
     "date": "2026-11-15T19:12:23.049473+08:00",
     "count": 4,

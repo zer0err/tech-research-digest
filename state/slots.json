@@ -49,9 +49,71 @@
       "maintenance_notified": true
     },
     "2026-11-16:applied_ai": {
-      "status": "analysis_rejected",
-      "updated_at": "2026-11-16T08:42:23.171020+00:00",
-      "attempts": 1
+      "status": "prepared",
+      "updated_at": "2026-11-16T09:47:09.163572+00:00",
+      "attempts": 2,
+      "pending": {
+        "topic": "ai_hardware",
+        "title": "AI 芯片、计算架构与硬件平台",
+        "url": "https://vorasio.com/posts/20261116-applied_ai.html",
+        "created_at": "2026-11-16T09:47:09.163572+00:00",
+        "items": [
+          {
+            "uid": "01d5db60c43feb06129501a1",
+            "title": "PQuant: Point Cloud Neural Network Acceleration via a Versatile Quantization Framework",
+            "url": "https://doi.org/10.1145/3860528",
+            "published": "2026-11-14T00:00:00+00:00",
+            "summary": "Point Cloud Neural Network (PCNN) plays an essential role in various 3D applications, with some of them even being time-sensitive and safety-critical. However, the large scale of unordered points with lengthy features results in heavy computational workloads, making them far from real-time processing. To address this challenge, we propose PQuant, a Morton-code-based fine-grained quantization for accelerating both point-based and voxel-based networks. Specifically, we utilize Morton-code to capture the inherent point similarity and the voxel distribution. Considering the similarity among near points’ features, we decompose features into base and offsets, where the offsets typically exhibit a narrow dynamic range and can thus be quantized using low precision. For the voxel-based networks, spatial location indicated by Morton-codes allows PQuant to apply high precision representation to distant voxels, which are generally sparser and more sensitive to quantization. From the hardware aspect, PQuant integrates a reconfigurable mixed-precision systolic array designed to handle both dense and sparse mixed-precision convolutions in PCNNs. Extensive experiments demonstrate that PQuant achieves 3.7 × and 3.5 × speedup and 5.2 × and 6.0 × energy savings over state-of-the-art PCNN accelerator PointAcc for the point-based and voxel-based networks, respectively.",
+            "source": "OpenAlex AI Hardware",
+            "kind": "research",
+            "doi": "10.1145/3860528",
+            "date_precision": "day",
+            "aliases": [
+              "doi:10.1145/3860528",
+              "url:https://doi.org/10.1145/3860528"
+            ]
+          },
+          {
+            "uid": "43f4dc59084af34d4283f440",
+            "title": "WaferTetris: Efficient Freeform Mapping on Wafer-Scale Accelerators",
+            "url": "https://arxiv.org/abs/2611.18527",
+            "published": "2026-11-13T18:41:44+00:00",
+            "summary": "Wafer-scale accelerators offer massive compute capacity through hundreds of thousands of processing elements (PEs) interconnected across a single wafer, but realizing this potential requires efficient application mapping. Their scale makes programming these systems and mapping applications onto them challenging. Existing approaches rely on template-based mappings to maintain productivity, but these templates restrict the mapping design space. In particular, they impose fixed geometric layouts over the PE grid, often leaving compute and memory resources underutilized. In this work, we present WaferTetris, a system that removes these geometric restrictions through freeform mapping. Its Tetris-like strategy flexibly packs computation across the wafer, improving PE utilization and usable memory capacity while preserving PE-task code. We develop a recurrence-based throughput model that captures branch-and-join dependencies to guide spatial parallelism, and an architecture model with per-color gates that enable existing FPGA place-and-route algorithms to enforce WSE routing constraints. We evaluate WaferTetris on Cerebras WSE-3 using LLM decoding and scientific stencil benchmarks. For LLM decoding, it achieves up to $4.42\\times$ the system throughput of a template-based automatic mapping baseline on the same fabric size. Compared with the manually optimized WaferLLM, WaferTetris supp",
+            "source": "arXiv AI Hardware",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day",
+            "aliases": [
+              "arxiv:2611.18527",
+              "url:https://arxiv.org/abs/2611.18527"
+            ]
+          },
+          {
+            "uid": "efbef0042abed1942945232a",
+            "title": "Mutable Inference: Architecting LLM Accelerators for Inference-Time Learning",
+            "url": "https://arxiv.org/abs/2611.18523",
+            "published": "2026-11-13T18:37:52+00:00",
+            "summary": "Long-context LLMs must retain growing histories, but full attention makes each new token increasingly expensive. Inference-time learning (ITL) offers another approach. The model keeps training on the context during inference, retaining what it learns in its weights. Recent work shows that ITL can match full-context attention quality while attending only to a recent fixed-size window. This bounds attention costs but adds Learning (backward computation and weight updates) alongside Prediction (the forward pass) costs. Inference accelerators assume fixed weights, while training accelerators target complete training steps. This work identifies two opportunities. Attention's non-matrix operations leave enough idle matrix capacity for Learning, while selected layers can tolerate delayed weight updates with little quality loss. We exploit both with Learning While Serving (LWS), an inference accelerator architecture that shares compute hardware between latency-critical Prediction and deadline-flexible Learning. Hardware-managed per-layer weight versioning allows Learning to publish updates while in-flight computations read older versions. Resumable reduction blocks let Learning kernels span fragmented idle windows and yield to Prediction, while dedicated softmax-gradient units relieve vector contention. On modeled datacenter and edge NPUs, LWS hides Learning within Prediction, sustaini",
+            "source": "arXiv AI Hardware",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day",
+            "aliases": [
+              "arxiv:2611.18523",
+              "url:https://arxiv.org/abs/2611.18523"
+            ]
+          }
+        ],
+        "source_topic": "ai_hardware",
+        "notify": false,
+        "mode": "production",
+        "analysis": {
+          "provider": "Groq",
+          "model": "openai/gpt-oss-20b"
+        },
+        "slot": "applied_ai"
+      },
+      "maintenance_notified": true
     },
     "2026-11-15:prompt_engineering": {
       "status": "already_published",
