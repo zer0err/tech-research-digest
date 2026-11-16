@@ -19,7 +19,7 @@ def delivery(tmp_path, monkeypatch):
 
     monkeypatch.setattr(finalize, 'datetime', Clock)
     Path('work').mkdir()
-    pending = {'topic': 'daily_digest', 'slot': 'daily_digest', 'title': 'Daily digest',
+    pending = {'topic': 'daily_report', 'slot': 'daily_report', 'title': 'Daily report',
                'url': 'https://example.com/daily', 'created_at': '2026-11-09T11:00:00+00:00',
                'items': [], 'published_count': 2, 'notify': True}
     sent = []
@@ -65,18 +65,18 @@ def test_old_editions_never_notify(delivery, changes):
 def test_early_digest_is_not_finalized(delivery, monkeypatch):
     pending, sent = delivery
     monkeypatch.setattr(schedule, 'is_due', lambda *args: False)
-    with pytest.raises(ValueError, match='before 19:00'):
+    with pytest.raises(ValueError, match='before 09:00'):
         run(pending)
     assert sent == []
     assert not Path('state/seen.json').exists()
 
 
-def test_empty_day_still_sends_one_status(delivery):
+def test_empty_day_is_not_sent(delivery):
     pending, sent = delivery
     pending['published_count'] = 0
-    run(pending)
-    assert len(sent) == 1
-    assert '今日暂无有效新内容' in sent[0]
+    with pytest.raises(ValueError, match='empty content'):
+        run(pending)
+    assert sent == []
 
 
 def test_daytime_article_cannot_opt_into_notifications(delivery):
@@ -104,8 +104,8 @@ def test_failed_telegram_can_retry(delivery, monkeypatch):
 
 
 def test_daily_schedule_boundary():
-    assert not schedule.is_due('daily_digest', datetime(2026, 11, 9, 10, 59, 59, tzinfo=UTC))
-    assert schedule.is_due('daily_digest', datetime(2026, 11, 9, 11, tzinfo=UTC))
+    assert not schedule.is_due('daily_report', datetime(2026, 11, 9, 0, 59, 59, tzinfo=UTC))
+    assert schedule.is_due('daily_report', datetime(2026, 11, 9, 1, 0, tzinfo=UTC))
 
 
 def test_previous_day_receipt_does_not_block_today(delivery):
@@ -125,7 +125,8 @@ def test_workflow_daily_trigger_matches_due_time():
     # PyYAML's YAML 1.1 parser treats the GitHub Actions key `on` as True.
     triggers = workflow.get('on', workflow.get(True))
     crons = [entry['cron'] for entry in triggers['schedule']]
-    assert '0 11 * * *' in crons
-    assert '47 10 * * *' not in crons
+    assert crons == ['0 1 * * *']
+    assert '0 11 * * *' not in crons
     editorial = yaml.safe_load((project / 'config/editorial.yml').read_text())
-    assert editorial['slots']['daily_digest']['time'] == '19:00'
+    assert editorial['slots']['daily_report']['time'] == '09:00'
+    assert list(editorial['slots']) == ['daily_report']

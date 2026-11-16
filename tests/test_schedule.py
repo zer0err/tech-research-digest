@@ -13,26 +13,25 @@ def empty():
     return {"version": 1, "slots": {}}
 
 
-def test_catchup_selects_only_overdue_slots():
-    assert schedule.due_slots(now(), empty(), []) == ["morning_radar", "model_research"]
+def test_catchup_selects_only_the_daily_report_after_nine():
+    assert schedule.due_slots(now(), empty(), []) == ["daily_report"]
 
 
-def test_evening_catches_all_unfinished_slots():
-    assert schedule.due_slots(now().replace(hour=15), empty(), []) == list(schedule.TIMES)
+def test_evening_still_selects_only_the_unfinished_daily_report():
+    assert schedule.due_slots(now().replace(hour=15), empty(), []) == ["daily_report"]
 
 
 def test_before_morning_does_not_publish_future_slots():
     assert schedule.due_slots(now().replace(hour=0), empty(), []) == []
 
 
-def test_east_eight_boundary_is_not_utc_hour():
-    assert not schedule.is_due("morning_radar", datetime(2026, 10, 26, 1, 6, 59, tzinfo=UTC))
-    assert schedule.is_due("morning_radar", datetime(2026, 10, 26, 1, 7, tzinfo=UTC))
-    assert not schedule.is_due("model_research", datetime(2026, 10, 26, 1, 24, tzinfo=UTC))
+def test_taipei_boundary_is_not_utc_hour():
+    assert not schedule.is_due("daily_report", datetime(2026, 10, 26, 0, 59, 59, tzinfo=UTC))
+    assert schedule.is_due("daily_report", datetime(2026, 10, 26, 1, 0, tzinfo=UTC))
 
 
-def test_beijing_day_rollover_has_no_next_day_early_slots():
-    assert schedule.key("morning_radar", datetime(2026, 10, 25, 16, tzinfo=UTC)) == "2026-10-26:morning_radar"
+def test_taipei_day_rollover_does_not_publish_before_nine():
+    assert schedule.key("daily_report", datetime(2026, 10, 25, 16, tzinfo=UTC)) == "2026-10-26:daily_report"
     assert schedule.due_slots(datetime(2026, 10, 25, 16, tzinfo=UTC), empty(), []) == []
 
 
@@ -50,69 +49,69 @@ def test_production_entrypoint_refuses_future_slot(tmp_path, monkeypatch):
     assert editorial.main() == 0
     assert not Path("work/pending.json").exists()
     assert not Path("state/slots.json").exists()
-    assert json.loads(Path("reports/decision-model_research.json").read_text())["reason"] == "not_due_yet"
+    assert json.loads(Path("reports/decision-model_research.json").read_text())["reason"] == "retired_slot"
 
 
 def test_valid_visible_article_prevents_repeat():
-    entries = [{"topic": "morning_radar", "date": "2026-10-24T09:30:00+08:00", "count": 2, "status": "published"}]
-    assert schedule.due_slots(now(), empty(), entries) == ["model_research"]
+    entries = [{"topic": "daily_report", "date": "2026-10-24T09:00:00+08:00", "count": 2, "status": "published"}]
+    assert schedule.due_slots(now(), empty(), entries) == []
 
 
 def test_empty_or_yesterday_article_does_not_block_today():
-    entries = [{"topic": "morning_radar", "date": "2026-10-24", "count": 0, "status": "empty"},
-               {"topic": "model_research", "date": "2026-10-23", "count": 2, "status": "published"}]
-    assert len(schedule.due_slots(now(), empty(), entries)) == 2
+    entries = [{"topic": "daily_report", "date": "2026-10-24", "count": 0, "status": "empty"},
+               {"topic": "daily_report", "date": "2026-10-23T09:00:00+08:00", "count": 2, "status": "published"}]
+    assert schedule.due_slots(now(), empty(), entries) == ["daily_report"]
 
 
 def test_yesterday_backfill_does_not_complete_today_slot():
-    entries = [{"topic": "paper_brief", "date": "2026-10-26T10:36:00+08:00",
+    entries = [{"topic": "daily_report", "date": "2026-10-26T09:00:00+08:00",
                 "execution_date": "2026-10-25", "status": "published", "count": 2}]
-    today = datetime(2026, 10, 26, 6, 23, tzinfo=UTC)
-    assert not schedule.completed('paper_brief', today, empty(), entries)
-    assert 'paper_brief' in schedule.due_slots(today, empty(), entries)
+    today = datetime(2026, 10, 26, 2, tzinfo=UTC)
+    assert not schedule.completed("daily_report", today, empty(), entries)
+    assert schedule.due_slots(today, empty(), entries) == ["daily_report"]
 
 
 def test_transient_retry_is_bounded_and_cooled_down():
     ledger = empty()
     record = {"status": "source_failure", "attempts": 1, "updated_at": now().isoformat()}
-    ledger["slots"][schedule.key("morning_radar", now())] = record
-    assert not schedule.eligible("morning_radar", now() + timedelta(minutes=30), ledger, [])
-    assert schedule.eligible("morning_radar", now() + timedelta(minutes=61), ledger, [])
+    ledger["slots"][schedule.key("daily_report", now())] = record
+    assert not schedule.eligible("daily_report", now() + timedelta(minutes=30), ledger, [])
+    assert schedule.eligible("daily_report", now() + timedelta(minutes=61), ledger, [])
     record["attempts"] = 3
-    assert not schedule.eligible("morning_radar", now() + timedelta(hours=4), ledger, [])
+    assert not schedule.eligible("daily_report", now() + timedelta(hours=4), ledger, [])
 
 
 def test_prepared_receipt_resumes_despite_visible_article():
     ledger = empty()
-    ledger["slots"][schedule.key("morning_radar", now())] = {"status": "prepared", "attempts": 3}
-    entries = [{"topic": "morning_radar", "date": "2026-10-24", "count": 2, "status": "published"}]
-    assert schedule.eligible("morning_radar", now(), ledger, entries)
+    ledger["slots"][schedule.key("daily_report", now())] = {"status": "prepared", "attempts": 3}
+    entries = [{"topic": "daily_report", "date": "2026-10-24", "count": 2, "status": "published"}]
+    assert schedule.eligible("daily_report", now(), ledger, entries)
 
 
 def test_ledger_persists_publish_and_clears_pending(tmp_path, monkeypatch):
     monkeypatch.chdir(tmp_path)
-    schedule.record("morning_radar", now(), "prepared", {"url": "https://example.com/post"})
-    assert "pending" in schedule.load()["slots"][schedule.key("morning_radar", now())]
-    schedule.record("morning_radar", now(), "published")
-    record = json.loads(Path("state/slots.json").read_text())["slots"][schedule.key("morning_radar", now())]
+    schedule.record("daily_report", now(), "prepared", {"url": "https://example.com/post"})
+    assert "pending" in schedule.load()["slots"][schedule.key("daily_report", now())]
+    schedule.record("daily_report", now(), "published")
+    record = json.loads(Path("state/slots.json").read_text())["slots"][schedule.key("daily_report", now())]
     assert record["status"] == "published"
     assert "pending" not in record
 
 
 def test_no_new_receipt_waits_for_rescan_and_does_not_block_next_day():
     ledger = empty()
-    ledger["slots"][schedule.key("morning_radar", now())] = {"status": "no_matching_in_window"}
-    assert not schedule.eligible("morning_radar", now(), ledger, [])
-    assert schedule.eligible("morning_radar", now() + timedelta(days=1), ledger, [])
+    ledger["slots"][schedule.key("daily_report", now())] = {"status": "no_matching_in_window"}
+    assert not schedule.eligible("daily_report", now(), ledger, [])
+    assert schedule.eligible("daily_report", now() + timedelta(days=1), ledger, [])
 
 
 def test_empty_day_can_be_rescanned_after_the_long_cooldown():
     ledger = empty()
     moment = now()
-    ledger["slots"][schedule.key("open_source", moment)] = {
+    ledger["slots"][schedule.key("daily_report", moment)] = {
         "status": "already_published", "attempts": 1, "updated_at": moment.isoformat(),
     }
-    assert not schedule.eligible("open_source", moment + timedelta(minutes=179), ledger, [])
-    assert schedule.eligible("open_source", moment + timedelta(minutes=181), ledger, [])
-    ledger["slots"][schedule.key("open_source", moment)]["attempts"] = 3
-    assert not schedule.eligible("open_source", moment + timedelta(hours=6), ledger, [])
+    assert not schedule.eligible("daily_report", moment + timedelta(minutes=179), ledger, [])
+    assert schedule.eligible("daily_report", moment + timedelta(minutes=181), ledger, [])
+    ledger["slots"][schedule.key("daily_report", moment)]["attempts"] = 3
+    assert not schedule.eligible("daily_report", moment + timedelta(hours=6), ledger, [])

@@ -7,11 +7,10 @@ import re
 from datetime import datetime
 from pathlib import Path
 from typing import TYPE_CHECKING
-from zoneinfo import ZoneInfo
 
 from markdown_it import MarkdownIt
 
-from .schedule import EDITORIAL
+from .schedule import EDITORIAL, ZONE
 
 if TYPE_CHECKING:
     from .core import Item
@@ -47,11 +46,11 @@ def base_url() -> str:
     return f"https://{owner}.github.io" + ("" if name.lower() == f"{owner.lower()}.github.io" else f"/{name}")
 
 
-def shell(title: str, description: str, body: str, relative_root: str = "") -> str:
+def shell(title: str, description: str, body: str, relative_root: str = "", extra_head: str = "") -> str:
     return f"""<!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{html.escape(title)}</title><meta name="description" content="{html.escape(description, quote=True)}">
-<link rel="alternate" type="application/rss+xml" title="VORASIO" href="{relative_root}feed.xml">
+<link rel="alternate" type="application/rss+xml" title="VORASIO" href="{relative_root}feed.xml">{extra_head}
 <link rel="stylesheet" href="{relative_root}assets/style.css">
 <link rel="stylesheet" href="{relative_root}assets/growth.css">
 <link rel="stylesheet" href="{relative_root}assets/editorial.css?v=presentation-1">
@@ -80,7 +79,7 @@ def publish_post(topic: str, title: str, now: datetime, report: str, items: list
     from .provenance import metadata, render
     default_analysis = {"provider": "程序汇总（未调用 AI）", "model": "不适用"} if topic == 'daily_digest' else None
     provenance = metadata(items, analysis or default_analysis)
-    now = now.astimezone(ZoneInfo("Asia/Shanghai"))
+    now = now.astimezone(ZONE)
     POSTS_DIR.mkdir(parents=True, exist_ok=True)
     (SITE_DIR / "assets").mkdir(parents=True, exist_ok=True)
     slug = f"{now:%Y%m%d}-{topic}.html"
@@ -97,7 +96,7 @@ def publish_post(topic: str, title: str, now: datetime, report: str, items: list
     summary = re.sub(r"\s+", " ", re.sub(r"[#*\[\]`]+", "", report)).strip()[:160]
     disclosure = "实践参考，未经运行验证。" if topic == "dev_practice" else "依据公开来源自动整理，请核对证据边界。"
     edition_date = os.getenv("REPLAY_EDITION_DATE")
-    published_at = datetime.now(ZoneInfo("Asia/Shanghai")) if edition_date else now
+    published_at = datetime.now(ZONE) if edition_date else now
     if edition_date:
         disclosure += f" 本文为 {edition_date} 期补发，实际发布时间见侧栏；按历史日期筛选当前仍可访问的来源，不是历史网页快照。"
     article = (

@@ -1,35 +1,18 @@
-name: AI editorial day with one daily notification at 19:00 Beijing
+name: Daily report at 09:00 Asia/Taipei
 
 on:
   schedule:
-    - cron: "7 1 * * *"
-    - cron: "17 2 * * *"
-    - cron: "27 3 * * *"
-    - cron: "37 4 * * *"
-    - cron: "47 5 * * *"
-    - cron: "7 6 * * *"
-    - cron: "17 7 * * *"
-    - cron: "27 8 * * *"
-    - cron: "37 9 * * *"
-    - cron: "0 11 * * *"
+    # 09:00 Asia/Taipei = 01:00 UTC. GitHub may start this late; catchup retries the same edition.
+    - cron: "0 1 * * *"
   workflow_dispatch:
     inputs:
       slot:
-        description: Content slot to run
+        description: Only the daily report is published
         required: true
-        default: morning_radar
+        default: daily_report
         type: choice
         options:
-          - morning_radar
-          - model_research
-          - open_source
-          - paper_brief
-          - prompt_engineering
-          - core_research
-          - dev_practice
-          - applied_ai
-          - ecosystem
-          - daily_digest
+          - daily_report
 
 permissions: {contents: write, pages: write, id-token: write, actions: read}
 

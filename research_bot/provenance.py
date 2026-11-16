@@ -33,6 +33,8 @@ def render(data):
     model = ai.get('model', '未记录')
     if provider == '程序汇总（未调用 AI）':
         label = '程序汇总 · 未使用 AI 分析'
+    elif provider == '历史简报整合（未重新调用 AI）':
+        label = '历史简报整合 · 未重新调用 AI'
     elif provider in {'历史记录未确认', '未记录'}:
         label = 'AI 分析：历史记录未确认'
     else:

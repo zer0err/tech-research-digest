@@ -31,6 +31,7 @@ async function github(path, env, options = {}, request = fetch) {
 
 export async function tick(env, at = Date.now(), request = fetch) {
   if (!env.GITHUB_DISPATCH_TOKEN) throw new Error("Missing GITHUB_DISPATCH_TOKEN secret");
+  // Asia/Taipei is UTC+8 year-round. Hours before 09:00 must not dispatch a morning edition.
   const localHour = new Date(at + 8 * 3600000).getUTCHours();
   if (localHour < 9 || localHour > 23) return { result: "outside_window" };
   const response = await github("/actions/workflows/catchup.yml/runs?per_page=10", env, {}, request);

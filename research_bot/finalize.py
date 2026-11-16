@@ -45,26 +45,26 @@ def main() -> int:
     if pending.get("mode", "production") != "production":
         raise ValueError("Test output cannot be published or added to production state")
     items = [Item(**raw) for raw in pending["items"]]
-    count = len(items) if pending["topic"] != "daily_digest" else int(pending.get("published_count", 0))
-    if count <= 0 and pending["topic"] != "daily_digest":
+    count = len(items) if pending["topic"] != "daily_report" else int(pending.get("published_count", 0))
+    if count <= 0:
         raise ValueError("Refusing to notify or finalize empty content")
     state_path = Path(args.state)
     state = load_state(state_path)
     now = datetime.now(UTC)
     edition = datetime.fromisoformat(pending["created_at"])
-    today = now.astimezone(schedule.BEIJING).date().isoformat()
+    today = now.astimezone(schedule.ZONE).date().isoformat()
     receipts = state.setdefault("daily_notifications", {})
     notify = (
-        pending["topic"] == "daily_digest"
+        pending["topic"] == "daily_report"
         and pending.get("notify", True)
         and not pending.get("replay_date")
-        and edition.astimezone(schedule.BEIJING).date().isoformat() == today
-        and schedule.is_due("daily_digest", now)
+        and edition.astimezone(schedule.ZONE).date().isoformat() == today
+        and schedule.is_due("daily_report", now)
         and today not in receipts
     )
-    if pending["topic"] == "daily_digest" and pending.get("notify", True) and not pending.get("replay_date"):
-        if edition.astimezone(schedule.BEIJING).date().isoformat() == today and not schedule.is_due("daily_digest", now):
-            raise ValueError("Daily notification cannot be delivered before 19:00 Asia/Shanghai")
+    if pending["topic"] == "daily_report" and pending.get("notify", True) and not pending.get("replay_date"):
+        if edition.astimezone(schedule.ZONE).date().isoformat() == today and not schedule.is_due("daily_report", now):
+            raise ValueError("Daily notification cannot be delivered before 09:00 Asia/Taipei")
     if notify:
         message = (f"{pending['title']}｜{count} 篇有效简报\n完整内容：{pending['url']}" if count
                    else f"{pending['title']}｜今日暂无有效新内容\n每日状态：{pending['url']}")

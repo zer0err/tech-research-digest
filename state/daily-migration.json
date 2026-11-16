@@ -1,0 +1,1974 @@
+{
+  "version": 1,
+  "timezone": "Asia/Taipei",
+  "published_at_local": "09:00",
+  "offset": "+08:00",
+  "rules": [
+    "按 execution_date，否则按存储时间的 Asia/Taipei 日历日归并；文件名日期不同时记入映射，不另开一天。",
+    "发布时间一律写成该日 09:00+08:00。没有条目的日期不生成日报。",
+    "日报索引页只保留正文与站外来源。同一规范 URL、DOI 或 arXiv 编号只出现一次。",
+    "标题相同但链接不同的条目都保留。正文不同的栏目都保留，即使部分来源重复。",
+    "仅指向当日站内旧稿的日报索引不重复贴出；若索引里有未出现过的站外链接，则保留那些链接原文。",
+    "不调用模型，不补写当时没有的句子。迁移不发送 Telegram。"
+  ],
+  "counts": {
+    "fragments_before": 159,
+    "dates_with_fragments": 25,
+    "reports_after": 25,
+    "empty_dates_skipped": 0,
+    "redirects": 159,
+    "merged_sections": 134,
+    "folded_indexes": 25,
+    "dropped_empty": 0,
+    "dropped_duplicate": 0,
+    "unique_sources": 310
+  },
+  "days": [
+    {
+      "date": "2026-10-23",
+      "canonical": "posts/20261023-daily.html",
+      "published_at": "2026-10-23T09:00:00+08:00",
+      "source_count": 12,
+      "section_count": 5,
+      "fragments": [
+        {
+          "url": "posts/20261023-morning_radar.html",
+          "topic": "morning_radar",
+          "action": "merged",
+          "anchor": "edition-1",
+          "source_keys": [
+            "url:https://github.blog/changelog/2026-10-22-custom-skills-agents-and-mcp-servers-in-usage-metrics-api",
+            "url:https://github.blog/changelog/2026-10-22-github-copilot-in-visual-studio-september-update-2",
+            "url:https://github.blog/changelog/2026-10-22-global-default-for-copilot-features-generally-available"
+          ]
+        },
+        {
+          "url": "posts/20261023-open_source.html",
+          "topic": "open_source",
+          "action": "merged",
+          "anchor": "edition-2",
+          "source_keys": [
+            "url:https://github.com/huggingface/transformers/releases/tag/v5.20.2",
+            "url:https://github.com/ollama/ollama/releases/tag/v0.40.9"
+          ]
+        },
+        {
+          "url": "posts/20261023-paper_brief.html",
+          "topic": "paper_brief",
+          "action": "merged",
+          "anchor": "edition-3",
+          "source_keys": [
+            "doi:10.21203/rs.3.rs-11467404/v1",
+            "doi:10.3389/fcimb.2026.1927286",
+            "url:https://doi.org/10.21203/rs.3.rs-11467404/v1",
+            "url:https://doi.org/10.3389/fcimb.2026.1927286"
+          ]
+        },
+        {
+          "url": "posts/20261023-core_research.html",
+          "topic": "core_research",
+          "action": "merged",
+          "anchor": "edition-4",
+          "source_keys": [
+            "arxiv:2610.31645",
+            "arxiv:2610.31649",
+            "arxiv:2610.31651",
+            "url:https://arxiv.org/abs/2610.31645",
+            "url:https://arxiv.org/abs/2610.31649",
+            "url:https://arxiv.org/abs/2610.31651"
+          ]
+        },
+        {
+          "url": "posts/20261023-ecosystem.html",
+          "topic": "ecosystem",
+          "action": "merged",
+          "anchor": "edition-5",
+          "source_keys": [
+            "url:https://github.blog/ai-and-ml/github-copilot/how-to-continue-a-github-copilot-app-session-in-vs-code",
+            "url:https://github.blog/security/how-bug-bounty-sharpens-one-researchers-security-skills"
+          ]
+        },
+        {
+          "url": "posts/20261023-daily_digest.html",
+          "topic": "daily_digest",
+          "action": "folded_index"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-24",
+      "canonical": "posts/20261024-daily.html",
+      "published_at": "2026-10-24T09:00:00+08:00",
+      "source_count": 14,
+      "section_count": 6,
+      "fragments": [
+        {
+          "url": "posts/20261024-morning_radar.html",
+          "topic": "morning_radar",
+          "action": "merged",
+          "anchor": "edition-1",
+          "source_keys": [
+            "url:https://github.blog/changelog/2026-10-23-turn-notifications-into-code-with-github-copilot-in-teams",
+            "url:https://github.blog/changelog/2026-10-23-usage-metrics-api-adds-usage-from-tools-like-opencode"
+          ]
+        },
+        {
+          "url": "posts/20261024-model_research.html",
+          "topic": "model_research",
+          "action": "merged",
+          "anchor": "edition-2",
+          "source_keys": [
+            "arxiv:2610.31657",
+            "arxiv:2610.31662",
+            "url:https://arxiv.org/abs/2610.31657",
+            "url:https://arxiv.org/abs/2610.31662"
+          ]
+        },
+        {
+          "url": "posts/20261024-open_source.html",
+          "topic": "open_source",
+          "action": "merged",
+          "anchor": "edition-3",
+          "source_keys": [
+            "url:https://github.com/ollama/ollama/releases/tag/v0.40.10"
+          ]
+        },
+        {
+          "url": "posts/20261024-paper_brief.html",
+          "topic": "paper_brief",
+          "action": "merged",
+          "anchor": "edition-4",
+          "source_keys": [
+            "doi:10.1038/s44335-026-00102-3",
+            "doi:10.1088/2634-4386/aeb8ba",
+            "doi:10.31838/ece/03.02.08",
+            "url:https://doi.org/10.1038/s44335-026-00102-3",
+            "url:https://doi.org/10.1088/2634-4386/aeb8ba",
+            "url:https://doi.org/10.31838/ece/03.02.08"
+          ]
+        },
+        {
+          "url": "posts/20261024-core_research.html",
+          "topic": "core_research",
+          "action": "merged",
+          "anchor": "edition-5",
+          "source_keys": [
+            "arxiv:2610.31661",
+            "arxiv:2610.31670",
+            "url:https://arxiv.org/abs/2610.31661",
+            "url:https://arxiv.org/abs/2610.31670",
+            "url:https://developer.nvidia.com/blog/using-ai-agents-to-teach-robots-like-microduck-to-walk-in-simulation"
+          ]
+        },
+        {
+          "url": "posts/20261024-applied_ai.html",
+          "topic": "applied_ai",
+          "action": "merged",
+          "anchor": "edition-6",
+          "source_keys": [
+            "arxiv:2610.31642",
+            "arxiv:2610.31646",
+            "arxiv:2610.31667",
+            "url:https://arxiv.org/abs/2610.31642",
+            "url:https://arxiv.org/abs/2610.31646",
+            "url:https://arxiv.org/abs/2610.31667"
+          ]
+        },
+        {
+          "url": "posts/20261024-daily_digest.html",
+          "topic": "daily_digest",
+          "action": "folded_index"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-25",
+      "canonical": "posts/20261025-daily.html",
+      "published_at": "2026-10-25T09:00:00+08:00",
+      "source_count": 13,
+      "section_count": 6,
+      "fragments": [
+        {
+          "url": "posts/20261025-model_research.html",
+          "topic": "model_research",
+          "action": "merged",
+          "anchor": "edition-1",
+          "source_keys": [
+            "doi:10.1145/3797867.3829031",
+            "url:https://doi.org/10.1145/3797867.3829031",
+            "url:https://hal.science/hal-04839926v6",
+            "url:https://hal.science/hal-05783214v1"
+          ]
+        },
+        {
+          "url": "posts/20261025-open_source.html",
+          "topic": "open_source",
+          "action": "merged",
+          "anchor": "edition-2",
+          "source_keys": [
+            "url:https://github.com/ollama/ollama/releases/tag/v0.40.11"
+          ]
+        },
+        {
+          "url": "posts/20261025-paper_brief.html",
+          "topic": "paper_brief",
+          "action": "merged",
+          "anchor": "edition-3",
+          "source_keys": [
+            "doi:10.62480/tjet.2026.vol60.pp1-5",
+            "doi:10.62520/fujece.2001687",
+            "url:https://doi.org/10.62480/tjet.2026.vol60.pp1-5",
+            "url:https://doi.org/10.62520/fujece.2001687"
+          ]
+        },
+        {
+          "url": "posts/20261025-core_research.html",
+          "topic": "core_research",
+          "action": "merged",
+          "anchor": "edition-4",
+          "source_keys": [
+            "doi:10.1007/s10791-026-10753-2",
+            "doi:10.70030/sjmakeu.2057008",
+            "url:https://doi.org/10.1007/s10791-026-10753-2",
+            "url:https://doi.org/10.70030/sjmakeu.2057008"
+          ]
+        },
+        {
+          "url": "posts/20261025-dev_practice.html",
+          "topic": "dev_practice",
+          "action": "merged",
+          "anchor": "edition-5",
+          "source_keys": [
+            "url:https://github.com/fastapi/fastapi/releases/tag/0.161.1",
+            "url:https://github.com/fastapi/fastapi/releases/tag/0.162.0"
+          ]
+        },
+        {
+          "url": "posts/20261025-applied_ai.html",
+          "topic": "applied_ai",
+          "action": "merged",
+          "anchor": "edition-6",
+          "source_keys": [
+            "doi:10.1002/smll.76374",
+            "doi:10.5281/zenodo.23304829",
+            "doi:10.5281/zenodo.23592521",
+            "url:https://doi.org/10.1002/smll.76374",
+            "url:https://doi.org/10.5281/zenodo.23304829",
+            "url:https://doi.org/10.5281/zenodo.23592521"
+          ]
+        },
+        {
+          "url": "posts/20261025-daily_digest.html",
+          "topic": "daily_digest",
+          "action": "folded_index"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-26",
+      "canonical": "posts/20261026-daily.html",
+      "published_at": "2026-10-26T09:00:00+08:00",
+      "source_count": 7,
+      "section_count": 5,
+      "fragments": [
+        {
+          "url": "posts/20261026-model_research.html",
+          "topic": "model_research",
+          "action": "merged",
+          "anchor": "edition-1",
+          "source_keys": [
+            "doi:10.66977/xsci.2610.002m",
+            "url:https://doi.org/10.66977/xsci.2610.002m"
+          ]
+        },
+        {
+          "url": "posts/20261026-paper_brief.html",
+          "topic": "paper_brief",
+          "action": "merged",
+          "anchor": "edition-2",
+          "source_keys": [
+            "doi:10.3389/frai.2026.1950812",
+            "url:https://doi.org/10.3389/frai.2026.1950812"
+          ]
+        },
+        {
+          "url": "posts/20261026-core_research.html",
+          "topic": "core_research",
+          "action": "merged",
+          "anchor": "edition-3",
+          "source_keys": [
+            "arxiv:2610.32980",
+            "arxiv:2610.32981",
+            "url:https://arxiv.org/abs/2610.32980",
+            "url:https://arxiv.org/abs/2610.32981"
+          ]
+        },
+        {
+          "url": "posts/20261026-dev_practice.html",
+          "topic": "dev_practice",
+          "action": "merged",
+          "anchor": "edition-4",
+          "source_keys": [
+            "url:https://github.com/fastapi/fastapi/releases/tag/0.160.0",
+            "url:https://github.com/fastapi/fastapi/releases/tag/0.161.0"
+          ]
+        },
+        {
+          "url": "posts/20261026-applied_ai.html",
+          "topic": "applied_ai",
+          "action": "merged",
+          "anchor": "edition-5",
+          "source_keys": [
+            "doi:10.1038/s41598-026-76651-1",
+            "url:https://doi.org/10.1038/s41598-026-76651-1"
+          ]
+        },
+        {
+          "url": "posts/20261026-daily_digest.html",
+          "topic": "daily_digest",
+          "action": "folded_index"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-27",
+      "canonical": "posts/20261027-daily.html",
+      "published_at": "2026-10-27T09:00:00+08:00",
+      "source_count": 17,
+      "section_count": 7,
+      "fragments": [
+        {
+          "url": "posts/20261027-morning_radar.html",
+          "topic": "morning_radar",
+          "action": "merged",
+          "anchor": "edition-1",
+          "source_keys": [
+            "url:https://blog.google/products-and-platforms/products/education/ai-quests-polar-peaks",
+            "url:https://github.blog/changelog/2026-10-26-gpt-6-1-terra-in-github-copilot"
+          ]
+        },
+        {
+          "url": "posts/20261027-model_research.html",
+          "topic": "model_research",
+          "action": "merged",
+          "anchor": "edition-2",
+          "source_keys": [
+            "arxiv:2610.35112",
+            "arxiv:2610.35113",
+            "arxiv:2610.35114",
+            "url:https://arxiv.org/abs/2610.35112",
+            "url:https://arxiv.org/abs/2610.35113",
+            "url:https://arxiv.org/abs/2610.35114"
+          ]
+        },
+        {
+          "url": "posts/20261027-open_source.html",
+          "topic": "open_source",
+          "action": "merged",
+          "anchor": "edition-3",
+          "source_keys": [
+            "url:https://github.com/huggingface/transformers/releases/tag/v5.21"
+          ]
+        },
+        {
+          "url": "posts/20261027-paper_brief.html",
+          "topic": "paper_brief",
+          "action": "merged",
+          "anchor": "edition-4",
+          "source_keys": [
+            "doi:10.4018/979-8-3373-7549-6.ch005",
+            "doi:10.4018/979-8-3373-7549-6.ch010",
+            "url:https://developer.nvidia.com/blog/how-nvidia-mission-control-2-5-brings-autonomous-recovery-to-kubernetes",
+            "url:https://doi.org/10.4018/979-8-3373-7549-6.ch005",
+            "url:https://doi.org/10.4018/979-8-3373-7549-6.ch010"
+          ]
+        },
+        {
+          "url": "posts/20261027-core_research.html",
+          "topic": "core_research",
+          "action": "merged",
+          "anchor": "edition-5",
+          "source_keys": [
+            "arxiv:2610.34582",
+            "arxiv:2610.34824",
+            "doi:10.21203/rs.3.rs-11490008/v1",
+            "url:https://arxiv.org/abs/2610.34582",
+            "url:https://arxiv.org/abs/2610.34824",
+            "url:https://doi.org/10.21203/rs.3.rs-11490008/v1"
+          ]
+        },
+        {
+          "url": "posts/20261027-dev_practice.html",
+          "topic": "dev_practice",
+          "action": "merged",
+          "anchor": "edition-6",
+          "source_keys": [
+            "url:https://github.com/fastapi/fastapi/releases/tag/0.159.0",
+            "url:https://github.com/fastapi/fastapi/releases/tag/0.159.1"
+          ]
+        },
+        {
+          "url": "posts/20261027-applied_ai.html",
+          "topic": "applied_ai",
+          "action": "merged",
+          "anchor": "edition-7",
+          "source_keys": [
+            "arxiv:2610.35852",
+            "arxiv:2610.35862",
+            "doi:10.3389/frobt.2026.1885382",
+            "url:https://arxiv.org/abs/2610.35852",
+            "url:https://arxiv.org/abs/2610.35862",
+            "url:https://doi.org/10.3389/frobt.2026.1885382"
+          ]
+        },
+        {
+          "url": "posts/20261027-daily_digest.html",
+          "topic": "daily_digest",
+          "action": "folded_index"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-28",
+      "canonical": "posts/20261028-daily.html",
+      "published_at": "2026-10-28T09:00:00+08:00",
+      "source_count": 16,
+      "section_count": 7,
+      "fragments": [
+        {
+          "url": "posts/20261028-morning_radar.html",
+          "topic": "morning_radar",
+          "action": "merged",
+          "anchor": "edition-1",
+          "source_keys": [
+            "url:https://github.blog/changelog/2026-10-26-github-copilot-assisted-permissions-generally-available",
+            "url:https://github.blog/changelog/2026-10-27-github-copilot-supports-server-to-server-authentication"
+          ]
+        },
+        {
+          "url": "posts/20261028-model_research.html",
+          "topic": "model_research",
+          "action": "merged",
+          "anchor": "edition-2",
+          "source_keys": [
+            "arxiv:2610.37651",
+            "arxiv:2610.37656",
+            "url:https://arxiv.org/abs/2610.37651",
+            "url:https://arxiv.org/abs/2610.37656"
+          ]
+        },
+        {
+          "url": "posts/20261028-open_source.html",
+          "topic": "open_source",
+          "action": "merged",
+          "anchor": "edition-3",
+          "source_keys": [
+            "url:https://github.com/ollama/ollama/releases/tag/v0.40.12"
+          ]
+        },
+        {
+          "url": "posts/20261028-paper_brief.html",
+          "topic": "paper_brief",
+          "action": "merged",
+          "anchor": "edition-4",
+          "source_keys": [
+            "arxiv:2610.37056",
+            "doi:10.3389/fbioe.2026.1973664",
+            "url:https://arxiv.org/abs/2610.37056",
+            "url:https://developer.nvidia.com/blog/3-ways-to-boost-moe-inference-on-nvidia-dgx-spark",
+            "url:https://doi.org/10.3389/fbioe.2026.1973664"
+          ]
+        },
+        {
+          "url": "posts/20261028-core_research.html",
+          "topic": "core_research",
+          "action": "merged",
+          "anchor": "edition-5",
+          "source_keys": [
+            "doi:10.11591/ijres.v15.i3.pp596-608",
+            "doi:10.11591/ijres.v15.i3.pp727-736",
+            "doi:10.11591/ijres.v15.i3.pp859-867",
+            "url:https://doi.org/10.11591/ijres.v15.i3.pp596-608",
+            "url:https://doi.org/10.11591/ijres.v15.i3.pp727-736",
+            "url:https://doi.org/10.11591/ijres.v15.i3.pp859-867"
+          ]
+        },
+        {
+          "url": "posts/20261028-dev_practice.html",
+          "topic": "dev_practice",
+          "action": "merged",
+          "anchor": "edition-6",
+          "source_keys": [
+            "url:https://github.com/fastapi/fastapi/releases/tag/0.158.1",
+            "url:https://github.com/fastapi/fastapi/releases/tag/0.158.2"
+          ]
+        },
+        {
+          "url": "posts/20261028-applied_ai.html",
+          "topic": "applied_ai",
+          "action": "merged",
+          "anchor": "edition-7",
+          "source_keys": [
+            "doi:10.1007/s11517-026-03705-x",
+            "doi:10.1021/acs.jcim.6c01321",
+            "doi:10.23969/infomatek.v28i2.59199",
+            "url:https://doi.org/10.1007/s11517-026-03705-x",
+            "url:https://doi.org/10.1021/acs.jcim.6c01321",
+            "url:https://doi.org/10.23969/infomatek.v28i2.59199"
+          ]
+        },
+        {
+          "url": "posts/20261028-daily_digest.html",
+          "topic": "daily_digest",
+          "action": "folded_index"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-29",
+      "canonical": "posts/20261029-daily.html",
+      "published_at": "2026-10-29T09:00:00+08:00",
+      "source_count": 15,
+      "section_count": 6,
+      "fragments": [
+        {
+          "url": "posts/20261029-morning_radar.html",
+          "topic": "morning_radar",
+          "action": "merged",
+          "anchor": "edition-1",
+          "source_keys": [
+            "url:https://github.blog/changelog/2026-10-28-github-copilot-app-universe-releases",
+            "url:https://github.blog/changelog/2026-10-28-github-enterprise-now-includes-access-to-github-copilot",
+            "url:https://github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion"
+          ]
+        },
+        {
+          "url": "posts/20261029-model_research.html",
+          "topic": "model_research",
+          "action": "merged",
+          "anchor": "edition-2",
+          "source_keys": [
+            "doi:10.1021/acs.jcim.6c02817",
+            "doi:10.1038/s41467-026-78807-z",
+            "doi:10.1093/9780198999102.003.0008",
+            "url:https://doi.org/10.1021/acs.jcim.6c02817",
+            "url:https://doi.org/10.1038/s41467-026-78807-z",
+            "url:https://doi.org/10.1093/9780198999102.003.0008"
+          ]
+        },
+        {
+          "url": "posts/20261029-open_source.html",
+          "topic": "open_source",
+          "action": "merged",
+          "anchor": "edition-3",
+          "source_keys": [
+            "url:https://github.com/ollama/ollama/releases/tag/v0.40.13"
+          ]
+        },
+        {
+          "url": "posts/20261029-paper_brief.html",
+          "topic": "paper_brief",
+          "action": "merged",
+          "anchor": "edition-4",
+          "source_keys": [
+            "arxiv:2610.37599",
+            "arxiv:2610.37662",
+            "doi:10.1142/s0129065727500389",
+            "url:https://arxiv.org/abs/2610.37599",
+            "url:https://arxiv.org/abs/2610.37662",
+            "url:https://doi.org/10.1142/s0129065727500389"
+          ]
+        },
+        {
+          "url": "posts/20261029-core_research.html",
+          "topic": "core_research",
+          "action": "merged",
+          "anchor": "edition-5",
+          "source_keys": [
+            "arxiv:2610.37530",
+            "arxiv:2610.37556",
+            "arxiv:2610.37557",
+            "url:https://arxiv.org/abs/2610.37530",
+            "url:https://arxiv.org/abs/2610.37556",
+            "url:https://arxiv.org/abs/2610.37557"
+          ]
+        },
+        {
+          "url": "posts/20261029-applied_ai.html",
+          "topic": "applied_ai",
+          "action": "merged",
+          "anchor": "edition-6",
+          "source_keys": [
+            "arxiv:2610.34205",
+            "doi:10.1145/3860542",
+            "url:https://arxiv.org/abs/2610.34205",
+            "url:https://doi.org/10.1145/3860542"
+          ]
+        },
+        {
+          "url": "posts/20261029-daily_digest.html",
+          "topic": "daily_digest",
+          "action": "folded_index"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-30",
+      "canonical": "posts/20261030-daily.html",
+      "published_at": "2026-10-30T09:00:00+08:00",
+      "source_count": 15,
+      "section_count": 7,
+      "fragments": [
+        {
+          "url": "posts/20261030-morning_radar.html",
+          "topic": "morning_radar",
+          "action": "merged",
+          "anchor": "edition-1",
+          "source_keys": [
+            "url:https://github.blog/changelog/2026-10-28-build-shared-workflows-for-your-team-with-copilot-automations",
+            "url:https://github.blog/changelog/2026-10-28-github-copilot-in-vs-code-universe-releases",
+            "url:https://github.blog/changelog/2026-10-28-security-extension-for-the-github-copilot-app"
+          ]
+        },
+        {
+          "url": "posts/20261030-model_research.html",
+          "topic": "model_research",
+          "action": "merged",
+          "anchor": "edition-2",
+          "source_keys": [
+            "arxiv:2610.38838",
+            "doi:10.66308/air.e80134906",
+            "url:https://arxiv.org/abs/2610.38838",
+            "url:https://doi.org/10.66308/air.e80134906"
+          ]
+        },
+        {
+          "url": "posts/20261030-open_source.html",
+          "topic": "open_source",
+          "action": "merged",
+          "anchor": "edition-3",
+          "source_keys": [
+            "url:https://github.com/huggingface/transformers/releases/tag/v5.22.0"
+          ]
+        },
+        {
+          "url": "posts/20261030-paper_brief.html",
+          "topic": "paper_brief",
+          "action": "merged",
+          "anchor": "edition-4",
+          "source_keys": [
+            "doi:10.47760/cognizance.2026.v06i10.001",
+            "doi:10.47852/bonviewjdsis620210679",
+            "url:https://doi.org/10.47760/cognizance.2026.v06i10.001",
+            "url:https://doi.org/10.47852/bonviewjdsis620210679"
+          ]
+        },
+        {
+          "url": "posts/20261030-core_research.html",
+          "topic": "core_research",
+          "action": "merged",
+          "anchor": "edition-5",
+          "source_keys": [
+            "arxiv:2610.40649",
+            "arxiv:2610.40653",
+            "doi:10.59490/6ad2937c6ee698573e4dd024",
+            "url:https://arxiv.org/abs/2610.40649",
+            "url:https://arxiv.org/abs/2610.40653",
+            "url:https://doi.org/10.59490/6ad2937c6ee698573e4dd024"
+          ]
+        },
+        {
+          "url": "posts/20261030-dev_practice.html",
+          "topic": "dev_practice",
+          "action": "merged",
+          "anchor": "edition-6",
+          "source_keys": [
+            "url:https://github.com/huggingface/transformers/releases/tag/v5.21.1"
+          ]
+        },
+        {
+          "url": "posts/20261030-applied_ai.html",
+          "topic": "applied_ai",
+          "action": "merged",
+          "anchor": "edition-7",
+          "source_keys": [
+            "arxiv:2610.38106",
+            "doi:10.15408/jti.v19i2.54220",
+            "doi:10.48175/ijarsct-40345",
+            "url:https://arxiv.org/abs/2610.38106",
+            "url:https://doi.org/10.15408/jti.v19i2.54220",
+            "url:https://doi.org/10.48175/ijarsct-40345"
+          ]
+        },
+        {
+          "url": "posts/20261030-daily_digest.html",
+          "topic": "daily_digest",
+          "action": "folded_index"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-31",
+      "canonical": "posts/20261031-daily.html",
+      "published_at": "2026-10-31T09:00:00+08:00",
+      "source_count": 12,
+      "section_count": 6,
+      "fragments": [
+        {
+          "url": "posts/20261031-morning_radar.html",
+          "topic": "morning_radar",
+          "action": "merged",
+          "anchor": "edition-1",
+          "source_keys": [
+            "url:https://github.blog/changelog/2026-10-28-generate-and-edit-images-directly-in-copilot",
+            "url:https://github.blog/changelog/2026-10-28-repository-plugin-defaults-and-enterprise-plugin-controls-generally-available"
+          ]
+        },
+        {
+          "url": "posts/20261031-model_research.html",
+          "topic": "model_research",
+          "action": "merged",
+          "anchor": "edition-2",
+          "source_keys": [
+            "arxiv:2610.40655",
+            "doi:10.5281/zenodo.23688329",
+            "doi:10.5281/zenodo.23784964",
+            "url:https://arxiv.org/abs/2610.40655",
+            "url:https://doi.org/10.5281/zenodo.23688329",
+            "url:https://doi.org/10.5281/zenodo.23784964"
+          ]
+        },
+        {
+          "url": "posts/20261031-open_source.html",
+          "topic": "open_source",
+          "action": "merged",
+          "anchor": "edition-3",
+          "source_keys": [
+            "url:https://github.com/huggingface/transformers/releases/tag/v5.22.1"
+          ]
+        },
+        {
+          "url": "posts/20261031-paper_brief.html",
+          "topic": "paper_brief",
+          "action": "merged",
+          "anchor": "edition-4",
+          "source_keys": [
+            "doi:10.3390/photonics13111020",
+            "url:https://doi.org/10.3390/photonics13111020"
+          ]
+        },
+        {
+          "url": "posts/20261031-core_research.html",
+          "topic": "core_research",
+          "action": "merged",
+          "anchor": "edition-5",
+          "source_keys": [
+            "arxiv:2610.40637",
+            "arxiv:2610.40646",
+            "url:https://arxiv.org/abs/2610.40637",
+            "url:https://arxiv.org/abs/2610.40646",
+            "url:https://developer.nvidia.com/blog/build-specialized-agents-on-a-stack-you-control-with-nvidia-nemoclaw"
+          ]
+        },
+        {
+          "url": "posts/20261031-applied_ai.html",
+          "topic": "applied_ai",
+          "action": "merged",
+          "anchor": "edition-6",
+          "source_keys": [
+            "arxiv:2610.40618",
+            "arxiv:2610.40620",
+            "url:https://arxiv.org/abs/2610.40618",
+            "url:https://arxiv.org/abs/2610.40620"
+          ]
+        },
+        {
+          "url": "posts/20261031-daily_digest.html",
+          "topic": "daily_digest",
+          "action": "folded_index"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-01",
+      "canonical": "posts/20261101-daily.html",
+      "published_at": "2026-11-01T09:00:00+08:00",
+      "source_count": 10,
+      "section_count": 4,
+      "fragments": [
+        {
+          "url": "posts/20261101-model_research.html",
+          "topic": "model_research",
+          "action": "merged",
+          "anchor": "edition-1",
+          "source_keys": [
+            "url:https://ink.library.smu.edu.sg/sis_research/11177",
+            "url:https://tsukuba.repo.nii.ac.jp/records/2024994"
+          ]
+        },
+        {
+          "url": "posts/20261101-paper_brief.html",
+          "topic": "paper_brief",
+          "action": "merged",
+          "anchor": "edition-2",
+          "source_keys": [
+            "doi:10.1038/s41598-026-77245-7",
+            "doi:10.22214/ijraset.2026.85437",
+            "url:https://developer.nvidia.com/blog/how-to-check-and-configure-nvidia-gpudirect-storage-for-your-platform",
+            "url:https://doi.org/10.1038/s41598-026-77245-7",
+            "url:https://doi.org/10.22214/ijraset.2026.85437"
+          ]
+        },
+        {
+          "url": "posts/20261101-core_research.html",
+          "topic": "core_research",
+          "action": "merged",
+          "anchor": "edition-3",
+          "source_keys": [
+            "doi:10.1108/ijpcc-03-2025-0094",
+            "doi:10.21203/rs.3.rs-11540054/v1",
+            "doi:10.47116/apjcri.2026.10.23",
+            "url:https://doi.org/10.1108/ijpcc-03-2025-0094",
+            "url:https://doi.org/10.21203/rs.3.rs-11540054/v1",
+            "url:https://doi.org/10.47116/apjcri.2026.10.23"
+          ]
+        },
+        {
+          "url": "posts/20261101-applied_ai.html",
+          "topic": "applied_ai",
+          "action": "merged",
+          "anchor": "edition-4",
+          "source_keys": [
+            "doi:10.1016/j.cma.2026.119501",
+            "doi:10.3389/frobt.2026.1937649",
+            "url:https://doi.org/10.1016/j.cma.2026.119501",
+            "url:https://doi.org/10.3389/frobt.2026.1937649"
+          ]
+        },
+        {
+          "url": "posts/20261101-daily_digest.html",
+          "topic": "daily_digest",
+          "action": "folded_index"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-02",
+      "canonical": "posts/20261102-daily.html",
+      "published_at": "2026-11-02T09:00:00+08:00",
+      "source_count": 11,
+      "section_count": 4,
+      "fragments": [
+        {
+          "url": "posts/20261102-model_research.html",
+          "topic": "model_research",
+          "action": "merged",
+          "anchor": "edition-1",
+          "source_keys": [
+            "arxiv:2610.41232",
+            "arxiv:2610.41264",
+            "url:https://arxiv.org/abs/2610.41232",
+            "url:https://arxiv.org/abs/2610.41264",
+            "url:https://real.mtak.hu/247847/1/aacl_2026.pdf"
+          ]
+        },
+        {
+          "url": "posts/20261102-paper_brief.html",
+          "topic": "paper_brief",
+          "action": "merged",
+          "anchor": "edition-2",
+          "source_keys": [
+            "arxiv:2610.42112",
+            "arxiv:2610.42116",
+            "arxiv:2610.42149",
+            "url:https://arxiv.org/abs/2610.42112",
+            "url:https://arxiv.org/abs/2610.42116",
+            "url:https://arxiv.org/abs/2610.42149"
+          ]
+        },
+        {
+          "url": "posts/20261102-core_research.html",
+          "topic": "core_research",
+          "action": "merged",
+          "anchor": "edition-3",
+          "source_keys": [
+            "arxiv:2610.42147",
+            "doi:10.57159/jcmm.5.5.261320",
+            "doi:10.66157/jisca.1.2.36",
+            "url:https://arxiv.org/abs/2610.42147",
+            "url:https://doi.org/10.57159/jcmm.5.5.261320",
+            "url:https://doi.org/10.66157/jisca.1.2.36"
+          ]
+        },
+        {
+          "url": "posts/20261102-applied_ai.html",
+          "topic": "applied_ai",
+          "action": "merged",
+          "anchor": "edition-4",
+          "source_keys": [
+            "arxiv:2610.41265",
+            "url:https://arxiv.org/abs/2610.41265",
+            "url:https://hal.science/hal-05745137v1"
+          ]
+        },
+        {
+          "url": "posts/20261102-daily_digest.html",
+          "topic": "daily_digest",
+          "action": "folded_index"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-03",
+      "canonical": "posts/20261103-daily.html",
+      "published_at": "2026-11-03T09:00:00+08:00",
+      "source_count": 12,
+      "section_count": 5,
+      "fragments": [
+        {
+          "url": "posts/20261103-morning_radar.html",
+          "topic": "morning_radar",
+          "action": "merged",
+          "anchor": "edition-1",
+          "source_keys": [
+            "url:https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-october-2026"
+          ]
+        },
+        {
+          "url": "posts/20261103-model_research.html",
+          "topic": "model_research",
+          "action": "merged",
+          "anchor": "edition-2",
+          "source_keys": [
+            "doi:10.2118/236501-ms",
+            "doi:10.21203/rs.3.rs-11118276/v1",
+            "doi:10.4018/979-8-3373-6581-7.ch008",
+            "url:https://doi.org/10.2118/236501-ms",
+            "url:https://doi.org/10.21203/rs.3.rs-11118276/v1",
+            "url:https://doi.org/10.4018/979-8-3373-6581-7.ch008"
+          ]
+        },
+        {
+          "url": "posts/20261103-paper_brief.html",
+          "topic": "paper_brief",
+          "action": "merged",
+          "anchor": "edition-3",
+          "source_keys": [
+            "doi:10.1287/educ.2026.0310",
+            "doi:10.4018/979-8-2600-0026-7.ch003",
+            "url:https://developer.nvidia.com/blog/build-world-models-for-interactive-simulation-with-nvidia-cosmos",
+            "url:https://doi.org/10.1287/educ.2026.0310",
+            "url:https://doi.org/10.4018/979-8-2600-0026-7.ch003"
+          ]
+        },
+        {
+          "url": "posts/20261103-core_research.html",
+          "topic": "core_research",
+          "action": "merged",
+          "anchor": "edition-4",
+          "source_keys": [
+            "arxiv:2611.02129",
+            "doi:10.4018/979-8-2600-0026-7.ch013",
+            "url:https://arxiv.org/abs/2611.02129",
+            "url:https://doi.org/10.4018/979-8-2600-0026-7.ch013"
+          ]
+        },
+        {
+          "url": "posts/20261103-applied_ai.html",
+          "topic": "applied_ai",
+          "action": "merged",
+          "anchor": "edition-5",
+          "source_keys": [
+            "arxiv:2611.03646",
+            "arxiv:2611.03647",
+            "arxiv:2611.03648",
+            "url:https://arxiv.org/abs/2611.03646",
+            "url:https://arxiv.org/abs/2611.03647",
+            "url:https://arxiv.org/abs/2611.03648"
+          ]
+        },
+        {
+          "url": "posts/20261103-daily_digest.html",
+          "topic": "daily_digest",
+          "action": "folded_index"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-04",
+      "canonical": "posts/20261104-daily.html",
+      "published_at": "2026-11-04T09:00:00+08:00",
+      "source_count": 14,
+      "section_count": 6,
+      "fragments": [
+        {
+          "url": "posts/20261104-morning_radar.html",
+          "topic": "morning_radar",
+          "action": "merged",
+          "anchor": "edition-1",
+          "source_keys": [
+            "url:https://github.blog/changelog/2026-11-03-byok-and-enterprise-custom-models-in-the-copilot-usage-api",
+            "url:https://github.blog/changelog/2026-11-03-dependabot-version-updates-support-agent-package-manager",
+            "url:https://github.blog/changelog/2026-11-03-github-copilot-is-now-available-in-jetbrains-air"
+          ]
+        },
+        {
+          "url": "posts/20261104-model_research.html",
+          "topic": "model_research",
+          "action": "merged",
+          "anchor": "edition-2",
+          "source_keys": [
+            "arxiv:2611.04217",
+            "arxiv:2611.04225",
+            "arxiv:2611.04277",
+            "url:https://arxiv.org/abs/2611.04217",
+            "url:https://arxiv.org/abs/2611.04225",
+            "url:https://arxiv.org/abs/2611.04277"
+          ]
+        },
+        {
+          "url": "posts/20261104-open_source.html",
+          "topic": "open_source",
+          "action": "merged",
+          "anchor": "edition-3",
+          "source_keys": [
+            "url:https://github.com/ollama/ollama/releases/tag/v0.40.14"
+          ]
+        },
+        {
+          "url": "posts/20261104-paper_brief.html",
+          "topic": "paper_brief",
+          "action": "merged",
+          "anchor": "edition-4",
+          "source_keys": [
+            "doi:10.1145/3845995",
+            "url:https://developer.nvidia.com/blog/build-a-validated-kubernetes-runtime-for-nvidia-dynamo",
+            "url:https://doi.org/10.1145/3845995"
+          ]
+        },
+        {
+          "url": "posts/20261104-core_research.html",
+          "topic": "core_research",
+          "action": "merged",
+          "anchor": "edition-5",
+          "source_keys": [
+            "arxiv:2611.04740",
+            "doi:10.70088/z2h7gc12",
+            "url:https://arxiv.org/abs/2611.04740",
+            "url:https://doi.org/10.70088/z2h7gc12"
+          ]
+        },
+        {
+          "url": "posts/20261104-applied_ai.html",
+          "topic": "applied_ai",
+          "action": "merged",
+          "anchor": "edition-6",
+          "source_keys": [
+            "arxiv:2611.05361",
+            "doi:10.1142/s0218213026500296",
+            "doi:10.3389/fnimg.2026.1931240",
+            "url:https://arxiv.org/abs/2611.05361",
+            "url:https://doi.org/10.1142/s0218213026500296",
+            "url:https://doi.org/10.3389/fnimg.2026.1931240"
+          ]
+        },
+        {
+          "url": "posts/20261104-daily_digest.html",
+          "topic": "daily_digest",
+          "action": "folded_index"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-05",
+      "canonical": "posts/20261105-daily.html",
+      "published_at": "2026-11-05T09:00:00+08:00",
+      "source_count": 13,
+      "section_count": 6,
+      "fragments": [
+        {
+          "url": "posts/20261105-morning_radar.html",
+          "topic": "morning_radar",
+          "action": "merged",
+          "anchor": "edition-1",
+          "source_keys": [
+            "url:https://github.blog/changelog/2026-11-04-github-copilot-is-now-available-in-xcodes-coding-assistant"
+          ]
+        },
+        {
+          "url": "posts/20261105-model_research.html",
+          "topic": "model_research",
+          "action": "merged",
+          "anchor": "edition-2",
+          "source_keys": [
+            "arxiv:2611.05942",
+            "arxiv:2611.05953",
+            "url:https://arxiv.org/abs/2611.05942",
+            "url:https://arxiv.org/abs/2611.05953"
+          ]
+        },
+        {
+          "url": "posts/20261105-paper_brief.html",
+          "topic": "paper_brief",
+          "action": "merged",
+          "anchor": "edition-3",
+          "source_keys": [
+            "doi:10.1016/j.sysarc.2026.104040",
+            "doi:10.1145/3799682.3840095",
+            "doi:10.1145/3799682.3840768",
+            "url:https://doi.org/10.1016/j.sysarc.2026.104040",
+            "url:https://doi.org/10.1145/3799682.3840095",
+            "url:https://doi.org/10.1145/3799682.3840768"
+          ]
+        },
+        {
+          "url": "posts/20261105-prompt_engineering.html",
+          "topic": "prompt_engineering",
+          "action": "merged",
+          "anchor": "edition-4",
+          "source_keys": [
+            "url:https://github.com/openai/openai-cookbook/commit/86c505082d8eb19c36c98cff0c0ea6855583c905"
+          ]
+        },
+        {
+          "url": "posts/20261105-core_research.html",
+          "topic": "core_research",
+          "action": "merged",
+          "anchor": "edition-5",
+          "source_keys": [
+            "arxiv:2611.06796",
+            "arxiv:2611.06858",
+            "arxiv:2611.06859",
+            "url:https://arxiv.org/abs/2611.06796",
+            "url:https://arxiv.org/abs/2611.06858",
+            "url:https://arxiv.org/abs/2611.06859"
+          ]
+        },
+        {
+          "url": "posts/20261105-applied_ai.html",
+          "topic": "applied_ai",
+          "action": "merged",
+          "anchor": "edition-6",
+          "source_keys": [
+            "doi:10.1061/jcemd4.coeng-18794",
+            "url:https://developer.nvidia.com/blog/how-nvidia-uses-ai-agents-to-streamline-ai-factory-operations",
+            "url:https://developer.nvidia.com/blog/use-nvidia-nemo-to-turn-agent-failures-into-tests-and-harness-fixes",
+            "url:https://doi.org/10.1061/jcemd4.coeng-18794"
+          ]
+        },
+        {
+          "url": "posts/20261105-daily_digest.html",
+          "topic": "daily_digest",
+          "action": "folded_index"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-06",
+      "canonical": "posts/20261106-daily.html",
+      "published_at": "2026-11-06T09:00:00+08:00",
+      "source_count": 15,
+      "section_count": 5,
+      "fragments": [
+        {
+          "url": "posts/20261106-morning_radar.html",
+          "topic": "morning_radar",
+          "action": "merged",
+          "anchor": "edition-1",
+          "source_keys": [
+            "url:https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash",
+            "url:https://github.blog/changelog/2026-11-05-usage-metrics-api-adds-code-review-details-and-addressed-rate",
+            "url:https://github.blog/changelog/2026-11-05-usage-metrics-api-flags-telemetry-and-version-gaps"
+          ]
+        },
+        {
+          "url": "posts/20261106-model_research.html",
+          "topic": "model_research",
+          "action": "merged",
+          "anchor": "edition-2",
+          "source_keys": [
+            "arxiv:2611.07392",
+            "arxiv:2611.07393",
+            "arxiv:2611.07408",
+            "url:https://arxiv.org/abs/2611.07392",
+            "url:https://arxiv.org/abs/2611.07393",
+            "url:https://arxiv.org/abs/2611.07408"
+          ]
+        },
+        {
+          "url": "posts/20261106-paper_brief.html",
+          "topic": "paper_brief",
+          "action": "merged",
+          "anchor": "edition-3",
+          "source_keys": [
+            "arxiv:2611.08352",
+            "arxiv:2611.08477",
+            "arxiv:2611.08486",
+            "url:https://arxiv.org/abs/2611.08352",
+            "url:https://arxiv.org/abs/2611.08477",
+            "url:https://arxiv.org/abs/2611.08486"
+          ]
+        },
+        {
+          "url": "posts/20261106-core_research.html",
+          "topic": "core_research",
+          "action": "merged",
+          "anchor": "edition-4",
+          "source_keys": [
+            "doi:10.1017/pan.2026.10062",
+            "doi:10.1145/3799682.3840157",
+            "doi:10.3389/fpsyg.2026.1974971",
+            "url:https://doi.org/10.1017/pan.2026.10062",
+            "url:https://doi.org/10.1145/3799682.3840157",
+            "url:https://doi.org/10.3389/fpsyg.2026.1974971"
+          ]
+        },
+        {
+          "url": "posts/20261106-applied_ai.html",
+          "topic": "applied_ai",
+          "action": "merged",
+          "anchor": "edition-5",
+          "source_keys": [
+            "arxiv:2611.06162",
+            "arxiv:2611.07320",
+            "doi:10.21203/rs.3.rs-11605123/v1",
+            "url:https://arxiv.org/abs/2611.06162",
+            "url:https://arxiv.org/abs/2611.07320",
+            "url:https://doi.org/10.21203/rs.3.rs-11605123/v1"
+          ]
+        },
+        {
+          "url": "posts/20261106-daily_digest.html",
+          "topic": "daily_digest",
+          "action": "folded_index"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-07",
+      "canonical": "posts/20261107-daily.html",
+      "published_at": "2026-11-07T09:00:00+08:00",
+      "source_count": 16,
+      "section_count": 7,
+      "fragments": [
+        {
+          "url": "posts/20261107-morning_radar.html",
+          "topic": "morning_radar",
+          "action": "merged",
+          "anchor": "edition-1",
+          "source_keys": [
+            "url:https://github.blog/changelog/2026-11-06-copilot-code-review-api-management-and-review-overview-updates",
+            "url:https://github.blog/changelog/2026-11-06-copilot-impact-dashboard-adds-chat-and-vs-code-agent-usage",
+            "url:https://github.blog/changelog/2026-11-06-github-copilot-weekly-releases-november-2"
+          ]
+        },
+        {
+          "url": "posts/20261107-model_research.html",
+          "topic": "model_research",
+          "action": "merged",
+          "anchor": "edition-2",
+          "source_keys": [
+            "arxiv:2611.08465",
+            "doi:10.14710/jphi.v8i2.393-425",
+            "doi:10.21203/rs.3.rs-11336583/v1",
+            "url:https://arxiv.org/abs/2611.08465",
+            "url:https://doi.org/10.14710/jphi.v8i2.393-425",
+            "url:https://doi.org/10.21203/rs.3.rs-11336583/v1"
+          ]
+        },
+        {
+          "url": "posts/20261107-open_source.html",
+          "topic": "open_source",
+          "action": "merged",
+          "anchor": "edition-3",
+          "source_keys": [
+            "url:https://github.com/huggingface/transformers/releases/tag/v5.22.2",
+            "url:https://github.com/ollama/ollama/releases/tag/v0.40.15"
+          ]
+        },
+        {
+          "url": "posts/20261107-paper_brief.html",
+          "topic": "paper_brief",
+          "action": "merged",
+          "anchor": "edition-4",
+          "source_keys": [
+            "doi:10.1145/3845814.3850046",
+            "url:https://doi.org/10.1145/3845814.3850046"
+          ]
+        },
+        {
+          "url": "posts/20261107-core_research.html",
+          "topic": "core_research",
+          "action": "merged",
+          "anchor": "edition-5",
+          "source_keys": [
+            "doi:10.1002/rcs.70248",
+            "doi:10.1609/aaaiss.v10i1.43505",
+            "doi:10.4018/979-8-2600-4785-9.ch001",
+            "url:https://doi.org/10.1002/rcs.70248",
+            "url:https://doi.org/10.1609/aaaiss.v10i1.43505",
+            "url:https://doi.org/10.4018/979-8-2600-4785-9.ch001"
+          ]
+        },
+        {
+          "url": "posts/20261107-applied_ai.html",
+          "topic": "applied_ai",
+          "action": "merged",
+          "anchor": "edition-6",
+          "source_keys": [
+            "arxiv:2611.08413",
+            "arxiv:2611.08453",
+            "arxiv:2611.08461",
+            "url:https://arxiv.org/abs/2611.08413",
+            "url:https://arxiv.org/abs/2611.08453",
+            "url:https://arxiv.org/abs/2611.08461"
+          ]
+        },
+        {
+          "url": "posts/20261107-ecosystem.html",
+          "topic": "ecosystem",
+          "action": "merged",
+          "anchor": "edition-7",
+          "source_keys": [
+            "url:https://github.blog/ai-and-ml/github-copilot/beyond-code-generation-a-developers-guide-to-agentic-engineering"
+          ]
+        },
+        {
+          "url": "posts/20261107-daily_digest.html",
+          "topic": "daily_digest",
+          "action": "folded_index"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-08",
+      "canonical": "posts/20261108-daily.html",
+      "published_at": "2026-11-08T09:00:00+08:00",
+      "source_count": 13,
+      "section_count": 5,
+      "fragments": [
+        {
+          "url": "posts/20261108-model_research.html",
+          "topic": "model_research",
+          "action": "merged",
+          "anchor": "edition-1",
+          "source_keys": [
+            "doi:10.1038/s41746-026-03425-4",
+            "doi:10.21203/rs.3.rs-11030933/v1",
+            "url:https://doi.org/10.1038/s41746-026-03425-4",
+            "url:https://doi.org/10.21203/rs.3.rs-11030933/v1"
+          ]
+        },
+        {
+          "url": "posts/20261108-paper_brief.html",
+          "topic": "paper_brief",
+          "action": "merged",
+          "anchor": "edition-2",
+          "source_keys": [
+            "doi:10.1007/s00170-026-19378-7",
+            "doi:10.47852/bonviewjdsis620210310",
+            "doi:10.63180/jjic.thestap.2027.1.5",
+            "url:https://doi.org/10.1007/s00170-026-19378-7",
+            "url:https://doi.org/10.47852/bonviewjdsis620210310",
+            "url:https://doi.org/10.63180/jjic.thestap.2027.1.5"
+          ]
+        },
+        {
+          "url": "posts/20261108-core_research.html",
+          "topic": "core_research",
+          "action": "merged",
+          "anchor": "edition-3",
+          "source_keys": [
+            "doi:10.1007/s44290-026-00669-7",
+            "doi:10.1038/s41598-026-75267-9",
+            "doi:10.3390/electronics15215143",
+            "url:https://doi.org/10.1007/s44290-026-00669-7",
+            "url:https://doi.org/10.1038/s41598-026-75267-9",
+            "url:https://doi.org/10.3390/electronics15215143"
+          ]
+        },
+        {
+          "url": "posts/20261108-dev_practice.html",
+          "topic": "dev_practice",
+          "action": "merged",
+          "anchor": "edition-4",
+          "source_keys": [
+            "url:https://github.com/fastapi/fastapi/releases/tag/0.162.1",
+            "url:https://github.com/fastapi/fastapi/releases/tag/0.162.2"
+          ]
+        },
+        {
+          "url": "posts/20261108-applied_ai.html",
+          "topic": "applied_ai",
+          "action": "merged",
+          "anchor": "edition-5",
+          "source_keys": [
+            "doi:10.1145/3767308.3835132",
+            "doi:10.1145/3767308.3835627",
+            "doi:10.1177/02783649261496456",
+            "url:https://doi.org/10.1145/3767308.3835132",
+            "url:https://doi.org/10.1145/3767308.3835627",
+            "url:https://doi.org/10.1177/02783649261496456"
+          ]
+        },
+        {
+          "url": "posts/20261108-daily_digest.html",
+          "topic": "daily_digest",
+          "action": "folded_index"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-09",
+      "canonical": "posts/20261109-daily.html",
+      "published_at": "2026-11-09T09:00:00+08:00",
+      "source_count": 10,
+      "section_count": 4,
+      "fragments": [
+        {
+          "url": "posts/20261109-model_research.html",
+          "topic": "model_research",
+          "action": "merged",
+          "anchor": "edition-1",
+          "source_keys": [
+            "doi:10.1145/3859926",
+            "doi:10.1145/3862591",
+            "url:https://doi.org/10.1145/3859926",
+            "url:https://doi.org/10.1145/3862591",
+            "url:https://hal.science/hal-05831316"
+          ]
+        },
+        {
+          "url": "posts/20261109-paper_brief.html",
+          "topic": "paper_brief",
+          "action": "merged",
+          "anchor": "edition-2",
+          "source_keys": [
+            "doi:10.1145/3841458.3841545",
+            "url:https://doi.org/10.1145/3841458.3841545"
+          ]
+        },
+        {
+          "url": "posts/20261109-core_research.html",
+          "topic": "core_research",
+          "action": "merged",
+          "anchor": "edition-3",
+          "source_keys": [
+            "arxiv:2611.09864",
+            "arxiv:2611.09868",
+            "doi:10.5281/zenodo.24034624",
+            "url:https://arxiv.org/abs/2611.09864",
+            "url:https://arxiv.org/abs/2611.09868",
+            "url:https://doi.org/10.5281/zenodo.24034624"
+          ]
+        },
+        {
+          "url": "posts/20261109-applied_ai.html",
+          "topic": "applied_ai",
+          "action": "merged",
+          "anchor": "edition-4",
+          "source_keys": [
+            "arxiv:2611.09141",
+            "doi:10.1007/s44464-026-00050-8",
+            "doi:10.1201/9788743810568-10",
+            "url:https://arxiv.org/abs/2611.09141",
+            "url:https://doi.org/10.1007/s44464-026-00050-8",
+            "url:https://doi.org/10.1201/9788743810568-10"
+          ]
+        },
+        {
+          "url": "posts/20261109-daily_digest.html",
+          "topic": "daily_digest",
+          "action": "folded_index"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-10",
+      "canonical": "posts/20261110-daily.html",
+      "published_at": "2026-11-10T09:00:00+08:00",
+      "source_count": 12,
+      "section_count": 6,
+      "fragments": [
+        {
+          "url": "posts/20261110-morning_radar.html",
+          "topic": "morning_radar",
+          "action": "merged",
+          "anchor": "edition-1",
+          "source_keys": [
+            "url:https://github.blog/changelog/2026-11-09-claude-fable-5-2-in-github-copilot"
+          ]
+        },
+        {
+          "url": "posts/20261110-model_research.html",
+          "topic": "model_research",
+          "action": "merged",
+          "anchor": "edition-2",
+          "source_keys": [
+            "doi:10.1007/s10579-026-09955-3",
+            "doi:10.1186/s12915-026-02777-3",
+            "doi:10.31234/osf.io/ykz8j_v3",
+            "url:https://doi.org/10.1007/s10579-026-09955-3",
+            "url:https://doi.org/10.1186/s12915-026-02777-3",
+            "url:https://doi.org/10.31234/osf.io/ykz8j_v3"
+          ]
+        },
+        {
+          "url": "posts/20261110-open_source.html",
+          "topic": "open_source",
+          "action": "merged",
+          "anchor": "edition-3",
+          "source_keys": [
+            "url:https://github.com/ollama/ollama/releases/tag/v0.40.16"
+          ]
+        },
+        {
+          "url": "posts/20261110-paper_brief.html",
+          "topic": "paper_brief",
+          "action": "merged",
+          "anchor": "edition-4",
+          "source_keys": [
+            "doi:10.1007/s44336-026-00044-1",
+            "doi:10.54254/2754-1169/2026.ab38745",
+            "url:https://developer.nvidia.com/blog/make-a-robot-arm-feel-weightless-with-nvidia-holoscan-5",
+            "url:https://doi.org/10.1007/s44336-026-00044-1",
+            "url:https://doi.org/10.54254/2754-1169/2026.ab38745"
+          ]
+        },
+        {
+          "url": "posts/20261110-core_research.html",
+          "topic": "core_research",
+          "action": "merged",
+          "anchor": "edition-5",
+          "source_keys": [
+            "doi:10.5281/zenodo.24046679",
+            "doi:10.59992/ijci.2026.v5n11p3",
+            "url:https://doi.org/10.5281/zenodo.24046679",
+            "url:https://doi.org/10.59992/ijci.2026.v5n11p3"
+          ]
+        },
+        {
+          "url": "posts/20261110-applied_ai.html",
+          "topic": "applied_ai",
+          "action": "merged",
+          "anchor": "edition-6",
+          "source_keys": [
+            "arxiv:2611.12870",
+            "arxiv:2611.12885",
+            "url:https://arxiv.org/abs/2611.12870",
+            "url:https://arxiv.org/abs/2611.12885"
+          ]
+        },
+        {
+          "url": "posts/20261110-daily_digest.html",
+          "topic": "daily_digest",
+          "action": "folded_index"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-11",
+      "canonical": "posts/20261111-daily.html",
+      "published_at": "2026-11-11T09:00:00+08:00",
+      "source_count": 17,
+      "section_count": 8,
+      "fragments": [
+        {
+          "url": "posts/20261111-morning_radar.html",
+          "topic": "morning_radar",
+          "action": "merged",
+          "anchor": "edition-1",
+          "source_keys": [
+            "url:https://blog.google/products-and-platforms/platforms/android/gemini-intelligence-november-features-devices",
+            "url:https://github.blog/changelog/2026-11-10-gemini-4-carbon-in-github-copilot",
+            "url:https://github.blog/changelog/2026-11-10-github-app-support-for-enterprise-copilot-seat-management"
+          ]
+        },
+        {
+          "url": "posts/20261111-model_research.html",
+          "topic": "model_research",
+          "action": "merged",
+          "anchor": "edition-2",
+          "source_keys": [
+            "arxiv:2611.13496",
+            "arxiv:2611.13512",
+            "doi:10.1108/978-1-83708-152-320261019",
+            "url:https://arxiv.org/abs/2611.13496",
+            "url:https://arxiv.org/abs/2611.13512",
+            "url:https://doi.org/10.1108/978-1-83708-152-320261019"
+          ]
+        },
+        {
+          "url": "posts/20261111-paper_brief.html",
+          "topic": "paper_brief",
+          "action": "merged",
+          "anchor": "edition-3",
+          "source_keys": [
+            "doi:10.3390/rs18213839",
+            "url:https://developer.nvidia.com/blog/start-and-restore-gpu-workloads-in-seconds-with-nvidia-snapshot",
+            "url:https://doi.org/10.3390/rs18213839"
+          ]
+        },
+        {
+          "url": "posts/20261111-prompt_engineering.html",
+          "topic": "prompt_engineering",
+          "action": "merged",
+          "anchor": "edition-4",
+          "source_keys": [
+            "url:https://github.com/openai/openai-cookbook/commit/2658c92cd4cd562504571b9d7491fc51524a7dc9"
+          ]
+        },
+        {
+          "url": "posts/20261111-core_research.html",
+          "topic": "core_research",
+          "action": "merged",
+          "anchor": "edition-5",
+          "source_keys": [
+            "arxiv:2611.13437",
+            "arxiv:2611.14285",
+            "url:https://arxiv.org/abs/2611.13437",
+            "url:https://arxiv.org/abs/2611.14285"
+          ]
+        },
+        {
+          "url": "posts/20261111-dev_practice.html",
+          "topic": "dev_practice",
+          "action": "merged",
+          "anchor": "edition-6",
+          "source_keys": [
+            "url:https://github.com/fastapi/fastapi/releases/tag/0.162.3",
+            "url:https://github.com/fastapi/fastapi/releases/tag/0.162.4"
+          ]
+        },
+        {
+          "url": "posts/20261111-applied_ai.html",
+          "topic": "applied_ai",
+          "action": "merged",
+          "anchor": "edition-7",
+          "source_keys": [
+            "doi:10.1177/21695172261499043",
+            "doi:10.3389/frobt.2026.1981973",
+            "doi:10.3389/frobt.2026.1996839",
+            "url:https://doi.org/10.1177/21695172261499043",
+            "url:https://doi.org/10.3389/frobt.2026.1981973",
+            "url:https://doi.org/10.3389/frobt.2026.1996839"
+          ]
+        },
+        {
+          "url": "posts/20261111-ecosystem.html",
+          "topic": "ecosystem",
+          "action": "merged",
+          "anchor": "edition-8",
+          "source_keys": [
+            "url:https://blog.google/company-news/inside-google/company-announcements/adobe-google-partnership-integration"
+          ]
+        },
+        {
+          "url": "posts/20261111-daily_digest.html",
+          "topic": "daily_digest",
+          "action": "folded_index"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-12",
+      "canonical": "posts/20261112-daily.html",
+      "published_at": "2026-11-12T09:00:00+08:00",
+      "source_count": 15,
+      "section_count": 6,
+      "fragments": [
+        {
+          "url": "posts/20261112-morning_radar.html",
+          "topic": "morning_radar",
+          "action": "merged",
+          "anchor": "edition-1",
+          "source_keys": [
+            "url:https://blog.google/company-news/outreach-and-initiatives/arts-culture/esther-mahlangu",
+            "url:https://blog.google/innovation-and-ai/models-and-research/google-labs/tabletop",
+            "url:https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api"
+          ]
+        },
+        {
+          "url": "posts/20261112-model_research.html",
+          "topic": "model_research",
+          "action": "merged",
+          "anchor": "edition-2",
+          "source_keys": [
+            "arxiv:2611.14518",
+            "arxiv:2611.14519",
+            "doi:10.18174/sesmo.19051",
+            "url:https://arxiv.org/abs/2611.14518",
+            "url:https://arxiv.org/abs/2611.14519",
+            "url:https://doi.org/10.18174/sesmo.19051"
+          ]
+        },
+        {
+          "url": "posts/20261112-paper_brief.html",
+          "topic": "paper_brief",
+          "action": "merged",
+          "anchor": "edition-3",
+          "source_keys": [
+            "doi:10.14445/22315381/ijett-v74i10p118",
+            "doi:10.5281/zenodo.24099169",
+            "url:https://doi.org/10.14445/22315381/ijett-v74i10p118",
+            "url:https://doi.org/10.5281/zenodo.24099169"
+          ]
+        },
+        {
+          "url": "posts/20261112-prompt_engineering.html",
+          "topic": "prompt_engineering",
+          "action": "merged",
+          "anchor": "edition-4",
+          "source_keys": [
+            "url:https://github.com/openai/openai-cookbook/commit/2d5b1a9b6e706a732b03048d701c7086fda5f010"
+          ]
+        },
+        {
+          "url": "posts/20261112-core_research.html",
+          "topic": "core_research",
+          "action": "merged",
+          "anchor": "edition-5",
+          "source_keys": [
+            "arxiv:2611.14498",
+            "doi:10.1038/s41598-026-78831-5",
+            "url:https://arxiv.org/abs/2611.14498",
+            "url:https://doi.org/10.1038/s41598-026-78831-5"
+          ]
+        },
+        {
+          "url": "posts/20261112-applied_ai.html",
+          "topic": "applied_ai",
+          "action": "merged",
+          "anchor": "edition-6",
+          "source_keys": [
+            "doi:10.14445/23488549/ijece%e2%80%91v13i10p101",
+            "doi:10.14445/23488549/ijece-v13i10p101",
+            "doi:10.21203/rs.3.rs%e2%80%9111477727/v1",
+            "doi:10.21203/rs.3.rs-11477727/v1",
+            "url:https://doi.org/10.14445/23488549/ijece%E2%80%91v13i10p101",
+            "url:https://doi.org/10.14445/23488549/ijece-v13i10p101",
+            "url:https://doi.org/10.21203/rs.3.rs%E2%80%9111477727/v1",
+            "url:https://doi.org/10.21203/rs.3.rs-11477727/v1"
+          ]
+        },
+        {
+          "url": "posts/20261112-daily_digest.html",
+          "topic": "daily_digest",
+          "action": "folded_index"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-13",
+      "canonical": "posts/20261113-daily.html",
+      "published_at": "2026-11-13T09:00:00+08:00",
+      "source_count": 9,
+      "section_count": 4,
+      "fragments": [
+        {
+          "url": "posts/20261113-morning_radar.html",
+          "topic": "morning_radar",
+          "action": "merged",
+          "anchor": "edition-1",
+          "source_keys": [
+            "url:https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/gemini-for-healthcare",
+            "url:https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade",
+            "url:https://github.blog/changelog/2026-11-10-c-language-server-now-auto-configures-msbuild-builds"
+          ]
+        },
+        {
+          "url": "posts/20261113-core_research.html",
+          "topic": "core_research",
+          "action": "merged",
+          "anchor": "edition-2",
+          "source_keys": [
+            "doi:10.4018/979-8-2600-4926-6.ch004",
+            "doi:10.4018/979-8-2600-4947-1.ch007",
+            "doi:10.4018/979-8-2600-4967-9.ch004",
+            "url:https://doi.org/10.4018/979-8-2600-4926-6.ch004",
+            "url:https://doi.org/10.4018/979-8-2600-4947-1.ch007",
+            "url:https://doi.org/10.4018/979-8-2600-4967-9.ch004"
+          ]
+        },
+        {
+          "url": "posts/20261113-applied_ai.html",
+          "topic": "applied_ai",
+          "action": "merged",
+          "anchor": "edition-3",
+          "source_keys": [
+            "arxiv:2611.17230",
+            "arxiv:2611.17294",
+            "url:https://arxiv.org/abs/2611.17230",
+            "url:https://arxiv.org/abs/2611.17294"
+          ]
+        },
+        {
+          "url": "posts/20261113-ecosystem.html",
+          "topic": "ecosystem",
+          "action": "merged",
+          "anchor": "edition-4",
+          "source_keys": [
+            "url:https://github.blog/ai-and-ml/github-copilot/build-once-run-on-any-agent-a-practical-guide-to-agent-skills"
+          ]
+        },
+        {
+          "url": "posts/20261113-daily_digest.html",
+          "topic": "daily_digest",
+          "action": "folded_index"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "canonical": "posts/20261114-daily.html",
+      "published_at": "2026-11-14T09:00:00+08:00",
+      "source_count": 10,
+      "section_count": 4,
+      "fragments": [
+        {
+          "url": "posts/20261114-morning_radar.html",
+          "topic": "morning_radar",
+          "action": "merged",
+          "anchor": "edition-1",
+          "source_keys": [
+            "url:https://github.blog/changelog/2026-11-13-gemini-4-hydrogen-in-github-copilot",
+            "url:https://github.blog/changelog/2026-11-13-github-enterprise-server-support-in-the-github-copilot-app",
+            "url:https://github.blog/changelog/2026-11-13-upcoming-deprecation-of-selected-github-copilot-models-in-december"
+          ]
+        },
+        {
+          "url": "posts/20261114-model_research.html",
+          "topic": "model_research",
+          "action": "merged",
+          "anchor": "edition-2",
+          "source_keys": [
+            "doi:10.21203/rs.3.rs-11288339/v1",
+            "doi:10.5281/zenodo.24179468",
+            "doi:10.66977/xsci.2611.001w",
+            "url:https://doi.org/10.21203/rs.3.rs-11288339/v1",
+            "url:https://doi.org/10.5281/zenodo.24179468",
+            "url:https://doi.org/10.66977/xsci.2611.001w"
+          ]
+        },
+        {
+          "url": "posts/20261114-open_source.html",
+          "topic": "open_source",
+          "action": "merged",
+          "anchor": "edition-3",
+          "source_keys": [
+            "url:https://github.com/huggingface/transformers/releases/tag/v5.23.0"
+          ]
+        },
+        {
+          "url": "posts/20261114-paper_brief.html",
+          "topic": "paper_brief",
+          "action": "merged",
+          "anchor": "edition-4",
+          "source_keys": [
+            "doi:10.1137/25m1795248",
+            "doi:10.1145/3859364",
+            "doi:10.17148/ijarcce.2026.1511115",
+            "url:https://doi.org/10.1137/25m1795248",
+            "url:https://doi.org/10.1145/3859364",
+            "url:https://doi.org/10.17148/ijarcce.2026.1511115"
+          ]
+        },
+        {
+          "url": "posts/20261114-daily_digest.html",
+          "topic": "daily_digest",
+          "action": "folded_index"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-15",
+      "canonical": "posts/20261115-daily.html",
+      "published_at": "2026-11-15T09:00:00+08:00",
+      "source_count": 9,
+      "section_count": 4,
+      "fragments": [
+        {
+          "url": "posts/20261115-morning_radar.html",
+          "topic": "morning_radar",
+          "action": "merged",
+          "anchor": "edition-1",
+          "source_keys": [
+            "url:https://github.blog/changelog/2026-11-13-manage-ai-scan-for-repositories-using-the-rest-api"
+          ]
+        },
+        {
+          "url": "posts/20261115-paper_brief.html",
+          "topic": "paper_brief",
+          "action": "merged",
+          "anchor": "edition-2",
+          "source_keys": [
+            "doi:10.55670/fpll.futech.5.4.21",
+            "doi:10.64823/ijter.2611001",
+            "url:https://developer.nvidia.com/blog/run-native-dla-inference-in-python-on-nvidia-jetson-agx-orin-using-cudla",
+            "url:https://doi.org/10.55670/fpll.futech.5.4.21",
+            "url:https://doi.org/10.64823/ijter.2611001"
+          ]
+        },
+        {
+          "url": "posts/20261115-core_research.html",
+          "topic": "core_research",
+          "action": "merged",
+          "anchor": "edition-3",
+          "source_keys": [
+            "doi:10.21203/rs.3.rs-10762752/v1",
+            "doi:10.32628/ijsrst2613620",
+            "url:https://developer.nvidia.com/blog/when-one-gpu-isnt-enough-serving-glm-5-3-across-two-nvidia-dgx-stations-with-vllm",
+            "url:https://doi.org/10.21203/rs.3.rs-10762752/v1",
+            "url:https://doi.org/10.32628/ijsrst2613620"
+          ]
+        },
+        {
+          "url": "posts/20261115-applied_ai.html",
+          "topic": "applied_ai",
+          "action": "merged",
+          "anchor": "edition-4",
+          "source_keys": [
+            "arxiv:2611.17334",
+            "arxiv:2611.17336",
+            "url:https://arxiv.org/abs/2611.17334",
+            "url:https://arxiv.org/abs/2611.17336"
+          ]
+        },
+        {
+          "url": "posts/20261115-daily_digest.html",
+          "topic": "daily_digest",
+          "action": "folded_index"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-16",
+      "canonical": "posts/20261116-daily.html",
+      "published_at": "2026-11-16T09:00:00+08:00",
+      "source_count": 3,
+      "section_count": 1,
+      "fragments": [
+        {
+          "url": "posts/20261116-applied_ai.html",
+          "topic": "applied_ai",
+          "action": "merged",
+          "anchor": "edition-1",
+          "source_keys": [
+            "arxiv:2611.18523",
+            "arxiv:2611.18527",
+            "doi:10.1145/3860528",
+            "url:https://arxiv.org/abs/2611.18523",
+            "url:https://arxiv.org/abs/2611.18527",
+            "url:https://doi.org/10.1145/3860528"
+          ]
+        },
+        {
+          "url": "posts/20261116-daily_digest.html",
+          "topic": "daily_digest",
+          "action": "folded_index"
+        }
+      ]
+    }
+  ],
+  "skipped_dates": []
+}

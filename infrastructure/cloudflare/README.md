@@ -16,6 +16,12 @@ Cloudflare Worker 只调用 GitHub `catchup.yml`，不接触 Groq/Telegram 密�
 - GitHub 限流及部分 5xx 最多重试 3 次；超时或其他失败由下次定时执行重试。Token 失效时拒绝执行。
 - 依赖 GitHub API/Actions 可用，不承诺端到端准点；双平台失效、凭据过期仍需人工处理。
 
+## 与每日一篇日报的关系
+
+Worker 不决定栏目，只在 Asia/Taipei 09:00–23:59 调用 GitHub `catchup.yml`。仓库里的 `daily_report` 时刻改为 09:00 后，catchup 只会补这一期；09:00 之前的调用会被 worker 自己的小时窗和仓库里的到点判断挡住。
+
+因此这次模型切换**不需要**重新部署 Cloudflare。已上线的 cron `11,41 1-15 * * *` 仍然只是迟到和失败后的补偿，不保证 09:00 准点。若要收窄下午的空跑，需要在有 Wrangler 登录的环境执行 `npx wrangler deploy --keep-vars`；仓库内没有该登录，不能代为发布。
+
 ## 凭据与部署
 
 1. 使用 Cloudflare 官方 Wrangler 完成 OAuth 登录：`npx wrangler login`。

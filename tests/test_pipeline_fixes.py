@@ -31,17 +31,16 @@ def test_schedule_file_is_the_only_clock_and_matches_utc_crons():
     assert editorial["analysis_item_limit"] == 3
 
 
-def test_rotating_topics_are_unique_within_each_weekday():
-    editorial = yaml.safe_load((Path(__file__).resolve().parents[1] / "config/editorial.yml").read_text())
-    slots = editorial["slots"]
-    for day in "1234567":
-        chosen = []
-        for _name, slot in slots.items():
-            if slot.get("special") == "daily_digest":
-                continue
-            chosen.append(slot.get("topic") or slot["topic_by_weekday"][day])
-        assert len(chosen) == len(set(chosen))
-        assert chosen.count("model_research") == 1
+def test_daily_edition_collects_each_source_topic_once():
+    root = Path(__file__).resolve().parents[1]
+    editorial = yaml.safe_load((root / "config/editorial.yml").read_text())
+    sources = yaml.safe_load((root / "config/sources.yml").read_text())
+    assert list(editorial["slots"]) == ["daily_report"]
+    assert editorial["timezone"] == "Asia/Taipei"
+    assert editorial["slots"]["daily_report"]["time"] == "09:00"
+    names = list(sources["topics"])
+    assert names == list(dict.fromkeys(names))
+    assert "model_research" in names
 
 
 def test_same_title_with_different_ids_is_kept_and_arxiv_versions_collapse():
@@ -285,14 +284,14 @@ def test_maintenance_flag_is_recorded_for_exhausted_slots(tmp_path, monkeypatch)
     Path("state").mkdir()
     today = datetime.now(BEIJING).date().isoformat()
     Path("state/slots.json").write_text(json.dumps({"version": 1, "slots": {
-        f"{today}:morning_radar": {
+        f"{today}:daily_report": {
             "status": "analysis_api_failure", "attempts": 3,
             "updated_at": datetime.now(UTC).isoformat(),
         },
     }}))
     notify_maintenance()
     saved = json.loads(Path("state/slots.json").read_text())
-    assert saved["slots"][f"{today}:morning_radar"]["maintenance_notified"] is True
+    assert saved["slots"][f"{today}:daily_report"]["maintenance_notified"] is True
 
 
 def test_editorial_workflow_gates_deploy_preview_and_maintenance_alerts():

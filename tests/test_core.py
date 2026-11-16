@@ -1,7 +1,9 @@
 from datetime import UTC, datetime
+from pathlib import Path
+
+import yaml
 
 from research_bot.core import Item, canonical_url, contains_term, fallback_report, report_is_complete, split_message, unseen, update_state
-from research_bot.editorial import resolve_slot
 from research_bot.site import base_url, linkify_bare_urls, publish_post
 
 
@@ -94,13 +96,10 @@ def test_fallback_report_keeps_sources_and_resource_boundary():
     assert "https://example.com/free" in report
 
 
-def test_editorial_weekday_topic_resolution():
-    now = datetime(2026, 10, 23, 6, tzinfo=UTC)  # Friday in Beijing
-    editorial = {"slots": {"paper": {"topic_by_weekday": {"5": "multimodal"}, "title": "午间速览"}}}
-    topics = {"multimodal": {"title": "多模态", "max_items": 8}}
-    topic, config = resolve_slot("paper", now, editorial, topics)
-    assert topic == "multimodal"
-    assert config["title"] == "午间速览"
+def test_editorial_weekday_rotation_is_not_a_publication_slot():
+    editorial = yaml.safe_load((Path(__file__).resolve().parents[1] / "config/editorial.yml").read_text())
+    assert list(editorial["slots"]) == ["daily_report"]
+    assert "topic_by_weekday" not in editorial["slots"]["daily_report"]
 
 
 def test_source_specific_filters_reject_unrelated_free_result(monkeypatch):
@@ -154,12 +153,11 @@ def test_charter_and_timeline_publish_states(tmp_path, monkeypatch):
     page = next((tmp_path / "docs/posts").glob("*.html")).read_text()
     index = (tmp_path / "docs/index.html").read_text()
     assert "未经运行验证" in page
-    assert "暂无新内容" in index
+    assert "每日日报" in index
+    assert "dev_practice" not in index
     assert "<h1>VORASIO</h1>" in index
     assert "以求证理解智能" not in index
     assert (tmp_path / "docs/about.html").exists()
-    publish_post("model_research", "模型研究", datetime.now(UTC), "## 来源访问异常\n来源暂时不可用", [])
-    assert "来源访问异常" in (tmp_path / "docs/index.html").read_text()
 
 
 def test_url_dedup_survives_changed_feed_id():
@@ -188,12 +186,18 @@ def test_headline_date_can_come_from_source_title():
     assert report_is_complete(report, [item], "brief")
 
 
-def test_timeline_displays_actual_publication_in_beijing(tmp_path, monkeypatch):
+def test_timeline_displays_the_taipei_morning_edition(tmp_path, monkeypatch):
     from research_bot.timeline import render_timeline
     monkeypatch.chdir(tmp_path)
-    render_timeline([{"topic": "model_research", "date": "2026-10-25T06:01:00+00:00", "count": 1,
-                      "status": "published", "title": "Example", "url": "posts/example.html"}])
+    render_timeline([
+        {"topic": "model_research", "date": "2026-10-25T06:01:00+00:00", "count": 1,
+         "status": "published", "title": "Fragment", "url": "posts/example.html"},
+        {"topic": "daily_report", "date": "2026-10-25T09:00:00+08:00", "count": 1,
+         "status": "published", "title": "VORASIO AI 日报（2026-10-25）", "url": "posts/20261025-daily.html",
+         "summary": "合并后的日报"},
+    ])
     page = (tmp_path / "docs/index.html").read_text()
-    assert "实际发布：2026-10-25 14:01 · UTC+8" in page
-    assert 'data-label="模型、训练与基础研究"' in page
+    assert "发布时间：2026-10-25 09:00 · Asia/Taipei（UTC+8）" in page
+    assert "Fragment" not in page
+    assert "posts/example.html" not in page
     assert 'id="timezone-note"' in page

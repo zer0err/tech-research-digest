@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VORASIO AI 日报（2026-11-16）</title><meta name="description" content="VORASIO AI 日报（2026-11-16）：3 条来源，发布于 2026-11-16 09:00（Asia/Taipei）。">
+<link rel="alternate" type="application/rss+xml" title="VORASIO" href="../feed.xml"><link rel="canonical" href="https://vorasio.com/posts/20261116-daily.html"><meta property="article:published_time" content="2026-11-16T09:00:00+08:00"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "VORASIO AI 日报（2026-11-16）", "datePublished": "2026-11-16T09:00:00+08:00", "dateModified": "2026-11-16T09:00:00+08:00", "inLanguage": "zh-CN", "mainEntityOfPage": "https://vorasio.com/posts/20261116-daily.html", "publisher": {"@type": "Organization", "name": "VORASIO"}}</script>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/growth.css">
+<link rel="stylesheet" href="../assets/editorial.css?v=presentation-1">
+<script type="module" src="../assets/article.js?v=replay-6"></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span>VORASIO</span> 研究简报</a>
+<nav aria-label="主导航">
+<a href="../domains/index.html">领域导航</a>
+<a href="../index.html#latest">全部更新</a>
+<a href="../knowledge/index.html">AI 知识科普</a>
+<a href="../courses/index.html">AI 学习</a>
+<a href="../tools/index.html">AI 工具</a>
+<a href="../subscribe.html">订阅精选</a>
+<a href="../services.html">开发咨询</a>
+<a href="../about.html">关于</a></nav></header>
+<main><div class="article-layout"><aside class="article-meta"><p class="eyebrow">VORASIO AI 日报</p><dl><dt>发布时间</dt><dd data-published-at="2026-11-16T09:00:00+08:00">2026-11-16 09:00 · Asia/Taipei（UTC+8）</dd><dt>来源</dt><dd>3 条</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl><a class="back-link" href="../index.html">← 返回全部日报</a></aside><article><p class="kicker">DAILY REPORT · VORASIO AI 日报</p><h1>VORASIO AI 日报（2026-11-16）</h1><!-- provenance:start --><p class="ai-analysis">历史简报整合 · 未重新调用 AI</p><!-- provenance:end --><p class="disclosure">本页由当日已发布简报原文合并而成，保留原有表述和来源链接，没有重新调用模型，也没有补写当时没有的内容。开发实践部分若出现，仍是实践参考，未经运行验证。</p><div class="article-body"><section id="edition-1"><p class="kicker">applied_ai</p><h2>AI 芯片、计算架构与硬件平台（2026-11-16）</h2><h2>本期结论</h2>
+<ol>
+<li><strong>混合精度阵列在点云网络加速中能显著提升吞吐与能效</strong>。PQuant 通过 Morton‑code 细粒度量化与可重构混合精度 systolic array，实现点基网络 3.7×、体素网络 3.5× 的速度提升，并分别获得 5.2× 与 6.0× 的能耗下降[1]。</li>
+<li><strong>自由形态映射可突破传统模板限制，提升 Wafer‑Scale 计算单元利用率</strong>。WaferTetris 在 Cerebras WSE‑3 上对 LLM 解码实现最高 4.42× 的系统吞吐提升，且在科学 stencil 基准上亦表现出更高的可用内存容量[2]。</li>
+<li><strong>推理时学习（ITL）与推理加速器的协同可在保持低延迟的同时实现模型自适应</strong>。LWS 架构通过共享矩阵计算资源与权重版本控制，将学习与预测并行化，理论上可在推理过程中隐藏学习开销[3]。</li>
+</ol>
+<h2>逐项分析</h2>
+<table>
+<thead>
+<tr>
+<th>资料</th>
+<th>核心贡献</th>
+<th>方法与数据</th>
+<th>性能证据</th>
+<th>局限与证据等级</th>
+<th>工程意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[1] PQuant</td>
+<td>通过 Morton‑code 细粒度量化与可重构混合精度阵列加速点云网络</td>
+<td>采用 Morton‑code 捕获点相似性，将特征分解为基准与偏移；对体素网络使用高精度远程体素、低精度近距离体素；实现可重构混合精度 systolic array</td>
+<td>速度提升 3.7×（点基）/3.5×（体素基）；能耗降低 5.2×/6.0× 相比 PointAcc[1]</td>
+<td>仅在实验平台上验证，缺乏不同点云数据集与硬件实现细节；未给出面积与制程信息[1]</td>
+<td>对点云推理硬件设计提供可行的量化与阵列重构思路，适用于需要低功耗高吞吐的 3D 视觉应用。</td>
+</tr>
+<tr>
+<td>[2] WaferTetris</td>
+<td>通过自由形态映射提升 Wafer‑Scale 加速器利用率</td>
+<td>Tetris‑like 计算打包、递归吞吐模型、每色门控架构；利用 FPGA place‑and‑route 算法满足 WSE 路由约束[2]</td>
+<td>LLM 解码吞吐提升 4.42×；科学 stencil 基准提升可用内存容量[2]</td>
+<td>仅在 Cerebras WSE‑3 上评估，缺乏对不同规模与任务的泛化；未提供面积/功耗数据[2]</td>
+<td>为大规模加速器提供更灵活的映射策略，可在保持代码兼容的前提下提升资源利用。</td>
+</tr>
+<tr>
+<td>[3] Mutable Inference / LWS</td>
+<td>将学习与推理共享硬件，支持推理时学习</td>
+<td>通过权重版本控制、可恢复的 reduction block、专用 softmax‑gradient 单元实现学习与预测并行[3]</td>
+<td>仅在模型化的 datacenter 与 edge NPU 上给出理论隐藏学习开销的结果[3]</td>
+<td>仅为模型化结果，缺乏实测验证；未给出面积、功耗与延迟指标[3]</td>
+<td>为需要在线自适应的 LLM 推理场景提供硬件架构方向，可能降低整体系统成本。</td>
+</tr>
+</tbody>
+</table>
+<h2>工程行动建议</h2>
+<table>
+<thead>
+<tr>
+<th>目标</th>
+<th>验证实验</th>
+<th>落地评估</th>
+<th>后续跟踪指标</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>PQuant</strong></td>
+<td>在目标 FPGA/ASIC 上实现 Morton‑code 量化模块与混合精度 systolic array，测量点云网络（如 PointNet++、VoxelNet）在不同数据集上的吞吐与能耗</td>
+<td>对比现有 PointAcc 或通用 GPU 实现，评估面积与制程差异</td>
+<td>量化精度对模型精度的影响、功耗/面积比例、对不同点云密度的鲁棒性</td>
+</tr>
+<tr>
+<td><strong>WaferTetris</strong></td>
+<td>在可用的 Wafer‑Scale 设备（如 Cerebras WSE‑3）上部署 Tetris‑like 映射，记录 PE 利用率、内存占用与延迟</td>
+<td>与模板映射基线在多任务（LLM、科学计算）下比较吞吐与能耗</td>
+<td>PE 利用率提升幅度、可用内存比例、映射时间与编译复杂度</td>
+</tr>
+<tr>
+<td><strong>Mutable Inference / LWS</strong></td>
+<td>在 FPGA/ASIC 上实现权重版本控制与共享矩阵计算，测量推理时学习对延迟与精度的影响</td>
+<td>在边缘与数据中心 NPU 上评估整体功耗与面积</td>
+<td>学习与预测的时间分配比例、模型精度漂移、硬件利用率</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>注意</strong>：上述实验均基于公开摘要所述方法与数据，缺乏完整实验细节与硬件实现信息，建议在实验前先行获取原始代码与硬件描述文件。</p>
+</blockquote>
+<h2>参考资料</h2>
+<p>[1] PQuant: Point Cloud Neural Network Acceleration via a Versatile Quantization Framework – <a href="https://doi.org/10.1145/3860528">https://doi.org/10.1145/3860528</a><br />
+[2] WaferTetris: Efficient Freeform Mapping on Wafer-Scale Accelerators – <a href="https://arxiv.org/abs/2611.18527">https://arxiv.org/abs/2611.18527</a><br />
+[3] Mutable Inference: Architecting LLM Accelerators for Inference-Time Learning – <a href="https://arxiv.org/abs/2611.18523">https://arxiv.org/abs/2611.18523</a></p></section></div><section class="growth-card" data-growth-cta><h2>有项目想法？</h2><p>可以订阅后续更新，也可以整理你的 AI 软件或智能硬件需求，发来聊聊。</p><a href="../subscribe.html">订阅 AI 精选</a> · <a href="../services.html?source=/posts/20261116-daily.html">整理开发需求</a></section></article></div></main><footer><strong>VORASIO 研究简报</strong>
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原始来源。</span></footer></body></html>

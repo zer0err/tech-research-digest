@@ -1,4 +1,4 @@
-import {visitorZone, timestampInZone, localizedTitle} from './time-display.mjs';
+import {executionZone, timestampInZone} from './time-display.mjs';
 (() => {
   const article = document.querySelector('.article-layout > article');
   if (!article) return;
@@ -26,19 +26,18 @@ import {visitorZone, timestampInZone, localizedTitle} from './time-display.mjs';
     const current = entries.findIndex(e => new URL('../' + e.url, location.href).pathname === location.pathname);
     if (current < 0) return;
     const entry = entries[current];
-    const zone = visitorZone();
     const dateNode = document.querySelector('.article-meta dd');
     if (dateNode) {
-      dateNode.textContent = timestampInZone(entry.date, zone);
+      dateNode.textContent = timestampInZone(entry.date, executionZone);
       dateNode.dataset.publishedAt = entry.date;
-      dateNode.previousElementSibling.textContent = '发布时间（本地）';
+      dateNode.previousElementSibling.textContent = '发布时间';
     }
     const heading = article.querySelector('h1');
-    heading.textContent = entry.execution_date ? entry.title + ' · 补发' : localizedTitle(entry.title, entry.date, zone);
+    heading.textContent = entry.title;
     document.title = heading.textContent;
     const note = document.createElement('p');
     note.className = 'disclosure';
-    note.textContent = `显示时区：${zone}；任务执行时区：Asia/Shanghai（UTC+8）。`;
+    note.textContent = `发布时间按 ${executionZone}（UTC+8）计，不随阅读设备时区改日。`;
     heading.after(note);
     const nav = document.createElement('nav');
     nav.className = 'article-neighbors';
@@ -47,7 +46,7 @@ import {visitorZone, timestampInZone, localizedTitle} from './time-display.mjs';
       if (!entry) return;
       const link = document.createElement('a');
       link.href = '../' + entry.url;
-      link.textContent = label + ' · ' + (entry.execution_date ? entry.title + ' · 补发' : localizedTitle(entry.title, entry.date, zone));
+      link.textContent = label + ' · ' + entry.title;
       nav.append(link);
     });
     article.append(nav);
