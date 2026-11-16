@@ -34,6 +34,11 @@
     "updated_at": "2026-11-16T07:43:48.448762+00:00",
     "attempts": 2
   },
+  "2026-11-16:applied_ai": {
+    "status": "analysis_rejected",
+    "updated_at": "2026-11-16T08:42:23.171020+00:00",
+    "attempts": 1
+  },
   "2026-11-15:prompt_engineering": {
     "status": "already_published",
     "updated_at": "2026-11-15T12:42:19.637153+00:00",
