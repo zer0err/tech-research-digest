@@ -3,8 +3,9 @@
   "slots": {
     "2026-11-17:daily_report": {
       "status": "analysis_rejected",
-      "updated_at": "2026-11-17T01:12:14.963031+00:00",
-      "attempts": 1
+      "updated_at": "2026-11-17T02:43:04.474911+00:00",
+      "attempts": 2,
+      "maintenance_notified": true
     },
     "2026-11-16:prompt_engineering": {
       "status": "already_published",
