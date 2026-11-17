@@ -89,7 +89,9 @@ def render_growth_pages(config: dict | None = None, site_dir: Path = Path('docs'
         ('consult.html', 'AI 软件与硬件项目需求', consult),
         ('privacy.html', '资料使用说明', privacy),
     ):
-        page = shell(title, title + ' · VORASIO', body)
+        current = {'subscribe.html': 'subscribe', 'services.html': 'services', 'consult.html': 'services',
+                   'privacy.html': 'about'}[filename]
+        page = shell(title, title + ' · VORASIO', body, current=current)
         page = page.replace(
             '</head>',
             '<script defer src="assets/growth.js"></script></head>',

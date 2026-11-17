@@ -361,7 +361,7 @@ def render_daily_page(title: str, stamp: datetime, sections: list[dict], sources
         f'{article_callout("../", "/" + canonical_path)}</article></div>'
     )
     description = f"{title}：{len(sources)} 条来源，发布于 {stamp:%Y-%m-%d} 09:00（Asia/Taipei）。"
-    return shell(title, description, article, "../", extra_head=extra)
+    return shell(title, description, article, "../", extra_head=extra, current="daily")
 
 
 def markdown_sections(parts: list[dict]) -> list[dict]:

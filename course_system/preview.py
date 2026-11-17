@@ -11,6 +11,8 @@ from urllib.parse import urljoin, urlsplit, urlunsplit
 
 from markdown_it import MarkdownIt
 
+from research_bot.navigation import ASSET_VERSION, render_nav
+
 REPO = Path(__file__).resolve().parents[1]
 ID = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 VERSION = re.compile(r"^\d+\.\d+\.\d+$")
@@ -131,13 +133,11 @@ def shell(title: str, body: str, *, root: str, script: bool = True, preview: boo
         + ('<meta name="robots" content="noindex,nofollow">' if preview else '<meta name="robots" content="index,follow">')
         + '<meta name="referrer" content="no-referrer">'
         f'<title>{esc(title)} · VORASIO</title>'
-        f'<link rel="stylesheet" href="{root}assets/course.css">{scripts}</head><body>'
+        f'<link rel="stylesheet" href="{root}assets/course.css?v={ASSET_VERSION}">{scripts}</head><body>'
         '<a class="skip-link" href="#main">跳到正文</a>'
         '<header class="site-header"><a class="brand" href="' + root + 'index.html">VORASIO</a>'
-        f'<nav aria-label="主导航"><a href="{root}index.html#latest">时间线</a>'
-        f'<a aria-current="page" href="{root}courses/index.html">AI 学习</a>'
-        + (f'<a href="{root}knowledge/index.html">AI 知识科普</a>' if not preview else '')
-        + '</nav></header>'
+        + render_nav(root, 'courses')
+        + '</header>'
         + ('<div class="preview-banner">本地预览 · 课程草稿，尚未公开发布</div>' if preview else '')
         + f'<main id="main">{body}</main>'
         '<footer>VORASIO · AI 学习 <span>学习记录仅保存在你的浏览器，不上传。</span></footer></body></html>'
