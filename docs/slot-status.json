@@ -1,4 +1,9 @@
 {
+  "2026-11-17:daily_report": {
+    "status": "analysis_rejected",
+    "updated_at": "2026-11-17T01:12:14.963031+00:00",
+    "attempts": 1
+  },
   "2026-11-16:prompt_engineering": {
     "status": "already_published",
     "updated_at": "2026-11-16T13:05:05.862940+00:00",
@@ -33,6 +38,11 @@
     "status": "analysis_rejected",
     "updated_at": "2026-11-16T10:42:21.708359+00:00",
     "attempts": 3
+  },
+  "2026-11-16:daily_report": {
+    "status": "published",
+    "updated_at": "2026-11-16T09:00:00+08:00",
+    "attempts": 0
   },
   "2026-11-16:daily_digest": {
     "status": "published",
@@ -84,6 +94,11 @@
     "updated_at": "2026-11-15T10:42:53.187695+00:00",
     "attempts": 3
   },
+  "2026-11-15:daily_report": {
+    "status": "published",
+    "updated_at": "2026-11-15T09:00:00+08:00",
+    "attempts": 0
+  },
   "2026-11-15:daily_digest": {
     "status": "published",
     "updated_at": "2026-11-15T11:12:23.049473+00:00",
@@ -133,6 +148,11 @@
     "status": "analysis_rejected",
     "updated_at": "2026-11-14T10:12:14.088727+00:00",
     "attempts": 3
+  },
+  "2026-11-14:daily_report": {
+    "status": "published",
+    "updated_at": "2026-11-14T09:00:00+08:00",
+    "attempts": 0
   },
   "2026-11-14:daily_digest": {
     "status": "published",
@@ -184,6 +204,11 @@
     "updated_at": "2026-11-13T10:42:53.925948+00:00",
     "attempts": 3
   },
+  "2026-11-13:daily_report": {
+    "status": "published",
+    "updated_at": "2026-11-13T09:00:00+08:00",
+    "attempts": 0
+  },
   "2026-11-13:daily_digest": {
     "status": "published",
     "updated_at": "2026-11-13T11:00:55.591037+00:00",
@@ -233,6 +258,11 @@
     "status": "analysis_rejected",
     "updated_at": "2026-11-12T10:42:48.208269+00:00",
     "attempts": 3
+  },
+  "2026-11-12:daily_report": {
+    "status": "published",
+    "updated_at": "2026-11-12T09:00:00+08:00",
+    "attempts": 0
   },
   "2026-11-12:daily_digest": {
     "status": "published",
@@ -284,6 +314,11 @@
     "updated_at": "2026-11-11T07:42:17.473644+00:00",
     "attempts": 1
   },
+  "2026-11-11:daily_report": {
+    "status": "published",
+    "updated_at": "2026-11-11T09:00:00+08:00",
+    "attempts": 0
+  },
   "2026-11-11:daily_digest": {
     "status": "published",
     "updated_at": "2026-11-11T11:00:31.882891+00:00",
@@ -333,6 +368,11 @@
     "status": "already_published",
     "updated_at": "2026-11-10T07:42:19.696381+00:00",
     "attempts": 1
+  },
+  "2026-11-10:daily_report": {
+    "status": "published",
+    "updated_at": "2026-11-10T09:00:00+08:00",
+    "attempts": 0
   },
   "2026-11-10:daily_digest": {
     "status": "published",
@@ -384,6 +424,11 @@
     "updated_at": "2026-11-09T07:42:13.566545+00:00",
     "attempts": 1
   },
+  "2026-11-09:daily_report": {
+    "status": "published",
+    "updated_at": "2026-11-09T09:00:00+08:00",
+    "attempts": 0
+  },
   "2026-11-09:daily_digest": {
     "status": "published",
     "updated_at": "2026-11-09T11:12:18.062275+00:00",
@@ -433,6 +478,11 @@
     "status": "published",
     "updated_at": "2026-11-08T07:42:17.771152+00:00",
     "attempts": 1
+  },
+  "2026-11-08:daily_report": {
+    "status": "published",
+    "updated_at": "2026-11-08T09:00:00+08:00",
+    "attempts": 0
   },
   "2026-11-08:daily_digest": {
     "status": "published",
@@ -484,6 +534,11 @@
     "updated_at": "2026-11-07T07:42:16.710074+00:00",
     "attempts": 1
   },
+  "2026-11-07:daily_report": {
+    "status": "published",
+    "updated_at": "2026-11-07T09:00:00+08:00",
+    "attempts": 0
+  },
   "2026-11-07:daily_digest": {
     "status": "published",
     "updated_at": "2026-11-07T11:12:19.492556+00:00",
@@ -533,6 +588,11 @@
     "status": "already_published",
     "updated_at": "2026-11-06T07:42:21.506296+00:00",
     "attempts": 1
+  },
+  "2026-11-06:daily_report": {
+    "status": "published",
+    "updated_at": "2026-11-06T09:00:00+08:00",
+    "attempts": 0
   },
   "2026-11-06:daily_digest": {
     "status": "published",
@@ -584,6 +644,11 @@
     "updated_at": "2026-11-05T07:42:16.958238+00:00",
     "attempts": 1
   },
+  "2026-11-05:daily_report": {
+    "status": "published",
+    "updated_at": "2026-11-05T09:00:00+08:00",
+    "attempts": 0
+  },
   "2026-11-05:daily_digest": {
     "status": "published",
     "updated_at": "2026-11-05T11:12:26.442126+00:00",
@@ -633,6 +698,11 @@
     "status": "already_published",
     "updated_at": "2026-11-04T07:27:36.062811+00:00",
     "attempts": 1
+  },
+  "2026-11-04:daily_report": {
+    "status": "published",
+    "updated_at": "2026-11-04T09:00:00+08:00",
+    "attempts": 0
   },
   "2026-11-04:daily_digest": {
     "status": "published",
@@ -684,6 +754,11 @@
     "updated_at": "2026-11-03T07:44:11.071307+00:00",
     "attempts": 1
   },
+  "2026-11-03:daily_report": {
+    "status": "published",
+    "updated_at": "2026-11-03T09:00:00+08:00",
+    "attempts": 0
+  },
   "2026-11-03:daily_digest": {
     "status": "published",
     "updated_at": "2026-11-03T11:09:35.859666+00:00",
@@ -733,6 +808,11 @@
     "status": "already_published",
     "updated_at": "2026-11-02T07:37:55.963313+00:00",
     "attempts": 1
+  },
+  "2026-11-02:daily_report": {
+    "status": "published",
+    "updated_at": "2026-11-02T09:00:00+08:00",
+    "attempts": 0
   },
   "2026-11-02:daily_digest": {
     "status": "published",
@@ -784,6 +864,11 @@
     "updated_at": "2026-11-01T07:27:32.437750+00:00",
     "attempts": 1
   },
+  "2026-11-01:daily_report": {
+    "status": "published",
+    "updated_at": "2026-11-01T09:00:00+08:00",
+    "attempts": 0
+  },
   "2026-11-01:daily_digest": {
     "status": "published",
     "updated_at": "2026-11-01T11:12:20.074927+00:00",
@@ -833,6 +918,11 @@
     "status": "already_published",
     "updated_at": "2026-10-31T07:42:19.480977+00:00",
     "attempts": 1
+  },
+  "2026-10-31:daily_report": {
+    "status": "published",
+    "updated_at": "2026-10-31T09:00:00+08:00",
+    "attempts": 0
   },
   "2026-10-31:daily_digest": {
     "status": "published",
@@ -884,6 +974,11 @@
     "updated_at": "2026-10-30T07:42:20.057546+00:00",
     "attempts": 1
   },
+  "2026-10-30:daily_report": {
+    "status": "published",
+    "updated_at": "2026-10-30T09:00:00+08:00",
+    "attempts": 0
+  },
   "2026-10-30:daily_digest": {
     "status": "published",
     "updated_at": "2026-10-30T10:59:48.577109+00:00",
@@ -933,6 +1028,11 @@
     "status": "already_published",
     "updated_at": "2026-10-29T07:42:24.522031+00:00",
     "attempts": 1
+  },
+  "2026-10-29:daily_report": {
+    "status": "published",
+    "updated_at": "2026-10-29T09:00:00+08:00",
+    "attempts": 0
   },
   "2026-10-29:daily_digest": {
     "status": "published",
@@ -984,6 +1084,11 @@
     "updated_at": "2026-10-28T07:30:37.392330+00:00",
     "attempts": 1
   },
+  "2026-10-28:daily_report": {
+    "status": "published",
+    "updated_at": "2026-10-28T09:00:00+08:00",
+    "attempts": 0
+  },
   "2026-10-28:daily_digest": {
     "status": "published",
     "updated_at": "2026-10-28T11:12:20.681605+00:00",
@@ -1033,6 +1138,11 @@
     "status": "published",
     "updated_at": "2026-10-27T07:42:18.318730+00:00",
     "attempts": 1
+  },
+  "2026-10-27:daily_report": {
+    "status": "published",
+    "updated_at": "2026-10-27T09:00:00+08:00",
+    "attempts": 0
   },
   "2026-10-27:daily_digest": {
     "status": "published",
@@ -1084,6 +1194,11 @@
     "updated_at": "2026-10-26T07:42:16.178235+00:00",
     "attempts": 1
   },
+  "2026-10-26:daily_report": {
+    "status": "published",
+    "updated_at": "2026-10-26T09:00:00+08:00",
+    "attempts": 0
+  },
   "2026-10-26:daily_digest": {
     "status": "published",
     "updated_at": "2026-10-26T11:12:21.176198+00:00",
@@ -1133,6 +1248,11 @@
     "status": "published",
     "updated_at": "2026-10-26T02:39:25+00:00",
     "attempts": 4
+  },
+  "2026-10-25:daily_report": {
+    "status": "published",
+    "updated_at": "2026-10-25T09:00:00+08:00",
+    "attempts": 0
   },
   "2026-10-25:daily_digest": {
     "status": "published",
@@ -1184,6 +1304,11 @@
     "updated_at": "2026-10-24T10:51:39.875901+00:00",
     "attempts": 3
   },
+  "2026-10-24:daily_report": {
+    "status": "published",
+    "updated_at": "2026-10-24T09:00:00+08:00",
+    "attempts": 0
+  },
   "2026-10-24:daily_digest": {
     "status": "published",
     "updated_at": "2026-10-24T10:52:02.785333+00:00",
@@ -1198,5 +1323,10 @@
     "status": "published",
     "updated_at": "2026-10-24T09:04:00.370527+00:00",
     "attempts": 1
+  },
+  "2026-10-23:daily_report": {
+    "status": "published",
+    "updated_at": "2026-10-23T09:00:00+08:00",
+    "attempts": 0
   }
 }
