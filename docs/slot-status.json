@@ -1,8 +1,8 @@
 {
   "2026-11-22:daily_report": {
     "status": "analysis_rejected",
-    "updated_at": "2026-11-22T02:42:16.256360+00:00",
-    "attempts": 2
+    "updated_at": "2026-11-22T04:12:19.160498+00:00",
+    "attempts": 3
   },
   "2026-11-21:daily_report": {
     "status": "analysis_rejected",
