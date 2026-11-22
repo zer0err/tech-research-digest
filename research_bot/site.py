@@ -46,7 +46,37 @@ def base_url() -> str:
     return f"https://{owner}.github.io" + ("" if name.lower() == f"{owner.lower()}.github.io" else f"/{name}")
 
 
-def shell(title: str, description: str, body: str, relative_root: str = "", extra_head: str = "") -> str:
+def shell(
+    title: str, description: str, body: str, relative_root: str = "", extra_head: str = "", *, digest_home: bool = False,
+) -> str:
+    navigation = (
+        f'<nav aria-label="主导航"><a href="{relative_root}index.html#latest">日报</a>'
+        '<details class="digest-menu"><summary>探索</summary><div class="digest-menu-links">'
+        f'<a href="{relative_root}domains/index.html">领域导航</a>'
+        f'<a href="{relative_root}knowledge/index.html">AI 知识科普</a>'
+        f'<a href="{relative_root}courses/index.html">AI 学习</a>'
+        f'<a href="{relative_root}tools/index.html">AI 工具</a>'
+        f'<a href="{relative_root}subscribe.html">订阅精选</a></div></details></nav>'
+        if digest_home else
+        f"""<nav aria-label="主导航">
+<a href="{relative_root}domains/index.html">领域导航</a>
+<a href="{relative_root}index.html#latest">全部更新</a>
+<a href="{relative_root}knowledge/index.html">AI 知识科普</a>
+<a href="{relative_root}courses/index.html">AI 学习</a>
+<a href="{relative_root}tools/index.html">AI 工具</a>
+<a href="{relative_root}subscribe.html">订阅精选</a>
+<a href="{relative_root}services.html">开发咨询</a>
+<a href="{relative_root}about.html">关于</a></nav>"""
+    )
+    footer_links = (
+        '<nav class="digest-footer-links" aria-label="站点链接">'
+        '<a href="feed.xml">订阅 RSS</a><a href="sitemap.xml">站点地图</a>'
+        '<a href="services.html">开发咨询</a><a href="about.html">关于本站</a></nav>'
+        '<p class="digest-credit">版式改编自 <a href="https://html5up.net/editorial">HTML5 UP Editorial</a>，'
+        '<a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>。</p>'
+        if digest_home else ''
+    )
+    page_class = ' class="digest-home"' if digest_home else ''
     return f"""<!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{html.escape(title)}</title><meta name="description" content="{html.escape(description, quote=True)}">
@@ -55,18 +85,10 @@ def shell(title: str, description: str, body: str, relative_root: str = "", extr
 <link rel="stylesheet" href="{relative_root}assets/growth.css">
 <link rel="stylesheet" href="{relative_root}assets/editorial.css?v=presentation-1">
 <script type="module" src="{relative_root}assets/article.js?v=replay-6"></script></head>
-<body><header class="site-header"><a class="brand" href="{relative_root}index.html"><span>VORASIO</span> 研究简报</a>
-<nav aria-label="主导航">
-<a href="{relative_root}domains/index.html">领域导航</a>
-<a href="{relative_root}index.html#latest">全部更新</a>
-<a href="{relative_root}knowledge/index.html">AI 知识科普</a>
-<a href="{relative_root}courses/index.html">AI 学习</a>
-<a href="{relative_root}tools/index.html">AI 工具</a>
-<a href="{relative_root}subscribe.html">订阅精选</a>
-<a href="{relative_root}services.html">开发咨询</a>
-<a href="{relative_root}about.html">关于</a></nav></header>
+<body{page_class}><header class="site-header"><a class="brand" href="{relative_root}index.html"><span>VORASIO</span> 研究简报</a>
+{navigation}</header>
 <main>{body}</main><footer><strong>VORASIO 研究简报</strong>
-<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原始来源。</span></footer></body></html>"""
+<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原始来源。</span>{footer_links}</footer></body></html>"""
 
 
 def linkify_bare_urls(markdown: str) -> str:

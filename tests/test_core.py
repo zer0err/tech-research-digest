@@ -155,7 +155,8 @@ def test_charter_and_timeline_publish_states(tmp_path, monkeypatch):
     assert "未经运行验证" in page
     assert "每日日报" in index
     assert "dev_practice" not in index
-    assert "<h1>VORASIO</h1>" in index
+    assert "<h1>VORASIO AI 日报</h1>" in index
+    assert "暂无已发布日报。" in index
     assert "以求证理解智能" not in index
     assert (tmp_path / "docs/about.html").exists()
 
