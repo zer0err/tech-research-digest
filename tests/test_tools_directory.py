@@ -1,14 +1,13 @@
 from __future__ import annotations
 
+import copy
 import json
 import re
-import copy
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlsplit
 
 from research_bot.tool_directory import render_tools_page
-
 
 ROOT = Path(__file__).parents[1]
 CATALOG = json.loads((ROOT / "config/tools.json").read_text(encoding="utf-8"))
@@ -140,8 +139,8 @@ def test_renderer_escapes_untrusted_catalog_text(tmp_path: Path) -> None:
 def test_home_and_about_navigation_link_to_directory() -> None:
     for relative in ("docs/index.html", "docs/about.html"):
         html = (ROOT / relative).read_text(encoding="utf-8")
-        assert "AI 工具" in html
-        assert "tools/index.html" in html
+        header = html.split("</header>", 1)[0]
+        assert 'href="tools/index.html">工具</a>' in header
 
 
 def test_mobile_css_collapses_directory_at_phone_width() -> None:

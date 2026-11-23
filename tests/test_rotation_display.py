@@ -24,7 +24,7 @@ def test_rotation_article_shows_planned_and_actual_assembly():
     assert '"datePublished": "2026-11-24T18:26:10+08:00"' in page
     assert '<link rel="canonical" href="https://vorasio.com/posts/20261124-daily.html">' in page
     assert "本期未收录：训练方法与数据。" in page
-    assert "assets/article.js?v=rotation-1" in page
+    assert "assets/article.js?v=reading-1" in page
 
 
 def test_rotation_archive_rss_and_status_keep_historical_identity(monkeypatch, tmp_path):

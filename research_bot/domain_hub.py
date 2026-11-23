@@ -113,7 +113,7 @@ def render_domain_hub(site_dir: Path = Path('docs')) -> Path:
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(shell('AI 十领域阅读导航 · VORASIO',
                             '按十个 AI 领域组织的站内已发布资料导航；基于栏目映射。',
-                            body, relative_root='../'), encoding='utf-8')
+                            body, relative_root='../', section='domains', current_page=True), encoding='utf-8')
     return output
 
 

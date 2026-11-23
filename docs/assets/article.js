@@ -1,17 +1,19 @@
 import {executionZone, timestampInZone} from './time-display.mjs';
+import {addStableHeadingIds, enhanceReading} from './article-reading.mjs?v=reading-1';
 (() => {
   const article = document.querySelector('.article-layout > article');
   if (!article) return;
+  const enhanced = enhanceReading(article, new URL('./article-reading.css?v=reading-1', import.meta.url));
   const headings = [...article.querySelectorAll('.article-body h2')];
-  if (headings.length) {
+  if (!enhanced && headings.length) {
+    addStableHeadingIds(headings);
     const details = document.createElement('details');
     details.className = 'article-directory';
     const summary = document.createElement('summary');
     summary.textContent = '本文目录';
     details.append(summary);
     const list = document.createElement('ul');
-    headings.forEach((heading, index) => {
-      heading.id = 'section-' + index;
+    headings.forEach(heading => {
       const item = document.createElement('li');
       const link = document.createElement('a');
       link.href = '#' + heading.id;
@@ -33,13 +35,15 @@ import {executionZone, timestampInZone} from './time-display.mjs';
       dateNode.previousElementSibling.textContent = entry.scheduled_at ? '实际合成时间' : '发布时间';
     }
     const heading = article.querySelector('h1');
-    heading.textContent = entry.title;
-    document.title = heading.textContent;
+    if (!enhanced) {
+      heading.textContent = entry.title;
+      document.title = heading.textContent;
+    }
     const note = document.createElement('p');
     note.className = 'disclosure';
     const clockLabel = entry.scheduled_at ? '合成时间' : '发布时间';
     note.textContent = `${clockLabel}按 ${executionZone}（UTC+8）计，不随阅读设备时区改日。`;
-    heading.after(note);
+    if (!enhanced) heading.after(note);
     const nav = document.createElement('nav');
     nav.className = 'article-neighbors';
     [[current + 1, '上一篇'], [current - 1, '下一篇']].forEach(([index, label]) => {

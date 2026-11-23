@@ -83,7 +83,12 @@ def project(tmp_path: Path) -> tuple[Path, Path, Path]:
     (docs / "tools" / "index.html").write_text(
         '<html><head><title>Tools fixture</title></head><body>Tools fixture</body></html>'
     )
-    for name in ("course.css", "course-progress.js", "course-reader.js"):
+    for name in ("domains/index.html", "knowledge/index.html", "subscribe.html", "about.html",
+                 "services.html", "privacy.html", "feed.xml"):
+        target = docs / name
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text("<html><body>Fixture destination</body></html>")
+    for name in ("course.css", "course-progress.js", "course-reader.js", "site-chrome.css"):
         (assets / name).write_text("/* fixture asset */")
     draft = repo / "course_work" / "synthetic-basics"
     draft.mkdir(parents=True)
@@ -451,3 +456,26 @@ def test_all_generated_local_links_assets_and_anchors_resolve(project: tuple[Pat
             if url.fragment and destination.suffix == ".html":
                 target = Elements(destination.read_text(encoding="utf-8"))
                 assert unquote(url.fragment) in {a.get("id") for _, a in target.tags}, (path.name, attrs[attribute])
+
+
+def test_learning_hub_and_lesson_reading_order_survive_publication(project: tuple[Path, Path, Path]) -> None:
+    repo, draft, output = project
+    build_preview(draft, output, repo=repo)
+    publish_course(draft, repo=repo)
+    for root in (output, repo / "docs"):
+        hub = (root / "courses/index.html").read_text()
+        assert '<nav class="learning-entry-pills" aria-label="学习分类">' in hub
+        assert '../courses/index.html" aria-current="page">课程</a>' in hub
+        assert '../knowledge/index.html">知识科普</a>' in hub
+        assert '<main id="main" tabindex="-1">' in hub
+        lesson = (root / "courses/synthetic-basics/one.html").read_text()
+        assert '<a class="lesson-start" href="#section-1">开始学习</a>' in lesson
+        assert '<span>本课目标</span>' in lesson
+        assert '<aside class="lesson-sidebar">' not in lesson
+        assert lesson.index('<h1>') < lesson.index('本课章节') < lesson.index('系列目录') < lesson.index('id="lesson-body"')
+        assert lesson.index('id="lesson-body"') < lesson.index('class="completion-panel"') < lesson.index('你的学习进度')
+        assert lesson.index('你的学习进度') < lesson.index('学习环境、参考来源与验证') < lesson.index('class="lesson-neighbors"')
+        assert 'data-series-id="synthetic-basics" data-content-version="1.0.1"' in lesson
+        assert 'data-course-lesson data-lesson-id="one"' in lesson
+        assert 'data-course-exercise data-exercise-id="ex-01"' in lesson
+        assert 'href="two.html">下一课' in lesson
