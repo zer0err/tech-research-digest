@@ -32,7 +32,11 @@ def test_platform_regeneration_adds_routes_and_article_cta_without_duplicates(tm
     assert '<li>实验结论</li>' in index
     assert 'id="date-picker"' in index
     assert 'id="timeline-search"' in index
-    assert 'id="latest"' in index
+    assert '<details class="digest-archive" id="latest"><summary>查找往期</summary>' in index
+    assert index.count('data-status-date=') == 1
+    assert 'timeline-row pending' not in index
+    assert '查看发布状态' not in index
+    assert '<option value="2026-11-01" selected>2026-11-01</option>' in index
     assert '编辑精选' not in index
     assert 'rel="alternate" type="application/rss+xml" title="VORASIO" href="feed.xml"' in index
     assert 'href="services.html">开发咨询' not in index.split('</header>')[0]

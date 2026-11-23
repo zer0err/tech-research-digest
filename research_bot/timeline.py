@@ -55,21 +55,25 @@ def _recent_headline(entry: dict[str, object], takeaways: list[str]) -> str:
     return takeaways[0] if takeaways else html.escape(str(entry["title"]))
 
 
+def _publication_status(day: str) -> str:
+    return f'<p class="digest-status" data-status-date="{day}">今日尚无已发布日报</p>'
+
+
 def _lead_and_recent(reports: list[dict[str, object]], today: str) -> str:
     if not reports:
-        return '<section class="digest-lead"><h1>VORASIO AI 日报</h1><p>暂无已发布日报。</p></section>'
+        return '<section class="digest-lead"><h1>VORASIO AI 日报</h1>' + _publication_status(today) + "</section>"
     day, url, headline = _issue_preview(reports[0])
     takeaways = _takeaways(str(reports[0]["url"]))
     details = (
         '<ul class="digest-takeaways">' + "".join(f"<li>{point}</li>" for point in takeaways) + "</ul>"
         if takeaways else f'<p>{html.escape(str(reports[0].get("summary") or "查看当日来源与分析。"))}</p>'
     )
-    status_link = '<p class="digest-status">今日尚无已发布日报 · <a href="#latest">查看发布状态</a></p>' if day < today else ""
+    status_line = _publication_status(today) if day < today else ""
     lead = (
         '<section class="digest-lead" aria-labelledby="digest-lead-title">'
         f'<p class="digest-label">最新一期 <span aria-hidden="true">/</span> <time datetime="{day}">{day}</time></p>'
         f'<h1 id="digest-lead-title">{headline}</h1>'
-        f'<a class="digest-read" href="{url}">阅读本期</a>{status_link}{details}</section>'
+        f'<a class="digest-read" href="{url}">阅读本期</a>{status_line}{details}</section>'
     )
     if len(reports) == 1:
         return lead
@@ -98,56 +102,40 @@ def render_timeline(entries: list[dict[str, object]]) -> None:
     reports = canonical_entries(entries)
     today = datetime.now(ZONE).date().isoformat()
     days = [str(entry["date"])[:10] for entry in reports]
-    if today not in days:
-        days = [today, *days]
+    default_day = days[5] if len(days) > 5 else (days[-1] if days else "")
     sections = []
-    for day in days:
-        entry = next((item for item in reports if str(item["date"])[:10] == day), None)
-        if entry:
-            published_at = datetime.fromisoformat(str(entry["date"])).astimezone(ZONE)
-            row = (
-                f'<li class="timeline-row published" data-date="{day}" data-slot="daily_report" '
-                f'data-published-at="{published_at.isoformat()}">'
-                f'<div class="time-rail"><time datetime="{published_at.isoformat()}">09:00</time><span class="node"></span></div>'
-                '<article class="timeline-card"><div class="card-top"><span>日报</span><span class="status">已发布</span></div>'
-                f'<h2>{html.escape(str(entry["title"]))}</h2>'
-                f'<p>{html.escape(str(entry.get("summary") or "查看当日来源与原文。"))}</p>'
-                f'<p class="publication-time">发布时间：{published_at:%Y-%m-%d} 09:00 · Asia/Taipei（UTC+8）</p>'
-                f'<a class="read-link" href="{html.escape(str(entry["url"]), quote=True)}">阅读全文 <span>↗</span></a>'
-                '</article></li>'
-            )
-            heading = f'<div class="day-heading"><h2>{day}</h2><span>已发布 · Asia/Taipei 09:00</span></div>'
-        else:
-            row = (
-                f'<li class="timeline-row pending" data-date="{day}" data-slot="daily_report" data-published-at="">'
-                f'<div class="time-rail"><time datetime="{day}T09:00:00+08:00">09:00</time><span class="node"></span></div>'
-                '<article class="timeline-card"><div class="card-top"><span>日报</span><span class="status">尚未发布</span></div>'
-                '<h2>VORASIO AI 日报</h2>'
-                '<p>今日日报在 09:00（Asia/Taipei）之后发布。没有合格来源时不编造一期。</p>'
-                '</article></li>'
-            )
-            heading = f'<div class="day-heading"><h2>{day}</h2><span>计划 09:00 · Asia/Taipei</span></div>'
+    for entry in reports:
+        day = str(entry["date"])[:10]
+        published_at = datetime.fromisoformat(str(entry["date"])).astimezone(ZONE)
+        title = html.escape(str(entry["title"]))
+        url = html.escape(str(entry["url"]), quote=True)
+        summary = html.escape(str(entry.get("summary") or "查看当日来源与原文。"))
+        hidden = "" if day == default_day else " hidden"
         sections.append(
-            f'<section class="day-section" data-date="{day}" {"" if day == today else "hidden"}>'
-            f'{heading}<ol class="timeline">{row}</ol></section>'
+            f'<article class="archive-result" data-date="{day}"{hidden}>'
+            f'<h3><a href="{url}">{title}</a></h3><p>{summary}</p>'
+            f'<p class="publication-time">发布时间：{published_at:%Y-%m-%d} 09:00 · Asia/Taipei（UTC+8）</p></article>'
         )
-    options = "".join(f'<option value="{day}">{day}{" · 今天" if day == today else ""}</option>' for day in days)
+    options = "".join(f'<option value="{day}"{" selected" if day == default_day else ""}>{day}</option>' for day in days)
+    controls = (
+        '<div class="archive-controls">'
+        f'<label>浏览日期 <select id="date-picker">{options}</select></label>'
+        '<label>搜索所选日期 <input id="timeline-search" type="search" placeholder="标题或摘要关键词"></label></div>'
+        '<p class="schedule-note" id="timezone-note">每期发布时刻为台北时间（UTC+8）09:00。</p>'
+        '<p id="archive-no-results" role="status" hidden>所选日期没有匹配结果。</p>'
+        + "".join(sections)
+        if days else '<p>暂无往期日报。</p>'
+    )
     body = (
         _lead_and_recent(reports, today)
-        + '<section id="latest"><div class="timeline-toolbar"><div><p class="eyebrow">按日期查看</p>'
-        '<h2 id="timeline-heading">日报归档</h2></div>'
-        f'<label>浏览日期 <select id="date-picker">{options}</select></label></div>'
-        '<label class="timeline-search">搜索所选日期 <input id="timeline-search" type="search" placeholder="标题或摘要关键词"></label>'
-        '<p class="schedule-note" id="timezone-note">每期发布时刻固定为 Asia/Taipei（UTC+8）当天 09:00。'
-        '页面不按阅读设备时区改写这一日期。</p>'
-        + "".join(sections)
-        + '</section>'
-        '<script type="module" src="assets/timeline.js?v=daily-1"></script>'
+        + '<details class="digest-archive" id="latest"><summary>查找往期</summary><div class="archive-body">'
+        + controls
+        + '</div></details><script type="module" src="assets/timeline.js?v=daily-2"></script>'
     )
     Path("docs").mkdir(exist_ok=True)
     Path("docs/index.html").write_text(shell(
         "VORASIO · 每日日报", "AI 研究、开发工具与智能硬件日报", body,
-        extra_head='\n<link rel="stylesheet" href="assets/digest-home.css">',
+        extra_head='\n<link rel="stylesheet" href="assets/digest-home.css?v=2">',
         digest_home=True,
     ))
     about = (
