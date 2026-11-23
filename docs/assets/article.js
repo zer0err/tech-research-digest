@@ -26,18 +26,19 @@ import {executionZone, timestampInZone} from './time-display.mjs';
     const current = entries.findIndex(e => new URL('../' + e.url, location.href).pathname === location.pathname);
     if (current < 0) return;
     const entry = entries[current];
-    const dateNode = document.querySelector('.article-meta dd');
+    const dateNode = document.querySelector('.article-meta dd[data-published-at], .article-meta dd');
     if (dateNode) {
       dateNode.textContent = timestampInZone(entry.date, executionZone);
       dateNode.dataset.publishedAt = entry.date;
-      dateNode.previousElementSibling.textContent = '发布时间';
+      dateNode.previousElementSibling.textContent = entry.scheduled_at ? '实际合成时间' : '发布时间';
     }
     const heading = article.querySelector('h1');
     heading.textContent = entry.title;
     document.title = heading.textContent;
     const note = document.createElement('p');
     note.className = 'disclosure';
-    note.textContent = `发布时间按 ${executionZone}（UTC+8）计，不随阅读设备时区改日。`;
+    const clockLabel = entry.scheduled_at ? '合成时间' : '发布时间';
+    note.textContent = `${clockLabel}按 ${executionZone}（UTC+8）计，不随阅读设备时区改日。`;
     heading.after(note);
     const nav = document.createElement('nav');
     nav.className = 'article-neighbors';

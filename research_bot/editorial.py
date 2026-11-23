@@ -47,9 +47,16 @@ def main() -> int:
         Path("work/pending.json").unlink(missing_ok=True)
         decision(args.slot, "retired_slot")
         return 0
+    if replay and now.astimezone(BEIJING).date() >= schedule.ROTATION_START:
+        Path("work/pending.json").unlink(missing_ok=True)
+        decision(args.slot, "rotation_date_requires_rotation_recovery", edition_date=args.replay_date)
+        return 0
     production = os.getenv("PUBLICATION_MODE", "production") == "production" and not args.dry_run
     if production:
         Path("work/pending.json").unlink(missing_ok=True)
+        if not replay and now.astimezone(BEIJING).date() >= schedule.ROTATION_START:
+            decision(args.slot, "historical_runner_retired")
+            return 0
         if not schedule.is_due(args.slot, now):
             decision(args.slot, "not_due_yet", timezone="Asia/Taipei", planned_time=schedule.TIMES[args.slot])
             return 0

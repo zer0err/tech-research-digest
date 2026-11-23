@@ -320,7 +320,8 @@ def plan_day(day: str, entries: list[dict], pages: dict[str, str]) -> dict | Non
 
 
 def render_daily_page(title: str, stamp: datetime, sections: list[dict], sources: list[dict],
-                      analysis: dict, disclosure: str, canonical_path: str) -> str:
+                      analysis: dict, disclosure: str, canonical_path: str, *,
+                      scheduled_at: datetime | None = None) -> str:
     from .growth import article_callout
     from .site import shell
 
@@ -349,18 +350,28 @@ def render_daily_page(title: str, stamp: datetime, sections: list[dict], sources
             f'<h2>{html.escape(section["heading"])}</h2>{section["html"]}</section>'
         )
     provenance = render({"analysis": analysis, "sources": sources})
+    clock_label = "发布时间"
+    planned = ""
+    if scheduled_at is not None:
+        scheduled_at = scheduled_at.astimezone(ZONE)
+        clock_label = "实际合成时间"
+        planned = (f'<dt>计划合成时间</dt><dd><time datetime="{html.escape(scheduled_at.isoformat(), quote=True)}">'
+                   f'{scheduled_at:%Y-%m-%d %H:%M} · Asia/Taipei（UTC+8）</time></dd>')
     article = (
         '<div class="article-layout"><aside class="article-meta"><p class="eyebrow">VORASIO AI 日报</p><dl>'
-        f'<dt>发布时间</dt><dd data-published-at="{html.escape(stamp.isoformat(), quote=True)}">'
-        f'{stamp:%Y-%m-%d} 09:00 · Asia/Taipei（UTC+8）</dd>'
-        f'<dt>来源</dt><dd>{len(sources)} 条</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl>'
+        f'<dt>{clock_label}</dt><dd data-published-at="{html.escape(stamp.isoformat(), quote=True)}">'
+        f'{stamp:%Y-%m-%d %H:%M} · Asia/Taipei（UTC+8）</dd>'
+        f'{planned}<dt>来源</dt><dd>{len(sources)} 条</dd><dt>阅读提示</dt><dd>关键结论请回查原始资料</dd></dl>'
         '<a class="back-link" href="../index.html">← 返回全部日报</a></aside>'
         '<article><p class="kicker">DAILY REPORT · VORASIO AI 日报</p>'
         f'<h1>{html.escape(title)}</h1>{provenance}<p class="disclosure">{html.escape(disclosure)}</p>'
         f'<div class="article-body">{"".join(blocks)}</div>'
         f'{article_callout("../", "/" + canonical_path)}</article></div>'
     )
-    description = f"{title}：{len(sources)} 条来源，发布于 {stamp:%Y-%m-%d} 09:00（Asia/Taipei）。"
+    clock_verb = "合成于" if scheduled_at is not None else "发布于"
+    description = f"{title}：{len(sources)} 条来源，{clock_verb} {stamp:%Y-%m-%d %H:%M}（Asia/Taipei）。"
+    if scheduled_at is not None:
+        return shell(title, description, article, "../", extra_head=extra, article_asset_version="rotation-1")
     return shell(title, description, article, "../", extra_head=extra)
 
 

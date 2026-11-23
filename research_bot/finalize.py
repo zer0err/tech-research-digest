@@ -53,18 +53,23 @@ def main() -> int:
     now = datetime.now(UTC)
     edition = datetime.fromisoformat(pending["created_at"])
     today = now.astimezone(schedule.ZONE).date().isoformat()
+    due = schedule.is_due("daily_report", now)
+    if pending.get("rotation") == "B":
+        planned = datetime.fromisoformat(pending["scheduled_at"])
+        due = now >= planned
     receipts = state.setdefault("daily_notifications", {})
     notify = (
         pending["topic"] == "daily_report"
         and pending.get("notify", True)
         and not pending.get("replay_date")
         and edition.astimezone(schedule.ZONE).date().isoformat() == today
-        and schedule.is_due("daily_report", now)
+        and due
         and today not in receipts
     )
     if pending["topic"] == "daily_report" and pending.get("notify", True) and not pending.get("replay_date"):
-        if edition.astimezone(schedule.ZONE).date().isoformat() == today and not schedule.is_due("daily_report", now):
-            raise ValueError("Daily notification cannot be delivered before 09:00 Asia/Taipei")
+        if edition.astimezone(schedule.ZONE).date().isoformat() == today and not due:
+            time_label = planned.astimezone(schedule.ZONE).strftime("%H:%M") if pending.get("rotation") == "B" else "09:00"
+            raise ValueError(f"Daily notification cannot be delivered before {time_label} Asia/Taipei")
     if notify:
         message = (f"{pending['title']}｜{count} 篇有效简报\n完整内容：{pending['url']}" if count
                    else f"{pending['title']}｜今日暂无有效新内容\n每日状态：{pending['url']}")

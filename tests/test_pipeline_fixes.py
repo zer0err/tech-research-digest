@@ -23,11 +23,10 @@ def test_schedule_file_is_the_only_clock_and_matches_utc_crons():
     triggers = workflow.get("on", workflow.get(True))
     crons = [entry["cron"] for entry in triggers["schedule"]]
 
-    def beijing_cron(value: str) -> str:
-        hour, minute = (int(part) for part in value.split(":"))
-        return f"{minute} {(hour - 8) % 24} * * *"
-
-    assert crons == [beijing_cron(slot["time"]) for slot in editorial["slots"].values()]
+    hours = [*editorial["rotation_batch_hours"], editorial["rotation_assembly_hour"]]
+    assert hours == [9, 13, 17, 18]
+    utc_hours = ",".join(str((hour - 8) % 24) for hour in hours)
+    assert crons == [f"0 {utc_hours} * * *"]
     assert editorial["analysis_item_limit"] == 3
 
 

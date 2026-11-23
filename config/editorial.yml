@@ -1,8 +1,11 @@
 # 每日出版时刻、模型条数和失败重试的唯一配置。
-# 只发布一份日报：Asia/Taipei 09:00。UTC cron 是这个时刻减 8 小时。
-# 采集截止也是当天 09:00，不用补跑时的墙钟，避免把上午之后的新条目写进当期。
+# 历史重放保留 09:00；方案 B 启用日起每天 09:00、13:00、17:00 各采集一个领域，18:00 合成一份。
+# 各批使用计划时刻作为采集截止，不使用补跑时的墙钟。
 # GitHub Actions 的 cron 可能晚启动；到点之后的 catchup 仍只补这一期，不保证准点送达。
 timezone: Asia/Taipei
+rotation_start_date: "2026-11-24"
+rotation_batch_hours: [9, 13, 17]
+rotation_assembly_hour: 18
 analysis_item_limit: 3
 empty_rescan_minutes: 180
 failure_retry_minutes: 60

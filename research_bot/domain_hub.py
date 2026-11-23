@@ -12,7 +12,10 @@ from .site import shell
 
 # Explicit editorial mapping, not inferred from titles or model-generated summaries.
 # Rotating slots record the underlying topic in source_topic. The slot name alone is not a domain.
+from .domain_report import MODULES as DAILY_DOMAINS
+
 TOPIC_MODULES = {
+    **{key: (key,) for key in DAILY_DOMAINS},
     'model_research': ('models',),
     'training': ('training',),
     'inference_systems': ('inference',),
