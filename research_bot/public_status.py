@@ -4,14 +4,15 @@ import os
 from datetime import UTC, datetime
 from pathlib import Path
 
-from .schedule import BEIJING, TIMES, load, save
+from .schedule import BEIJING, TIMES, daily_planned_time, load, save
 
 
 def notify_maintenance() -> None:
     import logging
     ledger = load()
     now = datetime.now(UTC)
-    today = now.astimezone(BEIJING).date().isoformat()
+    local_day = now.astimezone(BEIJING).date()
+    today = local_day.isoformat()
     for key, record in ledger["slots"].items():
         if not key.startswith(today + ':') or record.get("maintenance_notified"):
             continue
@@ -21,7 +22,8 @@ def notify_maintenance() -> None:
         status = record.get("status")
         failed = status in {"analysis_rejected", "source_failure", "analysis_api_failure"} and record.get("attempts", 0) >= 3
         updated = datetime.fromisoformat(record["updated_at"]).astimezone(BEIJING)
-        planned = datetime.fromisoformat(today + "T" + TIMES[slot_name]).replace(tzinfo=BEIJING)
+        planned_time = daily_planned_time(local_day) if slot_name == "daily_report" else TIMES[slot_name]
+        planned = datetime.fromisoformat(today + "T" + planned_time).replace(tzinfo=BEIJING)
         delayed = (updated - planned).total_seconds() > 3600
         if failed or delayed:
             logging.warning("Editorial maintenance needed for %s: %s", key, "retries exhausted" if failed else "delayed")

@@ -125,7 +125,7 @@ def test_workflow_daily_trigger_matches_due_time():
     # PyYAML's YAML 1.1 parser treats the GitHub Actions key `on` as True.
     triggers = workflow.get('on', workflow.get(True))
     crons = [entry['cron'] for entry in triggers['schedule']]
-    assert crons == ['0 1 * * *']
+    assert crons == ['0 1,5,9,10 * * *']
     assert '0 11 * * *' not in crons
     editorial = yaml.safe_load((project / 'config/editorial.yml').read_text())
     assert editorial['slots']['daily_report']['time'] == '09:00'

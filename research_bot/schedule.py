@@ -7,7 +7,7 @@ dates do not move.
 from __future__ import annotations
 
 import json
-from datetime import datetime, timedelta
+from datetime import date, datetime, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -39,10 +39,17 @@ def publication_zone(data: dict | None = None) -> ZoneInfo:
 EDITORIAL = load_editorial()
 ZONE = publication_zone(EDITORIAL)
 BEIJING = ZONE
+ROTATION_START = date.fromisoformat(str(EDITORIAL.get("rotation_start_date", date.max)))
+ROTATION_HOURS = tuple(int(hour) for hour in EDITORIAL.get("rotation_batch_hours", [9, 13, 17]))
+ROTATION_ASSEMBLY_HOUR = int(EDITORIAL.get("rotation_assembly_hour", 18))
 TIMES = {name: str(slot["time"]) for name, slot in EDITORIAL["slots"].items()}
 EMPTY_RESCAN = timedelta(minutes=int(EDITORIAL.get("empty_rescan_minutes", 180)))
 FAILURE_RETRY = timedelta(minutes=int(EDITORIAL.get("failure_retry_minutes", 60)))
 MAX_ATTEMPTS = int(EDITORIAL.get("max_attempts", 3))
+
+
+def daily_planned_time(day: date) -> str:
+    return f"{ROTATION_ASSEMBLY_HOUR:02d}:00" if day >= ROTATION_START else TIMES["daily_report"]
 
 
 def key(slot: str, now: datetime) -> str:

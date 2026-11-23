@@ -1,0 +1,7 @@
+# Opt-in, manually verified residual evidence for the B edition.
+# Only list exact official provider hosts (not aggregators). Each item needs
+# verified: true, a positive residual_reason explaining why none of the ten
+# domains fits, title, official HTTPS url, offset-aware ISO-8601 published,
+# source, and a verified factual summary. No matching item means no Other block.
+official_hosts: []
+verified_items: []

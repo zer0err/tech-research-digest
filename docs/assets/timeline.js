@@ -1,4 +1,4 @@
-import {slotStatus} from './slot-status.mjs';
+import {dailyReceiptPlan, slotStatus} from './slot-status.mjs?v=2';
 import {dateInZone, executionZone, plannedInstant} from './time-display.mjs';
 
 (() => {
@@ -46,13 +46,16 @@ import {dateInZone, executionZone, plannedInstant} from './time-display.mjs';
     if (!line) return;
     const now = new Date();
     const day = dateInZone(now, executionZone);
-    if (day !== line.dataset.statusDate) return;
+    line.hidden = Boolean(line.dataset.lastPublishedDate && line.dataset.lastPublishedDate >= day);
+    if (line.hidden) return;
+    const planned = dailyReceiptPlan(line.dataset, day);
+    if (!planned) return;
     try {
       const response = await fetch('slot-status.json', {cache: 'no-store'});
       if (!response.ok) return;
       const receipts = await response.json();
       const record = receipts[day + ':daily_report'];
-      if (record) line.textContent = slotStatus(record, plannedInstant(day, '09:00'), now);
+      line.textContent = slotStatus(record, plannedInstant(day, planned), now);
     } catch { /* Leave the static status in place if the receipt cannot be read. */ }
   }
   refreshReceipt();

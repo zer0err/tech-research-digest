@@ -1,40 +1,15 @@
-name: Daily report at 09:00 Asia/Taipei
+name: Domain rotation and daily report (UTC+8)
 
 on:
   schedule:
-    # 09:00 Asia/Taipei = 01:00 UTC. GitHub may start this late; catchup retries the same edition.
-    - cron: "0 1 * * *"
+    # 09:00, 13:00, 17:00 domain drafts; 18:00 one combined edition.
+    - cron: "0 1,5,9,10 * * *"
   workflow_dispatch:
-    inputs:
-      slot:
-        description: Only the daily report is published
-        required: true
-        default: daily_report
-        type: choice
-        options:
-          - daily_report
 
 permissions: {contents: write, pages: write, id-token: write, actions: read}
 
 jobs:
-  compensate:
-    if: github.event_name == 'schedule'
-    uses: ./.github/workflows/catchup.yml
-    secrets: inherit
-  resolve:
-    if: github.event_name == 'workflow_dispatch'
-    runs-on: ubuntu-latest
-    outputs:
-      slot: ${{ steps.slot.outputs.value }}
-    steps:
-      - id: slot
-        env:
-          MANUAL_SLOT: ${{ inputs.slot }}
-        run: |
-          echo "value=$MANUAL_SLOT" >> "$GITHUB_OUTPUT"
-  run:
-    needs: resolve
-    uses: ./.github/workflows/_editorial.yml
-    with:
-      slot: ${{ needs.resolve.outputs.slot }}
+  rotate:
+    if: github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+    uses: ./.github/workflows/_rotation.yml
     secrets: inherit

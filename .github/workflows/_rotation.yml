@@ -1,0 +1,168 @@
+name: Serialized domain rotation runner
+on:
+  workflow_call:
+
+permissions: {contents: write, pages: write, id-token: write, actions: read}
+
+jobs:
+  rotate:
+    # Guard the reusable workflow itself as well as each entry point.
+    if: github.ref == format('refs/heads/{0}', github.event.repository.default_branch) && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        shell: bash
+    concurrency:
+      group: editorial-state-writer-v1
+      queue: max
+      cancel-in-progress: false
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    env:
+      DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+      PUBLICATION_MODE: production
+      PUBLIC_BASE_URL: ${{ vars.PUBLIC_BASE_URL }}
+      GITHUB_REPOSITORY: ${{ github.repository }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 0
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.0.0
+        with:
+          python-version: "3.13"
+          cache: pip
+      - run: python -m pip install --requirement requirements.txt
+      - name: Plan due work at the current time
+        id: plan
+        run: |
+          python -m research_bot.rotation --plan > "$RUNNER_TEMP/rotation-plan.json"
+          python - "$RUNNER_TEMP/rotation-plan.json" "$GITHUB_OUTPUT" <<'PY'
+          import json
+          import sys
+          from pathlib import Path
+          plan = json.loads(Path(sys.argv[1]).read_text())
+          if not isinstance(plan, list):
+              raise ValueError("Rotation plan must be a JSON list")
+          with Path(sys.argv[2]).open("a") as output:
+              print(f"due={str(bool(plan)).lower()}", file=output)
+          PY
+      - name: Set up fail-closed Git persistence
+        if: steps.plan.outputs.due == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          cat > "$RUNNER_TEMP/rotation-git.sh" <<'SH'
+          assert_fresh_main() {
+            local remote_sha local_sha
+            git fetch --no-tags origin "refs/heads/$DEFAULT_BRANCH" || return
+            remote_sha=$(git rev-parse FETCH_HEAD) || return
+            local_sha=$(git rev-parse HEAD) || return
+            if [ "$remote_sha" != "$local_sha" ]; then
+              echo 'Default branch moved; stop and let a fresh run reconstruct safely.' >&2
+              return 1
+            fi
+          }
+          persist_rotation() {
+            local message="$1"
+            shift
+            assert_fresh_main || return
+            local path
+            for path in "$@"; do
+              if [ -e "$path" ] || test -n "$(git ls-files -- "$path")"; then
+                git add -- "$path" || return
+              fi
+            done
+            if git diff --cached --quiet; then
+              return 0
+            fi
+            git diff --cached --stat || return
+            git commit -m "$message [skip ci]" || return
+            # No force, rebase, or retry after an ambiguous push. Next run re-reads remote state.
+            git push origin "HEAD:refs/heads/$DEFAULT_BRANCH"
+          }
+          SH
+      - name: Collect due domains or prepare the combined edition
+        if: steps.plan.outputs.due == 'true'
+        env:
+          OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
+          GH_SOURCE_TOKEN: ${{ github.token }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GROQ_MODEL: ${{ vars.GROQ_MODEL || 'openai/gpt-oss-20b' }}
+          GROQ_MAX_TOKENS: ${{ vars.GROQ_MAX_TOKENS || '2800' }}
+          MIMO_API_KEY: ${{ secrets.MIMO_API_KEY }}
+          MIMO_FALLBACK_ENABLED: ${{ vars.MIMO_FALLBACK_ENABLED || 'false' }}
+        run: |
+          source "$RUNNER_TEMP/rotation-git.sh"
+          assert_fresh_main
+          python -m research_bot.rotation --tick
+      - name: Persist drafts, terminal receipts, or the prepared site
+        id: persist
+        if: steps.plan.outputs.due == 'true'
+        run: |
+          source "$RUNNER_TEMP/rotation-git.sh"
+          persist_rotation "state: persist rotation work" state/rotation state/slots.json docs
+          if test -f work/pending.json; then
+            echo "pending=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "pending=false" >> "$GITHUB_OUTPUT"
+          fi
+          if test -f work/deploy-required; then
+            test -f work/pending.json
+            echo "deploy=true" >> "$GITHUB_OUTPUT"
+          elif test -f work/status-deploy-required; then
+            echo "deploy=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "deploy=false" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Configure GitHub Pages
+        if: steps.persist.outputs.deploy == 'true'
+        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
+      - name: Upload named GitHub Pages artifact
+        if: steps.persist.outputs.deploy == 'true'
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          name: github-pages-rotation
+          path: docs
+      - name: Verify source is still current before Pages deployment
+        if: steps.persist.outputs.deploy == 'true'
+        run: |
+          source "$RUNNER_TEMP/rotation-git.sh"
+          assert_fresh_main
+      - name: Deploy the prepared edition to GitHub Pages
+        id: deployment
+        if: steps.persist.outputs.deploy == 'true'
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1
+        with:
+          artifact_name: github-pages-rotation
+      - name: Record successful Pages deployment durably
+        if: steps.persist.outputs.pending == 'true' && steps.deployment.outcome == 'success'
+        run: |
+          source "$RUNNER_TEMP/rotation-git.sh"
+          assert_fresh_main
+          python -m research_bot.rotation --mark-deployed
+          persist_rotation "state: record deployed rotation edition" state/rotation
+      - name: Persist notification claim before attempting external delivery
+        id: claim
+        if: steps.persist.outputs.pending == 'true' && (steps.persist.outputs.deploy != 'true' || steps.deployment.outcome == 'success')
+        run: |
+          source "$RUNNER_TEMP/rotation-git.sh"
+          assert_fresh_main
+          python -m research_bot.rotation --claim-notification
+          persist_rotation "state: claim rotation notification" state/rotation
+      - name: Finalize deployed edition and persist book-keeping
+        if: steps.claim.outcome == 'success'
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          NTFY_TOKEN: ${{ secrets.NTFY_TOKEN }}
+          NTFY_BASE_URL: ${{ vars.NTFY_BASE_URL || 'https://ntfy.sh' }}
+        run: |
+          source "$RUNNER_TEMP/rotation-git.sh"
+          assert_fresh_main
+          python -m research_bot.finalize
+          python -m research_bot.rotation --mark-finalized
+          persist_rotation "state: record finalized rotation edition" state/seen.json state/slots.json state/rotation

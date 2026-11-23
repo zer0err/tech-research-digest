@@ -1,3 +1,11 @@
+// The generated homepage may remain unchanged overnight; apply the configured cutover
+// to the current UTC+8 day rather than reusing the previous edition's static plan.
+export function dailyReceiptPlan(dataset, day) {
+  return dataset.rotationStart && day >= dataset.rotationStart
+    ? dataset.rotationTime
+    : dataset.plannedTime;
+}
+
 // A receipt describes a processing outcome, not the existence of a published article.
 export function slotStatus(record, planned, clock, historical = false) {
   if (new Date(planned) > clock) return '未到执行时间';

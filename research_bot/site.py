@@ -47,7 +47,8 @@ def base_url() -> str:
 
 
 def shell(
-    title: str, description: str, body: str, relative_root: str = "", extra_head: str = "", *, digest_home: bool = False,
+    title: str, description: str, body: str, relative_root: str = "", extra_head: str = "", *,
+    digest_home: bool = False, article_asset_version: str = "replay-6",
 ) -> str:
     navigation = (
         f'<nav aria-label="主导航"><a href="{relative_root}index.html#latest">日报</a>'
@@ -84,7 +85,7 @@ def shell(
 <link rel="stylesheet" href="{relative_root}assets/style.css">
 <link rel="stylesheet" href="{relative_root}assets/growth.css">
 <link rel="stylesheet" href="{relative_root}assets/editorial.css?v=presentation-1">
-<script type="module" src="{relative_root}assets/article.js?v=replay-6"></script></head>
+<script type="module" src="{relative_root}assets/article.js?v={html.escape(article_asset_version, quote=True)}"></script></head>
 <body{page_class}><header class="site-header"><a class="brand" href="{relative_root}index.html"><span>VORASIO</span> 研究简报</a>
 {navigation}</header>
 <main>{body}</main><footer><strong>VORASIO 研究简报</strong>
