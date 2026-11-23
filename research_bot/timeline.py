@@ -149,7 +149,7 @@ def render_timeline(entries: list[dict[str, object]]) -> None:
         _lead_and_recent(reports, today, planned_time)
         + '<details class="digest-archive" id="latest"><summary>查找往期</summary><div class="archive-body">'
         + controls
-        + '</div></details><script type="module" src="assets/timeline.js?v=daily-3"></script>'
+        + '</div></details><script type="module" src="assets/timeline.js?v=daily-4"></script>'
     )
     Path("docs").mkdir(exist_ok=True)
     Path("docs/index.html").write_text(shell(

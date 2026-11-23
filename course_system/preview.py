@@ -119,11 +119,22 @@ def render_markdown(source: str, *, remove_title: bool = True) -> tuple[str, str
     return md.renderer.render(tokens, md.options, {}), '<ol>' + "".join(toc) + '</ol>'
 
 
-def shell(title: str, body: str, *, root: str, script: bool = True, preview: bool = True) -> str:
+def course_chrome(root: str, *, current_page: bool = False) -> tuple[str, str]:
+    from research_bot.navigation import render_footer, render_header
+
+    return (render_header(root, section="learning", current_page=current_page),
+            render_footer(root, privacy=True))
+
+
+def shell(title: str, body: str, *, root: str, script: bool = True, preview: bool = True,
+          current_page: bool = False) -> str:
     scripts = (
         f'<script defer src="{root}assets/course-progress.js"></script>'
         f'<script defer src="{root}assets/course-reader.js"></script>'
     ) if script else ""
+    from research_bot.navigation import CHROME_CSS
+
+    header, footer = course_chrome(root, current_page=current_page)
     return (
         '<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">'
         '<meta name="viewport" content="width=device-width,initial-scale=1">'
@@ -131,16 +142,13 @@ def shell(title: str, body: str, *, root: str, script: bool = True, preview: boo
         + ('<meta name="robots" content="noindex,nofollow">' if preview else '<meta name="robots" content="index,follow">')
         + '<meta name="referrer" content="no-referrer">'
         f'<title>{esc(title)} · VORASIO</title>'
-        f'<link rel="stylesheet" href="{root}assets/course.css">{scripts}</head><body>'
+        f'<link rel="stylesheet" href="{root}assets/course.css?v=reading-1">'
+        f'<link rel="stylesheet" href="{root}assets/{CHROME_CSS}">{scripts}</head><body>'
         '<a class="skip-link" href="#main">跳到正文</a>'
-        '<header class="site-header"><a class="brand" href="' + root + 'index.html">VORASIO</a>'
-        f'<nav aria-label="主导航"><a href="{root}index.html#latest">时间线</a>'
-        f'<a aria-current="page" href="{root}courses/index.html">AI 学习</a>'
-        + (f'<a href="{root}knowledge/index.html">AI 知识科普</a>' if not preview else '')
-        + '</nav></header>'
+        + header
         + ('<div class="preview-banner">本地预览 · 课程草稿，尚未公开发布</div>' if preview else '')
-        + f'<main id="main">{body}</main>'
-        '<footer>VORASIO · AI 学习 <span>学习记录仅保存在你的浏览器，不上传。</span></footer></body></html>'
+        + f'<main id="main" tabindex="-1">{body}</main>'
+        + footer + '</body></html>'
     )
 
 
@@ -229,6 +237,58 @@ def series_page(data: dict, *, preview: bool = True) -> str:
     ), root="../../", preview=preview)
 
 
+def course_hub(cards: str) -> str:
+    from research_bot.navigation import render_learning_choices
+
+    return (
+        '<section class="course-container"><header class="series-heading"><p class="eyebrow">LEARNING</p>'
+        '<h1>AI 学习路线</h1><p class="lead">按系列学习，按自己的节奏练习；课程与每日资讯分开。</p></header>'
+        + render_learning_choices("../") + cards + '</section>'
+    )
+
+
+def course_card(data: dict) -> str:
+    return (
+        f'<article class="series-card"><p class="eyebrow">{esc(data.get("audience", "零基础"))} · {len(data["lessons"])} 个单元</p>'
+        f'<h2><a href="{esc(data["series_id"])}/index.html">{esc(data["title"])}</a></h2>'
+        f'<p>{esc(data["description"])}</p><a class="primary-link" href="{esc(data["series_id"])}/index.html">查看学习路线 →</a>'
+        '</article>'
+    )
+
+
+def reading_intro(eyebrow: str, title: str, objective: str, start: str = "#section-1") -> str:
+    return (
+        f'<header><p class="eyebrow">{esc(eyebrow)}</p><h1>{esc(title)}</h1>'
+        f'<p class="lesson-objective"><span>本课目标</span>{esc(objective)}</p>'
+        f'<a class="lesson-start" href="{esc(start)}">开始学习</a></header>'
+    )
+
+
+def reading_jumps(toc: str, series: str, lesson_count: int) -> str:
+    return (
+        '<div class="lesson-jumps"><details class="chapter-directory"><summary>本课章节</summary>' + toc
+        + '</details><details class="series-directory"><summary>系列目录 <span aria-hidden="true">'
+        + str(lesson_count) + ' 课</span></summary>' + series + '</details></div>'
+    )
+
+
+def reading_supplements(progress: str, facts: str) -> str:
+    return ('<div class="lesson-supplements">' + progress + '<details class="lesson-evidence">'
+            '<summary>学习环境、参考来源与验证</summary>' + facts + '</details></div>')
+
+
+def reading_breadcrumb(series_title: str) -> str:
+    return ('<nav class="breadcrumb" aria-label="课程路径"><a href="../index.html">AI 学习</a>'
+            '<span aria-hidden="true"> / </span><a href="index.html">' + esc(series_title) + '</a></nav>')
+
+
+def lesson_objective(series_id: str, lesson_id: str, summary: str) -> str:
+    # The pilot's first lesson has a specifically reviewed learning objective.
+    if series_id == "retrieval-foundations" and lesson_id == "01-data":
+        return "创建并运行第一个 Python 文件，显示两条设备说明并统计数量。"
+    return summary
+
+
 def lesson_page(data: dict, lesson: dict, source: str, *, preview: bool = True) -> str:
     index = data["lessons"].index(lesson)
     body, toc = render_markdown(source)
@@ -245,17 +305,18 @@ def lesson_page(data: dict, lesson: dict, source: str, *, preview: bool = True) 
         + esc(exercise["title"]) + '</label><span data-exercise-status class="small-note">尚未标记</span></div>'
         for exercise in lesson["exercises"]
     )
+    eyebrow = (f'单元 {index + 1:02} / {len(data["lessons"]):02} · {data.get("audience", "零基础")} '
+               f'· 约 {lesson["minutes"]} 分钟')
+    objective = lesson_objective(data["series_id"], lesson["id"], lesson["summary"])
+    first_heading = re.search(r'href="(#[^"]+)"', toc)
+    start = first_heading[1] if first_heading else "#lesson-body"
     return shell(lesson["title"], (
-        f'<div class="course-container" {progress_root(data)}><p class="breadcrumb">'
-        '<a href="../index.html">AI 学习</a> / <a href="index.html">系列目录</a></p>'
-        '<div class="lesson-layout"><aside class="lesson-sidebar"><details class="series-directory">'
-        '<summary>系列目录</summary>' + lesson_list(data, current=lesson["id"], compact=True) + '</details>'
-        + progress_panel(data) + '</aside><article class="lesson-article"><header><p class="eyebrow">'
-        f'单元 {index + 1:02} / {len(data["lessons"]):02} · {esc(data.get("audience", "零基础"))} · 约 {lesson["minutes"]} 分钟</p>'
-        f'<h1>{esc(lesson["title"])}</h1>' + metadata(data, preview=preview) + '</header>'
-        '<details class="chapter-directory"><summary>本课章节</summary>' + toc + '</details>'
-        '<div class="lesson-body">' + body + '</div>'
-        f'<section class="completion-panel" {lesson_attrs(data, lesson)} aria-labelledby="completion-heading">'
+        f'<div class="course-container lesson-reading" {progress_root(data)}>' + reading_breadcrumb(data["title"])
+        + '<div class="lesson-layout"><article class="lesson-article">'
+        + reading_intro(eyebrow, lesson["title"], objective, start)
+        + reading_jumps(toc, lesson_list(data, current=lesson["id"], compact=True), len(data["lessons"]))
+        + '<div class="lesson-body" id="lesson-body">' + body + '</div>'
+        + f'<section class="completion-panel" {lesson_attrs(data, lesson)} aria-labelledby="completion-heading">'
         '<h2 id="completion-heading">学完这一课了吗？</h2>'
         '<p>请运行正文代码、完成练习并核对结果，再分别勾选。记录由你确认，不是系统评分。</p>'
         '<div class="exercise-checklist" aria-label="逐项练习进度"><h3>本课练习</h3>' + exercises +
@@ -263,7 +324,8 @@ def lesson_page(data: dict, lesson: dict, source: str, *, preview: bool = True) 
         '<label class="completion-label"><input type="checkbox" data-course-complete disabled> 我已完成本单元的阅读与练习</label>'
         '<p data-lesson-status class="small-note">尚未标记</p><p data-progress-notice role="status"></p>'
         '<p class="small-note">可以随时取消；进度仅保存在当前浏览器。<a href="index.html">管理或导出进度</a></p></section>'
-        '<nav class="lesson-neighbors" aria-label="前后单元">' + "".join(neighbors) + '</nav>'
+        + reading_supplements(progress_panel(data), metadata(data, preview=preview))
+        + '<nav class="lesson-neighbors" aria-label="前后单元">' + "".join(neighbors) + '</nav>'
         '<!-- Reserved extension points only; no advertising or discussion scripts are loaded. -->'
         '<div data-course-discussion-slot hidden></div><div data-course-ad-slot hidden></div>'
         '</article></div></div>'
@@ -301,15 +363,10 @@ def build_preview(draft: Path, output: Path, *, repo: Path = REPO) -> Path:
         rendered = shell(title, '<article class="support-page"><a href="index.html">← 返回系列</a>'
                          f'<h1>{esc(title)}</h1><div class="lesson-body">{body}</div></article>', root="../../")
         (series_dir / (name + ".html")).write_text(rendered, encoding="utf-8")
-    hub = (
-        '<section class="course-container"><header class="series-heading"><p class="eyebrow">LEARNING</p>'
-        '<h1>AI 学习路线</h1><p class="lead">按系列学习，按自己的节奏练习。这里的课程与每日资讯分开。</p></header>'
-        f'<article class="series-card"><p class="eyebrow">{esc(data.get("audience", "零基础"))} · {len(data["lessons"])} 个单元</p>'
-        f'<h2><a href="{esc(data["series_id"])}/index.html">{esc(data["title"])}</a></h2>'
-        f'<p>{esc(data["description"])}</p><a class="primary-link" href="{esc(data["series_id"])}/index.html">查看学习路线 →</a>'
-        '</article>' + existing_series_cards(repo, data['series_id']) + '</section>'
+    hub = course_hub(course_card(data) + existing_series_cards(repo, data["series_id"]))
+    (output / "courses/index.html").write_text(
+        shell("AI 学习路线", hub, root="../", script=False, current_page=True), encoding="utf-8"
     )
-    (output / "courses/index.html").write_text(shell("AI 学习路线", hub, root="../", script=False), encoding="utf-8")
     home = (output / "index.html").read_text(encoding="utf-8")
     home = home.replace('</head>', '<meta name="robots" content="noindex,nofollow"></head>')
     home = home.replace('<nav>', '<nav><a href="courses/index.html">AI 学习</a>', 1)

@@ -10,6 +10,7 @@ from typing import TYPE_CHECKING
 
 from markdown_it import MarkdownIt
 
+from .navigation import CHROME_CSS, render_footer, render_header
 from .schedule import EDITORIAL, ZONE
 
 if TYPE_CHECKING:
@@ -49,34 +50,10 @@ def base_url() -> str:
 def shell(
     title: str, description: str, body: str, relative_root: str = "", extra_head: str = "", *,
     digest_home: bool = False, article_asset_version: str = "replay-6",
+    section: str | None = None, current_page: bool = False, footer_note: str | None = None,
 ) -> str:
-    navigation = (
-        f'<nav aria-label="主导航"><a href="{relative_root}index.html#latest">日报</a>'
-        '<details class="digest-menu"><summary>探索</summary><div class="digest-menu-links">'
-        f'<a href="{relative_root}domains/index.html">领域导航</a>'
-        f'<a href="{relative_root}knowledge/index.html">AI 知识科普</a>'
-        f'<a href="{relative_root}courses/index.html">AI 学习</a>'
-        f'<a href="{relative_root}tools/index.html">AI 工具</a>'
-        f'<a href="{relative_root}subscribe.html">订阅精选</a></div></details></nav>'
-        if digest_home else
-        f"""<nav aria-label="主导航">
-<a href="{relative_root}domains/index.html">领域导航</a>
-<a href="{relative_root}index.html#latest">全部更新</a>
-<a href="{relative_root}knowledge/index.html">AI 知识科普</a>
-<a href="{relative_root}courses/index.html">AI 学习</a>
-<a href="{relative_root}tools/index.html">AI 工具</a>
-<a href="{relative_root}subscribe.html">订阅精选</a>
-<a href="{relative_root}services.html">开发咨询</a>
-<a href="{relative_root}about.html">关于</a></nav>"""
-    )
-    footer_links = (
-        '<nav class="digest-footer-links" aria-label="站点链接">'
-        '<a href="feed.xml">订阅 RSS</a><a href="sitemap.xml">站点地图</a>'
-        '<a href="services.html">开发咨询</a><a href="about.html">关于本站</a></nav>'
-        '<p class="digest-credit">版式改编自 <a href="https://html5up.net/editorial">HTML5 UP Editorial</a>，'
-        '<a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>。</p>'
-        if digest_home else ''
-    )
+    if digest_home:
+        section, current_page = "daily", True
     page_class = ' class="digest-home"' if digest_home else ''
     return f"""<!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -85,11 +62,11 @@ def shell(
 <link rel="stylesheet" href="{relative_root}assets/style.css">
 <link rel="stylesheet" href="{relative_root}assets/growth.css">
 <link rel="stylesheet" href="{relative_root}assets/editorial.css?v=presentation-1">
+<link rel="stylesheet" href="{relative_root}assets/{CHROME_CSS}">
 <script type="module" src="{relative_root}assets/article.js?v={html.escape(article_asset_version, quote=True)}"></script></head>
-<body{page_class}><header class="site-header"><a class="brand" href="{relative_root}index.html"><span>VORASIO</span> 研究简报</a>
-{navigation}</header>
-<main>{body}</main><footer><strong>VORASIO 研究简报</strong>
-<span>由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原始来源。</span>{footer_links}</footer></body></html>"""
+<body{page_class}><a class="reading-skip" href="#main">跳到正文</a>
+{render_header(relative_root, section=section, current_page=current_page)}
+<main id="main" tabindex="-1">{body}</main>{render_footer(relative_root, editorial_credit=digest_home, note=footer_note)}</body></html>"""
 
 
 def linkify_bare_urls(markdown: str) -> str:
@@ -133,7 +110,7 @@ def publish_post(topic: str, title: str, now: datetime, report: str, items: list
         f'<div class="article-body">{md.render(report_body)}</div>'
         f'{article_callout("../", "/posts/" + slug)}</article></div>'
     )
-    (POSTS_DIR / slug).write_text(shell(display_title, f"{display_title}：{len(items)} 项最新研究", article, "../"))
+    (POSTS_DIR / slug).write_text(shell(display_title, f"{display_title}：{len(items)} 项最新研究", article, "../", section="daily"))
     entries = json.loads(INDEX_DATA.read_text()) if INDEX_DATA.exists() else []
     entries = [entry for entry in entries if entry.get("url") != f"posts/{slug}"]
     entries.insert(

@@ -7,6 +7,7 @@ from pathlib import Path
 
 from markdown_it import MarkdownIt
 
+from .navigation import render_learning_choices
 from .site import shell
 
 TITLE = "从模型到智能体：一篇看懂 AI 生态、代表产品与常见术语"
@@ -39,22 +40,15 @@ DIAGRAM_HEIGHTS = {
 
 
 def page_shell(title: str, description: str, body: str) -> str:
-    page = shell(title, description, body, "../")
+    page = shell(
+        title, description, body, "../", section="learning",
+        footer_note="AI 辅助整理的科普内容，参考来源见正文；产品能力与名称以官方最新说明为准。",
+    )
     page = page.replace(
         '<script type="module" src="../assets/article.js?v=replay-6"></script>',
         '<link rel="stylesheet" href="../assets/knowledge.css?v=2">',
     )
-    page = page.replace('<body>', '<body class="knowledge-page"><a class="knowledge-skip" href="#main">跳到正文</a>')
-    page = page.replace('<main>', '<main id="main">')
-    page = page.replace(
-        '<a href="../knowledge/index.html">AI 知识科普</a>',
-        '<a aria-current="page" href="../knowledge/index.html">AI 知识科普</a>',
-    )
-    page = page.replace(
-        '由 GitHub Actions 定时采集，Groq 辅助分析。重要结论请核对原始来源。',
-        'AI 辅助整理的科普内容，参考来源见正文；产品能力与名称以官方最新说明为准。',
-    )
-    return page
+    return page.replace('<body>', '<body class="knowledge-page">')
 
 
 def render_article(source: str) -> tuple[str, list[tuple[int, str, str]]]:
@@ -174,6 +168,7 @@ def render_knowledge(repo: Path = Path('.')) -> Path:
         '<p class="lead">从模型到真实应用，读懂 AI 怎样工作。用代表作品认识生态，用具体场景理解术语。</p>'
         '<p class="knowledge-stats"><span>7 个观察层</span><span>73 个代表作品</span>'
         '<span>Model / Harness / Agent / Vibe coding</span></p></header>'
+        + render_learning_choices('../', knowledge=True) +
         '<article class="knowledge-card"><div><p class="eyebrow">入门长文 · 01</p>'
         f'<h2><a href="{SLUG}.html">{TITLE}</a></h2>'
         '<p>五组示意图串起七个观察层、核心术语和三个应用场景。'

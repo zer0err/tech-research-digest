@@ -344,10 +344,11 @@ def render_daily_page(title: str, stamp: datetime, sections: list[dict], sources
     )
     blocks = []
     for section in sections:
+        section_body = section.get("reading_html", section["html"]) if scheduled_at is not None else section["html"]
         blocks.append(
             f'<section id="{html.escape(section["anchor"], quote=True)}">'
             f'<p class="kicker">{html.escape(section.get("kicker") or "栏目")}</p>'
-            f'<h2>{html.escape(section["heading"])}</h2>{section["html"]}</section>'
+            f'<h2>{html.escape(section["heading"])}</h2>{section_body}</section>'
         )
     provenance = render({"analysis": analysis, "sources": sources})
     clock_label = "发布时间"
@@ -370,9 +371,49 @@ def render_daily_page(title: str, stamp: datetime, sections: list[dict], sources
     )
     clock_verb = "合成于" if scheduled_at is not None else "发布于"
     description = f"{title}：{len(sources)} 条来源，{clock_verb} {stamp:%Y-%m-%d %H:%M}（Asia/Taipei）。"
-    if scheduled_at is not None:
-        return shell(title, description, article, "../", extra_head=extra, article_asset_version="rotation-1")
-    return shell(title, description, article, "../", extra_head=extra)
+    return shell(title, description, article, "../", extra_head=extra, article_asset_version="reading-1", section="daily")
+
+
+def _reading_references(markdown: str, items: list[dict], renderer, anchor: str, *,
+                        allow_missing_heading: bool = False) -> str | None:
+    """Render B references in the generator's source order, never the model's order."""
+    from .site import linkify_bare_urls
+
+    refs = []
+    for index, item in enumerate(items, 1):
+        if not isinstance(item, dict) or not isinstance(item.get("url"), str):
+            return None
+        url = item["url"]
+        try:
+            parts = urlsplit(url)
+            if parts.scheme != "https" or not parts.hostname or parts.username or parts.password:
+                return None
+        except ValueError:
+            return None
+        if any(char.isspace() for char in url):
+            return None
+        title = html.escape(str(item.get("title") or url))
+        refs.append(f'<li id="{anchor}-source-{index}"><a href="{html.escape(url, quote=True)}">{title}</a></li>')
+    if not refs:
+        return None
+
+    # Markdown token maps distinguish the final References heading from fenced
+    # code or blockquote text. Unexpected structure keeps the original report.
+    tokens = renderer.parse(markdown)
+    headings = [
+        index for index, token in enumerate(tokens[:-1])
+        if token.type == "heading_open" and token.tag == "h2" and token.level == 0
+        and tokens[index + 1].content.strip() == "参考资料"
+    ]
+    if len(headings) > 1 or (not headings and not allow_missing_heading):
+        return None
+    if headings and any(token.type == "heading_open" and token.level == 0 for token in tokens[headings[0] + 1:]):
+        return None
+    if headings:
+        start = tokens[headings[0]].map[0]
+        markdown = "\n".join(markdown.splitlines()[:start])
+    return (renderer.render(linkify_bare_urls(markdown))
+            + '<h2>参考资料</h2><ol class="article-reference-list">' + "".join(refs) + "</ol>")
 
 
 def markdown_sections(parts: list[dict]) -> list[dict]:
@@ -383,9 +424,15 @@ def markdown_sections(parts: list[dict]) -> list[dict]:
     renderer = MarkdownIt("commonmark", {"html": False}).enable("table")
     sections = []
     for index, part in enumerate(parts, 1):
-        body = renderer.render(linkify_bare_urls(str(part["report"])))
+        markdown = str(part["report"])
+        body = renderer.render(linkify_bare_urls(markdown))
+        anchor = f"edition-{index}"
+        reading_html = _reading_references(
+            markdown, part.get("items") or [], renderer, anchor, allow_missing_heading=part["topic"] == "other",
+        )
         sections.append({
-            "anchor": f"edition-{index}",
+            "anchor": anchor,
+            **({"reading_html": reading_html} if reading_html is not None else {}),
             "heading": str(part["title"]),
             "kicker": str(part["topic"]),
             "html": body,

@@ -8,6 +8,7 @@ import re
 from pathlib import Path
 
 from .growth import article_callout
+from .navigation import update_document_chrome
 from .site import render_index
 
 
@@ -35,10 +36,7 @@ def build_platform() -> None:
         if 'rel="alternate"' not in content:
             content = content.replace('</head>', f'<link rel="alternate" type="application/rss+xml" title="VORASIO" '
                                       f'href="{root}feed.xml"></head>')
-        if 'href="' + root + 'subscribe.html"' not in content.split('</header>')[0]:
-            content = content.replace('</nav></header>', f'<a href="{root}domains/index.html">领域导航</a>'
-                                      f'<a href="{root}subscribe.html">订阅精选</a>'
-                                      f'<a href="{root}services.html">开发咨询</a></nav></header>', 1)
+        content = update_document_chrome(content, page.relative_to('docs').as_posix())
         if page.parent.name == 'posts':
             cta = article_callout(root, '/posts/' + page.name)
             if 'data-growth-cta' in content:

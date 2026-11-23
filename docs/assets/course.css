@@ -9,3 +9,99 @@
 @media(max-width:640px){.site-header,main,footer{width:calc(100% - 28px)}.site-header{min-height:64px;height:auto;align-items:flex-start;flex-wrap:wrap}.site-header nav{gap:2px 14px;font-size:.875rem}.brand{font-size:.95rem;letter-spacing:.12em}.course-container{padding-top:22px}.series-grid,.lesson-sidebar{grid-template-columns:1fr;gap:16px}.series-heading{padding-bottom:18px}.breadcrumb{margin-bottom:18px}.lesson-article{padding:20px 16px}.lesson-sidebar .series-directory{border-bottom:1px solid var(--line)}.lesson-sidebar .progress-panel{padding:14px}.course-facts{grid-template-columns:1fr;gap:12px}.lesson-body{font-size:1.02rem}.lesson-body h2{font-size:1.25rem}.code-example pre{padding:14px;font-size:.8rem}.completion-panel{padding:17px}.series-card{padding:22px}.lesson-list li{padding:19px 0;gap:12px}.lesson-list a{font-size:1rem}footer{display:block}footer span{display:block;margin-top:8px}}
 @media(prefers-color-scheme:dark){:root{color-scheme:dark;--paper:#000;--surface:#111;--ink:#f5f5f5;--green:#f5f5f5;--muted:#b5b5b5;--line:#2a2a2a;--line-strong:#676767;--accent:#f5f5f5;--accent-hover:#e0e0e0;--on-accent:#0d0d0d;--soft:#1a1a1a;--gold:#f5f5f5}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+
+/* Reading-first lesson layout: chapter and series shortcuts stay above the article. */
+.course-container.lesson-reading {
+  width: min(100%, 800px);
+  margin-inline: auto;
+  padding-block: clamp(24px, 5vw, 48px) 60px;
+}
+.lesson-reading .breadcrumb {
+  margin: 0 0 clamp(13px, 2.8vw, 30px);
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+.lesson-reading .breadcrumb a { text-underline-offset: .18em; }
+.lesson-reading .lesson-layout { display: block; }
+.lesson-reading .lesson-article {
+  padding: clamp(18px, 4.9vw, 42px);
+  border-radius: 8px;
+}
+.lesson-reading .lesson-article > header .eyebrow {
+  margin-block: 0 8px;
+  letter-spacing: .07em;
+}
+.lesson-reading .lesson-article > header h1 {
+  font-size: clamp(1.75rem, 6.6vw, 2.6rem);
+  line-height: 1.26;
+  margin-block: 0 12px;
+}
+.lesson-reading .lesson-objective {
+  margin: 0 0 14px;
+  padding: 9px 12px;
+  border-inline-start: 2px solid #ab453e;
+  background: var(--soft);
+  color: var(--ink);
+  line-height: 1.62;
+}
+.lesson-reading .lesson-objective span {
+  display: block;
+  font-size: .82rem;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+.lesson-reading .lesson-start {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding-inline: 15px;
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 6px;
+  font-weight: 650;
+  text-decoration: none;
+}
+.lesson-reading .lesson-jumps {
+  display: grid;
+  align-items: start;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-block: 13px 21px;
+}
+.lesson-reading .lesson-jumps details,
+.lesson-reading .lesson-evidence {
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--paper);
+  padding-inline: 10px;
+}
+.lesson-reading .lesson-jumps summary,
+.lesson-reading .lesson-evidence summary {
+  cursor: pointer;
+  min-height: 44px;
+  line-height: 1.55;
+  padding-block: 10px;
+  font-size: .9rem;
+  font-weight: 650;
+}
+.lesson-reading .lesson-jumps summary span { font-size: .7rem; color: var(--muted); }
+.lesson-reading .lesson-jumps details[open] { grid-column: 1 / -1; }
+.lesson-reading .lesson-jumps .lesson-list li { padding: 9px 0; gap: 7px; }
+.lesson-reading .lesson-jumps .lesson-list a { font-size: .88rem; }
+.lesson-reading .lesson-body {
+  font-size: clamp(1.03rem, 2.6vw, 1.1rem);
+  line-height: 1.82;
+}
+.lesson-reading .lesson-body > p:first-child { margin-top: 0; }
+.lesson-reading .lesson-body h2, .lesson-reading .lesson-body h3 { scroll-margin-top: 88px; }
+.lesson-reading .lesson-supplements { margin-block: 18px; display: grid; gap: 10px; }
+.lesson-reading .lesson-supplements .progress-panel { margin: 0; }
+.lesson-reading .lesson-evidence .course-facts { margin: 0 0 10px; }
+.lesson-reading .lesson-neighbors { margin-top: 12px; }
+.lesson-reading :is(a,summary,button,input,pre):focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+.lesson-reading .lesson-body table, .lesson-reading .lesson-body pre { max-width: 100%; }
+@media (max-width: 360px) {
+  .lesson-reading .lesson-jumps summary span { display: none; }
+  .lesson-reading .lesson-article { padding-inline: 14px; }
+}

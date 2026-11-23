@@ -1,0 +1,116 @@
+/* Canonical daily articles: a single reading column and no in-body promotions. */
+.article-layout.article-reading {
+  margin-inline: auto;
+  width: min(100%, 48rem);
+  display: block;
+  padding-block: clamp(24px, 6vw, 64px) 72px;
+}
+.article-reading .article-meta { display: flex; flex-direction: column; }
+.article-reading .article-meta .eyebrow { display: none; }
+.article-reading .article-meta .back-link { order: -1; align-self: flex-start; text-decoration: underline; }
+.article-reading .article-meta dl {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  align-items: baseline;
+}
+.article-reading .article-meta dt,
+.article-reading .article-meta dd { margin: 0; }
+.article-reading .article-meta dd:not(:last-child) { margin-right: 8px; }
+.article-reading > article { padding-top: 16px; }
+.article-reading > article > .kicker { margin-bottom: .5rem; }
+.article-reading > article > h1 {
+  margin: 0 0 .82rem;
+  font: 700 clamp(1.9rem, 6vw, 3.65rem)/1.22 var(--serif, serif);
+  letter-spacing: -.025em;
+}
+.article-reading .article-body { max-width: none; font-size: clamp(1rem, 2vw, 1.13rem); }
+.article-reading > article > [data-growth-cta] { display: none; }
+.article-reading .article-issue-directory {
+  margin-block: 18px 28px;
+  padding: 0;
+  border: 1px solid var(--line, #d7e0db);
+  border-radius: 9px;
+}
+.article-reading .article-issue-directory summary {
+  min-height: 44px;
+  padding: 10px 14px;
+  font-weight: 650;
+}
+.article-reading .article-issue-directory summary span {
+  float: right;
+  margin-left: .8rem;
+  color: var(--muted, #52635e);
+  font-size: .86em;
+  font-weight: 500;
+}
+.article-reading .article-issue-directory ol { padding-inline-start: 38px; padding-inline-end: 12px; margin-block: 0 12px; }
+.article-reading .article-issue-directory a { display: inline-flex; align-items: center; min-height: 44px; }
+.article-reading .article-body > section { scroll-margin-top: 5.25rem; }
+.article-reading .article-body > section > h2:first-of-type { margin-top: 1rem; border-top: none; padding-top: 0; }
+.article-reading .article-primary-takeaway {
+  border-inline-start: 3px solid var(--accent, #48715f);
+  padding: .55rem .85rem;
+  background: var(--surface, #f3f7f5);
+  font-weight: 620;
+}
+.article-reading .article-citation {
+  display: inline-block;
+  white-space: nowrap;
+  min-width: 1.45em;
+  margin-inline: .08rem;
+  text-align: center;
+  font-size: .85em;
+  font-weight: 720;
+}
+.article-reading .article-reference-list,
+.article-reading .article-reference-heading { scroll-margin-top: 5.25rem; }
+.article-reading .article-reference-list { font-size: .91em; overflow-wrap: anywhere; }
+.article-reading .article-reference-list [id],
+.article-reading .article-anchor-alias { scroll-margin-top: 5.25rem; }
+.article-reading .article-reference-list :target {
+  outline: 2px solid var(--accent, #48715f);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+.article-reading .article-evidence { display: grid; gap: .65rem; }
+.article-reading .article-evidence-row {
+  border: 1px solid var(--line, #d7e0db);
+  border-radius: 8px;
+  padding: .85rem 1rem;
+  background: var(--surface, #f3f7f5);
+  min-width: 0;
+}
+.article-reading .article-evidence-title { margin: 0 0 .5rem; font-weight: 700; }
+.article-reading .article-evidence-row dl { margin: 0; }
+.article-reading .article-evidence-row dt { margin: .55rem 0 .1rem; color: var(--muted, #52635e); font-weight: 700; font-size: .85em; }
+.article-reading .article-evidence-row dd { margin: 0; overflow-wrap: anywhere; }
+.article-reading .article-evidence-row dd > p:first-child { margin-top: 0; }
+.article-reading .article-evidence-row dd > p:last-child { margin-bottom: 0; }
+@media (min-width: 44rem) {
+  .article-reading .article-evidence-row dl { display: grid; grid-template-columns: minmax(0, 8.5rem) minmax(0, 1fr); gap: .4rem .8rem; }
+  .article-reading .article-evidence-row dt { margin: .2rem 0 0; }
+}
+.article-reading .article-primary-summary {
+  border-inline-start: 3px solid var(--accent, #48715f);
+  background: var(--surface, #f3f7f5);
+  padding: .7rem .95rem .85rem;
+  margin: .7rem 0 1rem;
+  overflow-wrap: anywhere;
+}
+.article-reading .article-primary-label {
+  margin: 0 0 .22rem;
+  color: var(--muted, #52635e);
+  font-size: .81rem;
+  font-weight: 680;
+}
+.article-reading .article-primary-summary > :last-child { margin-bottom: 0; }
+.article-reading > article > .back-link {
+  text-decoration: underline;
+  margin-top: 0;
+}
+.article-reading .article-bottom-return {
+  margin-top: 2.1rem;
+  padding-top: .65rem;
+  border-top: 1px solid var(--line, #d7e0db);
+}

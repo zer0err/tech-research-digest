@@ -37,8 +37,8 @@ import {dateInZone, executionZone, plannedInstant} from './time-display.mjs';
   openHashTarget();
   window.addEventListener('hashchange', openHashTarget);
   // A repeated click should reopen the disclosure even if the hash has not changed.
-  document.querySelector('.site-header a[href="index.html#latest"]')?.addEventListener('click', () => {
-    archive.open = true;
+  document.querySelectorAll('a[href="#latest"], a[href="index.html#latest"]').forEach(link => {
+    link.addEventListener('click', () => { archive.open = true; });
   });
 
   async function refreshReceipt() {
