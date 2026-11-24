@@ -1,22 +1,17 @@
-# 每日出版时刻、模型条数和失败重试的唯一配置。
-# 历史重放保留 09:00；方案 B 启用日起每天 09:00、13:00、17:00 各采集一个领域，18:00 合成一份。
+# 日报轮转时刻、时区与出版记录上限。
+# 启用日起每天 09:00、13:00、17:00 各采集一个领域，18:00 合成一份。
 # 各批使用计划时刻作为采集截止，不使用补跑时的墙钟。
 # GitHub Actions 的 cron 可能晚启动；到点之后的 catchup 仍只补这一期，不保证准点送达。
 timezone: Asia/Taipei
 rotation_start_date: "2026-11-24"
 rotation_batch_hours: [9, 13, 17]
 rotation_assembly_hour: 18
-analysis_item_limit: 3
-empty_rescan_minutes: 180
-failure_retry_minutes: 60
-max_attempts: 3
 publication_history_limit: 400
 slots:
   daily_report:
+    # 仅用于保留早期日报档案的原时间，不是当前生产调度。
     time: "09:00"
     label: "VORASIO AI 日报"
     category: "日报"
     page_title: "VORASIO AI 日报"
     cadence: "每日 09:00"
-    special: daily_report
-    publish_key: daily_report

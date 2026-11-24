@@ -1,20 +1,10 @@
 import json
-from datetime import UTC, date, datetime, timedelta
+from datetime import date
 from pathlib import Path
-from zoneinfo import ZoneInfo
 
 import yaml
 
-from research_bot.core import Item, in_lookback
-from research_bot.daily import (
-    COLLECTION_GRACE,
-    ZONE,
-    edition_cutoff,
-    edition_day,
-    edition_stamp,
-    migrate,
-    prepare_daily_report,
-)
+from research_bot.daily import edition_day, edition_stamp, migrate
 
 
 def long_page(title: str, paragraph: str, link: str) -> str:
@@ -37,24 +27,6 @@ def entry(day: str, topic: str, url: str, **extra):
         "provenance": {"analysis": {"provider": "Groq", "model": "test"}, "sources": extra.pop("sources", [])},
         **extra,
     }
-
-
-def test_morning_cutoff_excludes_later_instants_and_uses_taipei():
-    late = datetime(2026, 11, 16, 7, tzinfo=UTC)  # 15:00 in Taipei
-    cutoff = edition_cutoff(late)
-    assert cutoff == datetime(2026, 11, 16, 9, tzinfo=ZONE)
-    assert cutoff.utcoffset() == timedelta(hours=8)
-    assert edition_cutoff(datetime(2026, 11, 16, 0, 59, tzinfo=UTC)) is None
-    assert edition_cutoff(datetime(2026, 11, 16, 1, tzinfo=UTC)) == cutoff.replace(minute=0)
-    collect_at = cutoff - COLLECTION_GRACE
-    lookback = collect_at - timedelta(hours=72)
-    assert in_lookback(datetime(2026, 11, 16, 8, 59, tzinfo=ZONE), "instant", lookback, collect_at)
-    assert not in_lookback(datetime(2026, 11, 16, 9, 1, tzinfo=ZONE), "instant", lookback, collect_at)
-    assert in_lookback(datetime(2026, 11, 16, tzinfo=ZONE), "day", lookback, collect_at)
-    assert not in_lookback(datetime(2026, 11, 17, tzinfo=ZONE), "day", lookback, collect_at)
-    shanghai = datetime(2026, 11, 16, 9, tzinfo=ZoneInfo("Asia/Shanghai"))
-    assert shanghai.utcoffset() == cutoff.utcoffset()
-    assert shanghai.hour == cutoff.hour
 
 
 def test_migration_merges_one_day_and_keeps_distinct_links(tmp_path, monkeypatch):
@@ -166,72 +138,29 @@ def test_plan_day_groups_replay_by_execution_date():
     assert edition_stamp(date(2026, 10, 25)).isoformat() == "2026-10-25T09:00:00+08:00"
 
 
-def test_new_edition_publishes_one_page_and_blocks_a_second_run(tmp_path, monkeypatch):
-    monkeypatch.chdir(tmp_path)
-    Path("config").mkdir()
-    Path("config/sources.yml").write_text("topics:\n  model_research:\n    title: 模型\n    max_items: 3\n"
-                                          "  open_source:\n    title: 开源\n    max_items: 3\n")
-    Path("docs/posts").mkdir(parents=True)
-    Path("docs/posts.json").write_text("[]")
-    observed = []
-
-    def fake_prepare(topic, config, state_path, now, dry_run=False, publish_key=None, *,
-                     capture=None, clock=None, blocked=None):
-        observed.append(clock)
-        if topic == "open_source":
-            capture.append({"ok": False, "reason": "analysis_rejected", "topic": topic, "title": "开源",
-                            "report": "", "items": [], "analysis": None})
-            return False
-        item = Item("a", "Paper", "https://example.com/paper", "2026-11-16T01:00:00+00:00",
-                    "evidence " * 20, "src")
-        capture.append({"ok": True, "reason": "prepared", "topic": topic, "title": "模型",
-                        "report": "模型小节正文，带来源说明。", "items": [item],
-                        "analysis": {"provider": "Groq", "model": "test"}})
-        return True
-
-    monkeypatch.setattr("research_bot.main.prepare_topic", fake_prepare)
-    moment = datetime(2026, 11, 16, 7, tzinfo=UTC)
-    assert prepare_daily_report(moment, sources_path=Path("config/sources.yml")) is False
-    assert not Path("docs/posts/20261116-daily.html").exists()
-    assert all(clock == edition_cutoff(moment) - COLLECTION_GRACE for clock in observed)
-
-    def only_model(*args, **kwargs):
-        capture = kwargs["capture"]
-        if args[0] == "open_source":
-            capture.append({"ok": False, "reason": "no_matching_in_window", "topic": "open_source", "title": "开源",
-                            "report": "", "items": [], "analysis": None})
-            return False
-        return fake_prepare(*args, **kwargs)
-
-    monkeypatch.setattr("research_bot.main.prepare_topic", only_model)
-    assert prepare_daily_report(moment, sources_path=Path("config/sources.yml")) is True
-    page = Path("docs/posts/20261116-daily.html").read_text()
-    assert "2026-11-16 09:00 · Asia/Taipei" in page
-    assert "模型小节正文" in page
-    assert list(Path("docs/posts").glob("*.html")) == [Path("docs/posts/20261116-daily.html")]
-    saved = json.loads(Path("docs/posts.json").read_text())
-    assert len(saved) == 1
-    assert saved[0]["date"] == "2026-11-16T09:00:00+08:00"
-    pending = json.loads(Path("work/pending.json").read_text())
-    assert pending["notify"] is True
-    assert pending["topic"] == "daily_report"
-    from research_bot import schedule
-    assert schedule.due_slots(moment, schedule.load(), saved) == []
-
-
-def test_retired_slot_and_workflows_cannot_publish_fragments():
+def test_rotation_is_only_daily_publisher_and_callers_exist():
     project = Path(__file__).resolve().parents[1]
-    editorial = (project / ".github/workflows/editorial-day.yml").read_text()
-    preview = (project / ".github/workflows/preview-day.yml").read_text()
-    replay = (project / ".github/workflows/replay-day.yml").read_text()
-    research = (project / ".github/workflows/_research.yml").read_text()
-    assert "morning_radar" not in editorial
-    assert "daily_digest" not in preview
-    assert "daily_report" in preview
-    assert "morning_radar" not in replay
-    assert "--dry-run" in research
+    workflows = project / ".github/workflows"
+    retired = {"_editorial.yml", "preview-day.yml", "replay-day.yml", "run-all.yml", "efficient-ai.yml", "embodied.yml",
+               "product-safety.yml"}
+    assert not (retired & {path.name for path in workflows.glob("*.yml")})
+    docs = (project / "README.md").read_text()
+    assert all(name not in docs for name in retired)
+    for path in workflows.glob("*.yml"):
+        config = yaml.load(path.read_text(), Loader=yaml.BaseLoader)
+        for job in config.get("jobs", {}).values():
+            call = job.get("uses", "")
+            if call.startswith("./.github/workflows/"):
+                assert (project / call).is_file(), f"{path.name}: missing {call}"
+            if call.endswith("/_rotation.yml"):
+                assert path.name in {"editorial-day.yml", "catchup.yml"}
+                assert "default_branch" in job["if"]
+    for name in ("editorial-day.yml", "catchup.yml"):
+        assert "./.github/workflows/_rotation.yml" in (workflows / name).read_text()
+    assert "catchup.yml/dispatches" in (project / "infrastructure/cloudflare/worker.mjs").read_text()
     loaded = yaml.safe_load((project / "config/editorial.yml").read_text())
     assert list(loaded["slots"]) == ["daily_report"]
+    assert loaded["rotation_batch_hours"] == [9, 13, 17] and loaded["rotation_assembly_hour"] == 18
 
 
 def test_domain_hub_lists_one_daily_under_each_mapped_section(tmp_path):
@@ -252,11 +181,3 @@ def test_domain_hub_lists_one_daily_under_each_mapped_section(tmp_path):
     assert 'href="../posts/20261101-daily.html#edition-1"' in page
     assert 'href="../posts/20261101-daily.html#edition-2"' in page
     assert page.count("20261101-daily.html") == 2
-
-
-def test_collect_clock_is_the_cutoff_not_the_wall_clock():
-    moment = datetime(2026, 11, 16, 8, tzinfo=UTC)
-    cutoff = edition_cutoff(moment)
-    assert in_lookback(moment, "instant", moment - timedelta(hours=1), moment)
-    assert not in_lookback(moment, "instant", cutoff - timedelta(hours=72), cutoff)
-    assert cutoff < moment

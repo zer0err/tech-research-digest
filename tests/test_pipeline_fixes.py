@@ -6,7 +6,7 @@ from pathlib import Path
 import httpx
 import yaml
 
-from research_bot import core, finalize
+from research_bot import core, finalize, rotation_collect
 from research_bot.core import Item, canonical_url, contains_term, in_lookback, normalize_report, report_is_complete, unseen, update_state
 from research_bot.finalize import remember_publication
 from research_bot.sources import stable_release_tag
@@ -27,10 +27,10 @@ def test_schedule_file_is_the_only_clock_and_matches_utc_crons():
     assert hours == [9, 13, 17, 18]
     utc_hours = ",".join(str((hour - 8) % 24) for hour in hours)
     assert crons == [f"0 {utc_hours} * * *"]
-    assert editorial["analysis_item_limit"] == 3
+    assert all(rotation_collect.collection_config(key)["max_items"] == 3 for key in rotation_collect.MODULES)
 
 
-def test_daily_edition_collects_each_source_topic_once():
+def test_source_config_remains_available_to_current_domain_routes():
     root = Path(__file__).resolve().parents[1]
     editorial = yaml.safe_load((root / "config/editorial.yml").read_text())
     sources = yaml.safe_load((root / "config/sources.yml").read_text())
@@ -272,35 +272,18 @@ def test_publication_history_is_slim_and_bounded():
     assert "summary" not in state["publications"]["https://example.com/new"]["items"][0]
 
 
-def test_maintenance_flag_is_recorded_for_exhausted_slots(tmp_path, monkeypatch):
-    from research_bot.public_status import notify_maintenance
-    from research_bot.schedule import BEIJING
-
-    monkeypatch.chdir(tmp_path)
-    Path("state").mkdir()
-    today = datetime.now(BEIJING).date().isoformat()
-    Path("state/slots.json").write_text(json.dumps({"version": 1, "slots": {
-        f"{today}:daily_report": {
-            "status": "analysis_api_failure", "attempts": 3,
-            "updated_at": datetime.now(UTC).isoformat(),
-        },
-    }}))
-    notify_maintenance()
-    saved = json.loads(Path("state/slots.json").read_text())
-    assert saved["slots"][f"{today}:daily_report"]["maintenance_notified"] is True
-
-
-def test_editorial_workflow_gates_deploy_preview_and_maintenance_alerts():
+def test_rotation_workflow_gates_deploy_and_topic_preview_is_read_only():
     project = Path(__file__).resolve().parents[1]
-    editorial = (project / ".github/workflows/_editorial.yml").read_text()
+    rotation = (project / ".github/workflows/_rotation.yml").read_text()
     preview = (project / ".github/workflows/_research.yml").read_text()
-    assert "git_push_with_retry" in editorial
-    assert "steps.docs.outputs.changed == 'true'" in editorial
-    assert 'NOTIFY_MAINTENANCE: "true"' in editorial
-    assert "--dry-run" in editorial
-    assert 'inputs.analyze' in editorial
-    assert "--dry-run" in preview
-    assert "deploy-pages" not in preview
+    build = rotation.index("persist_rotation \"state: persist rotation work")
+    deploy = rotation.index("uses: actions/deploy-pages@")
+    claim = rotation.index("persist_rotation \"state: claim rotation notification")
+    notify = rotation.index("python -m research_bot.finalize")
+    assert build < deploy < claim < notify
+    assert "steps.claim.outcome == 'success'" in rotation
+    assert "--dry-run" in preview and "deploy-pages" not in preview
+    assert "contents: read" in preview
     assert "cvf" not in (project / "config/sources.yml").read_text()
 
 

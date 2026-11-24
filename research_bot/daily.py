@@ -1,33 +1,20 @@
-"""One daily report per Asia/Taipei date, published at 09:00.
-
-The morning edition collects through 09:00 Asia/Taipei and stops there.
-A later catch-up uses that same cutoff, so items timestamped after 09:00
-wait for the next morning. Asia/Taipei and the historical Asia/Shanghai
-label are both UTC+8 with no daylight-saving transition, so existing
-+08:00 timestamps stay on the same calendar date.
-"""
+"""Shared daily report rendering, identity rules, and archive migration helpers."""
 from __future__ import annotations
 
 import html
 import json
 import os
 import re
-from copy import deepcopy
-from datetime import date, datetime, timedelta
+from datetime import date, datetime
 from pathlib import Path
 from urllib.parse import urlsplit
 from zoneinfo import ZoneInfo
 
-from .audit import decision
 from .core import arxiv_base, canonical_url, normalize_doi
-from .provenance import metadata, render
-from .schedule import EDITORIAL
+from .provenance import render
 
 ZONE = ZoneInfo("Asia/Taipei")
 TOPIC = "daily_report"
-# in_lookback() treats "now + 2 hours" as still eligible. Passing the edition
-# cutoff minus this grace makes 09:00 the last eligible instant.
-COLLECTION_GRACE = timedelta(hours=2)
 ORIGIN = "https://vorasio.com"
 EDITION_TIME = "09:00"
 REDIRECT_MARKER = 'data-legacy-redirect="daily"'
@@ -55,28 +42,12 @@ RULES = (
 )
 
 
-def edition_cutoff(now: datetime) -> datetime | None:
-    """09:00 Asia/Taipei on the local date, once that instant has been reached."""
-    local = now.astimezone(ZONE)
-    cutoff = local.replace(hour=9, minute=0, second=0, microsecond=0)
-    if local < cutoff:
-        return None
-    return cutoff
-
-
 def edition_stamp(day: date) -> datetime:
     return datetime(day.year, day.month, day.day, 9, 0, tzinfo=ZONE)
 
 
 def canonical_name(day: str) -> str:
     return f"posts/{day.replace('-', '')}-daily.html"
-
-
-def source_topics(sources: dict) -> list[str]:
-    topics = sources.get("topics")
-    if not isinstance(topics, dict) or not topics:
-        raise ValueError("sources.yml has no topics")
-    return list(topics)
 
 
 def identity_keys(url: str = "", doi: str = "") -> set[str]:
@@ -441,123 +412,6 @@ def markdown_sections(parts: list[dict]) -> list[dict]:
             "title": str(part["title"]),
         })
     return sections
-
-
-def prepare_daily_report(now: datetime, *, dry_run: bool = False, sources_path: Path | None = None) -> bool:
-    """Collect every configured topic into one edition. Publish nothing when the edition is empty."""
-    import yaml
-
-    from .main import prepare_topic
-
-    Path("work/pending.json").unlink(missing_ok=True)
-    cutoff = edition_cutoff(now)
-    if cutoff is None:
-        decision(TOPIC, "not_due_yet", timezone="Asia/Taipei", planned_time=EDITION_TIME)
-        return False
-    mode = os.getenv("PUBLICATION_MODE", "production")
-    sources = yaml.safe_load(Path(sources_path or "config/sources.yml").read_text())
-    topics = sources["topics"]
-    limit = int(EDITORIAL.get("analysis_item_limit", 3))
-    collect_at = cutoff - COLLECTION_GRACE
-    state_path = Path("state/seen.json")
-    blocked: set[str] = set()
-    prepared: list[dict] = []
-    reasons: list[str] = []
-    source_failures = 0
-    for name in source_topics(sources):
-        config = deepcopy(topics[name])
-        config["analysis_item_limit"] = limit
-        config["notify"] = False
-        bucket: list[dict] = []
-        prepare_topic(name, config, state_path, collect_at, dry_run=dry_run, publish_key=name,
-                      capture=bucket, clock=collect_at, blocked=blocked)
-        row = bucket[-1]
-        reasons.append(f"{name}:{row['reason']}")
-        if row["ok"] and row.get("items"):
-            prepared.append(row)
-        elif row["reason"] == "source_failure":
-            source_failures += 1
-    if dry_run or mode == "test":
-        decision(TOPIC, "test_only" if mode == "test" else "dry_run", sections=len(prepared), topics=reasons)
-        return False
-    if not prepared:
-        reason = "source_failure" if source_failures else "empty_digest"
-        decision(TOPIC, reason, topics=reasons, cutoff=cutoff.isoformat())
-        return False
-    if any(item.endswith(":analysis_api_failure") or item.endswith(":analysis_rejected") for item in reasons):
-        decision(TOPIC, "analysis_rejected", topics=reasons, cutoff=cutoff.isoformat())
-        return False
-    day = cutoff.astimezone(ZONE).date().isoformat()
-    sections = markdown_sections(prepared)
-    items = [item for row in prepared for item in row["items"]]
-    analyses = [row.get("analysis") or {} for row in prepared]
-    providers = list(dict.fromkeys(str(item.get("provider") or "") for item in analyses if item.get("provider")))
-    models = list(dict.fromkeys(str(item.get("model") or "") for item in analyses if item.get("model")))
-    analysis = {"provider": providers[0] if len(providers) == 1 else "、".join(providers) or "Groq",
-                "model": "、".join(models) or "未记录"}
-    provenance = metadata(items, analysis)
-    disclosure = (
-        "依据公开来源自动整理，请核对证据边界。采集截止为当日 09:00（Asia/Taipei）；"
-        "精确到时刻且晚于该时刻的资料留到下一期。只标到日期的资料，在该日已经开始时纳入本期。"
-        "开发实践部分为实践参考，未经运行验证。"
-    )
-    title = f"VORASIO AI 日报（{day}）"
-    path = canonical_name(day)
-    page = render_daily_page(title, cutoff, sections, provenance["sources"], analysis, disclosure, path)
-    post_path = Path("docs") / path
-    post_path.parent.mkdir(parents=True, exist_ok=True)
-    post_path.write_text(page)
-    entry = {
-        "title": title,
-        "date": cutoff.astimezone(ZONE).isoformat(),
-        "count": len(provenance["sources"]) or len(sections),
-        "url": path,
-        "topic": TOPIC,
-        "status": "published",
-        "summary": visible_text(page)[:160],
-        "provenance": provenance,
-        "sections": [
-            {"topic": section["topic"], "source_topic": section["source_topic"], "title": section["title"],
-             "anchor": section["anchor"]}
-            for section in sections
-        ],
-    }
-    from .site import INDEX_DATA, render_index
-
-    entries = json.loads(INDEX_DATA.read_text()) if INDEX_DATA.exists() else []
-    entries = [item for item in entries if item.get("url") != path and item.get("topic") == TOPIC]
-    entries.insert(0, entry)
-    entries.sort(key=lambda item: str(item.get("date") or ""), reverse=True)
-    render_index(entries)
-    report = "\n\n".join(f"## {row['title']}\n\n{row['report']}" for row in prepared)
-    Path("reports").mkdir(exist_ok=True)
-    Path(f"reports/daily_report-{cutoff:%Y%m%dT%H%M%SZ}.md").write_text(report)
-    pending = {
-        "topic": TOPIC,
-        "slot": TOPIC,
-        "title": title,
-        "url": f"{ORIGIN}/{path}",
-        "created_at": cutoff.isoformat(),
-        "items": [item if isinstance(item, dict) else item.__dict__ for item in _dump(items)],
-        "published_count": entry["count"],
-        "notify": True,
-        "mode": mode,
-        "analysis": analysis,
-        "source_topic": TOPIC,
-    }
-    if os.getenv("REPLAY_EDITION_DATE"):
-        pending["replay_date"] = os.environ["REPLAY_EDITION_DATE"]
-        pending["notify"] = False
-    Path("work").mkdir(exist_ok=True)
-    Path("work/pending.json").write_text(json.dumps(pending, ensure_ascii=False, indent=2) + "\n")
-    decision(TOPIC, "prepared", selected=len(items), sections=len(sections), cutoff=cutoff.isoformat(), topics=reasons)
-    return True
-
-
-def _dump(items: list) -> list:
-    from .core import dump_items
-
-    return dump_items(items)
 
 
 def _grouped(entries: list[dict]) -> dict[str, list[dict]]:
