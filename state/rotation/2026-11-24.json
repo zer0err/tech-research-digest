@@ -12,9 +12,9 @@
     "13": {
       "domain": "training",
       "cutoff": "2026-11-24T13:00:00+08:00",
-      "finished_at": "2026-11-24T13:12:13.118328+08:00",
+      "finished_at": "2026-11-24T13:42:37.614362+08:00",
       "status": "analysis_rejected",
-      "attempts": 1
+      "attempts": 2
     }
   }
 }
