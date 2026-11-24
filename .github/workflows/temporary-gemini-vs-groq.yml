@@ -1,0 +1,91 @@
+name: Temporary Gemini versus Groq evidence smoke
+on:
+  push:
+    branches: [diagnostics/gemini-model-metadata-20261124]
+    paths: [.github/workflows/temporary-gemini-vs-groq.yml]
+permissions: {}
+jobs:
+  comparison:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Score only bounded structured results
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GROQ_MODEL: ${{ vars.GROQ_MODEL || 'openai/gpt-oss-20b' }}
+        run: |
+          python - <<'PY'
+          import json, os, re, urllib.request, urllib.error
+          class NoRedirect(urllib.request.HTTPRedirectHandler):
+              def redirect_request(self, req, fp, code, msg, headers, newurl): return None
+          opener = urllib.request.build_opener(NoRedirect())
+          packets = [
+            (
+              "[1] RFC 8259 sec. 7 (https://www.rfc-editor.org/rfc/rfc8259#section-7): A JSON string begins and ends with quotation marks. Control characters U+0000 through U+001F must be escaped. [2] RFC 3629 sec. 3 (https://www.rfc-editor.org/rfc/rfc3629#section-3): UTF-8 encodes Unicode characters in sequences of 1 to 4 octets. Neither source specifies latency.",
+              [{"0000", "001"}, {"1", "4"}],
+            ),
+            (
+              "[1] RFC 3339 sec. 5.6 (https://www.rfc-editor.org/rfc/rfc3339#section-5.6): date-fullyear = 4DIGIT. [2] RFC 1035 sec. 2.3.4 (https://www.rfc-editor.org/rfc/rfc1035#section-2.3.4): DNS labels are limited to 63 octets or less (not the whole name). Neither source gives storage requirements.",
+              [{"4"}, {"63"}],
+            ),
+          ]
+          prompt = """依据两份独立公开来源撰写工程简报，禁止推断未给出的数字。仅输出 JSON 对象：{"body":[{"cite":1,"number":"资料中的一个简单十进制数字（若第一组第一条选 0000）","claim":"一句具体中文事实"},{"cite":2,"number":"资料中的一个简单十进制数字","claim":"一句具体中文事实"}],"unknown":"一句指出这组未说明的工程指标","references":[1,2]}。正文每项必须独立表意并保留该数字，不能只依赖参考目录。不要用代码块。保留英文术语如 JSON、UTF-8、DNS；日期用‘年份’。"""
+          def evaluate(v, allowed):
+              rows = v.get("body", [])
+              rows = rows if isinstance(rows, list) else []
+              citations = {r.get("cite") for r in rows if isinstance(r,dict) and type(r.get("cite")) is int}
+              numbers = True
+              assertions = []
+              for r in rows:
+                  if not isinstance(r,dict) or type(r.get("cite")) is not int or not 1 <= r["cite"] <= 2:
+                      numbers = False
+                      continue
+                  n, claim = r.get("number"), r.get("claim")
+                  if not isinstance(n,str) or not isinstance(claim,str):
+                      numbers = False
+                      continue
+                  pool = allowed[r["cite"]-1]
+                  numbers &= n in pool and n in claim and set(re.findall(r"(?<![A-Za-z-])\d+", claim)) <= pool
+                  assertions.append(8 <= len(claim) <= 140)
+              coverage = len(rows) == 2 and citations == {1,2}
+              unknown = v.get("unknown")
+              caveat = isinstance(unknown,str) and any(t in unknown for t in ("未", "无法", "不能", "没有"))
+              return coverage, numbers and coverage, len(assertions)==2 and all(assertions) and caveat and v.get("references")==[1,2]
+          for family in ("gemini","groq"):
+              key = os.getenv({"gemini":"GEMINI_API_KEY","groq":"GROQ_API_KEY"}[family])
+              model = "gemini-2.5-flash-lite" if family=="gemini" else os.getenv("GROQ_MODEL","")
+              if not key or not re.fullmatch(r"[a-zA-Z0-9._/-]{1,100}", model):
+                  print(f"{family} status=missing_or_invalid_configuration")
+                  continue
+              for i, (source, allowed) in enumerate(packets, 1):
+                  message = prompt + "\n\n" + source
+                  if family == "gemini":
+                      url = "https://generativelanguage.googleapis.com/v1beta/models/" + model + ":generateContent"
+                      headers = {"x-goog-api-key":key}
+                      body = {"contents":[{"parts":[{"text":message}]}],"generationConfig":{"temperature":0,"maxOutputTokens":600,"responseMimeType":"application/json"}}
+                  else:
+                      url = "https://api.groq.com/openai/v1/chat/completions"
+                      headers = {"Authorization":"Bearer "+key}
+                      body = {"model":model,"messages":[{"role":"user","content":message}],"temperature":0,"max_completion_tokens":900,"response_format":{"type":"json_object"}}
+                  try:
+                      req=urllib.request.Request(url,data=json.dumps(body).encode(),headers={**headers,"Content-Type":"application/json"})
+                      with opener.open(req,timeout=30) as response:
+                          result=json.loads(response.read(1_000_000))
+                  except urllib.error.HTTPError as e:
+                      print(f"{family} model={model} packet={i} status=http_{e.code}")
+                      break
+                  except Exception:
+                      print(f"{family} model={model} packet={i} status=request_error")
+                      break
+                  try:
+                      if family=="gemini":
+                          raw="".join(p.get("text","") for p in result["candidates"][0]["content"]["parts"] if not p.get("thought"))
+                      else:
+                          raw=result["choices"][0]["message"]["content"]
+                      citation, number, structure = evaluate(json.loads(raw),allowed)
+                  except Exception:
+                      print(f"{family} model={model} packet={i} status=invalid_output")
+                      continue
+                  print(f"{family} model={model} packet={i} status=ok citation_body={int(citation)} numbers={int(number)} structure={int(structure)}")
+          PY
