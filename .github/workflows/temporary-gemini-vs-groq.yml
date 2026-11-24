@@ -54,10 +54,23 @@ jobs:
               return coverage, numbers and coverage, len(assertions)==2 and all(assertions) and caveat and v.get("references")==[1,2]
           for family in ("gemini","groq"):
               key = os.getenv({"gemini":"GEMINI_API_KEY","groq":"GROQ_API_KEY"}[family])
-              model = "gemini-2.5-flash-lite" if family=="gemini" else os.getenv("GROQ_MODEL","")
+              model = "gemini-3.5-flash-lite" if family=="gemini" else os.getenv("GROQ_MODEL","")
               if not key or not re.fullmatch(r"[a-zA-Z0-9._/-]{1,100}", model):
                   print(f"{family} status=missing_or_invalid_configuration")
                   continue
+              if family == "gemini":
+                  req = urllib.request.Request("https://generativelanguage.googleapis.com/v1beta/models/" + model, headers={"x-goog-api-key":key})
+                  try:
+                      with opener.open(req, timeout=12) as response:
+                          meta = json.loads(response.read(100_000))
+                      if meta.get("name") != "models/" + model or "generateContent" not in meta.get("supportedGenerationMethods", []):
+                          raise ValueError()
+                  except urllib.error.HTTPError as e:
+                      print(f"{family} model={model} status=metadata_http_{e.code}")
+                      continue
+                  except Exception:
+                      print(f"{family} model={model} status=metadata_unavailable")
+                      continue
               for i, (source, allowed) in enumerate(packets, 1):
                   message = prompt + "\n\n" + source
                   if family == "gemini":
