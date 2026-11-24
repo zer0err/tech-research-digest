@@ -5,7 +5,7 @@ import os
 import re
 from datetime import datetime, timedelta
 from pathlib import Path
-from urllib.parse import urlsplit
+from urllib.parse import urlencode, urlsplit
 
 import httpx
 import yaml
@@ -33,6 +33,42 @@ _OTHER_CONFIG = _CONFIG / "rotation_other.yml"
 # changes the local window; capped/rolling providers may still omit older items.
 _LOOKBACK_HOURS = 240
 _MAX_ITEMS = 3
+# Retain only a bounded shortlist per configured feed. The final model budget
+# remains three items and two from any single source.
+_EVIDENCE_POOL_PER_SOURCE = 8
+_MAX_PER_SOURCE = 2
+_EVIDENCE_DOMAINS = {"training", "inference"}
+_VLLM_RELEASE_FEED = "https://api.github.com/repos/vllm-project/vllm/releases"
+_MLCOMMONS_FEED = "https://mlcommons.org/feed/"
+_MLPERF_FEATURES = ("mlperf inference", "mlperf endpoints")
+_TRAINING_QUERY = (
+    '(ti:pretraining OR abs:"pre-training" OR abs:"post-training" OR abs:"instruction tuning" '
+    'OR abs:"preference optimization" OR abs:"training data" OR abs:"data curation") '
+    'AND (cat:cs.LG OR cat:cs.CL OR cat:cs.AI)'
+)
+_BASELINE = re.compile(r"\b(?:baseline(?:s)?|compared (?:with|to|against)|relative to|versus|ablation(?:s)?)\b"
+                       r"|基线|对照|消融", re.I)
+_METRIC = re.compile(
+    r"(?<![\w.])\d+(?:[.,]\d+)?\s*(?:%|×|x\b|milliseconds?\b|ms\b|"
+    r"seconds?\b|hours?\b|GB\b|GiB\b|(?:tok(?:ens?)?|samples?|requests?)\s*(?:/|per\s+)\s*s(?:econd)?\b)",
+    re.I,
+)
+_TRAINING_METHOD = re.compile(
+    r"\b(?:datasets?|corpora|corpus|curation|tokeniz\w*|distill\w*|optimization|ablation|"
+    r"learning rate|fine[- ]tun\w*|pre[- ]?train\w*|post[- ]?train\w*|curriculum)\b|训练|数据集|语料|优化",
+    re.I,
+)
+_INFERENCE_METHOD = re.compile(
+    r"\b(?:quantiz\w*|batch(?:ing| size)|tensor parallelism|pipeline parallelism|runtime|"
+    r"kernel|decoding|compiler|cache|compression)\b|量化|批大小|并行|运行时|编译器|缓存",
+    re.I,
+)
+_INFERENCE_SETUP = re.compile(
+    r"\b(?:[AHBL]\d{2,3}|GB\d{3}|RTX|GPU|CPU|NPU|Cerebras|Jetson|CUDA|ROCm|AVX|"
+    r"context length|batch size|concurrency|sequence length|precision|bitwidth)\b|"
+    r"显卡|设备|硬件|并发|上下文长度|精度",
+    re.I,
+)
 # collect() deliberately admits precise timestamps up to now + 2h. Shift the
 # collection clock, not the scheduled cutoff, and retain both fixed bounds.
 _COLLECT_GRACE = timedelta(hours=2)
@@ -59,7 +95,7 @@ _ROUTES = {
     "inference": (
         ("inference_systems", "efficient_ai"),
         ("inference engine", "serving throughput", "inference runtime", "quantization", "model compression",
-         "inference latency", "speculative decoding", "machine learning compiler", "kernel fusion"),
+         "inference latency", "speculative decoding", "machine learning compiler", "kernel fusion", *_MLPERF_FEATURES),
         (),
         "注明软硬件条件、吞吐、延迟、显存及质量代价，不泛化跨设备的结果。",
     ),
@@ -131,18 +167,78 @@ def collection_config(domain: str) -> dict:
                 source.get("type", "rss"), source["url"], source.get("query"), source.get("limit")
             )
             sources.setdefault(identity, source)
+    if domain == "training":
+        # Narrow the existing, capped arXiv request to training rather than
+        # adding a source or fetching full texts.
+        for identity, source in list(sources.items()):
+            if source["name"] == "arXiv Model Research":
+                parameters = {"search_query": _TRAINING_QUERY, "sortBy": "submittedDate",
+                              "sortOrder": "descending", "max_results": 80}
+                sources[identity] = {**source, "name": "arXiv Training Research",
+                                     "url": "https://export.arxiv.org/api/query?" + urlencode(parameters)}
+    elif domain == "inference":
+        # vLLM releases already exist in the repository's approved feed list.
+        for source in legacy["open_source"]["sources"]:
+            if source.get("url") == _VLLM_RELEASE_FEED and source.get("type") == "github":
+                identity = (source["type"], source["url"], source.get("query"), source.get("limit"))
+                sources.setdefault(identity, source)
+        sources[("rss", _MLCOMMONS_FEED, None, None)] = {
+            "name": "MLCommons Official Benchmarks", "url": _MLCOMMONS_FEED,
+            "required_any": list(_MLPERF_FEATURES),
+        }
     return {
         "title": MODULES[domain],
         "analysis_focus": focus,
         "lookback_hours": _LOOKBACK_HOURS - int(_COLLECT_GRACE.total_seconds() // 3600),
         "max_items": _MAX_ITEMS,
-        "max_per_source": 2,
+        "max_per_source": _EVIDENCE_POOL_PER_SOURCE if domain in _EVIDENCE_DOMAINS else _MAX_PER_SOURCE,
         "keywords": list(terms),
         # Application release/pricing language alone does not establish AI relevance.
         "required_any": list(_AI) if domain == "applications" else [],
         "exclude_any": list(excluded),
         "sources": list(sources.values()),
     }
+
+
+def _publisher_native(item: Item) -> bool:
+    try:
+        source = urlsplit(item.url)
+    except ValueError:
+        return False
+    if source.username or source.password:
+        return False
+    return bool(
+        (item.source == "NVIDIA Technical Blog" and source.hostname == "developer.nvidia.com" and source.path.startswith("/blog/"))
+        or (item.source == "MLCommons Official Benchmarks" and source.hostname in {"mlcommons.org", "www.mlcommons.org"})
+        or (item.source == "vLLM Releases" and source.hostname == "github.com"
+            and source.path.startswith("/vllm-project/vllm/releases/"))
+    )
+
+
+def _evidence_rank(domain: str, item: Item) -> tuple[int, int, int, str, str, str]:
+    # Rank only evidence cues explicitly visible in the collected summary.
+    # A keyword or a publisher-native URL is not an independent verification.
+    body = item.summary
+    method = bool((_TRAINING_METHOD if domain == "training" else _INFERENCE_METHOD).search(body))
+    metric = bool(_METRIC.search(body))
+    baseline = bool(_BASELINE.search(body))
+    setup = bool(_INFERENCE_SETUP.search(body)) if domain == "inference" else False
+    grounded_comparison = int(method and metric and baseline)
+    evidence_cues = sum((method, metric, baseline, setup))
+    publisher_native = int(domain == "inference" and _publisher_native(item))
+    return grounded_comparison, evidence_cues, publisher_native, item.published, item.uid, item.url
+
+
+def _analysis_focus(domain: str, focus: str) -> str:
+    common = focus + " 仅保留资料原有数值，第一节各条结论须标注相应的 [n] 引用。"
+    if domain == "training":
+        return common + " 先区分训练方法、数据或评测设置、原文可核对结果；缺失基线或实验条件时直接写摘要未给出。"
+    if domain == "inference":
+        return common + (
+            " 厂商博客、官方发行说明与论文分别标清证据来源。数值只引用原文给出的同口径基线、硬件、负载和精度；"
+            "缺失条件则仅陈述可直接确认的定性变化，不把厂商测试写成本刊实测。"
+        )
+    return common
 
 
 def generate(domain: str, cutoff: datetime, blocked: set[str]) -> dict:
@@ -164,17 +260,20 @@ def generate(domain: str, cutoff: datetime, blocked: set[str]) -> dict:
     usable = sorted(
         (item for item in candidates if item.title.strip() and len(item.summary.strip()) >= 40
          and item.url.startswith("https://") and item.kind != "resource"),
-        key=lambda item: (item.published, item.uid, item.url),
+        key=(lambda item: _evidence_rank(domain, item)) if domain in _EVIDENCE_DOMAINS
+        else (lambda item: (item.published, item.uid, item.url)),
         reverse=True,
     )
     selected = []
     identities = set(blocked)
+    used_by_source: dict[str, int] = {}
     for item in usable:
         keys = set(link_keys(item))
-        if keys & identities:
+        if keys & identities or (domain in _EVIDENCE_DOMAINS and used_by_source.get(item.source, 0) >= _MAX_PER_SOURCE):
             continue
         selected.append(item)
         identities.update(keys)
+        used_by_source[item.source] = used_by_source.get(item.source, 0) + 1
         if len(selected) == _MAX_ITEMS:
             break
     if not selected:
@@ -185,7 +284,7 @@ def generate(domain: str, cutoff: datetime, blocked: set[str]) -> dict:
     try:
         report = groq_analyse(
             row["title"],
-            config["analysis_focus"] + " 仅保留资料原有数值，第一节各条结论须标注相应的 [n] 引用。",
+            _analysis_focus(domain, config["analysis_focus"]),
             selected,
             content_type,
         )

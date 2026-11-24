@@ -24,6 +24,20 @@ PENDING = Path("work/pending.json")
 DEPLOY_REQUIRED = Path("work/deploy-required")
 STATUS_DEPLOY_REQUIRED = Path("work/status-deploy-required")
 SOFT_FAILURES = {"source_failure", "analysis_api_failure", "analysis_rejected", "invalid_draft"}
+# Public receipts and Actions logs may contain only these validator enums.
+# Keep in sync with report_validation_errors and rotation_collect's explicit guards.
+REJECTION_CODES = frozenset({
+    "missing_headline_evidence",
+    "missing_sections",
+    "invalid_source_numbers",
+    "missing_source_numbers",
+    "uncited_headline_claims",
+    "unsupported_commands",
+    "unsupported_headline_numbers",
+    "model_truncated_or_fallback",
+    "insufficient_analysis",
+})
+_MAX_RAW_ISSUE_CODES = 32
 RETRY_DELAY = timedelta(minutes=30)
 MAX_ATTEMPTS = 2
 RECOVERY_DAYS = 7
@@ -71,6 +85,31 @@ def recoverable(day: date):
         receipt = state_for(previous)
         if receipt["status"] in {"prepared", "deployed"}:
             yield receipt
+
+
+def rejection_codes(value: object) -> list[str]:
+    """Normalize validator codes only, excluding arbitrary diagnostic payloads."""
+    if not isinstance(value, (list, tuple)):
+        return []
+    return sorted({code for code in value[:_MAX_RAW_ISSUE_CODES]
+                   if type(code) is str and code in REJECTION_CODES})
+
+
+def rejection_history(old: dict, attempt: int, codes: list[str]) -> dict[str, list[str]]:
+    """Carry only bounded canonical diagnostics forward from earlier attempts."""
+    history = old.get("issue_codes_by_attempt")
+    history = history if isinstance(history, dict) else {}
+    retained = {}
+    for number in range(1, min(attempt, MAX_ATTEMPTS + 1)):
+        key = str(number)
+        previous = history.get(key)
+        if previous is None and number == attempt - 1 and old.get("status") == "analysis_rejected":
+            previous = old.get("issue_codes")
+        if safe := rejection_codes(previous):
+            retained[key] = safe
+    if codes and 1 <= attempt <= MAX_ATTEMPTS:
+        retained[str(attempt)] = codes
+    return retained
 
 
 def eligible_batch(row: dict, now: datetime) -> bool:
@@ -281,9 +320,15 @@ def tick(now: datetime | None = None, *, clock=None) -> None:
                 status = "invalid_draft"
         elif status == "prepared":
             status = "invalid_draft"
+        attempt = old.get("attempts", 0) + 1
+        codes = rejection_codes(result.get("issues")) if status == "analysis_rejected" else []
+        issue_history = rejection_history(old, attempt, codes)
+        if codes:
+            logging.info("Rotation slot %s rejected (%s)", key, ", ".join(codes))
         record["slots"][key] = {
             "domain": domain, "cutoff": cutoff.isoformat(), "finished_at": finished.isoformat(),
-            "status": status, "attempts": old.get("attempts", 0) + 1,
+            "status": status, "attempts": attempt,
+            **({"issue_codes_by_attempt": issue_history} if issue_history else {}),
             **({"result": result} if status == "prepared" else {}),
         }
         save(record)
