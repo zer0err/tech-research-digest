@@ -146,12 +146,10 @@ def test_analysis_item_limit_overrides_a_larger_max_items(tmp_path, monkeypatch)
     assert seen == [3, 4]
 
 
-def test_validation_retry_asks_groq_again_before_mimo(tmp_path, monkeypatch):
+def test_validation_retry_asks_groq_again(tmp_path, monkeypatch):
     import research_bot.main as runner
 
     monkeypatch.chdir(tmp_path)
-    monkeypatch.setenv("MIMO_FALLBACK_ENABLED", "true")
-    monkeypatch.setenv("MIMO_API_KEY", "not-used")
     now = datetime(2026, 10, 23, tzinfo=UTC)
     item = Item("a", "Paper", "https://example.com/paper", now.isoformat(), long_summary(), "src")
     monkeypatch.setattr(runner, "collect", lambda *args: [item])
@@ -165,7 +163,6 @@ def test_validation_retry_asks_groq_again_before_mimo(tmp_path, monkeypatch):
                 + "\n## 工程行动建议\n验证测试条件。[1]\n## 参考资料\n[1] https://example.com/paper")
 
     monkeypatch.setattr(runner, "groq_analyse", groq)
-    monkeypatch.setattr(runner, "mimo_analyse", lambda *args: calls.append("mimo"))
     assert runner.prepare_topic("model_research", {"title": "T", "analysis_focus": "F", "max_items": 3},
                                 Path("state.json"), now)
     assert calls == ["groq", "groq"]
@@ -319,3 +316,26 @@ def test_source_topic_files_a_rotating_slot_into_its_domain(tmp_path):
     }]))
     page = render_domain_hub(tmp_path).read_text()
     assert 'href="../posts/20261111-paper_brief.html"' in page
+
+def test_expired_mimo_flag_cannot_rescue_groq_error(tmp_path, monkeypatch):
+    import research_bot.main as runner
+
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setenv("MIMO_FALLBACK_ENABLED", "true")
+    monkeypatch.setenv("MIMO_API_KEY", "stale-test-value")
+    monkeypatch.setenv("GROQ_API_KEY", "test")
+    now = datetime(2026, 10, 23, tzinfo=UTC)
+    item = Item("a", "Paper", "https://example.com/paper", now.isoformat(), long_summary(), "src")
+    monkeypatch.setattr(runner, "collect", lambda *args: [item])
+    urls = []
+
+    def post(self, url, **kwargs):
+        urls.append(url)
+        return httpx.Response(403, request=httpx.Request("POST", url))
+
+    monkeypatch.setattr(httpx.Client, "post", post)
+    capture = {}
+    assert not runner.prepare_topic("model_research", {"title": "T", "analysis_focus": "F", "max_items": 3},
+                                    Path("state.json"), now, capture=capture)
+    assert capture["reason"] == "analysis_api_failure"
+    assert urls == ["https://api.groq.com/openai/v1/chat/completions"]
