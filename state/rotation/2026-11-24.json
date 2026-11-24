@@ -8,6 +8,13 @@
       "finished_at": "2026-11-24T10:12:17.027100+08:00",
       "status": "analysis_rejected",
       "attempts": 2
+    },
+    "13": {
+      "domain": "training",
+      "cutoff": "2026-11-24T13:00:00+08:00",
+      "finished_at": "2026-11-24T13:12:13.118328+08:00",
+      "status": "analysis_rejected",
+      "attempts": 1
     }
   }
 }
