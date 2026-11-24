@@ -137,7 +137,7 @@ Actions 的 `decision-*.json` 分别记录来源失败、无窗口内匹配资�
 
 Telegram 每天仅在 **09:00（Asia/Taipei，UTC+8）** 之后发送一条日报，包含标题、来源数量和网页链接。当天没有合格来源时不发布，也不发送状态通知。历史回放和历史迁移不发送通知。正式投递前检查当前日期、09:00 时间门禁，以及 `daily_notifications` 里是否已经有这一天。
 
-`state/seen.json` 的 `daily_notifications` 按 Asia/Taipei 日期记录 Telegram 成功回执；同日重跑不重复发送。已经迁移的历史日期写有 `migrated` 标记且不会补发。可选 ntfy 同时收到同一条新日报，其失败仅记日志，不再触发额外 Telegram。维护异常与 MiMo 使用情况只记 Actions 日志和现有审计材料。GitHub Actions 为尽力调度，09:00 是计划时间，部署或调度延迟可能使消息稍晚到达。
+`state/seen.json` 的 `daily_notifications` 按 Asia/Taipei 日期记录 Telegram 成功回执；同日重跑不重复发送。已经迁移的历史日期写有 `migrated` 标记且不会补发。可选 ntfy 同时收到同一条新日报，其失败仅记日志，不再触发额外 Telegram。维护异常只记 Actions 日志和现有审计材料。GitHub Actions 为尽力调度，09:00 是计划时间，部署或调度延迟可能使消息稍晚到达。
 
 ## 本地测试
 
@@ -209,13 +209,9 @@ OpenAlex 注册免费使用有每日预算及速率限制，以官方账户面�
 
 安全裁剪后的任务回执保存在 `docs/slot-status.json`，不包含待发布正文、密钥或内部请求。即使本次没有文章，也会部署状态更新；页面每分钟重新读取回执。已观察到超过一小时的延迟或重试耗尽时记录维护日志，不额外发送消息；任务完全没有启动时，仍依赖独立调度兜底，不能保证即时提醒。
 
-# MiMo 备用模型
+# 分析模型
 
-Groq 为主模型。可选 GitHub Secret `MIMO_API_KEY`，以及仓库 Variable `MIMO_FALLBACK_ENABLED=true` 才启用小米 `mimo-v2.6-flash` 兜底；默认关闭。接口固定为官方 `https://api.xiaomimimo.com/v1/chat/completions`（按量付费 API，不是 Token Plan 接口）。请先确认费用与账户额度，不要把限流上限误认为免费额度，程序无法保证只消耗赠送余额。
-
-Groq 调用异常或第一次分析未通过校验时切换；MiMo 同样必须通过原有质量检查，不会直接发布。每次实际尝试 MiMo 请求后，记录 Actions 日志，不单独发送 Telegram。MiMo 单次不自动重试，关闭深度思考，输出最多 4000 token；每轮准备最多两次 MiMo 请求，受原有时段重试次数限制。不得在聊天、仓库或日志中保存 Key。
-
-官方文档：https://mimo.mi.com/docs/zh-CN/quick-start/summary/first-api-call
+仅使用 Groq 生成分析；服务异常时不切换到其他模型，也不发布未通过质量检查的内容。历史文章保留原生成来源。
 
 
 ## AI 知识科普专区
