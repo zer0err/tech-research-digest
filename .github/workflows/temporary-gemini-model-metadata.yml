@@ -1,0 +1,49 @@
+name: Temporary Gemini metadata smoke
+on:
+  push:
+    branches: [diagnostics/gemini-model-metadata-20261124]
+    paths: [.github/workflows/temporary-gemini-model-metadata.yml]
+permissions: {}
+jobs:
+  model-metadata:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Check Gemini model metadata without generating content
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import urllib.error
+          import urllib.request
+          key = os.environ.get("GEMINI_API_KEY")
+          if not key:
+              print("gemini status=missing_key")
+              raise SystemExit(1)
+          class NoRedirect(urllib.request.HTTPRedirectHandler):
+              def redirect_request(self, req, fp, code, msg, headers, newurl):
+                  return None
+          opener = urllib.request.build_opener(NoRedirect())
+          model = "gemini-2.5-flash-lite"
+          req = urllib.request.Request(
+              "https://generativelanguage.googleapis.com/v1beta/models/" + model,
+              headers={"x-goog-api-key": key},
+          )
+          try:
+              with opener.open(req, timeout=15) as response:
+                  metadata = json.loads(response.read(100_000))
+          except urllib.error.HTTPError as error:
+              print("gemini status=http_" + str(error.code))
+              raise SystemExit(1)
+          except Exception:
+              print("gemini status=metadata_unavailable")
+              raise SystemExit(1)
+          good = metadata.get("name") == "models/" + model and (
+              "generateContent" in metadata.get("supportedGenerationMethods", [])
+          )
+          print("gemini model=" + model + " status=" + ("metadata_ok" if good else "metadata_unexpected"))
+          raise SystemExit(0 if good else 1)
+          PY
