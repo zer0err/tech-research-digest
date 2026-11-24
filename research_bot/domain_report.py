@@ -25,6 +25,8 @@ MODULES = {
 
 def build(evidence: dict, output: Path, *, generate: bool = False, provider: str = 'groq',
           selected: list[str] | None = None) -> dict:
+    if provider != 'groq':
+        raise ValueError('Only Groq is supported')
     unknown = set(evidence) - MODULES.keys()
     if unknown:
         raise ValueError(f'Unknown modules: {sorted(unknown)}')
@@ -51,7 +53,7 @@ def build(evidence: dict, output: Path, *, generate: bool = False, provider: str
             elif generate and (not selected or key in selected):
                 try:
                     report = normalize_report(groq_analyse(title, '围绕本模块的问题综合证据，明确资料边界。',
-                                                          items, 'domain', provider=provider), 'domain', items)
+                                                          items, 'domain'), 'domain', items)
                     issues = report_validation_errors(report, items, 'domain')
                     if len(report) < 300 or '降级为' in report:
                         issues.append('insufficient_or_truncated')
@@ -85,7 +87,7 @@ def main() -> None:
     parser.add_argument('--evidence', type=Path, help='JSON: module ID -> list of Item dictionaries')
     parser.add_argument('--output', type=Path, default=Path('outputs/ai-domain'))
     parser.add_argument('--generate', action='store_true', help='Call configured model; default only audits coverage')
-    parser.add_argument('--provider', choices=['groq', 'mimo'], default='groq')
+    parser.add_argument('--provider', choices=['groq'], default='groq')
     parser.add_argument('--modules', nargs='+', choices=list(MODULES), help='Generate only selected modules')
     args = parser.parse_args()
     evidence = json.loads(args.evidence.read_text()) if args.evidence else {}

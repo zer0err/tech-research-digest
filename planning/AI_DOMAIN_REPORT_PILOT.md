@@ -32,7 +32,7 @@
 .venv/bin/python -m research_bot.domain_report --evidence evidence.json --generate --modules agents knowledge
 ```
 
-生成需要 GROQ_API_KEY；模型遵循现有 GROQ_MODEL 配置。使用 MiMo 时传 --provider mimo，并设置 MIMO_API_KEY 和 MIMO_FALLBACK_ENABLED=true。
+生成需要 GROQ_API_KEY；模型遵循现有 GROQ_MODEL 配置。
 
 默认目录 outputs/ai-domain 包含 index.md 覆盖总览、manifest.json 检查点及各模块 Markdown。状态分别为 needs_evidence、ready、generated、rejected、failed。未选中的模块不会调用模型。资料或 provider 变化时重新生成；generated 内容只经过结构校验，不能称为已核实。
 
