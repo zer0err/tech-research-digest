@@ -19,8 +19,6 @@ from .core import (
     groq_analyse,
     link_keys,
     load_state,
-    mimo_analyse,
-    mimo_enabled,
     normalize_report,
     report_validation_errors,
     unseen,
@@ -105,17 +103,9 @@ def prepare_topic(
         print(json.dumps(dump_items(selected), ensure_ascii=False, indent=2))
         return finish(bool(selected), "dry_run", items=selected, counts=counts)
     content_type = str(config.get("content_type", "research"))
-    analyse = groq_analyse
     for attempt in range(2):
         try:
-            try:
-                report = groq_analyse(str(config["title"]), str(config["analysis_focus"]), selected, content_type)
-                analyse = groq_analyse
-            except Exception:
-                if not mimo_enabled():
-                    raise
-                report = mimo_analyse(str(config["title"]), str(config["analysis_focus"]), selected, content_type)
-                analyse = mimo_analyse
+            report = groq_analyse(str(config["title"]), str(config["analysis_focus"]), selected, content_type)
         except Exception as exc:
             logging.warning("Analysis unavailable for %s (%s); skipping publication", topic, type(exc).__name__)
             decision(key, "analysis_api_failure", error=type(exc).__name__, **counts)
@@ -154,8 +144,7 @@ def prepare_topic(
         Path(f"reports/test-{key}.md").write_text(header + report)
         decision(key, "test_only", selected=len(selected), **counts)
         return finish(False, "test_only", report=report, items=selected, counts=counts)
-    analysis = {"provider": "Xiaomi MiMo" if analyse is mimo_analyse else "Groq",
-                "model": "mimo-v2.6-flash" if analyse is mimo_analyse else os.getenv("GROQ_MODEL", "openai/gpt-oss-20b")}
+    analysis = {"provider": "Groq", "model": os.getenv("GROQ_MODEL", "openai/gpt-oss-20b")}
     if capture is not None:
         decision(key, "prepared", selected=len(selected), **counts)
         return finish(True, "prepared", report=report, items=selected, analysis=analysis,
