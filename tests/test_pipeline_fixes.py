@@ -317,6 +317,7 @@ def test_source_topic_files_a_rotating_slot_into_its_domain(tmp_path):
     page = render_domain_hub(tmp_path).read_text()
     assert 'href="../posts/20261111-paper_brief.html"' in page
 
+
 def test_expired_mimo_flag_cannot_rescue_groq_error(tmp_path, monkeypatch):
     import research_bot.main as runner
 
@@ -334,8 +335,8 @@ def test_expired_mimo_flag_cannot_rescue_groq_error(tmp_path, monkeypatch):
         return httpx.Response(403, request=httpx.Request("POST", url))
 
     monkeypatch.setattr(httpx.Client, "post", post)
-    capture = {}
+    capture = []
     assert not runner.prepare_topic("model_research", {"title": "T", "analysis_focus": "F", "max_items": 3},
                                     Path("state.json"), now, capture=capture)
-    assert capture["reason"] == "analysis_api_failure"
+    assert capture[0]["reason"] == "analysis_api_failure"
     assert urls == ["https://api.groq.com/openai/v1/chat/completions"]
