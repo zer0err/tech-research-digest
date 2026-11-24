@@ -1,0 +1,55 @@
+name: Temporary Ling Chinese Markdown smoke
+on:
+  push:
+    branches: [diagnostics/gemini-model-metadata-20261124]
+    paths: [.github/workflows/temporary-openrouter-ling-markdown.yml]
+permissions: {}
+jobs:
+  comparison:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Score only bounded structured results
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: |
+          python - <<'PY'
+          import json, os, re, urllib.request, urllib.error
+          model="inclusionai/ling-3.2-flash:free"
+          key=os.getenv("OPENROUTER_API_KEY")
+          if not key:
+              print("ling status=missing_key")
+              raise SystemExit(0)
+          hs=("## 本期结论","## 逐项分析","## 工程行动建议","## 参考资料")
+          urls=("https://www.rfc-editor.org/rfc/rfc3629#section-3","https://www.rfc-editor.org/rfc/rfc1035#section-2.3.4")
+          prompt="写至少300字符的中文工程简报，仅输出 Markdown，不用代码围栏。按顺序使用这些标题：\n"+"\n".join(hs)+"\n本期结论两条要点各标引用[1]或[2]；用普通十进制数字保留来源的三个数量，在同一行注明对应引用。不要添加未提供的数字、命令或实测指标。区分两个约束、讨论如何验证，不声称有时延或吞吐数据。参考资料保留两个原链接与编号。\n[1] "+urls[0]+"：UTF-8 中一个字符用 1 至 4 个八位字节编码。\n[2] "+urls[1]+"：DNS 单个标签至多 63 个八位字节，不是整个域名的限制。"
+          class NoRedirect(urllib.request.HTTPRedirectHandler):
+              def redirect_request(self, req, fp, code, msg, headers, newurl): return None
+          data={"model":model,"messages":[{"role":"user","content":prompt}],"max_tokens":950,"temperature":0,"reasoning":{"enabled":False},"provider":{"allow_fallbacks":False,"max_price":{"prompt":0,"completion":0,"request":0}}}
+          try:
+              req=urllib.request.Request("https://openrouter.ai/api/v1/chat/completions",data=json.dumps(data).encode(),headers={"Authorization":"Bearer "+key,"Content-Type":"application/json"})
+              with urllib.request.build_opener(NoRedirect()).open(req,timeout=45) as response:
+                  result=json.loads(response.read(1000000))
+          except urllib.error.HTTPError as e:
+              print(f"ling status=http_{e.code}")
+              raise SystemExit(0)
+          except Exception:
+              print("ling status=request_error")
+              raise SystemExit(0)
+          try:
+              choice=result["choices"][0]
+              report=re.sub(r"【(\d+)】",r"[\1]",choice["message"]["content"])
+          except Exception:
+              print("ling status=invalid_output")
+              raise SystemExit(0)
+          body,_,refs=report.partition(hs[-1])
+          headline=body.partition(hs[1])[0]
+          def cites(s):return set(re.findall(r"\[(\d+)\](?!\()",s))
+          def nums(s):return set(re.findall(r"\d+(?:\.\d+)?%?",re.sub(r"https?://\S+|\[\d+\]|UTF-8|^\d+\.\s","",s,flags=re.M)))
+          claims=re.findall(r"^(?:[-*]|\d+\.)\s+(.+)$",headline,flags=re.M)
+          checks=dict(headings=tuple(re.findall(r"^## .+$",report,flags=re.M))==hs,
+              citation_body=chr(96)*3 not in body and "~~~" not in body and cites(body)=={"1","2"} and len(claims)>=2 and all(cites(line) for line in claims) and cites(headline)=={"1","2"},
+              numbers=nums(body)=={"1","4","63"} and any({"1","4"}<=nums(line) and "1" in cites(line) for line in body.splitlines()) and any("63" in nums(line) and "2" in cites(line) for line in body.splitlines()),
+              refs=all(url in refs for url in urls), min_length=len(body.strip())>=300, complete=choice.get("finish_reason")=="stop")
+          print("ling status=scored pass="+str(int(all(checks.values())))+" "+" ".join(k+"="+str(int(v)) for k,v in checks.items()))
+          PY
