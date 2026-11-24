@@ -1,6 +1,6 @@
 {
   "day": "2026-11-24",
-  "status": "drafting",
+  "status": "sealed_empty",
   "slots": {
     "09": {
       "domain": "models",
@@ -23,5 +23,6 @@
       "status": "analysis_rejected",
       "attempts": 1
     }
-  }
+  },
+  "sealed_at": "2026-11-24T18:12:17.734929+08:00"
 }
