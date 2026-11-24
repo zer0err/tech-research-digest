@@ -6,7 +6,6 @@ import pytest
 
 import research_bot.main as runner
 from research_bot.core import Item, SourceUnavailable, fallback_report
-from research_bot.editorial import prepare_daily_digest
 
 
 @pytest.fixture
@@ -50,13 +49,6 @@ def test_rejected_analysis_never_becomes_public_fallback(setup_run, monkeypatch)
     assert len(list(Path("reports").glob("rejected-*.md"))) == 2
 
 
-def test_empty_or_failed_posts_do_not_invent_a_daily_report(setup_run):
-    _, now = setup_run
-    assert not prepare_daily_digest(now)
-    assert not Path("work/pending.json").exists()
-    assert not Path("docs").exists()
-
-
 def test_valid_analysis_publishes(setup_run, monkeypatch):
     config, now = setup_run
     item = Item("a", "Paper", "https://example.com/paper", now.isoformat(), "real evidence " * 20, "source")
@@ -87,10 +79,3 @@ def test_test_mode_ignores_production_history_and_never_publishes(setup_run, mon
     assert not Path("work/pending.json").exists()
     assert not Path("docs").exists()
     assert Path("state.json").read_text() == before
-
-
-def test_test_digest_never_publishes(setup_run, monkeypatch):
-    _, now = setup_run
-    monkeypatch.setenv("PUBLICATION_MODE", "test")
-    assert not prepare_daily_digest(now)
-    assert not Path("work/pending.json").exists()

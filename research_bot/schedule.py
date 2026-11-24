@@ -1,13 +1,8 @@
-"""Same-day catch-up planning and persistent publication receipts.
-
-The publication zone is Asia/Taipei (UTC+8, no daylight saving). Historical
-records used the label Asia/Shanghai; the offset is the same, so calendar
-dates do not move.
-"""
+"""Current rotation timing and durable per-edition publication receipts."""
 from __future__ import annotations
 
 import json
-from datetime import date, datetime, timedelta
+from datetime import date, datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -15,12 +10,6 @@ import yaml
 
 LEDGER = Path("state/slots.json")
 EDITORIAL_PATH = Path(__file__).resolve().parent.parent / "config" / "editorial.yml"
-# Statuses that mean "nothing was published, but a later pass the same day may find new items".
-SOFT_EMPTY = {"already_published", "no_matching_in_window"}
-# Statuses that close the slot for the rest of the Beijing day.
-TERMINAL = {"published", "insufficient_abstract", "empty_digest"}
-
-
 def load_editorial(path: Path = EDITORIAL_PATH) -> dict:
     data = yaml.safe_load(path.read_text())
     if not isinstance(data, dict) or not isinstance(data.get("slots"), dict) or not data["slots"]:
@@ -38,14 +27,10 @@ def publication_zone(data: dict | None = None) -> ZoneInfo:
 
 EDITORIAL = load_editorial()
 ZONE = publication_zone(EDITORIAL)
-BEIJING = ZONE
 ROTATION_START = date.fromisoformat(str(EDITORIAL.get("rotation_start_date", date.max)))
 ROTATION_HOURS = tuple(int(hour) for hour in EDITORIAL.get("rotation_batch_hours", [9, 13, 17]))
 ROTATION_ASSEMBLY_HOUR = int(EDITORIAL.get("rotation_assembly_hour", 18))
 TIMES = {name: str(slot["time"]) for name, slot in EDITORIAL["slots"].items()}
-EMPTY_RESCAN = timedelta(minutes=int(EDITORIAL.get("empty_rescan_minutes", 180)))
-FAILURE_RETRY = timedelta(minutes=int(EDITORIAL.get("failure_retry_minutes", 60)))
-MAX_ATTEMPTS = int(EDITORIAL.get("max_attempts", 3))
 
 
 def daily_planned_time(day: date) -> str:
@@ -72,42 +57,8 @@ def save(data: dict) -> None:
     LEDGER.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n")
 
 
-def completed(slot: str, now: datetime, ledger: dict, entries: list[dict]) -> bool:
-    record = ledger["slots"].get(key(slot, now), {})
-    if record.get("status") == "prepared":
-        return False  # Resume deploy/notification instead of generating again.
-    if record.get("status") in TERMINAL:
-        return True
-    return any(entry.get("topic") == slot
-               and str(entry.get("execution_date", entry.get("date", "")))[:10] == f"{now.astimezone(ZONE):%Y-%m-%d}"
-               and entry.get("status") == "published" and int(entry.get("count", 0)) > 0 for entry in entries)
-
-
-def eligible(slot: str, now: datetime, ledger: dict, entries: list[dict]) -> bool:
-    if completed(slot, now, ledger, entries):
-        return False
-    record = ledger["slots"].get(key(slot, now), {})
-    if record.get("status") == "prepared":
-        return True
-    if int(record.get("attempts", 0)) >= MAX_ATTEMPTS:
-        return False
-    status = record.get("status")
-    updated = record.get("updated_at")
-    # A same-day empty receipt without a timestamp must not spin on every catch-up.
-    if status in SOFT_EMPTY and not updated:
-        return False
-    cooldown = EMPTY_RESCAN if status in SOFT_EMPTY else FAILURE_RETRY
-    if updated and now - datetime.fromisoformat(updated) < cooldown:
-        return False
-    return True
-
-
 def is_due(slot: str, now: datetime) -> bool:
     return now.astimezone(ZONE).strftime("%H:%M") >= TIMES[slot]
-
-
-def due_slots(now: datetime, ledger: dict, entries: list[dict]) -> list[str]:
-    return [slot for slot in TIMES if is_due(slot, now) and eligible(slot, now, ledger, entries)]
 
 
 def record(slot: str, now: datetime, status: str, pending: dict | None = None, *, observed_at: datetime | None = None) -> None:
@@ -122,18 +73,3 @@ def record(slot: str, now: datetime, status: str, pending: dict | None = None, *
     if pending:
         data["slots"][key(slot, now)]["pending"] = pending
     save(data)
-
-
-def main() -> None:
-    from datetime import UTC
-
-    from .audit import decision
-    now = datetime.now(UTC)
-    entries = json.loads(Path("docs/posts.json").read_text()) if Path("docs/posts.json").exists() else []
-    slots = due_slots(now, load(), entries)
-    decision("catchup", "planned", due=slots, checked_at=now.isoformat())
-    print(json.dumps(slots))
-
-
-if __name__ == "__main__":
-    main()

@@ -18,9 +18,9 @@ Cloudflare Worker 只调用 GitHub `catchup.yml`，不接触 Groq/Telegram 密�
 
 ## 与每日一篇日报的关系
 
-Worker 不决定栏目，只在 Asia/Taipei 09:00–23:59 调用 GitHub `catchup.yml`。仓库里的 `daily_report` 时刻改为 09:00 后，catchup 只会补这一期；09:00 之前的调用会被 worker 自己的小时窗和仓库里的到点判断挡住。
+Worker 不决定栏目，只在 Asia/Taipei 09:00–23:59 调用 GitHub `catchup.yml`。GitHub 按 09:00、13:00、17:00 三批和 18:00 合成的现行计划检查；没有到期或可恢复事项则结束。每批沿用自己的采集截止，18:00 封版后不补做已经错过的批次。
 
-因此这次模型切换**不需要**重新部署 Cloudflare。已上线的 cron `11,41 1-15 * * *` 仍然只是迟到和失败后的补偿，不保证 09:00 准点。若要收窄下午的空跑，需要在有 Wrangler 登录的环境执行 `npx wrangler deploy --keep-vars`；仓库内没有该登录，不能代为发布。
+日报轮转变更不需要重新部署 Cloudflare，因为调用目标不变。`11,41 1-15 * * *` 是补偿触发器，不保证各时间点准时交付。
 
 ## 凭据与部署
 

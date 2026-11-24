@@ -1,34 +1,8 @@
 """Publish only safe receipt metadata, never pending payloads or source credentials."""
 import json
-import os
-from datetime import UTC, datetime
 from pathlib import Path
 
-from .schedule import BEIJING, TIMES, daily_planned_time, load, save
-
-
-def notify_maintenance() -> None:
-    import logging
-    ledger = load()
-    now = datetime.now(UTC)
-    local_day = now.astimezone(BEIJING).date()
-    today = local_day.isoformat()
-    for key, record in ledger["slots"].items():
-        if not key.startswith(today + ':') or record.get("maintenance_notified"):
-            continue
-        slot_name = key.split(":", 1)[1]
-        if slot_name not in TIMES:
-            continue
-        status = record.get("status")
-        failed = status in {"analysis_rejected", "source_failure", "analysis_api_failure"} and record.get("attempts", 0) >= 3
-        updated = datetime.fromisoformat(record["updated_at"]).astimezone(BEIJING)
-        planned_time = daily_planned_time(local_day) if slot_name == "daily_report" else TIMES[slot_name]
-        planned = datetime.fromisoformat(today + "T" + planned_time).replace(tzinfo=BEIJING)
-        delayed = (updated - planned).total_seconds() > 3600
-        if failed or delayed:
-            logging.warning("Editorial maintenance needed for %s: %s", key, "retries exhausted" if failed else "delayed")
-            record["maintenance_notified"] = True
-    save(ledger)
+from .schedule import load
 
 
 def export() -> dict:
@@ -44,7 +18,5 @@ def export() -> dict:
 
 if __name__ == "__main__":
     from .site import render_index
-    if os.getenv("NOTIFY_MAINTENANCE") == "true":
-        notify_maintenance()
     export()
     render_index(json.loads(Path("docs/posts.json").read_text()))

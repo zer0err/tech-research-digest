@@ -1,8 +1,0 @@
-name: Preview product safety sources (no publication)
-on: workflow_dispatch
-permissions: {contents: write, pages: write, id-token: write, actions: read}
-jobs:
-  run:
-    uses: ./.github/workflows/_research.yml
-    with: {topic: product_safety}
-    secrets: inherit

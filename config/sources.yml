@@ -1,5 +1,4 @@
-# max_items 是栏目希望送给模型的条数，还会被 config/editorial.yml 的 analysis_item_limit 再限制一次。
-# 当前两者都是 3。只有调高 analysis_item_limit，大于 3 的 max_items 才会生效。
+# 专题来源池和预览参数；日报轮转按领域选用来源，最多分析 3 项。
 topics:
   morning_radar:
     title: "AI 晨间雷达与免费资源"
