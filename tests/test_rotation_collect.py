@@ -1,10 +1,12 @@
 import json
 from datetime import UTC, datetime, timedelta
+from urllib.parse import parse_qs, urlsplit
 
 import httpx
 import pytest
 import yaml
 
+from research_bot import core
 from research_bot import rotation_collect as rotation
 from research_bot.core import Collected, Item, SourceUnavailable, in_lookback
 
@@ -12,9 +14,9 @@ CUTOFF = datetime(2026, 11, 23, 1, tzinfo=UTC)
 EVIDENCE = "The original source explains the limitations of direct measurements and provides reproducible evidence."
 
 
-def item(i, *, aliases=()):
+def item(i, *, aliases=(), source="Official source"):
     return Item(f"item-{i}", f"Item {i}", f"https://example.org/{i}",
-                (CUTOFF - timedelta(minutes=i)).isoformat(), EVIDENCE, "Official source", aliases=aliases)
+                (CUTOFF - timedelta(minutes=i)).isoformat(), EVIDENCE, source, aliases=aliases)
 
 
 def report(items):
@@ -46,7 +48,7 @@ def test_generate_uses_single_domain_call_and_keeps_cutoff_and_dedup(monkeypatch
         assert lower == CUTOFF - timedelta(days=10)
         assert in_lookback(CUTOFF, "instant", lower, clock)
         assert not in_lookback(CUTOFF + timedelta(seconds=1), "instant", lower, clock)
-        return [item(6), item(5), item(4), item(3, aliases=("doi:10.1/same",)),
+        return [item(6), item(5, source="Second source"), item(4), item(3, aliases=("doi:10.1/same",)),
                 item(2, aliases=("doi:10.1/same",)), item(1)]
 
     def fake_model(title, focus, selected, content_type):
@@ -124,3 +126,98 @@ def test_other_explicit_opt_in_no_model_and_no_empty_block(monkeypatch, tmp_path
     assert [entry["url"] for entry in result["items"]] == [seed["url"]]
     assert "\\<official\\>" in result["report"]
     assert not rotation.generate_other(CUTOFF, {"url:" + seed["url"]})["ok"]
+
+
+def source_entry(key, summary, *, url=None, minutes=1):
+    return {
+        "id": key, "title": key,
+        "link": url or f"https://example.org/{key}",
+        "published": (CUTOFF - timedelta(minutes=minutes)).isoformat(),
+        "summary": summary,
+    }
+
+
+def test_training_ranks_old_rich_abstract_before_recency_cap_and_keeps_cutoff(monkeypatch):
+    training = "The training dataset supports instruction tuning. Authors describe its reproducible sampling method."
+    quantitative = training + " Compared with a public baseline, the model used 12% less training time."
+    candidates = [
+        source_entry("future-wrong", quantitative, minutes=-1),
+        source_entry("known-blocked", quantitative, minutes=1),
+        source_entry("new-qualitative-a", training, minutes=2),
+        source_entry("new-qualitative-b", training, minutes=3),
+        source_entry("older-relevant-comparison", quantitative, minutes=120),
+        source_entry("even-older-comparison", quantitative, minutes=180),
+    ]
+    calls = []
+
+    def fake_fetch(source, client, now, lower):
+        calls.append(source["name"])
+        assert lower == CUTOFF - timedelta(days=10)
+        if source["name"] == "arXiv Training Research":
+            parts = urlsplit(source["url"])
+            assert parts.hostname == "export.arxiv.org"
+            query = parse_qs(parts.query)
+            assert query["max_results"] == ["80"]
+            assert 'abs:"instruction tuning"' in query["search_query"][0]
+            return candidates
+        if source["name"] == "ACL Anthology":
+            return [source_entry("second-source", training, minutes=160)]
+        return []
+
+    def fake_model(_, focus, selected, __):
+        assert "缺失基线" in focus
+        assert [entry.title for entry in selected] == [
+            "older-relevant-comparison", "even-older-comparison", "second-source",
+        ]
+        return report(selected)
+
+    monkeypatch.setattr(core, "fetch_entries", fake_fetch)
+    monkeypatch.setattr(rotation, "groq_analyse", fake_model)
+    result = rotation.generate("training", CUTOFF, {"url:https://example.org/known-blocked"})
+    assert result["ok"]
+    assert calls.count("arXiv Training Research") == 1
+    assert len(calls) == 4  # existing number of bounded training feeds retained
+
+
+def test_inference_selects_actual_benchmark_and_native_release_not_newest_prose(monkeypatch):
+    generic = "The inference engine release describes the available runtime setting but gives no reference measurement."
+    quantified = ("The inference engine tested integer quantization on an A100 with batch size 16; "
+                  "compared with the FP16 baseline at equivalent concurrency, it served 86 tokens/s.")
+    observed = []
+
+    def fake_fetch(source, client, now, lower):
+        observed.append(source["url"])
+        if source["name"] == "NVIDIA Technical Blog":
+            return [source_entry("nvidia-benchmark", quantified,
+                                 url="https://developer.nvidia.com/blog/frozen-test", minutes=90)]
+        if source["name"] == "vLLM Releases":
+            return [source_entry("vllm-official", quantified,
+                                 url="https://github.com/vllm-project/vllm/releases/tag/v1.0.0", minutes=120)]
+        if source["name"] == "arXiv Inference Systems":
+            return [source_entry("new-words-only", generic, minutes=2)]
+        if source["name"] == "MLCommons Official Benchmarks":
+            return [
+                source_entry("benchmark-method", "MLPerf Endpoints publishes a new system benchmark describing "
+                             "its inference runtime, evaluation conditions and repeatable output metrics.",
+                             url="https://mlcommons.org/news/fixture-method", minutes=80),
+                source_entry("wrong-mlcommons-topic", quantified,
+                             url="https://mlcommons.org/news/fixture-unrelated", minutes=10),
+            ]
+        return []
+
+    def fake_model(_, focus, selected, __):
+        assert "不把厂商测试写成本刊实测" in focus
+        assert [entry.title for entry in selected] == ["nvidia-benchmark", "vllm-official", "benchmark-method"]
+        packet = core.source_packet(selected)
+        assert "86 tokens/s" in packet and "FP16 baseline" in packet and "A100" in packet
+        return report(selected)
+
+    monkeypatch.setattr(core, "fetch_entries", fake_fetch)
+    monkeypatch.setattr(rotation, "groq_analyse", fake_model)
+    result = rotation.generate("inference", CUTOFF, set())
+    assert result["ok"]
+    assert observed.count("https://developer.nvidia.com/blog/feed/") == 1
+    assert observed.count("https://api.github.com/repos/vllm-project/vllm/releases") == 1
+    assert observed.count("https://mlcommons.org/feed/") == 1
+    assert all("example.org" not in endpoint for endpoint in observed)
+    assert all(source["url"] != "https://mlcommons.org/feed/" for source in rotation.collection_config("training")["sources"])
