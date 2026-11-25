@@ -8,6 +8,13 @@
       "finished_at": "2026-11-25T09:12:11.115971+08:00",
       "status": "no_matching_in_window",
       "attempts": 1
+    },
+    "13": {
+      "domain": "knowledge",
+      "cutoff": "2026-11-25T13:00:00+08:00",
+      "finished_at": "2026-11-25T13:12:21.644373+08:00",
+      "status": "analysis_rejected",
+      "attempts": 1
     }
   }
 }
