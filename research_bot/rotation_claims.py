@@ -11,7 +11,7 @@ _CITE = re.compile(r"\[(\d+)\](?!\()")
 _SENTENCE = re.compile(r"(?<!\d)\.(?=\s|$)|\.(?=\s+[A-Z])|[。！？；;\n]")
 _MISSING_BASELINE = re.compile(
     r"(?:未(?:给出|提供|报告|说明|列出|披露|注明|提及|明确)|没有|缺(?:乏|少|失)|无(?:明确|具体)?)"
-    r"[^。！？；;，,|]{0,38}(?:对比基线|比较基线|基线(?:模型|名称)?|对照模型)(?!(?:的)?(?:数据|规模|配置|细节|实现|代码|超参数|分数|结果|指标|版本))"
+    r"[^。！？；;，,|]{0,38}(?>对比基线(?:模型|名称)?|比较基线(?:模型|名称)?|基线(?:模型|名称)?|对照模型)(?!(?:的)?(?:数据|规模|配置|细节|实现|代码|(?:超)?参数|分数|结果|指标|版本))"
     r"|(?:does not (?:name|identify|give|report)|no (?:named |comparison )?|lacks? (?:a |named )?)\s*(?:comparison )?(?:baseline models?|baselines?)\b",
     re.I,
 )
@@ -63,6 +63,10 @@ def _named_baseline(summary: str) -> bool:
         for cue in _COMPARE.finditer(sentence):
             # A method name before a cue isn't evidence of a named comparison target.
             tail = sentence[cue.end():cue.end() + 105]
+            tail = re.split(
+                r"\b(?:and then|and (?:we|our method|the authors) (?:used|use)|but|whereas|while)\b|"
+                r"随后|然后|但|而我们", tail, maxsplit=1, flags=re.I,
+            )[0]
             if any(any(c.isupper() or c.isdecimal() for c in match.group()) for match in _MODEL.finditer(tail)):
                 return True
     return False
@@ -112,8 +116,9 @@ def rotation_claim_issues(report: str, summaries: list[str]) -> list[str]:
             issues.add("false_missing_comparator")
         # “仍待验证” is not proof. Remove that qualified span only, so
         # “证明……但仍待验证” is rejected for its independent proof assertion.
-        assertion = re.sub(r"(?:仍|尚|还)?待验证", "", phrase)
-        if _LOW_END.search(phrase) and _DEPLOY.search(phrase) and _PROVEN.search(assertion):
-            if not _QUALIFIED.search(phrase) and (not refs or not any(evaluated[i] for i in refs)):
-                issues.add("unsupported_proven_deployment")
+        for statement in re.split(r"[，,]?(?:但是|但|然而)|[, ]+but\b", phrase, flags=re.I):
+            assertion = re.sub(r"(?:仍|尚|还)?待验证", "", statement)
+            if _LOW_END.search(statement) and _DEPLOY.search(statement) and _PROVEN.search(assertion):
+                if not _QUALIFIED.search(statement) and (not refs or not any(evaluated[i] for i in refs)):
+                    issues.add("unsupported_proven_deployment")
     return sorted(issues)
