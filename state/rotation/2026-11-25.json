@@ -15,6 +15,72 @@
       "finished_at": "2026-11-25T14:12:19.303780+08:00",
       "status": "analysis_rejected",
       "attempts": 2
+    },
+    "17": {
+      "domain": "multimodal",
+      "cutoff": "2026-11-25T17:00:00+08:00",
+      "finished_at": "2026-11-25T17:12:11.105482+08:00",
+      "status": "prepared",
+      "attempts": 1,
+      "result": {
+        "ok": true,
+        "topic": "multimodal",
+        "title": "多模态生成与交互",
+        "report": "## 本期结论\n1. **结构化科学文献可显著提升生物医学视觉‑语言模型的零样本分类性能**，BioLoom 在 67 个零样本任务中取得 56.82% 的域平衡平均准确率，表明利用图表、面板与文本之间的关系可补充传统图像‑文本对的监督缺口。[1]  \n2. **音频驱动的单镜头重摄技术能在多视角对话场景中显著降低视觉错误与语音泄漏**，One Take 在多视角基准上相较最强基线降低感知误差 59%、标记误差 56% 以及语音泄漏 97%，验证了视角不变的音频信息对口型同步的约束作用。[2]  \n3. **多模态农业咨询系统 FarmSense 能在多语言环境下实现实时视觉诊断与语音交互**，该系统整合 LLM 推理、CV、ASR、TTS、实时天气与店铺定位，支持 25+ 种语言的农作物诊断与建议，证明多模态技术可在资源匮乏地区提供可操作的农业决策支持。[3]  \n\n\n## 逐项分析\n| 资料 | 核心贡献 | 方法与数据 | 性能证据 | 局限与证据等级 | 工程意义 |\n|------|----------|------------|----------|----------------|----------|\n| [1] BioLoom | 通过利用科学论文结构（面板、标题、图表）增强视觉‑语言对比学习 | 构建 Loom52M（52.4M 图文对）并在 DFN-2B 模型上训练；引入弱正样本与跨文献负样本 | 56.82% 域平衡平均准确率（67 个零样本任务） | 仅提供摘要，缺乏实验细节与对比基线；证据等级 C | 可用于构建更丰富的医学图文检索与诊断系统，但需验证跨域泛化 |\n| [2] One Take | 通过音频驱动的扩散模型实现单镜头对话重摄，解决口型同步与语音泄漏 | 预训练音视扩散模型 + 目标视角帧 + 语音音频；加入 speaker‑aware audio gating | 59% 感知误差下降、56% 标记误差下降、97% 语音泄漏下降 | 摘要中未给出具体基线模型与数据集规模；证据等级 B | 对影视后期、虚拟会议等场景有直接应用价值，需进一步评估多人物复杂性 |\n| [3] FarmSense | 集成 LLM、CV、ASR、TTS、天气与地图的多模态农业咨询平台 | 使用 Llama‑4‑Scout‑17B via Groq API；支持 25+ 语言；Gradio 界面 | 未给出定量指标，仅描述功能与可访问性 | 摘要缺乏实验结果与用户研究；证据等级 C | 证明多模态框架可在低端设备上部署，适合农业数字化推广，但需实地验证 |\n\n## 工程行动建议\n- **验证实验**  \n  - 对 BioLoom，复现 Loom52M 数据构建流程，使用相同的 DFN‑2B 模型在公开的 67 个零样本任务上评估准确率；若无公开数据，需自行收集对应任务集。  \n  - 对 One Take，使用公开的多视角对话重摄基准（若有），对比感知误差、标记误差与语音泄漏指标；可在多人物场景下测试 speaker‑aware gating 效果。  \n  - 对 FarmSense，搭建简化版 Gradio 接口，使用公开的农作物图像与语音样本进行诊断测试，记录诊断准确率与响应时间。  \n- **落地评估**  \n  - BioLoom：在医疗影像检索或临床决策支持系统中部署，监测检索召回率与诊断辅助准确率。  \n  - One Take：在影视后期或虚拟会议软件中集成，评估用户满意度与口型同步质量。  \n  - FarmSense：在目标发展中国家小农场进行现场试点，收集农户使用频率、诊断准确率与购买决策影响等指标。  \n- **后续跟踪指标**  \n  - BioLoom：跨域泛化能力（不同医学子领域的准确率变化）。  \n  - One Take：多人物对话中的语音泄漏率与口型误差随人物数量变化的趋势。  \n  - FarmSense：多语言支持的覆盖率、语音识别错误率、用户留存率。  \n\n## 参考资料\n1. BioLoom: Scaling Biomedical Vision‑Language Models by Learning from the Structure of Scientific Articles – https://arxiv.org/abs/2611.33151  \n2. One Take, Many Cameras: Audio‑Grounded Shot Synthesis for Dialogue Re‑Cinematography – https://arxiv.org/abs/2611.33147  \n3. FarmSense: A Multimodal AI Agent for Inclusive Agricultural Advisory with Multilingual Voice Interaction, Real‑Time Weather Integration, and Hyperlocal Store Discovery – https://doi.org/10.1201/9781042054305-97",
+        "items": [
+          {
+            "uid": "10c8ee22b922f6de647d6f7a",
+            "title": "BioLoom: Scaling Biomedical Vision-Language Models by Learning from the Structure of Scientific Articles",
+            "url": "https://arxiv.org/abs/2611.33151",
+            "published": "2026-11-24T18:59:04+00:00",
+            "summary": "",
+            "source": "arXiv Perception",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day",
+            "aliases": [
+              "arxiv:2611.33151",
+              "url:https://arxiv.org/abs/2611.33151"
+            ]
+          },
+          {
+            "uid": "be920967cb957285f163f4dc",
+            "title": "One Take, Many Cameras: Audio-Grounded Shot Synthesis for Dialogue Re-Cinematography",
+            "url": "https://arxiv.org/abs/2611.33147",
+            "published": "2026-11-24T18:58:32+00:00",
+            "summary": "",
+            "source": "arXiv Perception",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day",
+            "aliases": [
+              "arxiv:2611.33147",
+              "url:https://arxiv.org/abs/2611.33147"
+            ]
+          },
+          {
+            "uid": "a738089d08bd999a2d4baa99",
+            "title": "FarmSense: A Multimodal AI Agent for Inclusive Agricultural Advisory with Multilingual Voice Interaction, Real-Time Weather Integration, and Hyperlocal Store Discovery",
+            "url": "https://doi.org/10.1201/9781042054305-97",
+            "published": "2026-11-23T00:00:00+00:00",
+            "summary": "",
+            "source": "OpenAlex Multimodal",
+            "kind": "research",
+            "doi": "10.1201/9781042054305-97",
+            "date_precision": "day",
+            "aliases": [
+              "doi:10.1201/9781042054305-97",
+              "url:https://doi.org/10.1201/9781042054305-97"
+            ]
+          }
+        ],
+        "analysis": {
+          "provider": "Groq",
+          "model": "openai/gpt-oss-20b"
+        },
+        "reason": "prepared",
+        "sources_failed": 0
+      }
     }
   }
 }
