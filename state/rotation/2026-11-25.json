@@ -1,0 +1,13 @@
+{
+  "day": "2026-11-25",
+  "status": "drafting",
+  "slots": {
+    "09": {
+      "domain": "agents",
+      "cutoff": "2026-11-25T09:00:00+08:00",
+      "finished_at": "2026-11-25T09:12:11.115971+08:00",
+      "status": "no_matching_in_window",
+      "attempts": 1
+    }
+  }
+}
