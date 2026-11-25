@@ -455,9 +455,32 @@
         "0c2c3aa9924b86d444deffad"
       ],
       "updated_at": "2026-11-12T06:13:17.458779+00:00"
+    },
+    "daily_report": {
+      "ids": [
+        "10c8ee22b922f6de647d6f7a",
+        "arxiv:2611.33151",
+        "url:https://arxiv.org/abs/2611.33151",
+        "be920967cb957285f163f4dc",
+        "arxiv:2611.33147",
+        "url:https://arxiv.org/abs/2611.33147",
+        "a738089d08bd999a2d4baa99",
+        "doi:10.1201/9781042054305-97",
+        "url:https://doi.org/10.1201/9781042054305-97"
+      ],
+      "updated_at": "2026-11-25T18:12:07.181223+08:00"
     }
   },
   "all_ids": [
+    "10c8ee22b922f6de647d6f7a",
+    "arxiv:2611.33151",
+    "url:https://arxiv.org/abs/2611.33151",
+    "be920967cb957285f163f4dc",
+    "arxiv:2611.33147",
+    "url:https://arxiv.org/abs/2611.33147",
+    "a738089d08bd999a2d4baa99",
+    "doi:10.1201/9781042054305-97",
+    "url:https://doi.org/10.1201/9781042054305-97",
     "01d5db60c43feb06129501a1",
     "doi:10.1145/3860528",
     "url:https://doi.org/10.1145/3860528",
@@ -851,6 +874,9 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://arxiv.org/abs/2611.33151",
+    "https://arxiv.org/abs/2611.33147",
+    "https://doi.org/10.1201/9781042054305-97",
     "https://doi.org/10.1145/3860528",
     "https://arxiv.org/abs/2611.18527",
     "https://arxiv.org/abs/2611.18523",
@@ -6033,9 +6059,54 @@
         "provider": "Groq",
         "model": "openai/gpt-oss-20b"
       }
+    },
+    "https://vorasio.com/posts/20261125-daily.html": {
+      "topic": "daily_report",
+      "source_topic": "daily_report",
+      "created_at": "2026-11-25T18:12:07.181223+08:00",
+      "items": [
+        {
+          "uid": "10c8ee22b922f6de647d6f7a",
+          "title": "BioLoom: Scaling Biomedical Vision-Language Models by Learning from the Structure of Scientific Articles",
+          "url": "https://arxiv.org/abs/2611.33151",
+          "published": "2026-11-24T18:59:04+00:00",
+          "source": "arXiv Perception",
+          "doi": "",
+          "kind": "research",
+          "date_precision": "day"
+        },
+        {
+          "uid": "be920967cb957285f163f4dc",
+          "title": "One Take, Many Cameras: Audio-Grounded Shot Synthesis for Dialogue Re-Cinematography",
+          "url": "https://arxiv.org/abs/2611.33147",
+          "published": "2026-11-24T18:58:32+00:00",
+          "source": "arXiv Perception",
+          "doi": "",
+          "kind": "research",
+          "date_precision": "day"
+        },
+        {
+          "uid": "a738089d08bd999a2d4baa99",
+          "title": "FarmSense: A Multimodal AI Agent for Inclusive Agricultural Advisory with Multilingual Voice Interaction, Real-Time Weather Integration, and Hyperlocal Store Discovery",
+          "url": "https://doi.org/10.1201/9781042054305-97",
+          "published": "2026-11-23T00:00:00+00:00",
+          "source": "OpenAlex Multimodal",
+          "doi": "10.1201/9781042054305-97",
+          "kind": "research",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      }
     }
   },
   "daily_notifications": {
+    "2026-11-25": {
+      "sent_at": "2026-11-25T11:12:18.853565+00:00",
+      "url": "https://vorasio.com/posts/20261125-daily.html"
+    },
     "2026-11-16": {
       "sent_at": "2026-11-16T11:37:56.887471+00:00",
       "url": "https://vorasio.com/posts/20261116-daily_digest.html",
