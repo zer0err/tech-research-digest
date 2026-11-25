@@ -10,6 +10,7 @@ from urllib.parse import urlsplit
 import httpx
 import yaml
 
+from .rotation_claims import rotation_claim_issues
 from .core import (
     Item,
     SourceUnavailable,
@@ -185,7 +186,9 @@ def generate(domain: str, cutoff: datetime, blocked: set[str]) -> dict:
     try:
         report = groq_analyse(
             row["title"],
-            config["analysis_focus"] + " 仅保留资料原有数值，第一节各条结论须标注相应的 [n] 引用。",
+            config["analysis_focus"] + " 仅保留资料原有数值，第一节各条结论须标注相应的 [n] 引用。"
+            " 摘要已点名基线时写出名称，不可称未提供基线；可明确哪些细节未给出。"
+            " 未实测低端设备部署时，只可写部署设想、用户可访问性或待验证事项，不可写已验证。",
             selected,
             content_type,
         )
@@ -193,6 +196,7 @@ def generate(domain: str, cutoff: datetime, blocked: set[str]) -> dict:
         return {**row, "reason": "analysis_api_failure"}
     report = normalize_report(report, content_type, selected)
     issues = report_validation_errors(report, selected, content_type)
+    issues.extend(rotation_claim_issues(report, [item.summary for item in selected]))
     if "降级为" in report:
         issues.append("model_truncated_or_fallback")
     if len(report) < 300:
