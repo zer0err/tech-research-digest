@@ -109,3 +109,22 @@ def test_generic_baseline_and_unmeasured_potential_are_not_evidence():
         "[1] 证明可在低端设备部署。",
         ["Future work may evaluate deployment on low-end devices."],
     ) == ["unsupported_proven_deployment"]
+
+
+
+def test_named_comparator_does_not_supply_missing_implementation_details():
+    for phrase in ("未提供基线模型的实现细节", "未给出基线模型的参数"):
+        assert rotation_claim_issues("[1] " + phrase, [BIOLOOM]) == []
+
+
+def test_later_method_name_is_not_baseline():
+    assert rotation_claim_issues(
+        "[1] 未说明具体基线模型",
+        ["We compared with unnamed methods and then used BioLoom to analyze the results."],
+    ) == []
+
+
+def test_later_qualification_cannot_clear_existing_proof_claim():
+    assert rotation_claim_issues(
+        "[1] 证明可在低端设备上部署，但未经验证", [FARMSENSE],
+    ) == ["unsupported_proven_deployment"]
