@@ -1,6 +1,6 @@
 {
   "day": "2026-11-26",
-  "status": "drafting",
+  "status": "sealed_empty",
   "slots": {
     "09": {
       "domain": "robotics",
@@ -23,5 +23,6 @@
       "status": "no_matching_in_window",
       "attempts": 1
     }
-  }
+  },
+  "sealed_at": "2026-11-26T18:12:04.675722+08:00"
 }

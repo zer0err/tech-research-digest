@@ -1,6 +1,11 @@
 {
   "version": 1,
   "slots": {
+    "2026-11-26:daily_report": {
+      "status": "empty_digest",
+      "updated_at": "2026-11-26T18:12:04.675722+08:00",
+      "attempts": 1
+    },
     "2026-11-25:daily_report": {
       "status": "published",
       "updated_at": "2026-11-25T18:12:07.181223+08:00",
