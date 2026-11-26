@@ -1,0 +1,13 @@
+{
+  "day": "2026-11-26",
+  "status": "drafting",
+  "slots": {
+    "09": {
+      "domain": "robotics",
+      "cutoff": "2026-11-26T09:00:00+08:00",
+      "finished_at": "2026-11-26T09:12:10.876238+08:00",
+      "status": "analysis_rejected",
+      "attempts": 1
+    }
+  }
+}
