@@ -1,6 +1,6 @@
 {
   "day": "2026-11-27",
-  "status": "deployed",
+  "status": "finalized",
   "slots": {
     "09": {
       "domain": "infrastructure",
@@ -14,184 +14,18 @@
       "cutoff": "2026-11-27T13:00:00+08:00",
       "finished_at": "2026-11-27T13:12:18.953696+08:00",
       "status": "prepared",
-      "attempts": 1,
-      "result": {
-        "ok": true,
-        "topic": "models",
-        "title": "基础模型与能力",
-        "report": "## 本期结论\n1. **Pathology foundation models在细胞身份捕捉上优于自然图像模型**，BioScore指标显示所有病理模型得分均高于自然图像模型（0.299–0.371 vs 0.214–0.232）[1]。  \n2. **GeoFMs在海事领域可实现高精度船舶检测**，使用压缩潜在空间表示的线性/非线性探测器在Sentinel‑1 GRD图像上实现ROC‑AUC 0.95的检测性能[2]。  \n3. **GeoFMs在船舶定位与类型识别上仍受限**，定位误差约300 m，AIS类型码分类准确率仅62%，且与船舶长度高度相关[2]。  \n4. **BioScore提供无监督细胞身份评估框架**，可在仅少量切片数据下对编码器进行分组与细胞身份匹配，且不需人工标签[1]。  \n5. **GeoFMs的潜在空间表示可缓解数据重力瓶颈**，直接在压缩表示上操作避免了原始SAR图像的高存储与传输成本[2]。  \n\n\n## 逐项分析\n| 资料 | 核心贡献 | 方法与数据 | 性能证据 | 局限与证据等级 |\n|------|----------|------------|----------|----------------|\n| [1] | 引入BioScore评估病理模型对细胞身份的捕捉能力 | 采用稀疏自编码器将图像编码器的patch embedding拆分为稀疏特征，聚类为固定数组；对52种细胞身份使用marker基因表达作为参考，计算每组与身份表达的匹配度 | 8病理模型与3自然图像模型得分对比，病理模型得分0.299–0.371，高于自然图像模型0.214–0.232；对三层病理模型进行分层区分 | 仅提供了整体得分与分层区分，缺乏单个身份的具体得分细节；未说明自编码器训练细节与聚类数目；证据等级 A |\n| [2] | 通过GeoFMs的潜在空间表示实现海事目标检测与定位 | 在Sentinel‑1 GRD SAR图像的压缩潜在空间上进行线性与非线性探测；使用约2000张图像与AIS信号对齐的数据集进行验证 | 检测ROC‑AUC 0.95；定位中位误差≈300 m；AIS类型码分类准确率62%（与船舶长度相关） | 仅提供整体指标，未给出不同船舶尺寸或类型的细化结果；未说明非线性探测器的具体模型与训练细节；证据等级 A |\n\n## 工程行动建议\n- **验证实验**  \n  - 对病理模型使用BioScore进行细胞身份分组实验，记录每个身份的匹配度分布；  \n  - 在不同SAR分辨率与船舶尺寸下复现GeoFMs的检测与定位实验，评估误差随尺寸变化的趋势。  \n- **落地评估**  \n  - 在医疗影像工作流中引入BioScore作为模型选择指标，评估其对诊断准确率的影响；  \n  - 在海事监控系统中部署潜在空间检测模型，监测实时检测与定位误差，比较与传统像素级方法的资源消耗。  \n- **后续跟踪指标**  \n  - 病理模型：每个细胞身份的匹配度、模型对新身份的泛化能力；  \n  - 海事模型：检测ROC‑AUC、定位误差分布、AIS分类准确率与船舶长度的相关系数。  \n\n## 参考资料\n1. A gene informed benchmark for BioScoring of pathology foundation models – https://arxiv.org/abs/2611.34930  \n2. Enhancing Maritime Domain Awareness using Latent Space Representations – https://arxiv.org/abs/2611.34899",
-        "items": [
-          {
-            "uid": "f2a3f409e7e532b249ed2134",
-            "title": "A gene informed benchmark for BioScoring of pathology foundation models",
-            "url": "https://arxiv.org/abs/2611.34930",
-            "published": "2026-11-25T18:59:13+00:00",
-            "summary": "",
-            "source": "arXiv Model Research",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day",
-            "aliases": [
-              "arxiv:2611.34930",
-              "url:https://arxiv.org/abs/2611.34930"
-            ]
-          },
-          {
-            "uid": "c3a3b404508cdbaf1b47d868",
-            "title": "Enhancing Maritime Domain Awareness using Latent Space Representations",
-            "url": "https://arxiv.org/abs/2611.34899",
-            "published": "2026-11-25T18:51:36+00:00",
-            "summary": "",
-            "source": "arXiv Model Research",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day",
-            "aliases": [
-              "arxiv:2611.34899",
-              "url:https://arxiv.org/abs/2611.34899"
-            ]
-          }
-        ],
-        "analysis": {
-          "provider": "Groq",
-          "model": "openai/gpt-oss-20b"
-        },
-        "reason": "prepared",
-        "sources_failed": 0
-      }
+      "attempts": 1
     },
     "17": {
       "domain": "training",
       "cutoff": "2026-11-27T17:00:00+08:00",
       "finished_at": "2026-11-27T17:42:29.816938+08:00",
       "status": "prepared",
-      "attempts": 2,
-      "result": {
-        "ok": true,
-        "topic": "training",
-        "title": "训练方法与数据",
-        "report": "## 本期结论\n1. **DART 通过重新利用被拒绝的推理轨迹，可在相同生成量下提升 37% 的 DeepMath‑103K 题目覆盖率**，并将每个被接受轨迹的成本降低 30%[1]。  \n2. **MoLT‑KV 在 400B‑token 预训练中实现 1.7 倍的验证交叉熵（CE）标记效率，并在 3B MoE 模型上提升 10‑域困惑度 0.75 与 10‑任务准确率 2.1pp[2]**。  \n3. **DART 生成的轨迹在 Llama‑3.1‑8B‑Instruct 上，在 MATH‑500 与 AIME 评估中获得五项中最高点估计，表明其后训练数据对数学推理性能有显著正面影响[1]**。  \n4. **MoLT‑KV 通过“循环 KV”机制消除同位点跨循环依赖，并结合循环强制实现单遍 Mixture‑of‑Loops（MoL）解码，突破训练循环视界**，但其在实际推理速度与硬件资源占用方面的具体数值未在摘要中给出[2]。  \n\n\n## 逐项分析\n| 论文 | 核心贡献 | 方法与数据 | 性能证据 | 局限与证据等级 | 工程意义 |\n|------|----------|------------|----------|-----------------|----------|\n| [1] Diverse Alternative Reasoning Traces for Hard Math Problems | 通过 DART 重新挖掘被拒绝轨迹以扩展数学问题覆盖 | 采用位置加权不确定性对被拒绝轨迹进行分解，生成差异化候选步骤，并使用参考答案引导与元思考完成轨迹 | 在 DeepMath‑103K 上，DART 相比 MC 采样恢复 37% 更多问题；每个被接受轨迹成本降低 30%；在 MATH‑500 与 AIME 上 Llama‑3.1‑8B‑Instruct 取得五项中最高点估计[1] | 仅在 400B‑token 预训练环境下验证；未给出不同模型规模或硬件平台的泛化情况；缺乏对生成成本的详细分解[1] | 对后训练阶段的数学推理任务提供可复制的数据增强路径，可直接集成至现有 LLM 训练管线，提升低成本覆盖率。 |\n| [2] Mixture-of-Loops Transformer | 通过 Mixture‑of‑Loops Attention (MoLA) 与循环 KV 机制提升 Looped Transformer 的效率与表达力 | 设计 MoLT‑R 与 MoLT‑KV 两种变体；引入 U‑shaped MoLT (U‑MoLT) 分离记忆构建与预测读取；在 400B‑token 预训练中与 OLMo3 对比；在 100B‑token 继续预训练中进一步评估 | 400B‑token 预训练中 U‑MoLT 在 700M 模型上实现 1.7× CE 令牌效率；在 3B MoE 模型上提升 10‑域困惑度 0.75 与 10‑任务准确率 2.1pp[2] | 仅提供预训练阶段的指标；未报告推理阶段的速度、内存占用或在不同硬件上的可扩展性；缺乏对不同任务的泛化实验[2] | 为 Looped Transformer 提供更高效的记忆利用策略，可在大规模预训练中减少计算量，适用于资源受限的训练环境。 |\n\n## 工程行动建议\n- **验证实验**  \n  - 对 DART，复现 400B‑token 预训练后在 Llama‑3.1‑8B‑Instruct 上的 MATH‑500 与 AIME 评估，记录每个被接受轨迹的生成成本与覆盖率。  \n  - 对 MoLT‑KV，搭建 700M 与 3B MoE 模型，使用 400B‑token 预训练数据，测量 CE 令牌效率、困惑度与多任务准确率，并对比 OLMo3。  \n- **落地评估**  \n  - 在低端设备（如 8‑GB GPU）上部署 DART 生成的轨迹，评估推理延迟与内存占用；若未验证，标注为“待验证”。  \n  - 对 MoLT‑KV，评估单遍 MoL 解码在推理时的吞吐量与能耗，验证其在实际推理中的效率提升。  \n- **后续跟踪指标**  \n  - DART：被接受轨迹成本、覆盖率提升比例、不同模型规模的泛化情况。  \n  - MoLT‑KV：CE 令牌效率、困惑度、任务准确率、推理吞吐量与能耗。  \n\n## 参考资料\n1. Diverse Alternative Reasoning Traces for Hard Math Problems – https://arxiv.org/abs/2611.34928  \n2. Mixture-of-Loops Transformer – https://arxiv.org/abs/2611.34923",
-        "items": [
-          {
-            "uid": "3d5c80fa6d956b0a36e56ba8",
-            "title": "Diverse Alternative Reasoning Traces for Hard Math Problems",
-            "url": "https://arxiv.org/abs/2611.34928",
-            "published": "2026-11-25T18:59:11+00:00",
-            "summary": "",
-            "source": "arXiv Model Research",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day",
-            "aliases": [
-              "arxiv:2611.34928",
-              "url:https://arxiv.org/abs/2611.34928"
-            ]
-          },
-          {
-            "uid": "bb18cbf717771ba45551aa07",
-            "title": "Mixture-of-Loops Transformer",
-            "url": "https://arxiv.org/abs/2611.34923",
-            "published": "2026-11-25T18:58:53+00:00",
-            "summary": "",
-            "source": "arXiv Model Research",
-            "kind": "research",
-            "doi": "",
-            "date_precision": "day",
-            "aliases": [
-              "arxiv:2611.34923",
-              "url:https://arxiv.org/abs/2611.34923"
-            ]
-          }
-        ],
-        "analysis": {
-          "provider": "Groq",
-          "model": "openai/gpt-oss-20b"
-        },
-        "reason": "prepared",
-        "sources_failed": 0
-      }
+      "attempts": 2
     }
   },
   "sealed_at": "2026-11-27T18:12:08.291972+08:00",
-  "pending": {
-    "topic": "daily_report",
-    "slot": "daily_report",
-    "title": "VORASIO AI 日报（2026-11-27）",
-    "url": "https://vorasio.com/posts/20261127-daily.html",
-    "created_at": "2026-11-27T18:12:08.291972+08:00",
-    "scheduled_at": "2026-11-27T18:00:00+08:00",
-    "items": [
-      {
-        "uid": "f2a3f409e7e532b249ed2134",
-        "title": "A gene informed benchmark for BioScoring of pathology foundation models",
-        "url": "https://arxiv.org/abs/2611.34930",
-        "published": "2026-11-25T18:59:13+00:00",
-        "summary": "",
-        "source": "arXiv Model Research",
-        "kind": "research",
-        "doi": "",
-        "date_precision": "day",
-        "aliases": [
-          "arxiv:2611.34930",
-          "url:https://arxiv.org/abs/2611.34930"
-        ]
-      },
-      {
-        "uid": "c3a3b404508cdbaf1b47d868",
-        "title": "Enhancing Maritime Domain Awareness using Latent Space Representations",
-        "url": "https://arxiv.org/abs/2611.34899",
-        "published": "2026-11-25T18:51:36+00:00",
-        "summary": "",
-        "source": "arXiv Model Research",
-        "kind": "research",
-        "doi": "",
-        "date_precision": "day",
-        "aliases": [
-          "arxiv:2611.34899",
-          "url:https://arxiv.org/abs/2611.34899"
-        ]
-      },
-      {
-        "uid": "3d5c80fa6d956b0a36e56ba8",
-        "title": "Diverse Alternative Reasoning Traces for Hard Math Problems",
-        "url": "https://arxiv.org/abs/2611.34928",
-        "published": "2026-11-25T18:59:11+00:00",
-        "summary": "",
-        "source": "arXiv Model Research",
-        "kind": "research",
-        "doi": "",
-        "date_precision": "day",
-        "aliases": [
-          "arxiv:2611.34928",
-          "url:https://arxiv.org/abs/2611.34928"
-        ]
-      },
-      {
-        "uid": "bb18cbf717771ba45551aa07",
-        "title": "Mixture-of-Loops Transformer",
-        "url": "https://arxiv.org/abs/2611.34923",
-        "published": "2026-11-25T18:58:53+00:00",
-        "summary": "",
-        "source": "arXiv Model Research",
-        "kind": "research",
-        "doi": "",
-        "date_precision": "day",
-        "aliases": [
-          "arxiv:2611.34923",
-          "url:https://arxiv.org/abs/2611.34923"
-        ]
-      }
-    ],
-    "published_count": 4,
-    "notify": true,
-    "mode": "production",
-    "analysis": {
-      "provider": "Groq",
-      "model": "openai/gpt-oss-20b"
-    },
-    "source_topic": "daily_report",
-    "rotation": "B"
-  },
   "deployed_at": "2026-11-27T10:12:20.320353+00:00",
-  "notification_claim": "2026-11-27T10:12:22.262501+00:00"
+  "notification_claim": "2026-11-27T10:12:22.262501+00:00",
+  "finalized_at": "2026-11-27T10:12:25.876833+00:00"
 }
