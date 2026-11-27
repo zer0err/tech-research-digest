@@ -1,6 +1,6 @@
 {
   "day": "2026-11-27",
-  "status": "drafting",
+  "status": "prepared",
   "slots": {
     "09": {
       "domain": "infrastructure",
@@ -111,5 +111,85 @@
         "sources_failed": 0
       }
     }
+  },
+  "sealed_at": "2026-11-27T18:12:08.291972+08:00",
+  "pending": {
+    "topic": "daily_report",
+    "slot": "daily_report",
+    "title": "VORASIO AI 日报（2026-11-27）",
+    "url": "https://vorasio.com/posts/20261127-daily.html",
+    "created_at": "2026-11-27T18:12:08.291972+08:00",
+    "scheduled_at": "2026-11-27T18:00:00+08:00",
+    "items": [
+      {
+        "uid": "f2a3f409e7e532b249ed2134",
+        "title": "A gene informed benchmark for BioScoring of pathology foundation models",
+        "url": "https://arxiv.org/abs/2611.34930",
+        "published": "2026-11-25T18:59:13+00:00",
+        "summary": "",
+        "source": "arXiv Model Research",
+        "kind": "research",
+        "doi": "",
+        "date_precision": "day",
+        "aliases": [
+          "arxiv:2611.34930",
+          "url:https://arxiv.org/abs/2611.34930"
+        ]
+      },
+      {
+        "uid": "c3a3b404508cdbaf1b47d868",
+        "title": "Enhancing Maritime Domain Awareness using Latent Space Representations",
+        "url": "https://arxiv.org/abs/2611.34899",
+        "published": "2026-11-25T18:51:36+00:00",
+        "summary": "",
+        "source": "arXiv Model Research",
+        "kind": "research",
+        "doi": "",
+        "date_precision": "day",
+        "aliases": [
+          "arxiv:2611.34899",
+          "url:https://arxiv.org/abs/2611.34899"
+        ]
+      },
+      {
+        "uid": "3d5c80fa6d956b0a36e56ba8",
+        "title": "Diverse Alternative Reasoning Traces for Hard Math Problems",
+        "url": "https://arxiv.org/abs/2611.34928",
+        "published": "2026-11-25T18:59:11+00:00",
+        "summary": "",
+        "source": "arXiv Model Research",
+        "kind": "research",
+        "doi": "",
+        "date_precision": "day",
+        "aliases": [
+          "arxiv:2611.34928",
+          "url:https://arxiv.org/abs/2611.34928"
+        ]
+      },
+      {
+        "uid": "bb18cbf717771ba45551aa07",
+        "title": "Mixture-of-Loops Transformer",
+        "url": "https://arxiv.org/abs/2611.34923",
+        "published": "2026-11-25T18:58:53+00:00",
+        "summary": "",
+        "source": "arXiv Model Research",
+        "kind": "research",
+        "doi": "",
+        "date_precision": "day",
+        "aliases": [
+          "arxiv:2611.34923",
+          "url:https://arxiv.org/abs/2611.34923"
+        ]
+      }
+    ],
+    "published_count": 4,
+    "notify": true,
+    "mode": "production",
+    "analysis": {
+      "provider": "Groq",
+      "model": "openai/gpt-oss-20b"
+    },
+    "source_topic": "daily_report",
+    "rotation": "B"
   }
 }

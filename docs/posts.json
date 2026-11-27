@@ -1,5 +1,82 @@
 [
   {
+    "title": "VORASIO AI 日报（2026-11-27）",
+    "date": "2026-11-27T18:12:08.291972+08:00",
+    "scheduled_at": "2026-11-27T18:00:00+08:00",
+    "rotation": "B",
+    "count": 4,
+    "url": "posts/20261127-daily.html",
+    "topic": "daily_report",
+    "status": "published",
+    "summary": "本期收录：基础模型与能力、训练方法与数据。按领域查看简报与原始来源。",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "A gene informed benchmark for BioScoring of pathology foundation models",
+          "url": "https://arxiv.org/abs/2611.34930",
+          "publisher": "arXiv Model Research",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-11-25T18:59:13+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "Enhancing Maritime Domain Awareness using Latent Space Representations",
+          "url": "https://arxiv.org/abs/2611.34899",
+          "publisher": "arXiv Model Research",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-11-25T18:51:36+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "Diverse Alternative Reasoning Traces for Hard Math Problems",
+          "url": "https://arxiv.org/abs/2611.34928",
+          "publisher": "arXiv Model Research",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-11-25T18:59:11+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        },
+        {
+          "title": "Mixture-of-Loops Transformer",
+          "url": "https://arxiv.org/abs/2611.34923",
+          "publisher": "arXiv Model Research",
+          "host": "arxiv.org",
+          "family": "论文/预印本",
+          "published": "2026-11-25T18:58:53+00:00",
+          "date_precision": "day",
+          "doi": "",
+          "kind": "research"
+        }
+      ]
+    },
+    "sections": [
+      {
+        "topic": "models",
+        "source_topic": "models",
+        "title": "基础模型与能力",
+        "anchor": "edition-1"
+      },
+      {
+        "topic": "training",
+        "source_topic": "training",
+        "title": "训练方法与数据",
+        "anchor": "edition-2"
+      }
+    ]
+  },
+  {
     "title": "VORASIO AI 日报（2026-11-25）",
     "date": "2026-11-25T18:12:07.181223+08:00",
     "scheduled_at": "2026-11-25T18:00:00+08:00",
