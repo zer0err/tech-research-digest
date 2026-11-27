@@ -59,6 +59,13 @@
         "reason": "prepared",
         "sources_failed": 0
       }
+    },
+    "17": {
+      "domain": "training",
+      "cutoff": "2026-11-27T17:00:00+08:00",
+      "finished_at": "2026-11-27T17:12:21.865918+08:00",
+      "status": "analysis_rejected",
+      "attempts": 1
     }
   }
 }
