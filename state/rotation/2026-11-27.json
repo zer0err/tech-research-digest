@@ -8,6 +8,57 @@
       "finished_at": "2026-11-27T10:12:16.583584+08:00",
       "status": "analysis_rejected",
       "attempts": 2
+    },
+    "13": {
+      "domain": "models",
+      "cutoff": "2026-11-27T13:00:00+08:00",
+      "finished_at": "2026-11-27T13:12:18.953696+08:00",
+      "status": "prepared",
+      "attempts": 1,
+      "result": {
+        "ok": true,
+        "topic": "models",
+        "title": "基础模型与能力",
+        "report": "## 本期结论\n1. **Pathology foundation models在细胞身份捕捉上优于自然图像模型**，BioScore指标显示所有病理模型得分均高于自然图像模型（0.299–0.371 vs 0.214–0.232）[1]。  \n2. **GeoFMs在海事领域可实现高精度船舶检测**，使用压缩潜在空间表示的线性/非线性探测器在Sentinel‑1 GRD图像上实现ROC‑AUC 0.95的检测性能[2]。  \n3. **GeoFMs在船舶定位与类型识别上仍受限**，定位误差约300 m，AIS类型码分类准确率仅62%，且与船舶长度高度相关[2]。  \n4. **BioScore提供无监督细胞身份评估框架**，可在仅少量切片数据下对编码器进行分组与细胞身份匹配，且不需人工标签[1]。  \n5. **GeoFMs的潜在空间表示可缓解数据重力瓶颈**，直接在压缩表示上操作避免了原始SAR图像的高存储与传输成本[2]。  \n\n\n## 逐项分析\n| 资料 | 核心贡献 | 方法与数据 | 性能证据 | 局限与证据等级 |\n|------|----------|------------|----------|----------------|\n| [1] | 引入BioScore评估病理模型对细胞身份的捕捉能力 | 采用稀疏自编码器将图像编码器的patch embedding拆分为稀疏特征，聚类为固定数组；对52种细胞身份使用marker基因表达作为参考，计算每组与身份表达的匹配度 | 8病理模型与3自然图像模型得分对比，病理模型得分0.299–0.371，高于自然图像模型0.214–0.232；对三层病理模型进行分层区分 | 仅提供了整体得分与分层区分，缺乏单个身份的具体得分细节；未说明自编码器训练细节与聚类数目；证据等级 A |\n| [2] | 通过GeoFMs的潜在空间表示实现海事目标检测与定位 | 在Sentinel‑1 GRD SAR图像的压缩潜在空间上进行线性与非线性探测；使用约2000张图像与AIS信号对齐的数据集进行验证 | 检测ROC‑AUC 0.95；定位中位误差≈300 m；AIS类型码分类准确率62%（与船舶长度相关） | 仅提供整体指标，未给出不同船舶尺寸或类型的细化结果；未说明非线性探测器的具体模型与训练细节；证据等级 A |\n\n## 工程行动建议\n- **验证实验**  \n  - 对病理模型使用BioScore进行细胞身份分组实验，记录每个身份的匹配度分布；  \n  - 在不同SAR分辨率与船舶尺寸下复现GeoFMs的检测与定位实验，评估误差随尺寸变化的趋势。  \n- **落地评估**  \n  - 在医疗影像工作流中引入BioScore作为模型选择指标，评估其对诊断准确率的影响；  \n  - 在海事监控系统中部署潜在空间检测模型，监测实时检测与定位误差，比较与传统像素级方法的资源消耗。  \n- **后续跟踪指标**  \n  - 病理模型：每个细胞身份的匹配度、模型对新身份的泛化能力；  \n  - 海事模型：检测ROC‑AUC、定位误差分布、AIS分类准确率与船舶长度的相关系数。  \n\n## 参考资料\n1. A gene informed benchmark for BioScoring of pathology foundation models – https://arxiv.org/abs/2611.34930  \n2. Enhancing Maritime Domain Awareness using Latent Space Representations – https://arxiv.org/abs/2611.34899",
+        "items": [
+          {
+            "uid": "f2a3f409e7e532b249ed2134",
+            "title": "A gene informed benchmark for BioScoring of pathology foundation models",
+            "url": "https://arxiv.org/abs/2611.34930",
+            "published": "2026-11-25T18:59:13+00:00",
+            "summary": "",
+            "source": "arXiv Model Research",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day",
+            "aliases": [
+              "arxiv:2611.34930",
+              "url:https://arxiv.org/abs/2611.34930"
+            ]
+          },
+          {
+            "uid": "c3a3b404508cdbaf1b47d868",
+            "title": "Enhancing Maritime Domain Awareness using Latent Space Representations",
+            "url": "https://arxiv.org/abs/2611.34899",
+            "published": "2026-11-25T18:51:36+00:00",
+            "summary": "",
+            "source": "arXiv Model Research",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day",
+            "aliases": [
+              "arxiv:2611.34899",
+              "url:https://arxiv.org/abs/2611.34899"
+            ]
+          }
+        ],
+        "analysis": {
+          "provider": "Groq",
+          "model": "openai/gpt-oss-20b"
+        },
+        "reason": "prepared",
+        "sources_failed": 0
+      }
     }
   }
 }
