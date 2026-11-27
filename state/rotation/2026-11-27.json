@@ -192,5 +192,6 @@
     "source_topic": "daily_report",
     "rotation": "B"
   },
-  "deployed_at": "2026-11-27T10:12:20.320353+00:00"
+  "deployed_at": "2026-11-27T10:12:20.320353+00:00",
+  "notification_claim": "2026-11-27T10:12:22.262501+00:00"
 }
