@@ -1,6 +1,6 @@
 {
   "day": "2026-11-27",
-  "status": "prepared",
+  "status": "deployed",
   "slots": {
     "09": {
       "domain": "infrastructure",
@@ -191,5 +191,6 @@
     },
     "source_topic": "daily_report",
     "rotation": "B"
-  }
+  },
+  "deployed_at": "2026-11-27T10:12:20.320353+00:00"
 }
