@@ -5,9 +5,9 @@
     "09": {
       "domain": "infrastructure",
       "cutoff": "2026-11-27T09:00:00+08:00",
-      "finished_at": "2026-11-27T09:12:09.348119+08:00",
+      "finished_at": "2026-11-27T10:12:16.583584+08:00",
       "status": "analysis_rejected",
-      "attempts": 1
+      "attempts": 2
     }
   }
 }
