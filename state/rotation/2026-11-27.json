@@ -63,9 +63,53 @@
     "17": {
       "domain": "training",
       "cutoff": "2026-11-27T17:00:00+08:00",
-      "finished_at": "2026-11-27T17:12:21.865918+08:00",
-      "status": "analysis_rejected",
-      "attempts": 1
+      "finished_at": "2026-11-27T17:42:29.816938+08:00",
+      "status": "prepared",
+      "attempts": 2,
+      "result": {
+        "ok": true,
+        "topic": "training",
+        "title": "训练方法与数据",
+        "report": "## 本期结论\n1. **DART 通过重新利用被拒绝的推理轨迹，可在相同生成量下提升 37% 的 DeepMath‑103K 题目覆盖率**，并将每个被接受轨迹的成本降低 30%[1]。  \n2. **MoLT‑KV 在 400B‑token 预训练中实现 1.7 倍的验证交叉熵（CE）标记效率，并在 3B MoE 模型上提升 10‑域困惑度 0.75 与 10‑任务准确率 2.1pp[2]**。  \n3. **DART 生成的轨迹在 Llama‑3.1‑8B‑Instruct 上，在 MATH‑500 与 AIME 评估中获得五项中最高点估计，表明其后训练数据对数学推理性能有显著正面影响[1]**。  \n4. **MoLT‑KV 通过“循环 KV”机制消除同位点跨循环依赖，并结合循环强制实现单遍 Mixture‑of‑Loops（MoL）解码，突破训练循环视界**，但其在实际推理速度与硬件资源占用方面的具体数值未在摘要中给出[2]。  \n\n\n## 逐项分析\n| 论文 | 核心贡献 | 方法与数据 | 性能证据 | 局限与证据等级 | 工程意义 |\n|------|----------|------------|----------|-----------------|----------|\n| [1] Diverse Alternative Reasoning Traces for Hard Math Problems | 通过 DART 重新挖掘被拒绝轨迹以扩展数学问题覆盖 | 采用位置加权不确定性对被拒绝轨迹进行分解，生成差异化候选步骤，并使用参考答案引导与元思考完成轨迹 | 在 DeepMath‑103K 上，DART 相比 MC 采样恢复 37% 更多问题；每个被接受轨迹成本降低 30%；在 MATH‑500 与 AIME 上 Llama‑3.1‑8B‑Instruct 取得五项中最高点估计[1] | 仅在 400B‑token 预训练环境下验证；未给出不同模型规模或硬件平台的泛化情况；缺乏对生成成本的详细分解[1] | 对后训练阶段的数学推理任务提供可复制的数据增强路径，可直接集成至现有 LLM 训练管线，提升低成本覆盖率。 |\n| [2] Mixture-of-Loops Transformer | 通过 Mixture‑of‑Loops Attention (MoLA) 与循环 KV 机制提升 Looped Transformer 的效率与表达力 | 设计 MoLT‑R 与 MoLT‑KV 两种变体；引入 U‑shaped MoLT (U‑MoLT) 分离记忆构建与预测读取；在 400B‑token 预训练中与 OLMo3 对比；在 100B‑token 继续预训练中进一步评估 | 400B‑token 预训练中 U‑MoLT 在 700M 模型上实现 1.7× CE 令牌效率；在 3B MoE 模型上提升 10‑域困惑度 0.75 与 10‑任务准确率 2.1pp[2] | 仅提供预训练阶段的指标；未报告推理阶段的速度、内存占用或在不同硬件上的可扩展性；缺乏对不同任务的泛化实验[2] | 为 Looped Transformer 提供更高效的记忆利用策略，可在大规模预训练中减少计算量，适用于资源受限的训练环境。 |\n\n## 工程行动建议\n- **验证实验**  \n  - 对 DART，复现 400B‑token 预训练后在 Llama‑3.1‑8B‑Instruct 上的 MATH‑500 与 AIME 评估，记录每个被接受轨迹的生成成本与覆盖率。  \n  - 对 MoLT‑KV，搭建 700M 与 3B MoE 模型，使用 400B‑token 预训练数据，测量 CE 令牌效率、困惑度与多任务准确率，并对比 OLMo3。  \n- **落地评估**  \n  - 在低端设备（如 8‑GB GPU）上部署 DART 生成的轨迹，评估推理延迟与内存占用；若未验证，标注为“待验证”。  \n  - 对 MoLT‑KV，评估单遍 MoL 解码在推理时的吞吐量与能耗，验证其在实际推理中的效率提升。  \n- **后续跟踪指标**  \n  - DART：被接受轨迹成本、覆盖率提升比例、不同模型规模的泛化情况。  \n  - MoLT‑KV：CE 令牌效率、困惑度、任务准确率、推理吞吐量与能耗。  \n\n## 参考资料\n1. Diverse Alternative Reasoning Traces for Hard Math Problems – https://arxiv.org/abs/2611.34928  \n2. Mixture-of-Loops Transformer – https://arxiv.org/abs/2611.34923",
+        "items": [
+          {
+            "uid": "3d5c80fa6d956b0a36e56ba8",
+            "title": "Diverse Alternative Reasoning Traces for Hard Math Problems",
+            "url": "https://arxiv.org/abs/2611.34928",
+            "published": "2026-11-25T18:59:11+00:00",
+            "summary": "",
+            "source": "arXiv Model Research",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day",
+            "aliases": [
+              "arxiv:2611.34928",
+              "url:https://arxiv.org/abs/2611.34928"
+            ]
+          },
+          {
+            "uid": "bb18cbf717771ba45551aa07",
+            "title": "Mixture-of-Loops Transformer",
+            "url": "https://arxiv.org/abs/2611.34923",
+            "published": "2026-11-25T18:58:53+00:00",
+            "summary": "",
+            "source": "arXiv Model Research",
+            "kind": "research",
+            "doi": "",
+            "date_precision": "day",
+            "aliases": [
+              "arxiv:2611.34923",
+              "url:https://arxiv.org/abs/2611.34923"
+            ]
+          }
+        ],
+        "analysis": {
+          "provider": "Groq",
+          "model": "openai/gpt-oss-20b"
+        },
+        "reason": "prepared",
+        "sources_failed": 0
+      }
     }
   }
 }
