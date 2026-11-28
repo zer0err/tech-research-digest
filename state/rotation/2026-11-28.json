@@ -67,6 +67,13 @@
         "reason": "prepared",
         "sources_failed": 0
       }
+    },
+    "13": {
+      "domain": "agents",
+      "cutoff": "2026-11-28T13:00:00+08:00",
+      "finished_at": "2026-11-28T13:12:07.818866+08:00",
+      "status": "no_matching_in_window",
+      "attempts": 1
     }
   }
 }
