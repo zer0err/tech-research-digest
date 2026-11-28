@@ -1,0 +1,72 @@
+{
+  "day": "2026-11-28",
+  "status": "drafting",
+  "slots": {
+    "09": {
+      "domain": "inference",
+      "cutoff": "2026-11-28T09:00:00+08:00",
+      "finished_at": "2026-11-28T09:12:19.016873+08:00",
+      "status": "prepared",
+      "attempts": 1,
+      "result": {
+        "ok": true,
+        "topic": "inference",
+        "title": "推理系统与计算效率",
+        "report": "## 本期结论\n1. 在多层次边缘网络中，采用硬件感知的动态量化（2‑8 位）可显著降低跨云通信量，提升整体吞吐率，但具体吞吐提升幅度需进一步实验验证。 [1]  \n2. 通过联合概率延迟约束、内存与能耗预算以及关键类别准确率阈值的模型选择框架，可在资源受限设备上实现更可靠的推理部署，尤其在多任务并发与热节流场景下表现更佳。 [2]  \n3. 对于全同态加密（FHE）推理，CRISP 编译器在 Intel 多核 CPU 上实现了 2.65× 的多项式级并行加速，整体推理延迟平均下降 5.63%，并在端到端推理中平均减少 137 s。 [3]  \n\n\n## 逐项分析\n| 资料 | 核心贡献 | 方法与数据 | 性能证据 | 局限与证据等级 | 工程意义 |\n|------|----------|------------|----------|----------------|----------|\n| [1] | 设计 HA‑HFL 与 HADQ，适配异构边缘硬件 | 采用多层聚类与实时硬件感知的量化位宽调整（2‑8 位） | 仅提供理论收敛分析与“广泛实验评估”，未给出具体吞吐/延迟数值 | C（缺少实验细节） | 可用于构建低带宽边缘联邦学习系统，但需自行测定吞吐与延迟 |\n| [2] | 提出可靠性与类别感知的模型选择与自适应框架 | 通过概率延迟约束、内存/能耗预算与关键类别准确率阈值进行配置筛选 | 未给出定量结果，仅描述框架设计 | C（缺少实验细节） | 适合需要多目标约束的边缘部署，需自行实现并测评 |\n| [3] | CRISP 编译器实现 FHE 推理的多项式级并行化 | 采用编译时 OpenMP 并行与多项式融合 | 2.65× 平均速度提升、5.63% 延迟下降、137 s 端到端延迟减少 | A（含方法、数据与定量结果） | 对 FHE 推理性能提升具有直接工程价值，可在支持 OpenMP 的 CPU 上快速部署 |\n\n## 工程行动建议\n- **验证实验**  \n  - 对 [1] 的 HA‑HFL+HADQ 在典型边缘设备（如 Raspberry Pi、Edge TPU）上测定实际吞吐与延迟，记录不同量化位宽下的通信量与能耗。  \n  - 在多任务并发与热节流条件下，使用 [2] 的框架对比传统单目标优化，评估关键类别准确率与延迟分布。  \n  - 在支持 OpenMP 的多核 CPU 上编译 CRISP，测量与基线 FHE 推理的实际速度与延迟差异。  \n- **落地评估**  \n  - 结合实际网络带宽与设备功耗，评估 HA‑HFL 的多层聚类对整体系统成本的影响。  \n  - 在目标部署平台上实施 [2] 的概率延迟约束，监控运行时满足率与能耗。  \n  - 对 CRISP 的加速效果进行跨平台验证（如 AMD、ARM CPU），确认并行化的可移植性。  \n- **后续跟踪指标**  \n  - 设备级通信量、平均推理延迟、能耗/瓦时、关键类别准确率、模型更新成功率。  \n  - 对 CRISP，监控多项式级并行度、编译时间、运行时内存占用。  \n\n## 参考资料\n1. Hierarchical Federated Learning with Dynamic Quantization for Heterogeneous Edge-AI Devices – https://doi.org/10.64509/jicn.24.167  \n2. Reliability- and Class-Aware Model Selection and Adaptation for Deploying Deep Learning Models on Resource-Constrained Edge Devices – https://doi.org/10.64388/ire1725680  \n3. Compiler-Guided Polynomial-Level Parallelism for FHE-Encrypted Machine Learning Inference – https://doi.org/10.1007/s10766-026-00838-2",
+        "items": [
+          {
+            "uid": "dcfab6bf2c53d0247fb2c493",
+            "title": "Hierarchical Federated Learning with Dynamic Quantization for Heterogeneous Edge-AI Devices",
+            "url": "https://doi.org/10.64509/jicn.24.167",
+            "published": "2026-11-27T00:00:00+00:00",
+            "summary": "",
+            "source": "Crossref Efficient AI",
+            "kind": "research",
+            "doi": "10.64509/jicn.24.167",
+            "date_precision": "day",
+            "aliases": [
+              "doi:10.64509/jicn.24.167",
+              "url:https://doi.org/10.64509/jicn.24.167"
+            ]
+          },
+          {
+            "uid": "fb250cc48fe79a70d358b15f",
+            "title": "Reliability- and Class-Aware Model Selection and Adaptation for Deploying Deep Learning Models on Resource-Constrained Edge Devices",
+            "url": "https://doi.org/10.64388/ire1725680",
+            "published": "2026-11-26T00:00:00+00:00",
+            "summary": "",
+            "source": "OpenAlex Efficient AI",
+            "kind": "research",
+            "doi": "10.64388/ire1725680",
+            "date_precision": "day",
+            "aliases": [
+              "doi:10.64388/ire1725680",
+              "url:https://doi.org/10.64388/ire1725680"
+            ]
+          },
+          {
+            "uid": "b8e9bf28062b6259db3d2d75",
+            "title": "Compiler-Guided Polynomial-Level Parallelism for FHE-Encrypted Machine Learning Inference",
+            "url": "https://doi.org/10.1007/s10766-026-00838-2",
+            "published": "2026-11-26T00:00:00+00:00",
+            "summary": "",
+            "source": "OpenAlex Inference",
+            "kind": "research",
+            "doi": "10.1007/s10766-026-00838-2",
+            "date_precision": "day",
+            "aliases": [
+              "doi:10.1007/s10766-026-00838-2",
+              "url:https://doi.org/10.1007/s10766-026-00838-2"
+            ]
+          }
+        ],
+        "analysis": {
+          "provider": "Groq",
+          "model": "openai/gpt-oss-20b"
+        },
+        "reason": "prepared",
+        "sources_failed": 0
+      }
+    }
+  }
+}
