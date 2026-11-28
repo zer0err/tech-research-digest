@@ -458,6 +458,15 @@
     },
     "daily_report": {
       "ids": [
+        "dcfab6bf2c53d0247fb2c493",
+        "doi:10.64509/jicn.24.167",
+        "url:https://doi.org/10.64509/jicn.24.167",
+        "fb250cc48fe79a70d358b15f",
+        "doi:10.64388/ire1725680",
+        "url:https://doi.org/10.64388/ire1725680",
+        "b8e9bf28062b6259db3d2d75",
+        "doi:10.1007/s10766-026-00838-2",
+        "url:https://doi.org/10.1007/s10766-026-00838-2",
         "f2a3f409e7e532b249ed2134",
         "arxiv:2611.34930",
         "url:https://arxiv.org/abs/2611.34930",
@@ -480,10 +489,19 @@
         "doi:10.1201/9781042054305-97",
         "url:https://doi.org/10.1201/9781042054305-97"
       ],
-      "updated_at": "2026-11-27T18:12:08.291972+08:00"
+      "updated_at": "2026-11-28T18:12:06.398141+08:00"
     }
   },
   "all_ids": [
+    "dcfab6bf2c53d0247fb2c493",
+    "doi:10.64509/jicn.24.167",
+    "url:https://doi.org/10.64509/jicn.24.167",
+    "fb250cc48fe79a70d358b15f",
+    "doi:10.64388/ire1725680",
+    "url:https://doi.org/10.64388/ire1725680",
+    "b8e9bf28062b6259db3d2d75",
+    "doi:10.1007/s10766-026-00838-2",
+    "url:https://doi.org/10.1007/s10766-026-00838-2",
     "f2a3f409e7e532b249ed2134",
     "arxiv:2611.34930",
     "url:https://arxiv.org/abs/2611.34930",
@@ -898,6 +916,9 @@
     "fe0903755f1ec81fb4fd8f3d"
   ],
   "all_urls": [
+    "https://doi.org/10.64509/jicn.24.167",
+    "https://doi.org/10.64388/ire1725680",
+    "https://doi.org/10.1007/s10766-026-00838-2",
     "https://arxiv.org/abs/2611.34930",
     "https://arxiv.org/abs/2611.34899",
     "https://arxiv.org/abs/2611.34928",
@@ -6179,9 +6200,54 @@
         "provider": "Groq",
         "model": "openai/gpt-oss-20b"
       }
+    },
+    "https://vorasio.com/posts/20261128-daily.html": {
+      "topic": "daily_report",
+      "source_topic": "daily_report",
+      "created_at": "2026-11-28T18:12:06.398141+08:00",
+      "items": [
+        {
+          "uid": "dcfab6bf2c53d0247fb2c493",
+          "title": "Hierarchical Federated Learning with Dynamic Quantization for Heterogeneous Edge-AI Devices",
+          "url": "https://doi.org/10.64509/jicn.24.167",
+          "published": "2026-11-27T00:00:00+00:00",
+          "source": "Crossref Efficient AI",
+          "doi": "10.64509/jicn.24.167",
+          "kind": "research",
+          "date_precision": "day"
+        },
+        {
+          "uid": "fb250cc48fe79a70d358b15f",
+          "title": "Reliability- and Class-Aware Model Selection and Adaptation for Deploying Deep Learning Models on Resource-Constrained Edge Devices",
+          "url": "https://doi.org/10.64388/ire1725680",
+          "published": "2026-11-26T00:00:00+00:00",
+          "source": "OpenAlex Efficient AI",
+          "doi": "10.64388/ire1725680",
+          "kind": "research",
+          "date_precision": "day"
+        },
+        {
+          "uid": "b8e9bf28062b6259db3d2d75",
+          "title": "Compiler-Guided Polynomial-Level Parallelism for FHE-Encrypted Machine Learning Inference",
+          "url": "https://doi.org/10.1007/s10766-026-00838-2",
+          "published": "2026-11-26T00:00:00+00:00",
+          "source": "OpenAlex Inference",
+          "doi": "10.1007/s10766-026-00838-2",
+          "kind": "research",
+          "date_precision": "day"
+        }
+      ],
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      }
     }
   },
   "daily_notifications": {
+    "2026-11-28": {
+      "sent_at": "2026-11-28T10:12:19.364335+00:00",
+      "url": "https://vorasio.com/posts/20261128-daily.html"
+    },
     "2026-11-27": {
       "sent_at": "2026-11-27T10:12:24.099489+00:00",
       "url": "https://vorasio.com/posts/20261127-daily.html"
