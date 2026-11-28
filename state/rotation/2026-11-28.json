@@ -1,6 +1,6 @@
 {
   "day": "2026-11-28",
-  "status": "prepared",
+  "status": "deployed",
   "slots": {
     "09": {
       "domain": "inference",
@@ -147,5 +147,6 @@
     },
     "source_topic": "daily_report",
     "rotation": "B"
-  }
+  },
+  "deployed_at": "2026-11-28T10:12:16.004446+00:00"
 }
