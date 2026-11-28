@@ -1,6 +1,75 @@
 {
   "version": 1,
   "slots": {
+    "2026-11-28:daily_report": {
+      "status": "prepared",
+      "updated_at": "2026-11-28T18:12:06.398141+08:00",
+      "attempts": 1,
+      "pending": {
+        "topic": "daily_report",
+        "slot": "daily_report",
+        "title": "VORASIO AI 日报（2026-11-28）",
+        "url": "https://vorasio.com/posts/20261128-daily.html",
+        "created_at": "2026-11-28T18:12:06.398141+08:00",
+        "scheduled_at": "2026-11-28T18:00:00+08:00",
+        "items": [
+          {
+            "uid": "dcfab6bf2c53d0247fb2c493",
+            "title": "Hierarchical Federated Learning with Dynamic Quantization for Heterogeneous Edge-AI Devices",
+            "url": "https://doi.org/10.64509/jicn.24.167",
+            "published": "2026-11-27T00:00:00+00:00",
+            "summary": "",
+            "source": "Crossref Efficient AI",
+            "kind": "research",
+            "doi": "10.64509/jicn.24.167",
+            "date_precision": "day",
+            "aliases": [
+              "doi:10.64509/jicn.24.167",
+              "url:https://doi.org/10.64509/jicn.24.167"
+            ]
+          },
+          {
+            "uid": "fb250cc48fe79a70d358b15f",
+            "title": "Reliability- and Class-Aware Model Selection and Adaptation for Deploying Deep Learning Models on Resource-Constrained Edge Devices",
+            "url": "https://doi.org/10.64388/ire1725680",
+            "published": "2026-11-26T00:00:00+00:00",
+            "summary": "",
+            "source": "OpenAlex Efficient AI",
+            "kind": "research",
+            "doi": "10.64388/ire1725680",
+            "date_precision": "day",
+            "aliases": [
+              "doi:10.64388/ire1725680",
+              "url:https://doi.org/10.64388/ire1725680"
+            ]
+          },
+          {
+            "uid": "b8e9bf28062b6259db3d2d75",
+            "title": "Compiler-Guided Polynomial-Level Parallelism for FHE-Encrypted Machine Learning Inference",
+            "url": "https://doi.org/10.1007/s10766-026-00838-2",
+            "published": "2026-11-26T00:00:00+00:00",
+            "summary": "",
+            "source": "OpenAlex Inference",
+            "kind": "research",
+            "doi": "10.1007/s10766-026-00838-2",
+            "date_precision": "day",
+            "aliases": [
+              "doi:10.1007/s10766-026-00838-2",
+              "url:https://doi.org/10.1007/s10766-026-00838-2"
+            ]
+          }
+        ],
+        "published_count": 3,
+        "notify": true,
+        "mode": "production",
+        "analysis": {
+          "provider": "Groq",
+          "model": "openai/gpt-oss-20b"
+        },
+        "source_topic": "daily_report",
+        "rotation": "B"
+      }
+    },
     "2026-11-27:daily_report": {
       "status": "published",
       "updated_at": "2026-11-27T18:12:08.291972+08:00",

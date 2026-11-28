@@ -1,5 +1,65 @@
 [
   {
+    "title": "VORASIO AI 日报（2026-11-28）",
+    "date": "2026-11-28T18:12:06.398141+08:00",
+    "scheduled_at": "2026-11-28T18:00:00+08:00",
+    "rotation": "B",
+    "count": 3,
+    "url": "posts/20261128-daily.html",
+    "topic": "daily_report",
+    "status": "published",
+    "summary": "本期收录：推理系统与计算效率。按领域查看简报与原始来源。",
+    "provenance": {
+      "analysis": {
+        "provider": "Groq",
+        "model": "openai/gpt-oss-20b"
+      },
+      "sources": [
+        {
+          "title": "Hierarchical Federated Learning with Dynamic Quantization for Heterogeneous Edge-AI Devices",
+          "url": "https://doi.org/10.64509/jicn.24.167",
+          "publisher": "Crossref Efficient AI",
+          "host": "doi.org",
+          "family": "书目索引",
+          "published": "2026-11-27T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "10.64509/jicn.24.167",
+          "kind": "research"
+        },
+        {
+          "title": "Reliability- and Class-Aware Model Selection and Adaptation for Deploying Deep Learning Models on Resource-Constrained Edge Devices",
+          "url": "https://doi.org/10.64388/ire1725680",
+          "publisher": "OpenAlex Efficient AI",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-11-26T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "10.64388/ire1725680",
+          "kind": "research"
+        },
+        {
+          "title": "Compiler-Guided Polynomial-Level Parallelism for FHE-Encrypted Machine Learning Inference",
+          "url": "https://doi.org/10.1007/s10766-026-00838-2",
+          "publisher": "OpenAlex Inference",
+          "host": "doi.org",
+          "family": "论文/预印本",
+          "published": "2026-11-26T00:00:00+00:00",
+          "date_precision": "day",
+          "doi": "10.1007/s10766-026-00838-2",
+          "kind": "research"
+        }
+      ]
+    },
+    "sections": [
+      {
+        "topic": "inference",
+        "source_topic": "inference",
+        "title": "推理系统与计算效率",
+        "anchor": "edition-1"
+      }
+    ]
+  },
+  {
     "title": "VORASIO AI 日报（2026-11-27）",
     "date": "2026-11-27T18:12:08.291972+08:00",
     "scheduled_at": "2026-11-27T18:00:00+08:00",
